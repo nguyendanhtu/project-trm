@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema id="DS_HT_NGUOI_SU_DUNG" targetNamespace="http://tempuri.org/DS_HT_NGUOI_SU_DUNG.xsd"
+	elementFormDefault="qualified" attributeFormDefault="qualified" xmlns="http://tempuri.org/DS_HT_NGUOI_SU_DUNG.xsd"
+	xmlns:mstns="http://tempuri.org/DS_HT_NGUOI_SU_DUNG.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+	<xs:element name="DS_HT_NGUOI_SU_DUNG" msdata:IsDataSet="true">
+		<xs:complexType>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element name="HT_NGUOI_SU_DUNG">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="ID" type="xs:decimal" />
+							<xs:element name="TEN_TRUY_CAP" type="xs:string" />
+							<xs:element name="TEN" type="xs:string" />
+							<xs:element name="MAT_KHAU" type="xs:string" />
+							<xs:element name="NGAY_TAO" type="xs:dateTime" />
+							<xs:element name="NGUOI_TAO" type="xs:string" />
+							<xs:element name="TRANG_THAI" type="xs:string" />
+							<xs:element name="BUILT_IN_YN" type="xs:string" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:choice>
+		</xs:complexType>
+		<xs:unique name="DS_HT_NGUOI_SU_DUNGKey1" msdata:PrimaryKey="true">
+			<xs:selector xpath=".//mstns:HT_NGUOI_SU_DUNG" />
+			<xs:field xpath="mstns:ID" />
+		</xs:unique>
+	</xs:element>
+</xs:schema>
