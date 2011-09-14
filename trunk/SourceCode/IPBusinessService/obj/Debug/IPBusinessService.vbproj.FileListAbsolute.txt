@@ -1,0 +1,50 @@
+D:\Works\TRM\TRMPro\IPBusinessService\bin\IPBusinessService.dll
+D:\Works\TRM\TRMPro\IPBusinessService\bin\IPBusinessService.pdb
+D:\Works\TRM\TRMPro\IPBusinessService\bin\IPBusinessService.xml
+D:\Works\TRM\TRMPro\IPBusinessService\bin\IPException.dll
+D:\Works\TRM\TRMPro\IPBusinessService\bin\IPException.pdb
+D:\Works\TRM\TRMPro\IPBusinessService\bin\IPException.xml
+D:\Works\TRM\TRMPro\IPBusinessService\obj\Debug\ResolveAssemblyReference.cache
+D:\Works\TRM\TRMPro\IPBusinessService\obj\Debug\IPBusinessService.dll
+D:\Works\TRM\TRMPro\IPBusinessService\obj\Debug\IPBusinessService.xml
+D:\Works\TRM\TRMPro\IPBusinessService\obj\Debug\IPBusinessService.pdb
+D:\Works\TRM\TRMSourceCode\IPBusinessService\bin\IPBusinessService.dll
+D:\Works\TRM\TRMSourceCode\IPBusinessService\bin\IPBusinessService.pdb
+D:\Works\TRM\TRMSourceCode\IPBusinessService\bin\IPBusinessService.xml
+D:\Works\TRM\TRMSourceCode\IPBusinessService\bin\IPException.dll
+D:\Works\TRM\TRMSourceCode\IPBusinessService\bin\IPException.pdb
+D:\Works\TRM\TRMSourceCode\IPBusinessService\bin\IPException.xml
+D:\Works\TRM\TRMSourceCode\IPBusinessService\obj\Debug\ResolveAssemblyReference.cache
+D:\Works\TRM\TRMSourceCode\IPBusinessService\obj\Debug\IPBusinessService.dll
+D:\Works\TRM\TRMSourceCode\IPBusinessService\obj\Debug\IPBusinessService.xml
+D:\Works\TRM\TRMSourceCode\IPBusinessService\obj\Debug\IPBusinessService.pdb
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPBusinessService\bin\IPBusinessService.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPBusinessService\bin\IPBusinessService.pdb
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPBusinessService\bin\IPBusinessService.xml
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPBusinessService\bin\IPException.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPBusinessService\bin\IPException.pdb
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPBusinessService\bin\IPException.xml
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPBusinessService\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPBusinessService\obj\Debug\IPBusinessService.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPBusinessService\obj\Debug\IPBusinessService.xml
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode\IPBusinessService\obj\Debug\IPBusinessService.pdb
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPBusinessService\bin\IPBusinessService.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPBusinessService\bin\IPBusinessService.pdb
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPBusinessService\bin\IPBusinessService.xml
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPBusinessService\bin\IPException.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPBusinessService\bin\IPException.pdb
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPBusinessService\bin\IPException.xml
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPBusinessService\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPBusinessService\obj\Debug\IPBusinessService.dll
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPBusinessService\obj\Debug\IPBusinessService.xml
+C:\Users\MinhNN\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPBusinessService\obj\Debug\IPBusinessService.pdb
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPBusinessService\bin\IPBusinessService.dll
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPBusinessService\bin\IPBusinessService.pdb
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPBusinessService\bin\IPBusinessService.xml
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPBusinessService\bin\IPException.dll
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPBusinessService\bin\IPException.pdb
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPBusinessService\bin\IPException.xml
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPBusinessService\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPBusinessService\obj\Debug\IPBusinessService.dll
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPBusinessService\obj\Debug\IPBusinessService.xml
+C:\Users\Daniel Wu\Desktop\TRMProject20110912\SourceCode.v2011.09.13\IPBusinessService\obj\Debug\IPBusinessService.pdb
