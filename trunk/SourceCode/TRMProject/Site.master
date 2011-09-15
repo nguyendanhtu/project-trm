@@ -38,9 +38,9 @@
                         <asp:MenuItem Text="Quản lý thanh toán">
                         </asp:MenuItem>
                         <asp:MenuItem Text="Danh mục quản trị">
-                            <asp:MenuItem Text="Từ điển hệ thống" NavigateUrl="~/DanhMuc/Dictionary.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Từ điển hệ thống" NavigateUrl="/TRMProject/DanhMuc/Dictionary.aspx"></asp:MenuItem>
                             <asp:MenuItem Text="Danh mục môn học"></asp:MenuItem>
-                            <asp:MenuItem Text="Danh mục Loại thanh toán" NavigateUrl="/TRMProject/DanhMuc/NoiDungThanhToan.aspx">
+                            <asp:MenuItem Text="Danh mục Loại thanh toán" NavigateUrl="/TRMProject/DanhMuc/F200_NoiDungThanhToan.aspx">
                             </asp:MenuItem>
                         </asp:MenuItem>
                         <asp:MenuItem NavigateUrl="~/About.aspx" Text="Trợ giúp"/>
