@@ -19,6 +19,9 @@ public partial class DanhMuc_NoiDungThanhToan : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (m_init_mode == DataEntryFormMode.UpdateDataState)
+            m_cmd_tao_moi.Enabled = false;
+        else m_cmd_tao_moi.Enabled = true;
         if (!IsPostBack)
         {
             load_data_to_grid();
@@ -36,9 +39,10 @@ public partial class DanhMuc_NoiDungThanhToan : System.Web.UI.Page
     DS_CM_DM_TU_DIEN m_ds_cm_dm_tu_dien = new DS_CM_DM_TU_DIEN();
     Hashtable m_hst_mapping_id_to_ten_loai_hop_dong = new Hashtable();
     Hashtable m_hst_mapping_ten_loai_hop_dong_to_id_ = new Hashtable();
+    DataEntryFormMode m_init_mode = DataEntryFormMode.ViewDataState;
     #endregion
 
-    #region Method
+    #region Private Method
     /// <summary>
     /// Hàm lấy mã từ điển (string) dựa vào mã ID
     /// </summary>
@@ -81,6 +85,7 @@ public partial class DanhMuc_NoiDungThanhToan : System.Web.UI.Page
         m_txt_don_gia.Text = "";
         m_rd_no_hoc_lieu.Checked = true;
         m_rd_yes_van_hanh.Checked = true;
+        m_txt_ghi_chu.Text = "";
     }
     private void load_data_2_cbo_loai_hop_dong()
     {
@@ -194,7 +199,7 @@ public partial class DanhMuc_NoiDungThanhToan : System.Web.UI.Page
         m_txt_ten_noi_dung.Text = ip_us_noi_dung_thanh_toan.strTEN_NOI_DUNG;
         m_ddl_loai_hop_dong.SelectedValue = CIPConvert.ToStr( ip_us_noi_dung_thanh_toan.dcID_LOAI_HOP_DONG);
         m_ddl_ma_don_vi_tinh.SelectedValue = ip_us_noi_dung_thanh_toan.strMA_DON_VI_TINH;
-        m_txt_don_gia.Text=CIPConvert.ToStr( ip_us_noi_dung_thanh_toan.dcDON_GIA_DEFAULT);
+        m_txt_don_gia.Text = CIPConvert.ToStr(ip_us_noi_dung_thanh_toan.dcDON_GIA_DEFAULT,"0");
         if (ip_us_noi_dung_thanh_toan.strHOC_LIEU_YN == "Y")
             m_rd_yes_hoc_lieu.Checked=true;
         else m_rd_no_hoc_lieu.Checked = true;
@@ -222,13 +227,17 @@ public partial class DanhMuc_NoiDungThanhToan : System.Web.UI.Page
     }
 
     // Chỗ này chưa làm
-    private bool check_data_is_ok()
+    private bool check_noi_dung_is_ok()
     {
-        // Kiểm tra giá là chữ
+        if (m_txt_ten_noi_dung.Text == "") return false;
+        return true;
+    }
+    private bool check_don_gia_is_ok()
+    {
+        if (m_txt_ten_noi_dung.Text == "") return false;
         return true;
     }
     #endregion
-    
 
     #region Data Structure
     public enum e_loai_tu_dien
@@ -246,12 +255,17 @@ public partial class DanhMuc_NoiDungThanhToan : System.Web.UI.Page
     }
     #endregion
 
-    #region Events
+    //
+    //Events
+    //
+  //
+
     protected void m_cmd_tao_moi_Click(object sender, EventArgs e)
     {
         try
         {
-            if (!check_data_is_ok()) return;
+            if (!check_noi_dung_is_ok()) return;
+            if (m_init_mode == DataEntryFormMode.UpdateDataState) return;
             form_2_us_object(m_us_dm_noi_dung_thanh_toan);
             m_us_dm_noi_dung_thanh_toan.Insert();
             reset_control();
@@ -262,12 +276,13 @@ public partial class DanhMuc_NoiDungThanhToan : System.Web.UI.Page
             CSystemLog_301.ExceptionHandle(this,v_e);
         }
     }
-    #endregion
 
     protected void m_grv_dm_noi_dung_thanh_toan_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
     {
         try
         {
+            m_init_mode = DataEntryFormMode.UpdateDataState;
+            m_cmd_tao_moi.Enabled = false;
             m_lbl_mess.Text = "";
             load_data_2_us_by_id(e.NewSelectedIndex);            
         }
@@ -276,8 +291,6 @@ public partial class DanhMuc_NoiDungThanhToan : System.Web.UI.Page
             CSystemLog_301.ExceptionHandle(this, v_e);
         }
     }
-
-   
 
     protected void m_cmd_cap_nhat_Click(object sender, EventArgs e)
     {
@@ -295,6 +308,7 @@ public partial class DanhMuc_NoiDungThanhToan : System.Web.UI.Page
             reset_control();
             m_lbl_mess.Text = "Cập nhật dữ liệu thành công";
             m_grv_dm_noi_dung_thanh_toan.EditIndex = -1;
+            m_init_mode = DataEntryFormMode.ViewDataState;
             load_data_to_grid();
         }
         catch (System.Exception v_e)
@@ -302,6 +316,7 @@ public partial class DanhMuc_NoiDungThanhToan : System.Web.UI.Page
             CSystemLog_301.ExceptionHandle(this, v_e);
         }
     }
+
     protected void btnCancel_Click(object sender, EventArgs e)
     {
         try
@@ -313,6 +328,7 @@ public partial class DanhMuc_NoiDungThanhToan : System.Web.UI.Page
             CSystemLog_301.Equals(this, v_e);
         }
     }
+
     protected void m_grv_dm_tu_dien_RowDeleting(object sender, GridViewDeleteEventArgs e)
     {
         try
@@ -326,4 +342,6 @@ public partial class DanhMuc_NoiDungThanhToan : System.Web.UI.Page
             CSystemLog_301.ExceptionHandle(this, v_e);
         }
     }
+
+
 }
