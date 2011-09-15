@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="NoiDungThanhToan.aspx.cs" Inherits="DanhMuc_NoiDungThanhToan" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="F200_NoiDungThanhToan.aspx.cs" Inherits="DanhMuc_NoiDungThanhToan" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
     <style type="text/css">
@@ -73,7 +73,7 @@
 		</td>
         <td align="left">
 			<asp:textbox id="m_txt_don_gia" CssClass="cssTextBox"  runat="server" 
-                MaxLength="64" Width="323px" />
+                MaxLength="64" Width="322px" />
             <asp:RegularExpressionValidator ID="Regex_don_gia" runat="server" Text="*" ErrorMessage="Đơn giá phải là số" ControlToValidate="m_txt_don_gia" ValidationExpression="^\d+$"></asp:RegularExpressionValidator>
 		</td>
         <td>&nbsp;</td>
@@ -160,23 +160,25 @@
 	<tr>
 		<td align="center" colspan="3" style="height:450px;" valign="top">
 		    &nbsp;
-            <div style="overflow-x: scroll; height:100%; width:800px" >
+           
               <asp:GridView ID="m_grv_dm_noi_dung_thanh_toan" runat="server" AutoGenerateColumns="False" 
                 Width="100%" DataKeyNames="ID" 
                   onrowdeleting="m_grv_dm_tu_dien_RowDeleting" 
                 onselectedindexchanging="m_grv_dm_noi_dung_thanh_toan_SelectedIndexChanging">
                 <Columns>
-                    <asp:TemplateField HeaderText="STT"><ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate></asp:TemplateField>
+                    <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">
+                       <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
+                    </asp:TemplateField>
                     <asp:BoundField DataField="ID_LOAI_TU_DIEN" HeaderText="Loại từ điển" 
                         Visible="False">
                         <ItemStyle HorizontalAlign="Center" Width="4%"></ItemStyle></asp:BoundField>
                     <asp:BoundField DataField="TEN_NOI_DUNG" HeaderText="Tên nội dung" />
                     <asp:BoundField DataField="TEN_NGAN" HeaderText="Loại hợp đồng" />
-                    <asp:BoundField DataField="MA_DON_VI_TINH" HeaderText="Đơn vị tính" />
+                    <asp:BoundField DataField="MA_DON_VI_TINH" HeaderText="Đơn vị tính" ItemStyle-HorizontalAlign="Center" />
                     <asp:BoundField DataField="DON_GIA_DEFAULT" HeaderText="Đơn giá" />
-                    <asp:BoundField DataField="MA_TAN_SUAT" HeaderText="Mã tần xuất" />
-                    <asp:BoundField DataField="HOC_LIEU_YN" HeaderText="Học liệu YN" />
-                    <asp:BoundField DataField="VAN_HANH_YN" HeaderText="Vận hành YN" />
+                    <asp:BoundField DataField="MA_TAN_SUAT" HeaderText="Mã tần xuất" ItemStyle-HorizontalAlign="Center" />
+                    <asp:BoundField DataField="HOC_LIEU_YN" HeaderText="Học liệu YN" ItemStyle-HorizontalAlign="Center" />
+                    <asp:BoundField DataField="VAN_HANH_YN" HeaderText="Vận hành YN" ItemStyle-HorizontalAlign="Center" />
                     <asp:BoundField DataField="GHI_CHU" HeaderText="Ghi chú" />
                     <asp:TemplateField>
                     <ItemTemplate> <asp:LinkButton ID = "lbt_delete" runat="server" Text="Xóa" 
@@ -187,7 +189,7 @@
                 </Columns>
                 <SelectedRowStyle CssClass="cssSelectedRow"></SelectedRowStyle>
             </asp:GridView>
-            </div>
+           
             </td>
 	</tr>	
 

@@ -126,16 +126,16 @@
                 onrowdeleting="m_grv_dm_tu_dien_RowDeleting" 
                 onselectedindexchanging="m_grv_dm_tu_dien_SelectedIndexChanging">
                 <Columns>
-                    <asp:TemplateField HeaderText="STT"><ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate></asp:TemplateField>
+                    <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center"><ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate></asp:TemplateField>
                     <asp:BoundField DataField="ID_LOAI_TU_DIEN" HeaderText="Loại từ điển" 
                         Visible="False">
                         <ItemStyle HorizontalAlign="Center" Width="4%"></ItemStyle></asp:BoundField>
-                    <asp:BoundField DataField="MA_TU_DIEN" HeaderText="Mã từ điển" />
+                    <asp:BoundField DataField="MA_TU_DIEN" ItemStyle-HorizontalAlign="Center" HeaderText="Mã từ điển" />
                     <asp:BoundField DataField="TEN_NGAN" HeaderText="Tên ngắn" />
                     <asp:BoundField DataField="TEN" HeaderText="Tên" />
-                    <asp:BoundField DataField="GHI_CHU" HeaderText="Ghi chú" />
-                    <asp:CommandField DeleteText="Xóa" ShowDeleteButton="True" />
-                    <asp:CommandField SelectText="Sửa" ShowSelectButton="True" />
+                    <asp:BoundField DataField="GHI_CHU" ItemStyle-HorizontalAlign="Center" HeaderText="Ghi chú" />
+                    <asp:CommandField DeleteText="Xóa" ShowDeleteButton="True" ItemStyle-HorizontalAlign="Center" />
+                    <asp:CommandField SelectText="Sửa" ShowSelectButton="True" ItemStyle-HorizontalAlign="Center" />
                 </Columns>
                 <SelectedRowStyle CssClass="cssSelectedRow"></SelectedRowStyle>
             </asp:GridView>
