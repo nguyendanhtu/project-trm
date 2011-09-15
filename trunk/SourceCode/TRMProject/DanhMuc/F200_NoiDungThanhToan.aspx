@@ -36,7 +36,7 @@
                 Text="&lt;U&gt;T&lt;/U&gt;ên nội dung" />
 		</td>
 		<td style="width:30%;">
-			<asp:textbox id="m_txt_ten_noi_dung" CssClass="cssTextBox"  runat="server" 
+			<asp:textbox id="m_txt_ten_noi_dung" CssClass="cssTextBox" CausesValidation="false"  runat="server" 
                 MaxLength="64" Width="495px" />
 		</td>
 		<td style="width:5%;"> 
@@ -183,7 +183,9 @@
                         ItemStyle-HorizontalAlign="Center" >
 <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:BoundField>
-                    <asp:BoundField DataField="DON_GIA_DEFAULT" HeaderText="Đơn giá" />
+                    <asp:TemplateField HeaderText = "Đơn giá">
+                    <ItemTemplate><asp:Label ID="lbl_don_gia" runat="server"><%# Eval("DON_GIA_DEFAULT").ToString() %></asp:Label></ItemTemplate>
+                    </asp:TemplateField>
                     <asp:BoundField DataField="MA_TAN_SUAT" HeaderText="Mã tần xuất" 
                         ItemStyle-HorizontalAlign="Center" >
 <ItemStyle HorizontalAlign="Center"></ItemStyle>
