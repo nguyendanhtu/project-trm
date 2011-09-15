@@ -63,6 +63,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_DM_DON_VI_THANH_TOAN.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DS_DM_MON_HOC.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_DM_MON_HOC.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DS_DM_NOI_DUNG_THANH_TOAN.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -92,6 +97,17 @@
     </None>
     <None Include="DS_DM_DON_VI_THANH_TOAN.xss">
       <DependentUpon>DS_DM_DON_VI_THANH_TOAN.xsd</DependentUpon>
+    </None>
+    <None Include="DS_DM_MON_HOC.xsc">
+      <DependentUpon>DS_DM_MON_HOC.xsd</DependentUpon>
+    </None>
+    <None Include="DS_DM_MON_HOC.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_DM_MON_HOC.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS_DM_MON_HOC.xss">
+      <DependentUpon>DS_DM_MON_HOC.xsd</DependentUpon>
     </None>
     <None Include="DS_DM_NOI_DUNG_THANH_TOAN.xsc">
       <DependentUpon>DS_DM_NOI_DUNG_THANH_TOAN.xsd</DependentUpon>
