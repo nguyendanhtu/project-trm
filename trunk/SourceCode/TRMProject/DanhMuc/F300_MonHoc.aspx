@@ -26,89 +26,50 @@
 		</tr>
 	<tr>
 		<td align="right" style="width:15%;">
-			<asp:label id="lbl_content" CssClass="cssManField" runat="server" 
-                Text="&lt;U&gt;T&lt;/U&gt;ên nội dung" />
+			<asp:label id="lbl_ma_mon" CssClass="cssManField" runat="server" 
+                Text="&lt;U&gt;M&lt;/U&gt;ã môn" />
 		</td>
 		<td style="width:30%;">
-			<asp:textbox id="m_txt_ten_noi_dung" CssClass="cssTextBox" CausesValidation="false"  runat="server" 
-                MaxLength="64" Width="495px" />
+			<asp:textbox id="m_txt_ma_mon" CssClass="cssTextBox" 
+                CausesValidation="false"  runat="server" 
+                MaxLength="64" Width="320px" />
+                <asp:customvalidator id="m_ctv_ma_mon" runat="server" 
+                ControlToValidate="m_txt_ma_mon" ErrorMessage="Bạn phải nhập Mã môn" 
+                Display="Static" Text="*" />
 		</td>
 		<td style="width:5%;"> 
 			&nbsp;</td>
 	</tr>
 	    <tr>
 		<td align="right" >
-			<asp:label id="lbl_loai_hop_dong" CssClass="cssManField" runat="server" 
-                Text="&lt;U&gt;L&lt;/U&gt;oại hợp đồng" AccessKey="L" />
+			<asp:label id="lbl_ten_mon" CssClass="cssManField" runat="server" 
+                Text="&lt;U&gt;T&lt;/U&gt;ên môn" AccessKey="T" />
 		    </td>
 		<td align="left">
-		    <asp:DropDownList ID="m_ddl_loai_hop_dong" runat="server" Width="323px">
-            </asp:DropDownList>
+			<asp:textbox id="m_txt_ten_mon" CssClass="cssTextBox" 
+                CausesValidation="false"  runat="server" 
+                MaxLength="64" Width="505px" />
+                <asp:customvalidator id="m_ctv_ten_mon" runat="server" 
+                ControlToValidate="m_txt_ten_mon" ErrorMessage="Bạn phải nhập Mã môn" 
+                Display="Static" Text="*" />
             </td>
 		<td >
 			&nbsp;</td>
 		</tr>
-	<tr>
-		<td align="right" >
-			<asp:label id="lbl_ma_don_vi_tinh" CssClass="cssManField" runat="server" 
-                Text="&lt;U&gt;M&lt;/U&gt;ã đơn vị tính" />
-		</td>
-		<td align="left">
-		    <asp:DropDownList ID="m_ddl_ma_don_vi_tinh" runat="server" Width="323px">
-            </asp:DropDownList>
-        </td>
-		<td >
-			&nbsp;</td>
-	</tr>
     <tr>
         <td align="right">
-			<asp:label id="lblFullName2" CssClass="cssManField" runat="server" 
-                Text="&lt;U&gt;Đ&lt;/U&gt;ơn giá" />
+			<asp:label id="lbl_so_don_vi_hoc_trinh" CssClass="cssManField" runat="server" 
+                Text="&lt;U&gt;S&lt;/U&gt;ố đơn vị học trình" AccessKey="T" />
 		</td>
         <td align="left">
-			<asp:textbox id="m_txt_don_gia" CssClass="cssTextBox"  runat="server" 
-                MaxLength="64" Width="322px" />
-            <asp:RegularExpressionValidator ID="Regex_don_gia" runat="server" Text="*" ErrorMessage="Đơn giá phải là số" ControlToValidate="m_txt_don_gia" ValidationExpression="^\d+$"></asp:RegularExpressionValidator>
+			<asp:textbox id="m_txt_don_vi_hoc_trinh" CssClass="cssTextBox"  runat="server" 
+                MaxLength="64" Width="320px" />
+                <asp:customvalidator id="m_ctv_don_vi_hoc_trinh" runat="server" 
+                ControlToValidate="m_txt_don_vi_hoc_trinh" ErrorMessage="Bạn phải nhập Mã môn" 
+                Display="Static" Text="*" />
 		</td>
         <td>&nbsp;</td>
     </tr>
-	    <tr>
-		<td align="right">
-			<asp:label id="lbl_ma_tan_xuat" CssClass="cssManField" runat="server" 
-                Text="&lt;U&gt;M&lt;/U&gt;ã tần suất" />
-		    </td>
-		<td valign="top" colspan="2">
-		    <asp:DropDownList ID="m_ddl_ma_tan_xuat" runat="server" Width="323px" 
-                AccessKey="M">
-            </asp:DropDownList>
-            </td>
-	    </tr>
-	<tr>
-		<td align="right" class="style1">
-			<asp:label id="lbl_hoc_lieu" CssClass="cssManField" runat="server" 
-                Text="&lt;U&gt;C&lt;/U&gt;ó làm học liệu" />
-		</td>
-		<td valign="top" colspan="2" class="style1">
-		    <asp:RadioButton ID="m_rd_yes_hoc_lieu" runat="server" Text="Có" 
-                GroupName="rdb_lam_hoc_lieu" />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:RadioButton ID="m_rd_no_hoc_lieu" runat="server" Checked="True" 
-                Text="Không" GroupName="rdb_lam_hoc_lieu" />
-        </td>
-	</tr>	
-	<tr>
-		<td align="right">
-			<asp:label id="lbl_hoc_lieu0" CssClass="cssManField" runat="server" 
-                Text="&lt;U&gt;C&lt;/U&gt;ó vận hành" />
-		</td>
-		<td valign="top" colspan="2">
-		    <asp:RadioButton ID="m_rd_yes_van_hanh" runat="server" Checked="True" 
-                Text="Có" GroupName="rdb_lam_van_hanh" />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:RadioButton ID="m_rd_no_van_hanh" runat="server" Text="Không" 
-                GroupName="rdb_lam_van_hanh" />
-        </td>
-	</tr>	
 	<tr>
 		<td align="right">
 			<asp:label id="lbl_ghi_chu" CssClass="cssManField" runat="server" 
@@ -116,7 +77,7 @@
 		</td>
 		<td valign="top" colspan="2">
 		    <asp:TextBox ID="m_txt_ghi_chu" runat="server" TextMode = "MultiLine" 
-                Width="495px" Height="83px"></asp:TextBox>
+                Width="505px" Height="83px"></asp:TextBox>
         </td>
 	</tr>	
     <tr>
