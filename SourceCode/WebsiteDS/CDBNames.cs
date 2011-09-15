@@ -46,4 +46,15 @@ namespace WebDS.CDBNames
         public const string HOC_LIEU_YN = "HOC_LIEU_YN";
         public const string VAN_HANH_YN = "VAN_HANH_YN";
     }
+    class DM_DON_VI_THANH_TOAN
+    {
+        public const string ID = "ID";
+        public const string MA_DON_VI = "MA_DON_VI";
+        public const string TEN_DON_VI = "TEN_DON_VI";
+        public const string DIA_CHI = "DIA_CHI";
+        public const string SO_DIEN_THOAI = "SO_DIEN_THOAI";
+        public const string SO_TAI_KHOAN = "SO_TAI_KHOAN";
+        public const string CAP_TAI = "CAP_TAI";
+        public const string MA_SO_THUE = "MA_SO_THUE";
+    }
 }
