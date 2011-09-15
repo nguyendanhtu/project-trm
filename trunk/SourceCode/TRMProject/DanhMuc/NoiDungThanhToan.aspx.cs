@@ -25,7 +25,6 @@ public partial class DanhMuc_NoiDungThanhToan : System.Web.UI.Page
             load_data_2_cbo_loai_hop_dong();
             load_data_2_cbo_ma_don_vi_tinh();            
             load_data_2_cbo_ma_tan_suat();
-            mapping_col_id_to_ten_loai_hop_dong();
         }
     }
 
@@ -159,11 +158,11 @@ public partial class DanhMuc_NoiDungThanhToan : System.Web.UI.Page
     private void form_2_us_object(US_V_DM_NOI_DUNG_THANH_TOAN ip_us_noi_dung_thanh_toan)
     {
         ip_us_noi_dung_thanh_toan.strTEN_NOI_DUNG = m_txt_ten_noi_dung.Text;
-        ip_us_noi_dung_thanh_toan.dcID_LOAI_HOP_DONG = decimal.Parse(m_ddl_loai_hop_dong.SelectedValue);
+        ip_us_noi_dung_thanh_toan.dcID_LOAI_HOP_DONG = CIPConvert.ToDecimal(m_ddl_loai_hop_dong.SelectedValue);
         ip_us_noi_dung_thanh_toan.strMA_DON_VI_TINH = m_ddl_ma_don_vi_tinh.SelectedValue;
         ip_us_noi_dung_thanh_toan.strMA_TAN_SUAT = m_ddl_ma_tan_xuat.SelectedValue;
         ip_us_noi_dung_thanh_toan.dcDON_GIA_DEFAULT = CIPConvert.ToDecimal(m_txt_don_gia.Text);
-        ip_us_noi_dung_thanh_toan.strGHI_CHU = load_ma_tu_dien_by_id(decimal.Parse(m_ddl_loai_hop_dong.SelectedValue)) + m_txt_ten_noi_dung.Text;
+        ip_us_noi_dung_thanh_toan.strGHI_CHU = m_txt_ghi_chu.Text;
         if (m_rd_yes_hoc_lieu.Checked)
             ip_us_noi_dung_thanh_toan.strHOC_LIEU_YN = "Y";
         else ip_us_noi_dung_thanh_toan.strHOC_LIEU_YN = "N";
@@ -202,15 +201,31 @@ public partial class DanhMuc_NoiDungThanhToan : System.Web.UI.Page
         if (ip_us_noi_dung_thanh_toan.strVAN_HANH_YN == "Y")
             m_rd_yes_van_hanh.Checked = true;
         else m_rd_no_van_hanh.Checked = true;
-
+        m_txt_ghi_chu.Text = ip_us_noi_dung_thanh_toan.strGHI_CHU;
         m_ddl_ma_tan_xuat.SelectedValue = ip_us_noi_dung_thanh_toan.strMA_TAN_SUAT;
     }
     private void load_data_2_us_by_id(int ip_i_id)
     {
         decimal v_dc_id_dm_noi_dung_thanh_toan = CIPConvert.ToDecimal(m_grv_dm_noi_dung_thanh_toan.DataKeys[ip_i_id].Value);
+        hdf_id.Value = v_dc_id_dm_noi_dung_thanh_toan.ToString();
         US_V_DM_NOI_DUNG_THANH_TOAN v_us_dm_noi_dung_thanh_toan = new US_V_DM_NOI_DUNG_THANH_TOAN(v_dc_id_dm_noi_dung_thanh_toan);
        // Đẩy us lên form
         us_obj_2_form(v_us_dm_noi_dung_thanh_toan);
+    }
+    private void delete_dm_noi_dung_thanh_toan(int ip_i_row_del)
+    {
+        decimal v_dc_id_noi_dung_thanh_toan = CIPConvert.ToDecimal(m_grv_dm_noi_dung_thanh_toan.DataKeys[ip_i_row_del].Value);
+        m_us_dm_noi_dung_thanh_toan.dcID = v_dc_id_noi_dung_thanh_toan;
+        m_us_dm_noi_dung_thanh_toan.DeleteByID(v_dc_id_noi_dung_thanh_toan);
+        load_data_to_grid();
+        m_lbl_mess.Text = "Xóa bản ghi thành công";
+    }
+
+    // Chỗ này chưa làm
+    private bool check_data_is_ok()
+    {
+        // Kiểm tra giá là chữ
+        return true;
     }
     #endregion
     
@@ -236,6 +251,7 @@ public partial class DanhMuc_NoiDungThanhToan : System.Web.UI.Page
     {
         try
         {
+            if (!check_data_is_ok()) return;
             form_2_us_object(m_us_dm_noi_dung_thanh_toan);
             m_us_dm_noi_dung_thanh_toan.Insert();
             reset_control();
@@ -261,30 +277,52 @@ public partial class DanhMuc_NoiDungThanhToan : System.Web.UI.Page
         }
     }
 
-    protected void m_grv_dm_tu_dien_RowDeleting(object sender, GridViewDeleteEventArgs e)
-    {
-        try
-        {
-            m_lbl_mess.Text = "";
-            
-        }
-        catch (Exception v_e)
-        {
-            // de su dung CsystemLog_301 bat buoc Site phai dat trong thu muc cap 1. Vi du: DanhMuc/Dictionary.aspx
-            CSystemLog_301.ExceptionHandle(this, v_e);
-        }
-    }
-
+   
 
     protected void m_cmd_cap_nhat_Click(object sender, EventArgs e)
     {
         try
         {
+            if (hdf_id.Value == "")
+            {
+                m_lbl_mess.Text = "Bạn phải chọn nội dung cần Cập nhật";
+                return;
+            }
+            if (!check_data_is_ok()) return;
             form_2_us_object(m_us_dm_noi_dung_thanh_toan);
-            m_us_dm_noi_dung_thanh_toan.dcID = 1;
+            m_us_dm_noi_dung_thanh_toan.dcID = CIPConvert.ToDecimal(hdf_id.Value);
+            m_us_dm_noi_dung_thanh_toan.Update();
+            reset_control();
+            m_lbl_mess.Text = "Cập nhật dữ liệu thành công";
+            m_grv_dm_noi_dung_thanh_toan.EditIndex = -1;
+            load_data_to_grid();
         }
         catch (System.Exception v_e)
         {
+            CSystemLog_301.ExceptionHandle(this, v_e);
+        }
+    }
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            reset_control();
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.Equals(this, v_e);
+        }
+    }
+    protected void m_grv_dm_tu_dien_RowDeleting(object sender, GridViewDeleteEventArgs e)
+    {
+        try
+        {
+            m_lbl_mess.Text = "";
+            delete_dm_noi_dung_thanh_toan(e.RowIndex);
+        }
+        catch (Exception v_e)
+        {
+            // de su dung CsystemLog_301 bat buoc Site phai dat trong thu muc cap 1. Vi du: DanhMuc/Dictionary.aspx
             CSystemLog_301.ExceptionHandle(this, v_e);
         }
     }
