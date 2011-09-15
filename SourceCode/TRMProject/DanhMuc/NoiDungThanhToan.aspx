@@ -37,13 +37,10 @@
 		</td>
 		<td style="width:30%;">
 			<asp:textbox id="m_txt_ten_noi_dung" CssClass="cssTextBox"  runat="server" 
-                MaxLength="64" Width="96%" />
+                MaxLength="64" Width="495px" />
 		</td>
 		<td style="width:5%;"> 
-			<asp:customvalidator id="m_ctv_ma_tu_dien" runat="server" 
-                ControlToValidate="m_txt_ten_noi_dung" ErrorMessage="Bạn phải nhập nội dung thanh toán" 
-                Display="Static" Text="*" />
-        </td>
+			&nbsp;</td>
 	</tr>
 	    <tr>
 		<td align="right" >
@@ -76,11 +73,10 @@
 		</td>
         <td align="left">
 			<asp:textbox id="m_txt_don_gia" CssClass="cssTextBox"  runat="server" 
-                MaxLength="64" Width="55%" />
+                MaxLength="64" Width="323px" />
+            <asp:RegularExpressionValidator ID="Regex_don_gia" runat="server" Text="*" ErrorMessage="Đơn giá phải là số" ControlToValidate="m_txt_don_gia" ValidationExpression="^\d+$"></asp:RegularExpressionValidator>
 		</td>
-        <td><asp:customvalidator id="Customvalidator1" runat="server" 
-                ControlToValidate="m_txt_don_gia" ErrorMessage="Bạn phải nhập đơn giá" 
-                Display="Static" Text="*" /></td>
+        <td>&nbsp;</td>
     </tr>
 	    <tr>
 		<td align="right">
@@ -121,6 +117,16 @@
 	</tr>	
 	<tr>
 		<td align="right">
+			<asp:label id="lbl_ghi_chu" CssClass="cssManField" runat="server" 
+                Text="&lt;U&gt;G&lt;/U&gt;hi chú" />
+		</td>
+		<td valign="top" colspan="2">
+		    <asp:TextBox ID="m_txt_ghi_chu" runat="server" TextMode = "MultiLine" 
+                Width="495px" Height="83px"></asp:TextBox>
+        </td>
+	</tr>	
+    <tr>
+		<td align="right">
 			&nbsp;</td>
 		<td valign="top" colspan="2">
 		    &nbsp;</td>
@@ -135,7 +141,8 @@
                 runat="server" Width="98px" Text="Cập nhật(u)" 
                 onclick="m_cmd_cap_nhat_Click"  />&nbsp;
 			<asp:button id="btnCancel" accessKey="r" CssClass="cssButton" runat="server" 
-                Width="98px" Text="Xóa trắng(r)" />
+                Width="98px" Text="Xóa trắng(r)" onclick="btnCancel_Click" />
+                <asp:HiddenField ID="hdf_id" runat = "server" Value="" />
 		</td>
 	</tr>
     <tr>
@@ -153,7 +160,7 @@
 	<tr>
 		<td align="center" colspan="3" style="height:450px;" valign="top">
 		    &nbsp;
-
+            <div style="overflow-x: scroll; height:100%; width:800px" >
               <asp:GridView ID="m_grv_dm_noi_dung_thanh_toan" runat="server" AutoGenerateColumns="False" 
                 Width="100%" DataKeyNames="ID" 
                   onrowdeleting="m_grv_dm_tu_dien_RowDeleting" 
@@ -171,11 +178,16 @@
                     <asp:BoundField DataField="HOC_LIEU_YN" HeaderText="Học liệu YN" />
                     <asp:BoundField DataField="VAN_HANH_YN" HeaderText="Vận hành YN" />
                     <asp:BoundField DataField="GHI_CHU" HeaderText="Ghi chú" />
-                  <asp:CommandField DeleteText="Xóa" ShowDeleteButton="True" />
+                    <asp:TemplateField>
+                    <ItemTemplate> <asp:LinkButton ID = "lbt_delete" runat="server" Text="Xóa" 
+                     CommandName="Delete" OnClientClick="return confirm ('Bạn có thực sự muốn xóa bản ghi này?')"></asp:LinkButton>
+                    </ItemTemplate>
+                    </asp:TemplateField>
                     <asp:CommandField SelectText="Sửa" ShowSelectButton="True" />
                 </Columns>
                 <SelectedRowStyle CssClass="cssSelectedRow"></SelectedRowStyle>
             </asp:GridView>
+            </div>
             </td>
 	</tr>	
 
