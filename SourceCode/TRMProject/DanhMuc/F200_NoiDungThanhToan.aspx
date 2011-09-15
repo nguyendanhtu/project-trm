@@ -13,7 +13,7 @@
 	<tr>
 		<td class="cssPageTitleBG" colspan="3">
 		    <asp:label id="lblUser" runat="server" CssClass="cssPageTitle" 
-                Text="Danh mục &lt;&gt;"/>
+                Text="Danh mục nội dung thanh toán"/>
 		</td>
 	</tr>
 	<tr>
@@ -148,7 +148,7 @@
     <tr>
 		<td class="cssPageTitleBG" colspan="3">
 		    <asp:label id="Label11" runat="server" CssClass="cssPageTitle" 
-                Text="Danh sách &lt;&gt;"/>
+                Text="Danh sách nội dung thanh toán"/>
 		</td>
 	</tr>	
     <tr>
@@ -164,21 +164,38 @@
               <asp:GridView ID="m_grv_dm_noi_dung_thanh_toan" runat="server" AutoGenerateColumns="False" 
                 Width="100%" DataKeyNames="ID" 
                   onrowdeleting="m_grv_dm_tu_dien_RowDeleting" 
-                onselectedindexchanging="m_grv_dm_noi_dung_thanh_toan_SelectedIndexChanging">
+                
+                onselectedindexchanging="m_grv_dm_noi_dung_thanh_toan_SelectedIndexChanging" 
+                CellPadding="4" ForeColor="#333333" GridLines="Both">
+                  <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
+
+<ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:TemplateField>
                     <asp:BoundField DataField="ID_LOAI_TU_DIEN" HeaderText="Loại từ điển" 
                         Visible="False">
                         <ItemStyle HorizontalAlign="Center" Width="4%"></ItemStyle></asp:BoundField>
                     <asp:BoundField DataField="TEN_NOI_DUNG" HeaderText="Tên nội dung" />
                     <asp:BoundField DataField="TEN_NGAN" HeaderText="Loại hợp đồng" />
-                    <asp:BoundField DataField="MA_DON_VI_TINH" HeaderText="Đơn vị tính" ItemStyle-HorizontalAlign="Center" />
+                    <asp:BoundField DataField="MA_DON_VI_TINH" HeaderText="Đơn vị tính" 
+                        ItemStyle-HorizontalAlign="Center" >
+<ItemStyle HorizontalAlign="Center"></ItemStyle>
+                    </asp:BoundField>
                     <asp:BoundField DataField="DON_GIA_DEFAULT" HeaderText="Đơn giá" />
-                    <asp:BoundField DataField="MA_TAN_SUAT" HeaderText="Mã tần xuất" ItemStyle-HorizontalAlign="Center" />
-                    <asp:BoundField DataField="HOC_LIEU_YN" HeaderText="Học liệu YN" ItemStyle-HorizontalAlign="Center" />
-                    <asp:BoundField DataField="VAN_HANH_YN" HeaderText="Vận hành YN" ItemStyle-HorizontalAlign="Center" />
+                    <asp:BoundField DataField="MA_TAN_SUAT" HeaderText="Mã tần xuất" 
+                        ItemStyle-HorizontalAlign="Center" >
+<ItemStyle HorizontalAlign="Center"></ItemStyle>
+                    </asp:BoundField>
+                    <asp:BoundField DataField="HOC_LIEU_YN" HeaderText="Học liệu YN" 
+                        ItemStyle-HorizontalAlign="Center" >
+<ItemStyle HorizontalAlign="Center"></ItemStyle>
+                    </asp:BoundField>
+                    <asp:BoundField DataField="VAN_HANH_YN" HeaderText="Vận hành YN" 
+                        ItemStyle-HorizontalAlign="Center" >
+<ItemStyle HorizontalAlign="Center"></ItemStyle>
+                    </asp:BoundField>
                     <asp:BoundField DataField="GHI_CHU" HeaderText="Ghi chú" />
                     <asp:TemplateField>
                     <ItemTemplate> <asp:LinkButton ID = "lbt_delete" runat="server" Text="Xóa" 
@@ -187,7 +204,13 @@
                     </asp:TemplateField>
                     <asp:CommandField SelectText="Sửa" ShowSelectButton="True" />
                 </Columns>
-                <SelectedRowStyle CssClass="cssSelectedRow"></SelectedRowStyle>
+                  <EditRowStyle BackColor="#7C6F57" />
+                  <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                  <HeaderStyle BackColor="#810c15" Font-Bold="True" ForeColor="White" />
+                  <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+                  <RowStyle BackColor="#E3EAEB" />
+                <SelectedRowStyle CssClass="cssSelectedRow" BackColor="#C5BBAF" Font-Bold="True" 
+                      ForeColor="#333333"></SelectedRowStyle>
             </asp:GridView>
            
             </td>
