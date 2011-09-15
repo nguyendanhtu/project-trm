@@ -124,20 +124,43 @@
 		    <asp:GridView ID="m_grv_dm_tu_dien" runat="server" AutoGenerateColumns="False" 
                 Width="100%" DataKeyNames="ID" 
                 onrowdeleting="m_grv_dm_tu_dien_RowDeleting" 
-                onselectedindexchanging="m_grv_dm_tu_dien_SelectedIndexChanging">
+                onselectedindexchanging="m_grv_dm_tu_dien_SelectedIndexChanging" 
+                CellPadding="4" ForeColor="#333333" GridLines="Both">
+                <AlternatingRowStyle BackColor="White" />
                 <Columns>
-                    <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center"><ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate></asp:TemplateField>
+                    <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center"><ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
+
+<ItemStyle HorizontalAlign="Center"></ItemStyle>
+                    </asp:TemplateField>
                     <asp:BoundField DataField="ID_LOAI_TU_DIEN" HeaderText="Loại từ điển" 
                         Visible="False">
                         <ItemStyle HorizontalAlign="Center" Width="4%"></ItemStyle></asp:BoundField>
-                    <asp:BoundField DataField="MA_TU_DIEN" ItemStyle-HorizontalAlign="Center" HeaderText="Mã từ điển" />
+                    <asp:BoundField DataField="MA_TU_DIEN" ItemStyle-HorizontalAlign="Center" 
+                        HeaderText="Mã từ điển" >
+<ItemStyle HorizontalAlign="Center"></ItemStyle>
+                    </asp:BoundField>
                     <asp:BoundField DataField="TEN_NGAN" HeaderText="Tên ngắn" />
                     <asp:BoundField DataField="TEN" HeaderText="Tên" />
-                    <asp:BoundField DataField="GHI_CHU" ItemStyle-HorizontalAlign="Center" HeaderText="Ghi chú" />
-                    <asp:CommandField DeleteText="Xóa" ShowDeleteButton="True" ItemStyle-HorizontalAlign="Center" />
-                    <asp:CommandField SelectText="Sửa" ShowSelectButton="True" ItemStyle-HorizontalAlign="Center" />
+                    <asp:BoundField DataField="GHI_CHU" ItemStyle-HorizontalAlign="Center" 
+                        HeaderText="Ghi chú" >
+<ItemStyle HorizontalAlign="Center"></ItemStyle>
+                    </asp:BoundField>
+                    <asp:CommandField DeleteText="Xóa" ShowDeleteButton="True" 
+                        ItemStyle-HorizontalAlign="Center" >
+<ItemStyle HorizontalAlign="Center"></ItemStyle>
+                    </asp:CommandField>
+                    <asp:CommandField SelectText="Sửa" ShowSelectButton="True" 
+                        ItemStyle-HorizontalAlign="Center" >
+<ItemStyle HorizontalAlign="Center"></ItemStyle>
+                    </asp:CommandField>
                 </Columns>
-                <SelectedRowStyle CssClass="cssSelectedRow"></SelectedRowStyle>
+                <EditRowStyle BackColor="#7C6F57" />
+                <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#810c15" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+                <RowStyle BackColor="#E3EAEB" />
+                <SelectedRowStyle CssClass="cssSelectedRow" BackColor="#C5BBAF" 
+                    Font-Bold="True" ForeColor="#333333"></SelectedRowStyle>
             </asp:GridView>
         </td>
 	</tr>	
