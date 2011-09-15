@@ -42,6 +42,8 @@
                             <asp:MenuItem Text="Danh mục môn học"></asp:MenuItem>
                             <asp:MenuItem Text="Danh mục Loại thanh toán" NavigateUrl="/TRMProject/DanhMuc/F200_NoiDungThanhToan.aspx">
                             </asp:MenuItem>
+                             <asp:MenuItem Text="Danh mục Đơn vị thanh toán" NavigateUrl="/TRMProject/DanhMuc/DonViThanhToan.aspx">
+                            </asp:MenuItem>
                         </asp:MenuItem>
                         <asp:MenuItem NavigateUrl="~/About.aspx" Text="Trợ giúp"/>
                     </Items>
