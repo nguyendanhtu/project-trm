@@ -301,7 +301,6 @@ public partial class DanhMuc_NoiDungThanhToan : System.Web.UI.Page
                 m_lbl_mess.Text = "Bạn phải chọn nội dung cần Cập nhật";
                 return;
             }
-            if (!check_data_is_ok()) return;
             form_2_us_object(m_us_dm_noi_dung_thanh_toan);
             m_us_dm_noi_dung_thanh_toan.dcID = CIPConvert.ToDecimal(hdf_id.Value);
             m_us_dm_noi_dung_thanh_toan.Update();
