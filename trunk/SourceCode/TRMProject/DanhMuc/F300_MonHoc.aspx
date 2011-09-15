@@ -90,13 +90,11 @@
 	    <td></td>
 		<td colspan="2" align="left">
 			<asp:button id="m_cmd_tao_moi" accessKey="c" CssClass="cssButton" 
-                runat="server" Width="98px" Text="Tạo mới(c)" 
-                onclick="m_cmd_tao_moi_Click" />&nbsp;
+                runat="server" Width="98px" Text="Tạo mới(c)" />&nbsp;
 			<asp:button id="m_cmd_cap_nhat" accessKey="u" CssClass="cssButton" 
-                runat="server" Width="98px" Text="Cập nhật(u)" 
-                onclick="m_cmd_cap_nhat_Click"  />&nbsp;
+                runat="server" Width="98px" Text="Cập nhật(u)"  />&nbsp;
 			<asp:button id="btnCancel" accessKey="r" CssClass="cssButton" runat="server" 
-                Width="98px" Text="Xóa trắng(r)" onclick="btnCancel_Click" />
+                Width="98px" Text="Xóa trắng(r)"  />
                 <asp:HiddenField ID="hdf_id" runat = "server" Value="" />
 		</td>
 	</tr>
@@ -118,9 +116,6 @@
            
               <asp:GridView ID="m_grv_dm_noi_dung_thanh_toan" runat="server" AutoGenerateColumns="False" 
                 Width="100%" DataKeyNames="ID" 
-                  onrowdeleting="m_grv_dm_tu_dien_RowDeleting" 
-                
-                onselectedindexchanging="m_grv_dm_noi_dung_thanh_toan_SelectedIndexChanging" 
                 CellPadding="4" ForeColor="#333333" GridLines="Both">
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
