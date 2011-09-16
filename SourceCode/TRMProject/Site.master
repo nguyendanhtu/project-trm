@@ -44,6 +44,8 @@
                             </asp:MenuItem>
                              <asp:MenuItem Text="Danh mục Đơn vị thanh toán" NavigateUrl="/TRMProject/DanhMuc/DonViThanhToan.aspx">
                             </asp:MenuItem>
+                            <asp:MenuItem Text="Danh mục Môn học" NavigateUrl="/TRMProject/DanhMuc/F300_MonHoc.aspx">
+                            </asp:MenuItem> 
                         </asp:MenuItem>
                         <asp:MenuItem NavigateUrl="~/About.aspx" Text="Trợ giúp"/>
                     </Items>
