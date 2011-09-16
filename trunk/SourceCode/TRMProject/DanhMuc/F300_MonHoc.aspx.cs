@@ -4,15 +4,35 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+using IP.Core.IPCommon;
+using IP.Core.IPData;
+using IP.Core.IPUserService;
+
+using WebUS;
+using WebDS;
+using WebDS.CDBNames;
+using System.Data;
+
 public partial class DanhMuc_F300_MonHoc : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (m_init_mode == DataEntryFormMode.UpdateDataState)
+            m_cmd_tao_moi.Enabled = false;
+        else m_cmd_tao_moi.Enabled = true;
+        if (!IsPostBack)
+        {
+            load_data_to_grid();
+        }
     }
 
     #region Members
-    
+    US_DM_MON_HOC m_us_dm_mon_hoc = new US_DM_MON_HOC();
+    DS_DM_MON_HOC m_ds_mon_hoc = new DS_DM_MON_HOC();
+
+    US_CM_DM_TU_DIEN m_us_cm_dm_tu_dien = new US_CM_DM_TU_DIEN();
+    DS_CM_DM_TU_DIEN m_ds_cm_dm_tu_dien = new DS_CM_DM_TU_DIEN();
+    DataEntryFormMode m_init_mode = DataEntryFormMode.ViewDataState;
     #endregion
 
     #region Private Methods
@@ -36,7 +56,150 @@ public partial class DanhMuc_F300_MonHoc : System.Web.UI.Page
 
         return true;
     }
+    private void load_data_to_grid()
+    {
+        try
+        {
+            // Đổ dữ liệu từ US vào DS
+            m_us_dm_mon_hoc.FillDataset(m_ds_mon_hoc);
 
+            // Treo dữ liệu lên lưới
+            m_grv_dm_mon_hoc.DataSource = m_ds_mon_hoc.DM_MON_HOC;
+            m_grv_dm_mon_hoc.DataBind();
 
+        }
+        catch (Exception v_e)
+        {
+            //nhớ using Ip.Common
+            CSystemLog_301.ExceptionHandle(this, v_e);
+
+        }
+
+    }
+    private void reset_control()
+    {
+        m_txt_ten_mon.Text = "";
+        m_txt_ma_mon.Text = "";
+        m_txt_don_vi_hoc_trinh.Text = "";
+        m_txt_ghi_chu.Text = "";
+    }
+    private void form_2_us_object(US_DM_MON_HOC ip_us_mon_hoc)
+    {
+        m_txt_ten_mon.Text = ip_us_mon_hoc.strTEN_MON_HOC;
+        m_txt_ma_mon.Text = ip_us_mon_hoc.strMA_MON_HOC;
+        ip_us_mon_hoc.strGHI_CHU = m_txt_ghi_chu.Text;
+        ip_us_mon_hoc.dcSO_DVHT = CIPConvert.ToDecimal(m_txt_don_vi_hoc_trinh.Text);
+
+    }
+    /// <summary>
+    /// Load dữ liệu từ US đổ vào form
+    /// </summary>
+    /// <param name="ip_dm_noi_dung_thanh_toan"></param>
+    private void us_obj_2_form(US_DM_MON_HOC ip_us_mon_hoc)
+    {
+        m_txt_ten_mon.Text = ip_us_mon_hoc.strTEN_MON_HOC;
+        m_txt_ma_mon.Text = ip_us_mon_hoc.strMA_MON_HOC;
+        m_txt_don_vi_hoc_trinh.Text = CIPConvert.ToStr(ip_us_mon_hoc.dcSO_DVHT);
+        m_txt_ghi_chu.Text = ip_us_mon_hoc.strGHI_CHU;
+    }
+    private void delete_dm_mon_hoc(int ip_i_row_del)
+    {
+        decimal v_dc_id_mon_hoc = CIPConvert.ToDecimal(m_grv_dm_mon_hoc.DataKeys[ip_i_row_del].Value);
+        m_us_dm_mon_hoc.dcID = v_dc_id_mon_hoc;
+        m_us_dm_mon_hoc.DeleteByID(v_dc_id_mon_hoc);
+        m_lbl_mess.Text = "Xóa bản ghi thành công";
+        load_data_to_grid();
+    }
+    private void load_data_2_us_by_id(int ip_i_id)
+    {
+        decimal v_dc_id_dm_mon_hoc = CIPConvert.ToDecimal(m_grv_dm_mon_hoc.DataKeys[ip_i_id].Value);
+        hdf_id.Value = v_dc_id_dm_mon_hoc.ToString();
+        US_DM_MON_HOC v_us_dm_mon_hoc = new US_DM_MON_HOC(v_dc_id_dm_mon_hoc);
+        // Đẩy us lên form
+        us_obj_2_form(v_us_dm_mon_hoc);
+    }
     #endregion
+
+    //
+    // Events
+    //
+
+    protected void m_cmd_tao_moi_Click(object sender, EventArgs e)
+    {
+        try
+        {
+           // if (!check_noi_dung_is_ok()) return;
+            if (m_init_mode == DataEntryFormMode.UpdateDataState) return;
+            form_2_us_object(m_us_dm_mon_hoc);
+            m_us_dm_mon_hoc.Insert();
+            reset_control();
+            load_data_to_grid();
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(this, v_e);
+        }
+    }
+    protected void m_cmd_cap_nhat_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            if (hdf_id.Value == "")
+            {
+                m_lbl_mess.Text = "Bạn phải chọn nội dung cần Cập nhật";
+                return;
+            }
+            form_2_us_object(m_us_dm_mon_hoc);
+            m_us_dm_mon_hoc.dcID = CIPConvert.ToDecimal(hdf_id.Value);
+            m_us_dm_mon_hoc.Update();
+            reset_control();
+            m_lbl_mess.Text = "Cập nhật dữ liệu thành công";
+            m_grv_dm_mon_hoc.EditIndex = -1;
+            m_init_mode = DataEntryFormMode.ViewDataState;
+            load_data_to_grid();
+        }
+        catch (System.Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(this, v_e);
+        }
+    }
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            reset_control();
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.Equals(this, v_e);
+        }
+    }
+
+    protected void m_grv_dm_mon_hoc_RowDeleting(object sender, GridViewDeleteEventArgs e)
+    {
+        try
+        {
+            m_lbl_mess.Text = "";
+            delete_dm_mon_hoc(e.RowIndex);
+        }
+        catch (Exception v_e)
+        {
+            // de su dung CsystemLog_301 bat buoc Site phai dat trong thu muc cap 1. Vi du: DanhMuc/Dictionary.aspx
+            CSystemLog_301.ExceptionHandle(this, v_e);
+        }
+    }
+    protected void m_grv_dm_mon_hoc_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+    {
+        try
+        {
+            m_init_mode = DataEntryFormMode.UpdateDataState;
+            m_cmd_tao_moi.Enabled = false;
+            m_lbl_mess.Text = "";
+            load_data_2_us_by_id(e.NewSelectedIndex);
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(this, v_e);
+        }
+    }
 }
