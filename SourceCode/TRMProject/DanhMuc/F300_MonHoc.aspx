@@ -64,6 +64,8 @@
         <td align="left">
 			<asp:textbox id="m_txt_don_vi_hoc_trinh" CssClass="cssTextBox"  runat="server" 
                 MaxLength="64" Width="320px" />
+            <asp:RegularExpressionValidator ID="Regex_DVHT"
+             runat="server" ErrorMessage="Số đơn vị học trình phải là số" ControlToValidate="m_txt_don_vi_hoc_trinh" ValidationExpression="^\d+$"></asp:RegularExpressionValidator>
                 <asp:customvalidator id="m_ctv_don_vi_hoc_trinh" runat="server" 
                 ControlToValidate="m_txt_don_vi_hoc_trinh" ErrorMessage="Bạn phải nhập Mã môn" 
                 Display="Static" Text="*" />
@@ -90,11 +92,13 @@
 	    <td></td>
 		<td colspan="2" align="left">
 			<asp:button id="m_cmd_tao_moi" accessKey="c" CssClass="cssButton" 
-                runat="server" Width="98px" Text="Tạo mới(c)" />&nbsp;
+                runat="server" Width="98px" Text="Tạo mới(c)" 
+                onclick="m_cmd_tao_moi_Click" />&nbsp;
 			<asp:button id="m_cmd_cap_nhat" accessKey="u" CssClass="cssButton" 
-                runat="server" Width="98px" Text="Cập nhật(u)"  />&nbsp;
+                runat="server" Width="98px" Text="Cập nhật(u)" 
+                onclick="m_cmd_cap_nhat_Click"  />&nbsp;
 			<asp:button id="btnCancel" accessKey="r" CssClass="cssButton" runat="server" 
-                Width="98px" Text="Xóa trắng(r)"  />
+                Width="98px" Text="Xóa trắng(r)" onclick="btnCancel_Click"  />
                 <asp:HiddenField ID="hdf_id" runat = "server" Value="" />
 		</td>
 	</tr>
@@ -114,9 +118,11 @@
 		<td align="center" colspan="3" style="height:450px;" valign="top">
 		    &nbsp;
            
-              <asp:GridView ID="m_grv_dm_noi_dung_thanh_toan" runat="server" AutoGenerateColumns="False" 
+              <asp:GridView ID="m_grv_dm_mon_hoc" runat="server" AutoGenerateColumns="False" 
                 Width="100%" DataKeyNames="ID" 
-                CellPadding="4" ForeColor="#333333" GridLines="Both">
+                CellPadding="4" ForeColor="#333333" GridLines="Both" 
+                onrowdeleting="m_grv_dm_mon_hoc_RowDeleting" 
+                onselectedindexchanging="m_grv_dm_mon_hoc_SelectedIndexChanging">
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">
@@ -124,31 +130,14 @@
 
 <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:TemplateField>
-                    <asp:BoundField DataField="ID_LOAI_TU_DIEN" HeaderText="Loại từ điển" 
+                    <asp:BoundField DataField="MA_MON_HOC" HeaderText="Mã môn học" 
                         Visible="False">
                         <ItemStyle HorizontalAlign="Center" Width="4%"></ItemStyle></asp:BoundField>
-                    <asp:BoundField DataField="TEN_NOI_DUNG" HeaderText="Tên nội dung" />
-                    <asp:BoundField DataField="TEN_NGAN" HeaderText="Loại hợp đồng" />
-                    <asp:BoundField DataField="MA_DON_VI_TINH" HeaderText="Đơn vị tính" 
+                    <asp:BoundField DataField="TEN_MON_HOC" HeaderText="Tên môn học" />
+                    <asp:BoundField DataField="SO_DVHT" HeaderText="Số đơn vị học trình" 
                         ItemStyle-HorizontalAlign="Center" >
 <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:BoundField>
-                    <asp:TemplateField HeaderText = "Đơn giá">
-                    <ItemTemplate><asp:Label ID="lbl_don_gia" runat="server"><%# Eval("DON_GIA_DEFAULT").ToString() %></asp:Label></ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:BoundField DataField="MA_TAN_SUAT" HeaderText="Mã tần xuất" 
-                        ItemStyle-HorizontalAlign="Center" >
-<ItemStyle HorizontalAlign="Center"></ItemStyle>
-                    </asp:BoundField>
-                    <asp:BoundField DataField="HOC_LIEU_YN" HeaderText="Học liệu YN" 
-                        ItemStyle-HorizontalAlign="Center" >
-<ItemStyle HorizontalAlign="Center"></ItemStyle>
-                    </asp:BoundField>
-                    <asp:BoundField DataField="VAN_HANH_YN" HeaderText="Vận hành YN" 
-                        ItemStyle-HorizontalAlign="Center" >
-<ItemStyle HorizontalAlign="Center"></ItemStyle>
-                    </asp:BoundField>
-                    <asp:BoundField DataField="GHI_CHU" HeaderText="Ghi chú" />
                     <asp:TemplateField>
                     <ItemTemplate> <asp:LinkButton ID = "lbt_delete" runat="server" Text="Xóa" 
                      CommandName="Delete" OnClientClick="return confirm ('Bạn có thực sự muốn xóa bản ghi này?')"></asp:LinkButton>
