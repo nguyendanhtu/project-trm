@@ -343,4 +343,16 @@ public partial class DanhMuc_NoiDungThanhToan : System.Web.UI.Page
     }
 
 
+    protected void m_grv_dm_noi_dung_thanh_toan_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+        try
+        {
+            m_grv_dm_noi_dung_thanh_toan.PageIndex = e.NewPageIndex;
+            load_data_to_grid();
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(this,v_e);
+        }
+    }
 }

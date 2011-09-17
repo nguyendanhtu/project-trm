@@ -161,12 +161,14 @@
 		<td align="center" colspan="3" style="height:450px;" valign="top">
 		    &nbsp;
            
-              <asp:GridView ID="m_grv_dm_noi_dung_thanh_toan" runat="server" AutoGenerateColumns="False" 
+              <asp:GridView ID="m_grv_dm_noi_dung_thanh_toan" AllowPaging="true" 
+                runat="server" AutoGenerateColumns="False" 
                 Width="100%" DataKeyNames="ID" 
                   onrowdeleting="m_grv_dm_tu_dien_RowDeleting" 
                 
                 onselectedindexchanging="m_grv_dm_noi_dung_thanh_toan_SelectedIndexChanging" 
-                CellPadding="4" ForeColor="#333333" GridLines="Both">
+                CellPadding="4" ForeColor="#333333" GridLines="Both" AllowSorting="True" 
+                onpageindexchanging="m_grv_dm_noi_dung_thanh_toan_PageIndexChanging">
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">
