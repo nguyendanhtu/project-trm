@@ -38,6 +38,10 @@
 		<td style="width:30%;">
 			<asp:textbox id="m_txt_ten_noi_dung" CssClass="cssTextBox" CausesValidation="false"  runat="server" 
                 MaxLength="64" Width="495px" />
+                &nbsp;
+                <asp:customvalidator id="m_ct_noi_dung" runat="server" 
+                ControlToValidate="m_txt_ten_noi_dung" ErrorMessage="Bạn phải nhập tên nội dung" 
+                Display="Static" Text="*" />
 		</td>
 		<td style="width:5%;"> 
 			&nbsp;</td>
@@ -74,7 +78,11 @@
         <td align="left">
 			<asp:textbox id="m_txt_don_gia" CssClass="cssTextBox"  runat="server" 
                 MaxLength="64" Width="322px" />
-            <asp:RegularExpressionValidator ID="Regex_don_gia" runat="server" Text="*" ErrorMessage="Đơn giá phải là số" ControlToValidate="m_txt_don_gia" ValidationExpression="^\d+$"></asp:RegularExpressionValidator>
+                <asp:customvalidator id="m_ct_don_gia" runat="server" 
+                ControlToValidate="m_txt_don_gia" ErrorMessage="Bạn phải nhập đơn giá" 
+                Display="Static" Text="*" />
+            <asp:RegularExpressionValidator ID="Regex_don_gia" runat="server" Text="" ErrorMessage="Đơn giá phải là số"
+             ControlToValidate="m_txt_don_gia" ValidationExpression="^\d+$"></asp:RegularExpressionValidator>
 		</td>
         <td>&nbsp;</td>
     </tr>

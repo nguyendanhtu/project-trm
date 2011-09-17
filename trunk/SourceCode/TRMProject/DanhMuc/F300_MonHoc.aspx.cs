@@ -21,12 +21,10 @@ public partial class DanhMuc_F300_MonHoc : System.Web.UI.Page
         if (m_init_mode == DataEntryFormMode.UpdateDataState)
         {
             m_cmd_tao_moi.Enabled = false;
-            m_cmd_cap_nhat.Enabled = true;
         }
         else
         {
             m_cmd_tao_moi.Enabled = true;
-            m_cmd_cap_nhat.Enabled = false;
         }
         if (!IsPostBack)
         {
@@ -227,7 +225,6 @@ public partial class DanhMuc_F300_MonHoc : System.Web.UI.Page
         {
             m_init_mode = DataEntryFormMode.UpdateDataState;
             m_cmd_tao_moi.Enabled = false;
-            m_cmd_cap_nhat.Enabled = true;
             m_lbl_mess.Text = "";
             load_data_2_us_by_id(e.NewSelectedIndex);
         }
