@@ -131,8 +131,8 @@
 <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:TemplateField>
                     <asp:BoundField DataField="MA_MON_HOC" HeaderText="Mã môn học" 
-                        Visible="False">
-                        <ItemStyle HorizontalAlign="Center" Width="4%"></ItemStyle></asp:BoundField>
+                        Visible="true">
+                        <ItemStyle HorizontalAlign="Center"></ItemStyle></asp:BoundField>
                     <asp:BoundField DataField="TEN_MON_HOC" HeaderText="Tên môn học" />
                     <asp:BoundField DataField="SO_DVHT" HeaderText="Số đơn vị học trình" 
                         ItemStyle-HorizontalAlign="Center" >

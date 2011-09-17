@@ -85,8 +85,8 @@ public partial class DanhMuc_F300_MonHoc : System.Web.UI.Page
     }
     private void form_2_us_object(US_DM_MON_HOC ip_us_mon_hoc)
     {
-        m_txt_ten_mon.Text = ip_us_mon_hoc.strTEN_MON_HOC;
-        m_txt_ma_mon.Text = ip_us_mon_hoc.strMA_MON_HOC;
+        ip_us_mon_hoc.strTEN_MON_HOC = m_txt_ten_mon.Text;
+        ip_us_mon_hoc.strMA_MON_HOC= m_txt_ma_mon.Text;
         ip_us_mon_hoc.strGHI_CHU = m_txt_ghi_chu.Text;
         ip_us_mon_hoc.dcSO_DVHT = CIPConvert.ToDecimal(m_txt_don_vi_hoc_trinh.Text);
 
@@ -118,6 +118,19 @@ public partial class DanhMuc_F300_MonHoc : System.Web.UI.Page
         // Đẩy us lên form
         us_obj_2_form(v_us_dm_mon_hoc);
     }
+
+    private bool check_ma_mon()
+    {
+        try
+        {
+            if (!m_us_dm_mon_hoc.check_exist_ma_mon(m_txt_ma_mon.Text.TrimEnd())) return false;
+            return true;
+        }
+        catch (Exception v_e)
+        {
+            throw v_e;
+        }
+    }
     #endregion
 
     //
@@ -129,6 +142,11 @@ public partial class DanhMuc_F300_MonHoc : System.Web.UI.Page
         try
         {
            // if (!check_noi_dung_is_ok()) return;
+            if (!check_ma_mon())
+            {
+                m_lbl_mess.Text = "Mã môn này đã tồn tại";
+                return;
+            }
             if (m_init_mode == DataEntryFormMode.UpdateDataState) return;
             form_2_us_object(m_us_dm_mon_hoc);
             m_us_dm_mon_hoc.Insert();
@@ -147,6 +165,11 @@ public partial class DanhMuc_F300_MonHoc : System.Web.UI.Page
             if (hdf_id.Value == "")
             {
                 m_lbl_mess.Text = "Bạn phải chọn nội dung cần Cập nhật";
+                return;
+            }
+            if (!check_ma_mon())
+            {
+                m_lbl_mess.Text = "Mã môn này đã tồn tại";
                 return;
             }
             form_2_us_object(m_us_dm_mon_hoc);
