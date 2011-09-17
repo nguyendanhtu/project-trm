@@ -23,12 +23,10 @@ public partial class DanhMuc_NoiDungThanhToan : System.Web.UI.Page
         if (m_init_mode == DataEntryFormMode.UpdateDataState)
         {
             m_cmd_tao_moi.Enabled = false;
-            m_cmd_cap_nhat.Enabled = true;
         }
         else
         {
             m_cmd_tao_moi.Enabled = true;
-            m_cmd_cap_nhat.Enabled = false;
         }
         if (!IsPostBack)
         {
@@ -233,16 +231,19 @@ public partial class DanhMuc_NoiDungThanhToan : System.Web.UI.Page
         load_data_to_grid();
         m_lbl_mess.Text = "Xóa bản ghi thành công";
     }
+    private bool check_validate()
+    {
+        if (this.m_txt_don_gia.Text.Trim().Equals(""))
+        {
+            this.m_ct_don_gia.IsValid = false;
+            return false;
+        }
+        if (this.m_txt_ten_noi_dung.Text.Trim().Equals(""))
+        {
+            this.m_ct_noi_dung.IsValid = false;
+            return false;
+        }
 
-    // Chỗ này chưa làm
-    private bool check_noi_dung_is_ok()
-    {
-        if (m_txt_ten_noi_dung.Text == "") return false;
-        return true;
-    }
-    private bool check_don_gia_is_ok()
-    {
-        if (m_txt_ten_noi_dung.Text == "") return false;
         return true;
     }
     #endregion
@@ -272,7 +273,6 @@ public partial class DanhMuc_NoiDungThanhToan : System.Web.UI.Page
     {
         try
         {
-            if (!check_noi_dung_is_ok()) return;
             if (m_init_mode == DataEntryFormMode.UpdateDataState) return;
             form_2_us_object(m_us_dm_noi_dung_thanh_toan);
             m_us_dm_noi_dung_thanh_toan.Insert();
@@ -292,7 +292,6 @@ public partial class DanhMuc_NoiDungThanhToan : System.Web.UI.Page
         {
             m_init_mode = DataEntryFormMode.UpdateDataState;
             m_cmd_tao_moi.Enabled = false;
-            m_cmd_cap_nhat.Enabled = true;
             m_lbl_mess.Text = "";
             load_data_2_us_by_id(e.NewSelectedIndex);            
         }
@@ -351,7 +350,6 @@ public partial class DanhMuc_NoiDungThanhToan : System.Web.UI.Page
             CSystemLog_301.ExceptionHandle(this, v_e);
         }
     }
-
 
     protected void m_grv_dm_noi_dung_thanh_toan_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {
