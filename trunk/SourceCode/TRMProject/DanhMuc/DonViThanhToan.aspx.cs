@@ -15,12 +15,10 @@ public partial class DanhMuc_DonViThanhToan : System.Web.UI.Page
         if (m_init_mode == DataEntryFormMode.UpdateDataState)
         {
             m_cmd_tao_moi.Enabled = false;
-            m_cmd_cap_nhat.Enabled = true;
         }
         else
         {
             m_cmd_tao_moi.Enabled = true;
-            m_cmd_cap_nhat.Enabled = false;
         }
         if (!IsPostBack)
         {
@@ -243,7 +241,6 @@ public partial class DanhMuc_DonViThanhToan : System.Web.UI.Page
         {
             m_lbl_mess.Text = "";
             m_cmd_tao_moi.Enabled = false;
-            m_cmd_cap_nhat.Enabled = true;
             m_init_mode = DataEntryFormMode.UpdateDataState;
             load_update_don_vi_thanh_toan(e.NewSelectedIndex);
         }
