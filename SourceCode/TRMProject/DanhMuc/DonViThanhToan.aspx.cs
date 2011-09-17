@@ -120,11 +120,6 @@ public partial class DanhMuc_DonViThanhToan : System.Web.UI.Page
             {
                 if (!check_validate()) return;
                 if (m_hdf_id_dm_don_vi_thanh_toan.Value == "") { m_lbl_mess.Text = "Bạn phải chọn đơn vị cần Cập nhật."; return; }
-                if (!check_ma_don_vi())
-                {
-                    m_lbl_mess.Text = "Mã đơn vị này đã tồn tại";
-                    return;
-                }
                 form_to_us_object();
                 m_us_dm_don_vi_thanh_toan.dcID = CIPConvert.ToDecimal(m_hdf_id_dm_don_vi_thanh_toan.Value);
                 m_us_dm_don_vi_thanh_toan.Update();
