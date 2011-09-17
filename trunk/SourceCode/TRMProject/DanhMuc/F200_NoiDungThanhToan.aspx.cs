@@ -233,17 +233,16 @@ public partial class DanhMuc_NoiDungThanhToan : System.Web.UI.Page
     }
     private bool check_validate()
     {
-        if (this.m_txt_don_gia.Text.Trim().Equals(""))
-        {
-            this.m_ct_don_gia.IsValid = false;
-            return false;
-        }
         if (this.m_txt_ten_noi_dung.Text.Trim().Equals(""))
         {
             this.m_ct_noi_dung.IsValid = false;
             return false;
         }
-
+        if (this.m_txt_don_gia.Text.Trim().Equals(""))
+        {
+            this.m_ct_don_gia.IsValid = false;
+            return false;
+        }
         return true;
     }
     #endregion
@@ -273,6 +272,7 @@ public partial class DanhMuc_NoiDungThanhToan : System.Web.UI.Page
     {
         try
         {
+            if (!check_validate()) return;
             if (m_init_mode == DataEntryFormMode.UpdateDataState) return;
             form_2_us_object(m_us_dm_noi_dung_thanh_toan);
             m_us_dm_noi_dung_thanh_toan.Insert();
