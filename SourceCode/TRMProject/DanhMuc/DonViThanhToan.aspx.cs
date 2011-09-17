@@ -11,6 +11,7 @@ public partial class DanhMuc_DonViThanhToan : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        m_lbl_mess.Text = "";
         if (m_init_mode == DataEntryFormMode.UpdateDataState)
         {
             m_cmd_tao_moi.Enabled = false;
