@@ -214,5 +214,17 @@ public class US_DM_DON_VI_THANH_TOAN : US_Object
 		pm_objDR = getRowClone(pm_objDS.Tables[pm_strTableName].Rows[0]);
 	}
 #endregion
+
+    #region Additional function
+    public bool check_exist_ma_don_vi(string ip_str_ma_don_vi)
+    {
+        US_DM_DON_VI_THANH_TOAN v_us_don_vi_thanh_toan = new US_DM_DON_VI_THANH_TOAN();
+        DS_DM_DON_VI_THANH_TOAN v_ds_don_vi_thanh_toan = new DS_DM_DON_VI_THANH_TOAN();
+
+        v_us_don_vi_thanh_toan.FillDataset(v_ds_don_vi_thanh_toan, " where MA_DON_VI = '" + ip_str_ma_don_vi + "'");
+        if (v_ds_don_vi_thanh_toan.DM_DON_VI_THANH_TOAN.Rows.Count == 0) return true;
+        return false;
+    }
+    #endregion
 	}
 }
