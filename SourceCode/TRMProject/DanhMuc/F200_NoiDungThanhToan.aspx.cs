@@ -19,9 +19,17 @@ public partial class DanhMuc_NoiDungThanhToan : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        m_lbl_mess.Text = "";
         if (m_init_mode == DataEntryFormMode.UpdateDataState)
+        {
             m_cmd_tao_moi.Enabled = false;
-        else m_cmd_tao_moi.Enabled = true;
+            m_cmd_cap_nhat.Enabled = true;
+        }
+        else
+        {
+            m_cmd_tao_moi.Enabled = true;
+            m_cmd_cap_nhat.Enabled = false;
+        }
         if (!IsPostBack)
         {
             load_data_to_grid();
@@ -268,6 +276,7 @@ public partial class DanhMuc_NoiDungThanhToan : System.Web.UI.Page
             if (m_init_mode == DataEntryFormMode.UpdateDataState) return;
             form_2_us_object(m_us_dm_noi_dung_thanh_toan);
             m_us_dm_noi_dung_thanh_toan.Insert();
+            m_lbl_mess.Text = "Thêm bản ghi thành công !";
             reset_control();
             load_data_to_grid();
         }
@@ -283,6 +292,7 @@ public partial class DanhMuc_NoiDungThanhToan : System.Web.UI.Page
         {
             m_init_mode = DataEntryFormMode.UpdateDataState;
             m_cmd_tao_moi.Enabled = false;
+            m_cmd_cap_nhat.Enabled = true;
             m_lbl_mess.Text = "";
             load_data_2_us_by_id(e.NewSelectedIndex);            
         }
