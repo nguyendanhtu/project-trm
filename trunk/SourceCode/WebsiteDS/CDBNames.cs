@@ -34,6 +34,15 @@ namespace WebDS.CDBNames
         public const string MA_TU_DIEN = "MA_TU_DIEN";
         public const string TEN_NGAN = "TEN_NGAN";
     }
+    class DM_MON_HOC
+    {
+        public const string ID = "ID";
+        public const string MA_MON_HOC = "MA_MON_HOC";
+        public const string TEN_MON_HOC = "TEN_MON_HOC";
+        public const string SO_DVHT = "SO_DVHT";
+        public const string GHI_CHU = "GHI_CHU";
+    }
+
     class DM_NOI_DUNG_THANH_TOAN
     {
         public const string ID = "ID";
