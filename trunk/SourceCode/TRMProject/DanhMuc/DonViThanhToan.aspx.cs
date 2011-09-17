@@ -11,6 +11,16 @@ public partial class DanhMuc_DonViThanhToan : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if (m_init_mode == DataEntryFormMode.UpdateDataState)
+        {
+            m_cmd_tao_moi.Enabled = false;
+            m_cmd_cap_nhat.Enabled = true;
+        }
+        else
+        {
+            m_cmd_tao_moi.Enabled = true;
+            m_cmd_cap_nhat.Enabled = false;
+        }
         if (!IsPostBack)
         {
             try
@@ -32,6 +42,7 @@ public partial class DanhMuc_DonViThanhToan : System.Web.UI.Page
     US_DM_DON_VI_THANH_TOAN m_us_dm_don_vi_thanh_toan = new US_DM_DON_VI_THANH_TOAN();
     DS_DM_DON_VI_THANH_TOAN m_ds_dm_don_vi_thanh_toan = new DS_DM_DON_VI_THANH_TOAN();
 
+    DataEntryFormMode m_init_mode = DataEntryFormMode.ViewDataState;
     #endregion
     #region Methods
     private bool check_validate()
@@ -87,6 +98,18 @@ public partial class DanhMuc_DonViThanhToan : System.Web.UI.Page
         m_txt_dia_chi.Text = "";
         m_txt_cap_tai.Text = "";
     }
+    private bool check_ma_don_vi()
+    {
+        try
+        {
+            if (!m_us_dm_don_vi_thanh_toan.check_exist_ma_don_vi(m_txt_ma_don_vi.Text.TrimEnd())) return false;
+            return true;
+        }
+        catch (Exception v_e)
+        {
+            throw v_e;
+        }
+    }
     private void update_don_vi_thanh_toan()
     {
         try
@@ -95,12 +118,18 @@ public partial class DanhMuc_DonViThanhToan : System.Web.UI.Page
             if (Page.IsValid)
             {
                 if (!check_validate()) return;
-                if (m_id_dm_don_vi_thanh_toan.Value == "") { m_lbl_mess.Text = "Bạn phải chọn đơn vị cần Cập nhật."; return; }
+                if (m_hdf_id_dm_don_vi_thanh_toan.Value == "") { m_lbl_mess.Text = "Bạn phải chọn đơn vị cần Cập nhật."; return; }
+                if (!check_ma_don_vi())
+                {
+                    m_lbl_mess.Text = "Mã đơn vị này đã tồn tại";
+                    return;
+                }
                 form_to_us_object();
-                m_us_dm_don_vi_thanh_toan.dcID = CIPConvert.ToDecimal(m_id_dm_don_vi_thanh_toan.Value);
+                m_us_dm_don_vi_thanh_toan.dcID = CIPConvert.ToDecimal(m_hdf_id_dm_don_vi_thanh_toan.Value);
                 m_us_dm_don_vi_thanh_toan.Update();
                 m_lbl_mess.Text = "Đã cập nhật bản ghi thành công.";
                 reset_control();
+                m_init_mode = DataEntryFormMode.ViewDataState;
                 m_grv_dm_don_vi_thanh_toan.EditIndex = -1;
                 load_data_to_grid();
             }
@@ -119,6 +148,7 @@ public partial class DanhMuc_DonViThanhToan : System.Web.UI.Page
             m_us_dm_don_vi_thanh_toan.DeleteByID(v_dc_id_don_vi_thanh_toan);
             load_data_to_grid();
             m_lbl_mess.Text = "Xóa bản ghi thành công.";
+            reset_control();
         }
         catch (Exception v_e)
         {
@@ -153,7 +183,7 @@ public partial class DanhMuc_DonViThanhToan : System.Web.UI.Page
         {
             decimal v_dc_id_don_vi_thanh_toan = CIPConvert.ToDecimal(m_grv_dm_don_vi_thanh_toan.DataKeys[i_int_row_index].Value);
             US_DM_DON_VI_THANH_TOAN v_us_dm_don_vi_thanh_toan = new US_DM_DON_VI_THANH_TOAN(v_dc_id_don_vi_thanh_toan);
-            m_id_dm_don_vi_thanh_toan.Value = CIPConvert.ToStr(v_dc_id_don_vi_thanh_toan);
+            m_hdf_id_dm_don_vi_thanh_toan.Value = CIPConvert.ToStr(v_dc_id_don_vi_thanh_toan);
             us_object_to_form(v_us_dm_don_vi_thanh_toan);
         }
         catch (Exception v_e)
@@ -162,14 +192,17 @@ public partial class DanhMuc_DonViThanhToan : System.Web.UI.Page
         }
     }
     #endregion
+
     #region Data Structures
     #endregion
+
     #region Events
     protected void m_cmd_tao_moi_Click(object sender, EventArgs e)
     {
         try
         {
             m_lbl_mess.Text = "";
+            if (m_init_mode == DataEntryFormMode.UpdateDataState) return;
             insert_don_vi_thanh_toan();
         }
         catch (Exception v_e)
@@ -185,7 +218,6 @@ public partial class DanhMuc_DonViThanhToan : System.Web.UI.Page
         {
             m_lbl_mess.Text = "";
             update_don_vi_thanh_toan();
-
         }
         catch (Exception v_e)
         {
@@ -208,15 +240,15 @@ public partial class DanhMuc_DonViThanhToan : System.Web.UI.Page
         }
 
     }
-    protected void m_grv_dm_don_vi_thanh_toan_SelectedIndexChanged(object sender, EventArgs e)
-    {
 
-    }
     protected void m_grv_dm_don_vi_thanh_toan_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
     {
         try
         {
             m_lbl_mess.Text = "";
+            m_cmd_tao_moi.Enabled = false;
+            m_cmd_cap_nhat.Enabled = true;
+            m_init_mode = DataEntryFormMode.UpdateDataState;
             load_update_don_vi_thanh_toan(e.NewSelectedIndex);
         }
         catch (Exception v_e)

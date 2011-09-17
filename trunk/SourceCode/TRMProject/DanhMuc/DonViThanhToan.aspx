@@ -37,13 +37,14 @@
 		</td>
 		<td style="width:30%;">
 			<asp:textbox id="m_txt_ma_don_vi" CssClass="cssTextBox"  runat="server" 
-                MaxLength="64" Width="64%" />
-		</td>
-		<td style="width:5%;"> 
+                MaxLength="64" Width="55%" />
+		&nbsp;&nbsp; 
 			<asp:customvalidator id="m_ctv_ma_don_vi" runat="server" 
                 ControlToValidate="m_txt_ma_don_vi" ErrorMessage="Bạn phải nhập mã đơn vị" 
                 Display="Static" Text="*" />
-        </td>
+		</td>
+		<td style="width:5%;"> 
+			&nbsp;</td>
 	</tr>
 	    <tr>
 		<td align="right" >
@@ -52,13 +53,14 @@
 		    </td>
 		<td align="left">
 			<asp:textbox id="m_txt_ten_don_vi" CssClass="cssTextBox"  runat="server" 
-                MaxLength="64" Width="64%" />
-            </td>
-		<td >
+                MaxLength="64" Width="516px" />
+            &nbsp;&nbsp;
 			<asp:customvalidator id="m_ctv_ten_don_vi" runat="server" 
                 ControlToValidate="m_txt_ten_don_vi" ErrorMessage="Bạn phải nhập tên đơn vị" 
                 Display="Static" Text="*" />
-               </td>
+            </td>
+		<td >
+			&nbsp;</td>
 		</tr>
 	<tr>
 		<td align="right" >
@@ -67,7 +69,7 @@
 		</td>
 		<td align="left">
 			<asp:textbox id="m_txt_dia_chi" CssClass="cssTextBox"  runat="server" 
-                MaxLength="64" Width="64%" />
+                MaxLength="64" Width="516px" />
         </td>
 		<td >
 			&nbsp;</td>
@@ -79,20 +81,16 @@
 		</td>
         <td align="left">
 			<asp:textbox id="m_txt_so_dien_thoai" CssClass="cssTextBox"  runat="server" 
-                MaxLength="64" Width="64%" />
+                MaxLength="64" Width="215px" />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<asp:label id="lbl_so_tai_khoan" CssClass="cssManField" runat="server" 
+                Text="&lt;U&gt;S&lt;/U&gt;ố tài khoản" />
+		    &nbsp;&nbsp;
+			<asp:textbox id="m_txt_so_tai_khoan" CssClass="cssTextBox"  runat="server" 
+                MaxLength="64" Width="170px" />
 		</td>
         <td>&nbsp;</td>
     </tr>
-	    <tr>
-		<td align="right">
-			<asp:label id="lbl_so_tai_khoan" CssClass="cssManField" runat="server" 
-                Text="&lt;U&gt;S&lt;/U&gt;ố tài khoản" />
-		    </td>
-		<td valign="top" colspan="2">
-			<asp:textbox id="m_txt_so_tai_khoan" CssClass="cssTextBox"  runat="server" 
-                MaxLength="64" Width="55%" />
-            </td>
-	    </tr>
 	<tr>
 		<td align="right" class="style1">
 			<asp:label id="lbl_cap_tai" CssClass="cssManField" runat="server" 
@@ -100,7 +98,7 @@
 		</td>
 		<td valign="top" colspan="2" class="style1">
 			<asp:textbox id="m_txt_cap_tai" CssClass="cssTextBox"  runat="server" 
-                MaxLength="64" Width="55%" />
+                MaxLength="64" Width="516px" />
         </td>
 	</tr>	
 	<tr>
@@ -110,14 +108,14 @@
 		</td>
 		<td valign="top" colspan="2">
 			<asp:textbox id="m_txt_ma_so_thue" CssClass="cssTextBox"  runat="server" 
-                MaxLength="64" Width="55%" />
+                MaxLength="64" Width="215px" />
         </td>
 	</tr>	
 	<tr>
 		<td align="right">
 			&nbsp;</td>
 		<td valign="top" colspan="2">
-		    <asp:HiddenField ID="m_id_dm_don_vi_thanh_toan" runat="server" 
+		    <asp:HiddenField ID="m_hdf_id_dm_don_vi_thanh_toan" runat="server" 
                 Visible="False" />
         </td>
 	</tr>	
@@ -154,7 +152,7 @@
               <asp:GridView ID="m_grv_dm_don_vi_thanh_toan" runat="server" AutoGenerateColumns="False" 
                 Width="100%" DataKeyNames="ID" 
                 onrowdeleting="m_grv_dm_don_vi_thanh_toan_RowDeleting" 
-                onselectedindexchanged="m_grv_dm_don_vi_thanh_toan_SelectedIndexChanged" onselectedindexchanging="m_grv_dm_don_vi_thanh_toan_SelectedIndexChanging" 
+                 onselectedindexchanging="m_grv_dm_don_vi_thanh_toan_SelectedIndexChanging" 
                 >
                 <Columns>
                     <asp:TemplateField HeaderText="STT"><ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate></asp:TemplateField>

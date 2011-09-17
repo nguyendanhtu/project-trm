@@ -18,8 +18,15 @@ public partial class DanhMuc_F300_MonHoc : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         if (m_init_mode == DataEntryFormMode.UpdateDataState)
+        {
             m_cmd_tao_moi.Enabled = false;
-        else m_cmd_tao_moi.Enabled = true;
+            m_cmd_cap_nhat.Enabled = true;
+        }
+        else
+        {
+            m_cmd_tao_moi.Enabled = true;
+            m_cmd_cap_nhat.Enabled = false;
+        }
         if (!IsPostBack)
         {
             load_data_to_grid();
@@ -141,7 +148,7 @@ public partial class DanhMuc_F300_MonHoc : System.Web.UI.Page
     {
         try
         {
-           // if (!check_noi_dung_is_ok()) return;
+            if (!check_validate()) return;
             if (!check_ma_mon())
             {
                 m_lbl_mess.Text = "Mã môn này đã tồn tại";
@@ -150,6 +157,7 @@ public partial class DanhMuc_F300_MonHoc : System.Web.UI.Page
             if (m_init_mode == DataEntryFormMode.UpdateDataState) return;
             form_2_us_object(m_us_dm_mon_hoc);
             m_us_dm_mon_hoc.Insert();
+            m_lbl_mess.Text = "Thêm bản ghi thành công";
             reset_control();
             load_data_to_grid();
         }
@@ -167,6 +175,7 @@ public partial class DanhMuc_F300_MonHoc : System.Web.UI.Page
                 m_lbl_mess.Text = "Bạn phải chọn nội dung cần Cập nhật";
                 return;
             }
+            if (!check_validate()) return;
             if (!check_ma_mon())
             {
                 m_lbl_mess.Text = "Mã môn này đã tồn tại";
