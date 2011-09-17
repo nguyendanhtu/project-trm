@@ -122,7 +122,9 @@
                 Width="100%" DataKeyNames="ID" 
                 CellPadding="4" ForeColor="#333333" GridLines="Both" 
                 onrowdeleting="m_grv_dm_mon_hoc_RowDeleting" 
-                onselectedindexchanging="m_grv_dm_mon_hoc_SelectedIndexChanging">
+                onselectedindexchanging="m_grv_dm_mon_hoc_SelectedIndexChanging" 
+                AllowPaging="True" AllowSorting="True" 
+                onpageindexchanging="m_grv_dm_mon_hoc_PageIndexChanging">
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">

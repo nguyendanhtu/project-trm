@@ -225,4 +225,16 @@ public partial class DanhMuc_F300_MonHoc : System.Web.UI.Page
             CSystemLog_301.ExceptionHandle(this, v_e);
         }
     }
+    protected void m_grv_dm_mon_hoc_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+        try
+        {
+            m_grv_dm_mon_hoc.PageIndex = e.NewPageIndex;
+            load_data_to_grid();
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(this,v_e);
+        }
+    }
 }
