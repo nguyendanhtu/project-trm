@@ -50,7 +50,7 @@
                 CausesValidation="false"  runat="server" 
                 MaxLength="64" Width="505px" />
                 <asp:customvalidator id="m_ctv_ten_mon" runat="server" 
-                ControlToValidate="m_txt_ten_mon" ErrorMessage="Bạn phải nhập Mã môn" 
+                ControlToValidate="m_txt_ten_mon" ErrorMessage="Bạn phải nhập Tên môn" 
                 Display="Static" Text="*" />
             </td>
 		<td >
@@ -65,9 +65,10 @@
 			<asp:textbox id="m_txt_don_vi_hoc_trinh" CssClass="cssTextBox"  runat="server" 
                 MaxLength="64" Width="320px" />
             <asp:RegularExpressionValidator ID="Regex_DVHT"
-             runat="server" ErrorMessage="Số đơn vị học trình phải là số" ControlToValidate="m_txt_don_vi_hoc_trinh" ValidationExpression="^\d+$"></asp:RegularExpressionValidator>
+             runat="server" ErrorMessage="Số đơn vị học trình phải là số" ControlToValidate="m_txt_don_vi_hoc_trinh" 
+             ValidationExpression="^\d+$"></asp:RegularExpressionValidator>
                 <asp:customvalidator id="m_ctv_don_vi_hoc_trinh" runat="server" 
-                ControlToValidate="m_txt_don_vi_hoc_trinh" ErrorMessage="Bạn phải nhập Mã môn" 
+                ControlToValidate="m_txt_don_vi_hoc_trinh" ErrorMessage="Bạn phải nhập Số đơn vị học trình" 
                 Display="Static" Text="*" />
 		</td>
         <td>&nbsp;</td>
@@ -124,8 +125,7 @@
                 onrowdeleting="m_grv_dm_mon_hoc_RowDeleting" 
                 onselectedindexchanging="m_grv_dm_mon_hoc_SelectedIndexChanging" 
                 AllowPaging="True" AllowSorting="True" 
-                onpageindexchanging="m_grv_dm_mon_hoc_PageIndexChanging" 
-                onselectedindexchanged="m_grv_dm_mon_hoc_SelectedIndexChanged" PageSize="15">
+                onpageindexchanging="m_grv_dm_mon_hoc_PageIndexChanging" PageSize="20">
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">
