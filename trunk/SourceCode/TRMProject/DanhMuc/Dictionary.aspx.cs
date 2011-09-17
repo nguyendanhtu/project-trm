@@ -23,6 +23,7 @@ public partial class DanhMuc_Dictionary : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        m_lbl_mess.Text = "";
         try {
             if (!this.IsPostBack) {
                 load_cbo_loai_tu_dien();

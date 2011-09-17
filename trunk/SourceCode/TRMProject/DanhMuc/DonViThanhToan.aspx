@@ -13,7 +13,7 @@
 	<tr>
 		<td class="cssPageTitleBG" colspan="3">
 		    <asp:label id="lblUser" runat="server" CssClass="cssPageTitle" 
-                Text="Danh mục &lt;&gt;"/>
+                Text="Danh mục Đơn vị thanh toán"/>
 		</td>
 	</tr>
 	<tr>
@@ -136,7 +136,7 @@
     <tr>
 		<td class="cssPageTitleBG" colspan="3">
 		    <asp:label id="Label11" runat="server" CssClass="cssPageTitle" 
-                Text="Danh sách &lt;&gt;"/>
+                Text="Danh sách Đơn vị thanh toán"/>
 		</td>
 	</tr>	
     <tr>
@@ -166,7 +166,11 @@
                     <asp:BoundField DataField="SO_TAI_KHOAN" HeaderText="Số tài khoản" />
                     <asp:BoundField DataField="CAP_TAI" HeaderText="Cấp tại" />
                     <asp:BoundField DataField="MA_SO_THUE" HeaderText="Mã số thuế" />
-                  <asp:CommandField DeleteText="Xóa" ShowDeleteButton="True" />
+                  <asp:TemplateField>
+                    <ItemTemplate> <asp:LinkButton ID = "lbt_delete" runat="server" Text="Xóa" 
+                     CommandName="Delete" OnClientClick="return confirm ('Bạn có thực sự muốn xóa bản ghi này?')"></asp:LinkButton>
+                    </ItemTemplate>
+                    </asp:TemplateField>
                     <asp:CommandField SelectText="Sửa" ShowSelectButton="True" />
                 </Columns>
                 <SelectedRowStyle CssClass="cssSelectedRow"></SelectedRowStyle>
