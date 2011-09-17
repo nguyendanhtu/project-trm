@@ -124,7 +124,8 @@
                 onrowdeleting="m_grv_dm_mon_hoc_RowDeleting" 
                 onselectedindexchanging="m_grv_dm_mon_hoc_SelectedIndexChanging" 
                 AllowPaging="True" AllowSorting="True" 
-                onpageindexchanging="m_grv_dm_mon_hoc_PageIndexChanging">
+                onpageindexchanging="m_grv_dm_mon_hoc_PageIndexChanging" 
+                onselectedindexchanged="m_grv_dm_mon_hoc_SelectedIndexChanged" PageSize="15">
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">
