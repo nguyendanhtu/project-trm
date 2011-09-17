@@ -13,6 +13,7 @@ using IP.Core.IPUserService;
 using System.Data.SqlClient;
 using System.Data;
 using WebDS;
+using WebDS.CDBNames;
 
 
 namespace WebUS{
@@ -150,5 +151,17 @@ public class US_DM_MON_HOC : US_Object
 		pm_objDR = getRowClone(pm_objDS.Tables[pm_strTableName].Rows[0]);
 	}
 #endregion
-	}
+
+    #region Additional functions
+    public bool check_exist_ma_mon(string ip_str_ma_mon)
+    {
+        US_DM_MON_HOC v_us_mon_hoc = new US_DM_MON_HOC();
+        DS_DM_MON_HOC v_ds_mon_hoc = new DS_DM_MON_HOC();
+
+        v_us_mon_hoc.FillDataset(v_ds_mon_hoc, " where MA_MON_HOC = '" + ip_str_ma_mon + "'");
+        if (v_ds_mon_hoc.DM_MON_HOC.Rows.Count == 0) return true;
+        return false;
+    }
+    #endregion
+}
 }
