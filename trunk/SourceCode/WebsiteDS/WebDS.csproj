@@ -78,6 +78,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_GD_LOP_MON.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DS_V_DM_GIANG_VIEN.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_V_DM_GIANG_VIEN.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DS_V_DM_NOI_DUNG_THANH_TOAN.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -135,6 +140,17 @@
     </None>
     <None Include="DS_GD_LOP_MON.xss">
       <DependentUpon>DS_GD_LOP_MON.xsd</DependentUpon>
+    </None>
+    <None Include="DS_V_DM_GIANG_VIEN.xsc">
+      <DependentUpon>DS_V_DM_GIANG_VIEN.xsd</DependentUpon>
+    </None>
+    <None Include="DS_V_DM_GIANG_VIEN.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_V_DM_GIANG_VIEN.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS_V_DM_GIANG_VIEN.xss">
+      <DependentUpon>DS_V_DM_GIANG_VIEN.xsd</DependentUpon>
     </None>
     <None Include="DS_V_DM_NOI_DUNG_THANH_TOAN.xsc">
       <DependentUpon>DS_V_DM_NOI_DUNG_THANH_TOAN.xsd</DependentUpon>
