@@ -20,7 +20,7 @@ namespace WebDS.CDBNames
         public const string MA_LOAI = "MA_LOAI";
         public const string TEN_LOAI = "TEN_LOAI";
     }
-    class V_DM_NOI_DUNG_THANH_TOAN
+    public class V_DM_NOI_DUNG_THANH_TOAN
     {
         public const string ID = "ID";
         public const string TEN_NOI_DUNG = "TEN_NOI_DUNG";
@@ -34,7 +34,7 @@ namespace WebDS.CDBNames
         public const string MA_TU_DIEN = "MA_TU_DIEN";
         public const string TEN_NGAN = "TEN_NGAN";
     }
-    class DM_MON_HOC
+    public class DM_MON_HOC
     {
         public const string ID = "ID";
         public const string MA_MON_HOC = "MA_MON_HOC";
@@ -43,7 +43,7 @@ namespace WebDS.CDBNames
         public const string GHI_CHU = "GHI_CHU";
     }
 
-    class DM_NOI_DUNG_THANH_TOAN
+    public class DM_NOI_DUNG_THANH_TOAN
     {
         public const string ID = "ID";
         public const string TEN_NOI_DUNG = "TEN_NOI_DUNG";
@@ -55,7 +55,7 @@ namespace WebDS.CDBNames
         public const string HOC_LIEU_YN = "HOC_LIEU_YN";
         public const string VAN_HANH_YN = "VAN_HANH_YN";
     }
-    class DM_DON_VI_THANH_TOAN
+    public class DM_DON_VI_THANH_TOAN
     {
         public const string ID = "ID";
         public const string MA_DON_VI = "MA_DON_VI";
