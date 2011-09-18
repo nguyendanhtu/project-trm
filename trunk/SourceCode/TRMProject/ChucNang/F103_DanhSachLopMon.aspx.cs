@@ -15,6 +15,7 @@ public partial class ChuNang_F103_DanhSachLopMon : System.Web.UI.Page
     {
         try {
             if (!this.IsPostBack) {
+                
                 load_2_cbo_dm_mon_hoc();
             }
         }
@@ -96,31 +97,41 @@ public partial class ChuNang_F103_DanhSachLopMon : System.Web.UI.Page
             }else if (m_rbt_online_yn.SelectedValue == "N") v_str_online_yn = "N";
             else if (m_rbt_online_yn.SelectedValue == "ALL") v_str_online_yn = "ALL";
             //
-            if (m_rbt_offline_yn.SelectedIndex == 0)
+            if (m_rbt_offline_yn.SelectedValue == "Y")
             {
                 v_str_offline_yn = "Y";
             }else if (m_rbt_offline_yn.SelectedValue == "N") v_str_offline_yn = "N";
             else if (m_rbt_offline_yn.SelectedValue == "ALL") v_str_offline_yn = "ALL";
             //
-            if (m_rbt_bt_gky_yn.SelectedIndex == 0)
+            if (m_rbt_bt_gky_yn.SelectedValue == "Y")
             {
                 v_str_bt_gky_yn = "Y";
             }
             else if (m_rbt_bt_gky_yn.SelectedValue == "N") v_str_bt_gky_yn = "N";
             else if (m_rbt_bt_gky_yn.SelectedValue == "ALL") v_str_bt_gky_yn = "ALL";
             #endregion
+            string v_str_ngay_bat_dau_tu = "01/01/1900", v_str_ngay_bat_dau_den = "01/01/1900", v_str_ngay_ket_thuc_tu = "01/01/1900",
+                v_str_ngay_ket_thuc_den ="01/01/1900",v_str_ngay_thi_tu ="01/01/1900",v_str_ngay_thi_den="01/01/1900";
+            if(m_dat_ngay_bat_dau_tu.SelectedDate!=CIPConvert.ToDatetime("01/01/0001","dd/MM/yyyy")) v_str_ngay_bat_dau_tu =CIPConvert.ToStr(m_dat_ngay_bat_dau_tu.SelectedDate,"dd/MM/yyyy");
+            if (m_dat_ngay_bat_dau_den.SelectedDate != CIPConvert.ToDatetime("01/01/0001", "dd/MM/yyyy")) v_str_ngay_bat_dau_den = CIPConvert.ToStr(m_dat_ngay_bat_dau_den.SelectedDate, "dd/MM/yyyy");
+            if (m_dat_ngay_ket_thuc_tu.SelectedDate != CIPConvert.ToDatetime("01/01/0001", "dd/MM/yyyy")) v_str_ngay_ket_thuc_tu = CIPConvert.ToStr(m_dat_ngay_ket_thuc_tu.SelectedDate, "dd/MM/yyyy");
+            if (m_dat_ngay_ket_thuc_den.SelectedDate != CIPConvert.ToDatetime("01/01/0001", "dd/MM/yyyy")) v_str_ngay_ket_thuc_den = CIPConvert.ToStr(m_dat_ngay_ket_thuc_den.SelectedDate, "dd/MM/yyyy");
+            if (m_dat_ngay_thi_tu.SelectedDate != CIPConvert.ToDatetime("01/01/0001", "dd/MM/yyyy")) v_str_ngay_thi_tu = CIPConvert.ToStr(m_dat_ngay_thi_tu.SelectedDate, "dd/MM/yyyy");
+            if (m_dat_ngay_thi_den.SelectedDate != CIPConvert.ToDatetime("01/01/0001", "dd/MM/yyyy")) v_str_ngay_thi_den = CIPConvert.ToStr(m_dat_ngay_thi_den.SelectedDate, "dd/MM/yyyy");
+
+           
             m_us_gd_lop_mon.fill_data_by_search(CIPConvert.ToDecimal(m_cbo_dm_mon_hoc.SelectedValue)
                             ,v_str_online_yn
                             ,v_str_offline_yn
                             ,v_str_bt_gky_yn
                             , m_txt_tu_khoa_tim_kiem.Text
-                            ,CIPConvert.ToStr(m_dat_ngay_bat_dau_tu.SelectedDate,"dd/MM/yyyy")
-                            , CIPConvert.ToStr(m_dat_ngay_bat_dau_den.SelectedDate, "dd/MM/yyyy")
-                            ,CIPConvert.ToStr(m_dat_ngay_ket_thuc_tu.SelectedDate, "dd/MM/yyyy")
-                            , CIPConvert.ToStr(m_dat_ngay_ket_thuc_den.SelectedDate, "dd/MM/yyyy")
-                            , CIPConvert.ToStr(m_dat_ngay_thi_tu.SelectedDate, "dd/MM/yyyy")
-                            , CIPConvert.ToStr(m_dat_ngay_thi_den.SelectedDate, "dd/MM/yyyy")
-                           , m_ds_gd_lop_mon);
+                            , v_str_ngay_bat_dau_tu
+                            ,v_str_ngay_bat_dau_den
+                            ,v_str_ngay_ket_thuc_tu
+                            , v_str_ngay_ket_thuc_den
+                            , v_str_ngay_thi_tu
+                            , v_str_ngay_thi_den
+                            , m_ds_gd_lop_mon);
             m_grv.DataSource = m_ds_gd_lop_mon.GD_LOP_MON;
             m_grv.DataBind();
         }
