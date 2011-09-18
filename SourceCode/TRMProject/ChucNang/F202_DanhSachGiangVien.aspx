@@ -30,7 +30,7 @@
 	<tr>
 		<td align="right" style="width:15%;">
 			<asp:label id="lbl_content" CssClass="cssManField" runat="server" 
-                Text="&lt;U&gt;T&lt;/U&gt;ên nội dung" />
+                Text="&lt;U&gt;M&lt;/U&gt;ã giảng viên" />
 		</td>
 		<td style="width:30%;">
 			<asp:textbox id="m_txt_ten_noi_dung" CssClass="cssTextBox" CausesValidation="false"  runat="server" 
@@ -141,12 +141,12 @@
 		<td colspan="2" align="left">
 			<asp:button id="m_cmd_tao_moi" accessKey="c" CssClass="cssButton" 
                 runat="server" Width="98px" Text="Tạo mới(c)" 
-                onclick="m_cmd_tao_moi_Click" />&nbsp;
+               />&nbsp;
 			<asp:button id="m_cmd_cap_nhat" accessKey="u" CssClass="cssButton" 
                 runat="server" Width="98px" Text="Cập nhật(u)" 
-                onclick="m_cmd_cap_nhat_Click"  />&nbsp;
+                 />&nbsp;
 			<asp:button id="btnCancel" accessKey="r" CssClass="cssButton" runat="server" 
-                Width="98px" Text="Xóa trắng(r)" onclick="btnCancel_Click" />
+                Width="98px" Text="Xóa trắng(r)"  />
                 <asp:HiddenField ID="hdf_id" runat = "server" Value="" />
 		</td>
 	</tr>
@@ -162,8 +162,11 @@
 		</td>
 	</tr>	
     <tr>
-		<td align="right">
-			&nbsp;</td>
+		<td align="left">
+        &nbsp;<asp:button id="cmd_them_moi" accessKey="c" CssClass="cssButton" 
+                runat="server" Width="98px" Text="Tạo mới(c)" 
+                onclick="cmd_them_moi_Click"/>
+        </td>
         <td >
 		    &nbsp;</td>
 	</tr>	
@@ -171,14 +174,11 @@
 		<td align="center" colspan="3" style="height:450px;" valign="top">
 		    &nbsp;
            
-              <asp:GridView ID="m_grv_dm_danh_sach_giang_vien" AllowPaging="true" 
+            <asp:GridView ID="m_grv_dm_danh_sach_giang_vien" AllowPaging="true" 
                 runat="server" AutoGenerateColumns="False" 
-                Width="100%" DataKeyNames="ID" 
-                  onrowdeleting="m_grv_dm_tu_dien_RowDeleting" 
-                
-                onselectedindexchanging="m_grv_dm_noi_dung_thanh_toan_SelectedIndexChanging" 
+                Width="100%" DataKeyNames="ID"
                 CellPadding="4" ForeColor="#333333" GridLines="Both" AllowSorting="True" 
-                onpageindexchanging="m_grv_dm_noi_dung_thanh_toan_PageIndexChanging">
+               >
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">
@@ -186,25 +186,20 @@
 
 <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:TemplateField>
-                    <asp:BoundField DataField="ID_LOAI_TU_DIEN" HeaderText="Loại từ điển" 
+                    <asp:BoundField DataField="MA_GIANG_VIEN" HeaderText="Mã giảng viên" 
                         Visible="False">
                         <ItemStyle HorizontalAlign="Center" Width="4%"></ItemStyle></asp:BoundField>
-                    <asp:BoundField DataField="TEN_NOI_DUNG" HeaderText="Tên nội dung" />
-                    <asp:BoundField DataField="TEN_NGAN" HeaderText="Loại hợp đồng" />
-                    <asp:BoundField DataField="MA_DON_VI_TINH" HeaderText="Đơn vị tính" 
+                    <asp:BoundField DataField="HO_TEN_GIANG_VIEN" HeaderText="Tên giảng viên" />
+                    <asp:BoundField DataField="NGAY_SINH" HeaderText="Ngày sinh" />
+                    <asp:BoundField DataField="GIOI_TINH_YN" HeaderText="Giới tính" 
                         ItemStyle-HorizontalAlign="Center" >
 <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:BoundField>
-                    <asp:TemplateField HeaderText = "Đơn giá">
-                    <ItemTemplate><asp:Label ID="lbl_don_gia" runat="server"><%# Eval("DON_GIA_DEFAULT").ToString() %></asp:Label></ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:BoundField DataField="MA_TAN_SUAT" HeaderText="Mã tần xuất" 
+                    <asp:BoundField DataField="EMAIL" HeaderText="Email" 
                         ItemStyle-HorizontalAlign="Center" >
-<ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:BoundField>
-                    <asp:BoundField DataField="HOC_LIEU_YN" HeaderText="Học liệu YN" 
+                     <asp:BoundField DataField="TEL_HOME" HeaderText="Số ĐT" 
                         ItemStyle-HorizontalAlign="Center" >
-<ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:BoundField>
                     <asp:BoundField DataField="VAN_HANH_YN" HeaderText="Vận hành YN" 
                         ItemStyle-HorizontalAlign="Center" >
