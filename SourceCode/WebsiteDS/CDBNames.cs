@@ -83,4 +83,42 @@ namespace WebDS.CDBNames
         public const string SO_LUONG_ONLINES = "SO_LUONG_ONLINES";
         public const string BAI_TAP_GKY_YN = "BAI_TAP_GKY_YN";
     }
+    class V_DM_GIANG_VIEN
+    {
+        public const string MA_GIANG_VIEN = "MA_GIANG_VIEN";
+        public const string HO_VA_TEN_DEM = "HO_VA_TEN_DEM";
+        public const string TEN_GIANG_VIEN = "TEN_GIANG_VIEN";
+        public const string NGAY_SINH = "NGAY_SINH";
+        public const string GIOI_TINH_YN = "GIOI_TINH_YN";
+        public const string CHUC_VU_HIEN_TAI = "CHUC_VU_HIEN_TAI";
+        public const string CHUC_VU_CAO_NHAT = "CHUC_VU_CAO_NHAT";
+        public const string TEL_HOME = "TEL_HOME";
+        public const string TEL_OFFICE = "TEL_OFFICE";
+        public const string MOBILE_PHONE = "MOBILE_PHONE";
+        public const string EMAIL = "EMAIL";
+        public const string TEN_CO_QUAN_CONG_TAC = "TEN_CO_QUAN_CONG_TAC";
+        public const string EMAIL_TOPICA = "EMAIL_TOPICA";
+        public const string ANH_CA_NHAN = "ANH_CA_NHAN";
+        public const string HOC_VI = "HOC_VI";
+        public const string HOC_HAM = "HOC_HAM";
+        public const string CHUYEN_NGANH_CHINH = "CHUYEN_NGANH_CHINH";
+        public const string TRUONG_DAO_TAO = "TRUONG_DAO_TAO";
+        public const string ID_TRANG_THAI_GIANG_VIEN = "ID_TRANG_THAI_GIANG_VIEN";
+        public const string TRANG_THAI_GIANG_VIEN = "TRANG_THAI_GIANG_VIEN";
+        public const string SO_TAI_KHOAN = "SO_TAI_KHOAN";
+        public const string TEN_NGAN_HANG = "TEN_NGAN_HANG";
+        public const string SO_CMTND = "SO_CMTND";
+        public const string NGAY_CAP = "NGAY_CAP";
+        public const string NOI_CAP = "NOI_CAP";
+        public const string ID_DON_VI_QUAN_LY = "ID_DON_VI_QUAN_LY";
+        public const string DON_VI_QUAN_LY = "DON_VI_QUAN_LY";
+        public const string MA_SO_THUE = "MA_SO_THUE";
+        public const string GVHD_YN = "GVHD_YN";
+        public const string GVCM_YN = "GVCM_YN";
+        public const string GV_VIET_HL_YN = "GV_VIET_HL_YN";
+        public const string GV_DUYET_HL_YN = "GV_DUYET_HL_YN";
+        public const string GV_THAM_DINH_HL_YN = "GV_THAM_DINH_HL_YN";
+        public const string GV_HDKH_YN = "GV_HDKH_YN";
+        public const string DESCRIPTION = "DESCRIPTION";
+    }
 }
