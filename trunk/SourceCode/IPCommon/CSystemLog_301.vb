@@ -59,8 +59,7 @@ Public Class CSystemLog_301
                     i_page.Response.Redirect("../MessageError.aspx?mess=Title Website: " + i_page.Title + ". Message: " + i_exp.Message + " Source: " + i_exp.Source)
             End Select
         Catch
-
-            i_page.Response.Redirect("Environment- Chua cau hinh webconfig!")
+            i_page.Response.Redirect("../MessageError.aspx?mess=Title Website: " + i_page.Title + ". Message: " + i_exp.Message + " Source: " + i_exp.Source)
         End Try
     End Sub
 #End Region
