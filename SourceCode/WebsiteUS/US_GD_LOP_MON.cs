@@ -362,6 +362,12 @@ public class US_GD_LOP_MON : US_Object
                                     ,string i_str_offline_yn
                                     ,string i_str_bt_gky_yn
                                     ,string i_str_key_word
+                                    ,DateTime i_dat_bat_dau_tu
+                                    ,DateTime i_dat_bat_dau_den
+                                    ,DateTime i_dat_ket_thuc_tu
+                                    ,DateTime i_dat_ket_thuc_den
+                                    ,DateTime i_dat_thi_tu
+                                    ,DateTime i_dat_thi_den        
                                     ,DS_GD_LOP_MON i_ds)
     {
         try
@@ -372,6 +378,12 @@ public class US_GD_LOP_MON : US_Object
             v_object.addNVarcharInputParam("@ip_offline_yn", i_str_offline_yn);
             v_object.addNVarcharInputParam("@ip_bt_gky_yn", i_str_bt_gky_yn);
             v_object.addNVarcharInputParam("@ip_key_word", i_str_key_word);
+            v_object.addDatetimeInputParam("@ip_ngay_bat_dau_tu", i_dat_bat_dau_tu);
+            v_object.addDatetimeInputParam("@ip_ngay_bat_dau_den", i_dat_bat_dau_den);
+            v_object.addDatetimeInputParam("@ip_ngay_ket_thuc_tu", i_dat_ket_thuc_tu);
+            v_object.addDatetimeInputParam("@ip_ngay_ket_thuc_den", i_dat_ket_thuc_den);
+            v_object.addDatetimeInputParam("@ip_ngay_thi_tu", i_dat_thi_tu);
+            v_object.addDatetimeInputParam("@ip_ngay_thi_den", i_dat_thi_den);
             v_object.fillDataSetByCommand(this, i_ds);
         }
         catch (Exception v_e)
