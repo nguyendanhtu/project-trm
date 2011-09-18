@@ -42,11 +42,14 @@
                         <asp:MenuItem Text="Quản lý danh mục">
                             <asp:MenuItem NavigateUrl="/TRMProject/DanhMuc/F101_Dictionary.aspx" 
                                 Text="Từ điển hệ thống" Value="Từ điển hệ thống"></asp:MenuItem>
-                            <asp:MenuItem Text="Danh mục Môn học" Value="Danh mục môn học"></asp:MenuItem>
+                            <asp:MenuItem Text="Danh mục Môn học" Value="Danh mục môn học">
+                            <asp:MenuItem NavigateUrl="/TRMProject/DanhMuc/F300_MonHoc.aspx" 
+                                Text="Danh mục Loại thanh toán" Value="Danh mục Loại thanh toán">
+                            </asp:MenuItem>
                             <asp:MenuItem NavigateUrl="/TRMProject/DanhMuc/F200_NoiDungThanhToan.aspx" 
                                 Text="Danh mục Loại thanh toán" Value="Danh mục Loại thanh toán">
                             </asp:MenuItem>
-                            <asp:MenuItem NavigateUrl="/TRMProject/DanhMuc/DonViThanhToan.aspx" 
+                            <asp:MenuItem NavigateUrl="/TRMProject/DanhMuc/F400_DonViThanhToan.aspx" 
                                 Text="Danh mục Đơn vị thanh toán" Value="Danh mục Đơn vị thanh toán">
                             </asp:MenuItem>
                         </asp:MenuItem>
@@ -56,7 +59,7 @@
                             <asp:MenuItem Text="Cập nhật hợp đồng khung" Value="Cập nhật hợp đồng khung">
                             </asp:MenuItem>
                             <asp:MenuItem Text="Cập nhật lớp môn" Value="Cập nhật lớp môn" 
-                                NavigateUrl="~/ChucNang/F103_DanhSachLopMon.aspx"></asp:MenuItem>
+                                NavigateUrl="/TRMProject/ChucNang/F103_DanhSachLopMon.aspx"></asp:MenuItem>
                             <asp:MenuItem Text="Cập nhật thanh toán" Value="Cập nhật thanh toán">
                             </asp:MenuItem>
                         </asp:MenuItem>
