@@ -168,8 +168,8 @@
 	<tr>
 		<td align="center" colspan="3" style="height:450px;" valign="top">
 		    &nbsp;
-           <asp:Panel ID="Panel1" runat="server" ScrollBars="Horizontal" Height="300" Width="100%">
-              <asp:GridView ID="m_grv_dm_noi_dung_thanh_toan" AllowPaging="true" 
+           
+        <asp:GridView ID="m_grv_dm_noi_dung_thanh_toan" AllowPaging="true" 
                 runat="server" AutoGenerateColumns="False" 
                 Width="100%" DataKeyNames="ID" 
                   onrowdeleting="m_grv_dm_tu_dien_RowDeleting" 
@@ -224,7 +224,6 @@
                 <SelectedRowStyle CssClass="cssSelectedRow" BackColor="#C5BBAF" Font-Bold="True" 
                       ForeColor="#333333"></SelectedRowStyle>
             </asp:GridView>
-           </asp:Panel>
             </td>
 	</tr>	
 
