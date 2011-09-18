@@ -90,30 +90,17 @@ public partial class ChuNang_F103_DanhSachLopMon : System.Web.UI.Page
             string v_str_online_yn = "";
             string v_str_offline_yn = "";
             string v_str_bt_gky_yn = "";
-            if (m_rbt_loai_lop.SelectedIndex == 0) {
+            if (m_rbt_online_yn.SelectedIndex == 0) {
                 v_str_online_yn = "Y";
-                v_str_offline_yn = "N";
-                v_str_bt_gky_yn = "N";
-            }
-            else if (m_rbt_loai_lop.SelectedIndex == 1)
+            }else v_str_online_yn ="N";
+            if (m_rbt_offline_yn.SelectedIndex == 0)
             {
-                v_str_online_yn = "N";
                 v_str_offline_yn = "Y";
-                v_str_bt_gky_yn = "N";
+            }else v_str_offline_yn ="N";
 
-            }
-            else if(m_rbt_loai_lop.SelectedIndex==2){
-                v_str_online_yn = "N";
-                v_str_offline_yn = "N";
+            if(m_rbt_bt_gky_yn.SelectedIndex==0){
                 v_str_bt_gky_yn = "Y";
-
-            }
-            else {
-                v_str_online_yn = "Y";
-                v_str_offline_yn = "Y";
-                v_str_bt_gky_yn = "Y";
-
-            }
+            }else v_str_bt_gky_yn="N";
             m_us_gd_lop_mon.fill_data_by_search(CIPConvert.ToDecimal(m_cbo_dm_mon_hoc.SelectedValue)
                             ,v_str_online_yn
                             ,v_str_offline_yn
