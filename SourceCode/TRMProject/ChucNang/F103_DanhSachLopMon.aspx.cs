@@ -113,13 +113,14 @@ public partial class ChuNang_F103_DanhSachLopMon : System.Web.UI.Page
                             ,v_str_online_yn
                             ,v_str_offline_yn
                             ,v_str_bt_gky_yn
-                            ,CIPConvert.ToDatetime(CIPConvert.ToStr(m_dat_ngay_bat_dau_tu.SelectedDate,"dd/MM/yyyy"),"dd/MM/yyyy")
-                            , CIPConvert.ToDatetime(CIPConvert.ToStr(m_dat_ngay_bat_dau_den.SelectedDate, "dd/MM/yyyy"), "dd/MM/yyyy")
-                            , CIPConvert.ToDatetime(CIPConvert.ToStr(m_dat_ngay_ket_thuc_tu.SelectedDate, "dd/MM/yyyy"), "dd/MM/yyyy")
-                            , CIPConvert.ToDatetime(CIPConvert.ToStr(m_dat_ngay_ket_thuc_den.SelectedDate, "dd/MM/yyyy"), "dd/MM/yyyy")
-                            , CIPConvert.ToDatetime(CIPConvert.ToStr(m_dat_ngay_thi_tu.SelectedDate, "dd/MM/yyyy"), "dd/MM/yyyy")
-                            , CIPConvert.ToDatetime(CIPConvert.ToStr(m_dat_ngay_thi_den.SelectedDate, "dd/MM/yyyy"), "dd/MM/yyyy")
-                            ,m_txt_tu_khoa_tim_kiem.Text, m_ds_gd_lop_mon);
+                            , m_txt_tu_khoa_tim_kiem.Text
+                            ,CIPConvert.ToStr(m_dat_ngay_bat_dau_tu.SelectedDate,"dd/MM/yyyy")
+                            , CIPConvert.ToStr(m_dat_ngay_bat_dau_den.SelectedDate, "dd/MM/yyyy")
+                            ,CIPConvert.ToStr(m_dat_ngay_ket_thuc_tu.SelectedDate, "dd/MM/yyyy")
+                            , CIPConvert.ToStr(m_dat_ngay_ket_thuc_den.SelectedDate, "dd/MM/yyyy")
+                            , CIPConvert.ToStr(m_dat_ngay_thi_tu.SelectedDate, "dd/MM/yyyy")
+                            , CIPConvert.ToStr(m_dat_ngay_thi_den.SelectedDate, "dd/MM/yyyy")
+                           , m_ds_gd_lop_mon);
             m_grv.DataSource = m_ds_gd_lop_mon.GD_LOP_MON;
             m_grv.DataBind();
         }
