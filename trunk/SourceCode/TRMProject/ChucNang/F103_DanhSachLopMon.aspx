@@ -161,20 +161,25 @@
                     <asp:BoundField DataField="SO_LUONG_OFFLINE" HeaderText="SLHV Offline">
                                         <ItemStyle HorizontalAlign="Center" />
                     </asp:BoundField>
-                    <asp:CommandField DeleteText="Xóa" ShowDeleteButton="True" 
-                        ItemStyle-HorizontalAlign="Center" >
+                    <asp:CommandField DeleteText="" ShowDeleteButton="True" 
+                        ItemStyle-HorizontalAlign="Center" ButtonType="Image" 
+                        DeleteImageUrl="~/Images/Button/deletered.png" >
 <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:CommandField>
                     <asp:TemplateField>
                         <ItemTemplate>
                             <asp:HyperLink ID="m_lnk_sua" runat="server" Target="_blank"
-                                NavigateUrl='<%# "~/ChucNang/F102_CapNhatThongTinLopMon.aspx?mode=update&id_lop_mon="+Eval(GD_LOP_MON.ID) %>'>Sửa</asp:HyperLink>
+                                
+                                NavigateUrl='<%# "~/ChucNang/F102_CapNhatThongTinLopMon.aspx?mode=update&id_lop_mon="+Eval(GD_LOP_MON.ID) %>' 
+                                ImageUrl="~/Images/Button/edit.png">Sửa</asp:HyperLink>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField>
                         <ItemTemplate>
                             <asp:HyperLink ID="m_lnk_lop_mon_detail" runat="server" Target="_blank" 
-                                ToolTip="Chi tiết lớp môn"  NavigateUrl='<%# "~/ChucNang/F104_ChiTietLopMon.aspx?id_lop_mon="+Eval(GD_LOP_MON.ID) %>'>Chi tiết</asp:HyperLink>
+                                ToolTip="Chi tiết lớp môn"  
+                                NavigateUrl='<%# "~/ChucNang/F104_ChiTietLopMon.aspx?id_lop_mon="+Eval(GD_LOP_MON.ID) %>' 
+                                ImageUrl="~/Images/Button/detail.png">Chi tiết</asp:HyperLink>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
