@@ -42,12 +42,11 @@
                         <asp:MenuItem Text="Quản lý danh mục">
                             <asp:MenuItem NavigateUrl="/TRMProject/DanhMuc/F101_Dictionary.aspx" 
                                 Text="Từ điển hệ thống" Value="Từ điển hệ thống"></asp:MenuItem>
-                            <asp:MenuItem Text="Danh mục Môn học" Value="Danh mục môn học"></asp:MenuItem>
                             <asp:MenuItem NavigateUrl="/TRMProject/DanhMuc/F300_MonHoc.aspx" 
-                                Text="Danh mục Loại thanh toán" Value="Danh mục Loại thanh toán">
+                                Text="Danh mục môn học" Value="Danh mục môn học">
                             </asp:MenuItem>
                             <asp:MenuItem NavigateUrl="/TRMProject/DanhMuc/F200_NoiDungThanhToan.aspx" 
-                                Text="Danh mục Loại thanh toán" Value="Danh mục Loại thanh toán">
+                                Text="Danh mục Nội dung thanh toán" Value="Danh mục Nội dung thanh toán">
                             </asp:MenuItem>
                             <asp:MenuItem NavigateUrl="/TRMProject/DanhMuc/F400_DonViThanhToan.aspx" 
                                 Text="Danh mục Đơn vị thanh toán" Value="Danh mục Đơn vị thanh toán">
