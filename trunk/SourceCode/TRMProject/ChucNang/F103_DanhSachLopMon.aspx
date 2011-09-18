@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="F103_DanhSachLopMon.aspx.cs" Inherits="ChuNang_F103_DanhSachLopMon" %>
 <%@ Import Namespace="WebDS.CDBNames" %>
+<%@ Register assembly="eWorld.UI" namespace="eWorld.UI" tagprefix="ew" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
     <table cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0">
 	<tr>
@@ -14,89 +15,366 @@
 		   <asp:label id="m_lbl_mess" runat="server" CssClass="cssManField" />
 		</td>
 	</tr>
-    	<tr>
-		<td>
+    <tr>
+        <td>
         <table cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0"> 
             <tr>
                 <td align="right" style="width:5%;">
 			<asp:label id="lblFullName" CssClass="cssManField" runat="server" 
                 Text="&lt;U&gt;T&lt;/U&gt;ên môn học" />
-		        </td>
-                <td align="left" style="width:15%;">
+                         </td>
+                <td align="left" style="width:10%;">
 		    <asp:DropDownList id="m_cbo_dm_mon_hoc" runat="server" Width="96%" 
                         CssClass="cssDorpdownlist"  />
-		        </td>
+                         </td>
+                         <td align="left" style="width:1%;"> 
+                             &nbsp;</td>
+                <td align="left" style="width:5%;">
+			       
+			    </td>
+                <td align="left" style="width:10%;">&nbsp;</td>
+                <td align="left" style="width:1%;"></td>
+                 <td align="right" style="width:5%;"></td>
+                <td align="left" style="width:10%;"></td>
+                <td align="left" style="width:1%;"></td>
+            </tr>
+            <tr>
+                <td align="right" style="width:5%;">
+			<asp:label id="lblFullName4" CssClass="cssManField" runat="server" 
+                Text="Có Online?" />
+                </td>
+                <td align="left" style="width:10%;">
+			        <asp:RadioButtonList ID="m_rbt_online_yn" runat="server" 
+                        RepeatDirection="Horizontal">
+                        <asp:ListItem Selected="True" Value="ALL">Tất cả</asp:ListItem>
+                        <asp:ListItem Value="Y">Có</asp:ListItem>
+                        <asp:ListItem Value="N">Không</asp:ListItem>
+                    </asp:RadioButtonList>
+                </td>
+                     <td align="left" style="width:1%;">
+                         &nbsp;</td>
                 <td align="right" style="width:5%;">
 			<asp:label id="lblFullName5" CssClass="cssManField" runat="server" 
                 Text="Có Offline?" />
 		                    </td>
                 <td align="left" style="width:10%;">
+			
 			        <asp:RadioButtonList ID="m_rbt_offline_yn" runat="server" 
                         RepeatDirection="Horizontal">
+                        <asp:ListItem Selected="True" Value="ALL">Tất cả</asp:ListItem>
                         <asp:ListItem Value="Y">Có</asp:ListItem>
                         <asp:ListItem Value="N">Không</asp:ListItem>
                     </asp:RadioButtonList>
 		                    </td>
-            </tr>
-                        <tr>
-                <td align="right" style="width:5%;">
-			<asp:label id="lblFullName4" CssClass="cssManField" runat="server" 
-                Text="Có Online?" />
-		                    </td>
-                <td align="left" style="width:15%;">
-			        <asp:RadioButtonList ID="m_rbt_online_yn" runat="server" 
-                        RepeatDirection="Horizontal">
-                        <asp:ListItem Value="Y">Có</asp:ListItem>
-                        <asp:ListItem Value="N">Không</asp:ListItem>
-                    </asp:RadioButtonList>
-		                    </td>
-                <td align="right" style="width:5%;">
+                      <td align="left" style="width:1%;">
+                          &nbsp;</td>
+                 <td align="right" style="width:5%;">
 			<asp:label id="lblFullName6" CssClass="cssManField" runat="server" 
                 Text="Có bài tập giữa kỳ?" />
 		                    </td>
-                <td align="left" style="width:15%;">
+                <td align="left" style="width:10%;">
 			        <asp:RadioButtonList ID="m_rbt_bt_gky_yn" runat="server" 
                         RepeatDirection="Horizontal">
+                        <asp:ListItem Selected="True" Value="ALL">Tất cả</asp:ListItem>
                         <asp:ListItem Value="Y">Có</asp:ListItem>
                         <asp:ListItem Value="N">Không</asp:ListItem>
                     </asp:RadioButtonList>
 		                    </td>
+                <td align="left" style="width:1%;"></td>
             </tr>
-                        <tr>
+            <tr>
                 <td align="right" style="width:5%;">
-			<asp:label id="lblFullName0" CssClass="cssManField" runat="server" 
-                Text="Từ &lt;U&gt;k&lt;/U&gt;hóa tìm kiếm" />
+			<asp:label id="Label2" CssClass="cssManField" runat="server" 
+                Text="Ngày bắt đầu từ ngày" />
 		                    </td>
-                <td align="left" style="width:15%;">
-			<asp:textbox id="m_txt_tu_khoa_tim_kiem" CssClass="cssTextBox"  runat="server" 
-                MaxLength="1000" Width="96%" />
+                <td align="left" style="width:10%;">
+			
+			        <ew:CalendarPopup ID="m_dat_ngay_bat_dau_tu" runat="server" 
+                        ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
+                        ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
+                        ShowGoToToday="True" Width="80%" SelectedDate="" 
+                        AllowArbitraryText="False" CellPadding="0px">
+                        <weekdaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <weekendstyle backcolor="LightGray" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <offmonthstyle backcolor="AntiqueWhite" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Gray" />
+                        <selecteddatestyle backcolor="Yellow" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Black" />
+                        <monthheaderstyle backcolor="Yellow" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Black" />
+                        <DayHeaderStyle BackColor="Orange" Font-Names="Verdana,Helvetica,Tahoma,Arial" 
+                            Font-Size="XX-Small" ForeColor="Black" />
+                        <cleardatestyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <gototodaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <TodayDayStyle BackColor="LightGoldenrodYellow" 
+                            Font-Names="Verdana,Helvetica,Tahoma,Arial" Font-Size="XX-Small" 
+                            ForeColor="Black" />
+                        <holidaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                    </ew:CalendarPopup>
+			
+                </td>
+                     <td align="left" style="width:1%;">
+                         &nbsp;</td>
+                <td align="right" style="width:5%;">
+			<asp:label id="Label17" CssClass="cssManField" runat="server" 
+                Text="Ngày kết thúc từ" />
 		                    </td>
-                <td align="right" style="width:5%;"></td>
-                <td align="left" style="width:10%;">&nbsp;</td>
+                <td align="left" style="width:10%;">
+			
+			        <ew:CalendarPopup ID="m_dat_ngay_ket_thuc_tu" runat="server" 
+                        ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
+                        ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
+                        ShowGoToToday="True" Width="80%" SelectedDate="">
+                        <weekdaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <weekendstyle backcolor="LightGray" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <offmonthstyle backcolor="AntiqueWhite" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Gray" />
+                        <selecteddatestyle backcolor="Yellow" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Black" />
+                        <monthheaderstyle backcolor="Yellow" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Black" />
+                        <DayHeaderStyle BackColor="Orange" Font-Names="Verdana,Helvetica,Tahoma,Arial" 
+                            Font-Size="XX-Small" ForeColor="Black" />
+                        <cleardatestyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <gototodaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <TodayDayStyle BackColor="LightGoldenrodYellow" 
+                            Font-Names="Verdana,Helvetica,Tahoma,Arial" Font-Size="XX-Small" 
+                            ForeColor="Black" />
+                        <holidaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                    </ew:CalendarPopup>
+			
+		                    </td>
+                     <td align="left" style="width:1%;">
+                         &nbsp;</td>
+                 <td align="right" style="width:5%;">
+			<asp:label id="Label6" CssClass="cssManField" runat="server" 
+                Text="Ngày thi từ ngày" />
+		                    </td>
+                <td align="left" style="width:10%;">
+			
+			        <ew:CalendarPopup ID="m_dat_ngay_thi_tu" runat="server" 
+                        ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
+                        ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
+                        ShowGoToToday="True" Width="80%" SelectedDate="">
+                        <weekdaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <weekendstyle backcolor="LightGray" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <offmonthstyle backcolor="AntiqueWhite" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Gray" />
+                        <selecteddatestyle backcolor="Yellow" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Black" />
+                        <monthheaderstyle backcolor="Yellow" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Black" />
+                        <DayHeaderStyle BackColor="Orange" Font-Names="Verdana,Helvetica,Tahoma,Arial" 
+                            Font-Size="XX-Small" ForeColor="Black" />
+                        <cleardatestyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <gototodaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <TodayDayStyle BackColor="LightGoldenrodYellow" 
+                            Font-Names="Verdana,Helvetica,Tahoma,Arial" Font-Size="XX-Small" 
+                            ForeColor="Black" />
+                        <holidaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                    </ew:CalendarPopup>
+			
+		                    </td>            
+                         <td align="left" style="width:1%;"></td>
             </tr>
-                                    <tr>
+            <tr>
                 <td align="right" style="width:5%;">
-		
-		                                </td>
-                                        <td  style="width:20%;" colspan=3>	<asp:label id="lblFullName1" CssClass="cssLabel" runat="server" 
+			<asp:label id="Label16" CssClass="cssManField" runat="server" 
+                Text="Đến ngày" />
+		                    </td>
+                <td align="left" style="width:10%;">
+			        <ew:CalendarPopup ID="m_dat_ngay_bat_dau_den" runat="server" 
+                        ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
+                        ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
+                        ShowGoToToday="True" Width="80%" SelectedDate="">
+                        <weekdaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <weekendstyle backcolor="LightGray" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <offmonthstyle backcolor="AntiqueWhite" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Gray" />
+                        <selecteddatestyle backcolor="Yellow" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Black" />
+                        <monthheaderstyle backcolor="Yellow" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Black" />
+                        <DayHeaderStyle BackColor="Orange" Font-Names="Verdana,Helvetica,Tahoma,Arial" 
+                            Font-Size="XX-Small" ForeColor="Black" />
+                        <cleardatestyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <gototodaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <TodayDayStyle BackColor="LightGoldenrodYellow" 
+                            Font-Names="Verdana,Helvetica,Tahoma,Arial" Font-Size="XX-Small" 
+                            ForeColor="Black" />
+                        <holidaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                    </ew:CalendarPopup>
+		                    </td>
+                                 <td align="left" style="width:1%;"></td>
+                <td align="right" style="width:5%;">
+			<asp:label id="Label18" CssClass="cssManField" runat="server" 
+                Text="Đến ngày" />
+		                    </td>
+                <td align="left" style="width:10%;">
+
+			        <ew:CalendarPopup ID="m_dat_ngay_ket_thuc_den" runat="server" 
+                        ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
+                        ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
+                        ShowGoToToday="True" Width="80%" SelectedDate="">
+                        <weekdaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <weekendstyle backcolor="LightGray" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <offmonthstyle backcolor="AntiqueWhite" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Gray" />
+                        <selecteddatestyle backcolor="Yellow" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Black" />
+                        <monthheaderstyle backcolor="Yellow" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Black" />
+                        <DayHeaderStyle BackColor="Orange" Font-Names="Verdana,Helvetica,Tahoma,Arial" 
+                            Font-Size="XX-Small" ForeColor="Black" />
+                        <cleardatestyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <gototodaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <TodayDayStyle BackColor="LightGoldenrodYellow" 
+                            Font-Names="Verdana,Helvetica,Tahoma,Arial" Font-Size="XX-Small" 
+                            ForeColor="Black" />
+                        <holidaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                    </ew:CalendarPopup>
+
+                            </td>
+                                 <td align="left" style="width:1%;"></td>
+                 <td align="right" style="width:5%;">
+			<asp:label id="Label8" CssClass="cssManField" runat="server" 
+                Text="Đến ngày" />
+		                    </td>
+                <td align="left" style="width:10%;">
+
+			        <ew:CalendarPopup ID="m_dat_ngay_thi_den" runat="server" 
+                        ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
+                        ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
+                        ShowGoToToday="True" Width="80%" SelectedDate="">
+                        <weekdaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <weekendstyle backcolor="LightGray" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <offmonthstyle backcolor="AntiqueWhite" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Gray" />
+                        <selecteddatestyle backcolor="Yellow" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Black" />
+                        <monthheaderstyle backcolor="Yellow" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Black" />
+                        <DayHeaderStyle BackColor="Orange" Font-Names="Verdana,Helvetica,Tahoma,Arial" 
+                            Font-Size="XX-Small" ForeColor="Black" />
+                        <cleardatestyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <gototodaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <TodayDayStyle BackColor="LightGoldenrodYellow" 
+                            Font-Names="Verdana,Helvetica,Tahoma,Arial" Font-Size="XX-Small" 
+                            ForeColor="Black" />
+                        <holidaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                    </ew:CalendarPopup>
+
+		        </td>     <td align="left" style="width:1%;"></td>
+            </tr>
+            <tr>
+                <td align="right" style="width:5%;">
+			<asp:label id="Label4" CssClass="cssManField" runat="server" 
+                Text="Từ khóa tìm kiếm" />
+		                    </td>
+                <td align="left" style="width:10%;">     
+
+		            <asp:TextBox ID="m_txt_tu_khoa_tim_kiem" runat="server" CssClass="cssTextBox" 
+                        Width="244%"></asp:TextBox>
+
+			    </td>
+            </tr>
+            <tr>
+                <td align="right" style="width:5%;">
+			        &nbsp;</td>
+                   <td align="left" style="width:1%;" colspan="4">
+
+                <asp:label id="lblFullName1" CssClass="cssLabel" runat="server" 
                 
-                        Text="(Từ khóa tìm kiếm: Mã lớp môn hoặc PO phụ trách hoặc chương trình phụ trách)" /></td>
+                Text="(Từ khóa tìm kiếm: Mã lớp môn hoặc PO phụ trách hoặc chương trình phụ trách)" />
+
+		        </td>
             </tr>
-                        <tr>
-                <td align="right" style="width:5%;"></td>
-                <td align="left" style="width:15%;">
+            <tr>
+                <td align="right" style="width:5%;">
+			        &nbsp;</td>
+                <td align="left" style="width:10%;">          
+			        &nbsp;</td>
+			    <td align="left" style="width:1%;">
+                    &nbsp;</td>
+			
+                <td align="left" style="width:5%;">
+			        &nbsp;</td>
+                <td align="left" style="width:10%;">     
+			        &nbsp;</td>     <td align="left" style="width:1%;"></td>
+                 <td align="right" style="width:5%;"></td>
+                <td align="left" style="width:10%;"></td>     <td align="left" style="width:1%;"></td>
+            </tr>
+            <tr>
+                <td align="right" >
+			        &nbsp;</td>
+                <td align="left">     
 			<asp:button id="m_cmd_loc_du_lieu" accessKey="l" CssClass="cssButton" 
                 runat="server" Width="98px" Text="Lọc dữ liệu(l)" 
-                        onclick="m_cmd_loc_du_lieu_Click" Height="23px" /></td>
-                <td align="left" style="width:10%;">
-			<asp:button id="m_cmd_xuat_excel" accessKey="x" CssClass="cssButton" 
-                runat="server" Width="98px" Text="Xuất Excel (x)" Height="22px"  /></td>
-                <td align="left" style="width:15%;">
+                        onclick="m_cmd_loc_du_lieu_Click" Height="23px" />
+			</td>
+                             <td align="left" style="width:1%;">&nbsp;</td>
+                <td align="right" >
 			        &nbsp;</td>
+                <td align="left" >    
+			<asp:button id="m_cmd_xuat_excel" accessKey="x" CssClass="cssButton" 
+                runat="server" Width="98px" Text="Xuất Excel (x)" Height="22px"  />
+			</td>
+                             <td align="left" >&nbsp;</td>
+                 <td align="right" ></td>
+                <td align="left" ></td>    
+                <td align="left" ></td>
             </tr>
-        </table>
-		</td>
-	</tr>
+            </table>        
+        </td>
+    </tr>   
 	<tr>
 	    <td>
 			<asp:button id="m_cmd_tao_moi0" accessKey="m" CssClass="cssButton" 
@@ -143,21 +421,21 @@
                         DataFormatString="{0:d}" />
                     <asp:BoundField DataField="PO_PHU_TRACH" HeaderText="PO phụ trách" />
                     <asp:BoundField DataField="CHUONG_TRINH_PHU_TRACH" HeaderText="CT phụ trách" />
-                    <asp:TemplateField HeaderText="Là lớp Online?">
+                    <asp:TemplateField HeaderText="Có Online?">
                         <ItemTemplate>
                             <asp:Label ID="m_lbl_lop_online_yn" runat="server" 
                              Text="<%#get_mapping_yn((string)Eval(GD_LOP_MON.ONLINES_YN))%>"></asp:Label>
                         </ItemTemplate>
                         <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Là lớp Offline?">
+                    <asp:TemplateField HeaderText="Có Offline?">
                         <ItemTemplate>
                             <asp:Label ID="m_lbl_lop_offline_yn" runat="server"
                             Text="<%#get_mapping_yn((string)Eval(GD_LOP_MON.OFFLINE_YN))%>"></asp:Label>
                         </ItemTemplate>
                         <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Bài tập giữ kỳ kỳ?">
+                    <asp:TemplateField HeaderText="Có Bài tập giữ kỳ kỳ?">
                         <ItemTemplate>
                             <asp:Label ID="m_lbl_bt_giua_ky_yn" runat="server"
                             Text="<%#get_mapping_yn((string)Eval(GD_LOP_MON.BAI_TAP_GKY_YN))%>"></asp:Label>

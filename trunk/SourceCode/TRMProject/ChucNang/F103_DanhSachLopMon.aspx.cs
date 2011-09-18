@@ -87,24 +87,38 @@ public partial class ChuNang_F103_DanhSachLopMon : System.Web.UI.Page
         m_ds_gd_lop_mon = new DS_GD_LOP_MON();
         try
         {
+            #region Get value YN Field
             string v_str_online_yn = "";
             string v_str_offline_yn = "";
             string v_str_bt_gky_yn = "";
-            if (m_rbt_online_yn.SelectedIndex == 0) {
+            if (m_rbt_online_yn.SelectedValue =="Y") {
                 v_str_online_yn = "Y";
-            }else v_str_online_yn ="N";
+            }else if (m_rbt_online_yn.SelectedValue == "N") v_str_online_yn = "N";
+            else if (m_rbt_online_yn.SelectedValue == "ALL") v_str_online_yn = "ALL";
+            //
             if (m_rbt_offline_yn.SelectedIndex == 0)
             {
                 v_str_offline_yn = "Y";
-            }else v_str_offline_yn ="N";
-
-            if(m_rbt_bt_gky_yn.SelectedIndex==0){
+            }else if (m_rbt_offline_yn.SelectedValue == "N") v_str_offline_yn = "N";
+            else if (m_rbt_offline_yn.SelectedValue == "ALL") v_str_offline_yn = "ALL";
+            //
+            if (m_rbt_bt_gky_yn.SelectedIndex == 0)
+            {
                 v_str_bt_gky_yn = "Y";
-            }else v_str_bt_gky_yn="N";
+            }
+            else if (m_rbt_bt_gky_yn.SelectedValue == "N") v_str_bt_gky_yn = "N";
+            else if (m_rbt_bt_gky_yn.SelectedValue == "ALL") v_str_bt_gky_yn = "ALL";
+            #endregion
             m_us_gd_lop_mon.fill_data_by_search(CIPConvert.ToDecimal(m_cbo_dm_mon_hoc.SelectedValue)
                             ,v_str_online_yn
                             ,v_str_offline_yn
                             ,v_str_bt_gky_yn
+                            ,CIPConvert.ToDatetime(CIPConvert.ToStr(m_dat_ngay_bat_dau_tu.SelectedDate,"dd/MM/yyyy"),"dd/MM/yyyy")
+                            , CIPConvert.ToDatetime(CIPConvert.ToStr(m_dat_ngay_bat_dau_den.SelectedDate, "dd/MM/yyyy"), "dd/MM/yyyy")
+                            , CIPConvert.ToDatetime(CIPConvert.ToStr(m_dat_ngay_ket_thuc_tu.SelectedDate, "dd/MM/yyyy"), "dd/MM/yyyy")
+                            , CIPConvert.ToDatetime(CIPConvert.ToStr(m_dat_ngay_ket_thuc_den.SelectedDate, "dd/MM/yyyy"), "dd/MM/yyyy")
+                            , CIPConvert.ToDatetime(CIPConvert.ToStr(m_dat_ngay_thi_tu.SelectedDate, "dd/MM/yyyy"), "dd/MM/yyyy")
+                            , CIPConvert.ToDatetime(CIPConvert.ToStr(m_dat_ngay_thi_den.SelectedDate, "dd/MM/yyyy"), "dd/MM/yyyy")
                             ,m_txt_tu_khoa_tim_kiem.Text, m_ds_gd_lop_mon);
             m_grv.DataSource = m_ds_gd_lop_mon.GD_LOP_MON;
             m_grv.DataBind();
