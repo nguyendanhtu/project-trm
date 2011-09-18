@@ -2,7 +2,7 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
-<head runat="server">
+<head id="Head1" runat="server">
     <title></title>
     <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Styles/Admin.css" rel="stylesheet" type="text/css" />
@@ -10,7 +10,7 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <form runat="server">
+    <form id="Form1" runat="server">
     <div class="page">
         <div class="header">
             <div class="title">
@@ -32,21 +32,47 @@
             <div class="clear hideSkiplink">
                 <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false"  Orientation="Horizontal">
                     <Items>
-                        <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Trang chủ"/>
-                        <asp:MenuItem Text="Quản lý giảng viên">
-                        </asp:MenuItem>
-                        <asp:MenuItem Text="Quản lý thanh toán">
-                        </asp:MenuItem>
-                        <asp:MenuItem Text="Danh mục quản trị">
-                            <asp:MenuItem Text="Từ điển hệ thống" NavigateUrl="/TRMProject/DanhMuc/F101_Dictionary.aspx"></asp:MenuItem>
-                            <asp:MenuItem Text="Danh mục Nội dung thanh toán" NavigateUrl="/TRMProject/DanhMuc/F200_NoiDungThanhToan.aspx">
+                        <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Quản trị hệ thống">
+                            <asp:MenuItem Text="Đăng nhập" Value="Đăng nhập"></asp:MenuItem>
+                            <asp:MenuItem Text="Phân quyền người dùng" Value="Phân quyền người dùng">
                             </asp:MenuItem>
-                             <asp:MenuItem Text="Danh mục Đơn vị thanh toán" NavigateUrl="/TRMProject/DanhMuc/F400_DonViThanhToan.aspx">
-                            </asp:MenuItem>
-                            <asp:MenuItem Text="Danh mục Môn học" NavigateUrl="/TRMProject/DanhMuc/F300_MonHoc.aspx">
-                            </asp:MenuItem> 
+                            <asp:MenuItem Text="Người sử dụng" Value="Người sử dụng"></asp:MenuItem>
+                            <asp:MenuItem Text="Đăng xuất" Value="Đăng xuất"></asp:MenuItem>
                         </asp:MenuItem>
-                        <asp:MenuItem NavigateUrl="~/About.aspx" Text="Trợ giúp"/>
+                        <asp:MenuItem Text="Quản lý danh mục">
+                            <asp:MenuItem NavigateUrl="/TRMProject/DanhMuc/F101_Dictionary.aspx" 
+                                Text="Từ điển hệ thống" Value="Từ điển hệ thống"></asp:MenuItem>
+                            <asp:MenuItem Text="Danh mục Môn học" Value="Danh mục môn học"></asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="/TRMProject/DanhMuc/F200_NoiDungThanhToan.aspx" 
+                                Text="Danh mục Loại thanh toán" Value="Danh mục Loại thanh toán">
+                            </asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="/TRMProject/DanhMuc/DonViThanhToan.aspx" 
+                                Text="Danh mục Đơn vị thanh toán" Value="Danh mục Đơn vị thanh toán">
+                            </asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Nghiệp vụ">
+                            <asp:MenuItem Text="Cập nhật giảng viên" Value="Cập nhật giảng viên">
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="Cập nhật hợp đồng khung" Value="Cập nhật hợp đồng khung">
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="Cập nhật lớp môn" Value="Cập nhật lớp môn" 
+                                NavigateUrl="~/ChucNang/F103_DanhSachLopMon.aspx"></asp:MenuItem>
+                            <asp:MenuItem Text="Cập nhật thanh toán" Value="Cập nhật thanh toán">
+                            </asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Báo cáo">
+                            <asp:MenuItem Text="Danh sách giảng viên" Value="Danh sách giảng viên"></asp:MenuItem>
+                            <asp:MenuItem Text="Danh sách hợp đồng khung" Value="Danh sách hợp đồng khung"></asp:MenuItem>
+                            <asp:MenuItem Text="Danh sách lớp môn" Value="Danh sách lớp môn">
+                            </asp:MenuItem>
+                             <asp:MenuItem Text="Liệt kê thanh toán thực" Value="Liệt kê thanh toán thực">
+                            </asp:MenuItem>
+                        </asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/About.aspx" Text="Trợ giúp">
+                            <asp:MenuItem Text="Giới thiệu Website" Value="Giới thiệu Website">
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="Hướng dẫn sử dụng" Value="Hướng dẫn sử dụng"></asp:MenuItem>
+                        </asp:MenuItem>
                     </Items>
                 </asp:Menu>
             </div>
