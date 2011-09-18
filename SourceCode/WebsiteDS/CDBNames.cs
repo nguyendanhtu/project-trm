@@ -66,4 +66,21 @@ namespace WebDS.CDBNames
         public const string CAP_TAI = "CAP_TAI";
         public const string MA_SO_THUE = "MA_SO_THUE";
     }
+    public class GD_LOP_MON
+    {
+        public const string ID = "ID";
+        public const string MA_LOP_MON = "MA_LOP_MON";
+        public const string ID_MON_HOC = "ID_MON_HOC";
+        public const string NGAY_BAT_DAU = "NGAY_BAT_DAU";
+        public const string NGAY_KET_THUC = "NGAY_KET_THUC";
+        public const string PO_PHU_TRACH = "PO_PHU_TRACH";
+        public const string NGAY_THI = "NGAY_THI";
+        public const string CHUONG_TRINH_PHU_TRACH = "CHUONG_TRINH_PHU_TRACH";
+        public const string SO_LUONG_HV = "SO_LUONG_HV";
+        public const string OFFLINE_YN = "OFFLINE_YN";
+        public const string SO_LUONG_OFFLINE = "SO_LUONG_OFFLINE";
+        public const string ONLINES_YN = "ONLINES_YN";
+        public const string SO_LUONG_ONLINES = "SO_LUONG_ONLINES";
+        public const string BAI_TAP_GKY_YN = "BAI_TAP_GKY_YN";
+    }
 }
