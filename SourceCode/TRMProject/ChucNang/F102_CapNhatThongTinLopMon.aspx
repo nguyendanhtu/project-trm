@@ -114,7 +114,7 @@
 			        <ew:CalendarPopup ID="m_dat_ngay_bat_dau" runat="server" 
                         ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
                         ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
-                        ShowGoToToday="True" Width="85%" SelectedDate="">
+                        ShowGoToToday="True" Width="70%" SelectedDate="">
                         <weekdaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
                             font-size="XX-Small" forecolor="Black" />
                         <weekendstyle backcolor="LightGray" font-names="Verdana,Helvetica,Tahoma,Arial" 
@@ -150,7 +150,7 @@
 			        <ew:CalendarPopup ID="m_dat_ngay_ket_thuc" runat="server" 
                         ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
                         ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
-                        ShowGoToToday="True" Width="85%">
+                        ShowGoToToday="True" Width="70%">
                         <weekdaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
                             font-size="XX-Small" forecolor="Black" />
                         <weekendstyle backcolor="LightGray" font-names="Verdana,Helvetica,Tahoma,Arial" 
@@ -191,7 +191,7 @@
 			        <ew:CalendarPopup ID="m_dat_ngay_thi" runat="server" 
                         ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
                         ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
-                        ShowGoToToday="True" Width="85%">
+                        ShowGoToToday="True" Width="70%">
                         <weekdaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
                             font-size="XX-Small" forecolor="Black" />
                         <weekendstyle backcolor="LightGray" font-names="Verdana,Helvetica,Tahoma,Arial" 
