@@ -62,6 +62,7 @@
     <Compile Include="US_DM_MON_HOC.cs" />
     <Compile Include="US_DM_NOI_DUNG_THANH_TOAN.cs" />
     <Compile Include="US_GD_LOP_MON.cs" />
+    <Compile Include="US_V_DM_GIANG_VIEN.cs" />
     <Compile Include="US_V_DM_NOI_DUNG_THANH_TOAN.cs" />
   </ItemGroup>
   <ItemGroup>
