@@ -59,7 +59,8 @@ Public Class CSystemLog_301
                     i_page.Response.Redirect("../MessageError.aspx?mess=Title Website: " + i_page.Title + ". Message: " + i_exp.Message + " Source: " + i_exp.Source)
             End Select
         Catch
-            System.Windows.Forms.MessageBox.Show("environment- Không có file Ini")
+
+            i_page.Response.Redirect("Environment- Chua cau hinh webconfig!")
         End Try
     End Sub
 #End Region
