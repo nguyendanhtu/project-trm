@@ -174,7 +174,7 @@
 		<td align="center" colspan="3" style="height:450px;" valign="top">
 		    &nbsp;
            
-            <asp:GridView ID="m_grv_dm_danh_sach_giang_vien" AllowPaging="true" 
+   <asp:GridView ID="m_grv_dm_danh_sach_giang_vien" AllowPaging="true" 
                 runat="server" AutoGenerateColumns="False" 
                 Width="100%" DataKeyNames="ID"
                 CellPadding="4" ForeColor="#333333" GridLines="Both" AllowSorting="True" 
@@ -189,23 +189,95 @@
                     <asp:BoundField DataField="MA_GIANG_VIEN" HeaderText="Mã giảng viên" 
                         Visible="False">
                         <ItemStyle HorizontalAlign="Center" Width="4%"></ItemStyle></asp:BoundField>
-                    <asp:BoundField DataField="HO_TEN_GIANG_VIEN" HeaderText="Tên giảng viên" />
+                    <asp:TemplateField>
+                    <HeaderTemplate>Tên giảng viên</HeaderTemplate>
+                    <ItemTemplate>
+                    <label><%# Eval("HO_VA_TEN_DEM").ToString() + Eval("TEN_GIANG_VIEN").ToString() %></label>
+                    </ItemTemplate>
+                    </asp:TemplateField>
                     <asp:BoundField DataField="NGAY_SINH" HeaderText="Ngày sinh" />
-                    <asp:BoundField DataField="GIOI_TINH_YN" HeaderText="Giới tính" 
-                        ItemStyle-HorizontalAlign="Center" >
-<ItemStyle HorizontalAlign="Center"></ItemStyle>
+                    <asp:TemplateField>
+                    <HeaderTemplate>Giới tính</HeaderTemplate>
+                    <ItemTemplate>
+                    <label><%# mapping_gender(Eval("GIOI_TINH_YN").ToString()) %></label>
+                    </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:BoundField DataField="CHUC_VU_HIEN_TAI" HeaderText="Chức vụ hiện tại">
                     </asp:BoundField>
-                    <asp:BoundField DataField="EMAIL" HeaderText="Email" 
-                        ItemStyle-HorizontalAlign="Center" >
+                    <asp:BoundField DataField="CHUC_VU_CAO_NHAT" HeaderText="Chức vụ cao nhất">
                     </asp:BoundField>
-                     <asp:BoundField DataField="TEL_HOME" HeaderText="Số ĐT" 
-                        ItemStyle-HorizontalAlign="Center" >
+                     <asp:BoundField DataField="TEL_HOME" HeaderText="Điện thoại">
                     </asp:BoundField>
-                    <asp:BoundField DataField="VAN_HANH_YN" HeaderText="Vận hành YN" 
-                        ItemStyle-HorizontalAlign="Center" >
-<ItemStyle HorizontalAlign="Center"></ItemStyle>
+                     <asp:BoundField DataField="TEL_OFFICE" HeaderText="Điện thoại cơ quan">
                     </asp:BoundField>
-                    <asp:BoundField DataField="GHI_CHU" HeaderText="Ghi chú" />
+                    <asp:BoundField DataField="EMAIL" HeaderText="Email">
+                    </asp:BoundField>
+                     <asp:BoundField DataField="TEN_CO_QUAN_CONG_TAC" HeaderText="Tên cơ quan công tác">
+                    </asp:BoundField>
+                    <asp:BoundField DataField="EMAIL_TOPICA" HeaderText="TOPICA Email">
+                    </asp:BoundField>
+                    <asp:TemplateField>
+                    <HeaderTemplate>Ảnh cá nhân</HeaderTemplate>
+                    <ItemTemplate>
+                    <img alt="anh ca nhan" src='<%# "/TRMProject/Images/PrivateImages/"+ Eval("ANH_CA_NHAN") %>' />
+                    </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:BoundField DataField="HOC_VI" HeaderText="Học vị" />
+                     <asp:BoundField DataField="HOC_HAM" HeaderText="Học hàm" />
+                     <asp:BoundField DataField="CHUYEN_NGANH_CHINH" HeaderText="Chuyên ngành chính" />
+                     <asp:BoundField DataField="TRUONG_DAO_TAO" HeaderText="Trường đào tạo" />
+                     <asp:BoundField DataField="TRANG_THAI_GIANG_VIEN" HeaderText="Trạng thái giảng viên" />
+                     <asp:BoundField DataField="SO_TAI_KHOAN" HeaderText="Số tài khoản" />
+                     <asp:BoundField DataField="TEN_NGAN_HANG" HeaderText="Tên ngân hàng" />
+                     <asp:BoundField DataField="SO_CMND" HeaderText="Số chứng minh" />
+                     <asp:BoundField DataField="NGAY_CAP" HeaderText="Ngày cấp" />
+                     <asp:BoundField DataField="NOI_CAP" HeaderText="Nơi cấp" />
+                     <asp:BoundField DataField="DON_VI_QUAN_LY" HeaderText="Đơn vị quản lý" />
+                     <asp:BoundField DataField="MA_SO_THUE" HeaderText="Mã số thuế" />
+                    <asp:TemplateField>
+                    <HeaderTemplate>GV hướng dẫn?</HeaderTemplate>
+                    <ItemTemplate>
+                    <label><%# mapping_hd(Eval("GVHD_YN").ToString())%></label>
+                    </ItemTemplate>
+                    <ItemStyle HorizontalAlign="Center"></ItemStyle>
+                    </asp:TemplateField>
+                    <asp:TemplateField>
+                    <HeaderTemplate>GV chuyên môn </HeaderTemplate>
+                     <ItemStyle HorizontalAlign="Center"></ItemStyle>
+                    <ItemTemplate>
+                    <label><%# mapping_cm(Eval("GVCM_YN").ToString())%></label>
+                    </ItemTemplate>
+                    <ItemStyle HorizontalAlign="Center"></ItemStyle>
+                    </asp:TemplateField>
+                    <asp:TemplateField>
+                    <HeaderTemplate>GV viết học liệu</HeaderTemplate>
+                     <ItemStyle HorizontalAlign="Center"></ItemStyle>
+                    <ItemTemplate>
+                    <label><%# mapping_viet_hl(Eval("GV_VIET_HL_YN").ToString())%></label>
+                    </ItemTemplate>
+                    <ItemStyle HorizontalAlign="Center"></ItemStyle>
+                    </asp:TemplateField>
+                    <asp:TemplateField>
+                    <HeaderTemplate>GV duyệt học liệu</HeaderTemplate>
+                    <ItemTemplate>
+                    <label><%# mapping_duyet_hl(Eval("GV_DUYET_HL_YN").ToString())%></label>
+                    </ItemTemplate>
+                    <ItemStyle HorizontalAlign="Center"></ItemStyle>
+                    </asp:TemplateField>
+                     <asp:TemplateField>
+                    <HeaderTemplate>GV thẩm định học liệu</HeaderTemplate>
+                    <ItemTemplate>
+                    <label><%# mapping_tham_dinh_hl(Eval("GV_THAM_DINH_HL_YN").ToString())%></label>
+                    </ItemTemplate>
+                    <ItemStyle HorizontalAlign="Center"></ItemStyle>
+                    </asp:TemplateField>
+                     <asp:TemplateField>
+                    <HeaderTemplate>GV hội đồng khoa học</HeaderTemplate>
+                    <ItemTemplate>
+                    <label><%# mapping_hdkh(Eval("GV_HDKH_YN").ToString())%></label>
+                    </ItemTemplate>
+                    <ItemStyle HorizontalAlign="Center"></ItemStyle>
+                    </asp:TemplateField>
                     <asp:TemplateField>
                     <ItemTemplate> <asp:LinkButton ID = "lbt_delete" runat="server" Text="Xóa" 
                      CommandName="Delete" OnClientClick="return confirm ('Bạn có thực sự muốn xóa bản ghi này?')"></asp:LinkButton>
