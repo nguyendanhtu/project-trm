@@ -70,7 +70,6 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
             // Treo dữ liệu lên lưới
             m_grv_dm_danh_sach_giang_vien.DataSource = m_ds_giang_vien.V_DM_GIANG_VIEN;
             m_grv_dm_danh_sach_giang_vien.DataBind();
-
         }
         catch (Exception v_e)
         {
@@ -194,6 +193,18 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
         catch (Exception v_e)
         {
             CSystemLog_301.ExceptionHandle(this, v_e);
+        }
+    }
+    protected void m_grv_dm_danh_sach_giang_vien_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+        try
+        {
+            m_grv_dm_danh_sach_giang_vien.PageIndex = e.NewPageIndex;
+            load_data_to_grid();
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(this,v_e);
         }
     }
 }
