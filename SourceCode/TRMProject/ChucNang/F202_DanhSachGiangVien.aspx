@@ -29,11 +29,13 @@
 	<tr>
 		<td align="center" colspan="3" style="height:450px;" valign="top">
 		    &nbsp;
-           
+    <div id="grdCharges" runat="server" style="width: 100%; overflow: auto; height: auto;">
    <asp:GridView ID="m_grv_dm_danh_sach_giang_vien" AllowPaging="true" 
                 runat="server" AutoGenerateColumns="False" 
                 Width="100%" DataKeyNames="ID"
-                CellPadding="4" ForeColor="#333333" GridLines="Both" AllowSorting="True" >
+                CellPadding="4" ForeColor="#333333" GridLines="Both" 
+            AllowSorting="True" 
+            onpageindexchanging="m_grv_dm_danh_sach_giang_vien_PageIndexChanging" >
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">
@@ -48,6 +50,7 @@
                     <ItemTemplate>
                     <label><%# Eval("TEN_GIANG_VIEN").ToString() %></label>
                     </ItemTemplate>
+                    <ItemStyle Width="200px"/>
                     </asp:TemplateField>
                     <asp:BoundField DataField="NGAY_SINH" HeaderText="Ngày sinh" />
                     <asp:TemplateField>
@@ -83,7 +86,7 @@
                      <asp:BoundField DataField="TRANG_THAI_GIANG_VIEN" HeaderText="Trạng thái giảng viên" />
                      <asp:BoundField DataField="SO_TAI_KHOAN" HeaderText="Số tài khoản" />
                      <asp:BoundField DataField="TEN_NGAN_HANG" HeaderText="Tên ngân hàng" />
-                     <asp:BoundField DataField="SO_CMND" HeaderText="Số chứng minh" />
+                     <asp:BoundField DataField="SO_CMTND" HeaderText="Số chứng minh" />
                      <asp:BoundField DataField="NGAY_CAP" HeaderText="Ngày cấp" />
                      <asp:BoundField DataField="NOI_CAP" HeaderText="Nơi cấp" />
                      <asp:BoundField DataField="DON_VI_QUAN_LY" HeaderText="Đơn vị quản lý" />
@@ -144,7 +147,7 @@
                 <SelectedRowStyle CssClass="cssSelectedRow" BackColor="#C5BBAF" Font-Bold="True" 
                       ForeColor="#333333"></SelectedRowStyle>
             </asp:GridView>
-           
+    </div>
             </td>
 	</tr>	
 
