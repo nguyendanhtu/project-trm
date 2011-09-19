@@ -207,4 +207,26 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
             CSystemLog_301.ExceptionHandle(this,v_e);
         }
     }
+    protected void m_cmd_luu_du_lieu_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            mtv_giang_vien.ActiveViewIndex = 1;
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(this,v_e);
+        }
+    }
+    protected void m_cmd_thoat_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            mtv_giang_vien.ActiveViewIndex = 1;
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(this, v_e);
+        }
+    }
 }
