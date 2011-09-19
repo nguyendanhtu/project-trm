@@ -53,6 +53,8 @@
                 MaxLength="64" Width="96%" />
                          </td>
                          <td align="left" style="width:1%;"> 
+                        <asp:RequiredFieldValidator ID="rqf_ten_dem" runat="server" 
+                        ControlToValidate="m_txt_middle_name" Text="*" ErrorMessage="Bạn phải nhập Họ và Tên đệm"></asp:RequiredFieldValidator>
                              &nbsp;</td>
                 <td align="left" class="style1">
 			       
@@ -165,10 +167,7 @@
                 MaxLength="64" Width="99%" />
                          </td>
                 <td align="left" style="width:1%;"> 
-                         <asp:RequiredFieldValidator ID="m_rfv_chuc_vu_hien_tai" runat="server" 
-                             ErrorMessage="Bạn phải điền chức vụ hiện tại" Text="*" 
-                             ControlToValidate="m_txt_chuc_vu_hien_tai"></asp:RequiredFieldValidator>
-                </td>
+                         &nbsp;</td>
                  <td align="right" class="style1">&nbsp;</td>
                 <td align="left" style="width:10%;">&nbsp;</td>
                 <td align="left" style="width:1%;">&nbsp;</td>
@@ -183,10 +182,7 @@
                 MaxLength="64" Width="99%" />
                          </td>
                 <td align="left" style="width:1%;"> 
-                         <asp:RequiredFieldValidator ID="m_rfv_offline3" runat="server" 
-                             ErrorMessage="Bạn phải điền chức vụ cao nhất" Text="*"
-                             ControlToValidate="m_txt_chuc_vu_cao_nhat"></asp:RequiredFieldValidator>
-                </td>
+                         &nbsp;</td>
                  <td align="right" class="style1">&nbsp;</td>
                 <td align="left" style="width:10%;">&nbsp;</td>
                 <td align="left" style="width:1%;">&nbsp;</td>
@@ -202,13 +198,7 @@
                          </td>
                      <td align="left" style="width:1%;">
                     
-                         <asp:RegularExpressionValidator ID="m_rfv_home_tel" runat="server" 
-                             ErrorMessage="Bạn phải đã nhập sai dạng SĐT Nhà riêng" 
-                              Text="*"
-                             ControlToValidate="m_txt_tel_home" 
-                             ValidationExpression="/(^\d{10}$)|(^\d{11}$)/">
-                             </asp:RegularExpressionValidator>
-                </td>
+                         &nbsp;</td>
                 <td align="right" class="style1">
 			<asp:label id="lblTelOffice" CssClass="cssManField" runat="server" 
                 Text="SĐT Nơi làm việc" />
@@ -219,11 +209,7 @@
                          </td>
                       <td align="left" style="width:1%;">
 
-                         <asp:RegularExpressionValidator ID="m_rfv_office_tel" runat="server" 
-                             ErrorMessage="Bạn phải đã nhập sai dạng SĐT Nơi làm việc" 
-                             ControlToValidate="m_txt_tel_office" Text="*"
-                              ValidationExpression="/(^\d{10}$)|(^\d{11}$)/"></asp:RegularExpressionValidator>
-                </td>
+                          &nbsp;</td>
                  <td align="right" class="style1">
 			<asp:label id="lblMobilePhone" CssClass="cssManField" runat="server" 
                 Text="SĐT Di động" />
@@ -329,8 +315,7 @@
                 MaxLength="64" Width="96%" />
                          </td>
                      <td align="left" style="width:1%;">
-                             <asp:RequiredFieldValidator ID="m_rfv_chuyen_nganh_chinh" runat="server" 
-                        ControlToValidate="m_txt_chuyen_nganh_chinh" Text="*" ErrorMessage="Bạn phải nhập chuyên ngành chính"></asp:RequiredFieldValidator></td>
+                             &nbsp;</td>
                 <td align="right" class="style1">
 			<asp:label id="lblTruongDaoTao" CssClass="cssManField" runat="server" 
                 Text="Trường đào tạo" />
@@ -340,9 +325,7 @@
                 MaxLength="64" Width="96%" />
                          </td>
                       <td align="left" style="width:1%;">
-                             <asp:RequiredFieldValidator ID="m_rfv_truong_dao_tao" runat="server" 
-                        ControlToValidate="m_txt_truong_dao_tao" Text="*"
-                              ErrorMessage="Bạn phải nhập trường đào tạo"></asp:RequiredFieldValidator></td>
+                             &nbsp;</td>
                  <td align="right" class="style1">
                      &nbsp;</td>
                 <td align="left" style="width:10%;">&nbsp;</td>
@@ -406,9 +389,6 @@
                 MaxLength="64" Width="96%" />
                          </td>
                      <td align="left" style="width:1%;">
-                             <asp:RequiredFieldValidator ID="m_rfv_chuyen_nganh_chinh0" runat="server" 
-                        ControlToValidate="m_txt_so_cmnd" Text="*"
-                             ErrorMessage="Bạn phải nhập số CMND"></asp:RequiredFieldValidator>
                               <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
                            
                              ControlToValidate="m_txt_so_cmnd" Text="*"
@@ -450,9 +430,7 @@
                     </ew:CalendarPopup>
 		                    </td>
                       <td align="left" style="width:1%;">
-                             <asp:RequiredFieldValidator ID="m_rfv_ngay_cap" runat="server" 
-                        ControlToValidate="m_dat_ngay_cap" Text="*"
-                              ErrorMessage="Bạn phải nhập ngày cấp CMND"></asp:RequiredFieldValidator></td>
+                             &nbsp;</td>
                  <td align="right" class="style1">
 			<asp:label id="lblNoicap" CssClass="cssManField" runat="server" 
                 Text="Nơi cấp" />
@@ -462,9 +440,7 @@
                 MaxLength="64" Width="96%" />
                          </td>
                       <td align="left" style="width:1%;">
-                             <asp:RequiredFieldValidator ID="m_rfv_noi_cap" runat="server" 
-                        ControlToValidate="m_txt_noi_cap" Text="*"
-                              ErrorMessage="Bạn phải nhập nơi cấp CMND"></asp:RequiredFieldValidator></td>
+                             &nbsp;</td>
             </tr>
             <tr>
                 <td align="right" class="style2">
