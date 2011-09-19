@@ -1,20 +1,980 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="F202_DanhSachGiangVien.aspx.cs" Inherits="ChuNang_F202_DanhSachGiangVien" %>
-
+<%@ Register assembly="eWorld.UI" namespace="eWorld.UI" tagprefix="ew" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
 <asp:MultiView ID="mtv_giang_vien" runat="server">
 
   <asp:View ID="m_view_form_cap_nhat_giang_vien" runat="server">
-      Chỗ này là form cập nhật
+     <table cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0">
+	<tr>
+		<td class="cssPageTitleBG">
+		    <asp:label id="lblUser" runat="server" CssClass="cssPageTitle" 
+                Text="Thông tin lớp môn"/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		    <asp:validationsummary id="vdsCategory" runat="server" CssClass="cssManField" Font-Bold="true" />
+		   <asp:label id="m_lbl_mess" runat="server" CssClass="cssManField" />
+		</td>
+	</tr>
+    <tr>
+		<td>
+        <table cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0"> 
+            <tr>
+                <td align="right" class="style2">
+			<asp:label id="lblTeacherCode" CssClass="cssManField" runat="server" 
+                Text="Mã giảng viên" />
+                         </td>
+                <td align="left" class="style3">
+			<asp:textbox id="m_txt_ma_giang_vien" CssClass="cssTextBox"  runat="server" 
+                MaxLength="64" Width="96%" />
+                         </td>
+                         <td align="left" style="width:1%;"> 
+                             <asp:RequiredFieldValidator ID="m_rfv_ma_giang_vien" runat="server" 
+                        ControlToValidate="m_txt_ma_giang_vien" Text="*" ErrorMessage="Bạn phải nhập Mã Giảng viên"></asp:RequiredFieldValidator></td>
+                <td align="left" class="style1">
+			       
+			    </td>
+                <td align="left" style="width:10%;" rowspan="4">&nbsp;</td>
+                <td align="left" style="width:1%;"></td>
+                 <td align="right" class="style1"></td>
+                <td align="left" style="width:10%;"></td>
+                <td align="left" style="width:1%;"></td>
+            </tr>
+            <tr>
+                <td align="right" class="style2">
+			<asp:label id="lblMiddleName" CssClass="cssManField" runat="server" 
+                Text="Họ và tên đệm" />
+                         </td>
+                <td align="left" class="style3">
+			<asp:textbox id="m_txt_middle_name" CssClass="cssTextBox"  runat="server" 
+                MaxLength="64" Width="96%" />
+                         </td>
+                         <td align="left" style="width:1%;"> 
+                             &nbsp;</td>
+                <td align="left" class="style1">
+			       
+			        &nbsp;</td>
+                <td align="left" style="width:1%;">&nbsp;</td>
+                 <td align="right" class="style1">&nbsp;</td>
+                <td align="left" style="width:10%;">&nbsp;</td>
+                <td align="left" style="width:1%;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" class="style2">
+			<asp:label id="lblName" CssClass="cssManField" runat="server" 
+                Text="Tên" />
+                         </td>
+                <td align="left" class="style3">
+			<asp:textbox id="m_txt_name" CssClass="cssTextBox"  runat="server" 
+                MaxLength="64" Width="96%" />
+                         </td>
+                         <td align="left" style="width:1%;"> 
+                             <asp:RequiredFieldValidator ID="m_rfv_teacher_name" runat="server" 
+                        ControlToValidate="m_txt_name" Text="*" ErrorMessage="Bạn phải nhập tên giảng viên"></asp:RequiredFieldValidator></td>
+                <td align="left" class="style1">
+			       
+			        &nbsp;</td>
+                <td align="left" style="width:1%;">&nbsp;</td>
+                 <td align="right" class="style1">&nbsp;</td>
+                <td align="left" style="width:10%;">&nbsp;</td>
+                <td align="left" style="width:1%;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" class="style2">
+			<asp:label id="lblBirthDay" CssClass="cssManField" runat="server" 
+                Text="Ngày sinh" />
+                         </td>
+                <td align="left" class="style3">
+			        <ew:CalendarPopup ID="m_dat_ngay_sinh_gv" runat="server" 
+                        ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
+                        ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
+                        ShowGoToToday="True" Width="70%" SelectedDate="">
+                        <weekdaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <weekendstyle backcolor="LightGray" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <offmonthstyle backcolor="AntiqueWhite" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Gray" />
+                        <selecteddatestyle backcolor="Yellow" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Black" />
+                        <monthheaderstyle backcolor="Yellow" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Black" />
+                        <DayHeaderStyle BackColor="Orange" Font-Names="Verdana,Helvetica,Tahoma,Arial" 
+                            Font-Size="XX-Small" ForeColor="Black" />
+                        <cleardatestyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <gototodaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <TodayDayStyle BackColor="LightGoldenrodYellow" 
+                            Font-Names="Verdana,Helvetica,Tahoma,Arial" Font-Size="XX-Small" 
+                            ForeColor="Black" />
+                        <holidaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                    </ew:CalendarPopup>
+		                    </td>
+                         <td align="left" style="width:1%;"> 
+                         <asp:RequiredFieldValidator ID="m_rfv_date_of_birth" runat="server" 
+                             ErrorMessage="Bạn phải nhập ngày sinh giảng viên" Text="*"
+                             ControlToValidate="m_dat_ngay_sinh_gv"></asp:RequiredFieldValidator>
+                </td>
+                <td align="left" class="style1">
+			       
+			        &nbsp;</td>
+                <td align="left" style="width:1%;">&nbsp;</td>
+                 <td align="right" class="style1">&nbsp;</td>
+                <td align="left" style="width:10%;">&nbsp;</td>
+                <td align="left" style="width:1%;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" class="style2">
+			<asp:label id="lblSex" CssClass="cssManField" runat="server" 
+                Text="Giới tính" />
+                         </td>
+                <td align="left" class="style3">
+			        <asp:RadioButtonList ID="rb_sex" runat="server" 
+                       
+                        RepeatDirection="Horizontal" Width="167px">
+                        <asp:ListItem Selected="True" Value="Man">Nam</asp:ListItem>
+                        <asp:ListItem Value="Female">Nữ</asp:ListItem>
+                    </asp:RadioButtonList>
+                </td>
+                         <td align="left" style="width:1%;"> 
+                             &nbsp;</td>
+                <td align="left" class="style1">
+			       
+			        &nbsp;</td>
+                <td align="left" style="width:10%;">&nbsp;</td>
+                <td align="left" style="width:1%;">&nbsp;</td>
+                 <td align="right" class="style1">&nbsp;</td>
+                <td align="left" style="width:10%;">&nbsp;</td>
+                <td align="left" style="width:1%;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" class="style2">
+			<asp:label id="lblChucVuHienTai" CssClass="cssManField" runat="server" 
+                Text="Chức vụ hiện tại" />
+                         </td>
+                <td align="left" colspan="4">
+			<asp:textbox id="m_txt_chuc_vu_hien_tai" CssClass="cssTextBox"  runat="server" 
+                MaxLength="64" Width="99%" />
+                         </td>
+                <td align="left" style="width:1%;"> 
+                         <asp:RequiredFieldValidator ID="m_rfv_chuc_vu_hien_tai" runat="server" 
+                             ErrorMessage="Bạn phải điền chức vụ hiện tại" Text="*" 
+                             ControlToValidate="m_txt_chuc_vu_hien_tai"></asp:RequiredFieldValidator>
+                </td>
+                 <td align="right" class="style1">&nbsp;</td>
+                <td align="left" style="width:10%;">&nbsp;</td>
+                <td align="left" style="width:1%;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" class="style2">
+			<asp:label id="lblChucVuHienTai0" CssClass="cssManField" runat="server" 
+                Text="Chức vụ cao nhất" />
+                         </td>
+                <td align="left" colspan="4">
+			<asp:textbox id="m_txt_chuc_vu_cao_nhat" CssClass="cssTextBox"  runat="server" 
+                MaxLength="64" Width="99%" />
+                         </td>
+                <td align="left" style="width:1%;"> 
+                         <asp:RequiredFieldValidator ID="m_rfv_offline3" runat="server" 
+                             ErrorMessage="Bạn phải điền chức vụ cao nhất" Text="*"
+                             ControlToValidate="m_txt_chuc_vu_cao_nhat"></asp:RequiredFieldValidator>
+                </td>
+                 <td align="right" class="style1">&nbsp;</td>
+                <td align="left" style="width:10%;">&nbsp;</td>
+                <td align="left" style="width:1%;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" class="style2">
+			<asp:label id="lblTelHome" CssClass="cssManField" runat="server" 
+                Text="SĐT Nhà riêng" />
+                </td>
+                <td align="left" class="style3">
+			<asp:textbox id="m_txt_tel_home" CssClass="cssTextBox"  runat="server" 
+                MaxLength="64" Width="96%" />
+                         </td>
+                     <td align="left" style="width:1%;">
+                    
+                         <asp:RegularExpressionValidator ID="m_rfv_home_tel" runat="server" 
+                             ErrorMessage="Bạn phải đã nhập sai dạng SĐT Nhà riêng" 
+                              Text="*"
+                             ControlToValidate="m_txt_tel_home" 
+                             ValidationExpression="/(^\d{10}$)|(^\d{11}$)/">
+                             </asp:RegularExpressionValidator>
+                </td>
+                <td align="right" class="style1">
+			<asp:label id="lblTelOffice" CssClass="cssManField" runat="server" 
+                Text="SĐT Nơi làm việc" />
+                </td>
+                <td align="left" style="width:10%;">
+			<asp:textbox id="m_txt_tel_office" CssClass="cssTextBox"  runat="server" 
+                MaxLength="64" Width="96%"  />
+                         </td>
+                      <td align="left" style="width:1%;">
+
+                         <asp:RegularExpressionValidator ID="m_rfv_office_tel" runat="server" 
+                             ErrorMessage="Bạn phải đã nhập sai dạng SĐT Nơi làm việc" 
+                             ControlToValidate="m_txt_tel_office" Text="*"
+                              ValidationExpression="/(^\d{10}$)|(^\d{11}$)/"></asp:RegularExpressionValidator>
+                </td>
+                 <td align="right" class="style1">
+			<asp:label id="lblMobilePhone" CssClass="cssManField" runat="server" 
+                Text="SĐT Di động" />
+                </td>
+                <td align="left" style="width:10%;">
+			<asp:textbox id="m_txt_mobile_phone" CssClass="cssTextBox"  runat="server" 
+                MaxLength="64" Width="96%" />
+                         </td>
+                <td align="left" style="width:1%;">
+                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                        ControlToValidate="m_txt_mobile_phone" Text="*" ErrorMessage="Bạn phải nhập số điện thoại di động"></asp:RequiredFieldValidator>
+                         <asp:RegularExpressionValidator ID="m_rfv_mobile_phone" runat="server" 
+                             ErrorMessage="Bạn phải đã nhập sai dạng SĐT di động" 
+                             ControlToValidate="m_txt_mobile_phone" Text="*"
+                              ValidationExpression="/(^\d{10}$)|(^\d{11}$)/"></asp:RegularExpressionValidator>
+                </td>
+            </tr>
+            <tr>
+                <td align="right" class="style2">
+			<asp:label id="lblEmail" CssClass="cssManField" runat="server" 
+                Text="Email" />
+                </td>
+                <td align="left" colspan="4">
+			<asp:textbox id="m_txt_email" CssClass="cssTextBox"  runat="server" 
+                MaxLength="64" Width="99%" />
+                         </td>
+                      <td align="left" style="width:1%;">
+                         <asp:RegularExpressionValidator ID="m_rfv_offline7" runat="server" 
+                             ErrorMessage="Bạn phải nhập ngày sinh giảng viên" 
+                             ControlToValidate="m_txt_email" Text="*"
+                              ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                </td>
+                 <td align="right" class="style1">
+                     &nbsp;</td>
+                <td align="left" style="width:10%;">&nbsp;</td>
+                <td align="left" style="width:1%;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" class="style2">
+			<asp:label id="lblOfficeName" CssClass="cssManField" runat="server" 
+                Text="Tên cơ quan công tác" />
+                </td>
+                <td align="left" colspan="4">
+			<asp:textbox id="m_txt_email0" CssClass="cssTextBox"  runat="server" 
+                MaxLength="64" Width="99%" />
+                         </td>
+                      <td align="left" style="width:1%;">
+                          &nbsp;</td>
+                 <td align="right" class="style1">
+                     &nbsp;</td>
+                <td align="left" style="width:10%;">&nbsp;</td>
+                <td align="left" style="width:1%;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" class="style2">
+			<asp:label id="lblEmailTopica" CssClass="cssManField" runat="server" 
+                Text="Email Topica" />
+                </td>
+                <td align="left" colspan="4">
+			<asp:textbox id="m_txt_email1" CssClass="cssTextBox"  runat="server" 
+                MaxLength="64" Width="99%" />
+                         </td>
+                      <td align="left" style="width:1%;">
+                          &nbsp;</td>
+                 <td align="right" class="style1">
+                     &nbsp;</td>
+                <td align="left" style="width:10%;">&nbsp;</td>
+                <td align="left" style="width:1%;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" class="style2">
+			<asp:label id="lblHocVi" CssClass="cssManField" runat="server" 
+                Text="Học vị" />
+                </td>
+                <td align="left" class="style3">
+			<asp:textbox id="m_txt_hoc_vi" CssClass="cssTextBox"  runat="server" 
+                MaxLength="64" Width="96%" />
+                         </td>
+                     <td align="left" style="width:1%;">
+                             &nbsp;</td>
+                <td align="right" class="style1">
+			<asp:label id="lblHocHam" CssClass="cssManField" runat="server" 
+                Text="Học hàm" />
+                </td>
+                <td align="left" style="width:10%;">
+			<asp:textbox id="m_txt_hoc_ham" CssClass="cssTextBox"  runat="server" 
+                MaxLength="64" Width="96%" />
+                         </td>
+                      <td align="left" style="width:1%;">
+                             &nbsp;</td>
+                 <td align="right" class="style1">
+                     &nbsp;</td>
+                <td align="left" style="width:10%;">&nbsp;</td>
+                <td align="left" style="width:1%;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" class="style2">
+			<asp:label id="lblChuyenNganhChinh" CssClass="cssManField" runat="server" 
+                Text="Chuyên ngành chính" />
+                </td>
+                <td align="left" class="style3">
+			<asp:textbox id="m_txt_chuyen_nganh_chinh" CssClass="cssTextBox"  runat="server" 
+                MaxLength="64" Width="96%" />
+                         </td>
+                     <td align="left" style="width:1%;">
+                             <asp:RequiredFieldValidator ID="m_rfv_chuyen_nganh_chinh" runat="server" 
+                        ControlToValidate="m_txt_chuyen_nganh_chinh" Text="*" ErrorMessage="Bạn phải nhập chuyên ngành chính"></asp:RequiredFieldValidator></td>
+                <td align="right" class="style1">
+			<asp:label id="lblTruongDaoTao" CssClass="cssManField" runat="server" 
+                Text="Trường đào tạo" />
+                </td>
+                <td align="left" style="width:10%;">
+			<asp:textbox id="m_txt_truong_dao_tao" CssClass="cssTextBox"  runat="server" 
+                MaxLength="64" Width="96%" />
+                         </td>
+                      <td align="left" style="width:1%;">
+                             <asp:RequiredFieldValidator ID="m_rfv_truong_dao_tao" runat="server" 
+                        ControlToValidate="m_txt_truong_dao_tao" Text="*"
+                              ErrorMessage="Bạn phải nhập trường đào tạo"></asp:RequiredFieldValidator></td>
+                 <td align="right" class="style1">
+                     &nbsp;</td>
+                <td align="left" style="width:10%;">&nbsp;</td>
+                <td align="left" style="width:1%;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" class="style2">
+			<asp:label id="lblTrangThaiGiangVien" CssClass="cssManField" runat="server" 
+                Text="Trạng thái giảng viên" />
+                </td>
+                <td align="left" class="style3">
+		    <asp:DropDownList id="m_cbo_dm_trang_thai_giang_vien" runat="server" Width="96%" 
+                        CssClass="cssDorpdownlist"  />
+                </td>
+                     <td align="left" style="width:1%;">
+                         &nbsp;</td>
+                <td align="right" class="style1">
+			        &nbsp;</td>
+                <td align="left" style="width:10%;">
+                    &nbsp;</td>
+                      <td align="left" style="width:1%;">
+                          &nbsp;</td>
+                 <td align="right" class="style1">
+                     &nbsp;</td>
+                <td align="left" style="width:10%;">&nbsp;</td>
+                <td align="left" style="width:1%;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" class="style2">
+			<asp:label id="lblSoTaiKhoan" CssClass="cssManField" runat="server" 
+                Text="Số Tài Khoản" />
+                </td>
+                <td align="left" class="style3">
+			<asp:textbox id="m_txt_so_tai_khoan" CssClass="cssTextBox"  runat="server" 
+                MaxLength="64" Width="96%" />
+                         </td>
+                     <td align="left" style="width:1%;">
+                         &nbsp;</td>
+                <td align="right" class="style1">
+			<asp:label id="lblTenNganHang" CssClass="cssManField" runat="server" 
+                Text="Tên ngân hàng" />
+                </td>
+                <td align="left" style="width:10%;">
+			<asp:textbox id="m_txt_ten_ngan_hang" CssClass="cssTextBox"  runat="server" 
+                MaxLength="64" Width="96%" />
+                         </td>
+                      <td align="left" style="width:1%;">
+                          &nbsp;</td>
+                 <td align="right" class="style1">
+                     &nbsp;</td>
+                <td align="left" style="width:10%;">&nbsp;</td>
+                <td align="left" style="width:1%;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" class="style2">
+			<asp:label id="lblSoCMND" CssClass="cssManField" runat="server" 
+                Text="Số CMND" />
+                </td>
+                <td align="left" class="style3">
+			<asp:textbox id="m_txt_so_cmnd" CssClass="cssTextBox"  runat="server" 
+                MaxLength="64" Width="96%" />
+                         </td>
+                     <td align="left" style="width:1%;">
+                             <asp:RequiredFieldValidator ID="m_rfv_chuyen_nganh_chinh0" runat="server" 
+                        ControlToValidate="m_txt_so_cmnd" Text="*"
+                             ErrorMessage="Bạn phải nhập số CMND"></asp:RequiredFieldValidator>
+                              <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
+                           
+                             ControlToValidate="m_txt_so_cmnd" Text="*"
+                             ErrorMessage="Bạn nhập sai số CMND"
+                              ValidationExpression="/(^\d{9}$)/"></asp:RegularExpressionValidator></td>
+                <td align="right" class="style1">
+			<asp:label id="lblNgayCap" CssClass="cssManField" runat="server" 
+                Text="Ngày Cấp" />
+                </td>
+                <td align="left" style="width:10%;">
+			        <ew:CalendarPopup ID="m_dat_ngay_cap" runat="server" 
+                        ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
+                        ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
+                        ShowGoToToday="True" Width="70%" SelectedDate="">
+                        <weekdaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <weekendstyle backcolor="LightGray" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <offmonthstyle backcolor="AntiqueWhite" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Gray" />
+                        <selecteddatestyle backcolor="Yellow" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Black" />
+                        <monthheaderstyle backcolor="Yellow" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Black" />
+                        <DayHeaderStyle BackColor="Orange" Font-Names="Verdana,Helvetica,Tahoma,Arial" 
+                            Font-Size="XX-Small" ForeColor="Black" />
+                        <cleardatestyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <gototodaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <TodayDayStyle BackColor="LightGoldenrodYellow" 
+                            Font-Names="Verdana,Helvetica,Tahoma,Arial" Font-Size="XX-Small" 
+                            ForeColor="Black" />
+                        <holidaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                    </ew:CalendarPopup>
+		                    </td>
+                      <td align="left" style="width:1%;">
+                             <asp:RequiredFieldValidator ID="m_rfv_ngay_cap" runat="server" 
+                        ControlToValidate="m_dat_ngay_cap" Text="*"
+                              ErrorMessage="Bạn phải nhập ngày cấp CMND"></asp:RequiredFieldValidator></td>
+                 <td align="right" class="style1">
+			<asp:label id="lblNoicap" CssClass="cssManField" runat="server" 
+                Text="Nơi cấp" />
+                </td>
+                <td align="left" style="width:10%;">
+			<asp:textbox id="m_txt_noi_cap" CssClass="cssTextBox"  runat="server" 
+                MaxLength="64" Width="96%" />
+                         </td>
+                      <td align="left" style="width:1%;">
+                             <asp:RequiredFieldValidator ID="m_rfv_noi_cap" runat="server" 
+                        ControlToValidate="m_txt_noi_cap" Text="*"
+                              ErrorMessage="Bạn phải nhập nơi cấp CMND"></asp:RequiredFieldValidator></td>
+            </tr>
+            <tr>
+                <td align="right" class="style2">
+			<asp:label id="lblDonViQuanLy" CssClass="cssManField" runat="server" 
+                Text="Đơn vị quản lý" />
+                </td>
+                <td align="left" class="style3">
+			<asp:textbox id="m_txt_don_vi_quan_ly" CssClass="cssTextBox"  runat="server" 
+                MaxLength="64" Width="96%" />
+                         </td>
+                     <td align="left" style="width:1%;">
+                         &nbsp;</td>
+                <td align="right" class="style1">
+			<asp:label id="lblMaSoThue" CssClass="cssManField" runat="server" 
+                Text="Mã số thuế" />
+                </td>
+                <td align="left" style="width:10%;">
+			<asp:textbox id="m_txt_ma_so_thue" CssClass="cssTextBox"  runat="server" 
+                MaxLength="64" Width="96%" />
+                         </td>
+                      <td align="left" style="width:1%;">
+                          &nbsp;</td>
+                 <td align="right" class="style1">
+                     &nbsp;</td>
+                <td align="left" style="width:10%;">&nbsp;</td>
+                <td align="left" style="width:1%;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" class="style2">
+			<asp:label id="lblGiaoVienHopDong" CssClass="cssManField" runat="server" 
+                Text="Giáo Viên Hợp Đồng" />
+		                    </td>
+                <td align="left" class="style3">
+		            &nbsp;</td>
+                     <td align="left" style="width:1%;">
+                         &nbsp;</td>
+                <td align="right" class="style1">
+			        &nbsp;</td>
+                <td align="left" style="width:10%;">
+                    &nbsp;</td>
+                      <td align="left" style="width:1%;">
+                          &nbsp;</td>
+                 <td align="right" class="style1">
+                     &nbsp;</td>
+                <td align="left" style="width:10%;">&nbsp;</td>
+                <td align="left" style="width:1%;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" class="style2">
+			        &nbsp;</td>
+                <td align="left" class="style3">
+		            &nbsp;</td>
+                     <td align="left" style="width:1%;">
+                         &nbsp;</td>
+                <td align="right" class="style1">
+			        &nbsp;</td>
+                <td align="left" style="width:10%;">
+                    &nbsp;</td>
+                      <td align="left" style="width:1%;">
+                          &nbsp;</td>
+                 <td align="right" class="style1">
+                     &nbsp;</td>
+                <td align="left" style="width:10%;"></td>
+                <td align="left" style="width:1%;"></td>
+            </tr>
+            <tr>
+                <td align="right" class="style2">
+			<asp:label id="lblLoaiHopDongGiaoVien" CssClass="cssManField" runat="server" 
+                Text="Loại Hợp Đồng" />
+		                    </td>
+                <td align="left" class="style3">
+			        <asp:RadioButtonList ID="m_rbt_loai_lop" runat="server">
+                        <asp:ListItem Value="GVHD_YN">Giáo Viên Hợp đồng</asp:ListItem>
+                        <asp:ListItem Value="GVCM_YN">Giáo Viên Chuyên Môn</asp:ListItem>
+                        <asp:ListItem Value="GV_VIET_HL_YN">Giáo Viên Viết Học Liệu</asp:ListItem>
+                        <asp:ListItem Value="GV_DUYET_HL_YN">Giáo Viên Duyệt Học Liệu</asp:ListItem>
+                        <asp:ListItem Value="GV_THAM_DINH_HL_YN">Giáo Thẩm định Học Liệu</asp:ListItem>
+                        <asp:ListItem Value="GV_HDKH_YN">Giáo Viên Hội Đồng Khoa Học</asp:ListItem>
+                    </asp:RadioButtonList>
+                </td>
+                     <td align="left" style="width:1%;">
+                         <asp:RequiredFieldValidator ID="m_rfv_hop_dong_giao_vien" runat="server" 
+                             
+                             ErrorMessage="Bạn phải chọn loại hợp đồng giáo viên"  Text="*"
+                             ControlToValidate="m_rbt_loai_lop"></asp:RequiredFieldValidator>
+                </td>
+                <td align="right" class="style1">
+			        &nbsp;</td>
+                <td align="left" style="width:10%;">
+                    &nbsp;</td>
+                     <td align="left" style="width:1%;">
+                         &nbsp;</td>
+                 <td align="right" class="style1">
+			         &nbsp;</td>
+                <td align="left" style="width:10%;">
+                    &nbsp;</td>            
+                         <td align="left" style="width:1%;"></td>
+            </tr>
+            <tr>
+                <td align="right" class="style2"></td>
+                <td align="left" class="style3">    
+			        &nbsp;</td> 
+                <td align="left" style="width:1%;"></td>
+                <td align="left" class="style1">
+			        &nbsp;</td>
+                <td align="left" style="width:10%;">    
+			        &nbsp;</td> <td align="left" style="width:1%;"></td>
+                 <td align="right" class="style1"></td>
+                <td align="left" style="width:10%;"></td>
+            </tr>
+            <tr>
+                <td align="right" class="style2">
+			        &nbsp;</td>
+                <td align="left" class="style3">
+			        <asp:button id="m_cmd_luu_du_lieu" accessKey="s" CssClass="cssButton" 
+                runat="server" Width="98px" Text="Lưu dữ liệu" 
+                        Height="24px" onclick="m_cmd_luu_du_lieu_Click" />
+                </td>
+			   <td align="left" style="width:1%;"></td>
+                 <td align="left" class="style1">
+                     &nbsp;</td>
+                <td align="left" style="width:10%;">
+                 <asp:button id="m_cmd_thoat" CssClass="cssButton" 
+                runat="server" Width="98px" Text="Thoát"
+                        Height="25px" onclick="m_cmd_thoat_Click"  />
+                 </td>     
+                <td align="left" style="width:1%;"></td>
+            </tr>
+        </table>
+		</td>
+	</tr>
+    <tr>
+		<td>
+            &nbsp;</td>
+	</tr>
+</table>
   </asp:View>
 
   <asp:View ID="m_view_danh_sach" runat="server">
  <table cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0">
+  <tr>
+		<td class="cssPageTitleBG" colspan="3">
+		    <asp:label id="Label1" runat="server" CssClass="cssPageTitle" 
+                Text="Danh sách giảng viên"/>
+		</td>
+	</tr>	
+  <tr>
+        <td>
+        <table cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0"> 
+            <tr>
+                <td align="right" style="width:5%;">
+			<asp:label id="lblFullName" CssClass="cssManField" runat="server" 
+                Text="&lt;U&gt;T&lt;/U&gt;ên môn học" />
+                         </td>
+                <td align="left" style="width:10%;">
+		    <asp:DropDownList id="m_cbo_dm_mon_hoc" runat="server" Width="96%" 
+                        CssClass="cssDorpdownlist"  />
+                         </td>
+                         <td align="left" style="width:1%;"> 
+                             &nbsp;</td>
+                <td align="left" style="width:5%;">
+			       
+			    </td>
+                <td align="left" style="width:10%;">&nbsp;</td>
+                <td align="left" style="width:1%;"></td>
+                 <td align="right" style="width:5%;"></td>
+                <td align="left" style="width:10%;"></td>
+                <td align="left" style="width:1%;"></td>
+            </tr>
+            <tr>
+                <td align="right" style="width:5%;">
+			<asp:label id="lblFullName4" CssClass="cssManField" runat="server" 
+                Text="Có Online?" />
+                </td>
+                <td align="left" style="width:10%;">
+			        <asp:RadioButtonList ID="m_rbt_online_yn" runat="server" 
+                        RepeatDirection="Horizontal">
+                        <asp:ListItem Selected="True" Value="ALL">Tất cả</asp:ListItem>
+                        <asp:ListItem Value="Y">Có</asp:ListItem>
+                        <asp:ListItem Value="N">Không</asp:ListItem>
+                    </asp:RadioButtonList>
+                </td>
+                     <td align="left" style="width:1%;">
+                         &nbsp;</td>
+                <td align="right" style="width:5%;">
+			<asp:label id="lblFullName5" CssClass="cssManField" runat="server" 
+                Text="Có Offline?" />
+		                    </td>
+                <td align="left" style="width:10%;">
+			
+			        <asp:RadioButtonList ID="m_rbt_offline_yn" runat="server" 
+                        RepeatDirection="Horizontal">
+                        <asp:ListItem Selected="True" Value="ALL">Tất cả</asp:ListItem>
+                        <asp:ListItem Value="Y">Có</asp:ListItem>
+                        <asp:ListItem Value="N">Không</asp:ListItem>
+                    </asp:RadioButtonList>
+		                    </td>
+                      <td align="left" style="width:1%;">
+                          &nbsp;</td>
+                 <td align="right" style="width:5%;">
+			<asp:label id="lblFullName6" CssClass="cssManField" runat="server" 
+                Text="Có bài tập giữa kỳ?" />
+		                    </td>
+                <td align="left" style="width:10%;">
+			        <asp:RadioButtonList ID="m_rbt_bt_gky_yn" runat="server" 
+                        RepeatDirection="Horizontal">
+                        <asp:ListItem Selected="True" Value="ALL">Tất cả</asp:ListItem>
+                        <asp:ListItem Value="Y">Có</asp:ListItem>
+                        <asp:ListItem Value="N">Không</asp:ListItem>
+                    </asp:RadioButtonList>
+		                    </td>
+                <td align="left" style="width:1%;"></td>
+            </tr>
+            <tr>
+                <td align="right" style="width:5%;">
+			<asp:label id="Label2" CssClass="cssManField" runat="server" 
+                Text="Ngày bắt đầu từ ngày" />
+		                    </td>
+                <td align="left" style="width:10%;">
+			
+			        <ew:CalendarPopup ID="m_dat_ngay_bat_dau_tu" runat="server" 
+                        ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
+                        ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
+                        ShowGoToToday="True" Width="80%" SelectedDate="" 
+                        AllowArbitraryText="False" CellPadding="0px">
+                        <weekdaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <weekendstyle backcolor="LightGray" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <offmonthstyle backcolor="AntiqueWhite" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Gray" />
+                        <selecteddatestyle backcolor="Yellow" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Black" />
+                        <monthheaderstyle backcolor="Yellow" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Black" />
+                        <DayHeaderStyle BackColor="Orange" Font-Names="Verdana,Helvetica,Tahoma,Arial" 
+                            Font-Size="XX-Small" ForeColor="Black" />
+                        <cleardatestyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <gototodaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <TodayDayStyle BackColor="LightGoldenrodYellow" 
+                            Font-Names="Verdana,Helvetica,Tahoma,Arial" Font-Size="XX-Small" 
+                            ForeColor="Black" />
+                        <holidaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                    </ew:CalendarPopup>
+			
+                </td>
+                     <td align="left" style="width:1%;">
+                         &nbsp;</td>
+                <td align="right" style="width:5%;">
+			<asp:label id="Label17" CssClass="cssManField" runat="server" 
+                Text="Ngày kết thúc từ" />
+		                    </td>
+                <td align="left" style="width:10%;">
+			
+			        <ew:CalendarPopup ID="m_dat_ngay_ket_thuc_tu" runat="server" 
+                        ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
+                        ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
+                        ShowGoToToday="True" Width="80%" SelectedDate="">
+                        <weekdaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <weekendstyle backcolor="LightGray" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <offmonthstyle backcolor="AntiqueWhite" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Gray" />
+                        <selecteddatestyle backcolor="Yellow" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Black" />
+                        <monthheaderstyle backcolor="Yellow" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Black" />
+                        <DayHeaderStyle BackColor="Orange" Font-Names="Verdana,Helvetica,Tahoma,Arial" 
+                            Font-Size="XX-Small" ForeColor="Black" />
+                        <cleardatestyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <gototodaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <TodayDayStyle BackColor="LightGoldenrodYellow" 
+                            Font-Names="Verdana,Helvetica,Tahoma,Arial" Font-Size="XX-Small" 
+                            ForeColor="Black" />
+                        <holidaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                    </ew:CalendarPopup>
+			
+		                    </td>
+                     <td align="left" style="width:1%;">
+                         &nbsp;</td>
+                 <td align="right" style="width:5%;">
+			<asp:label id="Label6" CssClass="cssManField" runat="server" 
+                Text="Ngày thi từ ngày" />
+		                    </td>
+                <td align="left" style="width:10%;">
+			
+			        <ew:CalendarPopup ID="m_dat_ngay_thi_tu" runat="server" 
+                        ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
+                        ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
+                        ShowGoToToday="True" Width="80%" SelectedDate="">
+                        <weekdaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <weekendstyle backcolor="LightGray" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <offmonthstyle backcolor="AntiqueWhite" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Gray" />
+                        <selecteddatestyle backcolor="Yellow" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Black" />
+                        <monthheaderstyle backcolor="Yellow" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Black" />
+                        <DayHeaderStyle BackColor="Orange" Font-Names="Verdana,Helvetica,Tahoma,Arial" 
+                            Font-Size="XX-Small" ForeColor="Black" />
+                        <cleardatestyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <gototodaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <TodayDayStyle BackColor="LightGoldenrodYellow" 
+                            Font-Names="Verdana,Helvetica,Tahoma,Arial" Font-Size="XX-Small" 
+                            ForeColor="Black" />
+                        <holidaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                    </ew:CalendarPopup>
+			
+		                    </td>            
+                         <td align="left" style="width:1%;"></td>
+            </tr>
+            <tr>
+                <td align="right" style="width:5%;">
+			<asp:label id="Label16" CssClass="cssManField" runat="server" 
+                Text="Đến ngày" />
+		                    </td>
+                <td align="left" style="width:10%;">
+			        <ew:CalendarPopup ID="m_dat_ngay_bat_dau_den" runat="server" 
+                        ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
+                        ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
+                        ShowGoToToday="True" Width="80%" SelectedDate="">
+                        <weekdaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <weekendstyle backcolor="LightGray" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <offmonthstyle backcolor="AntiqueWhite" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Gray" />
+                        <selecteddatestyle backcolor="Yellow" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Black" />
+                        <monthheaderstyle backcolor="Yellow" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Black" />
+                        <DayHeaderStyle BackColor="Orange" Font-Names="Verdana,Helvetica,Tahoma,Arial" 
+                            Font-Size="XX-Small" ForeColor="Black" />
+                        <cleardatestyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <gototodaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <TodayDayStyle BackColor="LightGoldenrodYellow" 
+                            Font-Names="Verdana,Helvetica,Tahoma,Arial" Font-Size="XX-Small" 
+                            ForeColor="Black" />
+                        <holidaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                    </ew:CalendarPopup>
+		                    </td>
+                                 <td align="left" style="width:1%;"></td>
+                <td align="right" style="width:5%;">
+			<asp:label id="Label18" CssClass="cssManField" runat="server" 
+                Text="Đến ngày" />
+		                    </td>
+                <td align="left" style="width:10%;">
+
+			        <ew:CalendarPopup ID="m_dat_ngay_ket_thuc_den" runat="server" 
+                        ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
+                        ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
+                        ShowGoToToday="True" Width="80%" SelectedDate="">
+                        <weekdaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <weekendstyle backcolor="LightGray" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <offmonthstyle backcolor="AntiqueWhite" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Gray" />
+                        <selecteddatestyle backcolor="Yellow" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Black" />
+                        <monthheaderstyle backcolor="Yellow" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Black" />
+                        <DayHeaderStyle BackColor="Orange" Font-Names="Verdana,Helvetica,Tahoma,Arial" 
+                            Font-Size="XX-Small" ForeColor="Black" />
+                        <cleardatestyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <gototodaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <TodayDayStyle BackColor="LightGoldenrodYellow" 
+                            Font-Names="Verdana,Helvetica,Tahoma,Arial" Font-Size="XX-Small" 
+                            ForeColor="Black" />
+                        <holidaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                    </ew:CalendarPopup>
+
+                            </td>
+                                 <td align="left" style="width:1%;"></td>
+                 <td align="right" style="width:5%;">
+			<asp:label id="Label8" CssClass="cssManField" runat="server" 
+                Text="Đến ngày" />
+		                    </td>
+                <td align="left" style="width:10%;">
+
+			        <ew:CalendarPopup ID="m_dat_ngay_thi_den" runat="server" 
+                        ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
+                        ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
+                        ShowGoToToday="True" Width="80%" SelectedDate="">
+                        <weekdaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <weekendstyle backcolor="LightGray" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <offmonthstyle backcolor="AntiqueWhite" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Gray" />
+                        <selecteddatestyle backcolor="Yellow" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Black" />
+                        <monthheaderstyle backcolor="Yellow" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Black" />
+                        <DayHeaderStyle BackColor="Orange" Font-Names="Verdana,Helvetica,Tahoma,Arial" 
+                            Font-Size="XX-Small" ForeColor="Black" />
+                        <cleardatestyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <gototodaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <TodayDayStyle BackColor="LightGoldenrodYellow" 
+                            Font-Names="Verdana,Helvetica,Tahoma,Arial" Font-Size="XX-Small" 
+                            ForeColor="Black" />
+                        <holidaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                    </ew:CalendarPopup>
+
+		        </td>     <td align="left" style="width:1%;"></td>
+            </tr>
+            <tr>
+                <td align="right" style="width:5%;">
+			<asp:label id="Label4" CssClass="cssManField" runat="server" 
+                Text="Từ khóa tìm kiếm" />
+		                    </td>
+                <td align="left" style="width:10%;">     
+
+		            <asp:TextBox ID="m_txt_tu_khoa_tim_kiem" runat="server" CssClass="cssTextBox" 
+                        Width="244%"></asp:TextBox>
+
+			    </td>
+            </tr>
+            <tr>
+                <td align="right" style="width:5%;">
+			        &nbsp;</td>
+                   <td align="left" style="width:1%;" colspan="4">
+
+                <asp:label id="lblFullName1" CssClass="cssLabel" runat="server" 
+                
+                Text="(Từ khóa tìm kiếm: Mã lớp môn hoặc PO phụ trách hoặc chương trình phụ trách)" />
+
+		        </td>
+            </tr>
+            <tr>
+                <td align="right" style="width:5%;">
+			        &nbsp;</td>
+                <td align="left" style="width:10%;">          
+			        &nbsp;</td>
+			    <td align="left" style="width:1%;">
+                    &nbsp;</td>
+			
+                <td align="left" style="width:5%;">
+			        &nbsp;</td>
+                <td align="left" style="width:10%;">     
+			        &nbsp;</td>     <td align="left" style="width:1%;"></td>
+                 <td align="right" style="width:5%;"></td>
+                <td align="left" style="width:10%;"></td>     <td align="left" style="width:1%;"></td>
+            </tr>
+            <tr>
+                <td align="right" >
+			        &nbsp;</td>
+                <td align="left">     
+			<asp:button id="m_cmd_loc_du_lieu" accessKey="l" CssClass="cssButton" 
+                runat="server" Width="98px" Text="Lọc dữ liệu(l)" 
+                        Height="23px" />
+			</td>
+                             <td align="left" style="width:1%;">&nbsp;</td>
+                <td align="right" >
+			        &nbsp;</td>
+                <td align="left" >    
+			<asp:button id="m_cmd_xuat_excel" accessKey="x" CssClass="cssButton" 
+                runat="server" Width="98px" Text="Xuất Excel (x)" Height="22px"  />
+			</td>
+                             <td align="left" >&nbsp;</td>
+                 <td align="right" ></td>
+                <td align="left" ></td>    
+                <td align="left" ></td>
+            </tr>
+            </table>        
+        </td>
+    </tr>  
     <tr>
 		<td class="cssPageTitleBG" colspan="3">
 		    <asp:label id="Label11" runat="server" CssClass="cssPageTitle" 
-                Text="Danh sách giảng viên"/>
+                Text="Kết quả lọc dữ liệu"/>
 		</td>
 	</tr>	
     <tr>
@@ -32,7 +992,7 @@
     <div id="grdCharges" runat="server" style="width: 100%; overflow: auto; height: auto;">
    <asp:GridView ID="m_grv_dm_danh_sach_giang_vien" AllowPaging="true" 
                 runat="server" AutoGenerateColumns="False" 
-                Width="100%" DataKeyNames="ID"
+                Width="101%" DataKeyNames="ID"
                 CellPadding="4" ForeColor="#333333" GridLines="Both" 
             AllowSorting="True" 
             onpageindexchanging="m_grv_dm_danh_sach_giang_vien_PageIndexChanging" >
