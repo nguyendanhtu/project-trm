@@ -12,13 +12,14 @@
               <DbSource ConnectionRef="TRMConnectionString1 (Settings)" DbObjectName="TRM.dbo.V_DM_GIANG_VIEN" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT MA_GIANG_VIEN, HO_VA_TEN_DEM, TEN_GIANG_VIEN, NGAY_SINH, GIOI_TINH_YN, CHUC_VU_HIEN_TAI, CHUC_VU_CAO_NHAT, TEL_HOME, TEL_OFFICE, MOBILE_PHONE, EMAIL, TEN_CO_QUAN_CONG_TAC, EMAIL_TOPICA, ANH_CA_NHAN, HOC_VI, HOC_HAM, CHUYEN_NGANH_CHINH, TRUONG_DAO_TAO, ID_TRANG_THAI_GIANG_VIEN, TRANG_THAI_GIANG_VIEN, SO_TAI_KHOAN, TEN_NGAN_HANG, SO_CMTND, NGAY_CAP, NOI_CAP, ID_DON_VI_QUAN_LY, DON_VI_QUAN_LY, MA_SO_THUE, GVHD_YN, GVCM_YN, GV_VIET_HL_YN, GV_DUYET_HL_YN, GV_THAM_DINH_HL_YN, GV_HDKH_YN, DESCRIPTION FROM dbo.V_DM_GIANG_VIEN</CommandText>
+                    <CommandText>SELECT ID, MA_GIANG_VIEN, HO_VA_TEN_DEM, TEN_GIANG_VIEN, NGAY_SINH, GIOI_TINH_YN, CHUC_VU_HIEN_TAI, CHUC_VU_CAO_NHAT, TEL_HOME, TEL_OFFICE, MOBILE_PHONE, EMAIL, TEN_CO_QUAN_CONG_TAC, EMAIL_TOPICA, ANH_CA_NHAN, HOC_VI, HOC_HAM, CHUYEN_NGANH_CHINH, TRUONG_DAO_TAO, ID_TRANG_THAI_GIANG_VIEN, TRANG_THAI_GIANG_VIEN, SO_TAI_KHOAN, TEN_NGAN_HANG, SO_CMTND, NGAY_CAP, NOI_CAP, ID_DON_VI_QUAN_LY, DON_VI_QUAN_LY, MA_SO_THUE, GVHD_YN, GVCM_YN, GV_VIET_HL_YN, GV_DUYET_HL_YN, GV_THAM_DINH_HL_YN, GV_HDKH_YN, DESCRIPTION FROM dbo.V_DM_GIANG_VIEN</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
             </MainSource>
             <Mappings>
+              <Mapping SourceColumn="ID" DataSetColumn="ID" />
               <Mapping SourceColumn="MA_GIANG_VIEN" DataSetColumn="MA_GIANG_VIEN" />
               <Mapping SourceColumn="HO_VA_TEN_DEM" DataSetColumn="HO_VA_TEN_DEM" />
               <Mapping SourceColumn="TEN_GIANG_VIEN" DataSetColumn="TEN_GIANG_VIEN" />
@@ -68,6 +69,7 @@
         <xs:element name="V_DM_GIANG_VIEN" msprop:Generator_TableClassName="V_DM_GIANG_VIENDataTable" msprop:Generator_TableVarName="tableV_DM_GIANG_VIEN" msprop:Generator_TablePropName="V_DM_GIANG_VIEN" msprop:Generator_RowDeletingName="V_DM_GIANG_VIENRowDeleting" msprop:Generator_UserTableName="V_DM_GIANG_VIEN" msprop:Generator_RowChangingName="V_DM_GIANG_VIENRowChanging" msprop:Generator_RowEvHandlerName="V_DM_GIANG_VIENRowChangeEventHandler" msprop:Generator_RowDeletedName="V_DM_GIANG_VIENRowDeleted" msprop:Generator_RowEvArgName="V_DM_GIANG_VIENRowChangeEvent" msprop:Generator_RowChangedName="V_DM_GIANG_VIENRowChanged" msprop:Generator_RowClassName="V_DM_GIANG_VIENRow">
           <xs:complexType>
             <xs:sequence>
+              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:decimal" />
               <xs:element name="MA_GIANG_VIEN" msprop:Generator_ColumnVarNameInTable="columnMA_GIANG_VIEN" msprop:Generator_ColumnPropNameInRow="MA_GIANG_VIEN" msprop:Generator_ColumnPropNameInTable="MA_GIANG_VIENColumn" msprop:Generator_UserColumnName="MA_GIANG_VIEN">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -300,5 +302,9 @@
         </xs:element>
       </xs:choice>
     </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:V_DM_GIANG_VIEN" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
   </xs:element>
 </xs:schema>
