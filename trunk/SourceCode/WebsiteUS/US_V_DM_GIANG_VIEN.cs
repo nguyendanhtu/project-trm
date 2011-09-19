@@ -8,7 +8,6 @@
 /// </summary>
 
 using System;
-using AuctionDS;
 using IP.Core.IPCommon;
 using IP.Core.IPUserService;
 using System.Data.SqlClient;
@@ -16,7 +15,7 @@ using System.Data;
 using WebDS;
 
 
-namespace AuctionUS{
+namespace WebUS{
 
 public class US_V_DM_GIANG_VIEN : US_Object
 {
