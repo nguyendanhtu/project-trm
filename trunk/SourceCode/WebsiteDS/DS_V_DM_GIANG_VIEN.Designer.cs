@@ -279,6 +279,8 @@ namespace WebDS {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class V_DM_GIANG_VIENDataTable : global::System.Data.DataTable, global::System.Collections.IEnumerable {
             
+            private global::System.Data.DataColumn columnID;
+            
             private global::System.Data.DataColumn columnMA_GIANG_VIEN;
             
             private global::System.Data.DataColumn columnHO_VA_TEN_DEM;
@@ -380,6 +382,14 @@ namespace WebDS {
             protected V_DM_GIANG_VIENDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn IDColumn {
+                get {
+                    return this.columnID;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -737,6 +747,7 @@ namespace WebDS {
                         string DESCRIPTION) {
                 V_DM_GIANG_VIENRow rowV_DM_GIANG_VIENRow = ((V_DM_GIANG_VIENRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
+                        null,
                         MA_GIANG_VIEN,
                         HO_VA_TEN_DEM,
                         TEN_GIANG_VIEN,
@@ -779,6 +790,13 @@ namespace WebDS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public V_DM_GIANG_VIENRow FindByID(decimal ID) {
+                return ((V_DM_GIANG_VIENRow)(this.Rows.Find(new object[] {
+                            ID})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public virtual global::System.Collections.IEnumerator GetEnumerator() {
                 return this.Rows.GetEnumerator();
             }
@@ -800,6 +818,7 @@ namespace WebDS {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
+                this.columnID = base.Columns["ID"];
                 this.columnMA_GIANG_VIEN = base.Columns["MA_GIANG_VIEN"];
                 this.columnHO_VA_TEN_DEM = base.Columns["HO_VA_TEN_DEM"];
                 this.columnTEN_GIANG_VIEN = base.Columns["TEN_GIANG_VIEN"];
@@ -840,6 +859,8 @@ namespace WebDS {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
+                this.columnID = new global::System.Data.DataColumn("ID", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID);
                 this.columnMA_GIANG_VIEN = new global::System.Data.DataColumn("MA_GIANG_VIEN", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMA_GIANG_VIEN);
                 this.columnHO_VA_TEN_DEM = new global::System.Data.DataColumn("HO_VA_TEN_DEM", typeof(string), null, global::System.Data.MappingType.Element);
@@ -910,6 +931,14 @@ namespace WebDS {
                 base.Columns.Add(this.columnGV_HDKH_YN);
                 this.columnDESCRIPTION = new global::System.Data.DataColumn("DESCRIPTION", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDESCRIPTION);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnID}, true));
+                this.columnID.AutoIncrement = true;
+                this.columnID.AutoIncrementSeed = -1;
+                this.columnID.AutoIncrementStep = -1;
+                this.columnID.AllowDBNull = false;
+                this.columnID.ReadOnly = true;
+                this.columnID.Unique = true;
                 this.columnMA_GIANG_VIEN.AllowDBNull = false;
                 this.columnMA_GIANG_VIEN.MaxLength = 50;
                 this.columnHO_VA_TEN_DEM.AllowDBNull = false;
@@ -1092,6 +1121,17 @@ namespace WebDS {
             internal V_DM_GIANG_VIENRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
                 this.tableV_DM_GIANG_VIEN = ((V_DM_GIANG_VIENDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal ID {
+                get {
+                    return ((decimal)(this[this.tableV_DM_GIANG_VIEN.IDColumn]));
+                }
+                set {
+                    this[this.tableV_DM_GIANG_VIEN.IDColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2067,6 +2107,7 @@ namespace WebDS.DS_V_DM_GIANG_VIENTableAdapters {
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "V_DM_GIANG_VIEN";
+            tableMapping.ColumnMappings.Add("ID", "ID");
             tableMapping.ColumnMappings.Add("MA_GIANG_VIEN", "MA_GIANG_VIEN");
             tableMapping.ColumnMappings.Add("HO_VA_TEN_DEM", "HO_VA_TEN_DEM");
             tableMapping.ColumnMappings.Add("TEN_GIANG_VIEN", "TEN_GIANG_VIEN");
@@ -2118,7 +2159,7 @@ namespace WebDS.DS_V_DM_GIANG_VIENTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT MA_GIANG_VIEN, HO_VA_TEN_DEM, TEN_GIANG_VIEN, NGAY_SINH, GIOI_TINH_YN, CHUC_VU_HIEN_TAI, CHUC_VU_CAO_NHAT, TEL_HOME, TEL_OFFICE, MOBILE_PHONE, EMAIL, TEN_CO_QUAN_CONG_TAC, EMAIL_TOPICA, ANH_CA_NHAN, HOC_VI, HOC_HAM, CHUYEN_NGANH_CHINH, TRUONG_DAO_TAO, ID_TRANG_THAI_GIANG_VIEN, TRANG_THAI_GIANG_VIEN, SO_TAI_KHOAN, TEN_NGAN_HANG, SO_CMTND, NGAY_CAP, NOI_CAP, ID_DON_VI_QUAN_LY, DON_VI_QUAN_LY, MA_SO_THUE, GVHD_YN, GVCM_YN, GV_VIET_HL_YN, GV_DUYET_HL_YN, GV_THAM_DINH_HL_YN, GV_HDKH_YN, DESCRIPTION FROM dbo.V_DM_GIANG_VIEN";
+            this._commandCollection[0].CommandText = @"SELECT ID, MA_GIANG_VIEN, HO_VA_TEN_DEM, TEN_GIANG_VIEN, NGAY_SINH, GIOI_TINH_YN, CHUC_VU_HIEN_TAI, CHUC_VU_CAO_NHAT, TEL_HOME, TEL_OFFICE, MOBILE_PHONE, EMAIL, TEN_CO_QUAN_CONG_TAC, EMAIL_TOPICA, ANH_CA_NHAN, HOC_VI, HOC_HAM, CHUYEN_NGANH_CHINH, TRUONG_DAO_TAO, ID_TRANG_THAI_GIANG_VIEN, TRANG_THAI_GIANG_VIEN, SO_TAI_KHOAN, TEN_NGAN_HANG, SO_CMTND, NGAY_CAP, NOI_CAP, ID_DON_VI_QUAN_LY, DON_VI_QUAN_LY, MA_SO_THUE, GVHD_YN, GVCM_YN, GV_VIET_HL_YN, GV_DUYET_HL_YN, GV_THAM_DINH_HL_YN, GV_HDKH_YN, DESCRIPTION FROM dbo.V_DM_GIANG_VIEN";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
