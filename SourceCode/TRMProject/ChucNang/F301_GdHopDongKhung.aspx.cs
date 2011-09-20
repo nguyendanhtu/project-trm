@@ -30,39 +30,32 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
 
 
         #endregion
-    #region Private Method
-       
-            private void load_2_cbo_ten_giang_vien_ten_dem()
 
-    #endregion
+
     #region Private Method
+    private void load_2_cbo_ten_giang_vien_ten_dem()
+    {
+
+    }
     private void load_2_cbo_ten_giang_vien()
     {
 
-        try
-
-        {
-
-                US_V_DM_GIANG_VIEN v_us_giang_vien_ten_dem =new  US_V_DM_GIANG_VIEN();
-                DS_V_DM_GIANG_VIEN v_ds_giang_vien_ten_dem =new DS_V_DM_GIANG_VIEN();
-
-       
-           try 
-            {	       
-		    v_us_giang_vien_ten_dem.FillDataset(v_ds_giang_vien_ten_dem);
-              m_cbo_giang_vien_ten_dem.DataSource = v_ds_giang_vien_ten_dem.V_DM_GIANG_VIEN;
-               m_cbo_giang_vien_ten_dem.DataValueField = DS_V_DM_GIANG_VIEN.ID;
+        US_V_DM_GIANG_VIEN v_us_giang_vien_ten_dem =new  US_V_DM_GIANG_VIEN();
+        DS_V_DM_GIANG_VIEN v_ds_giang_vien_ten_dem =new DS_V_DM_GIANG_VIEN();
+        try 
+        {	       
+            //v_us_giang_vien_ten_dem.FillDataset(v_ds_giang_vien_ten_dem);
+            //m_cbo_giang_vien_ten_dem.DataSource = v_ds_giang_vien_ten_dem.V_DM_GIANG_VIEN;
+            //m_cbo_giang_vien_ten_dem.DataValueField = V_DM_GIANG_VIEN.ID;
              
-                 m_cbo_giang_vien_ten_dem.DataTextField = DS_V_DM_GIANG_VIEN.HO_VA_TEN_DEM;
+            //m_cbo_giang_vien_ten_dem.DataTextField = V_DM_GIANG_VIEN.HO_VA_TEN_DEM;
           
-            m_cbo_giang_vien_ten_dem.DataBind();
-            }
-            catch (Exception)
-            {
+            //m_cbo_giang_vien_ten_dem.DataBind();
+        }
+        catch (Exception v_e)
+        {
 		
-                throw v_e;
-            }
-
+            throw v_e;
         }
     }
      private void load_2_cbo_mon_hoc_1(){
@@ -70,8 +63,8 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
         DS_DM_MON_HOC v_ds_dm_mon_hoc_1 = new DS_DM_MON_HOC();
         try
         {
-            v_us_dm_mon_hoc_1.FillDataset(v_ds_dm_mon_hoc);
-            m_cbo_dm_mon_hoc_1.DataSource = v_ds_dm_mon_hoc.DM_MON_HOC;
+            v_us_dm_mon_hoc_1.FillDataset(v_ds_dm_mon_hoc_1);
+            m_cbo_dm_mon_hoc_1.DataSource = v_ds_dm_mon_hoc_1.DM_MON_HOC;
             m_cbo_dm_mon_hoc_1.DataValueField = DM_MON_HOC.ID;
             m_cbo_dm_mon_hoc_1.DataTextField = DM_MON_HOC.TEN_MON_HOC;
             m_cbo_dm_mon_hoc_1.DataBind();
@@ -86,8 +79,8 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
         DS_DM_MON_HOC v_ds_dm_mon_hoc_2 = new DS_DM_MON_HOC();
         try
         {
-            v_us_dm_mon_hoc_2.FillDataset(v_ds_dm_mon_hoc);
-            m_cbo_dm_mon_hoc_2.DataSource = v_ds_dm_mon_hoc.DM_MON_HOC;
+            v_us_dm_mon_hoc_2.FillDataset(v_ds_dm_mon_hoc_2);
+            m_cbo_dm_mon_hoc_2.DataSource = v_ds_dm_mon_hoc_2.DM_MON_HOC;
             m_cbo_dm_mon_hoc_2.DataValueField = DM_MON_HOC.ID;
             m_cbo_dm_mon_hoc_2.DataTextField = DM_MON_HOC.TEN_MON_HOC;
             m_cbo_dm_mon_hoc_2.DataBind();
