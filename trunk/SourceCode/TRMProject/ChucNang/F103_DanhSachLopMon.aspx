@@ -122,7 +122,12 @@
 			
                 </td>
                      <td align="left" style="width:1%;">
-                         &nbsp;</td>
+                         <asp:CompareValidator ID="CompareValidator1" runat="server" 
+                             ControlToCompare="m_dat_ngay_bat_dau_tu" 
+                             ControlToValidate="m_dat_ngay_bat_dau_den" 
+                             ErrorMessage="Ngày bắt đầu Đến ngày phải lớn hơn từ ngày" 
+                             Operator="GreaterThan" SetFocusOnError="True" Type="Date">*</asp:CompareValidator>
+                </td>
                 <td align="right" style="width:5%;">
 			<asp:label id="Label17" CssClass="cssManField" runat="server" 
                 Text="Ngày kết thúc từ" />
@@ -161,7 +166,12 @@
 			
 		                    </td>
                      <td align="left" style="width:1%;">
-                         &nbsp;</td>
+                         <asp:CompareValidator ID="CompareValidator2" runat="server" 
+                             ControlToCompare="m_dat_ngay_ket_thuc_tu" 
+                             ControlToValidate="m_dat_ngay_ket_thuc_den" 
+                             ErrorMessage="Ngày kết thúc Đến ngày phải lớn hơn từ ngày" 
+                             Operator="GreaterThan" SetFocusOnError="True" Type="Date">*</asp:CompareValidator>
+                </td>
                  <td align="right" style="width:5%;">
 			<asp:label id="Label6" CssClass="cssManField" runat="server" 
                 Text="Ngày thi từ ngày" />
@@ -199,7 +209,12 @@
                     </ew:CalendarPopup>
 			
 		                    </td>            
-                         <td align="left" style="width:1%;"></td>
+                         <td align="left" style="width:1%;">
+                             <asp:CompareValidator ID="CompareValidator3" runat="server" 
+                                 ControlToCompare="m_dat_ngay_thi_tu" ControlToValidate="m_dat_ngay_thi_den" 
+                                 ErrorMessage="Ngày thi Đến ngày phải nhỏ hơn từ ngày" Operator="GreaterThan" 
+                                 SetFocusOnError="True">*</asp:CompareValidator>
+                </td>
             </tr>
             <tr>
                 <td align="right" style="width:5%;">
@@ -445,10 +460,10 @@
                     <asp:BoundField DataField="SO_LUONG_HV" HeaderText="SL học viên">
                     <ItemStyle HorizontalAlign="Center" />
                     </asp:BoundField>
-                    <asp:BoundField DataField="SO_LUONG_ONLINES" HeaderText="SLHV Online">
+                    <asp:BoundField DataField="SO_LUONG_ONLINES" HeaderText="Số tiết Online">
                                         <ItemStyle HorizontalAlign="Center" />
                     </asp:BoundField>
-                    <asp:BoundField DataField="SO_LUONG_OFFLINE" HeaderText="SLHV Offline">
+                    <asp:BoundField DataField="SO_LUONG_OFFLINE" HeaderText="Số tiết Offline">
                                         <ItemStyle HorizontalAlign="Center" />
                     </asp:BoundField>
                     <asp:CommandField DeleteText="" ShowDeleteButton="True" 
