@@ -34,6 +34,7 @@ public partial class ChucNang_F102_CapNhatThongTinLopMon : System.Web.UI.Page
             m_cbo_dm_mon_hoc.DataValueField = DM_MON_HOC.ID;
             m_cbo_dm_mon_hoc.DataTextField = DM_MON_HOC.TEN_MON_HOC;
             m_cbo_dm_mon_hoc.DataBind();
+            
         }
         catch (Exception v_e)
         {
@@ -105,7 +106,8 @@ public partial class ChucNang_F102_CapNhatThongTinLopMon : System.Web.UI.Page
     //
     protected void Page_Load(object sender, EventArgs e)
     {
-        try{
+        try
+        {
             m_cmd_thoat.Attributes.Add("onclick", "window.close();");
             if (this.Request.QueryString["mode"] != null && this.Request.QueryString["id_lop_mon"] != null)
             {
