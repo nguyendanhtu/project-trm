@@ -113,7 +113,7 @@ public partial class DanhMuc_NoiDungThanhToan : System.Web.UI.Page
         }
         catch (Exception v_e)
         {
-            CSystemLog_301.ExceptionHandle(this,v_e);
+            throw v_e;
          
         }
     }
@@ -138,7 +138,7 @@ public partial class DanhMuc_NoiDungThanhToan : System.Web.UI.Page
         }
         catch (Exception v_e)
         {
-            CSystemLog_301.ExceptionHandle(this, v_e);
+            throw v_e;
 
         }
     }
@@ -161,8 +161,7 @@ public partial class DanhMuc_NoiDungThanhToan : System.Web.UI.Page
         }
         catch (Exception v_e)
         {
-            CSystemLog_301.ExceptionHandle(this, v_e);
-
+            throw v_e;
         }
     }
 
