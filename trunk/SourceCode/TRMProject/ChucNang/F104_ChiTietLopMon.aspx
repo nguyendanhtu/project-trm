@@ -208,13 +208,13 @@ a:link, a:visited
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Số hợp đồng khung">
                         <ItemTemplate>
-                            <asp:Label ID="m_lbl_id_hop_dong_khung" runat="server" Text="<%# get_so_hop_dong_khung((decimal)Eval(GD_LOP_MON_DETAIL.ID_HOP_DONG_KHUNG)) %>" 
+                            <asp:Label ID="m_lbl_id_hop_dong_khung" runat="server" Text="<%# get_mapping_so_hop_dong_khung((decimal)Eval(GD_LOP_MON_DETAIL.ID_HOP_DONG_KHUNG)) %>" 
                                 ></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Nội dung thanh toán">
                         <ItemTemplate>
-                            <asp:Label ID="m_lbl_id_noi_dung_thanh_toan" runat="server" Text="<%# get_ten_noi_dung_thanh_toan((decimal)Eval(GD_LOP_MON_DETAIL.ID_NOI_DUNG_THANH_TOAN)) %>" 
+                            <asp:Label ID="m_lbl_id_noi_dung_thanh_toan" runat="server" Text="<%# get_mapping_ten_noi_dung_thanh_toan((decimal)Eval(GD_LOP_MON_DETAIL.ID_NOI_DUNG_THANH_TOAN)) %>" 
                              ></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
@@ -227,6 +227,11 @@ a:link, a:visited
                                         <ItemStyle HorizontalAlign="Right" />
                     </asp:BoundField>
                     <asp:TemplateField HeaderText="Đã thanh toán">
+                        <ItemTemplate>
+                            <asp:Label ID="m_lbl_da_thanh_toan_yn" runat="server" 
+                                Text="<%# get_mapping_da_thanh_toan_yn((string)Eval(GD_LOP_MON_DETAIL.DA_THANH_TOAN_YN)) %>"></asp:Label>
+                        </ItemTemplate>
+                        <ItemStyle HorizontalAlign="Center" />
                     </asp:TemplateField>
                     <asp:CommandField DeleteText="" ShowDeleteButton="True" 
                         ItemStyle-HorizontalAlign="Center" ButtonType="Image" 
