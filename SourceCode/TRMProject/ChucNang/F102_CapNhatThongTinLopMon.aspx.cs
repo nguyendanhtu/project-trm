@@ -52,19 +52,16 @@ public partial class ChucNang_F102_CapNhatThongTinLopMon : System.Web.UI.Page
         if (m_dat_ngay_bat_dau.SelectedDate != CIPConvert.ToDatetime("01/01/0001")) m_us_gd_lop_mon.datNGAY_BAT_DAU = m_dat_ngay_bat_dau.SelectedDate;
         if (m_dat_ngay_ket_thuc.SelectedDate != CIPConvert.ToDatetime("01/01/0001")) m_us_gd_lop_mon.datNGAY_KET_THUC = m_dat_ngay_ket_thuc.SelectedDate;
         if (m_dat_ngay_thi.SelectedDate != CIPConvert.ToDatetime("01/01/0001")) m_us_gd_lop_mon.datNGAY_THI = m_dat_ngay_thi.SelectedDate;
-        if(m_rbt_loai_lop.SelectedIndex ==0){
+        if(m_rbt_online_yn.SelectedValue =="Y")
             m_us_gd_lop_mon.strONLINES_YN = "Y";
-            m_us_gd_lop_mon.strOFFLINE_YN ="N";
-            m_us_gd_lop_mon.strBAI_TAP_GKY_YN = "N";
-        }else if(m_rbt_loai_lop.SelectedIndex ==1){
+        else
             m_us_gd_lop_mon.strONLINES_YN = "N";
+        if(m_rbt_offline_yn.SelectedValue=="Y")
             m_us_gd_lop_mon.strOFFLINE_YN ="Y";
-            m_us_gd_lop_mon.strBAI_TAP_GKY_YN = "N";
-        }else{
-            m_us_gd_lop_mon.strONLINES_YN = "N";
-            m_us_gd_lop_mon.strOFFLINE_YN ="N";
+        else m_us_gd_lop_mon.strOFFLINE_YN ="N";
+        if(m_rbt_bt_gky_yn.SelectedValue =="Y")
             m_us_gd_lop_mon.strBAI_TAP_GKY_YN = "Y";
-        }
+        else m_us_gd_lop_mon.strBAI_TAP_GKY_YN = "N";
     }
     private void us_object_2_form(){
         m_txt_ma_lop_mon.Text = m_us_gd_lop_mon.strMA_LOP_MON;
@@ -74,9 +71,9 @@ public partial class ChucNang_F102_CapNhatThongTinLopMon : System.Web.UI.Page
         m_txt_slhv.Text = CIPConvert.ToStr(m_us_gd_lop_mon.dcSO_LUONG_HV,"#,###0");
         m_txt_slhv_online.Text = CIPConvert.ToStr(m_us_gd_lop_mon.dcSO_LUONG_ONLINES,"#,###0");
         m_txt_slhv_offline.Text = CIPConvert.ToStr(m_us_gd_lop_mon.dcSO_LUONG_OFFLINE,"#,###0");
-        if (m_us_gd_lop_mon.strONLINES_YN == "Y") m_rbt_loai_lop.SelectedIndex = 0;
-        else if (m_us_gd_lop_mon.strOFFLINE_YN == "Y") m_rbt_loai_lop.SelectedIndex = 1;
-        else m_rbt_loai_lop.SelectedIndex = 2;
+        m_rbt_online_yn.SelectedValue = m_us_gd_lop_mon.strONLINES_YN;
+        m_rbt_offline_yn.SelectedValue = m_us_gd_lop_mon.strOFFLINE_YN;
+        m_rbt_bt_gky_yn.SelectedValue = m_us_gd_lop_mon.strBAI_TAP_GKY_YN;
         if(!m_us_gd_lop_mon.IsNGAY_THINull()) m_dat_ngay_thi.SelectedDate = CIPConvert.ToDatetime(CIPConvert.ToStr(m_us_gd_lop_mon.datNGAY_THI,"dd/MM/yyyy"),"dd/MM/yyyy");
         if (!m_us_gd_lop_mon.IsNGAY_BAT_DAUNull()) m_dat_ngay_bat_dau.SelectedDate = CIPConvert.ToDatetime(CIPConvert.ToStr(m_us_gd_lop_mon.datNGAY_BAT_DAU, "dd/MM/yyyy"), "dd/MM/yyyy");
         if (!m_us_gd_lop_mon.IsNGAY_KET_THUCNull()) m_dat_ngay_ket_thuc.SelectedDate = CIPConvert.ToDatetime(CIPConvert.ToStr(m_us_gd_lop_mon.datNGAY_KET_THUC, "dd/MM/yyyy"), "dd/MM/yyyy");
