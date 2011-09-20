@@ -163,7 +163,8 @@ a:link, a:visited
                 <td align="right" style="width:5%;">
 			        &nbsp;</td>
                 <td align="left" style="width:10%;">     
-			        &nbsp;</td>
+			        <asp:HiddenField ID="m_hdf_id" runat="server" Visible="False" />
+                </td>
                  <td align="left" style="width:1%;"></td>
                  <td align="right" style="width:5%;"></td>
                 <td align="left" style="width:10%;"></td>     
@@ -208,6 +209,7 @@ a:link, a:visited
                 
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
+                    <asp:BoundField DataField="ID" HeaderText="ID" Visible="False" />
                     <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">
                     <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
 <ItemStyle HorizontalAlign="Center"></ItemStyle>
@@ -230,7 +232,7 @@ a:link, a:visited
                     <asp:BoundField DataField="THANH_TIEN" HeaderText="Thành tiền">
                                         <ItemStyle HorizontalAlign="Right" />
                     </asp:BoundField>
-                    <asp:TemplateField HeaderText="Đã thanh toán">
+                    <asp:TemplateField HeaderText="Trạng thái">
                         <ItemTemplate>
                             <asp:Label ID="m_lbl_da_thanh_toan_yn" runat="server" 
                                 Text="<%# get_mapping_da_thanh_toan_yn((string)Eval(GD_LOP_MON_DETAIL.DA_THANH_TOAN_YN)) %>"></asp:Label>

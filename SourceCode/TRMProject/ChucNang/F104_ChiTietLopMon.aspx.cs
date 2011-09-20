@@ -39,7 +39,7 @@ public partial class ChucNang_F104_ChiTietLopMon : System.Web.UI.Page
     {
         try
         {
-            return i_str_yn == "Y" ? "Có" : "Không";
+            return i_str_yn == "Y" ? "Đã thanh toán" : "Chưa thanh toán";
         }
         catch (Exception v_e)
         {
@@ -144,6 +144,7 @@ public partial class ChucNang_F104_ChiTietLopMon : System.Web.UI.Page
         m_us_gd_lop_mon_detail.dcSO_LUONG_HE_SO = CIPConvert.ToDecimal(m_txt_so_luong_he_so.Text);
         m_us_gd_lop_mon_detail.dcTHANH_TIEN = CIPConvert.ToDecimal(m_txt_thanh_tien.Text);
         m_us_gd_lop_mon_detail.strDA_THANH_TOAN_YN =m_rbt_trang_thai_thanh_toan.SelectedValue;
+        m_us_gd_lop_mon_detail.dcID = CIPConvert.ToDecimal(m_hdf_id.Value);
     }
     private void us_object_2_form() {
         m_cbo_dm_hop_dong_khung.SelectedValue = CIPConvert.ToStr(m_us_gd_lop_mon_detail.dcID_HOP_DONG_KHUNG);
@@ -163,6 +164,8 @@ public partial class ChucNang_F104_ChiTietLopMon : System.Web.UI.Page
     {
         try
         {
+            if (m_hdf_id.Value !="") m_e_form_mode = DataEntryFormMode.UpdateDataState;
+            else m_e_form_mode = DataEntryFormMode.InsertDataState;
             m_cmd_thoat.Attributes.Add("onclick", "window.close();");
             if (!this.IsPostBack) {
                 if (this.Request.QueryString["id_lop_mon"] != null)
@@ -187,6 +190,7 @@ public partial class ChucNang_F104_ChiTietLopMon : System.Web.UI.Page
     {
         try
         {
+            m_grv.EditIndex = -1;
             m_lbl_mess.Text = "";
             form_2_us_object();
             switch (m_e_form_mode) { 
@@ -195,11 +199,14 @@ public partial class ChucNang_F104_ChiTietLopMon : System.Web.UI.Page
                     m_lbl_mess.Text = "Đã thêm mới dữ liệu thành công";
                     break;
                 case DataEntryFormMode.UpdateDataState:
+                    if (m_us_gd_lop_mon_detail.IsIDNull()) {
+                        m_lbl_mess.Text = "Cập nhật không thành công";
+                        return;
+                    }
                     m_us_gd_lop_mon_detail.Update();
                     m_lbl_mess.Text = "Đã cập nhật dữ liệu thành công";
                     break;
             }
-
             load_data_2_grid();
         }
         catch (Exception v_e)
@@ -248,7 +255,8 @@ public partial class ChucNang_F104_ChiTietLopMon : System.Web.UI.Page
         {
             m_lbl_mess.Text = "";
             m_e_form_mode = DataEntryFormMode.UpdateDataState;
-            m_us_gd_lop_mon_detail = new US_GD_LOP_MON_DETAIL(CIPConvert.ToDecimal(this.m_grv.DataKeyNames[e.NewSelectedIndex]));
+            m_hdf_id.Value = CIPConvert.ToStr(this.m_grv.DataKeys[e.NewSelectedIndex].Value);
+            m_us_gd_lop_mon_detail = new US_GD_LOP_MON_DETAIL(CIPConvert.ToDecimal(this.m_grv.DataKeys[e.NewSelectedIndex].Value));
             us_object_2_form();
         }
         catch (Exception v_e)
