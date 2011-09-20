@@ -7,7 +7,6 @@ using IP.Core.IPCommon;
 using WebDS;
 using WebDS.CDBNames;
 using WebUS;
-using IP.Core.IPUserService;
 using System.Data;
 public partial class ChuNang_F103_DanhSachLopMon : System.Web.UI.Page
 {
