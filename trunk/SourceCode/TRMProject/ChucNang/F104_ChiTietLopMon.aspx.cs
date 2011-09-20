@@ -55,6 +55,7 @@ public partial class ChucNang_F104_ChiTietLopMon : System.Web.UI.Page
     #region Members
     US_GD_LOP_MON_DETAIL m_us_gd_lop_mon_detail = new US_GD_LOP_MON_DETAIL();
     DS_GD_LOP_MON_DETAIL m_ds_gd_lop_mon_detail = new DS_GD_LOP_MON_DETAIL();
+    DataEntryFormMode m_e_form_mode = DataEntryFormMode.InsertDataState;
     #endregion
 
     #region Private Methods
@@ -144,6 +145,13 @@ public partial class ChucNang_F104_ChiTietLopMon : System.Web.UI.Page
         m_us_gd_lop_mon_detail.dcTHANH_TIEN = CIPConvert.ToDecimal(m_txt_thanh_tien.Text);
         m_us_gd_lop_mon_detail.strDA_THANH_TOAN_YN =m_rbt_trang_thai_thanh_toan.SelectedValue;
     }
+    private void us_object_2_form() {
+        m_cbo_dm_hop_dong_khung.SelectedValue = CIPConvert.ToStr(m_us_gd_lop_mon_detail.dcID_HOP_DONG_KHUNG);
+        m_cbo_noi_dung_thanh_toan.SelectedValue = CIPConvert.ToStr( m_us_gd_lop_mon_detail.dcID_NOI_DUNG_THANH_TOAN);
+        m_txt_so_luong_he_so.Text = CIPConvert.ToStr(m_us_gd_lop_mon_detail.dcSO_LUONG_HE_SO,"#,###0");
+        m_txt_thanh_tien.Text = CIPConvert.ToStr(m_us_gd_lop_mon_detail.dcTHANH_TIEN, "#,###0");
+        m_rbt_trang_thai_thanh_toan.SelectedValue = m_us_gd_lop_mon_detail.strDA_THANH_TOAN_YN;
+    }
     #endregion
 
     //
@@ -164,12 +172,15 @@ public partial class ChucNang_F104_ChiTietLopMon : System.Web.UI.Page
                     load_2_cbo_noi_dung_thanh_toan();
                     load_data_2_grid();
                 }
+                else {
+                    this.Response.Redirect("../Default.aspx");
+                }
             }
            
         }
         catch (Exception v_e)
         {
-            CSystemLog_301.ExceptionHandle(v_e);
+            CSystemLog_301.ExceptionHandle(this,v_e);
         }
     }
     protected void m_cmd_luu_du_lieu_Click(object sender, EventArgs e)
@@ -178,13 +189,22 @@ public partial class ChucNang_F104_ChiTietLopMon : System.Web.UI.Page
         {
             m_lbl_mess.Text = "";
             form_2_us_object();
-            m_us_gd_lop_mon_detail.Insert();
-            m_lbl_mess.Text = "Đã thêm mới dữ liệu thành công";
+            switch (m_e_form_mode) { 
+                case DataEntryFormMode.InsertDataState:
+                    m_us_gd_lop_mon_detail.Insert();
+                    m_lbl_mess.Text = "Đã thêm mới dữ liệu thành công";
+                    break;
+                case DataEntryFormMode.UpdateDataState:
+                    m_us_gd_lop_mon_detail.Update();
+                    m_lbl_mess.Text = "Đã cập nhật dữ liệu thành công";
+                    break;
+            }
+
             load_data_2_grid();
         }
         catch (Exception v_e)
         {
-            CSystemLog_301.ExceptionHandle(v_e);
+            CSystemLog_301.ExceptionHandle(this, v_e);
         }
     }
     protected void m_cmd_thoat_Click(object sender, EventArgs e)
@@ -195,7 +215,7 @@ public partial class ChucNang_F104_ChiTietLopMon : System.Web.UI.Page
         }
         catch (Exception v_e)
         {
-            CSystemLog_301.ExceptionHandle(v_e);
+            CSystemLog_301.ExceptionHandle(this, v_e);
         }
     }
     protected void m_cbo_dm_hop_dong_khung_SelectedIndexChanged(object sender, EventArgs e)
@@ -207,7 +227,7 @@ public partial class ChucNang_F104_ChiTietLopMon : System.Web.UI.Page
         }
         catch (Exception v_e)
         {
-            CSystemLog_301.ExceptionHandle(v_e);
+            CSystemLog_301.ExceptionHandle(this, v_e);
         }
     }
     protected void m_grv_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -219,7 +239,21 @@ public partial class ChucNang_F104_ChiTietLopMon : System.Web.UI.Page
         }
         catch (Exception v_e)
         {
-            CSystemLog_301.ExceptionHandle(v_e);
+            CSystemLog_301.ExceptionHandle(this, v_e);
+        }
+    }
+    protected void m_grv_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+    {
+        try
+        {
+            m_lbl_mess.Text = "";
+            m_e_form_mode = DataEntryFormMode.UpdateDataState;
+            m_us_gd_lop_mon_detail = new US_GD_LOP_MON_DETAIL(CIPConvert.ToDecimal(this.m_grv.DataKeyNames[e.NewSelectedIndex]));
+            us_object_2_form();
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(this,v_e);
         }
     }
 }
