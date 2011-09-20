@@ -25,7 +25,7 @@ a:link, a:visited
 	<tr>
 		<td class="cssPageTitleBG">
 		    <asp:label id="m_lbl_ma_lop_mon" runat="server" CssClass="cssPageTitle" 
-                Text="Thông tin chi tiết thanh toán lớp môn"/>
+                Text="Thông tin lớp môn chi tiết"/>
 		</td>
 	</tr>
 	<tr>
@@ -92,10 +92,11 @@ a:link, a:visited
             <tr>
                 <td align="right" style="width:5%;">
 			<asp:label id="lblFullName4" CssClass="cssManField" runat="server" 
-                Text="Số lương hệ số" />
+                Text="Số lượng/ hệ số" />
 		                    </td>
                 <td align="left" style="width:10%;">
-			        <ew:NumericBox ID="m_txt_so_luong_he_so" runat="server" Width="96%"></ew:NumericBox>
+			        <ew:NumericBox ID="m_txt_so_luong_he_so" runat="server" Width="96%" 
+                        TextAlign="Right"></ew:NumericBox>
                 </td>
                      <td align="left" style="width:1%;">
                          <asp:RequiredFieldValidator ID="m_rfv_offline" runat="server" 
@@ -108,7 +109,8 @@ a:link, a:visited
                 Text="Thành tiền" />
 		                    </td>
                 <td align="left" style="width:10%;">
-			        <ew:NumericBox ID="m_txt_thanh_tien" runat="server" Width="96%"></ew:NumericBox>
+			        <ew:NumericBox ID="m_txt_thanh_tien" runat="server" Width="96%" 
+                        TextAlign="Right"></ew:NumericBox>
                 </td>
                      <td align="left" style="width:1%;">
                          <asp:RequiredFieldValidator ID="m_rfv_offline2" runat="server" 
@@ -190,7 +192,7 @@ a:link, a:visited
 	<tr class="cssPageTitleBG">
     <td>
 		    <asp:label id="m_lbl_ma_lop_mon0" runat="server" CssClass="cssPageTitle" 
-                Text="Danh sách chi tiết thanh toán"/>
+                Text="Danh sách lớp môn chi tiết"/>
 		</td></tr>
     	<tr>
     <td>
@@ -206,22 +208,23 @@ a:link, a:visited
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Số hợp đồng khung">
                         <ItemTemplate>
-                            <asp:Label ID="m_lbl_mon_hoc" runat="server" 
+                            <asp:Label ID="m_lbl_id_hop_dong_khung" runat="server" Text="<%# get_so_hop_dong_khung(Eval(GD_LOP_MON_DETAIL.ID_HOP_DONG_KHUNG)) %>" 
                                 ></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Nội dung thanh toán">
                         <ItemTemplate>
-                            <asp:Label ID="m_lbl_lop_online_yn" runat="server" 
+                            <asp:Label ID="m_lbl_id_noi_dung_thanh_toan" runat="server" Text="<%# get_ten_noi_dung_thanh_toan(Eval(GD_LOP_MON_DETAIL.ID_NOI_DUNG_THANH_TOAN)) %>" 
                              ></asp:Label>
                         </ItemTemplate>
-                        <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:TemplateField>
-                    <asp:BoundField DataField="SO_LUONG_HV" HeaderText="Số lương hệ số">
-                    <ItemStyle HorizontalAlign="Center" />
+                    <asp:BoundField DataField="SO_LUONG_HV" HeaderText="Số lượng/ hệ số" 
+                        DataFormatString="{0:d}">
+                    <ItemStyle HorizontalAlign="Right" />
                     </asp:BoundField>
-                    <asp:BoundField DataField="SO_LUONG_ONLINES" HeaderText="Thành tiền">
-                                        <ItemStyle HorizontalAlign="Center" />
+                    <asp:BoundField DataField="SO_LUONG_ONLINES" HeaderText="Thành tiền" 
+                        DataFormatString="{0:F3}">
+                                        <ItemStyle HorizontalAlign="Right" />
                     </asp:BoundField>
                     <asp:TemplateField HeaderText="Đã thanh toán">
                     </asp:TemplateField>
