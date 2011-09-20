@@ -23,6 +23,7 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
             if (!IsPostBack)
             {
                 load_cbo_don_vi_quan_ly();
+                load_cbo_trang_thai_giang_vien();
                 load_data_to_grid();              
             }
         }
