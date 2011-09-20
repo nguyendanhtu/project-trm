@@ -81,7 +81,7 @@
         </td>
         <td align="left">
             <asp:textbox id="m_txt_ghi_chu" accessKey="m" runat="server" 
-                CssClass="cssTextBox"  Width="96%" TextMode="MultiLine" Height="124px"  />
+                CssClass="cssTextBox"  Width="96%" TextMode="MultiLine" Height="52px"  />
         </td>
     </tr>
 	<tr>
