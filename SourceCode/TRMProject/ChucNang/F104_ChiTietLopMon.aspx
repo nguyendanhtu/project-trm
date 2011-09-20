@@ -203,7 +203,8 @@ a:link, a:visited
 		    <asp:GridView ID="m_grv" runat="server" AutoGenerateColumns="False" 
                 Width="100%" DataKeyNames="ID" 
                 CellPadding="4" ForeColor="#333333" CssClass="cssGrid" 
-                onrowdeleting="m_grv_RowDeleting">
+                onrowdeleting="m_grv_RowDeleting" 
+                onselectedindexchanging="m_grv_SelectedIndexChanging">
                 
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
