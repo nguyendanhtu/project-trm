@@ -408,7 +408,8 @@
 		    <asp:GridView ID="m_grv" runat="server" AutoGenerateColumns="False" 
                 Width="100%" DataKeyNames="ID" 
                 CellPadding="4" ForeColor="#333333" CssClass="cssGrid" 
-                onrowdatabound="m_grv_RowDataBound">
+                onrowdatabound="m_grv_RowDataBound" AllowPaging="True" AllowSorting="True" 
+                onpageindexchanging="m_grv_PageIndexChanging" PageSize="20">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center"><ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
