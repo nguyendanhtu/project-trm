@@ -179,7 +179,7 @@ namespace WebDS.CDBNames
         public const string HOC_LIEU_YN = "HOC_LIEU_YN";
         public const string VAN_HANH_YN = "VAN_HANH_YN";
     }
-    public class GD_DM_LOP_MON_DETAIL
+    public class GD_LOP_MON_DETAIL
     {
         public const string ID = "ID";
         public const string ID_LOP_MON = "ID_LOP_MON";
