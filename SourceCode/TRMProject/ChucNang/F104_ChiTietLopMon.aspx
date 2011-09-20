@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" AutoEventWireup="true" CodeFile="F104_ChiTietLopMon.aspx.cs" Inherits="ChucNang_F104_ChiTietLopMon" %>
 
 <%@ Register assembly="eWorld.UI" namespace="eWorld.UI" tagprefix="ew" %>
-
+<%@ Import Namespace="WebDS.CDBNames" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -208,13 +208,13 @@ a:link, a:visited
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Số hợp đồng khung">
                         <ItemTemplate>
-                            <asp:Label ID="m_lbl_id_hop_dong_khung" runat="server" Text="<%# get_so_hop_dong_khung(Eval(GD_LOP_MON_DETAIL.ID_HOP_DONG_KHUNG)) %>" 
+                            <asp:Label ID="m_lbl_id_hop_dong_khung" runat="server" Text="<%# get_so_hop_dong_khung((decimal)Eval(GD_LOP_MON_DETAIL.ID_HOP_DONG_KHUNG)) %>" 
                                 ></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Nội dung thanh toán">
                         <ItemTemplate>
-                            <asp:Label ID="m_lbl_id_noi_dung_thanh_toan" runat="server" Text="<%# get_ten_noi_dung_thanh_toan(Eval(GD_LOP_MON_DETAIL.ID_NOI_DUNG_THANH_TOAN)) %>" 
+                            <asp:Label ID="m_lbl_id_noi_dung_thanh_toan" runat="server" Text="<%# get_ten_noi_dung_thanh_toan((decimal)Eval(GD_LOP_MON_DETAIL.ID_NOI_DUNG_THANH_TOAN)) %>" 
                              ></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
