@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="F102_CapNhatThongTinLopMon.aspx.cs" Inherits="ChucNang_F102_CapNhatThongTinLopMon" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="F301_GdHopDongKhung.aspx.cs" Inherits="ChucNang_F301_GdHopDongKhung" %>
 
 <%@ Register assembly="eWorld.UI" namespace="eWorld.UI" tagprefix="ew" %>
 
