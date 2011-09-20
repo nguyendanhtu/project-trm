@@ -82,8 +82,7 @@
                              ControlToValidate="m_rbt_offline_yn">*</asp:RequiredFieldValidator>
                 </td>
                  <td align="right" style="width:5%;">
-                     <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-                </td>
+                     &nbsp;</td>
                 <td align="left" style="width:10%;"></td>
                 <td align="left" style="width:1%;"></td>
             </tr>
