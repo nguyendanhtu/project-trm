@@ -43,4 +43,12 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
         }
     }
         #endregion
+    protected void m_cmd_luu_du_lieu_Click(object sender, EventArgs e)
+    {
+
+    }
+    protected void m_cmd_thoat_Click(object sender, EventArgs e)
+    {
+
+    }
 }
