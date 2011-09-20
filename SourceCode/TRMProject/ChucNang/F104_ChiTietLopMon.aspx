@@ -225,16 +225,13 @@ a:link, a:visited
                     </asp:BoundField>
                     <asp:TemplateField HeaderText="Đã thanh toán">
                     </asp:TemplateField>
-                    <asp:CommandField DeleteText="Xóa" ShowDeleteButton="True" 
-                        ItemStyle-HorizontalAlign="Center" >
+                    <asp:CommandField DeleteText="" ShowDeleteButton="True" 
+                        ItemStyle-HorizontalAlign="Center" ButtonType="Image" 
+                        DeleteImageUrl="~/Images/Button/deletered.png" >
 <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:CommandField>
-                    <asp:TemplateField>
-                        <ItemTemplate>
-                            <asp:HyperLink ID="m_lnk_sua" runat="server" Target="_blank"
-                                >Sửa</asp:HyperLink>
-                        </ItemTemplate>
-                    </asp:TemplateField>
+                    <asp:CommandField ButtonType="Image" SelectText="" ShowSelectButton="True" 
+                        UpdateImageUrl="~/Images/Button/edit.png" />
                 </Columns>
                 <EditRowStyle BackColor="#7C6F57" />
                 <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
