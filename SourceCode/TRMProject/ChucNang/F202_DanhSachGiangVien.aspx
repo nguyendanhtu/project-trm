@@ -957,7 +957,7 @@
 		<td align="left">
         &nbsp;<asp:button id="cmd_them_moi" accessKey="c" CssClass="cssButton" 
                 runat="server" Width="98px" Text="Tạo mới(c)" 
-                onclick="cmd_them_moi_Click"/>
+                onclick="cmd_them_moi_Click" Height="28px"/>
         </td>
         <td >
 		    &nbsp;</td>
