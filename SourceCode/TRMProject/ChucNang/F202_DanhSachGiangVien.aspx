@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
-<asp:MultiView ID="mtv_giang_vien" runat="server">
+    <asp:MultiView ID="mtv_giang_vien" runat="server">
 
   <asp:View ID="m_view_form_cap_nhat_giang_vien" runat="server">
      <table cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0">
@@ -243,6 +243,8 @@
                         MaxLength="64" Width="99%" />
                 </td>
                 <td align="left" style="width:1%;">
+                <asp:RequiredFieldValidator ID="m_rqf_email" runat="server" 
+                        ControlToValidate="m_txt_email" Text="*" ErrorMessage="Bạn phải nhập Email"></asp:RequiredFieldValidator>
                     <asp:RegularExpressionValidator ID="m_rfv_offline7" runat="server" 
                         ControlToValidate="m_txt_email" 
                         ErrorMessage="Bạn phải nhập ngày sinh giảng viên" Text="*" 
@@ -495,10 +497,6 @@
                     </asp:CheckBoxList>
                 </td>
                      <td align="left" style="width:1%;">
-                         <asp:RequiredFieldValidator ID="m_rfv_hop_dong_giao_vien" runat="server" 
-                             
-                             ErrorMessage="Bạn phải chọn loại hợp đồng giáo viên"  Text="*"
-                             ControlToValidate="m_rbt_loai_lop"></asp:RequiredFieldValidator>
                 </td>
                 <td align="right" class="style1">
 			        &nbsp;</td>
@@ -915,7 +913,7 @@
                 runat="server" Width="98px" Text="Xuất Excel (x)" Height="22px"  />
 			</td>
                              <td align="left" >&nbsp;</td>
-                 <td align="right" ></td>
+                 <td align="right" ><asp:HiddenField id="hdf_id" runat="server"/></td>
                 <td align="left" ></td>    
                 <td align="left" ></td>
             </tr>
@@ -946,7 +944,9 @@
                 Width="101%" DataKeyNames="ID"
                 CellPadding="4" ForeColor="#333333" GridLines="Both" 
             AllowSorting="True" 
-            onpageindexchanging="m_grv_dm_danh_sach_giang_vien_PageIndexChanging" >
+            onpageindexchanging="m_grv_dm_danh_sach_giang_vien_PageIndexChanging" 
+            
+            onselectedindexchanging="m_grv_dm_danh_sach_giang_vien_SelectedIndexChanging" >
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">
