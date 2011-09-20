@@ -5,6 +5,20 @@ using System.Text;
 
 namespace WebDS.CDBNames
 {
+      public enum e_loai_tu_dien
+    {
+        PHAN_QUYEN = 1
+        , DIA_DIEM_QUAN_LY = 2
+        , DON_VI_QUAN_LY_CHINH = 3
+        , LEVEL_GIANG_VIEN =4
+        , LOAI_HOP_DONG =5
+        , NGANH_DAO_TAO =6
+        , DON_VI_TINH =7
+        , TRANG_THAI_HOP_DONG_KHUNG =8
+        , TRANG_THAI_GIANG_VIEN =9
+        , MA_TAN_SUAT = 10
+    }
+
     public class CM_DM_TU_DIEN
     {
         public const string ID = "ID";
