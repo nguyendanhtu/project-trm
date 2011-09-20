@@ -100,7 +100,7 @@ a:link, a:visited
 		                    </td>
                 <td align="left" style="width:10%;">
 			        <ew:NumericBox ID="m_txt_so_luong_he_so" runat="server" Width="96%" 
-                        TextAlign="Right" PlacesBeforeDecimal="3" PositiveNumber="True"></ew:NumericBox>
+                        TextAlign="Right" PositiveNumber="True"></ew:NumericBox>
                 </td>
                      <td align="left" style="width:1%;">
                          <asp:RequiredFieldValidator ID="m_rfv_offline" runat="server" 
@@ -226,10 +226,12 @@ a:link, a:visited
                              ></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:BoundField DataField="SO_LUONG_HE_SO" HeaderText="Số lượng/ hệ số">
+                    <asp:BoundField DataField="SO_LUONG_HE_SO" HeaderText="Số lượng/ hệ số" 
+                        DataFormatString="{0:0.00}">
                     <ItemStyle HorizontalAlign="Right" />
                     </asp:BoundField>
-                    <asp:BoundField DataField="THANH_TIEN" HeaderText="Thành tiền">
+                    <asp:BoundField DataField="THANH_TIEN" HeaderText="Thành tiền" 
+                        DataFormatString="{0:0,0 vnđ}">
                                         <ItemStyle HorizontalAlign="Right" />
                     </asp:BoundField>
                     <asp:TemplateField HeaderText="Trạng thái">
