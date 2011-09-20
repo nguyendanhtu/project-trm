@@ -37,7 +37,7 @@
                 <td align="left" class="style1">
 			       
 			    </td>
-                <td align="left" style="width:10%;" rowspan="4">&nbsp;</td>
+                <td align="left" style="width:10%;" rowspan="3">&nbsp;</td>
                 <td align="left" style="width:1%;"></td>
                  <td align="right" class="style1"></td>
                 <td align="left" style="width:10%;"></td>
@@ -45,29 +45,8 @@
             </tr>
             <tr>
                 <td align="right" class="style2">
-			<asp:label id="lblMiddleName" CssClass="cssManField" runat="server" 
-                Text="Họ và tên đệm" />
-                         </td>
-                <td align="left" class="style3">
-			<asp:textbox id="m_txt_middle_name" CssClass="cssTextBox"  runat="server" 
-                MaxLength="64" Width="96%" />
-                         </td>
-                         <td align="left" style="width:1%;"> 
-                        <asp:RequiredFieldValidator ID="rqf_ten_dem" runat="server" 
-                        ControlToValidate="m_txt_middle_name" Text="*" ErrorMessage="Bạn phải nhập Họ và Tên đệm"></asp:RequiredFieldValidator>
-                             &nbsp;</td>
-                <td align="left" class="style1">
-			       
-			        &nbsp;</td>
-                <td align="left" style="width:1%;">&nbsp;</td>
-                 <td align="right" class="style1">&nbsp;</td>
-                <td align="left" style="width:10%;">&nbsp;</td>
-                <td align="left" style="width:1%;">&nbsp;</td>
-            </tr>
-            <tr>
-                <td align="right" class="style2">
 			<asp:label id="lblName" CssClass="cssManField" runat="server" 
-                Text="Tên" />
+                Text="Họ Tên" />
                          </td>
                 <td align="left" class="style3">
 			<asp:textbox id="m_txt_name" CssClass="cssTextBox"  runat="server" 
@@ -194,58 +173,87 @@
                 </td>
                 <td align="left" class="style3">
 			<asp:textbox id="m_txt_tel_home" CssClass="cssTextBox"  runat="server" 
-                MaxLength="64" Width="96%" />
+                MaxLength="64" Width="84%" />
                          </td>
                      <td align="left" style="width:1%;">
-                    
                          &nbsp;</td>
-                <td align="right" class="style1">
-			<asp:label id="lblTelOffice" CssClass="cssManField" runat="server" 
-                Text="SĐT Nơi làm việc" />
-                </td>
-                <td align="left" style="width:10%;">
-			<asp:textbox id="m_txt_tel_office" CssClass="cssTextBox"  runat="server" 
-                MaxLength="64" Width="96%"  />
-                         </td>
+                <td align="left" style="width:9%">
+               
+			        &nbsp;</td>
+                      <td align="left" class="style1">
+                          &nbsp;</td>
                       <td align="left" style="width:1%;">
-
                           &nbsp;</td>
                  <td align="right" class="style1">
-			<asp:label id="lblMobilePhone" CssClass="cssManField" runat="server" 
-                Text="SĐT Di động" />
+			
                 </td>
                 <td align="left" style="width:10%;">
-			<asp:textbox id="m_txt_mobile_phone" CssClass="cssTextBox"  runat="server" 
-                MaxLength="64" Width="96%" />
+			
                          </td>
                 <td align="left" style="width:1%;">
-                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
-                        ControlToValidate="m_txt_mobile_phone" Text="*" ErrorMessage="Bạn phải nhập số điện thoại di động"></asp:RequiredFieldValidator>
-                         <asp:RegularExpressionValidator ID="m_rfv_mobile_phone" runat="server" 
-                             ErrorMessage="Bạn phải đã nhập sai dạng SĐT di động" 
-                             ControlToValidate="m_txt_mobile_phone" Text="*"
-                              ValidationExpression="/(^\d{10}$)|(^\d{11}$)/"></asp:RegularExpressionValidator>
+                 
                 </td>
             </tr>
             <tr>
-                <td align="right" class="style2">
-			<asp:label id="lblEmail" CssClass="cssManField" runat="server" 
-                Text="Email" />
-                </td>
-                <td align="left" colspan="4">
-			<asp:textbox id="m_txt_email" CssClass="cssTextBox"  runat="server" 
-                MaxLength="64" Width="99%" />
-                         </td>
+                <td align="right" class="style3">
+			        &nbsp;
+                     <asp:label id="m_lbl_sdt_co_quan" CssClass="cssManField" runat="server" 
+                Text="SĐT cơ quan" />
+                    </td>
+                <td align="left" >
+                 <asp:TextBox ID="m_txt_tel_office" runat="server" CssClass="cssTextBox" 
+                        MaxLength="64" Width="84%" />
+			        &nbsp; 
+                   </td>
                       <td align="left" style="width:1%;">
-                         <asp:RegularExpressionValidator ID="m_rfv_offline7" runat="server" 
-                             ErrorMessage="Bạn phải nhập ngày sinh giảng viên" 
-                             ControlToValidate="m_txt_email" Text="*"
-                              ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
-                </td>
+                          &nbsp;</td>
                  <td align="right" class="style1">
                      &nbsp;</td>
                 <td align="left" style="width:10%;">&nbsp;</td>
                 <td align="left" style="width:1%;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" class="style3">
+                    &nbsp;
+                    <asp:label id="lblMobilePhone" CssClass="cssManField" runat="server" 
+                Text="SĐT Di động" /></td>
+                <td align="left">
+                    &nbsp;<asp:textbox id="m_txt_mobile_phone" CssClass="cssTextBox"  runat="server" 
+                MaxLength="64" Width="84%" /></td>
+                <td align="left" style="width:1%;">
+                    &nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                        ControlToValidate="m_txt_mobile_phone" Text="*" ErrorMessage="Bạn phải nhập số điện thoại di động"></asp:RequiredFieldValidator>
+                         <asp:RegularExpressionValidator ID="m_rfv_mobile_phone" runat="server" 
+                             ErrorMessage="Bạn phải đã nhập sai dạng SĐT di động" 
+                             ControlToValidate="m_txt_mobile_phone" Text="*"
+                              ValidationExpression="/(^\d{10}$)|(^\d{11}$)/"></asp:RegularExpressionValidator></td>
+                <td align="right" class="style1">
+                    &nbsp;</td>
+                <td align="left" style="width:10%;">
+                    &nbsp;</td>
+                <td align="left" style="width:1%;">
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" class="style2">
+                    <asp:Label ID="lblEmail" runat="server" CssClass="cssManField" Text="Email" />
+                </td>
+                <td align="left" colspan="4">
+                    <asp:TextBox ID="m_txt_email" runat="server" CssClass="cssTextBox" 
+                        MaxLength="64" Width="99%" />
+                </td>
+                <td align="left" style="width:1%;">
+                    <asp:RegularExpressionValidator ID="m_rfv_offline7" runat="server" 
+                        ControlToValidate="m_txt_email" 
+                        ErrorMessage="Bạn phải nhập ngày sinh giảng viên" Text="*" 
+                        ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                </td>
+                <td align="right" class="style1">
+                    &nbsp;</td>
+                <td align="left" style="width:10%;">
+                    &nbsp;</td>
+                <td align="left" style="width:1%;">
+                    &nbsp;</td>
             </tr>
             <tr>
                 <td align="right" class="style2">
@@ -253,7 +261,7 @@
                 Text="Tên cơ quan công tác" />
                 </td>
                 <td align="left" colspan="4">
-			<asp:textbox id="m_txt_email0" CssClass="cssTextBox"  runat="server" 
+			<asp:textbox id="m_txt_co_quan_cong_tac" CssClass="cssTextBox"  runat="server" 
                 MaxLength="64" Width="99%" />
                          </td>
                       <td align="left" style="width:1%;">
@@ -269,7 +277,7 @@
                 Text="Email Topica" />
                 </td>
                 <td align="left" colspan="4">
-			<asp:textbox id="m_txt_email1" CssClass="cssTextBox"  runat="server" 
+			<asp:textbox id="m_txt_email_topica" CssClass="cssTextBox"  runat="server" 
                 MaxLength="64" Width="99%" />
                          </td>
                       <td align="left" style="width:1%;">
@@ -320,15 +328,10 @@
 			<asp:label id="lblTruongDaoTao" CssClass="cssManField" runat="server" 
                 Text="Trường đào tạo" />
                 </td>
-                <td align="left" style="width:10%;">
-			<asp:textbox id="m_txt_truong_dao_tao" CssClass="cssTextBox"  runat="server" 
-                MaxLength="64" Width="96%" />
-                         </td>
-                      <td align="left" style="width:1%;">
-                             &nbsp;</td>
-                 <td align="right" class="style1">
-                     &nbsp;</td>
-                <td align="left" style="width:10%;">&nbsp;</td>
+                <td align="left" colspan="4">
+                <asp:textbox id="m_txt_truong_dao_tao" CssClass="cssTextBox"  runat="server" 
+                MaxLength="64" Width="98%" />
+			        &nbsp;</td>
                 <td align="left" style="width:1%;">&nbsp;</td>
             </tr>
             <tr>
@@ -368,15 +371,10 @@
 			<asp:label id="lblTenNganHang" CssClass="cssManField" runat="server" 
                 Text="Tên ngân hàng" />
                 </td>
-                <td align="left" style="width:10%;">
-			<asp:textbox id="m_txt_ten_ngan_hang" CssClass="cssTextBox"  runat="server" 
-                MaxLength="64" Width="96%" />
-                         </td>
-                      <td align="left" style="width:1%;">
-                          &nbsp;</td>
-                 <td align="right" class="style1">
-                     &nbsp;</td>
-                <td align="left" style="width:10%;">&nbsp;</td>
+                <td align="left" colspan="4">
+                <asp:textbox id="m_txt_ten_ngan_hang" CssClass="cssTextBox"  runat="server" 
+                MaxLength="64" Width="98%" />
+			        &nbsp;</td>
                 <td align="left" style="width:1%;">&nbsp;</td>
             </tr>
             <tr>
@@ -448,8 +446,8 @@
                 Text="Đơn vị quản lý" />
                 </td>
                 <td align="left" class="style3">
-			<asp:textbox id="m_txt_don_vi_quan_ly" CssClass="cssTextBox"  runat="server" 
-                MaxLength="64" Width="96%" />
+			        <asp:DropDownList ID="m_cbo_dm_don_vi_quan_ly" runat="server" 
+                        CssClass="cssDorpdownlist" Width="96%" />
                          </td>
                      <td align="left" style="width:1%;">
                          &nbsp;</td>
@@ -457,35 +455,10 @@
 			<asp:label id="lblMaSoThue" CssClass="cssManField" runat="server" 
                 Text="Mã số thuế" />
                 </td>
-                <td align="left" style="width:10%;">
-			<asp:textbox id="m_txt_ma_so_thue" CssClass="cssTextBox"  runat="server" 
+                <td align="left" colspan="4">
+                <asp:textbox id="m_txt_ma_so_thue" CssClass="cssTextBox"  runat="server" 
                 MaxLength="64" Width="96%" />
-                         </td>
-                      <td align="left" style="width:1%;">
-                          &nbsp;</td>
-                 <td align="right" class="style1">
-                     &nbsp;</td>
-                <td align="left" style="width:10%;">&nbsp;</td>
-                <td align="left" style="width:1%;">&nbsp;</td>
-            </tr>
-            <tr>
-                <td align="right" class="style2">
-			<asp:label id="lblGiaoVienHopDong" CssClass="cssManField" runat="server" 
-                Text="Giáo Viên Hợp Đồng" />
-		                    </td>
-                <td align="left" class="style3">
-		            &nbsp;</td>
-                     <td align="left" style="width:1%;">
-                         &nbsp;</td>
-                <td align="right" class="style1">
 			        &nbsp;</td>
-                <td align="left" style="width:10%;">
-                    &nbsp;</td>
-                      <td align="left" style="width:1%;">
-                          &nbsp;</td>
-                 <td align="right" class="style1">
-                     &nbsp;</td>
-                <td align="left" style="width:10%;">&nbsp;</td>
                 <td align="left" style="width:1%;">&nbsp;</td>
             </tr>
             <tr>
@@ -512,14 +485,14 @@
                 Text="Loại Hợp Đồng" />
 		                    </td>
                 <td align="left" class="style3">
-			        <asp:RadioButtonList ID="m_rbt_loai_lop" runat="server">
-                        <asp:ListItem Value="GVHD_YN">Giáo Viên Hợp đồng</asp:ListItem>
-                        <asp:ListItem Value="GVCM_YN">Giáo Viên Chuyên Môn</asp:ListItem>
-                        <asp:ListItem Value="GV_VIET_HL_YN">Giáo Viên Viết Học Liệu</asp:ListItem>
-                        <asp:ListItem Value="GV_DUYET_HL_YN">Giáo Viên Duyệt Học Liệu</asp:ListItem>
-                        <asp:ListItem Value="GV_THAM_DINH_HL_YN">Giáo Thẩm định Học Liệu</asp:ListItem>
-                        <asp:ListItem Value="GV_HDKH_YN">Giáo Viên Hội Đồng Khoa Học</asp:ListItem>
-                    </asp:RadioButtonList>
+			        <asp:CheckBoxList ID="m_cbl_loai_hop_dong" runat="server">
+                        <asp:ListItem>Giáo Viên Hợp đồng</asp:ListItem>
+                        <asp:ListItem>Giáo Viên Chuyên Môn</asp:ListItem>
+                        <asp:ListItem>Giáo Viên Viết Học Liệu</asp:ListItem>
+                        <asp:ListItem>Giáo Viên Duyệt Học Liệu</asp:ListItem>
+                        <asp:ListItem>Giáo Thẩm định Học Liệu</asp:ListItem>
+                        <asp:ListItem>Giáo Viên Hội Đồng Khoa Học</asp:ListItem>
+                    </asp:CheckBoxList>
                 </td>
                      <td align="left" style="width:1%;">
                          <asp:RequiredFieldValidator ID="m_rfv_hop_dong_giao_vien" runat="server" 
@@ -540,12 +513,14 @@
                          <td align="left" style="width:1%;"></td>
             </tr>
             <tr>
-                <td align="right" class="style2"></td>
-                <td align="left" class="style3">    
+                <td align="right" class="style2" style="margin-left: 40px">
+                <asp:label id="m_lbl_description" CssClass="cssManField" runat="server" 
+                Text="Mô tả" />
+                </td>
+                <td align="left" class="style3" colspan="3">  
+                <asp:textbox id="m_txt_description" CssClass="cssTextBox"  runat="server" 
+               TextMode="MultiLine" Rows="4" Width="96%" />
 			        &nbsp;</td> 
-                <td align="left" style="width:1%;"></td>
-                <td align="left" class="style1">
-			        &nbsp;</td>
                 <td align="left" style="width:10%;">    
 			        &nbsp;</td> <td align="left" style="width:1%;"></td>
                  <td align="right" class="style1"></td>
@@ -1093,4 +1068,3 @@
 </asp:MultiView>
 
 </asp:Content>
-
