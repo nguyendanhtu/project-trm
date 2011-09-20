@@ -348,7 +348,8 @@
 
                 <asp:label id="lblFullName1" CssClass="cssLabel" runat="server" 
                 
-                Text="(Từ khóa tìm kiếm: Mã lớp môn hoặc PO phụ trách hoặc chương trình phụ trách)" />
+                
+                           Text="(Từ khóa tìm kiếm: Mã lớp môn hoặc Tên môn học hoặc PO phụ trách hoặc chương trình phụ trách)" />
 
 		        </td>
             </tr>
