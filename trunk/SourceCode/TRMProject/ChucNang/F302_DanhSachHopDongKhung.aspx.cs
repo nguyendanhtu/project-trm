@@ -28,6 +28,21 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
             CSystemLog_301.ExceptionHandle(this, v_e);
         }
     }
+    #region Members
+    US_V_DM_HOP_DONG_KHUNG m_us_dm_hop_dong_khung = new US_V_DM_HOP_DONG_KHUNG();
+    DS_V_DM_HOP_DONG_KHUNG m_ds_hop_dong_khung = new DS_V_DM_HOP_DONG_KHUNG();
+
+    US_CM_DM_TU_DIEN m_us_cm_dm_tu_dien = new US_CM_DM_TU_DIEN();
+    DS_CM_DM_TU_DIEN m_ds_cm_dm_tu_dien = new DS_CM_DM_TU_DIEN();
+
+    US_DM_DON_VI_THANH_TOAN m_us_dm_don_vi_thanh_toan = new US_DM_DON_VI_THANH_TOAN();
+    DS_DM_DON_VI_THANH_TOAN m_ds_dm_don_vi_thanh_toan = new DS_DM_DON_VI_THANH_TOAN();
+
+    US_V_DM_GIANG_VIEN m_us_dm_giang_vien = new US_V_DM_GIANG_VIEN();
+    DS_V_DM_GIANG_VIEN m_ds_dm_giang_vien = new DS_V_DM_GIANG_VIEN();
+
+    DataEntryFormMode m_init_mode = DataEntryFormMode.ViewDataState;
+    #endregion
 
     #region Public Interfaces
     public string mapping_hl(string ip_str_hl_YN)
@@ -47,7 +62,26 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
     #region Private Methods
     private void load_data_2_grid()
     {
-        m_grv_dm_danh_sach_hop_dong_khung.DataBind();
+        try
+        {
+            // Đổ dữ liệu từ US vào DS
+            m_us_dm_hop_dong_khung.FillDataset(m_ds_hop_dong_khung);
+
+            // Treo dữ liệu lên lưới
+            m_grv_dm_danh_sach_hop_dong_khung.DataSource = m_ds_hop_dong_khung.V_DM_HOP_DONG_KHUNG;
+            m_grv_dm_danh_sach_hop_dong_khung.DataBind();
+        }
+        catch (Exception v_e)
+        {
+            //nhớ using Ip.Common
+            CSystemLog_301.ExceptionHandle(this, v_e);
+
+        }
+    }
+    
+    private void reset_control()
+    {
+      
     }
     #endregion
 }
