@@ -47,7 +47,10 @@ a:link, a:visited
                 MaxLength="64" Width="96%" Enabled="False" />
                          </td>
                          <td align="left" style="width:1%;"> 
-                             &nbsp;</td>
+                         <asp:RequiredFieldValidator ID="m_rfv_offline3" runat="server" 
+                             ErrorMessage="Bạn không thể cập nhật dữ liệu do không có Mã lớp môn" 
+                             ControlToValidate="m_txt_ma_lop_mon">*</asp:RequiredFieldValidator>
+                </td>
                 <td align="left" style="width:5%;">
 			       
 			    </td>
@@ -133,8 +136,8 @@ a:link, a:visited
                 <td align="left" style="width:10%;">
 			        <asp:RadioButtonList ID="m_rbt_trang_thai_thanh_toan" runat="server" 
                         RepeatDirection="Horizontal">
-                        <asp:ListItem Value="DA_THANH_TOAN">Đã thanh toán</asp:ListItem>
-                        <asp:ListItem Value="CHUA_THANH_TOAN">Chưa thanh toán</asp:ListItem>
+                        <asp:ListItem Value="Y">Đã thanh toán</asp:ListItem>
+                        <asp:ListItem Value="N">Chưa thanh toán</asp:ListItem>
                     </asp:RadioButtonList>
 		                    </td>
                                  <td align="left" style="width:1%;"> 
@@ -199,12 +202,13 @@ a:link, a:visited
     <td>
 		    <asp:GridView ID="m_grv" runat="server" AutoGenerateColumns="False" 
                 Width="100%" DataKeyNames="ID" 
-                CellPadding="4" ForeColor="#333333" CssClass="cssGrid">
+                CellPadding="4" ForeColor="#333333" CssClass="cssGrid" 
+                onrowdeleting="m_grv_RowDeleting">
                 
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">
-
+                    <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
 <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Số hợp đồng khung">
@@ -219,12 +223,10 @@ a:link, a:visited
                              ></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:BoundField DataField="SO_LUONG_HV" HeaderText="Số lượng/ hệ số" 
-                        DataFormatString="{0:d}">
+                    <asp:BoundField DataField="SO_LUONG_HE_SO" HeaderText="Số lượng/ hệ số">
                     <ItemStyle HorizontalAlign="Right" />
                     </asp:BoundField>
-                    <asp:BoundField DataField="SO_LUONG_ONLINES" HeaderText="Thành tiền" 
-                        DataFormatString="{0:F3}">
+                    <asp:BoundField DataField="THANH_TIEN" HeaderText="Thành tiền">
                                         <ItemStyle HorizontalAlign="Right" />
                     </asp:BoundField>
                     <asp:TemplateField HeaderText="Đã thanh toán">
@@ -240,7 +242,9 @@ a:link, a:visited
 <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:CommandField>
                     <asp:CommandField ButtonType="Image" SelectText="" ShowSelectButton="True" 
-                        UpdateImageUrl="~/Images/Button/edit.png" />
+                        SelectImageUrl="~/Images/Button/edit.png" >
+                    <ItemStyle HorizontalAlign="Center" />
+                    </asp:CommandField>
                 </Columns>
                 <EditRowStyle BackColor="#7C6F57" />
                 <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
