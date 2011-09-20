@@ -96,6 +96,18 @@ public partial class ChucNang_F104_ChiTietLopMon : System.Web.UI.Page
             throw v_e;
         }
     }
+    private string get_ma_lop_mon(decimal i_dc_id_lop_mon) {
+        try
+        {
+            US_GD_LOP_MON v_us = new US_GD_LOP_MON(i_dc_id_lop_mon);
+            if (v_us.IsMA_LOP_MONNull()) return "";
+            else return v_us.strMA_LOP_MON;
+        }
+        catch (Exception v_e)
+        {
+            throw v_e;
+        }
+    }
     private void load_data_2_grid() {
         try
         {
@@ -109,7 +121,16 @@ public partial class ChucNang_F104_ChiTietLopMon : System.Web.UI.Page
             throw v_e;
         }
     }
+    private void form_2_us_object() {
+        m_us_gd_lop_mon_detail.dcID_HOP_DONG_KHUNG = CIPConvert.ToDecimal(m_cbo_dm_hop_dong_khung.SelectedValue);
+        m_us_gd_lop_mon_detail.dcID_NOI_DUNG_THANH_TOAN = CIPConvert.ToDecimal(m_cbo_noi_dung_thanh_toan.SelectedValue);
+        m_us_gd_lop_mon_detail.dcID_LOP_MON = CIPConvert.ToDecimal(this.Request.QueryString["id_lop_mon"]);
+        m_us_gd_lop_mon_detail.dcSO_LUONG_HE_SO = CIPConvert.ToDecimal(m_txt_so_luong_he_so.Text);
+        m_us_gd_lop_mon_detail.dcTHANH_TIEN = CIPConvert.ToDecimal(m_txt_thanh_tien.Text);
+        m_us_gd_lop_mon_detail.strDA_THANH_TOAN_YN =m_rbt_trang_thai_thanh_toan.SelectedValue;
+    }
     #endregion
+
     //
     //
     // Events
@@ -120,9 +141,12 @@ public partial class ChucNang_F104_ChiTietLopMon : System.Web.UI.Page
         try
         {
             if (!this.IsPostBack) {
+                if (this.Request.QueryString["id_lop_mon"] != null)
+                    m_txt_ma_lop_mon.Text = get_ma_lop_mon(CIPConvert.ToDecimal(this.Request.QueryString["id_lop_mon"]));
                 load_2_cbo_hop_dong_khung();
                 load_2_cbo_noi_dung_thanh_toan();
             }
+           
         }
         catch (Exception v_e)
         {
@@ -133,7 +157,11 @@ public partial class ChucNang_F104_ChiTietLopMon : System.Web.UI.Page
     {
         try
         {
-           
+            m_lbl_mess.Text = "";
+            form_2_us_object();
+            m_us_gd_lop_mon_detail.Insert();
+            m_lbl_mess.Text = "Đã thêm mới dữ liệu thành công";
+            load_data_2_grid();
         }
         catch (Exception v_e)
         {
@@ -155,6 +183,7 @@ public partial class ChucNang_F104_ChiTietLopMon : System.Web.UI.Page
     {
         try
         {
+            m_lbl_mess.Text = "";
             load_2_cbo_noi_dung_thanh_toan();
         }
         catch (Exception v_e)

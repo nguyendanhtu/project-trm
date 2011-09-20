@@ -44,7 +44,7 @@ a:link, a:visited
                          </td>
                 <td align="left" style="width:10%;">
 			<asp:textbox id="m_txt_ma_lop_mon" CssClass="cssTextBox"  runat="server" 
-                MaxLength="64" Width="96%" ReadOnly="True" />
+                MaxLength="64" Width="96%" Enabled="False" />
                          </td>
                          <td align="left" style="width:1%;"> 
                              &nbsp;</td>
