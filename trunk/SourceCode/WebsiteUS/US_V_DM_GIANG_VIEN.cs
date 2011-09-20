@@ -811,7 +811,7 @@ public class US_V_DM_GIANG_VIEN : US_Object
         DS_V_DM_GIANG_VIEN v_ds_giang_vien  = new DS_V_DM_GIANG_VIEN();
 
         v_us_giang_vien.FillDataset(v_ds_giang_vien, " where MA_GIANG_VIEN = '" + ip_str_ma_giang_vien + "'");
-        if (v_ds_giang_vien.V_DM_GIANG_VIEN.Rows.Count == 0) return true;  // không tồn tại mã giảng viên nào như vậy
+        if (v_ds_giang_vien.V_DM_GIANG_VIEN.Rows.Count == 0) return true;  //Mã này chưa có, insert được
         return false;
     }
     #endregion
