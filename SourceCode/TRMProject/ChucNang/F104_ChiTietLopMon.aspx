@@ -64,7 +64,8 @@ a:link, a:visited
                 </td>
                 <td align="left" style="width:10%;">
 		    <asp:DropDownList id="m_cbo_dm_hop_dong_khung" runat="server" Width="96%" 
-                        CssClass="cssDorpdownlist"  />
+                        CssClass="cssDorpdownlist" AutoPostBack="True" 
+                        onselectedindexchanged="m_cbo_dm_hop_dong_khung_SelectedIndexChanged"  />
                 </td>
                      <td align="left" style="width:1%;">
                          <asp:RequiredFieldValidator ID="m_rfv_offline0" runat="server" 

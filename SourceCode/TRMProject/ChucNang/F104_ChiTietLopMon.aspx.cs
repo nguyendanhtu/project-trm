@@ -78,11 +78,13 @@ public partial class ChucNang_F104_ChiTietLopMon : System.Web.UI.Page
     }
     private void load_2_cbo_noi_dung_thanh_toan()
     {
+        if (m_cbo_dm_hop_dong_khung.SelectedItem == null) return;
         US_DM_NOI_DUNG_THANH_TOAN v_us = new US_DM_NOI_DUNG_THANH_TOAN();
         DS_DM_NOI_DUNG_THANH_TOAN v_ds = new DS_DM_NOI_DUNG_THANH_TOAN();
         try
         {
-            v_us.FillDataset(v_ds);
+            v_us.FillDataset(v_ds, "WHERE ID_LOAI_HOP_DONG IN (SELECT ID_LOAI_HOP_DONG FROM DM_HOP_DONG_KHUNG WHERE ID="
+                                        +CIPConvert.ToDecimal(m_cbo_dm_hop_dong_khung.SelectedValue)+")");
 
             m_cbo_noi_dung_thanh_toan.DataSource = v_ds.DM_NOI_DUNG_THANH_TOAN;
             m_cbo_noi_dung_thanh_toan.DataValueField = DM_NOI_DUNG_THANH_TOAN.ID;
@@ -129,10 +131,35 @@ public partial class ChucNang_F104_ChiTietLopMon : System.Web.UI.Page
     }
     protected void m_cmd_luu_du_lieu_Click(object sender, EventArgs e)
     {
-
+        try
+        {
+           
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(v_e);
+        }
     }
     protected void m_cmd_thoat_Click(object sender, EventArgs e)
     {
-
+        try
+        {
+          
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(v_e);
+        }
+    }
+    protected void m_cbo_dm_hop_dong_khung_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        try
+        {
+            load_2_cbo_noi_dung_thanh_toan();
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(v_e);
+        }
     }
 }
