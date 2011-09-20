@@ -179,15 +179,15 @@ namespace WebDS.CDBNames
         public const string HOC_LIEU_YN = "HOC_LIEU_YN";
         public const string VAN_HANH_YN = "VAN_HANH_YN";
     }
-    public class DM_NOI_DUNG_THANH_TOAN {
+    public class GD_DM_LOP_MON_DETAIL
+    {
         public const string ID = "ID";
-        public const string TEN_NOI_DUNG = "TEN_NOI_DUNG";
-        public const string GHI_CHU = "GHI_CHU";
-        public const string ID_LOAI_HOP_DONG = "ID_LOAI_HOP_DONG";
-        public const string MA_DON_VI_TINH = "MA_DON_VI_TINH";
-        public const string DON_GIA_DEFAULT = "DON_GIA_DEFAULT";
-        public const string MA_TAN_SUAT = "MA_TAN_SUAT";
-        public const string HOC_LIEU_YN = "HOC_LIEU_YN";
-        public const string VAN_HANH_YN = "VAN_HANH_YN";
+        public const string ID_LOP_MON = "ID_LOP_MON";
+        public const string ID_HOP_DONG_KHUNG = "ID_HOP_DONG_KHUNG";
+        public const string ID_NOI_DUNG_THANH_TOAN = "ID_NOI_DUNG_THANH_TOAN";
+        public const string DA_THANH_TOAN_YN = "DA_THANH_TOAN_YN";
+        public const string SO_LUONG_HE_SO = "SO_LUONG_HE_SO";
+        public const string THANH_TIEN = "THANH_TIEN";
     }
+
 }
