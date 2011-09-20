@@ -121,6 +121,21 @@ public partial class ChucNang_F104_ChiTietLopMon : System.Web.UI.Page
             throw v_e;
         }
     }
+    private void delete_dm_tu_dien(int i_int_row_index)
+    {
+        try
+        {
+            decimal v_dc_id = CIPConvert.ToDecimal(m_grv.DataKeys[i_int_row_index].Value);
+            m_us_gd_lop_mon_detail.DeleteByID(v_dc_id);
+            load_data_2_grid();
+            m_lbl_mess.Text = "Xóa bản ghi thành công.";
+        }
+        catch (Exception v_e)
+        {
+            m_lbl_mess.Text = "Lỗi trong quá trình xóa bản ghi.";
+            throw v_e;
+        }
+    }
     private void form_2_us_object() {
         m_us_gd_lop_mon_detail.dcID_HOP_DONG_KHUNG = CIPConvert.ToDecimal(m_cbo_dm_hop_dong_khung.SelectedValue);
         m_us_gd_lop_mon_detail.dcID_NOI_DUNG_THANH_TOAN = CIPConvert.ToDecimal(m_cbo_noi_dung_thanh_toan.SelectedValue);
@@ -140,11 +155,15 @@ public partial class ChucNang_F104_ChiTietLopMon : System.Web.UI.Page
     {
         try
         {
+            m_cmd_thoat.Attributes.Add("onclick", "window.close();");
             if (!this.IsPostBack) {
                 if (this.Request.QueryString["id_lop_mon"] != null)
+                {
                     m_txt_ma_lop_mon.Text = get_ma_lop_mon(CIPConvert.ToDecimal(this.Request.QueryString["id_lop_mon"]));
-                load_2_cbo_hop_dong_khung();
-                load_2_cbo_noi_dung_thanh_toan();
+                    load_2_cbo_hop_dong_khung();
+                    load_2_cbo_noi_dung_thanh_toan();
+                    load_data_2_grid();
+                }
             }
            
         }
@@ -172,7 +191,7 @@ public partial class ChucNang_F104_ChiTietLopMon : System.Web.UI.Page
     {
         try
         {
-          
+            Response.Write("<script language='javascript'> { window.close();}</script>");
         }
         catch (Exception v_e)
         {
@@ -185,6 +204,18 @@ public partial class ChucNang_F104_ChiTietLopMon : System.Web.UI.Page
         {
             m_lbl_mess.Text = "";
             load_2_cbo_noi_dung_thanh_toan();
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(v_e);
+        }
+    }
+    protected void m_grv_RowDeleting(object sender, GridViewDeleteEventArgs e)
+    {
+        try
+        {
+            m_lbl_mess.Text = "";
+            delete_dm_tu_dien(e.RowIndex);
         }
         catch (Exception v_e)
         {
