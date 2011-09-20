@@ -60,7 +60,7 @@
                          </td>
                          <td align="left" style="width:1%;"> 
                              <asp:RequiredFieldValidator ID="m_rfv_ten_giang_vien" runat="server"  Text="*"
-                        ControlToValidate="m_cbo_giang_vien" ErrorMessage="Bạn phải tên giảng viên"></asp:RequiredFieldValidator></td>
+                        ControlToValidate="m_cbo_giang_vien_ten" ErrorMessage="Bạn phải tên giảng viên"></asp:RequiredFieldValidator></td>
                 <td align="left" style="width:5%;">
 			       
 		    <asp:DropDownList id="m_cbo_giang_vien_ten" runat="server" Width="96%" 
