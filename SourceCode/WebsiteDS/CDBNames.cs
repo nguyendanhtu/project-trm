@@ -156,5 +156,38 @@ namespace WebDS.CDBNames
         public const string HOC_LIEU_YN = "HOC_LIEU_YN";
         public const string VAN_HANH_YN = "VAN_HANH_YN";
     }
-
+    public class DM_HOP_DONG_KHUNG {
+        public const string ID = "ID";
+        public const string SO_HOP_DONG = "SO_HOP_DONG";
+        public const string ID_GIANG_VIEN = "ID_GIANG_VIEN";
+        public const string NGAY_KY = "NGAY_KY";
+        public const string NGAY_HIEU_LUC = "NGAY_HIEU_LUC";
+        public const string NGAY_KET_THUC_DU_KIEN = "NGAY_KET_THUC_DU_KIEN";
+        public const string GIA_TRI_HOP_DONG = "GIA_TRI_HOP_DONG";
+        public const string ID_LOAI_HOP_DONG = "ID_LOAI_HOP_DONG";
+        public const string ID_DON_VI_QUAN_LY = "ID_DON_VI_QUAN_LY";
+        public const string GHI_CHU = "GHI_CHU";
+        public const string ID_TRANG_THAI_HOP_DONG = "ID_TRANG_THAI_HOP_DONG";
+        public const string ID_DON_VI_THANH_TOAN = "ID_DON_VI_THANH_TOAN";
+        public const string THUE_SUAT = "THUE_SUAT";
+        public const string ID_MON1 = "ID_MON1";
+        public const string ID_MON2 = "ID_MON2";
+        public const string ID_MON3 = "ID_MON3";
+        public const string ID_MON4 = "ID_MON4";
+        public const string ID_MON5 = "ID_MON5";
+        public const string ID_MON6 = "ID_MON6";
+        public const string HOC_LIEU_YN = "HOC_LIEU_YN";
+        public const string VAN_HANH_YN = "VAN_HANH_YN";
+    }
+    public class DM_NOI_DUNG_THANH_TOAN {
+        public const string ID = "ID";
+        public const string TEN_NOI_DUNG = "TEN_NOI_DUNG";
+        public const string GHI_CHU = "GHI_CHU";
+        public const string ID_LOAI_HOP_DONG = "ID_LOAI_HOP_DONG";
+        public const string MA_DON_VI_TINH = "MA_DON_VI_TINH";
+        public const string DON_GIA_DEFAULT = "DON_GIA_DEFAULT";
+        public const string MA_TAN_SUAT = "MA_TAN_SUAT";
+        public const string HOC_LIEU_YN = "HOC_LIEU_YN";
+        public const string VAN_HANH_YN = "VAN_HANH_YN";
+    }
 }
