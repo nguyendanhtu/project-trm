@@ -79,29 +79,109 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
         }
     }
 
-    //private void reset_control()
-    //{
-    //    m_txt_ten_mon.Text = "";
-    //    m_txt_ma_mon.Text = "";
-    //    m_txt_don_vi_hoc_trinh.Text = "";
-    //    m_txt_ghi_chu.Text = "";
-    //}
+    private void reset_control()
+    {
+        m_txt_name.Text = "";
+        m_txt_chuc_vu_cao_nhat.Text = "";
+        m_txt_chuc_vu_hien_tai.Text = "";
+        m_txt_chuyen_nganh_chinh.Text = "";
+        m_txt_email.Text = "";
+        m_txt_co_quan_cong_tac.Text = "";
+        m_txt_email_topica.Text = "";
+        m_txt_hoc_ham.Text = "";
+        m_txt_hoc_vi.Text = "";
+        m_txt_ma_giang_vien.Text = "";
+        m_txt_ma_so_thue.Text = "";
+        m_txt_mobile_phone.Text = "";
+        m_txt_noi_cap.Text = "";
+        m_txt_so_cmnd.Text = "";
+        m_txt_so_tai_khoan.Text = "";
+        m_txt_tel_home.Text = "";
+        m_txt_tel_office.Text = "";
+        m_txt_ten_ngan_hang.Text = "";
+        m_txt_truong_dao_tao.Text = "";
+        m_txt_tu_khoa_tim_kiem.Text = "";
+        rb_sex.Items[0].Selected = true;
+        m_dat_ngay_cap.Text = "";
+        m_dat_ngay_sinh_gv.Text = "";
+    }
     private void form_2_us_object(US_V_DM_GIANG_VIEN ip_us_giang_vien)
     {
-       
-
+        ip_us_giang_vien.dcID_DON_VI_QUAN_LY =CIPConvert.ToDecimal(m_cbo_dm_don_vi_quan_ly.SelectedValue);
+        ip_us_giang_vien.strCHUC_VU_CAO_NHAT = m_txt_chuc_vu_cao_nhat.Text;
+        ip_us_giang_vien.strCHUC_VU_HIEN_TAI = m_txt_chuc_vu_hien_tai.Text;
+        ip_us_giang_vien.strCHUYEN_NGANH_CHINH = m_txt_chuyen_nganh_chinh.Text;
+        ip_us_giang_vien.strDESCRIPTION = m_txt_description.Text;
+        ip_us_giang_vien.strEMAIL = m_txt_email.Text;
+        ip_us_giang_vien.strEMAIL_TOPICA = m_txt_email_topica.Text;
+        ip_us_giang_vien.strGIOI_TINH_YN = rb_sex.Items[0].Selected ? "Y" : "N";
+        ip_us_giang_vien.strGV_DUYET_HL_YN = m_cbl_loai_hop_dong.Items[3].Selected ? "Y" : "N";
+        ip_us_giang_vien.strGV_HDKH_YN = m_cbl_loai_hop_dong.Items[5].Selected ? "Y" : "N";
+        ip_us_giang_vien.strGV_THAM_DINH_HL_YN = m_cbl_loai_hop_dong.Items[4].Selected ? "Y" : "N";
+        ip_us_giang_vien.strGV_VIET_HL_YN = m_cbl_loai_hop_dong.Items[2].Selected ? "Y" : "N";
+        ip_us_giang_vien.strGVCM_YN = m_cbl_loai_hop_dong.Items[1].Selected ? "Y" : "N";
+        ip_us_giang_vien.strGVHD_YN = m_cbl_loai_hop_dong.Items[0].Selected ? "Y" : "N";
+        ip_us_giang_vien.strHO_VA_TEN_DEM = m_txt_name.Text;
+        ip_us_giang_vien.strHOC_HAM = m_txt_hoc_ham.Text;
+        ip_us_giang_vien.strHOC_VI = m_txt_hoc_vi.Text;
+        ip_us_giang_vien.strID_TRANG_THAI_GIANG_VIEN = m_cbo_dm_trang_thai_giang_vien.SelectedValue;
+        ip_us_giang_vien.strMA_GIANG_VIEN = m_txt_ma_giang_vien.Text ;
+        ip_us_giang_vien.strMA_SO_THUE = m_txt_ma_so_thue.Text;
+        ip_us_giang_vien.strMOBILE_PHONE = m_txt_mobile_phone.Text;
+        ip_us_giang_vien.strNOI_CAP = m_txt_noi_cap.Text;
+        ip_us_giang_vien.strSO_CMTND = m_txt_so_cmnd.Text;
+        ip_us_giang_vien.strSO_TAI_KHOAN= m_txt_so_tai_khoan.Text;
+        ip_us_giang_vien.strTEL_HOME = m_txt_tel_home.Text;
+        ip_us_giang_vien.strTEL_OFFICE = m_txt_tel_office.Text;
+        ip_us_giang_vien.strTEN_CO_QUAN_CONG_TAC = m_txt_co_quan_cong_tac.Text;
+        ip_us_giang_vien.strTEN_GIANG_VIEN = m_txt_name.Text;
+        ip_us_giang_vien.strTEN_NGAN_HANG = m_txt_ten_ngan_hang.Text;
+        ip_us_giang_vien.strTRUONG_DAO_TAO = m_txt_truong_dao_tao.Text;
     }
-    /// <summary>
-    /// Load dữ liệu từ US đổ vào form
-    /// </summary>
-    /// <param name="ip_dm_noi_dung_thanh_toan"></param>
-    //private void us_obj_2_form(US_DM_MON_HOC ip_us_mon_hoc)
-    //{
-    //    m_txt_ten_mon.Text = ip_us_mon_hoc.strTEN_MON_HOC;
-    //    m_txt_ma_mon.Text = ip_us_mon_hoc.strMA_MON_HOC;
-    //    m_txt_don_vi_hoc_trinh.Text = CIPConvert.ToStr(ip_us_mon_hoc.dcSO_DVHT);
-    //    m_txt_ghi_chu.Text = ip_us_mon_hoc.strGHI_CHU;
-    //}
+
+    private void us_object_form_2(US_V_DM_GIANG_VIEN ip_us_giang_vien)
+    {
+        m_cbo_dm_don_vi_quan_ly.SelectedValue =CIPConvert.ToStr(ip_us_giang_vien.dcID_DON_VI_QUAN_LY);
+        m_txt_chuc_vu_cao_nhat.Text = ip_us_giang_vien.strCHUC_VU_CAO_NHAT;
+        m_txt_chuc_vu_hien_tai.Text= ip_us_giang_vien.strCHUC_VU_HIEN_TAI;
+        m_txt_chuyen_nganh_chinh.Text= ip_us_giang_vien.strCHUYEN_NGANH_CHINH;
+        m_txt_description.Text= ip_us_giang_vien.strDESCRIPTION;
+        m_txt_email.Text= ip_us_giang_vien.strEMAIL;
+        m_txt_email_topica.Text= ip_us_giang_vien.strEMAIL_TOPICA;
+       
+        if (ip_us_giang_vien.strGIOI_TINH_YN == "Y") rb_sex.Items[0].Selected = true;
+        else rb_sex.Items[0].Selected = false;
+        if (ip_us_giang_vien.strGV_DUYET_HL_YN == "Y") m_cbl_loai_hop_dong.Items[3].Selected = true;
+        else rb_sex.Items[0].Selected = false;
+        if (ip_us_giang_vien.strGV_HDKH_YN == "Y") m_cbl_loai_hop_dong.Items[5].Selected = true;
+        else rb_sex.Items[0].Selected = false;
+        if (ip_us_giang_vien.strGV_THAM_DINH_HL_YN == "Y") m_cbl_loai_hop_dong.Items[4].Selected = true;
+        else rb_sex.Items[0].Selected = false;
+        if (ip_us_giang_vien.strGV_VIET_HL_YN == "Y") m_cbl_loai_hop_dong.Items[2].Selected = true;
+        else rb_sex.Items[0].Selected = false;
+        if (ip_us_giang_vien.strGVCM_YN == "Y") m_cbl_loai_hop_dong.Items[1].Selected = true;
+        else rb_sex.Items[0].Selected = false;
+        if (ip_us_giang_vien.strGVHD_YN == "Y") m_cbl_loai_hop_dong.Items[0].Selected = true;
+        else rb_sex.Items[0].Selected = false;
+
+        m_txt_name.Text= ip_us_giang_vien.strHO_VA_TEN_DEM;
+        m_txt_hoc_ham.Text= ip_us_giang_vien.strHOC_HAM;
+        m_txt_hoc_vi.Text= ip_us_giang_vien.strHOC_VI;
+        m_cbo_dm_trang_thai_giang_vien.SelectedValue = ip_us_giang_vien.strID_TRANG_THAI_GIANG_VIEN;
+        m_txt_ma_giang_vien.Text= ip_us_giang_vien.strMA_GIANG_VIEN;
+        m_txt_ma_so_thue.Text= ip_us_giang_vien.strMA_SO_THUE;
+        m_txt_mobile_phone.Text = ip_us_giang_vien.strMOBILE_PHONE;
+        m_txt_noi_cap.Text = ip_us_giang_vien.strNOI_CAP;
+        m_txt_so_cmnd.Text = ip_us_giang_vien.strSO_CMTND;
+        m_txt_so_tai_khoan.Text = ip_us_giang_vien.strSO_TAI_KHOAN;
+        m_txt_tel_home.Text = ip_us_giang_vien.strTEL_HOME;
+        m_txt_tel_office.Text = ip_us_giang_vien.strTEL_OFFICE;
+        m_txt_co_quan_cong_tac.Text = ip_us_giang_vien.strTEN_CO_QUAN_CONG_TAC;
+        m_txt_name.Text =ip_us_giang_vien.strTEN_GIANG_VIEN;
+        m_txt_ten_ngan_hang.Text = ip_us_giang_vien.strTEN_NGAN_HANG;
+        m_txt_truong_dao_tao.Text = ip_us_giang_vien.strTRUONG_DAO_TAO;
+    }
+
     //private void delete_dm_mon_hoc(int ip_i_row_del)
     //{
     //    decimal v_dc_id_mon_hoc = CIPConvert.ToDecimal(m_grv_dm_mon_hoc.DataKeys[ip_i_row_del].Value);
@@ -119,18 +199,18 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
     //    us_obj_2_form(v_us_dm_mon_hoc);
     //}
 
-    //private bool check_ma_mon()
-    //{
-    //    try
-    //    {
-    //        if (!m_us_dm_mon_hoc.check_exist_ma_mon(m_txt_ma_mon.Text.TrimEnd())) return false;
-    //        return true;
-    //    }
-    //    catch (Exception v_e)
-    //    {
-    //        throw v_e;
-    //    }
-    //}
+    private bool check_ma_giang_vien()
+    {
+        try
+        {
+            if (!m_us_dm_giang_vien.check_exist_ma_giang_vien(m_txt_ma_giang_vien.Text.TrimEnd())) return false;
+            return true;
+        }
+        catch (Exception v_e)
+        {
+            throw v_e;
+        }
+    }
     #endregion
 
     #region Public Interfaces
