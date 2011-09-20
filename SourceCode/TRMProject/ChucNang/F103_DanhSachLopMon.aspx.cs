@@ -187,4 +187,17 @@ public partial class ChuNang_F103_DanhSachLopMon : System.Web.UI.Page
             CSystemLog_301.ExceptionHandle(this, v_e);
         }
     }
+    protected void m_grv_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+        try
+        {
+            m_grv.PageIndex = e.NewPageIndex;
+            load_data_2_grid();
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(this, v_e);
+        }
+
+    }
 }
