@@ -64,11 +64,23 @@
                              ControlToValidate="m_cbo_dm_mon_hoc">*</asp:RequiredFieldValidator>
                 </td>
                 <td align="right" style="width:5%;">
-			        &nbsp;</td>
+			<asp:label id="lblFullName14" CssClass="cssManField" runat="server" 
+                Text="Có Offline?" />
+		                    </td>
                 <td align="left" style="width:10%;">
-                    &nbsp;</td>
+			
+			        <asp:RadioButtonList ID="m_rbt_offline_yn" runat="server" 
+                        RepeatDirection="Horizontal">
+                        <asp:ListItem Value="Y">Có</asp:ListItem>
+                        <asp:ListItem Value="N">Không</asp:ListItem>
+                    </asp:RadioButtonList>
+		                    </td>
                       <td align="left" style="width:1%;">
-                          &nbsp;</td>
+                         <asp:RequiredFieldValidator ID="m_rfv_offline1" runat="server" 
+                             
+                             ErrorMessage="Bạn phải chọn Có Offline? Có hoặc Không" 
+                             ControlToValidate="m_rbt_offline_yn">*</asp:RequiredFieldValidator>
+                </td>
                  <td align="right" style="width:5%;">
                      &nbsp;</td>
                 <td align="left" style="width:10%;"></td>
@@ -77,28 +89,38 @@
             <tr>
                 <td align="right" style="width:5%;">
 			<asp:label id="lblFullName4" CssClass="cssManField" runat="server" 
-                Text="Là lớp" />
+                Text="Có Online?" />
 		                    </td>
                 <td align="left" style="width:10%;">
-			        <asp:RadioButtonList ID="m_rbt_loai_lop" runat="server" 
+			        <asp:RadioButtonList ID="m_rbt_online_yn" runat="server" 
                         RepeatDirection="Horizontal">
-                        <asp:ListItem Value="ONLINES_YN">Online</asp:ListItem>
-                        <asp:ListItem Value="OFFLINE_YN">Offline</asp:ListItem>
-                        <asp:ListItem Value="BAI_TAP_GKY_YN">Bài tập giữa kỳ</asp:ListItem>
+                        <asp:ListItem Value="Y">Có</asp:ListItem>
+                        <asp:ListItem Value="N">Không</asp:ListItem>
                     </asp:RadioButtonList>
                 </td>
                      <td align="left" style="width:1%;">
                          <asp:RequiredFieldValidator ID="m_rfv_offline" runat="server" 
                              
-                             ErrorMessage="Bạn phải chọn Là lớp: Online hoặc Offline hoặc Bài tập giữa kỳ" 
-                             ControlToValidate="m_rbt_loai_lop">*</asp:RequiredFieldValidator>
+                             ErrorMessage="Bạn phải chọn Có Online? Có hoặc Không" 
+                             ControlToValidate="m_rbt_online_yn">*</asp:RequiredFieldValidator>
                 </td>
                 <td align="right" style="width:5%;">
-			        &nbsp;</td>
+			<asp:label id="lblFullName15" CssClass="cssManField" runat="server" 
+                Text="Có bài tập giữa kỳ?" />
+		                    </td>
                 <td align="left" style="width:10%;">
-                    &nbsp;</td>
+			        <asp:RadioButtonList ID="m_rbt_bt_gky_yn" runat="server" 
+                        RepeatDirection="Horizontal">
+                        <asp:ListItem Value="Y">Có</asp:ListItem>
+                        <asp:ListItem Value="N">Không</asp:ListItem>
+                    </asp:RadioButtonList>
+		                    </td>
                      <td align="left" style="width:1%;">
-                         &nbsp;</td>
+                         <asp:RequiredFieldValidator ID="m_rfv_offline2" runat="server" 
+                             
+                             ErrorMessage="Bạn phải chọn Có bài tập giữa kỳ? Có hoặc Không" 
+                             ControlToValidate="m_rbt_online_yn">*</asp:RequiredFieldValidator>
+                </td>
                  <td align="right" style="width:5%;">
 			         &nbsp;</td>
                 <td align="left" style="width:10%;">
@@ -256,7 +278,7 @@
                 Text="Số lượng học viên" />
                  </td>
                 <td align="left" style="width:10%;">          
-			        <ew:NumericBox ID="m_txt_slhv" runat="server" Width="96%"></ew:NumericBox>
+			        <ew:NumericBox ID="m_txt_slhv" runat="server" Width="96%" TextAlign="Right"></ew:NumericBox>
                 </td>
 			    <td align="left" style="width:1%;">
                     &nbsp;</td>
@@ -271,18 +293,20 @@
             <tr>
                 <td align="right" >
 			<asp:label id="lblFullName12" CssClass="cssManField" runat="server" 
-                Text="Số lượng Online" />
+                Text="Số tiết Online" />
 			        </td>
                 <td align="left">     
-			        <ew:NumericBox ID="m_txt_slhv_online" runat="server" Width="96%"></ew:NumericBox>
+			        <ew:NumericBox ID="m_txt_slhv_online" runat="server" Width="96%" 
+                        TextAlign="Right"></ew:NumericBox>
 			</td>
                              <td align="left" style="width:1%;">&nbsp;</td>
                 <td align="right" >
 			<asp:label id="lblFullName13" CssClass="cssManField" runat="server" 
-                Text="Số lượng Offline" />
+                Text="Số tiết Offline" />
 			        </td>
                 <td align="left" >    
-			        <ew:NumericBox ID="m_txt_slhv_offline" runat="server" Width="96%"></ew:NumericBox>
+			        <ew:NumericBox ID="m_txt_slhv_offline" runat="server" Width="96%" 
+                        TextAlign="Right"></ew:NumericBox>
 			</td>
                              <td align="left" >&nbsp;</td>
                  <td align="right" ></td>
