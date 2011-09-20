@@ -55,7 +55,7 @@
                 Text="Tên giảng viên" />
                          </td>
                 <td align="left" style="width:10%;">
-		    <asp:DropDownList id="m_cbo_giang_vien" runat="server" Width="96%" 
+		    <asp:DropDownList id="m_cbo_giang_vien_ten_dem" runat="server" Width="96%" 
                         CssClass="cssDorpdownlist"  />
                          </td>
                          <td align="left" style="width:1%;"> 
@@ -63,7 +63,9 @@
                         ControlToValidate="m_cbo_giang_vien" ErrorMessage="Bạn phải tên giảng viên"></asp:RequiredFieldValidator></td>
                 <td align="left" style="width:5%;">
 			       
-			        &nbsp;</td>
+		    <asp:DropDownList id="m_cbo_giang_vien_ten" runat="server" Width="96%" 
+                        CssClass="cssDorpdownlist"  />
+                         </td>
                 <td align="left" style="width:10%;">&nbsp;</td>
                 <td align="left" style="width:1%;">&nbsp;</td>
                  <td align="right" style="width:5%;">&nbsp;</td>
