@@ -144,12 +144,12 @@ public partial class ChucNang_F104_ChiTietLopMon : System.Web.UI.Page
         m_us_gd_lop_mon_detail.dcSO_LUONG_HE_SO = CIPConvert.ToDecimal(m_txt_so_luong_he_so.Text);
         m_us_gd_lop_mon_detail.dcTHANH_TIEN = CIPConvert.ToDecimal(m_txt_thanh_tien.Text);
         m_us_gd_lop_mon_detail.strDA_THANH_TOAN_YN =m_rbt_trang_thai_thanh_toan.SelectedValue;
-        m_us_gd_lop_mon_detail.dcID = CIPConvert.ToDecimal(m_hdf_id.Value);
+        
     }
     private void us_object_2_form() {
         m_cbo_dm_hop_dong_khung.SelectedValue = CIPConvert.ToStr(m_us_gd_lop_mon_detail.dcID_HOP_DONG_KHUNG);
         m_cbo_noi_dung_thanh_toan.SelectedValue = CIPConvert.ToStr( m_us_gd_lop_mon_detail.dcID_NOI_DUNG_THANH_TOAN);
-        m_txt_so_luong_he_so.Text = CIPConvert.ToStr(m_us_gd_lop_mon_detail.dcSO_LUONG_HE_SO,"#,###0");
+        m_txt_so_luong_he_so.Text = CIPConvert.ToStr(m_us_gd_lop_mon_detail.dcSO_LUONG_HE_SO,"#,###0.##");
         m_txt_thanh_tien.Text = CIPConvert.ToStr(m_us_gd_lop_mon_detail.dcTHANH_TIEN, "#,###0");
         m_rbt_trang_thai_thanh_toan.SelectedValue = m_us_gd_lop_mon_detail.strDA_THANH_TOAN_YN;
     }
@@ -199,6 +199,7 @@ public partial class ChucNang_F104_ChiTietLopMon : System.Web.UI.Page
                     m_lbl_mess.Text = "Đã thêm mới dữ liệu thành công";
                     break;
                 case DataEntryFormMode.UpdateDataState:
+                    m_us_gd_lop_mon_detail.dcID = CIPConvert.ToDecimal(m_hdf_id.Value);
                     if (m_us_gd_lop_mon_detail.IsIDNull()) {
                         m_lbl_mess.Text = "Cập nhật không thành công";
                         return;

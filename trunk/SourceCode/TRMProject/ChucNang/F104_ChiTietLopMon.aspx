@@ -100,7 +100,7 @@ a:link, a:visited
 		                    </td>
                 <td align="left" style="width:10%;">
 			        <ew:NumericBox ID="m_txt_so_luong_he_so" runat="server" Width="96%" 
-                        TextAlign="Right"></ew:NumericBox>
+                        TextAlign="Right" PlacesBeforeDecimal="3" PositiveNumber="True"></ew:NumericBox>
                 </td>
                      <td align="left" style="width:1%;">
                          <asp:RequiredFieldValidator ID="m_rfv_offline" runat="server" 
