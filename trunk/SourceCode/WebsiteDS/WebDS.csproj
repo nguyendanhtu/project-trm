@@ -83,6 +83,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_GD_LOP_MON.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DS_GD_LOP_MON_DETAIL.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_GD_LOP_MON_DETAIL.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DS_V_DM_GIANG_VIEN.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -161,6 +166,17 @@
     </None>
     <None Include="DS_GD_LOP_MON.xss">
       <DependentUpon>DS_GD_LOP_MON.xsd</DependentUpon>
+    </None>
+    <None Include="DS_GD_LOP_MON_DETAIL.xsc">
+      <DependentUpon>DS_GD_LOP_MON_DETAIL.xsd</DependentUpon>
+    </None>
+    <None Include="DS_GD_LOP_MON_DETAIL.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_GD_LOP_MON_DETAIL.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS_GD_LOP_MON_DETAIL.xss">
+      <DependentUpon>DS_GD_LOP_MON_DETAIL.xsd</DependentUpon>
     </None>
     <None Include="DS_V_DM_GIANG_VIEN.xsc">
       <DependentUpon>DS_V_DM_GIANG_VIEN.xsd</DependentUpon>
