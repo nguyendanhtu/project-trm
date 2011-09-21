@@ -97,8 +97,9 @@ namespace WebDS.CDBNames
         public const string SO_LUONG_ONLINES = "SO_LUONG_ONLINES";
         public const string BAI_TAP_GKY_YN = "BAI_TAP_GKY_YN";
     }
-    class V_DM_GIANG_VIEN
+     public class V_DM_GIANG_VIEN
     {
+         public const string ID = "ID";
         public const string MA_GIANG_VIEN = "MA_GIANG_VIEN";
         public const string HO_VA_TEN_DEM = "HO_VA_TEN_DEM";
         public const string TEN_GIANG_VIEN = "TEN_GIANG_VIEN";
@@ -135,7 +136,7 @@ namespace WebDS.CDBNames
         public const string GV_HDKH_YN = "GV_HDKH_YN";
         public const string DESCRIPTION = "DESCRIPTION";
     }
-    class V_DM_HOP_DONG_KHUNG
+    public class V_DM_HOP_DONG_KHUNG
     {
         public const string ID = "ID";
         public const string SO_HOP_DONG = "SO_HOP_DONG";
