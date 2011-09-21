@@ -19,9 +19,9 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
     {
         try
         {
-            mtv_giang_vien.ActiveViewIndex = 1;
             if (!IsPostBack)
             {
+                mtv_giang_vien.ActiveViewIndex = 1;
                 load_cbo_don_vi_quan_ly();
                 load_cbo_trang_thai_giang_vien();
                 load_data_to_grid();              
@@ -40,7 +40,7 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
 
     US_CM_DM_TU_DIEN m_us_cm_dm_tu_dien = new US_CM_DM_TU_DIEN();
     DS_CM_DM_TU_DIEN m_ds_cm_dm_tu_dien = new DS_CM_DM_TU_DIEN();
-    DataEntryFormMode m_init_mode = DataEntryFormMode.ViewDataState;
+    DataEntryFormMode m_init_mode;
     #endregion
 
     #region Private Methods
@@ -401,13 +401,13 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
            
             form_2_us_object(m_us_dm_giang_vien);
 
-         
-           
-              
+
             // Lưu dữ liệu
             save_data();
             // Chuyển vể hiển thị danh sách giảng viên
             mtv_giang_vien.ActiveViewIndex = 1;
+
+            m_init_mode = DataEntryFormMode.ViewDataState;
             // và load lại dữ liệu
             load_data_to_grid();
         }
@@ -445,6 +445,7 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
     {
         try
         {
+            m_init_mode = DataEntryFormMode.ViewDataState;
             mtv_giang_vien.ActiveViewIndex = 0;
         }
         catch (Exception v_e)
