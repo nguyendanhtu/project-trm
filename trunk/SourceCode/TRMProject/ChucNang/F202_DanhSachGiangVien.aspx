@@ -395,7 +395,7 @@
 			        <ew:CalendarPopup ID="m_dat_ngay_cap" runat="server" 
                         ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
                         ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
-                        ShowGoToToday="True" Width="70%" SelectedDate="">
+                        ShowGoToToday="True" Width="70%" SelectedDate="" Text="">
                         <weekdaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
                             font-size="XX-Small" forecolor="Black" />
                         <weekendstyle backcolor="LightGray" font-names="Verdana,Helvetica,Tahoma,Arial" 
@@ -559,65 +559,16 @@
             <tr>
                 <td align="right" style="width:5%;">
 			<asp:label id="lblFullName" CssClass="cssManField" runat="server" 
-                Text="&lt;U&gt;T&lt;/U&gt;ên môn học" />
+                Text="&lt;U&gt;T&lt;/U&gt;ên giảng viên" />
                          </td>
-                <td align="left" style="width:10%;">
-		    <asp:DropDownList id="m_cbo_dm_mon_hoc" runat="server" Width="96%" 
-                        CssClass="cssDorpdownlist"  />
-                         </td>
-                         <td align="left" style="width:1%;"> 
-                             &nbsp;</td>
-                <td align="left" style="width:5%;">
-			       
-			    </td>
+                <td align="left" colspan="3">
+                <asp:TextBox ID="m_txt_ten_giang_vien" runat="server" CssClass="cssTextBox" 
+                        Width="311px"></asp:TextBox>
+		            &nbsp;</td>
                 <td align="left" style="width:10%;">&nbsp;</td>
                 <td align="left" style="width:1%;"></td>
                  <td align="right" style="width:5%;"></td>
                 <td align="left" style="width:10%;"></td>
-                <td align="left" style="width:1%;"></td>
-            </tr>
-            <tr>
-                <td align="right" style="width:5%;">
-			<asp:label id="lblFullName4" CssClass="cssManField" runat="server" 
-                Text="Có Online?" />
-                </td>
-                <td align="left" style="width:10%;">
-			        <asp:RadioButtonList ID="m_rbt_online_yn" runat="server" 
-                        RepeatDirection="Horizontal">
-                        <asp:ListItem Selected="True" Value="ALL">Tất cả</asp:ListItem>
-                        <asp:ListItem Value="Y">Có</asp:ListItem>
-                        <asp:ListItem Value="N">Không</asp:ListItem>
-                    </asp:RadioButtonList>
-                </td>
-                     <td align="left" style="width:1%;">
-                         &nbsp;</td>
-                <td align="right" style="width:5%;">
-			<asp:label id="lblFullName5" CssClass="cssManField" runat="server" 
-                Text="Có Offline?" />
-		                    </td>
-                <td align="left" style="width:10%;">
-			
-			        <asp:RadioButtonList ID="m_rbt_offline_yn" runat="server" 
-                        RepeatDirection="Horizontal">
-                        <asp:ListItem Selected="True" Value="ALL">Tất cả</asp:ListItem>
-                        <asp:ListItem Value="Y">Có</asp:ListItem>
-                        <asp:ListItem Value="N">Không</asp:ListItem>
-                    </asp:RadioButtonList>
-		                    </td>
-                      <td align="left" style="width:1%;">
-                          &nbsp;</td>
-                 <td align="right" style="width:5%;">
-			<asp:label id="lblFullName6" CssClass="cssManField" runat="server" 
-                Text="Có bài tập giữa kỳ?" />
-		                    </td>
-                <td align="left" style="width:10%;">
-			        <asp:RadioButtonList ID="m_rbt_bt_gky_yn" runat="server" 
-                        RepeatDirection="Horizontal">
-                        <asp:ListItem Selected="True" Value="ALL">Tất cả</asp:ListItem>
-                        <asp:ListItem Value="Y">Có</asp:ListItem>
-                        <asp:ListItem Value="N">Không</asp:ListItem>
-                    </asp:RadioButtonList>
-		                    </td>
                 <td align="left" style="width:1%;"></td>
             </tr>
             <tr>
@@ -924,6 +875,8 @@
         &nbsp;<asp:button id="cmd_them_moi" accessKey="c" CssClass="cssButton" 
                 runat="server" Width="98px" Text="Tạo mới(c)" 
                 onclick="cmd_them_moi_Click" Height="28px"/>
+                <br />
+                <asp:label id="m_lbl_thong_bao" runat="server" CssClass="cssManField" />
         </td>
         <td >
 		    &nbsp;</td>
@@ -938,8 +891,7 @@
                 CellPadding="4" ForeColor="#333333" GridLines="Both" 
             AllowSorting="True" 
             onpageindexchanging="m_grv_dm_danh_sach_giang_vien_PageIndexChanging" 
-            
-            onselectedindexchanging="m_grv_dm_danh_sach_giang_vien_SelectedIndexChanging" >
+            onrowdeleting="m_grv_dm_danh_sach_giang_vien_RowDeleting" >
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">
@@ -1037,11 +989,14 @@
                     <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:TemplateField>
                     <asp:TemplateField>
-                    <ItemTemplate> <asp:LinkButton ID = "lbt_delete" runat="server" Text="Xóa" 
+                    <ItemTemplate> <asp:LinkButton i ID = "lbt_delete" runat="server" Text="Xóa" 
                      CommandName="Delete" OnClientClick="return confirm ('Bạn có thực sự muốn xóa bản ghi này?')"></asp:LinkButton>
                     </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:CommandField SelectText="Sửa" ShowSelectButton="True" />
+                    <asp:TemplateField>
+                    <ItemTemplate> <asp:HyperLink ImageUrl="/TRMProject/Images/Button/Edit.gif" ID = "lbt_edit" runat="server" NavigateUrl='<%# "/TRMProject/ChucNang/F202_DanhSachGiangVien.aspx?mode=edit&id="+Eval("ID") %>'></asp:HyperLink>
+                    </ItemTemplate>
+                    </asp:TemplateField>
                 </Columns>
                   <EditRowStyle BackColor="#7C6F57" />
                   <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
