@@ -6,7 +6,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
-    <title>F102 - Cập nhật thông tin lớp môn</title>
+    <title>F301 - Giao dịch hợp đồng khung</title>
     
     <link href="~/Styles/Admin.css" rel="stylesheet" type="text/css" />
     </head>
@@ -55,7 +55,7 @@
                 Text="Tên giảng viên" />
                          </td>
                 <td align="left" style="width:10%;">
-		    <asp:DropDownList id="m_cbo_giang_vien_ten_dem" runat="server" Width="96%" 
+		    <asp:DropDownList id="m_cbo_giang_vien_ten" runat="server" Width="96%" 
                         CssClass="cssDorpdownlist"  />
                          </td>
                          <td align="left" style="width:1%;"> 
@@ -63,9 +63,7 @@
                         ControlToValidate="m_cbo_giang_vien_ten" ErrorMessage="Bạn phải tên giảng viên"></asp:RequiredFieldValidator></td>
                 <td align="left" style="width:5%;">
 			       
-		    <asp:DropDownList id="m_cbo_giang_vien_ten" runat="server" Width="96%" 
-                        CssClass="cssDorpdownlist"  />
-                         </td>
+		            &nbsp;</td>
                 <td align="left" style="width:10%;">&nbsp;</td>
                 <td align="left" style="width:1%;">&nbsp;</td>
                  <td align="right" style="width:5%;">&nbsp;</td>
