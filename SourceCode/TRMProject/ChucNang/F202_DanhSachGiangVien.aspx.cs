@@ -15,25 +15,7 @@ using System.Data;
 
 public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
 {
-    protected void Page_Load(object sender, EventArgs e)
-    {
-        try
-        {
-            if (!IsPostBack)
-            {
-                mtv_giang_vien.ActiveViewIndex = 1;
-                load_cbo_don_vi_quan_ly();
-                load_cbo_trang_thai_giang_vien();
-                load_data_to_grid();              
-            }
-        }
-        catch (Exception v_e)
-        {
-            CSystemLog_301.ExceptionHandle(this, v_e);
-        }
-       
-    }
-
+   
     #region Members
     US_V_DM_GIANG_VIEN m_us_dm_giang_vien = new US_V_DM_GIANG_VIEN();
     DS_V_DM_GIANG_VIEN m_ds_giang_vien = new DS_V_DM_GIANG_VIEN();
@@ -41,7 +23,47 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
     US_CM_DM_TU_DIEN m_us_cm_dm_tu_dien = new US_CM_DM_TU_DIEN();
     DS_CM_DM_TU_DIEN m_ds_cm_dm_tu_dien = new DS_CM_DM_TU_DIEN();
     DataEntryFormMode m_init_mode;
+    decimal m_dc_id = 0;
     #endregion
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        try
+        {
+            m_lbl_thong_bao.Text = "";
+            if (Request.QueryString["mode"] != null && Request.QueryString["id"] != null)
+            {
+                mtv_giang_vien.ActiveViewIndex = 0;
+                if (Request.QueryString["mode"].ToString().Equals("edit"))
+                    m_init_mode = DataEntryFormMode.UpdateDataState;
+                m_us_dm_giang_vien.dcID = CIPConvert.ToDecimal(Request.QueryString["id"].ToString());
+                m_dc_id = CIPConvert.ToDecimal(Request.QueryString["id"].ToString());
+            }
+            else m_init_mode = DataEntryFormMode.InsertDataState;
+            if (!IsPostBack)
+            {
+                switch (m_init_mode)
+                {
+                    case DataEntryFormMode.InsertDataState:
+                         mtv_giang_vien.ActiveViewIndex = 1;
+                         load_data_to_grid();
+                        break;
+                    case DataEntryFormMode.UpdateDataState:
+                        mtv_giang_vien.ActiveViewIndex = 0;
+                        m_txt_ma_giang_vien.Enabled = false;
+                         load_cbo_don_vi_quan_ly();
+                         load_cbo_trang_thai_giang_vien();
+                        load_data_2_us_by_id(m_dc_id);
+                        break;
+                }
+               
+            }
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(this, v_e);
+        }
+
+    }
 
     #region Private Methods
     //private bool check_validate()
@@ -145,6 +167,7 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
 
     private void reset_control()
     {
+        m_txt_ma_giang_vien.Enabled = true;
         m_txt_name.Text = "";
         m_txt_chuc_vu_cao_nhat.Text = "";
         m_txt_chuc_vu_hien_tai.Text = "";
@@ -204,7 +227,8 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
             ip_us_giang_vien.strTEN_NGAN_HANG = m_txt_ten_ngan_hang.Text;
             ip_us_giang_vien.strTRUONG_DAO_TAO = m_txt_truong_dao_tao.Text;
             ip_us_giang_vien.datNGAY_SINH = m_dat_ngay_sinh_gv.SelectedDate;
-            ip_us_giang_vien.datNGAY_CAP = m_dat_ngay_cap.SelectedDate;
+            if (m_dat_ngay_cap.Text !="" )
+                ip_us_giang_vien.datNGAY_CAP = m_dat_ngay_cap.SelectedDate;
         }
         catch (Exception v_e)
         {
@@ -265,14 +289,14 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
       
     }
 
-    private void delete_dm_mon_hoc(int ip_i_row_del)
+    private void delete_dm_giang_vien(int ip_i_row_del)
     {
         try
         {
             decimal v_dc_id_ma_giang_vien = CIPConvert.ToDecimal(m_grv_dm_danh_sach_giang_vien.DataKeys[ip_i_row_del].Value);
             m_us_dm_giang_vien.dcID = v_dc_id_ma_giang_vien;
             m_us_dm_giang_vien.DeleteByID(v_dc_id_ma_giang_vien);
-            m_lbl_mess.Text = "Xóa bản ghi thành công";
+            m_lbl_thong_bao.Text = "Xóa bản ghi thành công";
             load_data_to_grid();
         }
         catch (Exception v_e)
@@ -283,11 +307,9 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
        
     }
    
-    private void load_data_2_us_by_id(int ip_i_id)
+    private void load_data_2_us_by_id(decimal ip_i_id)
     {
-        decimal v_dc_id_dm_giang_vien = CIPConvert.ToDecimal(m_grv_dm_danh_sach_giang_vien.DataKeys[ip_i_id].Value);
-        hdf_id.Value = v_dc_id_dm_giang_vien.ToString();
-        US_V_DM_GIANG_VIEN v_us_dm_giang_vien = new US_V_DM_GIANG_VIEN(v_dc_id_dm_giang_vien);
+        US_V_DM_GIANG_VIEN v_us_dm_giang_vien = new US_V_DM_GIANG_VIEN(ip_i_id);
         // Đẩy us lên form
         us_object_2_form(v_us_dm_giang_vien);
     }
@@ -388,7 +410,7 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
         try
         {
             // Nếu đang cập nhật thông tin giảng viên thì ta phải cung cấp thêm Id giảng viên
-            if (m_init_mode != DataEntryFormMode.UpdateDataState)
+            if (m_init_mode == DataEntryFormMode.InsertDataState)
             {
                 if (!check_ma_giang_vien())
                 {
@@ -396,20 +418,16 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
                     return;
                 }
             }
-            else m_us_dm_giang_vien.dcID = CIPConvert.ToDecimal(hdf_id.Value);
-           
-           
             form_2_us_object(m_us_dm_giang_vien);
-
 
             // Lưu dữ liệu
             save_data();
             // Chuyển vể hiển thị danh sách giảng viên
             mtv_giang_vien.ActiveViewIndex = 1;
-
-            m_init_mode = DataEntryFormMode.ViewDataState;
+            reset_control();
             // và load lại dữ liệu
             load_data_to_grid();
+            m_lbl_thong_bao.Text = "Cập nhật thông tin thành công";
         }
         catch (Exception v_e)
         {
@@ -427,30 +445,29 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
             CSystemLog_301.ExceptionHandle(this, v_e);
         }
     }
-    protected void m_grv_dm_danh_sach_giang_vien_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
-    {
-        try
-        {
-            m_lbl_mess.Text = "";
-            m_init_mode = DataEntryFormMode.UpdateDataState;
-            mtv_giang_vien.ActiveViewIndex = 0;
-            load_data_2_us_by_id(e.NewSelectedIndex);  
-        }
-        catch (Exception v_e)
-        {
-            CSystemLog_301.ExceptionHandle(this, v_e);
-        }
-    }
     protected void cmd_them_moi_Click(object sender, EventArgs e)
     {
         try
         {
-            m_init_mode = DataEntryFormMode.ViewDataState;
+            m_init_mode = DataEntryFormMode.InsertDataState;
+            load_cbo_don_vi_quan_ly();
+            load_cbo_trang_thai_giang_vien();
             mtv_giang_vien.ActiveViewIndex = 0;
         }
         catch (Exception v_e)
         {
             throw v_e;
+        }
+    }
+    protected void m_grv_dm_danh_sach_giang_vien_RowDeleting(object sender, GridViewDeleteEventArgs e)
+    {
+        try
+        {
+            delete_dm_giang_vien(e.RowIndex);
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(this,v_e);
         }
     }
 }
