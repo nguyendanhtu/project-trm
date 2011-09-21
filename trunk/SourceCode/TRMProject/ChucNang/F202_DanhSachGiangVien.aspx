@@ -121,7 +121,7 @@
 			        <asp:RadioButtonList ID="rb_sex" runat="server" 
                        
                         RepeatDirection="Horizontal" Width="167px">
-                        <asp:ListItem Selected="True" Value="Man">Nam</asp:ListItem>
+                        <asp:ListItem Selected="True" Value="Male">Nam</asp:ListItem>
                         <asp:ListItem Value="Female">Nữ</asp:ListItem>
                     </asp:RadioButtonList>
                 </td>
@@ -223,10 +223,7 @@
                 <td align="left" style="width:1%;">
                     &nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
                         ControlToValidate="m_txt_mobile_phone" Text="*" ErrorMessage="Bạn phải nhập số điện thoại di động"></asp:RequiredFieldValidator>
-                         <asp:RegularExpressionValidator ID="m_rfv_mobile_phone" runat="server" 
-                             ErrorMessage="Bạn phải đã nhập sai dạng SĐT di động" 
-                             ControlToValidate="m_txt_mobile_phone" Text="*"
-                              ValidationExpression="/(^\d{10}$)|(^\d{11}$)/"></asp:RegularExpressionValidator></td>
+                        </td>
                 <td align="right" class="style1">
                     &nbsp;</td>
                 <td align="left" style="width:10%;">
@@ -389,11 +386,7 @@
                 MaxLength="64" Width="96%" />
                          </td>
                      <td align="left" style="width:1%;">
-                              <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
-                           
-                             ControlToValidate="m_txt_so_cmnd" Text="*"
-                             ErrorMessage="Bạn nhập sai số CMND"
-                              ValidationExpression="/(^\d{9}$)/"></asp:RegularExpressionValidator></td>
+                              &nbsp;</td>
                 <td align="right" class="style1">
 			<asp:label id="lblNgayCap" CssClass="cssManField" runat="server" 
                 Text="Ngày Cấp" />
@@ -974,7 +967,7 @@
                     </asp:BoundField>
                     <asp:BoundField DataField="CHUC_VU_CAO_NHAT" HeaderText="Chức vụ cao nhất">
                     </asp:BoundField>
-                     <asp:BoundField DataField="TEL_HOME" HeaderText="Điện thoại">
+                     <asp:BoundField DataField="TEL_HOME" HeaderText="Điện thoại nhà riêng">
                     </asp:BoundField>
                      <asp:BoundField DataField="TEL_OFFICE" HeaderText="Điện thoại cơ quan">
                     </asp:BoundField>
