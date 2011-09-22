@@ -100,9 +100,6 @@
                     </ew:CalendarPopup>
 		                    </td>
                          <td align="left" style="width:1%;"> 
-                         <asp:RequiredFieldValidator ID="m_rfv_date_of_birth" runat="server" 
-                             ErrorMessage="Bạn phải nhập ngày sinh giảng viên" Text="*"
-                             ControlToValidate="m_dat_ngay_sinh_gv"></asp:RequiredFieldValidator>
                 </td>
                 <td align="left" class="style1">
 			       

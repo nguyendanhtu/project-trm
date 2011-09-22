@@ -343,6 +343,13 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
         }
     }
 
+    private bool check_check_loai_hop_dong()
+    {
+        if (m_cbl_loai_hop_dong.SelectedIndex<0)
+            return false;
+        return true;
+    }
+
     //
     // Region for search
     //
@@ -526,6 +533,12 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
                     return;
                 }
             }
+            if (!check_check_loai_hop_dong())
+            {
+                m_lbl_mess.Text = "Bạn phải chọn ít nhất một loại hợp đồng";
+                return;
+            }
+
             form_2_us_object(m_us_dm_giang_vien);
 
             // Lưu dữ liệu
