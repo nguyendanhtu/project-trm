@@ -78,7 +78,19 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
 
         }
     }
-    
+
+    private void load_data_2_don_vi_quan_ly()
+    {
+        try
+        {
+            
+        }
+        catch (Exception v_e)
+        {
+
+            throw v_e;
+        }
+    }
     private void reset_control()
     {
       
