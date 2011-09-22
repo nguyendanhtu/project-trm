@@ -30,6 +30,8 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
             }
             if (!this.IsPostBack)
             {
+                load_2_cbo_don_vi_tt();
+                load_2_cbo_trang_thai_hd();
                 load_2_cbo_don_vi_quan_ly();
                 load_2_cbo_loai_hop_dong();
                 load_2_cbo_ten_giang_vien();
@@ -80,7 +82,7 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
 
     #region Private Method
  
-    private void load_2_cbo_ten_giang_vien()
+     private void load_2_cbo_ten_giang_vien()
     {
 
         US_V_DM_GIANG_VIEN v_us_giang_vien_ten =new  US_V_DM_GIANG_VIEN();
@@ -98,6 +100,25 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
         catch (Exception v_e)
         {
 		
+            throw v_e;
+        }
+    }
+     private void load_2_cbo_trang_thai_hd() {
+
+
+        US_CM_DM_TU_DIEN v_us_trang_thai_hd = new US_CM_DM_TU_DIEN();
+        DS_CM_DM_TU_DIEN v_ds_trang_thai_hd = new DS_CM_DM_TU_DIEN();
+        try
+        {
+             v_us_trang_thai_hd.FillDataset(v_ds_trang_thai_hd, " WHERE ID_LOAI_TU_DIEN = 8 ");
+            m_cbo_dm_loai_don_vi_quan_li.DataSource = v_ds_trang_thai_hd.CM_DM_TU_DIEN;
+            m_cbo_dm_loai_don_vi_quan_li.DataValueField = CM_DM_TU_DIEN.ID;
+            m_cbo_dm_loai_don_vi_quan_li.DataTextField = CM_DM_TU_DIEN.TEN;
+            m_cbo_dm_loai_don_vi_quan_li.DataBind();
+        }
+        catch (Exception v_e)
+        {
+
             throw v_e;
         }
     }
@@ -126,7 +147,7 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
             m_cbo_dm_mon_hoc_2.DataSource = v_ds_dm_mon_hoc_2.DM_MON_HOC;
             m_cbo_dm_mon_hoc_2.DataValueField = DM_MON_HOC.ID;
             m_cbo_dm_mon_hoc_2.DataTextField = DM_MON_HOC.TEN_MON_HOC;
-                    
+            m_cbo_dm_mon_hoc_2.SelectedIndex = 0;       
             m_cbo_dm_mon_hoc_2.DataBind();
         }
         catch (Exception v_e)
@@ -143,6 +164,7 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
             m_cbo_dm_mon_hoc_3.DataSource = v_ds_dm_mon_hoc_3.DM_MON_HOC;
             m_cbo_dm_mon_hoc_3.DataValueField = DM_MON_HOC.ID;
             m_cbo_dm_mon_hoc_3.DataTextField = DM_MON_HOC.TEN_MON_HOC;
+            m_cbo_dm_mon_hoc_2.SelectedIndex = 0;  
             m_cbo_dm_mon_hoc_3.DataBind();
         }
         catch (Exception v_e)
@@ -160,6 +182,7 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
             m_cbo_dm_mon_hoc_4.DataValueField = DM_MON_HOC.ID;
             m_cbo_dm_mon_hoc_4.DataTextField = DM_MON_HOC.TEN_MON_HOC;
             m_cbo_dm_mon_hoc_4.DataBind();
+            m_cbo_dm_mon_hoc_2.SelectedIndex = 0;  
         }
         catch (Exception v_e)
         {
@@ -175,6 +198,7 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
             m_cbo_dm_mon_hoc_5.DataSource = v_ds_dm_mon_hoc_5.DM_MON_HOC;
             m_cbo_dm_mon_hoc_5.DataValueField = DM_MON_HOC.ID;
             m_cbo_dm_mon_hoc_5.DataTextField = DM_MON_HOC.TEN_MON_HOC;
+            m_cbo_dm_mon_hoc_2.SelectedIndex = 0;  
             m_cbo_dm_mon_hoc_5.DataBind();
         }
         catch (Exception v_e)
@@ -191,6 +215,7 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
             m_cbo_dm_mon_hoc_6.DataSource = v_ds_dm_mon_hoc_6.DM_MON_HOC;
             m_cbo_dm_mon_hoc_6.DataValueField = DM_MON_HOC.ID;
             m_cbo_dm_mon_hoc_6.DataTextField = DM_MON_HOC.TEN_MON_HOC;
+            m_cbo_dm_mon_hoc_2.SelectedIndex = 0;  
             m_cbo_dm_mon_hoc_6.DataBind();
         }
         catch (Exception v_e)
@@ -198,7 +223,6 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
             throw v_e;
         }
     }
-   
      private void load_2_cbo_loai_hop_dong()
      {
          US_CM_DM_TU_DIEN v_us_dm_loai_hop_dong = new US_CM_DM_TU_DIEN();
@@ -235,6 +259,25 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
              throw v_e;
          }
      
+     }
+     private void load_2_cbo_don_vi_tt()
+     {
+         US_CM_DM_TU_DIEN v_us_don_vi_tt = new US_CM_DM_TU_DIEN();
+         DS_CM_DM_TU_DIEN v_ds_don_vi_tt = new DS_CM_DM_TU_DIEN();
+         try
+         {
+             v_us_don_vi_tt.FillDataset(v_ds_don_vi_tt, " WHERE ID_LOAI_TU_DIEN = 7 ");
+             m_cbo_dm_loai_don_vi_quan_li.DataSource = v_ds_don_vi_tt.CM_DM_TU_DIEN;
+             m_cbo_dm_loai_don_vi_quan_li.DataValueField = CM_DM_TU_DIEN.ID;
+             m_cbo_dm_loai_don_vi_quan_li.DataTextField = CM_DM_TU_DIEN.TEN;
+             m_cbo_dm_loai_don_vi_quan_li.DataBind();
+         }
+         catch (Exception v_e)
+         {
+
+             throw v_e;
+         }
+
      }
      private void form_2_us_object()
      { 
