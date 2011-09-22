@@ -827,7 +827,7 @@
                     </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField>
-                    <ItemTemplate> <asp:HyperLink ImageUrl="/TRMProject/Images/Button/Edit.gif" ID = "lbt_edit" runat="server" NavigateUrl='<%# "/TRMProject/ChucNang/F202_DanhSachGiangVien.aspx?mode=edit&id="+Eval("ID") %>'></asp:HyperLink>
+                    <ItemTemplate> <asp:HyperLink ImageUrl="/TRMProject/Images/Button/edit.png" ID = "lbt_edit" runat="server" NavigateUrl='<%# "/TRMProject/ChucNang/F202_DanhSachGiangVien.aspx?mode=edit&id="+Eval("ID") %>'></asp:HyperLink>
                     </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
