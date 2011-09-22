@@ -229,7 +229,8 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
             ip_us_giang_vien.strTEN_GIANG_VIEN = m_txt_name.Text;
             ip_us_giang_vien.strTEN_NGAN_HANG = m_txt_ten_ngan_hang.Text;
             ip_us_giang_vien.strTRUONG_DAO_TAO = m_txt_truong_dao_tao.Text;
-            ip_us_giang_vien.datNGAY_SINH = m_dat_ngay_sinh_gv.SelectedDate;
+            if (m_dat_ngay_sinh_gv.Text != "")
+             ip_us_giang_vien.datNGAY_SINH = m_dat_ngay_sinh_gv.SelectedDate;
             if (m_dat_ngay_cap.Text != "")
                 ip_us_giang_vien.datNGAY_CAP = m_dat_ngay_cap.SelectedDate;
         }
