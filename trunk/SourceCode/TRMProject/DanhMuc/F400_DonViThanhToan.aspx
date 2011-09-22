@@ -152,8 +152,11 @@
               <asp:GridView ID="m_grv_dm_don_vi_thanh_toan" runat="server" AutoGenerateColumns="False" 
                 Width="100%" DataKeyNames="ID" 
                 onrowdeleting="m_grv_dm_don_vi_thanh_toan_RowDeleting" 
-                 onselectedindexchanging="m_grv_dm_don_vi_thanh_toan_SelectedIndexChanging" 
+                 
+                onselectedindexchanging="m_grv_dm_don_vi_thanh_toan_SelectedIndexChanging" 
+                CellPadding="4" ForeColor="#333333" GridLines="Both" 
                 >
+                  <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:TemplateField HeaderText="STT"><ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate></asp:TemplateField>
                     <asp:BoundField DataField="ID_LOAI_TU_DIEN" HeaderText="Loại từ điển" 
@@ -173,7 +176,13 @@
                     </asp:TemplateField>
                     <asp:CommandField SelectText="Sửa" ShowSelectButton="True" />
                 </Columns>
-                <SelectedRowStyle CssClass="cssSelectedRow"></SelectedRowStyle>
+                  <EditRowStyle BackColor="#7C6F57" />
+                  <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                  <HeaderStyle BackColor="#810c15" Font-Bold="True" ForeColor="White" />
+                  <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+                  <RowStyle BackColor="#E3EAEB" />
+                <SelectedRowStyle CssClass="cssSelectedRow" BackColor="#C5BBAF" Font-Bold="True" 
+                      ForeColor="#333333"></SelectedRowStyle>
             </asp:GridView>
             </td>
 	</tr>	
