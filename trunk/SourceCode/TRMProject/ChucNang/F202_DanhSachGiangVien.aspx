@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="F202_DanhSachGiangVien.aspx.cs" Inherits="ChuNang_F202_DanhSachGiangVien" %>
 <%@ Register assembly="eWorld.UI" namespace="eWorld.UI" tagprefix="ew" %>
+<%@ Import Namespace ="IP.Core.IPCommon" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
@@ -715,10 +716,10 @@
 		<td align="center" colspan="3" style="height:450px;" valign="top">
 		    &nbsp;
     <div id="grdCharges" runat="server" style="width: 100%; overflow: auto; height: auto;">
-   <asp:GridView ID="m_grv_dm_danh_sach_giang_vien" AllowPaging="true" 
+   <asp:GridView ID="m_grv_dm_danh_sach_giang_vien" AllowPaging="True" 
                 runat="server" AutoGenerateColumns="False" 
                 Width="101%" DataKeyNames="ID"
-                CellPadding="4" ForeColor="#333333" GridLines="Both" 
+                CellPadding="4" ForeColor="#333333" 
             AllowSorting="True" 
             onpageindexchanging="m_grv_dm_danh_sach_giang_vien_PageIndexChanging" 
             onrowdeleting="m_grv_dm_danh_sach_giang_vien_RowDeleting" PageSize="15" >
@@ -738,7 +739,8 @@
                     </ItemTemplate>
                     <ItemStyle Width="200px"/>
                     </asp:TemplateField>
-                    <asp:BoundField DataField="NGAY_SINH" HeaderText="Ngày sinh" />
+                       <asp:BoundField DataField="NGAY_SINH" HeaderText="Ngày sinh" DataFormatString="{0:d}">
+                    </asp:BoundField>
                     <asp:TemplateField>
                     <HeaderTemplate>Giới tính</HeaderTemplate>
                     <ItemTemplate>
@@ -773,7 +775,8 @@
                      <asp:BoundField DataField="SO_TAI_KHOAN" HeaderText="Số tài khoản" />
                      <asp:BoundField DataField="TEN_NGAN_HANG" HeaderText="Tên ngân hàng" />
                      <asp:BoundField DataField="SO_CMTND" HeaderText="Số chứng minh" />
-                     <asp:BoundField DataField="NGAY_CAP" HeaderText="Ngày cấp" />
+                       <asp:BoundField DataField="NGAY_CAP" HeaderText="Ngày Cấp" DataFormatString="{0:d}">
+                    </asp:BoundField>
                      <asp:BoundField DataField="NOI_CAP" HeaderText="Nơi cấp" />
                      <asp:BoundField DataField="DON_VI_QUAN_LY" HeaderText="Đơn vị quản lý" />
                      <asp:BoundField DataField="MA_SO_THUE" HeaderText="Mã số thuế" />

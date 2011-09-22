@@ -47,7 +47,7 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
                         mtv_giang_vien.ActiveViewIndex = 1;
                         load_2_cbo_don_vi_q_ly();
                         load_2_cbo_trang_thai_giang_vien();
-                        load_data_to_grid();
+                        //load_data_to_grid();
                         break;
                     case DataEntryFormMode.UpdateDataState:
                         mtv_giang_vien.ActiveViewIndex = 0;
@@ -68,6 +68,7 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
     }
 
     #region Private Methods
+    
     //private bool check_validate()
     //{
     //    if (this.m_txt.Text.Trim().Equals(""))
@@ -299,7 +300,8 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
             m_us_dm_giang_vien.dcID = v_dc_id_ma_giang_vien;
             m_us_dm_giang_vien.DeleteByID(v_dc_id_ma_giang_vien);
             m_lbl_thong_bao.Text = "Xóa bản ghi thành công";
-            load_data_to_grid();
+           load_data_to_grid();
+           // get_form_search_data_and_load_to_grid();
         }
         catch (Exception v_e)
         {
@@ -499,6 +501,11 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
         return "Không";
     }
 
+    public string mapping_format_datetime(string ip_str_date)
+    {
+        if (ip_str_date == "") return "";
+        return String.Format(ip_str_date, "dd/MM/yyyy");
+    }
     #endregion
 
     //
@@ -510,7 +517,7 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
         try
         {
             m_grv_dm_danh_sach_giang_vien.PageIndex = e.NewPageIndex;
-              load_data_to_grid();
+            load_data_to_grid();
             //if (m_init_mode != DataEntryFormMode.ViewDataState)
               
             //else get_form_search_data_and_load_to_grid();
