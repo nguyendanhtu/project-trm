@@ -357,7 +357,7 @@
 			        <asp:RadioButtonList ID="m_rbt_hoclieu_yn" runat="server" 
                         RepeatDirection="Horizontal">
                         <asp:ListItem Value="Y">Có</asp:ListItem>
-                        <asp:ListItem Value="N">Không</asp:ListItem>
+                        <asp:ListItem Value="N" Selected="True">Không</asp:ListItem>
                     </asp:RadioButtonList>
                 </td>
                      <td align="left" style="width:1%;">
@@ -373,7 +373,7 @@
                 <td align="left" style="width:10%;">
 			        <asp:RadioButtonList ID="m_rbt_bt_vanhanh_yn" runat="server" 
                         RepeatDirection="Horizontal">
-                        <asp:ListItem Value="Y">Có</asp:ListItem>
+                        <asp:ListItem Value="Y" Selected="True">Có</asp:ListItem>
                         <asp:ListItem Value="N">Không</asp:ListItem>
                     </asp:RadioButtonList>
 		                    </td>
