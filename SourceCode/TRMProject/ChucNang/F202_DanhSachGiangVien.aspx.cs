@@ -35,8 +35,8 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
                 mtv_giang_vien.ActiveViewIndex = 0;
                 if (Request.QueryString["mode"].ToString().Equals("edit"))
                     m_init_mode = DataEntryFormMode.UpdateDataState;
-                m_us_dm_giang_vien.dcID = CIPConvert.ToDecimal(Request.QueryString["id"].ToString());
-                m_dc_id = CIPConvert.ToDecimal(Request.QueryString["id"].ToString());
+                    m_us_dm_giang_vien.dcID = CIPConvert.ToDecimal(Request.QueryString["id"].ToString());
+                    m_dc_id = CIPConvert.ToDecimal(Request.QueryString["id"].ToString());
             }
             else m_init_mode = DataEntryFormMode.InsertDataState;
             if (!IsPostBack)
@@ -55,9 +55,6 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
                         load_cbo_don_vi_quan_ly();
                         load_cbo_trang_thai_giang_vien();
                         load_data_2_us_by_id(m_dc_id);
-                        break;
-                    case DataEntryFormMode.ViewDataState:
-
                         break;
                 }
 
@@ -506,9 +503,10 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
         try
         {
             m_grv_dm_danh_sach_giang_vien.PageIndex = e.NewPageIndex;
-            if (m_init_mode != DataEntryFormMode.ViewDataState)
-                load_data_to_grid();
-            else get_form_search_data_and_load_to_grid();
+              load_data_to_grid();
+            //if (m_init_mode != DataEntryFormMode.ViewDataState)
+              
+            //else get_form_search_data_and_load_to_grid();
         }
         catch (Exception v_e)
         {
@@ -585,7 +583,8 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
     {
         try
         {
-            get_form_search_data_and_load_to_grid();    
+            m_grv_dm_danh_sach_giang_vien.PageSize = 20;
+            get_form_search_data_and_load_to_grid();            
         }
         catch (Exception v_e)
         {
