@@ -55,7 +55,8 @@
                         <asp:MenuItem Text="Nghiệp vụ">
                             <asp:MenuItem Text="Cập nhật giảng viên" Value="Cập nhật giảng viên" NavigateUrl="/TRMProject/ChucNang/F202_DanhSachGiangVien.aspx">
                             </asp:MenuItem>
-                            <asp:MenuItem Text="Cập nhật hợp đồng khung" Value="Cập nhật hợp đồng khung">
+                            <asp:MenuItem Text="Cập nhật hợp đồng khung" Value="Cập nhật hợp đồng khung"
+                             NavigateUrl="/TRMProject/ChucNang/F302_DanhSachHopDongKhung.aspx">
                             </asp:MenuItem>
                             <asp:MenuItem Text="Cập nhật lớp môn" Value="Cập nhật lớp môn" 
                                 NavigateUrl="/TRMProject/ChucNang/F103_DanhSachLopMon.aspx"></asp:MenuItem>
