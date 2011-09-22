@@ -242,7 +242,7 @@
                         ControlToValidate="m_txt_email" Text="*" ErrorMessage="Bạn phải nhập Email"></asp:RequiredFieldValidator>
                     <asp:RegularExpressionValidator ID="m_rfv_offline7" runat="server" 
                         ControlToValidate="m_txt_email" 
-                        ErrorMessage="Bạn phải nhập ngày sinh giảng viên" Text="*" 
+                        ErrorMessage="Email không đúng định dạng" Text="*" 
                         ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                 </td>
                 <td align="right" class="style1">
@@ -475,7 +475,7 @@
             <tr>
                 <td align="right" class="style2">
 			<asp:label id="lblLoaiHopDongGiaoVien" CssClass="cssManField" runat="server" 
-                Text="Loại Hợp Đồng" />
+                Text="Giảng viên..." />
 		                    </td>
                 <td align="left" class="style3">
 			        <asp:CheckBoxList ID="m_cbl_loai_hop_dong" runat="server">
@@ -829,7 +829,8 @@
                     </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField>
-                    <ItemTemplate> <asp:HyperLink ToolTip="Sửa" ImageUrl="/TRMProject/Images/Button/edit.png" ID = "lbt_edit" runat="server" NavigateUrl='<%# "/TRMProject/ChucNang/F202_DanhSachGiangVien.aspx?mode=edit&id="+Eval("ID") %>'></asp:HyperLink>
+                    <ItemTemplate> <asp:HyperLink ToolTip="Sửa" ImageUrl="/TRMProject/Images/Button/edit.png" ID = "lbt_edit" runat="server"
+                     NavigateUrl='<%# "/TRMProject/ChucNang/F202_DanhSachGiangVien.aspx?mode=edit&id="+Eval("ID") %>'></asp:HyperLink>
                     </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
