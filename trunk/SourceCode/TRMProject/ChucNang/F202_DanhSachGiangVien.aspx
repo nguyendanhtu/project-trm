@@ -724,7 +724,7 @@
                 CellPadding="4" ForeColor="#333333" GridLines="Both" 
             AllowSorting="True" 
             onpageindexchanging="m_grv_dm_danh_sach_giang_vien_PageIndexChanging" 
-            onrowdeleting="m_grv_dm_danh_sach_giang_vien_RowDeleting" PageSize="5" >
+            onrowdeleting="m_grv_dm_danh_sach_giang_vien_RowDeleting" PageSize="15" >
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">
@@ -822,12 +822,14 @@
                     <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:TemplateField>
                     <asp:TemplateField>
-                    <ItemTemplate> <asp:LinkButton i ID = "lbt_delete" runat="server" Text="Xóa" 
-                     CommandName="Delete" OnClientClick="return confirm ('Bạn có thực sự muốn xóa bản ghi này?')"></asp:LinkButton>
+                    <ItemTemplate> <asp:LinkButton ID = "lbt_delete"  runat="server"
+                     CommandName="Delete" ToolTip="Xóa" OnClientClick="return confirm ('Bạn có thực sự muốn xóa bản ghi này?')">
+                     <img src="/TRMProject/Images/Button/deletered.png" alt="Delete" />
+                     </asp:LinkButton>
                     </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField>
-                    <ItemTemplate> <asp:HyperLink ImageUrl="/TRMProject/Images/Button/edit.png" ID = "lbt_edit" runat="server" NavigateUrl='<%# "/TRMProject/ChucNang/F202_DanhSachGiangVien.aspx?mode=edit&id="+Eval("ID") %>'></asp:HyperLink>
+                    <ItemTemplate> <asp:HyperLink ToolTip="Sửa" ImageUrl="/TRMProject/Images/Button/edit.png" ID = "lbt_edit" runat="server" NavigateUrl='<%# "/TRMProject/ChucNang/F202_DanhSachGiangVien.aspx?mode=edit&id="+Eval("ID") %>'></asp:HyperLink>
                     </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
