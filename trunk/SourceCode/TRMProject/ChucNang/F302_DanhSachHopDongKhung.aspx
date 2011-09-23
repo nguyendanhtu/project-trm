@@ -588,10 +588,10 @@
                     </ItemTemplate>
                     <ItemStyle Width="200px"/>
                     </asp:TemplateField>
-                    <asp:BoundField DataField="NGAY_KY" HeaderText="Ngày ký" DataFormatString="{103:d}" />
-                     <asp:BoundField DataField="NGAY_HIEU_LUC" HeaderText="Ngày hiệu lực">
+                    <asp:BoundField DataField="NGAY_KY" HeaderText="Ngày ký" DataFormatString="{0:dd/MM/yyyy}" HtmlEncode="false" />
+                     <asp:BoundField DataField="NGAY_HIEU_LUC" HeaderText="Ngày hiệu lực" DataFormatString="{0:dd/MM/yyyy}" HtmlEncode="false">
                     </asp:BoundField>
-                    <asp:BoundField DataField="NGAY_KET_THUC_DU_KIEN" HeaderText="Ngày kết thúc ">
+                    <asp:BoundField DataField="NGAY_KET_THUC_DU_KIEN" HeaderText="Ngày kết thúc " DataFormatString="{0:dd/MM/yyyy}" HtmlEncode="false">
                     </asp:BoundField>
                      <asp:BoundField DataField="SO_HOP_DONG" HeaderText="Số hợp đồng" 
                         Visible="true">
