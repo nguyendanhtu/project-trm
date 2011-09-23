@@ -47,13 +47,14 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
                         mtv_giang_vien.ActiveViewIndex = 1;
                         load_2_cbo_don_vi_q_ly();
                         load_2_cbo_trang_thai_giang_vien();
-                        //load_data_to_grid();
                         break;
                     case DataEntryFormMode.UpdateDataState:
                         mtv_giang_vien.ActiveViewIndex = 0;
                         m_txt_ma_giang_vien.Enabled = false;
                         load_cbo_don_vi_quan_ly();
                         load_cbo_trang_thai_giang_vien();
+                        load_data_2_cbo_hoc_ham();
+                        load_data_2_cbo_hoc_vi();
                         load_data_2_us_by_id(m_dc_id);
                         break;
                 }
@@ -127,7 +128,58 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
             throw v_e;
         }
     }
+    private void load_data_2_cbo_hoc_vi()
+    {
+        try
+        {
+            m_ds_cm_dm_tu_dien.CM_DM_TU_DIEN.Clear();
+            // Đổ dữ liệu vào DS 
+            m_us_cm_dm_tu_dien.FillDataset(m_ds_cm_dm_tu_dien, " WHERE ID_LOAI_TU_DIEN = " + (int)e_loai_tu_dien.HOC_VI); // Đây là lấy theo điều kiện
+            // dây là giá trị hiển thị
+            // Đây là giá trị thực
+            DataRow v_dr_all = m_ds_cm_dm_tu_dien.CM_DM_TU_DIEN.NewCM_DM_TU_DIENRow();
+            v_dr_all[CM_DM_TU_DIEN.TEN] = "GV không cung cấp";
+            v_dr_all[CM_DM_TU_DIEN.TEN] = "GV không cung cấp";
+            m_ds_cm_dm_tu_dien.EnforceConstraints = false;
+            m_ds_cm_dm_tu_dien.CM_DM_TU_DIEN.Rows.InsertAt(v_dr_all, 0);
 
+            m_cbo_hoc_vi.DataValueField = CM_DM_TU_DIEN.TEN;
+            m_cbo_hoc_vi.DataTextField = CM_DM_TU_DIEN.TEN;
+
+            m_cbo_hoc_vi.DataSource = m_ds_cm_dm_tu_dien.CM_DM_TU_DIEN;
+            m_cbo_hoc_vi.DataBind();
+        }
+        catch (Exception v_e)
+        {
+            throw v_e;
+        }
+    }
+    private void load_data_2_cbo_hoc_ham()
+    {
+        try
+        {
+            m_ds_cm_dm_tu_dien.CM_DM_TU_DIEN.Clear();
+            // Đổ dữ liệu vào DS 
+            m_us_cm_dm_tu_dien.FillDataset(m_ds_cm_dm_tu_dien, " WHERE ID_LOAI_TU_DIEN = " + (int)e_loai_tu_dien.HOC_HAM); // Đây là lấy theo điều kiện
+            // dây là giá trị hiển thị
+            // Đây là giá trị thực
+            DataRow v_dr_all = m_ds_cm_dm_tu_dien.CM_DM_TU_DIEN.NewCM_DM_TU_DIENRow();
+            v_dr_all[CM_DM_TU_DIEN.TEN] = "GV không cung cấp";
+            v_dr_all[CM_DM_TU_DIEN.TEN] = "GV không cung cấp";
+            m_ds_cm_dm_tu_dien.EnforceConstraints = false;
+            m_ds_cm_dm_tu_dien.CM_DM_TU_DIEN.Rows.InsertAt(v_dr_all, 0);
+
+            m_cbo_hoc_ham.DataValueField = CM_DM_TU_DIEN.TEN;
+            m_cbo_hoc_ham.DataTextField = CM_DM_TU_DIEN.TEN;
+
+            m_cbo_hoc_ham.DataSource = m_ds_cm_dm_tu_dien.CM_DM_TU_DIEN;
+            m_cbo_hoc_ham.DataBind();
+        }
+        catch (Exception v_e)
+        {
+            throw v_e;
+        }
+    }
     private string get_ma_from_id(string ip_dc_id_trang_thai_giang_vien)
     {
         try
@@ -178,8 +230,6 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
         m_txt_email.Text = "";
         m_txt_co_quan_cong_tac.Text = "";
         m_txt_email_topica.Text = "";
-        m_txt_hoc_ham.Text = "";
-        m_txt_hoc_vi.Text = "";
         m_txt_ma_giang_vien.Text = "";
         m_txt_ma_so_thue.Text = "";
         m_txt_mobile_phone.Text = "";
@@ -214,8 +264,8 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
             ip_us_giang_vien.strGVCM_YN = m_cbl_loai_hop_dong.Items[1].Selected ? "Y" : "N";
             ip_us_giang_vien.strGVHD_YN = m_cbl_loai_hop_dong.Items[0].Selected ? "Y" : "N";
             ip_us_giang_vien.strHO_VA_TEN_DEM = m_txt_name.Text;
-            ip_us_giang_vien.strHOC_HAM = m_txt_hoc_ham.Text;
-            ip_us_giang_vien.strHOC_VI = m_txt_hoc_vi.Text;
+            ip_us_giang_vien.strHOC_HAM = m_cbo_hoc_ham.SelectedValue;
+            ip_us_giang_vien.strHOC_VI = m_cbo_hoc_vi.SelectedValue;
             ip_us_giang_vien.strID_TRANG_THAI_GIANG_VIEN = m_cbo_dm_trang_thai_giang_vien.SelectedValue;
             ip_us_giang_vien.strMA_GIANG_VIEN = m_txt_ma_giang_vien.Text;
             ip_us_giang_vien.strMA_SO_THUE = m_txt_ma_so_thue.Text;
@@ -265,8 +315,8 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
             if (ip_us_giang_vien.strGVHD_YN == "Y") m_cbl_loai_hop_dong.Items[0].Selected = true;
 
             m_txt_name.Text = ip_us_giang_vien.strHO_VA_TEN_DEM;
-            m_txt_hoc_ham.Text = ip_us_giang_vien.strHOC_HAM;
-            m_txt_hoc_vi.Text = ip_us_giang_vien.strHOC_VI;
+            m_cbo_hoc_ham.SelectedValue = ip_us_giang_vien.strHOC_HAM;
+            m_cbo_hoc_vi.SelectedValue = ip_us_giang_vien.strHOC_VI;
             if (ip_us_giang_vien.strID_TRANG_THAI_GIANG_VIEN != "")
                 m_cbo_dm_trang_thai_giang_vien.SelectedValue = CIPConvert.ToStr(CIPConvert.ToDecimal(ip_us_giang_vien.strID_TRANG_THAI_GIANG_VIEN));
             m_txt_ma_giang_vien.Text = ip_us_giang_vien.strMA_GIANG_VIEN;
@@ -552,10 +602,12 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
             // Lưu dữ liệu
             save_data();
             // Chuyển vể hiển thị danh sách giảng viên
-            mtv_giang_vien.ActiveViewIndex = 1;
+            Response.Redirect("/TRMProject/ChucNang/F202_DanhSachGiangVien.aspx");
             reset_control();
             // và load lại dữ liệu
-            load_data_to_grid();
+            //load_data_to_grid();
+            //load_2_cbo_don_vi_q_ly();
+            //load_2_cbo_trang_thai_giang_vien();
             m_lbl_thong_bao.Text = "Cập nhật thông tin thành công";
         }
         catch (Exception v_e)
@@ -581,6 +633,8 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
             m_init_mode = DataEntryFormMode.InsertDataState;
             load_cbo_don_vi_quan_ly();
             load_cbo_trang_thai_giang_vien();
+            load_data_2_cbo_hoc_vi();
+            load_data_2_cbo_hoc_ham();
             mtv_giang_vien.ActiveViewIndex = 0;
             reset_control();
         }
