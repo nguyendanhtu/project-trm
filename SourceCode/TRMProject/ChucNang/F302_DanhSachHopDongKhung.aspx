@@ -143,11 +143,11 @@
                 <td align="left" style="width:1%;">&nbsp;</td>
                  <td align="right" style="width:5%;">
 			       
-			<asp:label id="lblNgayKetThucDuKien" CssClass="cssManField" runat="server" 
-                Text="Ngày kết thúc dự kiến" />
+			<asp:label id="lblNgayKetThuc" CssClass="cssManField" runat="server" 
+                Text="Ngày kết thúc" />
 		                    </td>
                 <td align="left" style="width:10%;">
-			        <ew:CalendarPopup ID="m_dat_ngay_ket_thuc_du_kien" runat="server" 
+			        <ew:CalendarPopup ID="m_dat_ngay_ket_thuc" runat="server" 
                         ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
                         ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
                         ShowGoToToday="True" Width="70%">
@@ -210,13 +210,9 @@
                 </td>
                  <td align="right" style="width:5%;">
 			       
-			<asp:label id="lblGhiChu" CssClass="cssManField" runat="server" 
-                Text="Ghi chú" />
-		                    </td>
+			         &nbsp;</td>
                 <td align="left" style="width:10%;">
-			<asp:textbox id="m_txt_ghi_chu" CssClass="cssTextBox"  runat="server" 
-                MaxLength="64" Width="96%" />
-                         </td>
+			        &nbsp;</td>
                 <td align="left" style="width:1%;"></td>
             </tr>
             <tr>
@@ -261,7 +257,7 @@
                          <asp:RequiredFieldValidator ID="m_rfv_thue_suat" runat="server" 
                              
                              ErrorMessage="Bạn nhập thuế suất" Text="*"
-                             ControlToValidate="m_txt_thue_suat"></asp:RequiredFieldValidator>
+                             ControlToValidate="m_txt_thue_suat">%</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -384,6 +380,18 @@
                 <td align="left" style="width:10%;">
                     &nbsp;</td>            
                          <td align="left" style="width:1%;"></td>
+            </tr>
+            <tr>
+                <td align="right" style="width:5%;">
+                    <asp:Label ID="lblGhiChu0" runat="server" CssClass="cssManField" 
+                        Text="Ghi chú" />
+                </td>
+                <td align="left" colspan="7">
+                    <asp:TextBox ID="m_txt_ghi_chu1" runat="server" CssClass="cssTextBox" 
+                        MaxLength="64" Width="96%" />
+                </td>
+                <td align="left" style="width:1%;">
+                    &nbsp;</td>
             </tr>
             <tr>
                 <td align="right" style="width:5%;"></td>
@@ -572,9 +580,7 @@
                        <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
                         <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:TemplateField>
-                    <asp:BoundField DataField="SO_HOP_DONG" HeaderText="Số hợp đồng" 
-                        Visible="False">
-                        <ItemStyle HorizontalAlign="Center" Width="4%"></ItemStyle></asp:BoundField>
+                    
                     <asp:TemplateField>
                     <HeaderTemplate>Giảng viên</HeaderTemplate>
                     <ItemTemplate>
@@ -582,11 +588,14 @@
                     </ItemTemplate>
                     <ItemStyle Width="200px"/>
                     </asp:TemplateField>
-                    <asp:BoundField DataField="NGAY_KY" HeaderText="Ngày ký" />
+                    <asp:BoundField DataField="NGAY_KY" HeaderText="Ngày ký" DataFormatString="{103:d}" />
                      <asp:BoundField DataField="NGAY_HIEU_LUC" HeaderText="Ngày hiệu lực">
                     </asp:BoundField>
-                    <asp:BoundField DataField="NGAY_KET_THUC_DU_KIEN" HeaderText="Ngày kết thúc dự kiến">
+                    <asp:BoundField DataField="NGAY_KET_THUC_DU_KIEN" HeaderText="Ngày kết thúc ">
                     </asp:BoundField>
+                     <asp:BoundField DataField="SO_HOP_DONG" HeaderText="Số hợp đồng" 
+                        Visible="true">
+                        <ItemStyle HorizontalAlign="Center" Width="4%"></ItemStyle></asp:BoundField>
                      <asp:BoundField DataField="LOAI_HOP_DONG" HeaderText="Loại hợp đồng">
                     </asp:BoundField>
                      <asp:BoundField DataField="DON_VI_QUAN_LY" HeaderText="Đơn vị quản lý">
@@ -595,9 +604,10 @@
                     </asp:BoundField>
                      <asp:BoundField DataField="DON_VI_THANH_TOAN" HeaderText="Đơn vị thanh toán">
                     </asp:BoundField>
-                    <asp:BoundField DataField="THUE_SUAT" HeaderText="Thuế suất">
+                    <asp:BoundField DataField="THUE_SUAT" HeaderText="Thuế suất(%)">
                     </asp:BoundField>
-                     <asp:BoundField DataField="GHI_CHU" HeaderText="Ghi chú" />
+                     <asp:BoundField DataField="MA_PO_PHU_TRACH" HeaderText="Mã PO Phụ trách">
+                    </asp:BoundField>
                      <asp:BoundField DataField="FIRST_MON" HeaderText="Môn 1" />
                      <asp:BoundField DataField="SEC_MON" HeaderText="Môn 2" />
                      <asp:BoundField DataField="THIR_MON" HeaderText="Môn 3" />
@@ -605,6 +615,10 @@
                      <asp:BoundField DataField="FITH_MON" HeaderText="Môn 5" />
                      <asp:BoundField DataField="SIXTH_MON" HeaderText="Môn 6" />
                      <asp:BoundField DataField="GIA_TRI_HOP_DONG" HeaderText="Giá trị hợp đồng" />
+                     <asp:BoundField DataField="GHI_CHU" HeaderText="Ghi chú" />
+                     <asp:BoundField DataField="GHI_CHU2" HeaderText="Ghi chú 2" />
+                     <asp:BoundField DataField="GHI_CHU3" HeaderText="Ghi chú 3" />
+                     <asp:BoundField DataField="GHI_CHU4" HeaderText="Ghi chú 4" />
                     <asp:TemplateField>
                     <HeaderTemplate>Làm học liệu?</HeaderTemplate>
                     <ItemTemplate>
@@ -616,6 +630,13 @@
                        <HeaderTemplate>Vận hành?</HeaderTemplate>
                     <ItemTemplate>
                     <label><%# mapping_vh(Eval("VAN_HANH_YN").ToString())%></label>
+                    </ItemTemplate>
+                    <ItemStyle HorizontalAlign="Center"></ItemStyle>
+                    </asp:TemplateField>
+                      <asp:TemplateField>
+                       <HeaderTemplate>Cơ sở hợp đồng?</HeaderTemplate>
+                    <ItemTemplate>
+                    <label><%# mapping_cs(Eval("CO_SO_HD_YN").ToString())%></label>
                     </ItemTemplate>
                     <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:TemplateField>
