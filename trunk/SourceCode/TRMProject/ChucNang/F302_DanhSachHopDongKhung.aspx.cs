@@ -57,6 +57,12 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
             return "Có";
         return "Không";
     }
+    public string mapping_cs(string ip_str_cs_YN)
+    {
+        if (ip_str_cs_YN.Equals("Y"))
+            return "Có";
+        return "Không";
+    }
     #endregion
 
     #region Private Methods
@@ -78,7 +84,6 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
 
         }
     }
-
     private void load_data_2_don_vi_quan_ly()
     {
         try
