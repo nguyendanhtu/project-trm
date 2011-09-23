@@ -17,6 +17,8 @@ namespace WebDS.CDBNames
         , TRANG_THAI_HOP_DONG_KHUNG =8
         , TRANG_THAI_GIANG_VIEN =9
         , MA_TAN_SUAT = 10
+        , HOC_HAM = 11
+        , HOC_VI = 12
     }
 
     public class CM_DM_TU_DIEN
