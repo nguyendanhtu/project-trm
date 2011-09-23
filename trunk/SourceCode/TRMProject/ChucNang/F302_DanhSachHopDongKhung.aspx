@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
-<asp:MultiView ID="mtv_hop_dong_khung" runat="server">
+    <asp:MultiView ID="mtv_hop_dong_khung" runat="server">
 
   <asp:View ID="m_view_form_cap_nhat_hop_dong_khung" runat="server">
     <table cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0">
@@ -57,9 +57,7 @@
                         ControlToValidate="m_cbo_giang_vien_ten" ErrorMessage="Bạn phải tên giảng viên"></asp:RequiredFieldValidator></td>
                 <td align="left" style="width:5%;">
 			       
-		    <asp:DropDownList id="m_cbo_giang_vien_ten" runat="server" Width="96%" 
-                        CssClass="cssDorpdownlist"  />
-                         </td>
+		            &nbsp;</td>
                 <td align="left" style="width:10%;">&nbsp;</td>
                 <td align="left" style="width:1%;">&nbsp;</td>
                  <td align="right" style="width:5%;">&nbsp;</td>
