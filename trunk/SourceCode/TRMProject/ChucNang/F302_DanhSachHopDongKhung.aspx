@@ -606,7 +606,7 @@
                     </asp:BoundField>
                     <asp:BoundField DataField="THUE_SUAT" HeaderText="Thuế suất(%)">
                     </asp:BoundField>
-                     <asp:BoundField DataField="MA_PO_PHU_TRACH" HeaderText="Mã PO Phụ trách">
+                     <asp:BoundField DataField="THUE_SUAT" HeaderText="Mã PO Phụ trách">
                     </asp:BoundField>
                      <asp:BoundField DataField="FIRST_MON" HeaderText="Môn 1" />
                      <asp:BoundField DataField="SEC_MON" HeaderText="Môn 2" />
