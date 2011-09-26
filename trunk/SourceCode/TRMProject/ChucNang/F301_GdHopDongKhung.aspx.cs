@@ -66,9 +66,11 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
     #region Public Interface
 
     #endregion
+    
     #region Data Structure
     DataEntryFormMode m_e_form_mode;
     #endregion
+
     #region Members
     US_V_DM_GIANG_VIEN m_us_v_giang_vien = new US_V_DM_GIANG_VIEN();
     DS_V_DM_GIANG_VIEN m_ds_v_giang_vien = new DS_V_DM_GIANG_VIEN();
