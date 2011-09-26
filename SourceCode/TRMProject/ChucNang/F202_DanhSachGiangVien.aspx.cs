@@ -591,7 +591,7 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
                     return;
                 }
             }
-            if (!check_check_loai_hop_dong())f
+            if (!check_check_loai_hop_dong())
             {
                 m_lbl_mess.Text = "Bạn phải chọn ít nhất một loại hợp đồng";
                 return;
