@@ -820,7 +820,9 @@ public class US_V_DM_GIANG_VIEN : US_Object
                                  ,string ip_str_gender
                                  ,decimal ip_dc_id_trang_thai_giang_vien
                                  ,decimal ip_dc_id_don_vi_quan_ly
-                                 ,DS_V_DM_GIANG_VIEN op_ds_giang_vien)
+                                 ,DS_V_DM_GIANG_VIEN op_ds_giang_vien
+                                 , DateTime ip_dat_ngay_bd_hop_tac
+                                 , decimal ip_dc_month_birthday)
     {
         CStoredProc v_sp_search_giang_vien = new CStoredProc("pr_V_DM_GIANG_VIEN_Search");
         v_sp_search_giang_vien.addNVarcharInputParam("@TEN_GIANG_VIEN", ip_str_ten_giang_vien);
@@ -828,6 +830,8 @@ public class US_V_DM_GIANG_VIEN : US_Object
         v_sp_search_giang_vien.addNVarcharInputParam("@GIOI_TINH", ip_str_gender);
         v_sp_search_giang_vien.addDecimalInputParam("@TRANG_THAI_GIANG_VIEN",ip_dc_id_trang_thai_giang_vien);
         v_sp_search_giang_vien.addDecimalInputParam("@DON_VI_QUAN_LY", ip_dc_id_don_vi_quan_ly);
+        v_sp_search_giang_vien.addDatetimeInputParam("@NGAY_BD_HOP_TAC", ip_dat_ngay_bd_hop_tac);
+        v_sp_search_giang_vien.addDecimalInputParam("@THANG_SINH", ip_dc_month_birthday);
         v_sp_search_giang_vien.fillDataSetByCommand(this, op_ds_giang_vien);
     }
     #endregion
