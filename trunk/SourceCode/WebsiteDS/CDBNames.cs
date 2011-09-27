@@ -137,6 +137,7 @@ namespace WebDS.CDBNames
         public const string GV_THAM_DINH_HL_YN = "GV_THAM_DINH_HL_YN";
         public const string GV_HDKH_YN = "GV_HDKH_YN";
         public const string DESCRIPTION = "DESCRIPTION";
+        public const string NGAY_BD_HOP_TAC = "NGAY_BD_HOP_TAC";
     }
      class V_DM_HOP_DONG_KHUNG
      {
