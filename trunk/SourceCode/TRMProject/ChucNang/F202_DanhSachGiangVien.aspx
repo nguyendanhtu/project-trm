@@ -206,7 +206,7 @@
                     </ItemTemplate>
                     <ItemStyle Width="200px"/>
                     </asp:TemplateField>
-                       <asp:BoundField DataField="NGAY_SINH" HeaderText="Ngày sinh" DataFormatString="{0:d}">
+                       <asp:BoundField DataField="NGAY_SINH" HeaderText="Ngày sinh" DataFormatString="{0:dd/MM/yyyy}">
                     </asp:BoundField>
                     <asp:TemplateField>
                     <HeaderTemplate>Giới tính</HeaderTemplate>
@@ -242,7 +242,7 @@
                      <asp:BoundField DataField="SO_TAI_KHOAN" HeaderText="Số tài khoản" />
                      <asp:BoundField DataField="TEN_NGAN_HANG" HeaderText="Tên ngân hàng" />
                      <asp:BoundField DataField="SO_CMTND" HeaderText="Số chứng minh" />
-                       <asp:BoundField DataField="NGAY_CAP" HeaderText="Ngày Cấp" DataFormatString="{0:d}">
+                       <asp:BoundField DataField="NGAY_CAP" DataFormatString="{0:dd/MM/yyyy}" HeaderText="Ngày Cấp">
                     </asp:BoundField>
                      <asp:BoundField DataField="NOI_CAP" HeaderText="Nơi cấp" />
                      <asp:BoundField DataField="DON_VI_QUAN_LY" HeaderText="Đơn vị quản lý" />
