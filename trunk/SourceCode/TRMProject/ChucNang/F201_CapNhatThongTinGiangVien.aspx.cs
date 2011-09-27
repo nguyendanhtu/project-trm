@@ -24,20 +24,21 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
             load_data_2_cbo_hoc_vi();
             load_data_2_cbo_hoc_ham();
             load_cbo_trang_thai_giang_vien();
-        }
-        if (Request.QueryString["mode"] != null&&Request.QueryString["mode"].ToString().Equals("edit"))
-        {
+            if (Request.QueryString["mode"] != null && Request.QueryString["mode"].ToString().Equals("edit"))
+            {
                 m_init_mode = DataEntryFormMode.UpdateDataState;
                 // Load data need to update - if mode = update
                 m_dc_id = CIPConvert.ToDecimal(Request.QueryString["id"]);
                 load_data_2_us_by_id_and_show_on_form(m_dc_id);
                 m_txt_ma_giang_vien.Enabled = false;
+            }
+            else
+            {
+                m_init_mode = DataEntryFormMode.InsertDataState;
+                m_txt_ma_giang_vien.Enabled = true;
+            }
         }
-        else
-        {
-            m_init_mode = DataEntryFormMode.InsertDataState;
-            m_txt_ma_giang_vien.Enabled = true;
-        }
+       
     }
     
     #region Members
@@ -248,7 +249,7 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
 
     }
 
-    private void us_object_2_form(US_V_DM_GIANG_VIEN ip_us_giang_vien)
+     private void us_object_2_form(US_V_DM_GIANG_VIEN ip_us_giang_vien)
     {
         try
         {
@@ -344,7 +345,8 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
     {
         try
         {
-            Response.Redirect("/TRMProject/ChucNang/F202_DanhSachGiangVien.aspx");
+            Response.Redirect("/TRMProject/ChucNang/F202_DanhSachGiangVien.aspx",false);
+            HttpContext.Current.ApplicationInstance.CompleteRequest();
         }
         catch (Exception v_e)
         {
