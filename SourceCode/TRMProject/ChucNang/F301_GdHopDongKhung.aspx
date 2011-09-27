@@ -56,7 +56,7 @@
                          </td>
                 <td align="left" style="width:10%;">
 		    <asp:DropDownList id="m_cbo_giang_vien_ten" runat="server" Width="96%" 
-                        CssClass="cssDorpdownlist"  />
+                        CssClass="cssDorpdownlist" Height="20px"  />
                          </td>
                          <td align="left" style="width:1%;"> 
                              <asp:RequiredFieldValidator ID="m_rfv_ten_giang_vien" runat="server"  Text="*"
@@ -147,11 +147,11 @@
                 <td align="left" style="width:1%;">&nbsp;</td>
                  <td align="right" style="width:5%;">
 			       
-			<asp:label id="lblNgayKetThucDuKien" CssClass="cssManField" runat="server" 
-                Text="Ngày kết thúc dự kiến" />
+			<asp:label id="lblNgayKetThuc" CssClass="cssManField" runat="server" 
+                Text="Ngày kết thúc" />
 		                    </td>
                 <td align="left" style="width:10%;">
-			        <ew:CalendarPopup ID="m_dat_ngay_ket_thuc_du_kien" runat="server" 
+			        <ew:CalendarPopup ID="m_dat_ngay_ket_thuc" runat="server" 
                         ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
                         ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
                         ShowGoToToday="True" Width="70%">
@@ -214,13 +214,9 @@
                 </td>
                  <td align="right" style="width:5%;">
 			       
-			<asp:label id="lblGhiChu" CssClass="cssManField" runat="server" 
-                Text="Ghi chú" />
-		                    </td>
+			         &nbsp;</td>
                 <td align="left" style="width:10%;">
-			<asp:textbox id="m_txt_ghi_chu" CssClass="cssTextBox"  runat="server" 
-                MaxLength="64" Width="96%" />
-                         </td>
+			        &nbsp;</td>
                 <td align="left" style="width:1%;"></td>
             </tr>
             <tr>
@@ -265,7 +261,7 @@
                          <asp:RequiredFieldValidator ID="m_rfv_thue_suat" runat="server" 
                              
                              ErrorMessage="Bạn nhập thuế suất" Text="*"
-                             ControlToValidate="m_txt_thue_suat"></asp:RequiredFieldValidator>
+                             ControlToValidate="m_txt_thue_suat">%</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -357,7 +353,7 @@
 			        <asp:RadioButtonList ID="m_rbt_hoclieu_yn" runat="server" 
                         RepeatDirection="Horizontal">
                         <asp:ListItem Value="Y">Có</asp:ListItem>
-                        <asp:ListItem Value="N" Selected="True">Không</asp:ListItem>
+                        <asp:ListItem Value="N">Không</asp:ListItem>
                     </asp:RadioButtonList>
                 </td>
                      <td align="left" style="width:1%;">
@@ -373,7 +369,7 @@
                 <td align="left" style="width:10%;">
 			        <asp:RadioButtonList ID="m_rbt_bt_vanhanh_yn" runat="server" 
                         RepeatDirection="Horizontal">
-                        <asp:ListItem Value="Y" Selected="True">Có</asp:ListItem>
+                        <asp:ListItem Value="Y">Có</asp:ListItem>
                         <asp:ListItem Value="N">Không</asp:ListItem>
                     </asp:RadioButtonList>
 		                    </td>
@@ -388,6 +384,18 @@
                 <td align="left" style="width:10%;">
                     &nbsp;</td>            
                          <td align="left" style="width:1%;"></td>
+            </tr>
+            <tr>
+                <td align="right" style="width:5%;">
+                    <asp:Label ID="lblGhiChu0" runat="server" CssClass="cssManField" 
+                        Text="Ghi chú" />
+                </td>
+                <td align="left" colspan="7">
+                    <asp:TextBox ID="m_txt_ghi_chu1" runat="server" CssClass="cssTextBox" 
+                        MaxLength="64" Width="96%" />
+                </td>
+                <td align="left" style="width:1%;">
+                    &nbsp;</td>
             </tr>
             <tr>
                 <td align="right" style="width:5%;"></td>
@@ -406,7 +414,7 @@
 			        &nbsp;</td>
                 <td align="left" style="width:1%;">
 			        <asp:button id="m_cmd_luu_du_lieu" accessKey="s" CssClass="cssButton" 
-                runat="server" Width="98px" Text="Lưu dữ liệu" onclick="m_cmd_luu_du_lieu_Click" 
+                runat="server" Width="98px" Text="Lưu dữ liệu" 
                         Height="24px" />
                 </td>
 			   <td align="left" style="width:1%;"></td>
@@ -414,7 +422,7 @@
                      &nbsp;</td>
                 <td align="left" style="width:10%;">
                  <asp:button id="m_cmd_thoat" CssClass="cssButton" 
-                runat="server" Width="98px" Text="Thoát" onclick="m_cmd_thoat_Click" 
+                runat="server" Width="98px" Text="Thoát" 
                         Height="25px"  />
                  </td>     
                 <td align="left" style="width:1%;"></td>
