@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+
 using WebDS;
 using WebUS;
 using WebDS.CDBNames;
+
 using IP.Core.IPCommon;
 using IP.Core.IPUserService;
 using IP.Core.IPData;
@@ -78,10 +80,7 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
     US_V_DM_HOP_DONG_KHUNG m_us_v_hop_dong_khung = new US_V_DM_HOP_DONG_KHUNG();
     DS_V_DM_HOP_DONG_KHUNG m_ds_v_hop_dong_khung = new DS_V_DM_HOP_DONG_KHUNG();
     decimal m_dc_id_hop_dong_khung = 0;
-
-
-        #endregion
-
+    #endregion
 
     #region Private Method
  
@@ -96,7 +95,7 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
             m_cbo_giang_vien_ten.DataSource = v_ds_giang_vien_ten.V_DM_GIANG_VIEN;
             m_cbo_giang_vien_ten.DataValueField = V_DM_GIANG_VIEN.ID;
 
-            m_cbo_giang_vien_ten.DataTextField = V_DM_GIANG_VIEN.HO_VA_TEN_DEM;
+            m_cbo_giang_vien_ten.DataTextField = V_DM_GIANG_VIEN.TEN_GIANG_VIEN;
 
             m_cbo_giang_vien_ten.DataBind();
         }
@@ -113,7 +112,7 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
         DS_CM_DM_TU_DIEN v_ds_trang_thai_hd = new DS_CM_DM_TU_DIEN();
         try
         {
-            v_us_trang_thai_hd.FillDataset(v_ds_trang_thai_hd, " WHERE ID_LOAI_TU_DIEN = 8 ");
+            v_us_trang_thai_hd.FillDataset(v_ds_trang_thai_hd, " WHERE ID_LOAI_TU_DIEN ="+ e_loai_tu_dien.TRANG_THAI_HOP_DONG_KHUNG);
             m_cbo_dm_trang_thai_hop_dong.DataSource = v_ds_trang_thai_hd.CM_DM_TU_DIEN;
             m_cbo_dm_trang_thai_hop_dong.DataValueField = CM_DM_TU_DIEN.ID;
             m_cbo_dm_trang_thai_hop_dong.DataTextField = CM_DM_TU_DIEN.TEN;
@@ -169,8 +168,6 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
             m_cbo_dm_mon_hoc_3.DataTextField = DM_MON_HOC.TEN_MON_HOC;
            
             m_cbo_dm_mon_hoc_3.DataBind();
-          
-            
         }
         catch (Exception v_e)
         {
@@ -234,10 +231,10 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
          DS_CM_DM_TU_DIEN v_ds_dm_loai_hop_dong = new DS_CM_DM_TU_DIEN();
          try
          {
-             v_us_dm_loai_hop_dong.FillDataset(v_ds_dm_loai_hop_dong, " WHERE ID_LOAI_TU_DIEN = 7 ");
+             v_us_dm_loai_hop_dong.FillDataset(v_ds_dm_loai_hop_dong, " WHERE ID_LOAI_TU_DIEN = "+e_loai_tu_dien.LOAI_HOP_DONG);
              m_cbo_dm_loai_hop_dong.DataSource = v_ds_dm_loai_hop_dong.CM_DM_TU_DIEN;
              m_cbo_dm_loai_hop_dong.DataValueField = CM_DM_TU_DIEN.ID;
-             m_cbo_dm_loai_hop_dong.DataTextField = CM_DM_TU_DIEN.TEN_NGAN;
+             m_cbo_dm_loai_hop_dong.DataTextField = CM_DM_TU_DIEN.TEN;
              m_cbo_dm_loai_hop_dong.DataBind();
          }
          catch (Exception v_e)
@@ -252,7 +249,7 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
          DS_CM_DM_TU_DIEN v_ds_don_vi_quan_ly = new DS_CM_DM_TU_DIEN();
          try
          {
-             v_us_don_vi_quan_ly.FillDataset(v_ds_don_vi_quan_ly, " WHERE ID_LOAI_TU_DIEN = 3 ");
+             v_us_don_vi_quan_ly.FillDataset(v_ds_don_vi_quan_ly, " WHERE ID_LOAI_TU_DIEN = "+e_loai_tu_dien.DON_VI_QUAN_LY_CHINH);
              m_cbo_dm_loai_don_vi_quan_li.DataSource = v_ds_don_vi_quan_ly.CM_DM_TU_DIEN;
              m_cbo_dm_loai_don_vi_quan_li.DataValueField = CM_DM_TU_DIEN.ID;
              m_cbo_dm_loai_don_vi_quan_li.DataTextField = CM_DM_TU_DIEN.TEN;
@@ -284,6 +281,7 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
          }
 
      }
+
      private void form_2_us_object()
      { 
        
@@ -297,10 +295,10 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
     #endregion
     protected void m_cmd_luu_du_lieu_Click(object sender, EventArgs e)
     {
-
+        
     }
     protected void m_cmd_thoat_Click(object sender, EventArgs e)
     {
-
+           
     }
 }

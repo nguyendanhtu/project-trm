@@ -19,7 +19,6 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
     {
         try
         {
-            mtv_hop_dong_khung.ActiveViewIndex = 1;
             if (!Page.IsPostBack)
                 load_data_2_grid();
         }
@@ -101,67 +100,67 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
       
     }
 
-    private void get_form_search_data_and_load_to_grid()
-    {
+    //private void get_form_search_data_and_load_to_grid()
+    //{
 
-        try
-        {
+    //    try
+    //    {
 
-            // thu thập dữ liệu
+    //        // thu thập dữ liệu
 
-            string v_str_ten_giang_vien = m_txt_ten_giang_vien.Text.Trim();
+    //        string v_str_ten_giang_vien = m_txt_ten_giang_vien.Text.Trim();
 
-            string v_str_search_key_word = m_txt_tu_khoa_tim_kiem.Text.Trim();
+    //        string v_str_search_key_word = m_txt_tu_khoa_tim_kiem.Text.Trim();
 
-            string v_str_so_hop_dong = m_txt_so_hop_dong.Text.Trim();
+    //        string v_str_so_hop_dong = m_txt_so_hop_dong.Text.Trim();
 
-            decimal v_dc_loai_hop_dong = CIPConvert.ToDecimal(m_cbo_dm_loai_hop_dong.SelectedValue);
+    //        decimal v_dc_loai_hop_dong = CIPConvert.ToDecimal(m_cbo_dm_loai_hop_dong.SelectedValue);
 
-            decimal v_dc_trang_thai_hop_dong = CIPConvert.ToDecimal(m_cbo_dm_trang_thai_hop_dong.SelectedValue);
+    //        decimal v_dc_trang_thai_hop_dong = CIPConvert.ToDecimal(m_cbo_dm_trang_thai_hop_dong.SelectedValue);
 
-            decimal v_dc_don_vi_quan_li = CIPConvert.ToDecimal(m_cbo_dm_loai_don_vi_quan_li.SelectedValue);
+    //        decimal v_dc_don_vi_quan_li = CIPConvert.ToDecimal(m_cbo_dm_loai_don_vi_quan_li.SelectedValue);
 
-            DateTime v_dat_ngay_ky = CIPConvert.ToDatetime(m_dat_ngay_ki.Text);
+    //        DateTime v_dat_ngay_ky = CIPConvert.ToDatetime(m_dat_ngay_ki.Text);
 
-            DateTime v_dat_ngay_hieu_luc = CIPConvert.ToDatetime(m_dat_ngay_hieu_luc.Text);
+    //        DateTime v_dat_ngay_hieu_luc = CIPConvert.ToDatetime(m_dat_ngay_hieu_luc.Text);
 
-            DateTime v_dat_ngay_ket_thuc = CIPConvert.ToDatetime(m_dat_ngay_ket_thuc.Text);
+    //        DateTime v_dat_ngay_ket_thuc = CIPConvert.ToDatetime(m_dat_ngay_ket_thuc.Text);
 
-            // Search
+    //        // Search
 
-            m_us_dm_hop_dong_khung.search_hop_dong_khung(v_str_ten_giang_vien
+    //        m_us_dm_hop_dong_khung.search_hop_dong_khung(v_str_ten_giang_vien
 
-                                                , v_str_search_key_word
+    //                                            , v_str_search_key_word
 
-                                                , v_str_so_hop_dong
+    //                                            , v_str_so_hop_dong
 
-                                                , v_dc_loai_hop_dong
+    //                                            , v_dc_loai_hop_dong
 
-                                                , v_dc_trang_thai_hop_dong
+    //                                            , v_dc_trang_thai_hop_dong
 
-                                                , v_dc_don_vi_quan_li
+    //                                            , v_dc_don_vi_quan_li
 
-                                                , v_dat_ngay_ky
+    //                                            , v_dat_ngay_ky
 
-                                                , v_dat_ngay_hieu_luc
+    //                                            , v_dat_ngay_hieu_luc
 
-                                                , v_dat_ngay_ket_thuc
+    //                                            , v_dat_ngay_ket_thuc
 
-                                                , m_ds_hop_dong_khung);
+    //                                            , m_ds_hop_dong_khung);
 
-            m_grv_dm_danh_sach_hop_dong_khung.DataSource = m_ds_hop_dong_khung.V_DM_HOP_DONG_KHUNG;
+    //        m_grv_dm_danh_sach_hop_dong_khung.DataSource = m_ds_hop_dong_khung.V_DM_HOP_DONG_KHUNG;
 
-            m_grv_dm_danh_sach_hop_dong_khung.DataBind();
+    //        m_grv_dm_danh_sach_hop_dong_khung.DataBind();
 
-        }
+    //    }
 
-        catch (Exception v_e)
-        {
-            throw v_e;
+    //    catch (Exception v_e)
+    //    {
+    //        throw v_e;
 
-        }
+    //    }
 
-    }
+    //}
 
     #endregion
 }
