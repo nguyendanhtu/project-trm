@@ -120,7 +120,7 @@
 
                 <asp:label id="lblFullName1" CssClass="cssLabel" runat="server" 
                 
-                Text="(Từ khóa tìm kiếm: Mã giảng viên, tên giảng viên hoặc email, trường đào tạo,loại hợp đồng....)" />
+                Text="(Từ khóa tìm kiếm: Mã giảng viên, tên giảng viên hoặc email, trường đào tạo,loại hợp đồng, ngày bắt đầu hợp tác, ngày sinh,....)" />
 
 		        </td>
             </tr>
