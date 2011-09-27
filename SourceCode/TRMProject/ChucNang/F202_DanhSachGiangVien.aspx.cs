@@ -29,7 +29,6 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
     {
         try
         {
-            m_lbl_thong_bao.Text = "";
             if (Request.QueryString["mode"] != null && Request.QueryString["id"] != null)
             {
                 mtv_giang_vien.ActiveViewIndex = 0;
@@ -601,14 +600,15 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
 
             // Lưu dữ liệu
             save_data();
-            // Chuyển vể hiển thị danh sách giảng viên
-            Response.Redirect("/TRMProject/ChucNang/F202_DanhSachGiangVien.aspx");
             reset_control();
+            m_lbl_thong_bao.Text = "Cập nhật thông tin thành công";
+            // Chuyển vể hiển thị danh sách giảng viên
+            Response.Redirect("/TRMProject/ChucNang/F202_DanhSachGiangVien.aspx",false);
+            HttpContext.Current.ApplicationInstance.CompleteRequest();
             // và load lại dữ liệu
             //load_data_to_grid();
             //load_2_cbo_don_vi_q_ly();
-            //load_2_cbo_trang_thai_giang_vien();
-            m_lbl_thong_bao.Text = "Cập nhật thông tin thành công";
+            //load_2_cbo_trang_thai_giang_vien();        
         }
         catch (Exception v_e)
         {
