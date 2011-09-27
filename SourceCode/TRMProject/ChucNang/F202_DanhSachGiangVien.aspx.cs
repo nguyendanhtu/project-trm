@@ -184,6 +184,9 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
             else if (rdl_gender_check.Items[1].Selected) v_str_gender = "Y";
             else v_str_gender = "N";
 
+            DateTime v_dat_ngay_bd_hop_tac = m_dat_ngay_bd_hop_tac.SelectedDate;
+            string v_str_month = m_cbo_thang_sn_GV.SelectedValue;
+                 
             decimal v_dc_id_trang_thai_giang_vien = CIPConvert.ToDecimal(m_cbo_trang_thai_g_vien.SelectedValue);
             decimal v_dc_id_don_vi_quan_ly= CIPConvert.ToDecimal(m_cbo_don_vi_q_ly.SelectedValue);
 
