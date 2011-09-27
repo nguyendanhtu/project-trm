@@ -187,7 +187,8 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
             decimal v_dc_id_trang_thai_giang_vien = CIPConvert.ToDecimal(m_cbo_trang_thai_g_vien.SelectedValue);
             decimal v_dc_id_don_vi_quan_ly= CIPConvert.ToDecimal(m_cbo_don_vi_q_ly.SelectedValue);
 
-            // Search
+
+            // Thực hiện Search
 
             m_us_dm_giang_vien.search_giang_vien(v_str_ten_giang_vien
                                                 ,v_str_search_key_word      
