@@ -76,7 +76,7 @@
                <ew:CalendarPopup ID="m_dat_ngay_bd_hop_tac" runat="server" 
                         ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
                         ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
-                        ShowGoToToday="True" Width="70%">
+                        ShowGoToToday="True" Width="60%">
                         <weekdaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
                             font-size="XX-Small" forecolor="Black" />
                         <weekendstyle backcolor="LightGray" font-names="Verdana,Helvetica,Tahoma,Arial" 
@@ -120,10 +120,10 @@
                 Text="&lt;U&gt;T&lt;/U&gt;háng sinh nhật Giảng viên" />
 		            </td>
                 <td align="left" colspan="2">
-                    <asp:DropDownList id="m_cbo_thang_sn_GV" runat="server" Width="70%" 
+                    <asp:DropDownList id="m_cbo_thang_sn_GV" runat="server" Width="60%" 
                         CssClass="cssDorpdownlist"  >
-                        <asp:ListItem>Tất cả</asp:ListItem>
-                        <asp:ListItem>1</asp:ListItem>
+                        <asp:ListItem Selected="True" Value="All">Tất cả</asp:ListItem>
+                        <asp:ListItem Value="1">1</asp:ListItem>
                         <asp:ListItem>2</asp:ListItem>
                         <asp:ListItem>3</asp:ListItem>
                         <asp:ListItem>4</asp:ListItem>
