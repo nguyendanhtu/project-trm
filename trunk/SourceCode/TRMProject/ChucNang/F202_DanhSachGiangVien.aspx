@@ -2,6 +2,12 @@
 <%@ Register assembly="eWorld.UI" namespace="eWorld.UI" tagprefix="ew" %>
 <%@ Import Namespace ="IP.Core.IPCommon" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
+<style type="text/css">
+ a 
+ {
+   text-decoration:none;    
+ }
+</style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
 
@@ -202,7 +208,8 @@
                     <asp:TemplateField>
                     <HeaderTemplate>Tên giảng viên</HeaderTemplate>
                     <ItemTemplate>
-                    <label><%# Eval("TEN_GIANG_VIEN").ToString() %></label>
+                    <label><a href='<%# "/TRMProject/ChucNang/F201_CapNhatThongTinGiangVien.aspx?mode=edit&id="+Eval("ID") %>'>
+                    <%# Eval("TEN_GIANG_VIEN").ToString() %></a></label>
                     </ItemTemplate>
                     <ItemStyle Width="200px"/>
                     </asp:TemplateField>

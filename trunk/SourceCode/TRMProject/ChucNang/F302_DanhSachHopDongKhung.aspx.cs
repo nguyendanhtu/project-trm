@@ -100,6 +100,21 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
       
     }
 
+    public string get_ma_gv_form_id(decimal ip_dc_gv_id)
+    {
+        try
+        {
+            m_ds_dm_giang_vien.Clear();
+            m_us_dm_giang_vien.FillDataset(m_ds_dm_giang_vien, " WHERE ID=" + ip_dc_gv_id);
+            return m_ds_dm_giang_vien.V_DM_GIANG_VIEN.Rows[0][V_DM_GIANG_VIEN.MA_GIANG_VIEN].ToString();
+        }
+        catch (Exception v_e)
+        {
+            
+            throw v_e;
+        }
+    }
+
     //private void get_form_search_data_and_load_to_grid()
     //{
 

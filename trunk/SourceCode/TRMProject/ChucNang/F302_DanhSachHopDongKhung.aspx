@@ -1,6 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="F302_DanhSachHopDongKhung.aspx.cs" Inherits="ChucNang_F302_DanhSachHopDongKhung" %>
 <%@ Register assembly="eWorld.UI" namespace="eWorld.UI" tagprefix="ew" %>
+<%@ Import Namespace ="IP.Core.IPCommon" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
+<style type="text/css">
+ a 
+ {
+   text-decoration:none;    
+ }
+</style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
     
@@ -140,7 +147,6 @@
 	<tr>
 		<td align="center" colspan="3" style="height:450px;" valign="top">
 		    &nbsp;
-    <div id="grdCharges" runat="server" style="width: 100%; overflow: auto; height: auto;">
    <asp:GridView ID="m_grv_dm_danh_sach_hop_dong_khung" AllowPaging="true" 
                 runat="server" AutoGenerateColumns="False" 
                 Width="101%" DataKeyNames="ID"
@@ -152,11 +158,19 @@
                        <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
                         <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:TemplateField>
-                    
+                     <asp:TemplateField>
+                    <HeaderTemplate>Mã giảng viên</HeaderTemplate>
+                    <ItemTemplate>
+                    <label>
+                    <%# get_ma_gv_form_id(CIPConvert.ToDecimal(Eval("ID_GIANG_VIEN"))) %></label>
+                    </ItemTemplate>
+                    <ItemStyle Width="200px"/>
+                    </asp:TemplateField>
                     <asp:TemplateField>
                     <HeaderTemplate>Giảng viên</HeaderTemplate>
                     <ItemTemplate>
-                    <label><%# Eval("GIANG_VIEN").ToString() %></label>
+                    <label><a href='<%# "/TRMProject/ChucNang/F201_CapNhatThongTinGiangVien.aspx?mode=edit&id="+Eval("ID_GIANG_VIEN") %>'>
+                    <%# Eval("GIANG_VIEN").ToString() %></a></label>
                     </ItemTemplate>
                     <ItemStyle Width="200px"/>
                     </asp:TemplateField>
@@ -233,7 +247,6 @@
                 <SelectedRowStyle CssClass="cssSelectedRow" BackColor="#C5BBAF" Font-Bold="True" 
                       ForeColor="#333333"></SelectedRowStyle>
             </asp:GridView>
-    </div>
             </td>
 	</tr>	
 
