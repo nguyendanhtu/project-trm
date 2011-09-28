@@ -229,67 +229,54 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
         
     }
     #endregion
-    //private void get_form_search_data_and_load_to_grid()
-    //{
+    private void get_form_search_data_and_load_to_grid()
+    {
 
-    //    try
-    //    {
+        try
+        {
 
-    //        // thu thập dữ liệu
+            // thu thập dữ liệu
 
-    //        string v_str_ten_giang_vien = m_txt_ten_giang_vien.Text.Trim();
+            string v_str_ten_giang_vien = m_txt_ten_giang_vien.Text.Trim();
 
-    //        string v_str_search_key_word = m_txt_tu_khoa_tim_kiem.Text.Trim();
+            string v_str_search_key_word = m_txt_tu_khoa_tim_kiem.Text.Trim();
 
-    //        string v_str_so_hop_dong = m_txt_so_hop_dong.Text.Trim();
+            decimal v_dc_id_loai_hop_dong = CIPConvert.ToDecimal(m_cbo_loai_hop_dong_search.SelectedValue);
 
-    //        decimal v_dc_loai_hop_dong = CIPConvert.ToDecimal(m_cbo_dm_loai_hop_dong.SelectedValue);
+            decimal v_dc_trang_thai_hop_dong = CIPConvert.ToDecimal(m_cbo_trang_thai_hop_dong_search.SelectedValue);
 
-    //        decimal v_dc_trang_thai_hop_dong = CIPConvert.ToDecimal(m_cbo_dm_trang_thai_hop_dong.SelectedValue);
+            decimal v_dc_don_vi_quan_li = CIPConvert.ToDecimal(m_cbo_don_vi_quan_ly_search.SelectedValue);
+            string v_str_ma_po_quan_ly = m_txt_ma_PO_quan_ly.Text.Trim();
+            string v_str_so_hop_dong = m_txt_so_hd.Text.Trim();
+            DateTime v_dat_ngay_ki = m_dat_ngay_ki.SelectedDate;
+            DateTime v_dat_ngay_hieu_luc = m_dat_ngay_hieu_luc.SelectedDate;
 
-    //        decimal v_dc_don_vi_quan_li = CIPConvert.ToDecimal(m_cbo_dm_loai_don_vi_quan_li.SelectedValue);
+            // Search
 
-    //        DateTime v_dat_ngay_ky = CIPConvert.ToDatetime(m_dat_ngay_ki.Text);
+            m_us_dm_hop_dong_khung.search_hop_dong_khung( v_str_ten_giang_vien
+                                                        , v_str_search_key_word
+                                                        , v_dc_id_loai_hop_dong
+                                                        , v_str_so_hop_dong
+                                                        , v_dc_trang_thai_hop_dong
+                                                        , v_dc_don_vi_quan_li
+                                                        , v_str_ma_po_quan_ly
+                                                        , v_dat_ngay_ki
+                                                        , v_dat_ngay_hieu_luc
+                                                        , m_ds_hop_dong_khung);
 
-    //        DateTime v_dat_ngay_hieu_luc = CIPConvert.ToDatetime(m_dat_ngay_hieu_luc.Text);
+            m_grv_dm_danh_sach_hop_dong_khung.DataSource = m_ds_hop_dong_khung.V_DM_HOP_DONG_KHUNG;
 
-    //        DateTime v_dat_ngay_ket_thuc = CIPConvert.ToDatetime(m_dat_ngay_ket_thuc.Text);
+            m_grv_dm_danh_sach_hop_dong_khung.DataBind();
 
-    //        // Search
+        }
 
-    //        m_us_dm_hop_dong_khung.search_hop_dong_khung(v_str_ten_giang_vien
+        catch (Exception v_e)
+        {
+            throw v_e;
 
-    //                                            , v_str_search_key_word
+        }
 
-    //                                            , v_str_so_hop_dong
-
-    //                                            , v_dc_loai_hop_dong
-
-    //                                            , v_dc_trang_thai_hop_dong
-
-    //                                            , v_dc_don_vi_quan_li
-
-    //                                            , v_dat_ngay_ky
-
-    //                                            , v_dat_ngay_hieu_luc
-
-    //                                            , v_dat_ngay_ket_thuc
-
-    //                                            , m_ds_hop_dong_khung);
-
-    //        m_grv_dm_danh_sach_hop_dong_khung.DataSource = m_ds_hop_dong_khung.V_DM_HOP_DONG_KHUNG;
-
-    //        m_grv_dm_danh_sach_hop_dong_khung.DataBind();
-
-    //    }
-
-    //    catch (Exception v_e)
-    //    {
-    //        throw v_e;
-
-    //    }
-
-    //}
+    }
 
     #endregion
     protected void cmd_them_moi_Click(object sender, EventArgs e)
@@ -298,6 +285,17 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
         {
             Response.Redirect("/TRMProject/ChucNang/F301_GdHopDongKhung.aspx?mode=add", false);
             HttpContext.Current.ApplicationInstance.CompleteRequest();
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(this, v_e);
+        }
+    }
+    protected void m_cmd_loc_du_lieu_Click(object sender, EventArgs e)
+    {
+        try
+        {
+           
         }
         catch (Exception v_e)
         {
