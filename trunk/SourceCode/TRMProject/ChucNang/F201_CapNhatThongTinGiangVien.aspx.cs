@@ -50,6 +50,7 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
     DataEntryFormMode m_init_mode;
     decimal m_dc_id = 0;
     #endregion
+
     #region Private Methods
     private void load_data_2_us_by_id_and_show_on_form(decimal ip_i_id)
     {
