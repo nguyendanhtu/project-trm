@@ -60,13 +60,15 @@
                 Text="Tên giảng viên" />
                          </td>
                 <td align="left" style="width:10%;">	
-               <input type="text" class="cssTextBox" style="width:96%" id="m_txt_ten_gv"/>
+               <!--<input type="text" class="cssTextBox" style="width:96%" id="m_txt_ten_gv"/> -->
+               <asp:DropDownList ID="m_cbo_gvien" Width="96%" runat="server">
+               </asp:DropDownList>
                          </td>
                          <td align="left" style="width:1%;"> 
                              &nbsp;</td>
                 <td align="left" style="width:5%;">
-			       <asp:Button ID="m_cmd_chosose_gv" runat="server" Text="+" 
-                        CausesValidation="False" />
+			      <!-- <asp:Button ID="m_cmd_chosose_gv" runat="server" Text="+" 
+                        CausesValidation="False" /> -->
 		            &nbsp;</td>
                 <td align="left" style="width:10%;">&nbsp;</td>
                 <td align="left" style="width:1%;">&nbsp;</td>
