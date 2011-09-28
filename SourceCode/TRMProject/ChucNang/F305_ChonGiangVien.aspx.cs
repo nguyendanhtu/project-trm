@@ -17,7 +17,11 @@ public partial class ChucNang_F305_ChonGiangVien : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (!IsPostBack)
+        {
+            load_2_cbo_don_vi_q_ly();
+            load_2_cbo_trang_thai_giang_vien();
+        }
     }
     #region Members
     US_V_DM_GIANG_VIEN m_us_dm_giang_vien = new US_V_DM_GIANG_VIEN();
