@@ -180,9 +180,25 @@ public partial class ChucNang_F305_ChonGiangVien : System.Web.UI.Page
          {
              decimal v_dc_id_dm_giang_vien = CIPConvert.ToDecimal(m_grv_dm_danh_sach_giang_vien.DataKeys[e.NewSelectedIndex].Value);
              US_V_DM_GIANG_VIEN v_us_dm_giang_vien = new US_V_DM_GIANG_VIEN(v_dc_id_dm_giang_vien);
-             Session["id_giang_vien"] = v_us_dm_giang_vien.dcID;
-             Session["name_giang_vien"] = v_us_dm_giang_vien.strTEN_GIANG_VIEN;
-             Response.Write("<script language='javascript'>{windown.close();}</scritp>");
+             //Session["id_giang_vien"] = v_us_dm_giang_vien.dcID;
+             //Session["name_giang_vien"] = v_us_dm_giang_vien.strTEN_GIANG_VIEN;
+             //Response.Write("<script language='javascript'>{windown.close();}</scritp>");
+
+         }
+         catch (Exception v_e)
+         {
+             CSystemLog_301.ExceptionHandle(this, v_e);
+         }
+     }
+     protected void m_grv_dm_danh_sach_giang_vien_RowDataBound(object sender, GridViewRowEventArgs e)
+     {
+         try
+         {
+             if ((e.Row.RowType == DataControlRowType.DataRow))
+             {
+                 //assuming that the required value column is the second column in gridview
+                 ((Button)e.Row.FindControl("btnSelect")).Attributes.Add("onclick", "javascript:GetRowValue('" + e.Row.Cells[0].Text + "')");
+             }
          }
          catch (Exception v_e)
          {

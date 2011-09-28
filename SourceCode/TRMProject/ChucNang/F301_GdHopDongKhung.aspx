@@ -7,7 +7,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     <title>F301 - Giao dịch hợp đồng khung</title>
-    
+    <script type="text/javascript">
+        function OpenPopup() {
+            window.open("/TRMProject/ChucNang/F305_ChonGiangVien.aspx", "_blank", "scrollbars=no,resizable=no,width=400,height=280");
+            return false;
+        }
+    </script>
     <link href="~/Styles/Admin.css" rel="stylesheet" type="text/css" />
     </head>
 <body>
@@ -62,7 +67,7 @@
                              &nbsp;</td>
                 <td align="left" style="width:5%;">
 			       <asp:Button ID="m_cmd_chosose_gv" runat="server" Text="+" 
-                        onclick="m_cmd_chosose_gv_Click" CausesValidation="False" />
+                        CausesValidation="False" />
 		            &nbsp;</td>
                 <td align="left" style="width:10%;">&nbsp;</td>
                 <td align="left" style="width:1%;">&nbsp;</td>
