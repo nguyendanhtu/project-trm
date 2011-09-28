@@ -21,43 +21,32 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
     {
         try
         {
-            m_cmd_thoat.Attributes.Add("onclick", "window.close();");
-            if (this.Request.QueryString["mode"] != null && this.Request.QueryString["id_lop_mon"] != null)
-            {
-                if (this.Request.QueryString["mode"] == "update")
-                    m_e_form_mode = DataEntryFormMode.UpdateDataState;
-                else if (this.Request.QueryString["mode"] == "insert") m_e_form_mode = DataEntryFormMode.InsertDataState;
-                else if (this.Request.QueryString["mode"] == "view") m_e_form_mode = DataEntryFormMode.ViewDataState;
-                else return;
-               
-            }
             if (!this.IsPostBack)
             {
                 load_2_cbo_don_vi_tt();
                 load_2_cbo_trang_thai_hd();
                 load_2_cbo_don_vi_quan_ly();
                 load_2_cbo_loai_hop_dong();
-                load_2_cbo_ten_giang_vien();
                 load_2_cbo_mon_hoc_1();
                 load_2_cbo_mon_hoc_2();
                 load_2_cbo_mon_hoc_3();
                 load_2_cbo_mon_hoc_4();
                 load_2_cbo_mon_hoc_5();
                 load_2_cbo_mon_hoc_6();
-                switch (m_e_form_mode)
+
+                if (Request.QueryString["mode"] != null && Request.QueryString["mode"].ToString().Equals("edit"))
                 {
-
-                    case DataEntryFormMode.UpdateDataState:
-                  
-                        break;
-                    case DataEntryFormMode.InsertDataState:
-
-                        break;
-                    case DataEntryFormMode.ViewDataState:
-
-                        break;
+                    m_init_mode = DataEntryFormMode.UpdateDataState;
+                    // Load data need to update - if mode = update
+                    m_dc_id = CIPConvert.ToDecimal(Request.QueryString["id"]);
+                    load_data_2_us_by_id_and_show_on_form(m_dc_id);
+                    m_txt_so_hop_dong.Enabled = false;
                 }
-
+                else
+                {
+                    m_init_mode = DataEntryFormMode.InsertDataState;
+                    m_txt_so_hop_dong.Enabled = true;
+                }
             }
         }
         catch (Exception v_e)
@@ -74,34 +63,26 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
     #endregion
 
     #region Members
-    US_V_DM_GIANG_VIEN m_us_v_giang_vien = new US_V_DM_GIANG_VIEN();
-    DS_V_DM_GIANG_VIEN m_ds_v_giang_vien = new DS_V_DM_GIANG_VIEN();
-    decimal m_dc_id_giang_vien = 0;
     US_V_DM_HOP_DONG_KHUNG m_us_v_hop_dong_khung = new US_V_DM_HOP_DONG_KHUNG();
     DS_V_DM_HOP_DONG_KHUNG m_ds_v_hop_dong_khung = new DS_V_DM_HOP_DONG_KHUNG();
-    decimal m_dc_id_hop_dong_khung = 0;
+    DataEntryFormMode m_init_mode;
+    decimal m_dc_id = 0;
     #endregion
 
     #region Private Method
- 
-     private void load_2_cbo_ten_giang_vien()
+    private void reset_control()
     {
-
-        US_V_DM_GIANG_VIEN v_us_giang_vien_ten =new  US_V_DM_GIANG_VIEN();
-        DS_V_DM_GIANG_VIEN v_ds_giang_vien_ten =new DS_V_DM_GIANG_VIEN();
-        try 
+      
+    }
+    private bool check_so_hd()
+    {
+        try
         {
-            v_us_giang_vien_ten.FillDataset(v_ds_giang_vien_ten);
-            m_cbo_giang_vien_ten.DataSource = v_ds_giang_vien_ten.V_DM_GIANG_VIEN;
-            m_cbo_giang_vien_ten.DataValueField = V_DM_GIANG_VIEN.ID;
-
-            m_cbo_giang_vien_ten.DataTextField = V_DM_GIANG_VIEN.TEN_GIANG_VIEN;
-
-            m_cbo_giang_vien_ten.DataBind();
+            if (m_us_v_hop_dong_khung.check_exist_so_hd(m_txt_so_hop_dong.Text.TrimEnd())) return false;
+            return true;
         }
         catch (Exception v_e)
         {
-		
             throw v_e;
         }
     }
@@ -110,7 +91,7 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
         DS_CM_DM_TU_DIEN v_ds_trang_thai_hd = new DS_CM_DM_TU_DIEN();
         try
         {
-            v_us_trang_thai_hd.FillDataset(v_ds_trang_thai_hd, " WHERE ID_LOAI_TU_DIEN ="+ e_loai_tu_dien.TRANG_THAI_HOP_DONG_KHUNG);
+            v_us_trang_thai_hd.FillDataset(v_ds_trang_thai_hd, " WHERE ID_LOAI_TU_DIEN ="+ (int)e_loai_tu_dien.TRANG_THAI_HOP_DONG_KHUNG);
             m_cbo_dm_trang_thai_hop_dong.DataSource = v_ds_trang_thai_hd.CM_DM_TU_DIEN;
             m_cbo_dm_trang_thai_hop_dong.DataValueField = CM_DM_TU_DIEN.ID;
             m_cbo_dm_trang_thai_hop_dong.DataTextField = CM_DM_TU_DIEN.TEN;
@@ -229,7 +210,7 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
          DS_CM_DM_TU_DIEN v_ds_dm_loai_hop_dong = new DS_CM_DM_TU_DIEN();
          try
          {
-             v_us_dm_loai_hop_dong.FillDataset(v_ds_dm_loai_hop_dong, " WHERE ID_LOAI_TU_DIEN = "+e_loai_tu_dien.LOAI_HOP_DONG);
+             v_us_dm_loai_hop_dong.FillDataset(v_ds_dm_loai_hop_dong, " WHERE ID_LOAI_TU_DIEN = "+(int)e_loai_tu_dien.LOAI_HOP_DONG);
              m_cbo_dm_loai_hop_dong.DataSource = v_ds_dm_loai_hop_dong.CM_DM_TU_DIEN;
              m_cbo_dm_loai_hop_dong.DataValueField = CM_DM_TU_DIEN.ID;
              m_cbo_dm_loai_hop_dong.DataTextField = CM_DM_TU_DIEN.TEN;
@@ -247,7 +228,7 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
          DS_CM_DM_TU_DIEN v_ds_don_vi_quan_ly = new DS_CM_DM_TU_DIEN();
          try
          {
-             v_us_don_vi_quan_ly.FillDataset(v_ds_don_vi_quan_ly, " WHERE ID_LOAI_TU_DIEN = "+e_loai_tu_dien.DON_VI_QUAN_LY_CHINH);
+             v_us_don_vi_quan_ly.FillDataset(v_ds_don_vi_quan_ly, " WHERE ID_LOAI_TU_DIEN = "+(int)e_loai_tu_dien.DON_VI_QUAN_LY_CHINH);
              m_cbo_dm_loai_don_vi_quan_li.DataSource = v_ds_don_vi_quan_ly.CM_DM_TU_DIEN;
              m_cbo_dm_loai_don_vi_quan_li.DataValueField = CM_DM_TU_DIEN.ID;
              m_cbo_dm_loai_don_vi_quan_li.DataTextField = CM_DM_TU_DIEN.TEN;
@@ -280,23 +261,183 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
 
      }
 
-     private void form_2_us_object()
-     { 
-       
-     }
-     private void us_object_2_form() {
+     private void form_2_us_object(US_V_DM_HOP_DONG_KHUNG ip_us_hd_khung)
+     {
+         try
+         {
+             ip_us_hd_khung.strSO_HOP_DONG = m_txt_so_hop_dong.Text;
+             ip_us_hd_khung.strGIANG_VIEN = m_txt_ten_gv.Text;
+             if (m_dat_ngay_ki.Text != "")
+                 ip_us_hd_khung.datNGAY_KY = m_dat_ngay_ki.SelectedDate;
+             else ip_us_hd_khung.datNGAY_KY = CIPConvert.ToDatetime("01/01/1900");
+             if (m_dat_ngay_hieu_luc.Text != "")
+                 ip_us_hd_khung.datNGAY_HIEU_LUC = m_dat_ngay_hieu_luc.SelectedDate;
+             else ip_us_hd_khung.datNGAY_HIEU_LUC = CIPConvert.ToDatetime("01/01/1900");
+             if (m_dat_ngay_ket_thuc.Text != "")
+                 ip_us_hd_khung.datNGAY_KET_THUC_DU_KIEN = m_dat_ngay_ket_thuc.SelectedDate;
+             else ip_us_hd_khung.datNGAY_KET_THUC_DU_KIEN = CIPConvert.ToDatetime("01/01/1900");
+             
+             ip_us_hd_khung.dcID_LOAI_HOP_DONG =CIPConvert.ToDecimal(m_cbo_dm_loai_hop_dong.SelectedValue);
+             ip_us_hd_khung.dcID_TRANG_THAI_HOP_DONG = CIPConvert.ToDecimal(m_cbo_dm_trang_thai_hop_dong.SelectedValue);
+             ip_us_hd_khung.dcID_DON_VI_QUAN_LY = CIPConvert.ToDecimal(m_cbo_dm_loai_don_vi_quan_li.SelectedValue);
+             ip_us_hd_khung.dcID_DON_VI_THANH_TOAN = CIPConvert.ToDecimal(m_cbo_dm_loai_don_vi_thanh_toan.SelectedValue);
+            
+             ip_us_hd_khung.dcID_MON1 = CIPConvert.ToDecimal(m_cbo_dm_mon_hoc_1.SelectedValue);
+             ip_us_hd_khung.dcID_MON2 = CIPConvert.ToDecimal(m_cbo_dm_mon_hoc_2.SelectedValue);
+             ip_us_hd_khung.dcID_MON3 = CIPConvert.ToDecimal(m_cbo_dm_mon_hoc_3.SelectedValue);
+             ip_us_hd_khung.dcID_MON4 = CIPConvert.ToDecimal(m_cbo_dm_mon_hoc_4.SelectedValue);
+             ip_us_hd_khung.dcID_MON5 = CIPConvert.ToDecimal(m_cbo_dm_mon_hoc_5.SelectedValue);
+             ip_us_hd_khung.dcID_MON6 = CIPConvert.ToDecimal(m_cbo_dm_mon_hoc_6.SelectedValue);
+             if(m_txt_thue_suat.Text!="")
+             ip_us_hd_khung.dcTHUE_SUAT =CIPConvert.ToDecimal(m_txt_thue_suat.Text);
+             if(m_txt_gia_tri_hop_dong.Text !="")
+              ip_us_hd_khung.dcGIA_TRI_HOP_DONG=CIPConvert.ToDecimal(m_txt_gia_tri_hop_dong.Text);
+            
+             if (m_rbt_hoclieu_yn.Items[0].Selected)
+                 ip_us_hd_khung.strHOC_LIEU_YN = "Y";
+             else ip_us_hd_khung.strHOC_LIEU_YN = "N";
 
-         m_txt_so_hop_dong.Text = m_us_v_hop_dong_khung.strSO_HOP_DONG;
-         m_txt_gia_tri_hop_dong.Text = CIPConvert.ToStr(m_us_v_hop_dong_khung.dcGIA_TRI_HOP_DONG);
+             if (m_rbt_bt_vanhanh_yn.Items[0].Selected)
+                 ip_us_hd_khung.strHOC_LIEU_YN = "Y";
+             else ip_us_hd_khung.strHOC_LIEU_YN = "N";
+
+             if (m_rbt_co_so_hd_yn.Items[0].Selected)
+                 ip_us_hd_khung.strHOC_LIEU_YN = "Y";
+             else ip_us_hd_khung.strHOC_LIEU_YN = "N";
+             ip_us_hd_khung.strGHI_CHU = m_txt_ghi_chu1.Text;
+         }
+         catch (Exception v_e)
+         {
+
+             throw v_e;
+         }
+
      }
 
+     private void us_object_2_form(US_V_DM_HOP_DONG_KHUNG ip_us_hd_khung)
+     {
+         try
+         {
+             m_txt_so_hop_dong.Text = ip_us_hd_khung.strSO_HOP_DONG;
+             m_txt_ten_gv.Text= ip_us_hd_khung.strGIANG_VIEN ;
+             if (ip_us_hd_khung.datNGAY_KY != null)
+                 m_dat_ngay_ki.SelectedDate = ip_us_hd_khung.datNGAY_KY;
+            // else ip_us_hd_khung.datNGAY_KY = CIPConvert.ToDatetime("01/01/1900");
+             if (ip_us_hd_khung.datNGAY_HIEU_LUC !=null )
+                 m_dat_ngay_hieu_luc.SelectedDate= ip_us_hd_khung.datNGAY_HIEU_LUC;
+             //else ip_us_hd_khung.datNGAY_HIEU_LUC = CIPConvert.ToDatetime("01/01/1900");
+             if (ip_us_hd_khung.datNGAY_KET_THUC_DU_KIEN != null)
+                 m_dat_ngay_ket_thuc.SelectedDate = ip_us_hd_khung.datNGAY_KET_THUC_DU_KIEN;
+            // else ip_us_hd_khung.datNGAY_KET_THUC_DU_KIEN = CIPConvert.ToDatetime("01/01/1900");
+
+             m_cbo_dm_loai_hop_dong.SelectedValue =CIPConvert.ToStr(ip_us_hd_khung.dcID_LOAI_HOP_DONG);
+             m_cbo_dm_trang_thai_hop_dong.SelectedValue = CIPConvert.ToStr(ip_us_hd_khung.dcID_TRANG_THAI_HOP_DONG);
+             m_cbo_dm_loai_don_vi_quan_li.SelectedValue = CIPConvert.ToStr(ip_us_hd_khung.dcID_DON_VI_QUAN_LY);
+             m_cbo_dm_loai_don_vi_thanh_toan.SelectedValue =CIPConvert.ToStr(ip_us_hd_khung.dcID_DON_VI_THANH_TOAN);
+
+             m_cbo_dm_mon_hoc_1.SelectedValue = CIPConvert.ToStr(ip_us_hd_khung.dcID_MON1);
+             m_cbo_dm_mon_hoc_2.SelectedValue = CIPConvert.ToStr(ip_us_hd_khung.dcID_MON2);
+             m_cbo_dm_mon_hoc_3.SelectedValue = CIPConvert.ToStr(ip_us_hd_khung.dcID_MON3);
+             m_cbo_dm_mon_hoc_4.SelectedValue = CIPConvert.ToStr(ip_us_hd_khung.dcID_MON4);
+             m_cbo_dm_mon_hoc_5.SelectedValue = CIPConvert.ToStr(ip_us_hd_khung.dcID_MON5);
+             m_cbo_dm_mon_hoc_6.SelectedValue = CIPConvert.ToStr(ip_us_hd_khung.dcID_MON6);
+
+             m_txt_thue_suat.Text = CIPConvert.ToStr(ip_us_hd_khung.dcTHUE_SUAT);
+             m_txt_gia_tri_hop_dong.Text = CIPConvert.ToStr(ip_us_hd_khung.dcGIA_TRI_HOP_DONG);
+
+             if (ip_us_hd_khung.strHOC_LIEU_YN == "Y")
+                 m_rbt_hoclieu_yn.Items[0].Selected = true;
+             else m_rbt_hoclieu_yn.Items[1].Selected = true;
+
+             if (ip_us_hd_khung.strVAN_HANH_YN == "Y")
+                 m_rbt_bt_vanhanh_yn.Items[0].Selected = true;
+             else m_rbt_bt_vanhanh_yn.Items[1].Selected = true;
+
+             if (ip_us_hd_khung.strCO_SO_HD_YN == "Y")
+                 m_rbt_co_so_hd_yn.Items[0].Selected = true;
+             else m_rbt_co_so_hd_yn.Items[1].Selected = true;
+             ip_us_hd_khung.strGHI_CHU = m_txt_ghi_chu1.Text;
+         }
+         catch (Exception v_e)
+         {
+
+             throw v_e;
+         }
+
+     }
+     private void load_data_2_us_by_id_and_show_on_form(decimal ip_i_id)
+     {
+         US_V_DM_HOP_DONG_KHUNG v_us_hop_dong_khung = new US_V_DM_HOP_DONG_KHUNG(ip_i_id);
+         // Đẩy us lên form
+         us_object_2_form(v_us_hop_dong_khung);
+     }
+
+     private void save_data()
+     {
+         try
+         {
+             if (m_init_mode != DataEntryFormMode.UpdateDataState)
+                 m_us_v_hop_dong_khung.Insert();
+             else m_us_v_hop_dong_khung.Update();
+         }
+         catch (Exception v_e)
+         {
+             throw v_e;
+         }
+     }
     #endregion
     protected void m_cmd_luu_du_lieu_Click(object sender, EventArgs e)
     {
-        
+        try
+        {
+            // Nếu đang cập nhật thông tin giảng viên thì ta phải cung cấp thêm Id giảng viên
+            if (m_init_mode == DataEntryFormMode.InsertDataState)
+            {
+                if (!check_so_hd())
+                {
+                    m_lbl_mess.Text = "Số hợp đồng này đã tồn tại";
+                    return;
+                }
+            }
+            form_2_us_object(m_us_v_hop_dong_khung);
+
+            // Lưu dữ liệu
+            save_data();
+            reset_control();
+            // Chuyển vể danh sách giảng viên
+            if (m_init_mode == DataEntryFormMode.UpdateDataState)
+                Response.Redirect("/TRMProject/ChucNang/F302_DanhSachHopDongKhung.aspx?edit=ok", false);
+            else Response.Redirect("/TRMProject/ChucNang/F302_DanhSachHopDongKhung.aspx?edit=add", false);
+            HttpContext.Current.ApplicationInstance.CompleteRequest();
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(this, v_e);
+        }
     }
     protected void m_cmd_thoat_Click(object sender, EventArgs e)
     {
-           
+        try
+        {
+            Response.Redirect("/TRMProject/ChucNang/F302_DanhSachHopDongKhung.aspx", false);
+            HttpContext.Current.ApplicationInstance.CompleteRequest();
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(this, v_e);
+        } 
+    }
+    protected void m_cmd_chosose_gv_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            Response.Redirect("/TRMProject/ChucNang/F305_ChonGiangVien.aspx", false);
+            HttpContext.Current.ApplicationInstance.CompleteRequest();
+        }
+        catch (Exception v_e)
+        {
+
+            CSystemLog_301.ExceptionHandle(this,v_e);
+        }
     }
 }

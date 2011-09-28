@@ -55,14 +55,14 @@
                 Text="Tên giảng viên" />
                          </td>
                 <td align="left" style="width:10%;">
-		    <asp:DropDownList id="m_cbo_giang_vien_ten" runat="server" Width="96%" 
-                        CssClass="cssDorpdownlist" Height="20px"  />
+			<asp:textbox id="m_txt_ten_gv" CssClass="cssTextBox"  runat="server" 
+                MaxLength="64" Width="96%" />
                          </td>
                          <td align="left" style="width:1%;"> 
-                             <asp:RequiredFieldValidator ID="m_rfv_ten_giang_vien" runat="server"  Text="*"
-                        ControlToValidate="m_cbo_giang_vien_ten" ErrorMessage="Bạn phải tên giảng viên"></asp:RequiredFieldValidator></td>
+                             &nbsp;</td>
                 <td align="left" style="width:5%;">
-			       
+			       <asp:Button ID="m_cmd_chosose_gv" runat="server" Text="+" 
+                        onclick="m_cmd_chosose_gv_Click" CausesValidation="False" />
 		            &nbsp;</td>
                 <td align="left" style="width:10%;">&nbsp;</td>
                 <td align="left" style="width:1%;">&nbsp;</td>
@@ -79,7 +79,7 @@
 			        <ew:CalendarPopup ID="m_dat_ngay_ki" runat="server" 
                         ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
                         ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
-                        ShowGoToToday="True" Width="70%" SelectedDate="">
+                        ShowGoToToday="True" Width="70%" SelectedDate="" Text="">
                         <weekdaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
                             font-size="XX-Small" forecolor="Black" />
                         <weekendstyle backcolor="LightGray" font-names="Verdana,Helvetica,Tahoma,Arial" 
@@ -117,7 +117,7 @@
 			        <ew:CalendarPopup ID="m_dat_ngay_hieu_luc" runat="server" 
                         ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
                         ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
-                        ShowGoToToday="True" Width="70%">
+                        ShowGoToToday="True" Width="70%" Text="">
                         <weekdaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
                             font-size="XX-Small" forecolor="Black" />
                         <weekendstyle backcolor="LightGray" font-names="Verdana,Helvetica,Tahoma,Arial" 
@@ -154,7 +154,7 @@
 			        <ew:CalendarPopup ID="m_dat_ngay_ket_thuc" runat="server" 
                         ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
                         ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
-                        ShowGoToToday="True" Width="70%">
+                        ShowGoToToday="True" Width="70%" Text="">
                         <weekdaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
                             font-size="XX-Small" forecolor="Black" />
                         <weekendstyle backcolor="LightGray" font-names="Verdana,Helvetica,Tahoma,Arial" 
@@ -193,10 +193,7 @@
                         CssClass="cssDorpdownlist"  />
                 </td>
                      <td align="left" style="width:1%;">
-                         <asp:RequiredFieldValidator ID="m_rfv_offline0" runat="server" 
-                             ErrorMessage="Bạn phải chọn loại hợp đồng" Text="*"
-                             ControlToValidate="m_cbo_dm_loai_hop_dong"></asp:RequiredFieldValidator>
-                </td>
+                         &nbsp;</td>
                 <td align="right" style="width:5%;">
 			<asp:label id="lblDonViQuanLy" CssClass="cssManField" runat="server" 
                 Text="Đơn vị quản lý" />
@@ -207,11 +204,7 @@
                         CssClass="cssDorpdownlist"  />
 		                    </td>
                       <td align="left" style="width:1%;">
-                         <asp:RequiredFieldValidator ID="m_rfv_don_vi_quan_li" runat="server" 
-                             
-                             ErrorMessage="Bạn phải chọn đơn vị quản lý" 
-                             ControlToValidate="m_cbo_dm_loai_don_vi_quan_li">*</asp:RequiredFieldValidator>
-                </td>
+                          &nbsp;</td>
                  <td align="right" style="width:5%;">
 			       
 			         &nbsp;</td>
@@ -229,10 +222,7 @@
                         CssClass="cssDorpdownlist"  />
                 </td>
                      <td align="left" style="width:1%;">
-                         <asp:RequiredFieldValidator ID="m_rfv_trang_thai_hop_dong" runat="server" 
-                             ErrorMessage="Bạn phải chọn trạng thái hợp đồng" Text="*"
-                             ControlToValidate="m_cbo_dm_trang_thai_hop_dong"></asp:RequiredFieldValidator>
-                </td>
+                         &nbsp;</td>
                 <td align="right" style="width:5%;">
 			<asp:label id="lblDonViThanhToan" CssClass="cssManField" runat="server" 
                 Text="Đơn vị thanh toán" />
@@ -243,11 +233,7 @@
                         CssClass="cssDorpdownlist"  />
 		                    </td>
                       <td align="left" style="width:1%;">
-                         <asp:RequiredFieldValidator ID="m_rfv_don_vi_thanh_toan" runat="server" 
-                             
-                             ErrorMessage="Bạn phải chọn đơn vị quản lý" Text="*"
-                             ControlToValidate="m_cbo_dm_loai_don_vi_thanh_toan"></asp:RequiredFieldValidator>
-                </td>
+                          &nbsp;</td>
                  <td align="right" style="width:5%;">
 			       
 			<asp:label id="lblThueSuat" CssClass="cssManField" runat="server" 
@@ -353,15 +339,11 @@
 			        <asp:RadioButtonList ID="m_rbt_hoclieu_yn" runat="server" 
                         RepeatDirection="Horizontal">
                         <asp:ListItem Value="Y">Có</asp:ListItem>
-                        <asp:ListItem Value="N">Không</asp:ListItem>
+                        <asp:ListItem Value="N" Selected="True">Không</asp:ListItem>
                     </asp:RadioButtonList>
                 </td>
                      <td align="left" style="width:1%;">
-                         <asp:RequiredFieldValidator ID="m_rfv_offline" runat="server" 
-                             
-                             ErrorMessage="Bạn phải chọn Có học liệu? Có hoặc Không" 
-                             ControlToValidate="m_rbt_hoclieu_yn">*</asp:RequiredFieldValidator>
-                </td>
+                         &nbsp;</td>
                 <td align="right" style="width:5%;">
 			<asp:label id="lblVanHanh" CssClass="cssManField" runat="server" 
                 Text="Vận hành" />
@@ -369,20 +351,23 @@
                 <td align="left" style="width:10%;">
 			        <asp:RadioButtonList ID="m_rbt_bt_vanhanh_yn" runat="server" 
                         RepeatDirection="Horizontal">
-                        <asp:ListItem Value="Y">Có</asp:ListItem>
+                        <asp:ListItem Value="Y" Selected="True">Có</asp:ListItem>
                         <asp:ListItem Value="N">Không</asp:ListItem>
                     </asp:RadioButtonList>
 		                    </td>
                      <td align="left" style="width:1%;">
-                         <asp:RequiredFieldValidator ID="m_rfv_offline2" runat="server" 
-                             
-                             ErrorMessage="Bạn phải chọn Có bài tập giữa kỳ? Có hoặc Không" 
-                             ControlToValidate="m_rbt_bt_vanhanh_yn">*</asp:RequiredFieldValidator>
-                </td>
+                         &nbsp;</td>
                  <td align="right" style="width:5%;">
-			         &nbsp;</td>
+			<asp:label id="lblco_so_hd" CssClass="cssManField" runat="server" 
+                Text="Có số Hóa đơn" />
+		                    </td>
                 <td align="left" style="width:10%;">
-                    &nbsp;</td>            
+			        <asp:RadioButtonList ID="m_rbt_co_so_hd_yn" runat="server" 
+                        RepeatDirection="Horizontal">
+                        <asp:ListItem Value="Y" Selected="True">Có</asp:ListItem>
+                        <asp:ListItem Value="N">Không</asp:ListItem>
+                    </asp:RadioButtonList>
+		                    </td>            
                          <td align="left" style="width:1%;"></td>
             </tr>
             <tr>
