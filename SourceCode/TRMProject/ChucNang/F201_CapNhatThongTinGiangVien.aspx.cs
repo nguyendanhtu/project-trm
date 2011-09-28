@@ -32,11 +32,16 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
                 load_data_2_us_by_id_and_show_on_form(m_dc_id);
                 m_txt_ma_giang_vien.Enabled = false;
             }
-            else
-            {
-                m_init_mode = DataEntryFormMode.InsertDataState;
-                m_txt_ma_giang_vien.Enabled = true;
-            }
+        }
+        if (Request.QueryString["mode"] != null && Request.QueryString["mode"].ToString().Equals("edit"))
+        {
+            m_init_mode = DataEntryFormMode.UpdateDataState;
+            m_txt_ma_giang_vien.Enabled = false;
+        }
+        else
+        {
+            m_init_mode = DataEntryFormMode.InsertDataState;
+            m_txt_ma_giang_vien.Enabled = true;
         }
        
     }
