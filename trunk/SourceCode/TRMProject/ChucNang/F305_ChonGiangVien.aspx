@@ -228,11 +228,9 @@
 		    &nbsp;
    <asp:GridView ID="m_grv_dm_danh_sach_giang_vien" AllowPaging="True" 
                 runat="server" AutoGenerateColumns="False" 
-                Width="101%" DataKeyNames="ID"
+                Width="100%" DataKeyNames="ID"
                 CellPadding="4" ForeColor="#333333" 
             AllowSorting="True" 
-            onpageindexchanging="m_grv_dm_danh_sach_giang_vien_PageIndexChanging" 
-            onrowdeleting="m_grv_dm_danh_sach_giang_vien_RowDeleting" PageSize="15" 
                 onselectedindexchanging="m_grv_dm_danh_sach_giang_vien_SelectedIndexChanging" >
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
@@ -246,7 +244,7 @@
                     </asp:TemplateField>
                     <asp:BoundField DataField="MA_GIANG_VIEN" HeaderText="Mã giảng viên" 
                         Visible="False">
-                        <ItemStyle HorizontalAlign="Center" Width="4%"></ItemStyle></asp:BoundField>
+                        </asp:BoundField>
                     <asp:TemplateField>
                     <HeaderTemplate>Mã giảng viên</HeaderTemplate>
                     <ItemTemplate>
