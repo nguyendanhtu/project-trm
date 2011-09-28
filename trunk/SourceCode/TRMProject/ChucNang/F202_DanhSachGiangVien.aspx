@@ -20,7 +20,8 @@
 	</tr>	
     <tr>
         <td>
-        <table cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0"> 
+        
+        <table cellspacing="0" cellpadding="2" style="width:1000px;" class="cssTable" border="0"> 
             <tr>
                 <td align="right" style="width:5%;">
 			<asp:label id="lblFullName" CssClass="cssManField" runat="server" 
@@ -28,7 +29,7 @@
                          </td>
                 <td align="left" colspan="3">
                 <asp:TextBox ID="m_txt_ten_giang_vien" runat="server" CssClass="cssTextBox" 
-                        Width="315px"></asp:TextBox>
+                        Width="85%"></asp:TextBox>
 		            &nbsp;</td>
                 <td align="left" style="width:10%;">&nbsp;</td>
                 <td align="left" style="width:1%;"></td>
@@ -64,7 +65,7 @@
                     &nbsp;<asp:label id="Label3" CssClass="cssManField" runat="server" 
                 Text="&lt;U&gt;T&lt;/U&gt;rạng thái giảng viên" /></td>
                 <td align="left" colspan="3">
-                    &nbsp; <asp:DropDownList id="m_cbo_trang_thai_g_vien" runat="server" Width="70%" 
+                    &nbsp; <asp:DropDownList id="m_cbo_trang_thai_g_vien" runat="server" Width="85%" 
                         CssClass="cssDorpdownlist"  />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     </td>
@@ -76,7 +77,7 @@
                <ew:CalendarPopup ID="m_dat_ngay_bd_hop_tac" runat="server" 
                         ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
                         ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
-                        ShowGoToToday="True" Width="60%">
+                        ShowGoToToday="True" Width="60%" Text="">
                         <weekdaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
                             font-size="XX-Small" forecolor="Black" />
                         <weekendstyle backcolor="LightGray" font-names="Verdana,Helvetica,Tahoma,Arial" 
@@ -114,15 +115,15 @@
                 Text="&lt;U&gt;Đ&lt;/U&gt;ơn vị quản lý" /></td>
                 <td align="left" colspan="3">
                     &nbsp; <asp:DropDownList ID="m_cbo_don_vi_q_ly" runat="server" 
-                        CssClass="cssDorpdownlist" Width="70%" /></td>
+                        CssClass="cssDorpdownlist" Width="85%" /></td>
                 <td align="right" style="width:10%;">
                     <asp:label id="Label13" CssClass="cssManField" runat="server" 
                 Text="&lt;U&gt;T&lt;/U&gt;háng sinh nhật Giảng viên" />
 		            </td>
                 <td align="left" colspan="2">
-                    <asp:DropDownList id="m_cbo_thang_sn_GV" runat="server" Width="60%" 
+                    <asp:DropDownList id="m_cbo_thang_sn_GV" runat="server" Width="65%" 
                         CssClass="cssDorpdownlist"  >
-                        <asp:ListItem Selected="True" Value="All">Tất cả</asp:ListItem>
+                        <asp:ListItem Selected="True" Value="0">Tất cả</asp:ListItem>
                         <asp:ListItem Value="1">1</asp:ListItem>
                         <asp:ListItem>2</asp:ListItem>
                         <asp:ListItem>3</asp:ListItem>
@@ -148,7 +149,7 @@
                 Text="Từ khóa tìm kiếm" /></td>
                 <td align="left" colspan="3">
                      &nbsp;<asp:TextBox ID="m_txt_tu_khoa_tim_kiem" runat="server" CssClass="cssTextBox" 
-                        Width="70%"></asp:TextBox></td>
+                        Width="85%"></asp:TextBox></td>
                 <td align="left" style="width:10%;">
                     &nbsp;</td>
                 <td align="left" style="width:1%;">
@@ -302,6 +303,7 @@
                      <asp:BoundField DataField="NOI_CAP" HeaderText="Nơi cấp" />
                      <asp:BoundField DataField="DON_VI_QUAN_LY" HeaderText="Đơn vị quản lý" />
                      <asp:BoundField DataField="MA_SO_THUE" HeaderText="Mã số thuế" />
+                       <asp:BoundField DataField="NGAY_BD_HOP_TAC" DataFormatString="{0:dd/MM/yyyy}" HeaderText="Ngày bắt đầu hợp tác" />
                     <asp:TemplateField>
                     <HeaderTemplate>GV hướng dẫn?</HeaderTemplate>
                     <ItemTemplate>
