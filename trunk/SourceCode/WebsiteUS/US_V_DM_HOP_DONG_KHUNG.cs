@@ -814,6 +814,16 @@ public class US_V_DM_HOP_DONG_KHUNG : US_Object
 	}
 #endregion
     #region Additional Methods
+    public bool check_exist_so_hd(string ip_str_so_hd)
+    {
+        US_V_DM_HOP_DONG_KHUNG v_us_hop_dong_khung= new US_V_DM_HOP_DONG_KHUNG();
+        DS_V_DM_HOP_DONG_KHUNG v_ds_hd_khung = new DS_V_DM_HOP_DONG_KHUNG();
+
+        v_us_hop_dong_khung.FillDataset(v_ds_hd_khung, " where SO_HOP_DONG = '" + ip_str_so_hd + "'");
+        if (v_ds_hd_khung.V_DM_HOP_DONG_KHUNG.Rows.Count == 0) return false;  //Mã này chưa có, insert được
+        return true;
+    }
+
     public void search_hop_dong_khung(string ip_str_ten_giang_vien
 
                                 , string ip_str_tu_khoa_search
