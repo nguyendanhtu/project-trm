@@ -108,15 +108,17 @@ body
 }
 .cssTextBox 
 { 
-	border:1px solid #bbb;
-	border-bottom-color:#aaa;
-	border-right-color:#aaa;
-	background-color:#fff;
+	border-left: 1px solid #bbb;
+    border-right: 1px solid #aaa;
+    border-top: 1px solid #bbb;
+    border-bottom: 1px solid #aaa;
+    background-color:#fff;
 	font-family: Tahoma, Arial, Times New Roman;
 	font-size:12px;
 	padding-left:2px; 
 	padding-top:2px;  
-	padding-bottom:2px; 
+	padding-bottom:2px;
+    width: 194px;
 }.
 .cssTextBoxHover 
 { 
