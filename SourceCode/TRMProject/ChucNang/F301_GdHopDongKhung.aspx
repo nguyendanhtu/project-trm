@@ -359,7 +359,7 @@
                          &nbsp;</td>
                  <td align="right" style="width:5%;">
 			<asp:label id="lblco_so_hd" CssClass="cssManField" runat="server" 
-                Text="Có số Hóa đơn" />
+                Text="Có số hợp đồng?" />
 		                    </td>
                 <td align="left" style="width:10%;">
 			        <asp:RadioButtonList ID="m_rbt_co_so_hd_yn" runat="server" 
