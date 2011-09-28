@@ -23,8 +23,9 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
         {
             if (!this.IsPostBack)
             {
-                m_cmd_chosose_gv.Attributes.Add("onclick", "javascript:return OpenPopup()");
+              //  m_cmd_chosose_gv.Attributes.Add("onclick", "javascript:return OpenPopup()");
                 load_2_cbo_don_vi_tt();
+                load_2_cbo_giang_vien();
                 load_2_cbo_trang_thai_hd();
                 load_2_cbo_don_vi_quan_ly();
                 load_2_cbo_loai_hop_dong();
@@ -117,6 +118,25 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
             throw v_e;
         }
     }
+
+     private void load_2_cbo_giang_vien()
+     {
+         US_V_DM_GIANG_VIEN v_us_giang_vien = new US_V_DM_GIANG_VIEN();
+         DS_V_DM_GIANG_VIEN v_ds_giang_vien = new DS_V_DM_GIANG_VIEN();
+         try
+         {
+             v_us_giang_vien.FillDataset(v_ds_giang_vien);
+             m_cbo_gvien.DataSource = v_ds_giang_vien.V_DM_GIANG_VIEN;
+             m_cbo_gvien.DataValueField = V_DM_GIANG_VIEN.ID;
+             m_cbo_gvien.DataTextField = V_DM_GIANG_VIEN.TEN_GIANG_VIEN;
+             m_cbo_gvien.DataBind();
+         }
+         catch (Exception v_e)
+         {
+
+             throw v_e;
+         }
+     }
      private void load_2_cbo_mon_hoc_1(){
         US_DM_MON_HOC v_us_dm_mon_hoc_1 = new US_DM_MON_HOC();
         DS_DM_MON_HOC v_ds_dm_mon_hoc_1 = new DS_DM_MON_HOC();
@@ -280,7 +300,7 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
          try
          {
              ip_us_hd_khung.strSO_HOP_DONG = m_txt_so_hop_dong.Text;
-             ip_us_hd_khung.dcID_GIANG_VIEN =122;
+             ip_us_hd_khung.dcID_GIANG_VIEN =CIPConvert.ToDecimal(m_cbo_gvien.SelectedValue);
              if (m_dat_ngay_ki.SelectedDate != null)
                  ip_us_hd_khung.datNGAY_KY = m_dat_ngay_ki.SelectedDate;
              else ip_us_hd_khung.datNGAY_KY = CIPConvert.ToDatetime("01/01/1900");
@@ -333,6 +353,7 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
          try
          {
              m_txt_so_hop_dong.Text = ip_us_hd_khung.strSO_HOP_DONG;
+             m_cbo_gvien.SelectedValue = CIPConvert.ToStr(ip_us_hd_khung.dcID_GIANG_VIEN);
              if (ip_us_hd_khung.datNGAY_KY != null)
                  m_dat_ngay_ki.SelectedDate = ip_us_hd_khung.datNGAY_KY;
             // else ip_us_hd_khung.datNGAY_KY = CIPConvert.ToDatetime("01/01/1900");
