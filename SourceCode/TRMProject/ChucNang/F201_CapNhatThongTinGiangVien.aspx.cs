@@ -307,6 +307,10 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
         return true;
     }
     #endregion
+   
+    //
+    //Event
+    //
     protected void m_cmd_luu_du_lieu_Click(object sender, EventArgs e)
     {
         try
@@ -342,6 +346,7 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
             CSystemLog_301.ExceptionHandle(this, v_e);
         }
     }
+
     protected void m_cmd_thoat_Click(object sender, EventArgs e)
     {
         try
