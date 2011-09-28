@@ -53,7 +53,6 @@ public partial class ChucNang_F305_ChonGiangVien : System.Web.UI.Page
      //
      // Region for search
      //
-
      private void load_2_cbo_trang_thai_giang_vien()
      {
          try
@@ -179,8 +178,11 @@ public partial class ChucNang_F305_ChonGiangVien : System.Web.UI.Page
      {
          try
          {
-             GridViewRow v_grv_row = m_grv_dm_danh_sach_giang_vien.Rows[e.NewSelectedIndex];
-
+             decimal v_dc_id_dm_giang_vien = CIPConvert.ToDecimal(m_grv_dm_danh_sach_giang_vien.DataKeys[e.NewSelectedIndex].Value);
+             US_V_DM_GIANG_VIEN v_us_dm_giang_vien = new US_V_DM_GIANG_VIEN(v_dc_id_dm_giang_vien);
+             Session["id_giang_vien"] = v_us_dm_giang_vien.dcID;
+             Session["name_giang_vien"] = v_us_dm_giang_vien.strTEN_GIANG_VIEN;
+             Response.Write("<script language='javascript'>{windown.close();}</scritp>");
          }
          catch (Exception v_e)
          {
