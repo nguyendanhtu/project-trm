@@ -8,6 +8,14 @@
    text-decoration:none;    
  }
 </style>
+<script language="javascript">
+    function GetRowValue(val) {
+        // hardcoded value used to minimize the code.
+        // ControlID can instead be passed as query string to the popup window
+        window.opener.document.getElementById("ctl00_ContentPlaceHolder1_TextBox2").value = val;
+        window.close();
+    }
+</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
 <table cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0">
@@ -231,7 +239,9 @@
                 Width="100%" DataKeyNames="ID"
                 CellPadding="4" ForeColor="#333333" 
             AllowSorting="True" 
-                onselectedindexchanging="m_grv_dm_danh_sach_giang_vien_SelectedIndexChanging" >
+                
+                onselectedindexchanging="m_grv_dm_danh_sach_giang_vien_SelectedIndexChanging" 
+                onrowdatabound="m_grv_dm_danh_sach_giang_vien_RowDataBound" >
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">

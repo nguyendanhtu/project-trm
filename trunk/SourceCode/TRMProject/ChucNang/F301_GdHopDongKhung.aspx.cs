@@ -23,6 +23,7 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
         {
             if (!this.IsPostBack)
             {
+                m_cmd_chosose_gv.Attributes.Add("onclick", "javascript:return OpenPopup()");
                 load_2_cbo_don_vi_tt();
                 load_2_cbo_trang_thai_hd();
                 load_2_cbo_don_vi_quan_ly();
