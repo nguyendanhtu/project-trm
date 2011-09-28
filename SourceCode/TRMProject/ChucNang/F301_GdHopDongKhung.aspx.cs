@@ -333,7 +333,6 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
          try
          {
              m_txt_so_hop_dong.Text = ip_us_hd_khung.strSO_HOP_DONG;
-             m_txt_ten_gv.Text= ip_us_hd_khung.strGIANG_VIEN ;
              if (ip_us_hd_khung.datNGAY_KY != null)
                  m_dat_ngay_ki.SelectedDate = ip_us_hd_khung.datNGAY_KY;
             // else ip_us_hd_khung.datNGAY_KY = CIPConvert.ToDatetime("01/01/1900");

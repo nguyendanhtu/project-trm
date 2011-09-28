@@ -40,8 +40,8 @@ public partial class ChucNang_F305_ChonGiangVien : System.Web.UI.Page
             m_us_dm_giang_vien.FillDataset(m_ds_giang_vien);
 
             // Treo dữ liệu lên lưới
-            m_grv_dm_danh_sach_giang_vien.DataSource = m_ds_giang_vien.V_DM_GIANG_VIEN;
-            m_grv_dm_danh_sach_giang_vien.DataBind();
+            m_grv_dm_danh_sach_giang_vien_to_choose.DataSource = m_ds_giang_vien.V_DM_GIANG_VIEN;
+            m_grv_dm_danh_sach_giang_vien_to_choose.DataBind();
         }
         catch (Exception v_e)
         {
@@ -137,8 +137,8 @@ public partial class ChucNang_F305_ChonGiangVien : System.Web.UI.Page
                                                  , m_ds_giang_vien
                                                  , v_dat_ngay_bd_hop_tac
                                                  , CIPConvert.ToDecimal(v_str_month));
-             m_grv_dm_danh_sach_giang_vien.DataSource = m_ds_giang_vien.V_DM_GIANG_VIEN;
-             m_grv_dm_danh_sach_giang_vien.DataBind();
+             m_grv_dm_danh_sach_giang_vien_to_choose.DataSource = m_ds_giang_vien.V_DM_GIANG_VIEN;
+             m_grv_dm_danh_sach_giang_vien_to_choose.DataBind();
          }
          catch (Exception v_e)
          {
@@ -166,7 +166,7 @@ public partial class ChucNang_F305_ChonGiangVien : System.Web.UI.Page
      {
          try
          {
-             m_grv_dm_danh_sach_giang_vien.PageSize = 100;
+             m_grv_dm_danh_sach_giang_vien_to_choose.PageSize = 100;
              get_form_search_data_and_load_to_grid();
          }
          catch (Exception v_e)
@@ -178,7 +178,7 @@ public partial class ChucNang_F305_ChonGiangVien : System.Web.UI.Page
      {
          try
          {
-             decimal v_dc_id_dm_giang_vien = CIPConvert.ToDecimal(m_grv_dm_danh_sach_giang_vien.DataKeys[e.NewSelectedIndex].Value);
+             decimal v_dc_id_dm_giang_vien = CIPConvert.ToDecimal(m_grv_dm_danh_sach_giang_vien_to_choose.DataKeys[e.NewSelectedIndex].Value);
              US_V_DM_GIANG_VIEN v_us_dm_giang_vien = new US_V_DM_GIANG_VIEN(v_dc_id_dm_giang_vien);
              //Session["id_giang_vien"] = v_us_dm_giang_vien.dcID;
              //Session["name_giang_vien"] = v_us_dm_giang_vien.strTEN_GIANG_VIEN;
@@ -196,8 +196,9 @@ public partial class ChucNang_F305_ChonGiangVien : System.Web.UI.Page
          {
              if ((e.Row.RowType == DataControlRowType.DataRow))
              {
+                 string v_str = e.Row.Cells[1].Text;
                  //assuming that the required value column is the second column in gridview
-                 ((Button)e.Row.FindControl("btnSelect")).Attributes.Add("onclick", "javascript:GetRowValue('" + e.Row.Cells[0].Text + "')");
+                 ((LinkButton)e.Row.FindControl("lbt_choose_teacher")).Attributes.Add("onclick", "javascript:GetRowValue('"+ v_str +"')");
              }
          }
          catch (Exception v_e)

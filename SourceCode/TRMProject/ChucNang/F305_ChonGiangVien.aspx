@@ -8,11 +8,13 @@
    text-decoration:none;    
  }
 </style>
+
 <script language="javascript">
     function GetRowValue(val) {
         // hardcoded value used to minimize the code.
         // ControlID can instead be passed as query string to the popup window
-        window.opener.document.getElementById("ctl00_ContentPlaceHolder1_TextBox2").value = val;
+        window.opener.document.getElementById("m_txt_ten_gv").value = val;
+        this.alert(val);
         window.close();
     }
 </script>
@@ -234,7 +236,7 @@
 	<tr>
 		<td align="center" colspan="3" style="height:450px;" valign="top">
 		    &nbsp;
-   <asp:GridView ID="m_grv_dm_danh_sach_giang_vien" AllowPaging="True" 
+   <asp:GridView ID="m_grv_dm_danh_sach_giang_vien_to_choose" AllowPaging="True" 
                 runat="server" AutoGenerateColumns="False" 
                 Width="100%" DataKeyNames="ID"
                 CellPadding="4" ForeColor="#333333" 
