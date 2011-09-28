@@ -400,7 +400,7 @@
                 <td align="left" style="width:1%;">
 			        <asp:button id="m_cmd_luu_du_lieu" accessKey="s" CssClass="cssButton" 
                 runat="server" Width="98px" Text="Lưu dữ liệu" 
-                        Height="24px" />
+                        Height="24px" onclick="m_cmd_luu_du_lieu_Click1" />
                 </td>
 			   <td align="left" style="width:1%;"></td>
                  <td align="left" style="width:5%;">
