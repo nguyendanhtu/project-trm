@@ -20,7 +20,7 @@
 	</tr>	
   <tr>
         <td>
-        <table cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0"> 
+        <table cellspacing="0" cellpadding="2" style="width:1000px;" class="cssTable" border="0"> 
             <tr>
                 <td align="right" style="width:5%;">
 			<asp:label id="lblFullName" CssClass="cssManField" runat="server" 
@@ -139,7 +139,8 @@
 		<td align="left">
         &nbsp;<asp:button id="cmd_them_moi" accessKey="c" CssClass="cssButton" 
                 runat="server" Width="98px" Text="Tạo mới(c)" 
-                Height="27px"/>
+                Height="27px" onclick="cmd_them_moi_Click"/>
+                <asp:Label ID="m_lbl_thong_bao" runat="server"></asp:Label>
         </td>
         <td >
 		    &nbsp;</td>

@@ -116,12 +116,6 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
             // Đổ dữ liệu vào DS 
             v_us_cm_tu_dien.FillDataset(v_ds_cm_tu_dien, " WHERE ID_LOAI_TU_DIEN = " + (int)e_loai_tu_dien.TRANG_THAI_GIANG_VIEN); // Đây là lấy theo điều kiện
            
-            //m_cbo_trang_thai_g_vien.DataValueField = CM_DM_TU_DIEN.ID;
-            //m_cbo_trang_thai_g_vien.DataTextField = CM_DM_TU_DIEN.TEN;
-
-            //m_cbo_trang_thai_g_vien.DataSource = v_ds_cm_tu_dien.CM_DM_TU_DIEN;
-            //m_cbo_trang_thai_g_vien.DataBind();
-
             m_cbo_trang_thai_g_vien.Items.Add(new ListItem("Tất cả","0"));
             for (int i = 0; i < v_ds_cm_tu_dien.CM_DM_TU_DIEN.Rows.Count; i++)
             {

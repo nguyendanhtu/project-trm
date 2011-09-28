@@ -106,8 +106,6 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
         }
     }
      private void load_2_cbo_trang_thai_hd() {
-
-
         US_CM_DM_TU_DIEN v_us_trang_thai_hd = new US_CM_DM_TU_DIEN();
         DS_CM_DM_TU_DIEN v_ds_trang_thai_hd = new DS_CM_DM_TU_DIEN();
         try
