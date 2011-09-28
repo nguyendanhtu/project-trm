@@ -9,7 +9,7 @@
     <title>F301 - Giao dịch hợp đồng khung</title>
     <script type="text/javascript">
         function OpenPopup() {
-            window.open("/TRMProject/ChucNang/F305_ChonGiangVien.aspx", "_blank", "scrollbars=no,resizable=no,width=400,height=280");
+            window.open("/TRMProject/ChucNang/F305_ChonGiangVien.aspx", "_blank", "scrollbars=yes,resizable=no,width=800,height=580");
             return false;
         }
     </script>
@@ -59,9 +59,8 @@
 			<asp:label id="lblTenGiangVien" CssClass="cssManField" runat="server" 
                 Text="Tên giảng viên" />
                          </td>
-                <td align="left" style="width:10%;">
-			<asp:textbox id="m_txt_ten_gv" CssClass="cssTextBox"  runat="server" 
-                MaxLength="64" Width="96%" />
+                <td align="left" style="width:10%;">	
+               <input type="text" class="cssTextBox" style="width:96%" id="m_txt_ten_gv"/>
                          </td>
                          <td align="left" style="width:1%;"> 
                              &nbsp;</td>
