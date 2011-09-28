@@ -48,6 +48,18 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
                     m_txt_so_hop_dong.Enabled = true;
                 }
             }
+
+            if (Request.QueryString["mode"] != null && Request.QueryString["mode"].ToString().Equals("edit"))
+            {
+                m_init_mode = DataEntryFormMode.UpdateDataState;
+                // Load data need to update - if mode = update
+                m_txt_so_hop_dong.Enabled = false;
+            }
+            else
+            {
+                m_init_mode = DataEntryFormMode.InsertDataState;
+                m_txt_so_hop_dong.Enabled = true;
+            }
         }
         catch (Exception v_e)
         {
@@ -267,14 +279,14 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
          try
          {
              ip_us_hd_khung.strSO_HOP_DONG = m_txt_so_hop_dong.Text;
-             ip_us_hd_khung.strGIANG_VIEN = m_txt_ten_gv.Text;
-             if (m_dat_ngay_ki.Text != "")
+             ip_us_hd_khung.dcID_GIANG_VIEN =122;
+             if (m_dat_ngay_ki.SelectedDate != null)
                  ip_us_hd_khung.datNGAY_KY = m_dat_ngay_ki.SelectedDate;
              else ip_us_hd_khung.datNGAY_KY = CIPConvert.ToDatetime("01/01/1900");
-             if (m_dat_ngay_hieu_luc.Text != "")
+             if (m_dat_ngay_hieu_luc.SelectedDate != null)
                  ip_us_hd_khung.datNGAY_HIEU_LUC = m_dat_ngay_hieu_luc.SelectedDate;
              else ip_us_hd_khung.datNGAY_HIEU_LUC = CIPConvert.ToDatetime("01/01/1900");
-             if (m_dat_ngay_ket_thuc.Text != "")
+             if (m_dat_ngay_ket_thuc.SelectedDate != null)
                  ip_us_hd_khung.datNGAY_KET_THUC_DU_KIEN = m_dat_ngay_ket_thuc.SelectedDate;
              else ip_us_hd_khung.datNGAY_KET_THUC_DU_KIEN = CIPConvert.ToDatetime("01/01/1900");
              
@@ -299,12 +311,12 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
              else ip_us_hd_khung.strHOC_LIEU_YN = "N";
 
              if (m_rbt_bt_vanhanh_yn.Items[0].Selected)
-                 ip_us_hd_khung.strHOC_LIEU_YN = "Y";
-             else ip_us_hd_khung.strHOC_LIEU_YN = "N";
+                 ip_us_hd_khung.strVAN_HANH_YN = "Y";
+             else ip_us_hd_khung.strVAN_HANH_YN = "N";
 
              if (m_rbt_co_so_hd_yn.Items[0].Selected)
-                 ip_us_hd_khung.strHOC_LIEU_YN = "Y";
-             else ip_us_hd_khung.strHOC_LIEU_YN = "N";
+                 ip_us_hd_khung.strCO_SO_HD_YN = "Y";
+             else ip_us_hd_khung.strCO_SO_HD_YN = "N";
              ip_us_hd_khung.strGHI_CHU = m_txt_ghi_chu1.Text;
          }
          catch (Exception v_e)
