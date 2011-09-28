@@ -106,24 +106,23 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
             DS_CM_DM_TU_DIEN v_ds_cm_tu_dien = new DS_CM_DM_TU_DIEN();
             US_CM_DM_TU_DIEN v_us_cm_tu_dien = new US_CM_DM_TU_DIEN();
             //v_ds_cm_tu_dien.Clear();
-            DataRow v_dr_all_dv_quan_ly = m_ds_cm_dm_tu_dien.CM_DM_TU_DIEN.NewCM_DM_TU_DIENRow();
+            //DataRow v_dr_all_dv_quan_ly = m_ds_cm_dm_tu_dien.CM_DM_TU_DIEN.NewCM_DM_TU_DIENRow();
           
-            //add item Tat Ca          
-            v_dr_all_dv_quan_ly[CM_DM_TU_DIEN.ID] = 0;
-            v_dr_all_dv_quan_ly[CM_DM_TU_DIEN.TEN] = "Tất cả";
+            ////add item Tat Ca          
+            //v_dr_all_dv_quan_ly[CM_DM_TU_DIEN.ID] = 0;
+            //v_dr_all_dv_quan_ly[CM_DM_TU_DIEN.TEN] = "Tất cả";
 
-            v_ds_cm_tu_dien.EnforceConstraints = false;
-            v_ds_cm_tu_dien.CM_DM_TU_DIEN.Rows.InsertAt(v_dr_all_dv_quan_ly, 0);
+            //v_ds_cm_tu_dien.EnforceConstraints = false;
+            //v_ds_cm_tu_dien.CM_DM_TU_DIEN.Rows.InsertAt(v_dr_all_dv_quan_ly, 0);
 
             // Đổ dữ liệu vào DS 
             v_us_cm_tu_dien.FillDataset(v_ds_cm_tu_dien, " WHERE ID_LOAI_TU_DIEN = "
                                                 + (int)e_loai_tu_dien.DON_VI_QUAN_LY_CHINH); // Đây là lấy theo điều kiện
-
-            m_cbo_don_vi_quan_ly_search.DataValueField = CM_DM_TU_DIEN.ID;
-            m_cbo_don_vi_quan_ly_search.DataTextField = CM_DM_TU_DIEN.TEN;
-
-            m_cbo_don_vi_quan_ly_search.DataSource = v_ds_cm_tu_dien.CM_DM_TU_DIEN;
-            m_cbo_don_vi_quan_ly_search.DataBind();
+            m_cbo_don_vi_quan_ly_search.Items.Add(new ListItem("Tất cả", "0"));
+            for (int i = 0; i < v_ds_cm_tu_dien.CM_DM_TU_DIEN.Rows.Count; i++)
+            {
+                m_cbo_don_vi_quan_ly_search.Items.Add(new ListItem(v_ds_cm_tu_dien.CM_DM_TU_DIEN[i][CM_DM_TU_DIEN.TEN].ToString(), v_ds_cm_tu_dien.CM_DM_TU_DIEN[i][CM_DM_TU_DIEN.ID].ToString()));
+            }
           
             //for (int i = 0; i < v_ds_cm_tu_dien.CM_DM_TU_DIEN.Rows.Count; i++)
             //{
@@ -143,24 +142,29 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
              DS_CM_DM_TU_DIEN v_ds_cm_tu_dien = new DS_CM_DM_TU_DIEN();
             US_CM_DM_TU_DIEN v_us_cm_tu_dien = new US_CM_DM_TU_DIEN();
             //v_ds_cm_tu_dien.Clear();
-            DataRow v_dr_all_loai_hdong = m_ds_cm_dm_tu_dien.CM_DM_TU_DIEN.NewCM_DM_TU_DIENRow();
+            //DataRow v_dr_all_loai_hdong = m_ds_cm_dm_tu_dien.CM_DM_TU_DIEN.NewCM_DM_TU_DIENRow();
           
-            //add item Tat Ca          
-            v_dr_all_loai_hdong[CM_DM_TU_DIEN.ID] = 0;
-            v_dr_all_loai_hdong[CM_DM_TU_DIEN.TEN] = "Tất cả";
+            ////add item Tat Ca          
+            //v_dr_all_loai_hdong[CM_DM_TU_DIEN.ID] = 0;
+            //v_dr_all_loai_hdong[CM_DM_TU_DIEN.TEN] = "Tất cả";
 
-            v_ds_cm_tu_dien.EnforceConstraints = false;
-            v_ds_cm_tu_dien.CM_DM_TU_DIEN.Rows.InsertAt(v_dr_all_loai_hdong, 0);
+            //v_ds_cm_tu_dien.EnforceConstraints = false;
+            //v_ds_cm_tu_dien.CM_DM_TU_DIEN.Rows.InsertAt(v_dr_all_loai_hdong, 0);
 
             // Đổ dữ liệu vào DS 
             v_us_cm_tu_dien.FillDataset(v_ds_cm_tu_dien, " WHERE ID_LOAI_TU_DIEN = "
                                                 + (int)e_loai_tu_dien.LOAI_HOP_DONG); // Đây là lấy theo điều kiện
+            m_cbo_loai_hop_dong_search.Items.Add(new ListItem("Tất cả", "0"));
+            for (int i = 0; i < v_ds_cm_tu_dien.CM_DM_TU_DIEN.Rows.Count; i++)
+            {
+                m_cbo_loai_hop_dong_search.Items.Add(new ListItem(v_ds_cm_tu_dien.CM_DM_TU_DIEN[i][CM_DM_TU_DIEN.TEN].ToString(), v_ds_cm_tu_dien.CM_DM_TU_DIEN[i][CM_DM_TU_DIEN.ID].ToString()));
+            }
 
-            m_cbo_loai_hop_dong_search.DataValueField = CM_DM_TU_DIEN.ID;
-            m_cbo_loai_hop_dong_search.DataTextField = CM_DM_TU_DIEN.TEN;
+            //m_cbo_loai_hop_dong_search.DataValueField = CM_DM_TU_DIEN.ID;
+            //m_cbo_loai_hop_dong_search.DataTextField = CM_DM_TU_DIEN.TEN;
 
-            m_cbo_loai_hop_dong_search.DataSource = v_ds_cm_tu_dien.CM_DM_TU_DIEN;
-            m_cbo_loai_hop_dong_search.DataBind();
+            //m_cbo_loai_hop_dong_search.DataSource = v_ds_cm_tu_dien.CM_DM_TU_DIEN;
+            //m_cbo_loai_hop_dong_search.DataBind();
         }
         catch (Exception v_e)
         {
@@ -176,24 +180,28 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
             DS_CM_DM_TU_DIEN v_ds_cm_tu_dien = new DS_CM_DM_TU_DIEN();
             US_CM_DM_TU_DIEN v_us_cm_tu_dien = new US_CM_DM_TU_DIEN();
             //v_ds_cm_tu_dien.Clear();
-            DataRow v_dr_all_trang_thai_hdong = m_ds_cm_dm_tu_dien.CM_DM_TU_DIEN.NewCM_DM_TU_DIENRow();
+            //DataRow v_dr_all_trang_thai_hdong = m_ds_cm_dm_tu_dien.CM_DM_TU_DIEN.NewCM_DM_TU_DIENRow();
 
-            //add item Tat Ca          
-            v_dr_all_trang_thai_hdong[CM_DM_TU_DIEN.ID] = 0;
-            v_dr_all_trang_thai_hdong[CM_DM_TU_DIEN.TEN] = "Tất cả";
+            ////add item Tat Ca          
+            //v_dr_all_trang_thai_hdong[CM_DM_TU_DIEN.ID] = 0;
+            //v_dr_all_trang_thai_hdong[CM_DM_TU_DIEN.TEN] = "Tất cả";
 
-            v_ds_cm_tu_dien.EnforceConstraints = false;
-            v_ds_cm_tu_dien.CM_DM_TU_DIEN.Rows.InsertAt(v_dr_all_trang_thai_hdong, 0);
+            //v_ds_cm_tu_dien.EnforceConstraints = false;
+            //v_ds_cm_tu_dien.CM_DM_TU_DIEN.Rows.InsertAt(v_dr_all_trang_thai_hdong, 0);
 
             // Đổ dữ liệu vào DS 
             v_us_cm_tu_dien.FillDataset(v_ds_cm_tu_dien, " WHERE ID_LOAI_TU_DIEN = "
                                                 + (int)e_loai_tu_dien.TRANG_THAI_HOP_DONG_KHUNG); // Đây là lấy theo điều kiện
+            m_cbo_trang_thai_hop_dong_search.Items.Add(new ListItem("Tất cả", "0"));
+            for (int i = 0; i < v_ds_cm_tu_dien.CM_DM_TU_DIEN.Rows.Count; i++)
+            {
+                m_cbo_trang_thai_hop_dong_search.Items.Add(new ListItem(v_ds_cm_tu_dien.CM_DM_TU_DIEN[i][CM_DM_TU_DIEN.TEN].ToString(), v_ds_cm_tu_dien.CM_DM_TU_DIEN[i][CM_DM_TU_DIEN.ID].ToString()));
+            }
+            //m_cbo_trang_thai_hop_dong_search.DataValueField = CM_DM_TU_DIEN.ID;
+            //m_cbo_trang_thai_hop_dong_search.DataTextField = CM_DM_TU_DIEN.TEN;
 
-            m_cbo_trang_thai_hop_dong_search.DataValueField = CM_DM_TU_DIEN.ID;
-            m_cbo_trang_thai_hop_dong_search.DataTextField = CM_DM_TU_DIEN.TEN;
-
-            m_cbo_trang_thai_hop_dong_search.DataSource = v_ds_cm_tu_dien.CM_DM_TU_DIEN;
-            m_cbo_trang_thai_hop_dong_search.DataBind();
+            //m_cbo_trang_thai_hop_dong_search.DataSource = v_ds_cm_tu_dien.CM_DM_TU_DIEN;
+            //m_cbo_trang_thai_hop_dong_search.DataBind();
         }
         catch (Exception v_e)
         {

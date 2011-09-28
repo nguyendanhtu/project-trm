@@ -476,12 +476,12 @@
 		                    </td>
                 <td align="left" class="style3">
 			        <asp:CheckBoxList ID="m_cbl_loai_hop_dong" runat="server">
-                        <asp:ListItem>Giáo Viên Hợp đồng</asp:ListItem>
-                        <asp:ListItem>Giáo Viên Chuyên Môn</asp:ListItem>
-                        <asp:ListItem>Giáo Viên Viết Học Liệu</asp:ListItem>
-                        <asp:ListItem>Giáo Viên Duyệt Học Liệu</asp:ListItem>
-                        <asp:ListItem>Giáo Thẩm định Học Liệu</asp:ListItem>
-                        <asp:ListItem>Giáo Viên Hội Đồng Khoa Học</asp:ListItem>
+                        <asp:ListItem>Hợp đồng</asp:ListItem>
+                        <asp:ListItem>Chuyên Môn</asp:ListItem>
+                        <asp:ListItem>Viết Học Liệu</asp:ListItem>
+                        <asp:ListItem>Duyệt Học Liệu</asp:ListItem>
+                        <asp:ListItem>Thẩm định Học Liệu</asp:ListItem>
+                        <asp:ListItem>Hội Đồng Khoa Học</asp:ListItem>
                     </asp:CheckBoxList>
                 </td>
                      <td align="left" style="width:1%;">
