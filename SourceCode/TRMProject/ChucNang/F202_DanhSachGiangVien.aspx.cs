@@ -184,7 +184,10 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
             else if (rdl_gender_check.Items[1].Selected) v_str_gender = "Y";
             else v_str_gender = "N";
 
-            DateTime v_dat_ngay_bd_hop_tac = m_dat_ngay_bd_hop_tac.SelectedDate;
+            DateTime v_dat_ngay_bd_hop_tac;
+            if (m_dat_ngay_bd_hop_tac.Text != "")
+                v_dat_ngay_bd_hop_tac = m_dat_ngay_bd_hop_tac.SelectedDate;
+            else v_dat_ngay_bd_hop_tac = CIPConvert.ToDatetime("01/01/1900");
             string v_str_month = m_cbo_thang_sn_GV.SelectedValue;
                  
             decimal v_dc_id_trang_thai_giang_vien = CIPConvert.ToDecimal(m_cbo_trang_thai_g_vien.SelectedValue);
@@ -198,7 +201,9 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
                                                 ,v_str_gender   
                                                 ,v_dc_id_trang_thai_giang_vien
                                                 ,v_dc_id_don_vi_quan_ly
-                                                ,m_ds_giang_vien);
+                                                ,m_ds_giang_vien
+                                                ,v_dat_ngay_bd_hop_tac
+                                                ,CIPConvert.ToDecimal(v_str_month));
             m_grv_dm_danh_sach_giang_vien.DataSource = m_ds_giang_vien.V_DM_GIANG_VIEN;
             m_grv_dm_danh_sach_giang_vien.DataBind();
         }
