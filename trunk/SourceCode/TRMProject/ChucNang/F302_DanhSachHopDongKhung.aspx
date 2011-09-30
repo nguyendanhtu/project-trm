@@ -248,6 +248,18 @@
                 onpageindexchanging="m_grv_dm_danh_sach_hop_dong_khung_PageIndexChanging" >
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
+                <asp:TemplateField>
+                    <ItemTemplate> <asp:LinkButton ToolTip="Xóa" ID = "lbt_delete" runat="server"
+                     CommandName="Delete" OnClientClick="return confirm ('Bạn có thực sự muốn xóa bản ghi này?')">
+                      <img src="/TRMProject/Images/Button/deletered.png" alt="Delete" />
+                     </asp:LinkButton>
+                    </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField>
+                    <ItemTemplate> <asp:HyperLink ToolTip="Sửa" ImageUrl="/TRMProject/Images/Button/edit.png" ID = "lbt_edit" runat="server"
+                     NavigateUrl='<%# "/TRMProject/ChucNang/F301_GdHopDongKhung.aspx?mode=edit&id="+Eval("ID") %>'></asp:HyperLink>
+                    </ItemTemplate>
+                    </asp:TemplateField>
                     <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
                         <ItemStyle HorizontalAlign="Center"></ItemStyle>
@@ -319,18 +331,6 @@
                     <label><%# mapping_cs(Eval("CO_SO_HD_YN").ToString())%></label>
                     </ItemTemplate>
                     <ItemStyle HorizontalAlign="Center"></ItemStyle>
-                    </asp:TemplateField>
-                    <asp:TemplateField>
-                    <ItemTemplate> <asp:LinkButton ToolTip="Xóa" ID = "lbt_delete" runat="server"
-                     CommandName="Delete" OnClientClick="return confirm ('Bạn có thực sự muốn xóa bản ghi này?')">
-                      <img src="/TRMProject/Images/Button/deletered.png" alt="Delete" />
-                     </asp:LinkButton>
-                    </ItemTemplate>
-                    </asp:TemplateField>
-                     <asp:TemplateField>
-                    <ItemTemplate> <asp:HyperLink ToolTip="Sửa" ImageUrl="/TRMProject/Images/Button/edit.png" ID = "lbt_edit" runat="server"
-                     NavigateUrl='<%# "/TRMProject/ChucNang/F301_GdHopDongKhung.aspx?mode=edit&id="+Eval("ID") %>'></asp:HyperLink>
-                    </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
                   <EditRowStyle BackColor="#7C6F57" />
