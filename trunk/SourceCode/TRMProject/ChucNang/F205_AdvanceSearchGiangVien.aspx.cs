@@ -16,7 +16,6 @@ public partial class ChucNang_F205_AdvanceSearchGiangVien : System.Web.UI.Page
         {
             if (!this.IsPostBack)
             {
-
                 load_2_cbo_dm_mon_hoc();
             }
         }
@@ -94,9 +93,12 @@ public partial class ChucNang_F205_AdvanceSearchGiangVien : System.Web.UI.Page
         m_ds_dm_v_giang_vien = new DS_V_DM_GIANG_VIEN();
         try
         {
+            decimal v_dc_so_hop_dong=0;
             string v_str_ten_ngan_hang = m_txt_ten_ngan_hang.Text.Trim();
-            decimal v_dc_so_hop_dong = CIPConvert.ToDecimal(m_txt_so_hop_dong.Text);
+            if(m_txt_so_hop_dong.Text != "")
+                v_dc_so_hop_dong = CIPConvert.ToDecimal(m_txt_so_hop_dong.Text);
             decimal v_dc_id_mon_hoc = CIPConvert.ToDecimal(m_cbo_dm_mon_hoc.SelectedValue);
+
             m_us_v_dm_giang_vien.fill_data_by_search(
                             v_str_ten_ngan_hang
                             , v_dc_id_mon_hoc
