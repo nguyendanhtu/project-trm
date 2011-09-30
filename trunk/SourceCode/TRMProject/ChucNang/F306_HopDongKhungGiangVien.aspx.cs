@@ -338,7 +338,18 @@ public partial class ChucNang_F306_HopDongKhungGiangVien : System.Web.UI.Page
     }
     private void reset_control()
     {
-        m_pnl_table.Visible = false;
+        m_txt_so_hop_dong.Text = "";
+        m_txt_gia_tri_hop_dong.Text = "";
+        m_cbo_dm_mon_hoc_2.SelectedValue = "0";
+        m_cbo_dm_mon_hoc_3.SelectedValue = "0";
+        m_cbo_dm_mon_hoc_4.SelectedValue = "0";
+        m_cbo_dm_mon_hoc_5.SelectedValue = "0";
+        m_cbo_dm_mon_hoc_6.SelectedValue = "0";
+        m_txt_thue_suat.Text = "";
+        m_txt_ghi_chu1.Text = "";
+        m_rbt_hoclieu_yn.Items[1].Selected = true;
+        m_rbt_bt_vanhanh_yn.Items[0].Selected = true;
+        m_rbt_co_so_hd_yn.Items[0].Selected = true;
     }
     private string get_gv_info(decimal ip_dc_id_gv)
     {
@@ -554,12 +565,24 @@ public partial class ChucNang_F306_HopDongKhungGiangVien : System.Web.UI.Page
         return "Không";
     }
     #endregion
+
+    //
+    // Events
+    //
+
     protected void cmd_them_moi_Click(object sender, EventArgs e)
     {
         try
         {
             m_pnl_table.Visible = true;
-            m_cbo_gvien.SelectedValue = CIPConvert.ToStr(Request.QueryString["id_gv"]);
+            // Nếu nút tạo mới đc click khi đang hoặc vừa mới Edit thông tin hợp đồng giảng viên của người đó
+            if (Request.QueryString["mode"] != null && Request.QueryString["mode"].ToString() == "edit")
+            {
+                m_cbo_gvien.SelectedValue =CIPConvert.ToStr(m_dc_id_gv);
+                reset_control();
+            }
+            else 
+              m_cbo_gvien.SelectedValue = CIPConvert.ToStr(Request.QueryString["id_gv"]);
             m_cbo_gvien.Enabled = false;
         }
         catch (Exception v_e)
@@ -567,6 +590,7 @@ public partial class ChucNang_F306_HopDongKhungGiangVien : System.Web.UI.Page
             CSystemLog_301.ExceptionHandle(this, v_e);
         }
     }
+
     protected void m_cmd_luu_du_lieu_Click(object sender, EventArgs e)
     {
         try

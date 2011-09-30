@@ -146,7 +146,12 @@
                     <asp:TemplateField>
                     <ItemTemplate> <asp:HyperLink ToolTip="Sửa" 
                             ImageUrl="/TRMProject/Images/Button/edit.png" ID = "lbt_edit" runat="server"
-                            NavigateUrl='<%# "/TRMProject/ChucNang/F202_DanhSachGiangVien.aspx?mode=edit&id="+Eval("ID") %>'></asp:HyperLink>
+                            NavigateUrl='<%# "/TRMProject/ChucNang/F201_CapNhatThongTinGiangVien.aspx?mode=edit&id="+Eval("ID") %>'></asp:HyperLink>
+                    </ItemTemplate>
+                    </asp:TemplateField>
+                     <asp:TemplateField>
+                    <ItemTemplate> <asp:HyperLink ToolTip="Hợp đồng giảng viên" ImageUrl="/TRMProject/Images/Button/detail.png" ID = "lbt_hop_dong_gv" runat="server"
+                     NavigateUrl='<%# "/TRMProject/ChucNang/F306_HopDongKhungGiangVien.aspx?id_gv="+Eval("ID") %>'></asp:HyperLink>
                     </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">

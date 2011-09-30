@@ -190,12 +190,13 @@
             <tr>
                 <td align="right" >
 			        &nbsp;</td>
-                <td align="left">     
+                <td align="left" colspan="2">     
 			<asp:button id="m_cmd_loc_du_lieu" accessKey="l" CssClass="cssButton" 
                 runat="server" Width="98px" Text="Lọc dữ liệu(l)" 
                         Height="23px" onclick="m_cmd_loc_du_lieu_Click" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:LinkButton id="m_lbt_advanced_search" PostBackUrl="/TRMProject/ChucNang/F205_AdvanceSearchGiangVien.aspx" runat="server" CausesValidation="false" Text= "Tìm kiếm nâng cao"></asp:LinkButton>
 			</td>
-                             <td align="left" style="width:1%;">&nbsp;</td>
                 <td align="right" >
 			        &nbsp;</td>
                 <td align="left" >    
