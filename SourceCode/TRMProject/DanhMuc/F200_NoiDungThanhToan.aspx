@@ -179,6 +179,12 @@
                 onpageindexchanging="m_grv_dm_noi_dung_thanh_toan_PageIndexChanging">
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
+                  <asp:TemplateField>
+                    <ItemTemplate> <asp:LinkButton ID = "lbt_delete"  runat="server"
+                     CommandName="Delete" ToolTip="Xóa" OnClientClick="return confirm ('Bạn có thực sự muốn xóa bản ghi này?')">
+                     </asp:LinkButton>
+                    </ItemTemplate>
+                    </asp:TemplateField>
                     <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
 
@@ -209,12 +215,6 @@
 <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:BoundField>
                     <asp:BoundField DataField="GHI_CHU" HeaderText="Ghi chú" />
-                    <asp:TemplateField>
-                    <ItemTemplate> <asp:LinkButton ID = "lbt_delete" runat="server" Text="Xóa" 
-                     CommandName="Delete" OnClientClick="return confirm ('Bạn có thực sự muốn xóa bản ghi này?')"></asp:LinkButton>
-                    </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:CommandField SelectText="Sửa" ShowSelectButton="True" />
                 </Columns>
                   <EditRowStyle BackColor="#7C6F57" />
                   <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
