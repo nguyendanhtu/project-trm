@@ -837,7 +837,7 @@ public class US_V_DM_GIANG_VIEN : US_Object
         return false;
     }
 
-    public void search_giang_vien(string ip_str_ten_giang_vien
+    public void search_giang_vien( string ip_str_ten_giang_vien
                                  , string ip_str_tu_khoa_search
                                  , string ip_str_gender
                                  , decimal ip_dc_id_trang_thai_giang_vien
@@ -855,6 +855,19 @@ public class US_V_DM_GIANG_VIEN : US_Object
         v_sp_search_giang_vien.addDatetimeInputParam("@NGAY_BD_HOP_TAC", ip_dat_ngay_bd_hop_tac);
         v_sp_search_giang_vien.addDecimalInputParam("@THANG_SINH", ip_dc_month_birthday);
         v_sp_search_giang_vien.fillDataSetByCommand(this, op_ds_giang_vien);
+    }
+
+    public void fill_data_by_search( string ip_str_ten_ngan_hang
+                                   , decimal ip_dc_idmon_hoc
+                                   , decimal ip_dc_so_hop_dong
+                                   , DS_V_DM_GIANG_VIEN op_ds_giang_vien)
+    {
+        CStoredProc v_sp_advance_search = new CStoredProc("pr_V_DM_GIANG_VIEN_Advance_Search");
+        v_sp_advance_search.addNVarcharInputParam("@TEN_NGAN_HANG", ip_str_ten_ngan_hang);
+
+        v_sp_advance_search.addDecimalInputParam("@ID_MON_HOC", ip_dc_idmon_hoc);
+        v_sp_advance_search.addDecimalInputParam("@SO_HOP_DONG", ip_dc_so_hop_dong);
+        v_sp_advance_search.fillDataSetByCommand(this, op_ds_giang_vien);
     }
     #endregion
 	}
