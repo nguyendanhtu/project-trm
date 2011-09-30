@@ -840,7 +840,7 @@ public class US_V_DM_HOP_DONG_KHUNG : US_Object
 
                                  , DateTime ip_dat_ngay_hieu_luc
 
-                                , DateTime ip_dat_ngay_ket_thuc
+                                , string ip_str_ma_po_quan_ly
 
                                 , DS_V_DM_HOP_DONG_KHUNG op_ds_dm_hop_dong_khung)
     {
@@ -855,7 +855,7 @@ public class US_V_DM_HOP_DONG_KHUNG : US_Object
 
         v_sp_search_hop_dong_khung.addDecimalInputParam("@LOAI_HOP_DONG", ip_dc_id_loai_hop_dong);
 
-        v_sp_search_hop_dong_khung.addNVarcharInputParam("@TRANG_THAI_HOP_DONG", ip_dc_id_trang_thai_hop_dong);
+        v_sp_search_hop_dong_khung.addDecimalInputParam("@TRANG_THAI_HOP_DONG", ip_dc_id_trang_thai_hop_dong);
 
         v_sp_search_hop_dong_khung.addDecimalInputParam("@DON_VI_QUAN_LY", ip_dc_id_don_vi_quan_ly);
 
@@ -863,7 +863,7 @@ public class US_V_DM_HOP_DONG_KHUNG : US_Object
 
         v_sp_search_hop_dong_khung.addDatetimeInputParam("@NGAY_HIEU_LUC", ip_dat_ngay_hieu_luc);
 
-        v_sp_search_hop_dong_khung.addDatetimeInputParam("@NGAY_KET_THUC_DU_KIEN", ip_dat_ngay_ket_thuc);
+        v_sp_search_hop_dong_khung.addNVarcharInputParam("@MA_PO_QUAN_LY", ip_str_ma_po_quan_ly);
 
         v_sp_search_hop_dong_khung.fillDataSetByCommand(this, op_ds_dm_hop_dong_khung);
 
