@@ -230,8 +230,8 @@
 		<td align="left">
         &nbsp;<asp:button id="cmd_them_moi" accessKey="c" CssClass="cssButton" 
                 runat="server" Width="98px" Text="Tạo mới(c)" 
-                Height="27px" onclick="cmd_them_moi_Click"/>
-                <asp:Label ID="m_lbl_thong_bao" runat="server"></asp:Label>
+                Height="27px" onclick="cmd_them_moi_Click"/><br />
+                <asp:Label ID="m_lbl_thong_bao" CssClass="cssManField" runat="server"></asp:Label>
         </td>
         <td >
 		    &nbsp;</td>
@@ -243,7 +243,9 @@
                 runat="server" AutoGenerateColumns="False" 
                 Width="101%" DataKeyNames="ID"
                 CellPadding="4" ForeColor="#333333" GridLines="Both" 
-            AllowSorting="True" >
+            AllowSorting="True" 
+                onrowdeleting="m_grv_dm_danh_sach_hop_dong_khung_RowDeleting" 
+                onpageindexchanging="m_grv_dm_danh_sach_hop_dong_khung_PageIndexChanging" >
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">
@@ -327,7 +329,7 @@
                     </asp:TemplateField>
                      <asp:TemplateField>
                     <ItemTemplate> <asp:HyperLink ToolTip="Sửa" ImageUrl="/TRMProject/Images/Button/edit.png" ID = "lbt_edit" runat="server"
-                     NavigateUrl='<%# "/TRMProject/ChucNang/F302_DanhSachHopDongKhung.aspx?mode=edit&id="+Eval("ID") %>'></asp:HyperLink>
+                     NavigateUrl='<%# "/TRMProject/ChucNang/F301_GdHopDongKhung.aspx?mode=edit&id="+Eval("ID") %>'></asp:HyperLink>
                     </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>

@@ -172,7 +172,23 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
             throw v_e;
         }
     }
+    private void delete_dm_hd_khung(int ip_i_row_del)
+    {
+        try
+        {
+            decimal v_dc_id_id_hd_khung = CIPConvert.ToDecimal(m_grv_dm_danh_sach_hop_dong_khung.DataKeys[ip_i_row_del].Value);
+            m_us_dm_hop_dong_khung.dcID = v_dc_id_id_hd_khung;
+            m_us_dm_hop_dong_khung.DeleteByID(v_dc_id_id_hd_khung);
+            m_lbl_thong_bao.Text = "Xóa bản ghi thành công";
+            get_form_search_data_and_load_to_grid();
+        }
+        catch (Exception v_e)
+        {
 
+            throw v_e;
+        }
+
+    }
     private void load_data_2_trang_thai_hop_dong()
     {
         try
@@ -248,20 +264,26 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
             decimal v_dc_don_vi_quan_li = CIPConvert.ToDecimal(m_cbo_don_vi_quan_ly_search.SelectedValue);
             string v_str_ma_po_quan_ly = m_txt_ma_PO_quan_ly.Text.Trim();
             string v_str_so_hop_dong = m_txt_so_hd.Text.Trim();
-            DateTime v_dat_ngay_ki = m_dat_ngay_ki.SelectedDate;
-            DateTime v_dat_ngay_hieu_luc = m_dat_ngay_hieu_luc.SelectedDate;
+            DateTime v_dat_ngay_ki;
+            if(m_dat_ngay_ki.Text !="" )
+              v_dat_ngay_ki = m_dat_ngay_ki.SelectedDate;
+            else v_dat_ngay_ki = CIPConvert.ToDatetime("01/01/1900");
+            DateTime v_dat_ngay_hieu_luc;
+            if (m_dat_ngay_hieu_luc.Text != "")
+                v_dat_ngay_hieu_luc = m_dat_ngay_hieu_luc.SelectedDate;
+            else v_dat_ngay_hieu_luc = CIPConvert.ToDatetime("01/01/1900");
 
             // Search
 
             m_us_dm_hop_dong_khung.search_hop_dong_khung( v_str_ten_giang_vien
                                                         , v_str_search_key_word
-                                                        , v_dc_id_loai_hop_dong
                                                         , v_str_so_hop_dong
+                                                        , v_dc_id_loai_hop_dong                                                        
                                                         , v_dc_trang_thai_hop_dong
                                                         , v_dc_don_vi_quan_li
-                                                        , v_str_ma_po_quan_ly
                                                         , v_dat_ngay_ki
                                                         , v_dat_ngay_hieu_luc
+                                                        , v_str_ma_po_quan_ly
                                                         , m_ds_hop_dong_khung);
 
             m_grv_dm_danh_sach_hop_dong_khung.DataSource = m_ds_hop_dong_khung.V_DM_HOP_DONG_KHUNG;
@@ -295,7 +317,31 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
     {
         try
         {
-           
+            m_grv_dm_danh_sach_hop_dong_khung.PageSize = 50;
+           get_form_search_data_and_load_to_grid();
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(this, v_e);
+        }
+    }
+    protected void m_grv_dm_danh_sach_hop_dong_khung_RowDeleting(object sender, GridViewDeleteEventArgs e)
+    {
+        try
+        {
+            delete_dm_hd_khung(e.RowIndex);
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(this, v_e);
+        }
+    }
+    protected void m_grv_dm_danh_sach_hop_dong_khung_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+        try
+        {
+            m_grv_dm_danh_sach_hop_dong_khung.PageIndex = e.NewPageIndex;
+            get_form_search_data_and_load_to_grid();
         }
         catch (Exception v_e)
         {

@@ -240,10 +240,28 @@
             onrowdeleting="m_grv_dm_danh_sach_giang_vien_RowDeleting" PageSize="15" >
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
+                 <asp:TemplateField>
+                    <ItemTemplate> <asp:LinkButton ID = "lbt_delete"  runat="server"
+                     CommandName="Delete" ToolTip="Xóa" OnClientClick="return confirm ('Bạn có thực sự muốn xóa bản ghi này?')">
+                     <img src="/TRMProject/Images/Button/deletered.png" alt="Delete" />
+                     </asp:LinkButton>
+                    </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField>
+                    <ItemTemplate> <asp:HyperLink ToolTip="Sửa" ImageUrl="/TRMProject/Images/Button/edit.png" ID = "lbt_edit" runat="server"
+                     NavigateUrl='<%# "/TRMProject/ChucNang/F201_CapNhatThongTinGiangVien.aspx?mode=edit&id="+Eval("ID") %>'></asp:HyperLink>
+                    </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField>
+                    <ItemTemplate> <asp:HyperLink ToolTip="Hợp đồng giảng viên" ImageUrl="/TRMProject/Images/Button/detail.png" ID = "lbt_hop_dong_gv" runat="server"
+                     NavigateUrl='<%# "/TRMProject/ChucNang/F306_HopDongKhungGiangVien.aspx?id_gv="+Eval("ID") %>'></asp:HyperLink>
+                    </ItemTemplate>
+                    </asp:TemplateField>
                     <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
                         <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:TemplateField>
+                    
                     <asp:BoundField DataField="MA_GIANG_VIEN" HeaderText="Mã giảng viên" 
                         Visible="False">
                         <ItemStyle HorizontalAlign="Center" Width="4%"></ItemStyle></asp:BoundField>
@@ -344,18 +362,6 @@
                     <label><%# mapping_hdkh(Eval("GV_HDKH_YN").ToString())%></label>
                     </ItemTemplate>
                     <ItemStyle HorizontalAlign="Center"></ItemStyle>
-                    </asp:TemplateField>
-                    <asp:TemplateField>
-                    <ItemTemplate> <asp:LinkButton ID = "lbt_delete"  runat="server"
-                     CommandName="Delete" ToolTip="Xóa" OnClientClick="return confirm ('Bạn có thực sự muốn xóa bản ghi này?')">
-                     <img src="/TRMProject/Images/Button/deletered.png" alt="Delete" />
-                     </asp:LinkButton>
-                    </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField>
-                    <ItemTemplate> <asp:HyperLink ToolTip="Sửa" ImageUrl="/TRMProject/Images/Button/edit.png" ID = "lbt_edit" runat="server"
-                     NavigateUrl='<%# "/TRMProject/ChucNang/F201_CapNhatThongTinGiangVien.aspx?mode=edit&id="+Eval("ID") %>'></asp:HyperLink>
-                    </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
                   <EditRowStyle BackColor="#7C6F57" />
