@@ -134,6 +134,21 @@
             PageSize="15" >
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
+                 <asp:TemplateField>
+                    <ItemTemplate> 
+                        <asp:LinkButton ID = "lbt_delete"  runat="server"
+                     CommandName="Delete" ToolTip="Xóa" 
+                            OnClientClick="return confirm ('Bạn có thực sự muốn xóa bản ghi này?')">
+                     <img src="/TRMProject/Images/Button/deletered.png" alt="Delete" />
+                     </asp:LinkButton>
+                    </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField>
+                    <ItemTemplate> <asp:HyperLink ToolTip="Sửa" 
+                            ImageUrl="/TRMProject/Images/Button/edit.png" ID = "lbt_edit" runat="server"
+                            NavigateUrl='<%# "/TRMProject/ChucNang/F202_DanhSachGiangVien.aspx?mode=edit&id="+Eval("ID") %>'></asp:HyperLink>
+                    </ItemTemplate>
+                    </asp:TemplateField>
                     <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
                         <ItemStyle HorizontalAlign="Center"></ItemStyle>
@@ -158,8 +173,6 @@
                        <asp:BoundField DataField="NGAY_SINH" HeaderText="Ngày sinh" 
                         DataFormatString="{0:d}">
                     </asp:BoundField>
-                    <asp:TemplateField>
-                   </asp:TemplateField>
                      <asp:BoundField DataField="CHUC_VU_HIEN_TAI" HeaderText="Chức vụ hiện tại">
                     </asp:BoundField>
                     <asp:BoundField DataField="CHUC_VU_CAO_NHAT" HeaderText="Chức vụ cao nhất">
@@ -197,27 +210,6 @@
                      <asp:BoundField DataField="NOI_CAP" HeaderText="Nơi cấp" />
                      <asp:BoundField DataField="DON_VI_QUAN_LY" HeaderText="Đơn vị quản lý" />
                      <asp:BoundField DataField="MA_SO_THUE" HeaderText="Mã số thuế" />
-                    <asp:TemplateField>
-                  
-                    <ItemStyle HorizontalAlign="Center"></ItemStyle>
-                    </asp:TemplateField>
-                    <asp:TemplateField>
-                    <ItemTemplate> 
-                        <asp:LinkButton ID = "lbt_delete"  runat="server"
-                     CommandName="Delete" ToolTip="Xóa" 
-                            OnClientClick="return confirm ('Bạn có thực sự muốn xóa bản ghi này?')">
-                     <img src="/TRMProject/Images/Button/deletered.png" alt="Delete" />
-                     </asp:LinkButton>
-                    </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField>
-                    <ItemTemplate> <asp:HyperLink ToolTip="Sửa" 
-                            ImageUrl="/TRMProject/Images/Button/edit.png" ID = "lbt_edit" runat="server"
-                     
-                            
-                            NavigateUrl='<%# "/TRMProject/ChucNang/F202_DanhSachGiangVien.aspx?mode=edit&id="+Eval("ID") %>'></asp:HyperLink>
-                    </ItemTemplate>
-                    </asp:TemplateField>
                 </Columns>
                   <EditRowStyle BackColor="#7C6F57" />
                   <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
