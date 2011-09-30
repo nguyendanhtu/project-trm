@@ -72,7 +72,7 @@
                          </td>
                 <td align="left" class="style3">
 			        
-                     <input runat="server" type="text" id="calendar" name="calendar" />
+                     <input type="text" id="calendar" name="calendar" />
     <button id="trigger">...</button>
     <script type="text/javascript"> //<![CDATA[
         Zapatec.Calendar.setup({

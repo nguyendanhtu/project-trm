@@ -158,7 +158,7 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
         m_txt_truong_dao_tao.Text = "";
         rb_sex.Items[0].Selected = true;
         m_dat_ngay_cap.Text = "";
-        calendar.Value = "";
+        //calendar.Value = "";
     }
     private bool check_ma_giang_vien()
     {
@@ -297,7 +297,7 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
             m_txt_ten_ngan_hang.Text = ip_us_giang_vien.strTEN_NGAN_HANG;
             m_txt_truong_dao_tao.Text = ip_us_giang_vien.strTRUONG_DAO_TAO;
             //
-            calendar.Value = CIPConvert.ToStr(ip_us_giang_vien.datNGAY_SINH);
+            //calendar.Value = CIPConvert.ToStr(ip_us_giang_vien.datNGAY_SINH);
             if (ip_us_giang_vien.datNGAY_CAP != null)
                 m_dat_ngay_cap.SelectedDate = ip_us_giang_vien.datNGAY_CAP;
         }
