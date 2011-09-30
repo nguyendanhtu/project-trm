@@ -242,8 +242,7 @@
                 CellPadding="4" ForeColor="#333333" 
             AllowSorting="True" 
                 
-                onselectedindexchanging="m_grv_dm_danh_sach_giang_vien_SelectedIndexChanging" 
-                onrowdatabound="m_grv_dm_danh_sach_giang_vien_RowDataBound" >
+                onselectedindexchanging="m_grv_dm_danh_sach_giang_vien_SelectedIndexChanging" >
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">

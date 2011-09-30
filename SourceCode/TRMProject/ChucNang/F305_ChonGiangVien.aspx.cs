@@ -180,9 +180,9 @@ public partial class ChucNang_F305_ChonGiangVien : System.Web.UI.Page
          {
              decimal v_dc_id_dm_giang_vien = CIPConvert.ToDecimal(m_grv_dm_danh_sach_giang_vien_to_choose.DataKeys[e.NewSelectedIndex].Value);
              US_V_DM_GIANG_VIEN v_us_dm_giang_vien = new US_V_DM_GIANG_VIEN(v_dc_id_dm_giang_vien);
-             //Session["id_giang_vien"] = v_us_dm_giang_vien.dcID;
-             //Session["name_giang_vien"] = v_us_dm_giang_vien.strTEN_GIANG_VIEN;
-             //Response.Write("<script language='javascript'>{windown.close();}</scritp>");
+             Session["id_giang_vien"] = v_us_dm_giang_vien.dcID;
+             Session["name_giang_vien"] = v_us_dm_giang_vien.strTEN_GIANG_VIEN;
+             Response.Write("<script language='javascript'>{windown.close();}</scritp>");
 
          }
          catch (Exception v_e)
@@ -190,20 +190,20 @@ public partial class ChucNang_F305_ChonGiangVien : System.Web.UI.Page
              CSystemLog_301.ExceptionHandle(this, v_e);
          }
      }
-     protected void m_grv_dm_danh_sach_giang_vien_RowDataBound(object sender, GridViewRowEventArgs e)
-     {
-         try
-         {
-             if ((e.Row.RowType == DataControlRowType.DataRow))
-             {
-                 string v_str = e.Row.Cells[1].Text;
-                 //assuming that the required value column is the second column in gridview
-                 ((LinkButton)e.Row.FindControl("lbt_choose_teacher")).Attributes.Add("onclick", "javascript:GetRowValue('"+ v_str +"')");
-             }
-         }
-         catch (Exception v_e)
-         {
-             CSystemLog_301.ExceptionHandle(this, v_e);
-         }
-     }
+     //protected void m_grv_dm_danh_sach_giang_vien_RowDataBound(object sender, GridViewRowEventArgs e)
+     //{
+     //    try
+     //    {
+     //        if ((e.Row.RowType == DataControlRowType.DataRow))
+     //        {
+     //            string v_str = e.Row.Cells[1].Text;
+     //            //assuming that the required value column is the second column in gridview
+     //            ((LinkButton)e.Row.FindControl("lbt_choose_teacher")).Attributes.Add("onclick", "javascript:GetRowValue('"+ v_str +"')");
+     //        }
+     //    }
+     //    catch (Exception v_e)
+     //    {
+     //        CSystemLog_301.ExceptionHandle(this, v_e);
+     //    }
+     //}
 }
