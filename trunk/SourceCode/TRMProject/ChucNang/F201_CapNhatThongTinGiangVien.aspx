@@ -53,7 +53,7 @@
                          </td>
                          <td align="left" style="width:1%;"> 
                              <asp:RequiredFieldValidator ID="m_rfv_teacher_name" runat="server" 
-                        ControlToValidate="m_txt_middle_name" Text="*" ErrorMessage="Bạn phải nhập tên giảng viên"></asp:RequiredFieldValidator></td>
+                        ControlToValidate="m_txt_middle_name" Text="*" ErrorMessage="Bạn phải nhập họ và tên đệm giảng viên"></asp:RequiredFieldValidator></td>
                 <td align="right" class="style1">
 			       
 			<asp:label id="lblName0" CssClass="cssManField" runat="server" 
@@ -369,22 +369,6 @@
                 MaxLength="64" Width="94%" /> <span style="font-weight:bold">%</span>
 			        &nbsp;</td>
                 <td align="left" style="width:1%;">&nbsp;</td>
-            </tr>
-            <tr>
-                <td align="right" class="style2">
-			        &nbsp;</td>
-                <td align="left" class="style3">
-		            &nbsp;</td>
-                     <td align="left" style="width:1%;">
-                         &nbsp;</td>
-                <td align="right" class="style1">
-			        &nbsp;</td>
-                <td align="left" style="width:10%;">
-                    &nbsp;</td>
-                      <td align="left" style="width:1%;">
-                          &nbsp;</td>
-                <td align="left" style="width:10%;"></td>
-                <td align="left" style="width:1%;"></td>
             </tr>
             <tr>
                 <td align="right" class="style2">
