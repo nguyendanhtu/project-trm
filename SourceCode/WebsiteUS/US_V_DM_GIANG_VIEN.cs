@@ -838,7 +838,6 @@ public class US_V_DM_GIANG_VIEN : US_Object
     }
 
     public void search_giang_vien( string ip_str_ten
-                                 , string ip_str_ho_ten_dem
                                  , string ip_str_tu_khoa_search
                                  , string ip_str_gender
                                  , decimal ip_dc_id_trang_thai_giang_vien
@@ -849,7 +848,6 @@ public class US_V_DM_GIANG_VIEN : US_Object
     {
         CStoredProc v_sp_search_giang_vien = new CStoredProc("pr_V_DM_GIANG_VIEN_Search");
         v_sp_search_giang_vien.addNVarcharInputParam("@TEN_GIANG_VIEN", ip_str_ten);
-        v_sp_search_giang_vien.addNVarcharInputParam("@HO_TEN_DEM_GIANG_VIEN", ip_str_ho_ten_dem);
         v_sp_search_giang_vien.addNVarcharInputParam("@TU_KHOA", ip_str_tu_khoa_search);
         v_sp_search_giang_vien.addNVarcharInputParam("@GIOI_TINH", ip_str_gender);
         v_sp_search_giang_vien.addDecimalInputParam("@TRANG_THAI_GIANG_VIEN", ip_dc_id_trang_thai_giang_vien);
