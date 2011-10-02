@@ -12,7 +12,7 @@
               <DbSource ConnectionRef="TRMConnectionString1 (Settings)" DbObjectName="TRM.dbo.V_DM_HOP_DONG_KHUNG" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT ID, SO_HOP_DONG, ID_GIANG_VIEN, GIANG_VIEN, NGAY_KY, NGAY_HIEU_LUC, NGAY_KET_THUC_DU_KIEN, GIA_TRI_HOP_DONG, ID_LOAI_HOP_DONG, LOAI_HOP_DONG, ID_DON_VI_QUAN_LY, DON_VI_QUAN_LY, GHI_CHU, ID_TRANG_THAI_HOP_DONG, TRANG_THAI_HOP_DONG, ID_DON_VI_THANH_TOAN, DON_VI_THANH_TOAN, THUE_SUAT, ID_MON1, FIRST_MON, ID_MON2, SEC_MON, ID_MON3, THIR_MON, ID_MON4, FOURTH_MON, ID_MON5, FITH_MON, ID_MON6, SIXTH_MON, HOC_LIEU_YN, VAN_HANH_YN, MA_PO_PHU_TRACH, GHI_CHU2, GHI_CHU3, GHI_CHU4, CO_SO_HD_YN FROM dbo.V_DM_HOP_DONG_KHUNG</CommandText>
+                    <CommandText>SELECT ID, SO_HOP_DONG, ID_GIANG_VIEN, GIANG_VIEN, NGAY_KY, NGAY_HIEU_LUC, NGAY_KET_THUC_DU_KIEN, GIA_TRI_HOP_DONG, ID_LOAI_HOP_DONG, LOAI_HOP_DONG, ID_DON_VI_QUAN_LY, DON_VI_QUAN_LY, GHI_CHU, ID_TRANG_THAI_HOP_DONG, TRANG_THAI_HOP_DONG, ID_DON_VI_THANH_TOAN, DON_VI_THANH_TOAN, THUE_SUAT, ID_MON1, FIRST_MON, ID_MON2, SEC_MON, ID_MON3, THIR_MON, ID_MON4, FOURTH_MON, ID_MON5, FITH_MON, ID_MON6, SIXTH_MON, HOC_LIEU_YN, VAN_HANH_YN, MA_PO_PHU_TRACH, GHI_CHU2, GHI_CHU3, GHI_CHU4, CO_SO_HD_YN, GEN_PHU_LUC_YN FROM dbo.V_DM_HOP_DONG_KHUNG</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -56,6 +56,7 @@
               <Mapping SourceColumn="GHI_CHU3" DataSetColumn="GHI_CHU3" />
               <Mapping SourceColumn="GHI_CHU4" DataSetColumn="GHI_CHU4" />
               <Mapping SourceColumn="CO_SO_HD_YN" DataSetColumn="CO_SO_HD_YN" />
+              <Mapping SourceColumn="GEN_PHU_LUC_YN" DataSetColumn="GEN_PHU_LUC_YN" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -221,6 +222,13 @@
                 </xs:simpleType>
               </xs:element>
               <xs:element name="CO_SO_HD_YN" msprop:Generator_ColumnVarNameInTable="columnCO_SO_HD_YN" msprop:Generator_ColumnPropNameInRow="CO_SO_HD_YN" msprop:Generator_ColumnPropNameInTable="CO_SO_HD_YNColumn" msprop:Generator_UserColumnName="CO_SO_HD_YN">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="GEN_PHU_LUC_YN" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnGEN_PHU_LUC_YN" msprop:Generator_ColumnPropNameInRow="GEN_PHU_LUC_YN" msprop:Generator_ColumnPropNameInTable="GEN_PHU_LUC_YNColumn" msprop:Generator_UserColumnName="GEN_PHU_LUC_YN" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="1" />
