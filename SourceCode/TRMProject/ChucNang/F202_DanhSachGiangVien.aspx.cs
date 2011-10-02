@@ -170,17 +170,17 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
         {
             // thu thập dữ liệu            
             string v_str_ten_giang_vien = m_txt_ten_giang_vien.Text.Trim();
-            // Cắt string name
-            string[] v_str_ten_gv = v_str_ten_giang_vien.Split(' ');
-            string v_str_ho_va_ten_dem="";
-            string v_str_ten="";
-            for (int i = 0; i < v_str_ten_gv.Length-1; i++)
-            {
-                v_str_ho_va_ten_dem += v_str_ten_gv[i];
-                v_str_ho_va_ten_dem += " ";
-            }
-            v_str_ten += v_str_ten_gv[v_str_ten_gv.Length - 1];
-            v_str_ho_va_ten_dem = v_str_ho_va_ten_dem.TrimEnd();
+            //// Cắt string name
+            //string[] v_str_ten_gv = v_str_ten_giang_vien.Split(' ');
+            //string v_str_ho_va_ten_dem="";
+            //string v_str_ten="";
+            //for (int i = 0; i < v_str_ten_gv.Length-1; i++)
+            //{
+            //    v_str_ho_va_ten_dem += v_str_ten_gv[i];
+            //    v_str_ho_va_ten_dem += " ";
+            //}
+            //v_str_ten += v_str_ten_gv[v_str_ten_gv.Length - 1];
+            //v_str_ho_va_ten_dem = v_str_ho_va_ten_dem.TrimEnd();
 
             string v_str_search_key_word = m_txt_tu_khoa_tim_kiem.Text.Trim();
 
@@ -201,8 +201,7 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
 
             // Thực hiện Search
 
-            m_us_dm_giang_vien.search_giang_vien(v_str_ten
-                                                , v_str_ho_va_ten_dem
+            m_us_dm_giang_vien.search_giang_vien(v_str_ten_giang_vien
                                                 ,v_str_search_key_word      
                                                 ,v_str_gender   
                                                 ,v_dc_id_trang_thai_giang_vien
