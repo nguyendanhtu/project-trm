@@ -95,11 +95,11 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
             // Đây là giá trị thực
             DataRow v_dr_all = m_ds_cm_dm_tu_dien.CM_DM_TU_DIEN.NewCM_DM_TU_DIENRow();
             v_dr_all[CM_DM_TU_DIEN.TEN] = "GV không cung cấp";
-            v_dr_all[CM_DM_TU_DIEN.TEN] = "GV không cung cấp";
+            v_dr_all[CM_DM_TU_DIEN.MA_TU_DIEN] = "None";
             m_ds_cm_dm_tu_dien.EnforceConstraints = false;
             m_ds_cm_dm_tu_dien.CM_DM_TU_DIEN.Rows.InsertAt(v_dr_all, 0);
 
-            m_cbo_hoc_vi.DataValueField = CM_DM_TU_DIEN.TEN;
+            m_cbo_hoc_vi.DataValueField = CM_DM_TU_DIEN.MA_TU_DIEN;
             m_cbo_hoc_vi.DataTextField = CM_DM_TU_DIEN.TEN;
 
             m_cbo_hoc_vi.DataSource = m_ds_cm_dm_tu_dien.CM_DM_TU_DIEN;
@@ -121,12 +121,12 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
             // Đây là giá trị thực
             DataRow v_dr_all = m_ds_cm_dm_tu_dien.CM_DM_TU_DIEN.NewCM_DM_TU_DIENRow();
             v_dr_all[CM_DM_TU_DIEN.TEN] = "GV không cung cấp";
-            v_dr_all[CM_DM_TU_DIEN.TEN] = "GV không cung cấp";
+            v_dr_all[CM_DM_TU_DIEN.MA_TU_DIEN] = "None";
             m_ds_cm_dm_tu_dien.EnforceConstraints = false;
             m_ds_cm_dm_tu_dien.CM_DM_TU_DIEN.Rows.InsertAt(v_dr_all, 0);
 
             m_cbo_hoc_ham.DataValueField = CM_DM_TU_DIEN.TEN;
-            m_cbo_hoc_ham.DataTextField = CM_DM_TU_DIEN.TEN;
+            m_cbo_hoc_ham.DataTextField = CM_DM_TU_DIEN.MA_TU_DIEN;
 
             m_cbo_hoc_ham.DataSource = m_ds_cm_dm_tu_dien.CM_DM_TU_DIEN;
             m_cbo_hoc_ham.DataBind();
@@ -242,14 +242,10 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
             ip_us_giang_vien.strTEN_GIANG_VIEN = m_txt_last_name.Text;
             ip_us_giang_vien.strTEN_NGAN_HANG = m_txt_ten_ngan_hang.Text;
             ip_us_giang_vien.strTRUONG_DAO_TAO = m_txt_truong_dao_tao.Text;
-            if (m_dat_ngay_sinh_gv.SelectedDate != null)
-                ip_us_giang_vien.datNGAY_SINH = m_dat_ngay_sinh_gv.SelectedDate;           
-            else ip_us_giang_vien.datNGAY_SINH = CIPConvert.ToDatetime("01/01/1900");
-            //if (!Request.Form["calendar"].ToString().Equals(""))
-            //    ip_us_giang_vien.datNGAY_SINH =CIPConvert.ToDatetime(Request.Form["calendar"].ToString());
-            if (m_dat_ngay_cap.SelectedDate != null)
+            if (m_dat_ngay_sinh_gv.SelectedDate != CIPConvert.ToDatetime("01/01/0001"))
+                ip_us_giang_vien.datNGAY_SINH = m_dat_ngay_sinh_gv.SelectedDate;
+            if (m_dat_ngay_cap.SelectedDate != CIPConvert.ToDatetime("01/01/0001"))
                 ip_us_giang_vien.datNGAY_CAP = m_dat_ngay_cap.SelectedDate;
-            else ip_us_giang_vien.datNGAY_CAP= CIPConvert.ToDatetime("01/01/1900");
         }
         catch (Exception v_e)
         {
