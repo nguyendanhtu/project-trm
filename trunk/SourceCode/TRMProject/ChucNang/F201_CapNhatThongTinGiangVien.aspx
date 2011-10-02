@@ -25,11 +25,11 @@
 		<td>
         <table cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0"> 
             <tr>
-                <td align="right" class="style2">
+                <td align="right" style="width:15%" class="style2">
 			<asp:label id="lblTeacherCode" CssClass="cssManField" runat="server" 
                 Text="Mã giảng viên" />
                          </td>
-                <td align="left" class="style3">
+                <td style="width:30%" align="left" class="style3">
 			<asp:textbox id="m_txt_ma_giang_vien" CssClass="cssTextBox"  runat="server" 
                 MaxLength="64" Width="96%" />
                          </td>
@@ -39,31 +39,34 @@
                 <td align="left" class="style1">
 			       
 			    </td>
-                <td align="left" style="width:10%;" rowspan="3">&nbsp;</td>
-                <td align="left" style="width:1%;"></td>
-                 <td align="right" class="style1"></td>
-                <td align="left" style="width:10%;"></td>
+                <td align="left" style="width:30%;">&nbsp;</td>
                 <td align="left" style="width:1%;"></td>
             </tr>
             <tr>
                 <td align="right" class="style2">
 			<asp:label id="lblName" CssClass="cssManField" runat="server" 
-                Text="Họ Tên" />
+                Text="Họ và Tên đệm" />
                          </td>
                 <td align="left" class="style3">
-			<asp:textbox id="m_txt_name" CssClass="cssTextBox"  runat="server" 
+			<asp:textbox id="m_txt_middle_name" CssClass="cssTextBox"  runat="server" 
                 MaxLength="64" Width="96%" />
                          </td>
                          <td align="left" style="width:1%;"> 
                              <asp:RequiredFieldValidator ID="m_rfv_teacher_name" runat="server" 
-                        ControlToValidate="m_txt_name" Text="*" ErrorMessage="Bạn phải nhập tên giảng viên"></asp:RequiredFieldValidator></td>
-                <td align="left" class="style1">
+                        ControlToValidate="m_txt_middle_name" Text="*" ErrorMessage="Bạn phải nhập tên giảng viên"></asp:RequiredFieldValidator></td>
+                <td align="right" class="style1">
 			       
-			        &nbsp;</td>
-                <td align="left" style="width:1%;">&nbsp;</td>
-                 <td align="right" class="style1">&nbsp;</td>
-                <td align="left" style="width:10%;">&nbsp;</td>
-                <td align="left" style="width:1%;">&nbsp;</td>
+			<asp:label id="lblName0" CssClass="cssManField" runat="server" 
+                Text="Tên giảng viên" />
+                         </td>
+                <td align="left" style="width:1%;">
+			<asp:textbox id="m_txt_last_name" CssClass="cssTextBox"  runat="server" 
+                MaxLength="64" Width="94%" />
+                         </td>
+                 <td align="right" class="style1"> 
+                             <asp:RequiredFieldValidator ID="m_rfv_teacher_name0" runat="server" 
+                        ControlToValidate="m_txt_last_name" Text="*" 
+                        ErrorMessage="Bạn phải nhập tên giảng viên"></asp:RequiredFieldValidator></td>
             </tr>
             <tr>
                 <td align="right" class="style2">
@@ -104,37 +107,20 @@
                     </td>
                          <td align="left" style="width:1%;"> 
                 </td>
-                <td align="left" class="style1">
+                <td align="right" class="style1">
 			       
-			        &nbsp;</td>
-                <td align="left" style="width:1%;">&nbsp;</td>
-                 <td align="right" class="style1">&nbsp;</td>
-                <td align="left" style="width:10%;">&nbsp;</td>
-                <td align="left" style="width:1%;">&nbsp;</td>
-            </tr>
-            <tr>
-                <td align="right" class="style2">
 			<asp:label id="lblSex" CssClass="cssManField" runat="server" 
                 Text="Giới tính" />
                          </td>
-                <td align="left" class="style3">
+                <td align="left" style="width:1%;">
 			        <asp:RadioButtonList ID="rb_sex" runat="server" 
                        
                         RepeatDirection="Horizontal" Width="167px">
                         <asp:ListItem Selected="True" Value="Male">Nam</asp:ListItem>
                         <asp:ListItem Value="Female">Nữ</asp:ListItem>
                     </asp:RadioButtonList>
-                </td>
-                         <td align="left" style="width:1%;"> 
-                             &nbsp;</td>
-                <td align="left" class="style1">
-			       
-			        &nbsp;</td>
-                <td align="left" style="width:10%;">&nbsp;</td>
-                <td align="left" style="width:1%;">&nbsp;</td>
+                         </td>
                  <td align="right" class="style1">&nbsp;</td>
-                <td align="left" style="width:10%;">&nbsp;</td>
-                <td align="left" style="width:1%;">&nbsp;</td>
             </tr>
             <tr>
                 <td align="right" class="style2">
@@ -146,38 +132,12 @@
                 MaxLength="64" Width="96%" /></td>
                 <td align="left" style="width:1%;">
                     &nbsp;</td>
-                <td align="left" class="style1">
-                    &nbsp;</td>
-                <td align="left" style="width:10%;">
-                    &nbsp;</td>
-                <td align="left" style="width:1%;">
-                    &nbsp;</td>
                 <td align="right" class="style1">
-                    &nbsp;</td>
-                <td align="left" style="width:10%;">
-                    &nbsp;</td>
-                <td align="left" style="width:1%;">
-                    &nbsp;</td>
-            </tr>
-            <tr>
-                <td align="right" class="style2">
-                    &nbsp;<asp:label id="lblChucVuCaoNhat" CssClass="cssManField" runat="server" 
+                    <asp:label id="lblChucVuCaoNhat" CssClass="cssManField" runat="server" 
                 Text="Chức vụ cao nhất" /></td>
-                <td align="left" class="style3">
-                    &nbsp;<asp:textbox id="m_txt_chuc_vu_cao_nhat" CssClass="cssTextBox"  runat="server" 
-                MaxLength="64" Width="96%" /></td>
-                <td align="left" style="width:1%;">
-                    &nbsp;</td>
-                <td align="left" class="style1">
-                    &nbsp;</td>
                 <td align="left" style="width:10%;">
-                    &nbsp;</td>
-                <td align="left" style="width:1%;">
-                    &nbsp;</td>
-                <td align="right" class="style1">
-                    &nbsp;</td>
-                <td align="left" style="width:10%;">
-                    &nbsp;</td>
+                <asp:textbox id="m_txt_chuc_vu_cao_nhat" CssClass="cssTextBox"  runat="server" 
+                MaxLength="64" Width="94%" /></td>
                 <td align="left" style="width:1%;">
                     &nbsp;</td>
             </tr>
@@ -192,40 +152,19 @@
                          </td>
                      <td align="left" style="width:1%;">
                          &nbsp;</td>
-                <td align="left" style="width:9%">
+                <td align="right" style="width:9%">
                
-			        &nbsp;</td>
-                      <td align="left" class="style1">
-                          &nbsp;</td>
-                      <td align="left" style="width:1%;">
-                          &nbsp;</td>
-                 <td align="right" class="style1">
-			
-                </td>
-                <td align="left" style="width:10%;">
-			
-                         </td>
-                <td align="left" style="width:1%;">
-                 
-                </td>
-            </tr>
-            <tr>
-                <td align="right" class="style3">
-			        &nbsp;
                      <asp:label id="m_lbl_sdt_co_quan" CssClass="cssManField" runat="server" 
                 Text="SĐT cơ quan" />
                     </td>
-                <td align="left" >
-                 &nbsp;<asp:TextBox ID="m_txt_tel_office" runat="server" CssClass="cssTextBox" 
-                        MaxLength="64" Width="96%" />
-			        &nbsp; 
-                   </td>
+                      <td align="left" class="style1">
+			
+                     <asp:TextBox ID="m_txt_tel_office" runat="server" CssClass="cssTextBox" 
+                        MaxLength="64" Width="94%" />
+			
+                    </td>
                       <td align="left" style="width:1%;">
                           &nbsp;</td>
-                 <td align="right" class="style1">
-                     &nbsp;</td>
-                <td align="left" style="width:10%;">&nbsp;</td>
-                <td align="left" style="width:1%;">&nbsp;</td>
             </tr>
             <tr>
                 <td align="right" class="style3">
@@ -236,13 +175,13 @@
                     &nbsp;<asp:textbox id="m_txt_mobile_phone" CssClass="cssTextBox"  runat="server" 
                 MaxLength="64" Width="96%" /></td>
                 <td align="left" style="width:1%;">
-                    &nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
-                        ControlToValidate="m_txt_mobile_phone" Text="*" ErrorMessage="Bạn phải nhập số điện thoại di động"></asp:RequiredFieldValidator>
-                        </td>
+                    &nbsp;</td>
                 <td align="right" class="style1">
-                    &nbsp;</td>
+                    <asp:label id="lblOfficeName" CssClass="cssManField" runat="server" 
+                Text="Tên cơ quan công tác" /></td>
                 <td align="left" style="width:10%;">
-                    &nbsp;</td>
+                       <asp:textbox id="m_txt_co_quan_cong_tac" CssClass="cssTextBox"  runat="server" 
+                MaxLength="64" Width="94%" /></td>
                 <td align="left" style="width:1%;">
                     &nbsp;</td>
             </tr>
@@ -255,42 +194,13 @@
                 <td align="left" style="width:1%;">
                     &nbsp;</td>
                 <td align="right" class="style1">
-                    &nbsp;</td>
-                <td align="left" style="width:10%;">
-                    &nbsp;</td>
-                <td align="left" style="width:1%;">
-                    &nbsp;</td>
-            </tr>
-            <tr>
-                <td align="right" class="style3">
-                    &nbsp;<asp:label id="lblOfficeName" CssClass="cssManField" runat="server" 
-                Text="Tên cơ quan công tác" /></td>
-                <td align="left">
-                    &nbsp;<asp:textbox id="m_txt_co_quan_cong_tac" CssClass="cssTextBox"  runat="server" 
-                MaxLength="64" Width="96%" /></td>
-                <td align="left" style="width:1%;">
-                    &nbsp;</td>
-                <td align="right" class="style1">
-                    &nbsp;</td>
-                <td align="left" style="width:10%;">
-                    &nbsp;</td>
-                <td align="left" style="width:1%;">
-                    &nbsp;</td>
-            </tr>
-            <tr>
-                <td align="right" class="style2">
-			        &nbsp;<asp:label id="lblEmailTopica" CssClass="cssManField" runat="server" 
+                    <asp:label id="lblEmailTopica" CssClass="cssManField" runat="server" 
                 Text="Email Topica" /></td>
-                <td align="left" class="style3">
-                    &nbsp;<asp:textbox id="m_txt_email_topica" CssClass="cssTextBox"  runat="server" 
-                MaxLength="64" Width="96%" /></td>
-                     <td align="left" style="width:1%;">
-                             &nbsp;</td>
-                <td align="right" class="style1">
-			        &nbsp;</td>
-                <td align="left" colspan="4">
-                         &nbsp;</td>
-                <td align="left" style="width:1%;">&nbsp;</td>
+                <td align="left" style="width:10%;">
+                    <asp:textbox id="m_txt_email_topica" CssClass="cssTextBox"  runat="server" 
+                MaxLength="64" Width="94%" /></td>
+                <td align="left" style="width:1%;">
+                    &nbsp;</td>
             </tr>
             <tr>
                 <td align="right" class="style2">
@@ -306,12 +216,11 @@
                     <asp:Label ID="lblHocHam" runat="server" CssClass="cssManField" 
                         Text="Học hàm" />
                 </td>
-                <td align="left" colspan="4">
+                <td align="left" colspan="2">
                     <asp:DropDownList ID="m_cbo_hoc_ham" runat="server" CssClass="cssDorpdownlist" 
-                        Width="98%" />
+                        Width="94%" />
                     &nbsp;</td>
-                <td align="left" style="width:1%;">
-                    &nbsp;</td>
+             
             </tr>
             <tr>
                 <td align="right" class="style2">
@@ -328,11 +237,10 @@
 			<asp:label id="lblTruongDaoTao" CssClass="cssManField" runat="server" 
                 Text="Trường đào tạo" />
                 </td>
-                <td align="left" colspan="4">
+                <td align="left">
                 <asp:textbox id="m_txt_truong_dao_tao" CssClass="cssTextBox"  runat="server" 
-                MaxLength="64" Width="98%" />
+                MaxLength="64" Width="94%" />
 			        &nbsp;</td>
-                <td align="left" style="width:1%;">&nbsp;</td>
             </tr>
             <tr>
                 <td align="right" class="style2">
@@ -351,10 +259,6 @@
                     &nbsp;</td>
                       <td align="left" style="width:1%;">
                           &nbsp;</td>
-                 <td align="right" class="style1">
-                     &nbsp;</td>
-                <td align="left" style="width:10%;">&nbsp;</td>
-                <td align="left" style="width:1%;">&nbsp;</td>
             </tr>
             <tr>
                 <td align="right" class="style2">
@@ -370,11 +274,10 @@
 			<asp:label id="lblTenNganHang" CssClass="cssManField" runat="server" 
                 Text="Tên ngân hàng" />
                 </td>
-                <td align="left" colspan="4">
+                <td align="left" >
                 <asp:textbox id="m_txt_ten_ngan_hang" CssClass="cssTextBox"  runat="server" 
-                MaxLength="64" Width="96%" />
+                MaxLength="64" Width="94%" />
 			        &nbsp;</td>
-                <td align="left" style="width:1%;">&nbsp;</td>
             </tr>
             <tr>
                 <td align="right" class="style2">
@@ -424,16 +327,27 @@
 		                    </td>
                       <td align="left" style="width:1%;">
                              &nbsp;</td>
-                 <td align="right" class="style1">
-			<asp:label id="lblNoicap" CssClass="cssManField" runat="server" 
-                Text="Nơi cấp" />
-                </td>
                 <td align="left" style="width:10%;">
-			<asp:textbox id="m_txt_noi_cap" CssClass="cssTextBox"  runat="server" 
-                MaxLength="64" Width="96%" />
-                         </td>
+			        &nbsp;</td>
                       <td align="left" style="width:1%;">
                              &nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" class="style2">
+			        &nbsp;</td>
+                <td align="left" class="style3">
+			        &nbsp;</td>
+                     <td align="left" style="width:1%;">
+                         &nbsp;</td>
+                <td align="right" class="style1">
+			<asp:label id="lblNgayCap0" CssClass="cssManField" runat="server" 
+                Text="Nơi Cấp" />
+                </td>
+                <td align="left">
+			<asp:textbox id="m_txt_noi_cap" CssClass="cssTextBox"  runat="server" 
+                MaxLength="64" Width="94%" />
+                         </td>
+                <td align="left" style="width:1%;">&nbsp;</td>
             </tr>
             <tr>
                 <td align="right" class="style2">
@@ -450,9 +364,9 @@
 			<asp:label id="lblMaSoThue" CssClass="cssManField" runat="server" 
                 Text="Mã số thuế" />
                 </td>
-                <td align="left" colspan="4">
+                <td align="left">
                 <asp:textbox id="m_txt_ma_so_thue" CssClass="cssTextBox"  runat="server" 
-                MaxLength="64" Width="96%" />
+                MaxLength="64" Width="94%" /> <span style="font-weight:bold">%</span>
 			        &nbsp;</td>
                 <td align="left" style="width:1%;">&nbsp;</td>
             </tr>
@@ -469,8 +383,6 @@
                     &nbsp;</td>
                       <td align="left" style="width:1%;">
                           &nbsp;</td>
-                 <td align="right" class="style1">
-                     &nbsp;</td>
                 <td align="left" style="width:10%;"></td>
                 <td align="left" style="width:1%;"></td>
             </tr>
@@ -492,30 +404,18 @@
                      <td align="left" style="width:1%;">
                 </td>
                 <td align="right" class="style1">
-			        &nbsp;</td>
-                <td align="left" style="width:10%;">
-                    &nbsp;</td>
-                     <td align="left" style="width:1%;">
-                         &nbsp;</td>
-                 <td align="right" class="style1">
-			         &nbsp;</td>
-                <td align="left" style="width:10%;">
-                    &nbsp;</td>            
-                         <td align="left" style="width:1%;"></td>
-            </tr>
-            <tr>
-                <td align="right" class="style2" style="margin-left: 40px">
                 <asp:label id="m_lbl_description" CssClass="cssManField" runat="server" 
                 Text="Mô tả" />
                 </td>
-                <td align="left" class="style3" colspan="3">  
+                <td align="left" style="width:10%;">
                 <asp:textbox id="m_txt_description" CssClass="cssTextBox"  runat="server" 
                TextMode="MultiLine" Rows="4" Width="96%" />
-			        &nbsp;</td> 
-                <td align="left" style="width:10%;">    
-			        &nbsp;</td> <td align="left" style="width:1%;"></td>
-                 <td align="right" class="style1"></td>
-                <td align="left" style="width:10%;"></td>
+			        </td>
+                     <td align="left" style="width:1%;">
+                         &nbsp;</td>
+                <td align="left" style="width:10%;">
+                    &nbsp;</td>            
+                         <td align="left" style="width:1%;"></td>
             </tr>
             <tr>
                 <td align="right" class="style2">
