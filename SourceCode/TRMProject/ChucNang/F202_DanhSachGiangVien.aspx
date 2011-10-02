@@ -310,8 +310,8 @@
                     <img alt="anh ca nhan" src='<%# "/TRMProject/Images/PrivateImages/"+ Eval("ANH_CA_NHAN") %>' />
                     </ItemTemplate>
                     </asp:TemplateField>
-                     <asp:BoundField DataField="HOC_VI" HeaderText="Học vị" />
-                     <asp:BoundField DataField="HOC_HAM" HeaderText="Học hàm" />
+                    <asp:BoundField DataField="HOC_VI" HeaderText="Học vị" />
+                    <asp:BoundField DataField="HOC_HAM" HeaderText="Học hàm" />
                      <asp:BoundField DataField="CHUYEN_NGANH_CHINH" HeaderText="Chuyên ngành chính" />
                      <asp:BoundField DataField="TRUONG_DAO_TAO" HeaderText="Trường đào tạo" />
                      <asp:BoundField DataField="TRANG_THAI_GIANG_VIEN" HeaderText="Trạng thái giảng viên" />
