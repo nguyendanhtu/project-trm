@@ -104,6 +104,11 @@ public partial class ChucNang_F205_AdvanceSearchGiangVien : System.Web.UI.Page
                             , v_dc_id_mon_hoc
                             ,v_dc_so_hop_dong
                             , m_ds_dm_v_giang_vien);
+            if (m_ds_dm_v_giang_vien.V_DM_GIANG_VIEN.Rows.Count == 0)
+            {
+                m_lbl_thong_bao.Text = "Không có bản ghi nào phù hợp";
+                return;
+            }
             m_grv_dm_danh_sach_giang_vien.DataSource = m_ds_dm_v_giang_vien.V_DM_GIANG_VIEN;
             m_grv_dm_danh_sach_giang_vien.DataBind();
         }
@@ -132,8 +137,6 @@ public partial class ChucNang_F205_AdvanceSearchGiangVien : System.Web.UI.Page
             CSystemLog_301.ExceptionHandle(this, v_e);
         }
     }
-
-
 
     protected void m_grv_dm_danh_sach_giang_vien_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {

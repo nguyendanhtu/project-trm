@@ -124,6 +124,9 @@
 		</td>
 	</tr>	
     <tr>
+    <td><asp:label id="m_lbl_thong_bao" runat="server" CssClass="cssManField" /></td>
+    </tr>
+    <tr>
 		<td align="right">
    <asp:GridView ID="m_grv_dm_danh_sach_giang_vien" AllowPaging="True" 
                 runat="server" AutoGenerateColumns="False" 

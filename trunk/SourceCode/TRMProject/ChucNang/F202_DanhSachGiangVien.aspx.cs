@@ -210,6 +210,11 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
                                                 ,m_ds_giang_vien
                                                 ,v_dat_ngay_bd_hop_tac
                                                 ,CIPConvert.ToDecimal(v_str_month));
+            if (m_ds_giang_vien.V_DM_GIANG_VIEN.Rows.Count == 0)
+            {
+                m_lbl_thong_bao.Text = "Không có bản ghi nào phù hợp";
+                return;
+            }
             m_grv_dm_danh_sach_giang_vien.DataSource = m_ds_giang_vien.V_DM_GIANG_VIEN;
             m_grv_dm_danh_sach_giang_vien.DataBind();
         }
