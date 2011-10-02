@@ -181,7 +181,7 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
                 v_str_ho_va_ten_split += " ";
             }
 
-            v_str_ho_va_ten_split = v_str_ho_va_ten_split.TrimEnd();
+            v_str_ho_va_ten_split = v_str_ho_va_ten_split.Trim();
 
             string v_str_search_key_word = m_txt_tu_khoa_tim_kiem.Text.Trim();
 
