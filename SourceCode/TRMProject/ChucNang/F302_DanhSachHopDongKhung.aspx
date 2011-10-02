@@ -262,7 +262,7 @@
                     </asp:TemplateField>
                     <asp:TemplateField>
                     <ItemTemplate> <asp:HyperLink ToolTip="Phụ lục hợp đồng" ImageUrl="/TRMProject/Images/Button/detail.png" ID = "lbt_phu_luc_hop_dong" runat="server"
-                     NavigateUrl='<%# "/TRMProject/ChucNang/F306_HopDongKhungGiangVien.aspx?id_gv="+Eval("ID") %>'></asp:HyperLink>
+                     NavigateUrl='<%# "/TRMProject/ChucNang/F307_PhuLucHopDong.aspx?id_hd="+Eval("ID") %>'></asp:HyperLink>
                     </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">
