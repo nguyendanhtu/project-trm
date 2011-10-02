@@ -278,7 +278,7 @@
                     <HeaderTemplate>Tên giảng viên</HeaderTemplate>
                     <ItemTemplate>
                     <label><a href='<%# "/TRMProject/ChucNang/F201_CapNhatThongTinGiangVien.aspx?mode=edit&id="+Eval("ID") %>'>
-                    <%# Eval("TEN_GIANG_VIEN").ToString()+" "+Eval("TEN_GIANG_VIEN").ToString() %></a></label>
+                    <%# Eval("HO_VA_TEN_DEM").ToString()+" "+Eval("TEN_GIANG_VIEN").ToString() %></a></label>
                     </ItemTemplate>
                     <ItemStyle Width="200px"/>
                     </asp:TemplateField>

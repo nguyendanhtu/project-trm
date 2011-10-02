@@ -95,7 +95,7 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
             // Đây là giá trị thực
             DataRow v_dr_all = m_ds_cm_dm_tu_dien.CM_DM_TU_DIEN.NewCM_DM_TU_DIENRow();
             v_dr_all[CM_DM_TU_DIEN.TEN] = "GV không cung cấp";
-            v_dr_all[CM_DM_TU_DIEN.MA_TU_DIEN] = "None";
+            v_dr_all[CM_DM_TU_DIEN.MA_TU_DIEN] = "KHONG_BIET";
             m_ds_cm_dm_tu_dien.EnforceConstraints = false;
             m_ds_cm_dm_tu_dien.CM_DM_TU_DIEN.Rows.InsertAt(v_dr_all, 0);
 
@@ -121,7 +121,7 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
             // Đây là giá trị thực
             DataRow v_dr_all = m_ds_cm_dm_tu_dien.CM_DM_TU_DIEN.NewCM_DM_TU_DIENRow();
             v_dr_all[CM_DM_TU_DIEN.TEN] = "GV không cung cấp";
-            v_dr_all[CM_DM_TU_DIEN.MA_TU_DIEN] = "None";
+            v_dr_all[CM_DM_TU_DIEN.MA_TU_DIEN] = "KHONG_BIET";
             m_ds_cm_dm_tu_dien.EnforceConstraints = false;
             m_ds_cm_dm_tu_dien.CM_DM_TU_DIEN.Rows.InsertAt(v_dr_all, 0);
 

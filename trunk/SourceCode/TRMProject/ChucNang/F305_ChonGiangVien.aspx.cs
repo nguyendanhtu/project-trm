@@ -141,7 +141,6 @@ public partial class ChucNang_F305_ChonGiangVien : System.Web.UI.Page
              // Thực hiện Search
 
              m_us_dm_giang_vien.search_giang_vien(v_str_ten
-                                                 , v_str_ho_va_ten_dem
                                                  , v_str_search_key_word
                                                  , v_str_gender
                                                  , v_dc_id_trang_thai_giang_vien
