@@ -87,7 +87,7 @@
                 Text="&lt;U&gt;S&lt;/U&gt;ố tài khoản" />
 		    &nbsp;&nbsp;
 			<asp:textbox id="m_txt_so_tai_khoan" CssClass="cssTextBox"  runat="server" 
-                MaxLength="64" Width="170px" />
+                MaxLength="64" Width="182px" />
 		</td>
         <td>&nbsp;</td>
     </tr>
