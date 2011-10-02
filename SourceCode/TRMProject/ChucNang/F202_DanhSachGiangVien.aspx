@@ -303,7 +303,7 @@
                     </asp:BoundField>
                     <asp:BoundField DataField="EMAIL_TOPICA" HeaderText="TOPICA Email">
                     </asp:BoundField>
-                    <asp:TemplateField>
+                    <asp:TemplateField Visible="false">
                     <HeaderTemplate>Ảnh cá nhân</HeaderTemplate>
                     <ItemTemplate>
                     <img alt="anh ca nhan" src='<%# "/TRMProject/Images/PrivateImages/"+ Eval("ANH_CA_NHAN") %>' />
