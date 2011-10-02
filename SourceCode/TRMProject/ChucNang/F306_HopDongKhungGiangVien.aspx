@@ -389,8 +389,8 @@
 			   <td align="left" style="width:1%;"></td>
                  <td align="left" style="width:5%;">
                      <asp:Button ID="m_cmd_luu_va_sinh_pl" runat="server" accessKey="s" 
-                         CssClass="cssButton" Height="20px"
-                         Text="Lưu HD &amp; sinh phụ lục" Width="129px" 
+                        Height="20px"
+                         Text="Lưu HD &amp; sinh phụ lục" Width="151px" 
                          onclick="m_cmd_luu_va_sinh_pl_Click" />
                 </td>
                 <td align="left" style="width:10%;">
