@@ -125,8 +125,8 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
             m_ds_cm_dm_tu_dien.EnforceConstraints = false;
             m_ds_cm_dm_tu_dien.CM_DM_TU_DIEN.Rows.InsertAt(v_dr_all, 0);
 
-            m_cbo_hoc_ham.DataValueField = CM_DM_TU_DIEN.TEN;
-            m_cbo_hoc_ham.DataTextField = CM_DM_TU_DIEN.MA_TU_DIEN;
+            m_cbo_hoc_ham.DataValueField = CM_DM_TU_DIEN.MA_TU_DIEN;
+            m_cbo_hoc_ham.DataTextField = CM_DM_TU_DIEN.TEN;
 
             m_cbo_hoc_ham.DataSource = m_ds_cm_dm_tu_dien.CM_DM_TU_DIEN;
             m_cbo_hoc_ham.DataBind();
