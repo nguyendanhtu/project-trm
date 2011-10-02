@@ -836,6 +836,29 @@ public class US_V_DM_HOP_DONG_KHUNG : US_Object
 		this.FillDatasetByCommand(pm_objDS, v_cmdSQL);
 		pm_objDR = getRowClone(pm_objDS.Tables[pm_strTableName].Rows[0]);
 	}
+    public void search_hop_dong_khung(string ip_str_ten_giang_vien
+                                , string ip_str_tu_khoa_search
+                                , string ip_so_hop_dong
+                                ,decimal ip_dc_id_loai_hop_dong
+                                ,decimal ip_dc_id_trang_thai_hop_dong
+                                , decimal ip_dc_id_don_vi_quan_ly
+                                ,DateTime ip_dat_ngay_ky
+                                 , DateTime ip_dat_ngay_hieu_luc
+                                , DateTime ip_dat_ngay_ket_thuc
+                                , DS_V_DM_HOP_DONG_KHUNG op_ds_dm_hop_dong_khung)
+    {
+        CStoredProc v_sp_search_hop_dong_khung = new CStoredProc("pr_V_DM_HOP_DONG_KHUNG_Search");
+        v_sp_search_hop_dong_khung.addNVarcharInputParam("@TEN_GIANG_VIEN", ip_str_ten_giang_vien);
+        v_sp_search_hop_dong_khung.addNVarcharInputParam("@TU_KHOA", ip_str_tu_khoa_search);
+        v_sp_search_hop_dong_khung.addNVarcharInputParam("@SO_HOP_DONG", ip_so_hop_dong);
+        v_sp_search_hop_dong_khung.addDecimalInputParam("@LOAI_HOP_DONG", ip_dc_id_loai_hop_dong);
+        v_sp_search_hop_dong_khung.addNVarcharInputParam("@TRANG_THAI_HOP_DONG", ip_dc_id_trang_thai_hop_dong);
+        v_sp_search_hop_dong_khung.addDecimalInputParam("@DON_VI_QUAN_LY", ip_dc_id_don_vi_quan_ly);
+        v_sp_search_hop_dong_khung.addDatetimeInputParam("@NGAY_KY", ip_dat_ngay_ky);
+        v_sp_search_hop_dong_khung.addDatetimeInputParam("@NGAY_HIEU_LUC", ip_dat_ngay_hieu_luc);
+        v_sp_search_hop_dong_khung.addDatetimeInputParam("@NGAY_KET_THUC_DU_KIEN", ip_dat_ngay_ket_thuc);
+        v_sp_search_hop_dong_khung.fillDataSetByCommand(this, op_ds_dm_hop_dong_khung);
+    }
 #endregion
 
     #region Additional Methods
