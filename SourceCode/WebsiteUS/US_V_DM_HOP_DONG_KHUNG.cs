@@ -20,7 +20,8 @@ namespace WebUS{
 public class US_V_DM_HOP_DONG_KHUNG : US_Object
 {
 	private const string c_TableName = "V_DM_HOP_DONG_KHUNG";
-#region "Public Properties"
+
+    #region "Public Properties"
 	public decimal dcID 
 	{
 		get
@@ -810,7 +811,8 @@ public class US_V_DM_HOP_DONG_KHUNG : US_Object
     }
 
 #endregion
-#region "Init Functions"
+
+    #region "Init Functions"
 	public US_V_DM_HOP_DONG_KHUNG() 
 	{
 		pm_objDS = new DS_V_DM_HOP_DONG_KHUNG();
@@ -835,6 +837,7 @@ public class US_V_DM_HOP_DONG_KHUNG : US_Object
 		pm_objDR = getRowClone(pm_objDS.Tables[pm_strTableName].Rows[0]);
 	}
 #endregion
+
     #region Additional Methods
     public bool check_exist_so_hd(string ip_str_so_hd)
     {
