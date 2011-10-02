@@ -241,12 +241,12 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
             ip_us_giang_vien.strTEN_GIANG_VIEN = m_txt_name.Text;
             ip_us_giang_vien.strTEN_NGAN_HANG = m_txt_ten_ngan_hang.Text;
             ip_us_giang_vien.strTRUONG_DAO_TAO = m_txt_truong_dao_tao.Text;
-            if (m_dat_ngay_sinh_gv.Text != "")
+            if (m_dat_ngay_sinh_gv.SelectedDate != null)
                 ip_us_giang_vien.datNGAY_SINH = m_dat_ngay_sinh_gv.SelectedDate;           
             else ip_us_giang_vien.datNGAY_SINH = CIPConvert.ToDatetime("01/01/1900");
             //if (!Request.Form["calendar"].ToString().Equals(""))
             //    ip_us_giang_vien.datNGAY_SINH =CIPConvert.ToDatetime(Request.Form["calendar"].ToString());
-            if (m_dat_ngay_cap.Text != "")
+            if (m_dat_ngay_cap.SelectedDate != null)
                 ip_us_giang_vien.datNGAY_CAP = m_dat_ngay_cap.SelectedDate;
             else ip_us_giang_vien.datNGAY_CAP= CIPConvert.ToDatetime("01/01/1900");
         }
@@ -342,6 +342,8 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
             }
 
             form_2_us_object(m_us_dm_giang_vien);
+            if (m_init_mode == DataEntryFormMode.UpdateDataState)
+                m_us_dm_giang_vien.dcID = CIPConvert.ToDecimal(Request.QueryString["id"]);
 
             // Lưu dữ liệu
             save_data();
