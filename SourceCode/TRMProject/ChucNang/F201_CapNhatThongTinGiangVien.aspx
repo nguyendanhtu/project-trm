@@ -379,7 +379,7 @@
 		                    </td>
                 <td align="left" class="style3">
 			        <asp:CheckBoxList ID="m_cbl_loai_hop_dong" runat="server">
-                        <asp:ListItem>Hợp đồng</asp:ListItem>
+                        <asp:ListItem>Hướng dẫn</asp:ListItem>
                         <asp:ListItem>Chuyên Môn</asp:ListItem>
                         <asp:ListItem>Viết Học Liệu</asp:ListItem>
                         <asp:ListItem>Duyệt Học Liệu</asp:ListItem>
