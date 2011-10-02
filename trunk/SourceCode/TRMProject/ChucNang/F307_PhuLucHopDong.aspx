@@ -32,8 +32,8 @@
                              &nbsp;</td>
                 <td align="right" style="width:7%;">
 			       
-			<asp:label id="lblgiang_vien" CssClass="cssManField" runat="server" 
-                Text="Số hợp đồng" />
+			<asp:label id="lblgiang_vien" Enabled="false" CssClass="cssManField" runat="server" 
+                Text="Giảng viên" />
 			       
 			    </td>
                 <td align="left" style="width:10%;">
@@ -120,13 +120,13 @@
                 <td align="left" style="width:1%;">
 			        <asp:button id="m_cmd_luu_du_lieu" accessKey="s" CssClass="cssButton" 
                 runat="server" Width="98px" Text="Lưu phụ lục" 
-                        Height="24px" />
+                        Height="24px" onclick="m_cmd_luu_du_lieu_Click" />
                 </td>
 			   <td align="left" style="width:1%;"></td>
                  <td align="center" colspan="2">
                  <asp:button id="m_cmd_thoat" CssClass="cssButton" 
-                runat="server" Width="98px" Text="Thoát" 
-                        Height="25px" CausesValidation="False"  />
+                runat="server" Width="98px" Text="Xóa trắng" 
+                        Height="25px" CausesValidation="False" onclick="m_cmd_thoat_Click"  />
                  </td>
                 <td align="left" style="width:1%;"></td>
                 <td align="left" style="width:10%;">
