@@ -191,7 +191,7 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
             else v_str_gender = "N";
 
             DateTime v_dat_ngay_bd_hop_tac;
-            if (m_dat_ngay_bd_hop_tac.Text != "")
+            if (m_dat_ngay_bd_hop_tac.SelectedDate != CIPConvert.ToDatetime("01/01/0001"))
                 v_dat_ngay_bd_hop_tac = m_dat_ngay_bd_hop_tac.SelectedDate;
             else v_dat_ngay_bd_hop_tac = CIPConvert.ToDatetime("01/01/1900");
             string v_str_month = m_cbo_thang_sn_GV.SelectedValue;
@@ -278,7 +278,11 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
             return "Có";
         return "Không";
     }
-
+    //public string mapping_datetime(string ip_str_datetime)
+    //{
+    //    if (ip_str_datetime.Equals("") ||CIPConvert.ToStr(ip_str_datetime,"dd/MM/yyyy").Contains("1/1/1900")) return "";
+    //    return CIPConvert.ToStr(ip_str_datetime,"dd/MM/yyyy");
+    //}
     public string mapping_format_datetime(string ip_str_date)
     {
         if (ip_str_date == "") return "";
