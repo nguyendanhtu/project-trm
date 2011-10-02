@@ -77,7 +77,8 @@
                <ew:CalendarPopup ID="m_dat_ngay_bd_hop_tac" runat="server" 
                         ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
                         ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
-                        ShowGoToToday="True" Width="60%" Text="">
+                        ShowGoToToday="True" Width="60%" Text="" Culture="vi-VN" 
+                        DisableTextboxEntry="False">
                         <weekdaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
                             font-size="XX-Small" forecolor="Black" />
                         <weekendstyle backcolor="LightGray" font-names="Verdana,Helvetica,Tahoma,Arial" 

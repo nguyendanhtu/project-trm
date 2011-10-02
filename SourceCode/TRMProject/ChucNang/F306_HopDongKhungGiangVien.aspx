@@ -63,7 +63,8 @@
 			        <ew:CalendarPopup ID="m_dat_ngay_ki" runat="server" 
                         ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
                         ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
-                        ShowGoToToday="True" Width="70%" SelectedDate="" Text="">
+                        ShowGoToToday="True" Width="70%" SelectedDate="" Text="" Culture="vi-VN" 
+                        DisableTextboxEntry="False">
                         <weekdaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
                             font-size="XX-Small" forecolor="Black" />
                         <weekendstyle backcolor="LightGray" font-names="Verdana,Helvetica,Tahoma,Arial" 
@@ -101,7 +102,8 @@
 			        <ew:CalendarPopup ID="m_dat_ngay_hieu_luc" runat="server" 
                         ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
                         ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
-                        ShowGoToToday="True" Width="70%" Text="">
+                        ShowGoToToday="True" Width="70%" Text="" Culture="vi-VN" 
+                        DisableTextboxEntry="False">
                         <weekdaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
                             font-size="XX-Small" forecolor="Black" />
                         <weekendstyle backcolor="LightGray" font-names="Verdana,Helvetica,Tahoma,Arial" 
@@ -138,7 +140,8 @@
 			        <ew:CalendarPopup ID="m_dat_ngay_ket_thuc" runat="server" 
                         ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
                         ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
-                        ShowGoToToday="True" Width="70%" Text="">
+                        ShowGoToToday="True" Width="70%" Text="" Culture="vi-VN" 
+                        DisableTextboxEntry="False">
                         <weekdaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
                             font-size="XX-Small" forecolor="Black" />
                         <weekendstyle backcolor="LightGray" font-names="Verdana,Helvetica,Tahoma,Arial" 
