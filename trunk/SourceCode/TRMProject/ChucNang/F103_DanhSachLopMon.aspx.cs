@@ -14,8 +14,7 @@ public partial class ChuNang_F103_DanhSachLopMon : System.Web.UI.Page
     {
         try {
             if (!this.IsPostBack) {
-                
-                load_2_cbo_dm_mon_hoc();
+                  load_2_cbo_dm_mon_hoc();
             }
         }
         catch(Exception v_e) {
@@ -176,11 +175,13 @@ public partial class ChuNang_F103_DanhSachLopMon : System.Web.UI.Page
     {
         try
         {
-            Response.Write("<script>");
-            Response.Write("window.open('F102_CapNhatThongTinLopMon.aspx?mode=insert&id_lop_mon=0','_blank')");
-            Response.Write("</script>");
+            //Response.Write("<script>");
+            //Response.Write("window.open('F102_CapNhatThongTinLopMon.aspx?mode=insert&id_lop_mon=0')");
+            //Response.Write("</script>");  
+            string v_str_url = this.Request.Url.ToString();
+            Response.Redirect("F102_CapNhatThongTinLopMon.aspx?mode=insert&id_lop_mon=0");
             load_data_2_grid();
-            //Response.Redirect("F102_CapNhatThongTinLopMon.aspx?mode=insert&id_lop_mon=0");
+            
         }
         catch (Exception v_e)
         {

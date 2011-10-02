@@ -396,6 +396,8 @@
 			<asp:button id="m_cmd_tao_moi0" accessKey="m" CssClass="cssButton" 
                 runat="server" Width="98px" Text="Thêm lớp môn" Height="24px" 
                 onclick="m_cmd_tao_moi" />
+		                    <asp:HyperLink ID="m_lnk_them_lop_mon" runat="server" 
+                CssClass="cssHyperLinkButton" Height="22px" Width="98px">Thêm lớp môn</asp:HyperLink>
 		                    </td>
 	</tr>
     <tr>
