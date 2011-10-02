@@ -285,7 +285,11 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
                                                         , v_dat_ngay_hieu_luc
                                                         , v_str_ma_po_quan_ly
                                                         , m_ds_hop_dong_khung);
-
+            if (m_ds_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows.Count == 0)
+            {
+                m_lbl_thong_bao.Text = "Không có bản ghi nào phù hợp";
+                return;
+            }
             m_grv_dm_danh_sach_hop_dong_khung.DataSource = m_ds_hop_dong_khung.V_DM_HOP_DONG_KHUNG;
 
             m_grv_dm_danh_sach_hop_dong_khung.DataBind();
