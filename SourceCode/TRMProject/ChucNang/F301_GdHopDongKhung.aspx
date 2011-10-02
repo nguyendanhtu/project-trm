@@ -404,18 +404,23 @@
 			        &nbsp;</td>
                 <td align="left" style="width:1%;">
 			        <asp:button id="m_cmd_luu_du_lieu" accessKey="s" CssClass="cssButton" 
-                runat="server" Width="98px" Text="Lưu dữ liệu" 
+                runat="server" Width="98px" Text="Lưu hợp đồng" 
                         Height="24px" onclick="m_cmd_luu_du_lieu_Click1" />
                 </td>
 			   <td align="left" style="width:1%;"></td>
-                 <td align="left" style="width:5%;">
-                     &nbsp;</td>
+                 <td align="left" colspan="2">
+			        <asp:button id="m_cmd_luu_va_sinh_pl" accessKey="s" CssClass="cssButton" 
+                runat="server" Width="129px" Text="Lưu HD & sinh phụ lục" 
+                        Height="20px" onclick="m_cmd_luu_va_sinh_pl_Click" />
+                </td>
+                <td align="left" style="width:1%;"></td>
                 <td align="left" style="width:10%;">
                  <asp:button id="m_cmd_thoat" CssClass="cssButton" 
                 runat="server" Width="98px" Text="Thoát" 
                         Height="25px" CausesValidation="False" onclick="m_cmd_thoat_Click1"  />
-                 </td>     
-                <td align="left" style="width:1%;"></td>
+                 </td>  
+                  <td align="left" style="width:10%;">
+                 </td>  
             </tr>
         </table>
 		</td>

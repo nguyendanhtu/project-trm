@@ -18,6 +18,7 @@ public partial class ChucNang_F306_HopDongKhungGiangVien : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         m_txt_so_hop_dong.Enabled = true;
+        m_cmd_luu_va_sinh_pl.Enabled = true;
         if (!IsPostBack)
         {
             load_2_cbo_don_vi_tt();
@@ -62,6 +63,7 @@ public partial class ChucNang_F306_HopDongKhungGiangVien : System.Web.UI.Page
             m_pnl_table.Visible = true;
             m_cbo_gvien.Enabled = false;
             m_txt_so_hop_dong.Enabled = false;
+            m_cmd_luu_va_sinh_pl.Enabled = false;
             m_dc_id_hd = CIPConvert.ToDecimal(Request.QueryString["id_hd"]);
         }
        
@@ -380,6 +382,18 @@ public partial class ChucNang_F306_HopDongKhungGiangVien : System.Web.UI.Page
             throw v_e;
         }
     }
+    private void save_data_va_sinh_phu_luc()
+    {
+        try
+        {
+            if (m_init_mode != DataEntryFormMode.UpdateDataState)
+                m_us_dm_hop_dong_khung.insert_and_gen_phu_luc();
+        }
+        catch (Exception v_e)
+        {
+            throw v_e;
+        }
+    }
     private bool check_so_hd()
     {
         try
@@ -621,6 +635,39 @@ public partial class ChucNang_F306_HopDongKhungGiangVien : System.Web.UI.Page
         catch (Exception v_e)
         {
             CSystemLog_301.ExceptionHandle(this, v_e);
+        }
+    }
+
+    protected void m_cmd_luu_va_sinh_pl_Click(object sender, EventArgs e)
+    {
+        try
+        {
+             // Nếu đang cập nhật thông tin giảng viên thì ta phải cung cấp thêm Id giảng viên
+            if (m_init_mode == DataEntryFormMode.InsertDataState)
+            {
+                if (!check_so_hd())
+                {
+                    m_lbl_thong_bao.Text = "Số hợp đồng này đã tồn tại";
+                    return;
+                }
+            }
+            form_2_us_object(m_us_dm_hop_dong_khung);
+            // truyền ID hợp đồng cho us
+            if (m_init_mode == DataEntryFormMode.UpdateDataState)
+                m_us_dm_hop_dong_khung.dcID = m_dc_id_hd;
+            // Lưu dữ liệu
+            save_data_va_sinh_phu_luc();
+            reset_control();
+            m_pnl_table.Enabled =false;
+            // Chuyển vể danh sách giảng viên
+            if (m_init_mode == DataEntryFormMode.UpdateDataState)
+                m_lbl_thong_bao.Text = "Cập nhật thông tin thành công";
+            else m_lbl_thong_bao.Text = "Thêm thông tin thành công";
+            load_data_2_grid(m_dc_id_gv);
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(this,v_e);
         }
     }
 }

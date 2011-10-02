@@ -21,6 +21,7 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
     {
         try
         {
+            m_cmd_luu_va_sinh_pl.Enabled = true;
             if (!this.IsPostBack)
             {
               //  m_cmd_chosose_gv.Attributes.Add("onclick", "javascript:return OpenPopup()");
@@ -43,6 +44,7 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
                     // Load data need to update - if mode = update
                     load_data_2_us_by_id_and_show_on_form(CIPConvert.ToDecimal(Request.QueryString["id"]));
                     m_txt_so_hop_dong.Enabled = false;
+                    m_cmd_luu_va_sinh_pl.Enabled = false;
                 }
                 else
                 {
@@ -332,7 +334,7 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
          }
 
      }
-
+   
      private void form_2_us_object(US_V_DM_HOP_DONG_KHUNG ip_us_hd_khung)
      {
          try
@@ -382,6 +384,8 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
                  ip_us_hd_khung.strCO_SO_HD_YN = "Y";
              else ip_us_hd_khung.strCO_SO_HD_YN = "N";
              ip_us_hd_khung.strGHI_CHU = m_txt_ghi_chu1.Text;
+
+             ip_us_hd_khung.strGEN_PHU_LUC_YN = "N";
          }
          catch (Exception v_e)
          {
@@ -467,6 +471,19 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
              throw v_e;
          }
      }
+     private void save_data_va_sinh_phu_luc()
+     {
+         try
+         {
+             if (m_init_mode != DataEntryFormMode.UpdateDataState)
+                 m_us_v_hop_dong_khung.insert_and_gen_phu_luc();
+           
+         }
+         catch (Exception v_e)
+         {
+             throw v_e;
+         }
+     }
     #endregion
     protected void m_cmd_luu_du_lieu_Click1(object sender, EventArgs e)
     {
@@ -523,6 +540,37 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
         catch (Exception v_e)
         {
 
+            CSystemLog_301.ExceptionHandle(this, v_e);
+        }
+    }
+    protected void m_cmd_luu_va_sinh_pl_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            // Nếu đang cập nhật thông tin giảng viên thì ta phải cung cấp thêm Id giảng viên
+            if (m_init_mode == DataEntryFormMode.InsertDataState)
+            {
+                if (!check_so_hd())
+                {
+                    m_lbl_mess.Text = "Số hợp đồng này đã tồn tại";
+                    return;
+                }
+            }
+            form_2_us_object(m_us_v_hop_dong_khung);
+            // truyền ID hợp đồng cho us
+            if (m_init_mode == DataEntryFormMode.UpdateDataState)
+                m_us_v_hop_dong_khung.dcID = m_dc_id;
+            // Lưu dữ liệu
+            save_data_va_sinh_phu_luc();
+            reset_control();
+            // Chuyển vể danh sách giảng viên
+            if (m_init_mode == DataEntryFormMode.UpdateDataState)
+                Response.Redirect("/TRMProject/ChucNang/F302_DanhSachHopDongKhung.aspx?edit=ok", false);
+            else Response.Redirect("/TRMProject/ChucNang/F302_DanhSachHopDongKhung.aspx?edit=add", false);
+            HttpContext.Current.ApplicationInstance.CompleteRequest();
+        }
+        catch (Exception v_e)
+        {
             CSystemLog_301.ExceptionHandle(this, v_e);
         }
     }
