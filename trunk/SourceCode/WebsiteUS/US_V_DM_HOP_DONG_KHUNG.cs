@@ -787,6 +787,28 @@ public class US_V_DM_HOP_DONG_KHUNG : US_Object
 		pm_objDR["CO_SO_HD_YN"] = System.Convert.DBNull;
 	}
 
+    public string strGEN_PHU_LUC_YN
+    {
+        get
+        {
+            return CNull.RowNVLString(pm_objDR, "GEN_PHU_LUC_YN", IPConstants.c_DefaultString);
+        }
+        set
+        {
+            pm_objDR["GEN_PHU_LUC_YN"] = value;
+        }
+    }
+
+    public bool IsGEN_PHU_LUC_YNNull()
+    {
+        return pm_objDR.IsNull("GEN_PHU_LUC_YN");
+    }
+
+    public void SetGEN_PHU_LUC_YNNull()
+    {
+        pm_objDR["GEN_PHU_LUC_YN"] = System.Convert.DBNull;
+    }
+
 #endregion
 #region "Init Functions"
 	public US_V_DM_HOP_DONG_KHUNG() 
@@ -867,6 +889,12 @@ public class US_V_DM_HOP_DONG_KHUNG : US_Object
 
         v_sp_search_hop_dong_khung.fillDataSetByCommand(this, op_ds_dm_hop_dong_khung);
 
+    }
+    
+    public void insert_and_gen_phu_luc()
+    {
+        this.strGEN_PHU_LUC_YN = "Y";
+        this.Insert();
     }
 
     #endregion
