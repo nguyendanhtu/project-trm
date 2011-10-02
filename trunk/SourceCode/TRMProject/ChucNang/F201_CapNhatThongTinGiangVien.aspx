@@ -2,10 +2,10 @@
 <%@ Register assembly="eWorld.UI" namespace="eWorld.UI" tagprefix="ew" %>
 <%@ Import Namespace ="IP.Core.IPCommon" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
-    <link rel="stylesheet" href="../themes/forest.css" />
+   <!-- <link rel="stylesheet" href="../themes/forest.css" />
     <link rel="stylesheet" href="../themes/layouts/small.css" />
     <script type="text/javascript" src="../src/calendar.js"></script>
-    <script type="text/javascript" src="../lang/calendar-en.js"></script>    
+    <script type="text/javascript" src="../lang/calendar-en.js"></script>    -->
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
 <table cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0">
@@ -71,24 +71,37 @@
                 Text="Ngày sinh" />
                          </td>
                 <td align="left" class="style3">
-			        
-                     <input type="text" id="calendar" name="calendar" />
-    <button id="trigger">...</button>
-    <script type="text/javascript"> //<![CDATA[
-        Zapatec.Calendar.setup({
-            firstDay: 1,
-            weekNumbers: false,
-            showOthers: true,
-            electric: false,
-            inputField: "calendar",
-            button: "trigger",
-            ifFormat: "%d/%m/%Y",
-            daFormat: "%Y/%m/%d"
-        });
-        //]]></script>
-       
-         dd/mm/yyyy
-		                    </td>
+			        <ew:CalendarPopup ID="m_dat_ngay_sinh_gv" runat="server" 
+                        ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
+                        ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
+                        ShowGoToToday="True" Width="70%" SelectedDate="" Text="">
+                        <weekdaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <weekendstyle backcolor="LightGray" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <offmonthstyle backcolor="AntiqueWhite" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Gray" />
+                        <selecteddatestyle backcolor="Yellow" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Black" />
+                        <monthheaderstyle backcolor="Yellow" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Black" />
+                        <DayHeaderStyle BackColor="Orange" Font-Names="Verdana,Helvetica,Tahoma,Arial" 
+                            Font-Size="XX-Small" ForeColor="Black" />
+                        <cleardatestyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <gototodaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <TodayDayStyle BackColor="LightGoldenrodYellow" 
+                            Font-Names="Verdana,Helvetica,Tahoma,Arial" Font-Size="XX-Small" 
+                            ForeColor="Black" />
+                        <holidaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                    </ew:CalendarPopup>
+
+                    </td>
                          <td align="left" style="width:1%;"> 
                 </td>
                 <td align="left" class="style1">

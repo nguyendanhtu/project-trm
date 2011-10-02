@@ -52,7 +52,7 @@
                              &nbsp;</td>
                 <td align="left" style="width:5%;">
 			      <!--<asp:Button ID="m_cmd_chosose_gv" runat="server" Text="+" 
-                        CausesValidation="False" onclick="m_cmd_chosose_gv_Click1" />-->
+                        CausesValidation="False"  />-->
 		            &nbsp;</td>
                 <td align="left" style="width:10%;">&nbsp;</td>
                 <td align="left" style="width:1%;">&nbsp;</td>
@@ -116,19 +116,18 @@
                 <td align="left" style="width:1%;">
 			        <asp:button id="m_cmd_luu_du_lieu" accessKey="s" CssClass="cssButton" 
                 runat="server" Width="98px" Text="Lưu hợp đồng" 
-                        Height="24px" onclick="m_cmd_luu_du_lieu_Click1" />
+                        Height="24px" />
                 </td>
 			   <td align="left" style="width:1%;"></td>
                  <td align="left" colspan="2">
 			        <asp:button id="m_cmd_luu_va_sinh_pl" accessKey="s" CssClass="cssButton" 
-                runat="server" Width="129px" Text="Lưu HD & sinh phụ lục" 
-                        Height="20px" onclick="m_cmd_luu_va_sinh_pl_Click" />
+                runat="server" Width="129px" Text="Lưu HD & sinh phụ lục"  />
                 </td>
                 <td align="left" style="width:1%;"></td>
                 <td align="left" style="width:10%;">
                  <asp:button id="m_cmd_thoat" CssClass="cssButton" 
                 runat="server" Width="98px" Text="Thoát" 
-                        Height="25px" CausesValidation="False" onclick="m_cmd_thoat_Click1"  />
+                        Height="25px" CausesValidation="False"  />
                  </td>  
                   <td align="left" style="width:10%;">
                  </td>  
