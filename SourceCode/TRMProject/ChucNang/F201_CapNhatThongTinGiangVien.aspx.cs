@@ -139,7 +139,8 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
     private void reset_control()
     {
         m_txt_ma_giang_vien.Enabled = true;
-        m_txt_name.Text = "";
+        m_txt_middle_name.Text = "";
+        m_txt_last_name.Text = "";
         m_txt_chuc_vu_cao_nhat.Text = "";
         m_txt_chuc_vu_hien_tai.Text = "";
         m_txt_chuyen_nganh_chinh.Text = "";
@@ -225,7 +226,7 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
             ip_us_giang_vien.strGV_VIET_HL_YN = m_cbl_loai_hop_dong.Items[2].Selected ? "Y" : "N";
             ip_us_giang_vien.strGVCM_YN = m_cbl_loai_hop_dong.Items[1].Selected ? "Y" : "N";
             ip_us_giang_vien.strGVHD_YN = m_cbl_loai_hop_dong.Items[0].Selected ? "Y" : "N";
-            ip_us_giang_vien.strHO_VA_TEN_DEM = m_txt_name.Text;
+            ip_us_giang_vien.strHO_VA_TEN_DEM = m_txt_middle_name.Text;
             ip_us_giang_vien.strHOC_HAM = m_cbo_hoc_ham.SelectedValue;
             ip_us_giang_vien.strHOC_VI = m_cbo_hoc_vi.SelectedValue;
             ip_us_giang_vien.strID_TRANG_THAI_GIANG_VIEN = m_cbo_dm_trang_thai_giang_vien.SelectedValue;
@@ -238,7 +239,7 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
             ip_us_giang_vien.strTEL_HOME = m_txt_tel_home.Text;
             ip_us_giang_vien.strTEL_OFFICE = m_txt_tel_office.Text;
             ip_us_giang_vien.strTEN_CO_QUAN_CONG_TAC = m_txt_co_quan_cong_tac.Text;
-            ip_us_giang_vien.strTEN_GIANG_VIEN = m_txt_name.Text;
+            ip_us_giang_vien.strTEN_GIANG_VIEN = m_txt_last_name.Text;
             ip_us_giang_vien.strTEN_NGAN_HANG = m_txt_ten_ngan_hang.Text;
             ip_us_giang_vien.strTRUONG_DAO_TAO = m_txt_truong_dao_tao.Text;
             if (m_dat_ngay_sinh_gv.SelectedDate != null)
@@ -280,7 +281,8 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
             if (ip_us_giang_vien.strGVCM_YN == "Y") m_cbl_loai_hop_dong.Items[1].Selected = true;
             if (ip_us_giang_vien.strGVHD_YN == "Y") m_cbl_loai_hop_dong.Items[0].Selected = true;
 
-            m_txt_name.Text = ip_us_giang_vien.strHO_VA_TEN_DEM;
+            m_txt_middle_name.Text = ip_us_giang_vien.strHO_VA_TEN_DEM;
+            m_txt_last_name.Text = ip_us_giang_vien.strTEN_GIANG_VIEN;
             m_cbo_hoc_ham.SelectedValue = ip_us_giang_vien.strHOC_HAM;
             m_cbo_hoc_vi.SelectedValue = ip_us_giang_vien.strHOC_VI;
             if (ip_us_giang_vien.strID_TRANG_THAI_GIANG_VIEN != "")
@@ -294,7 +296,6 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
             m_txt_tel_home.Text = ip_us_giang_vien.strTEL_HOME;
             m_txt_tel_office.Text = ip_us_giang_vien.strTEL_OFFICE;
             m_txt_co_quan_cong_tac.Text = ip_us_giang_vien.strTEN_CO_QUAN_CONG_TAC;
-            m_txt_name.Text = ip_us_giang_vien.strTEN_GIANG_VIEN;
             m_txt_ten_ngan_hang.Text = ip_us_giang_vien.strTEN_NGAN_HANG;
             m_txt_truong_dao_tao.Text = ip_us_giang_vien.strTRUONG_DAO_TAO;
             //
