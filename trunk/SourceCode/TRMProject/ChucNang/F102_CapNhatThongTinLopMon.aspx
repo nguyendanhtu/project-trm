@@ -1,17 +1,8 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="F102_CapNhatThongTinLopMon.aspx.cs" Inherits="ChucNang_F102_CapNhatThongTinLopMon" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="F102_CapNhatThongTinLopMon.aspx.cs" Inherits="ChucNang_F102_CapNhatThongTinLopMon" %>
 
 <%@ Register assembly="eWorld.UI" namespace="eWorld.UI" tagprefix="ew" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title>F102 - Cập nhật thông tin lớp môn</title>
-    
-    <link href="~/Styles/Admin.css" rel="stylesheet" type="text/css" />
-    </head>
-<body>
-    <form id="form1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
     <table cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0">
 	<tr>
 		<td class="cssPageTitleBG">
@@ -349,6 +340,4 @@
 	<tr>
     <td></td></tr>
 </table>
-    </form>
-</body>
-</html>
+</asp:Content>
