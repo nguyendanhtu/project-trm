@@ -530,19 +530,6 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
             CSystemLog_301.ExceptionHandle(this, v_e);
         }
     }
-    protected void m_cmd_thoat_Click1(object sender, EventArgs e)
-    {
-        try
-        {
-            Response.Redirect("/TRMProject/ChucNang/F302_DanhSachHopDongKhung.aspx", false);
-            HttpContext.Current.ApplicationInstance.CompleteRequest();
-        }
-        catch (Exception v_e)
-        {
-
-            CSystemLog_301.ExceptionHandle(this, v_e);
-        }
-    }
     protected void m_cmd_luu_va_sinh_pl_Click(object sender, EventArgs e)
     {
         try
@@ -571,6 +558,19 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
         }
         catch (Exception v_e)
         {
+            CSystemLog_301.ExceptionHandle(this, v_e);
+        }
+    }
+    protected void m_cmd_thoat_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            Response.Redirect("/TRMProject/ChucNang/F302_DanhSachHopDongKhung.aspx", false);
+            HttpContext.Current.ApplicationInstance.CompleteRequest();
+        }
+        catch (Exception v_e)
+        {
+
             CSystemLog_301.ExceptionHandle(this, v_e);
         }
     }

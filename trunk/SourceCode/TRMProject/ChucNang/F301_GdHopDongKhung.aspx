@@ -60,8 +60,8 @@
                 Text="Tên giảng viên" />
                          </td>
                 <td align="left" style="width:10%;">	
-              <asp:DropDownList ID="m_cbo_gvien" Width="96%" runat="server">
-               </asp:DropDownList>
+               <asp:DropDownList ID="m_cbo_gvien" Width="96%" runat="server">
+               </asp:DropDownList>              
                          </td>
                          <td align="left" style="width:1%;"> 
                              &nbsp;</td>
@@ -245,17 +245,16 @@
                  <td align="right" style="width:5%;">
 			       
 			<asp:label id="lblThueSuat" CssClass="cssManField" runat="server" 
-                Text="Thuế suất" />
+                Text="Thuế suất (%)" />
 		                    </td>
                 <td align="left" style="width:10%;">
-			<asp:textbox id="m_txt_thue_suat" CssClass="cssTextBox"  runat="server" 
-                MaxLength="64" Width="96%" />
+                 <ew:NumericBox ID="m_txt_thue_suat" Width="40%" runat="server" TextAlign="Right"></ew:NumericBox>
                          </td>
                 <td align="left" style="width:1%;">
                          <asp:RequiredFieldValidator ID="m_rfv_thue_suat" runat="server" 
                              
                              ErrorMessage="Bạn nhập thuế suất" Text="*"
-                             ControlToValidate="m_txt_thue_suat">%</asp:RequiredFieldValidator>
+                             ControlToValidate="m_txt_thue_suat">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -332,9 +331,10 @@
 			<asp:label id="lblGiaTriHopDong" CssClass="cssManField" runat="server" 
                 Text="Giá trị hợp đồng" />
 		                    </td>
-                <td align="left" colspan="7">
-			<asp:textbox id="m_txt_gia_tri_hop_dong" CssClass="cssTextBox"  runat="server" 
-                MaxLength="64" Width="96%" />
+                <td align="left" colspan="1">
+                <ew:NumericBox ID="m_txt_gia_tri_hop_dong" Width="96%" runat="server" TextAlign="Right">
+                </ew:NumericBox>
+			 
                          </td>
                 <td align="left" style="width:1%;">&nbsp;</td>
             </tr>
@@ -420,7 +420,7 @@
                 <td align="left" style="width:10%;">
                  <asp:button id="m_cmd_thoat" CssClass="cssButton" 
                 runat="server" Width="98px" Text="Thoát" 
-                        Height="25px" CausesValidation="False" onclick="m_cmd_thoat_Click1"  />
+                        Height="25px" CausesValidation="False" onclick="m_cmd_thoat_Click" />
                  </td>  
                   <td align="left" style="width:10%;">
                  </td>  

@@ -67,10 +67,8 @@
 			       
 			    </td>
                 <td align="left" style="width:10%;">	
-
-			<asp:textbox id="m_txt_so_luong_he_so" CssClass="cssTextBox"  runat="server" 
-                MaxLength="64" Width="96%" />
-
+                 <ew:NumericBox ID="m_txt_so_luong_he_so" Width="96%" runat="server" TextAlign="Right">
+                </ew:NumericBox>
                          </td>
                 <td align="left" style="width:1%;"></td>
                  <td align="right" style="width:5%;"></td>
@@ -84,9 +82,8 @@
                 </td>
                 <td align="left" style="width:10%;">
 
-			<asp:textbox id="m_txt_don_gia_hd" CssClass="cssTextBox"  runat="server" 
-                MaxLength="64" Width="96%" />
-
+                <ew:NumericBox ID="m_txt_don_gia_hd" Width="96%" runat="server" TextAlign="Right">
+                </ew:NumericBox>
                 </td>
                      <td align="left" style="width:1%;">
                          &nbsp;</td>
@@ -121,18 +118,21 @@
 			        &nbsp;</td>
                 <td align="left" style="width:1%;">
 			        <asp:button id="m_cmd_luu_du_lieu" accessKey="s" CssClass="cssButton" 
-                runat="server" Width="98px" Text="Lưu phụ lục" 
+                runat="server" Width="98px" Text="Tạo phụ lục" 
                         Height="24px" onclick="m_cmd_luu_du_lieu_Click" />
                 </td>
 			   <td align="left" style="width:1%;"></td>
-                 <td align="center" colspan="2">
-                 <asp:button id="m_cmd_thoat" CssClass="cssButton" 
-                runat="server" Width="98px" Text="Xóa trắng" 
-                        Height="25px" CausesValidation="False" onclick="m_cmd_thoat_Click"  />
+                 <td align="left" colspan="2">
+                     <asp:Button ID="m_cmd_cap_nhat_pl" runat="server" accessKey="s" 
+                         CssClass="cssButton" Height="24px" 
+                         Text="Cập nhật phụ lục" Width="98px" onclick="m_cmd_cap_nhat_pl_Click" />
                  </td>
                 <td align="left" style="width:1%;"></td>
                 <td align="left" style="width:10%;">
-                    &nbsp;</td>  
+                    <asp:Button ID="m_cmd_thoat0" runat="server" CausesValidation="False" 
+                        CssClass="cssButton" Height="25px" onclick="m_cmd_thoat_Click" Text="Xóa trắng" 
+                        Width="98px" />
+                </td>  
                   <td align="left" style="width:10%;">
                  </td>  
             </tr>
@@ -166,10 +166,12 @@
 		    &nbsp;
    <asp:GridView ID="m_grv_gd_hop_dong_noi_dung_tt" AllowPaging="True" 
                 runat="server" AutoGenerateColumns="False" 
-                Width="101%" DataKeyNames="ID"
+                Width="100%" DataKeyNames="ID"
                 CellPadding="4" ForeColor="#333333" 
             AllowSorting="True" 
-                onselectedindexchanging="m_grv_dm_danh_sach_hop_dong_khung_SelectedIndexChanging" >
+                
+                onselectedindexchanging="m_grv_dm_danh_sach_hop_dong_khung_SelectedIndexChanging" 
+                onrowdeleting="m_grv_gd_hop_dong_noi_dung_tt_RowDeleting" >
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
                 <asp:TemplateField>
@@ -181,7 +183,7 @@
                     </asp:TemplateField>
                      <asp:TemplateField>
                     <ItemTemplate>
-                     <asp:LinkButton CommandName="Edit" ToolTip="Sửa" ImageUrl= ID = "lbt_edit" runat="server">
+                     <asp:LinkButton CommandName="Select" ToolTip="Sửa" ImageUrl= ID = "lbt_edit" runat="server">
                     <img src='/TRMProject/Images/Button/edit.png' alt='Sửa' />
                     </asp:LinkButton>
                     </ItemTemplate>
@@ -191,15 +193,19 @@
                         <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:TemplateField>
                      <asp:BoundField DataField="SO_HOP_DONG" HeaderText="Số hợp đồng khung">
+                     <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:BoundField>
                      <asp:BoundField DataField="TEN_GIANG_VIEN" HeaderText="Giảng viên">
+                     <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:BoundField>
                     <asp:BoundField DataField="NOI_DUNG_THANH_TOAN" HeaderText="Nội dung thanh toán">
                     </asp:BoundField>
-                     <asp:BoundField DataField="SO_LUONG_HE_SO"  DataFormatString ="{0}" HeaderText="Số lượng - Hệ số">
-                    </asp:BoundField>
-                     <asp:TemplateField HeaderText="Thành tiền" ItemStyle-HorizontalAlign="Center">
-                       <ItemTemplate><%#CIPConvert.ToStr(CIPConvert.ToDecimal(Eval("SO_LUONG_HE_SO")) * CIPConvert.ToDecimal(Eval("DON_GIA_HD")),"0")%></ItemTemplate>
+                     <asp:TemplateField HeaderText="Số lượng - Hệ số" ItemStyle-HorizontalAlign="Center">
+                       <ItemTemplate><%#CIPConvert.ToStr(CIPConvert.ToDecimal(Eval("SO_LUONG_HE_SO")), "0")%></ItemTemplate>
+                        <ItemStyle HorizontalAlign="Center"></ItemStyle>
+                    </asp:TemplateField> 
+                     <asp:TemplateField HeaderText="Đơn giá" ItemStyle-HorizontalAlign="Center">
+                       <ItemTemplate><%#CIPConvert.ToStr(CIPConvert.ToDecimal(Eval("DON_GIA_HD")),"0")%></ItemTemplate>
                         <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:TemplateField>                 
                 </Columns>
