@@ -166,7 +166,8 @@
                 runat="server" AutoGenerateColumns="False" 
                 Width="101%" DataKeyNames="ID"
                 CellPadding="4" ForeColor="#333333" 
-            AllowSorting="True" >
+            AllowSorting="True" 
+                onselectedindexchanging="m_grv_dm_danh_sach_hop_dong_khung_SelectedIndexChanging" >
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
                 <asp:TemplateField>
@@ -177,8 +178,10 @@
                     </ItemTemplate>
                     </asp:TemplateField>
                      <asp:TemplateField>
-                    <ItemTemplate> <asp:HyperLink ToolTip="Sửa" ImageUrl="/TRMProject/Images/Button/edit.png" ID = "lbt_edit" runat="server"
-                     NavigateUrl='<%# "/TRMProject/ChucNang/F306_HopDongKhungGiangVien.aspx?mode=edit&id_hd="+Eval("ID") %>'></asp:HyperLink>
+                    <ItemTemplate>
+                     <asp:LinkButton CommandName="Edit" ToolTip="Sửa" ImageUrl= ID = "lbt_edit" runat="server">
+                    <img src='/TRMProject/Images/Button/edit.png' alt='Sửa' />
+                    </asp:LinkButton>
                     </ItemTemplate>
                     </asp:TemplateField>
                      <asp:TemplateField>

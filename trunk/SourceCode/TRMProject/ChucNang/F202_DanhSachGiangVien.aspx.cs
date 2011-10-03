@@ -306,7 +306,7 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
         try
         {
             m_grv_dm_danh_sach_giang_vien.PageIndex = e.NewPageIndex;
-            load_data_to_grid();
+            get_form_search_data_and_load_to_grid();
             //if (m_init_mode != DataEntryFormMode.ViewDataState)
               
             //else get_form_search_data_and_load_to_grid();
@@ -342,7 +342,7 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
     {
         try
         {
-            m_grv_dm_danh_sach_giang_vien.PageSize = 300;
+            m_grv_dm_danh_sach_giang_vien.PageSize = 30;
             get_form_search_data_and_load_to_grid();            
         }
         catch (Exception v_e)
