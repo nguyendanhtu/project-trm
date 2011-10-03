@@ -1,26 +1,8 @@
-﻿<%@ Page Title="" Language="C#" AutoEventWireup="true" CodeFile="F104_ChiTietLopMon.aspx.cs" Inherits="ChucNang_F104_ChiTietLopMon" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master"  AutoEventWireup="true" CodeFile="F104_ChiTietLopMon.aspx.cs" Inherits="ChucNang_F104_ChiTietLopMon" %>
 
 <%@ Register assembly="eWorld.UI" namespace="eWorld.UI" tagprefix="ew" %>
 <%@ Import Namespace="WebDS.CDBNames" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head id="Head1" runat="server">
-    <title>F104 - Thông tin chi tiết lớp môn</title>
-    
-    <link href="~/Styles/Admin.css" rel="stylesheet" type="text/css" />
-    <style type="text/css">
-
-
-a:link, a:visited
-{
-    color: #034af3;
-}
-
-    </style>
-    </head>
-<body>
-    <form id="form1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
     <table cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0">
 	<tr>
 		<td class="cssPageTitleBG">
@@ -261,6 +243,4 @@ a:link, a:visited
             </asp:GridView>
             </td></tr>
 </table>
-    </form>
-</body>
-</html>
+</asp:Content>
