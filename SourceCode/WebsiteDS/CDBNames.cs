@@ -7,7 +7,7 @@ namespace WebDS.CDBNames
 {
       public enum e_loai_tu_dien
     {
-        PHAN_QUYEN = 1
+         PHAN_QUYEN = 1
         , DIA_DIEM_QUAN_LY = 2
         , DON_VI_QUAN_LY_CHINH = 3
         , LEVEL_GIANG_VIEN =4
@@ -213,5 +213,17 @@ namespace WebDS.CDBNames
         public const string SO_LUONG_HE_SO = "SO_LUONG_HE_SO";
         public const string THANH_TIEN = "THANH_TIEN";
     }
+
+    class V_GD_HOP_DONG_NOI_DUNG_TT
+    {
+        public const string ID_HOP_DONG_KHUNG = "ID_HOP_DONG_KHUNG";
+        public const string SO_HOP_DONG = "SO_HOP_DONG";
+        public const string TEN_GIANG_VIEN = "TEN_GIANG_VIEN";
+        public const string ID_NOI_DUNG_TT = "ID_NOI_DUNG_TT";
+        public const string NOI_DUNG_THANH_TOAN = "NOI_DUNG_THANH_TOAN";
+        public const string SO_LUONG_HE_SO = "SO_LUONG_HE_SO";
+        public const string DON_GIA_HD = "DON_GIA_HD";
+    }
+
 
 }
