@@ -326,20 +326,20 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
             return "Nam";
         return "Nữ";
     }
-    //public string mapping_hoc_vi(string ip_str_ma_hoc_vi)
-    //{
-    //    if (ip_str_ma_hoc_vi.Equals("KHONG_BIET")) return "Chưa biết";
-    //    US_CM_DM_TU_DIEN v_us_tu_dien = new US_CM_DM_TU_DIEN("HOC_VI", ip_str_ma_hoc_vi);
-    //    if (v_us_tu_dien.strTEN != "") return v_us_tu_dien.strTEN;
-    //    return "Chưa biết";
-    //}
-    //public string mapping_hoc_ham(string ip_str_ma_hoc_ham)
-    //{
-    //    if (ip_str_ma_hoc_ham.Equals("KHONG_BIET")) return "Chưa biết";
-    //    US_CM_DM_TU_DIEN v_us_tu_dien = new US_CM_DM_TU_DIEN("HOC_HAM", ip_str_ma_hoc_ham);
-    //    if (v_us_tu_dien.strTEN != "") return v_us_tu_dien.strTEN;
-    //    return "Chưa biết";
-    //}
+    public string mapping_hoc_vi(string ip_str_ma_hoc_vi)
+    {
+        if (ip_str_ma_hoc_vi.Equals("0_HOC_VI_CHUA_BIET")) return "Chưa biết";
+        US_CM_DM_TU_DIEN v_us_tu_dien = new US_CM_DM_TU_DIEN("HOC_VI", ip_str_ma_hoc_vi);
+        if (v_us_tu_dien.strTEN != "") return v_us_tu_dien.strTEN;
+        return "Chưa biết";
+    }
+    public string mapping_hoc_ham(string ip_str_ma_hoc_ham)
+    {
+        if (ip_str_ma_hoc_ham.Equals("0_HOC_HAM_CHUA_BIET")) return "Chưa biết";
+        US_CM_DM_TU_DIEN v_us_tu_dien = new US_CM_DM_TU_DIEN("HOC_HAM", ip_str_ma_hoc_ham);
+        if (v_us_tu_dien.strTEN != "") return v_us_tu_dien.strTEN;
+        return "Chưa biết";
+    }
     public string mapping_hd(string ip_str_hd_YN)
     {
         if (ip_str_hd_YN.Equals("Y"))

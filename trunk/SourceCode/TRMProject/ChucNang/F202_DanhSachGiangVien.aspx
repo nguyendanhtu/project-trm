@@ -309,8 +309,20 @@
                     <img alt="anh ca nhan" src='<%# "/TRMProject/Images/PrivateImages/"+ Eval("ANH_CA_NHAN") %>' />
                     </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:BoundField DataField="HOC_VI" HeaderText="Học vị" />
-                    <asp:BoundField DataField="HOC_HAM" HeaderText="Học hàm" />
+                    <asp:TemplateField>
+                    <HeaderTemplate>Học vị</HeaderTemplate>
+                    <ItemTemplate>
+                    <label><%# mapping_hoc_vi(CIPConvert.ToStr(Eval("HOC_VI")))%></label>
+                    </ItemTemplate>
+                    <ItemStyle HorizontalAlign="Center"></ItemStyle>
+                    </asp:TemplateField>
+                       <asp:TemplateField>
+                    <HeaderTemplate>Học hàm</HeaderTemplate>
+                    <ItemTemplate>
+                    <label><%# mapping_hoc_ham(CIPConvert.ToStr(Eval("HOC_HAM")))%></label>
+                    </ItemTemplate>
+                    <ItemStyle HorizontalAlign="Center"></ItemStyle>
+                   </asp:TemplateField>
                      <asp:BoundField DataField="CHUYEN_NGANH_CHINH" HeaderText="Chuyên ngành chính" />
                      <asp:BoundField DataField="TRUONG_DAO_TAO" HeaderText="Trường đào tạo" />
                      <asp:BoundField DataField="TRANG_THAI_GIANG_VIEN" HeaderText="Trạng thái giảng viên" />
