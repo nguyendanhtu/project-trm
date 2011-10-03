@@ -98,9 +98,7 @@ public partial class ChucNang_F307_PhuLucHopDong : System.Web.UI.Page
     }
     private void load_data_2_us_by_id_and_show_on_form(decimal ip_i_id)
     {
-        US_V_DM_HOP_DONG_KHUNG v_us_hop_dong_khung = new US_V_DM_HOP_DONG_KHUNG(ip_i_id);
-        // Đẩy us lên form
-        us_object_2_form(v_us_hop_dong_khung);
+        
     }
 
     private void save_data()
@@ -154,6 +152,20 @@ public partial class ChucNang_F307_PhuLucHopDong : System.Web.UI.Page
         catch (Exception v_e)
         {
             CSystemLog_301.Equals(this, v_e);
+        }
+    }
+    protected void m_grv_dm_danh_sach_hop_dong_khung_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+    {
+        try
+        {
+            // m_init_mode = DataEntryFormMode.UpdateDataState;
+            //m_cmd_tao_moi.Enabled = false;
+            //m_lbl_mess.Text = "";
+            //load_data_2_us_by_id(e.NewSelectedIndex);
+        }
+        catch (Exception V_e)
+        {
+            CSystemLog_301.ExceptionHandle(this, V_e);
         }
     }
 }
