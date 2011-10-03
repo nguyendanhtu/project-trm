@@ -91,13 +91,6 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
             m_ds_cm_dm_tu_dien.CM_DM_TU_DIEN.Clear();
             // Đổ dữ liệu vào DS 
             m_us_cm_dm_tu_dien.FillDataset(m_ds_cm_dm_tu_dien, " WHERE ID_LOAI_TU_DIEN = " + (int)e_loai_tu_dien.HOC_VI); // Đây là lấy theo điều kiện
-            // dây là giá trị hiển thị
-            // Đây là giá trị thực
-            DataRow v_dr_all = m_ds_cm_dm_tu_dien.CM_DM_TU_DIEN.NewCM_DM_TU_DIENRow();
-            v_dr_all[CM_DM_TU_DIEN.TEN] = "GV không cung cấp";
-            v_dr_all[CM_DM_TU_DIEN.MA_TU_DIEN] = "KHONG_BIET";
-            m_ds_cm_dm_tu_dien.EnforceConstraints = false;
-            m_ds_cm_dm_tu_dien.CM_DM_TU_DIEN.Rows.InsertAt(v_dr_all, 0);
 
             m_cbo_hoc_vi.DataValueField = CM_DM_TU_DIEN.MA_TU_DIEN;
             m_cbo_hoc_vi.DataTextField = CM_DM_TU_DIEN.TEN;
@@ -117,13 +110,6 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
             m_ds_cm_dm_tu_dien.CM_DM_TU_DIEN.Clear();
             // Đổ dữ liệu vào DS 
             m_us_cm_dm_tu_dien.FillDataset(m_ds_cm_dm_tu_dien, " WHERE ID_LOAI_TU_DIEN = " + (int)e_loai_tu_dien.HOC_HAM); // Đây là lấy theo điều kiện
-            // dây là giá trị hiển thị
-            // Đây là giá trị thực
-            DataRow v_dr_all = m_ds_cm_dm_tu_dien.CM_DM_TU_DIEN.NewCM_DM_TU_DIENRow();
-            v_dr_all[CM_DM_TU_DIEN.TEN] = "GV không cung cấp";
-            v_dr_all[CM_DM_TU_DIEN.MA_TU_DIEN] = "KHONG_BIET";
-            m_ds_cm_dm_tu_dien.EnforceConstraints = false;
-            m_ds_cm_dm_tu_dien.CM_DM_TU_DIEN.Rows.InsertAt(v_dr_all, 0);
 
             m_cbo_hoc_ham.DataValueField = CM_DM_TU_DIEN.MA_TU_DIEN;
             m_cbo_hoc_ham.DataTextField = CM_DM_TU_DIEN.TEN;
