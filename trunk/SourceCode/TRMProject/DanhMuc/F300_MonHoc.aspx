@@ -106,7 +106,7 @@
     <tr>
 		<td class="cssPageTitleBG" colspan="3">
 		    <asp:label id="Label11" runat="server" CssClass="cssPageTitle" 
-                Text="Danh sách nội dung thanh toán"/>
+                Text="Danh sách môn học"/>
 		</td>
 	</tr>	
     <tr>
