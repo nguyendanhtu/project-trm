@@ -33,7 +33,7 @@
 			<asp:textbox id="m_txt_ma_giang_vien" CssClass="cssTextBox"  runat="server" 
                 MaxLength="64" Width="96%" />
                          </td>
-                         <td align="left" style="width:1%;"> 
+                         <td align="left" style="width:1%;"> (*)
                              <asp:RequiredFieldValidator ID="m_rfv_ma_giang_vien" runat="server" 
                         ControlToValidate="m_txt_ma_giang_vien" Text="*" ErrorMessage="Bạn phải nhập Mã Giảng viên"></asp:RequiredFieldValidator></td>
                 <td align="left" class="style1">
@@ -51,7 +51,7 @@
 			<asp:textbox id="m_txt_middle_name" CssClass="cssTextBox"  runat="server" 
                 MaxLength="64" Width="96%" />
                          </td>
-                         <td align="left" style="width:1%;"> 
+                         <td align="left" style="width:1%;"> (*)
                              <asp:RequiredFieldValidator ID="m_rfv_teacher_name" runat="server" 
                         ControlToValidate="m_txt_middle_name" Text="*" ErrorMessage="Bạn phải nhập họ và tên đệm giảng viên"></asp:RequiredFieldValidator></td>
                 <td align="right" class="style1">
@@ -63,9 +63,9 @@
 			<asp:textbox id="m_txt_last_name" CssClass="cssTextBox"  runat="server" 
                 MaxLength="64" Width="94%" />
                          </td>
-                 <td align="right" class="style1"> 
-                             <asp:RequiredFieldValidator ID="m_rfv_teacher_name0" runat="server" 
-                        ControlToValidate="m_txt_last_name" Text="*" 
+                 <td align="right" class="style1"> (*)
+                             <asp:RequiredFieldValidator Text="*" ID="m_rfv_teacher_name0" runat="server" 
+                        ControlToValidate="m_txt_last_name"
                         ErrorMessage="Bạn phải nhập tên giảng viên"></asp:RequiredFieldValidator></td>
             </tr>
             <tr>
@@ -368,7 +368,7 @@
                 </td>
                 <td align="left">
                 <asp:textbox id="m_txt_ma_so_thue" CssClass="cssTextBox"  runat="server" 
-                MaxLength="64" Width="94%" /> <span style="font-weight:bold">%</span>
+                MaxLength="64" Width="94%" /> 
 			        &nbsp;</td>
                 <td align="left" style="width:1%;">&nbsp;</td>
             </tr>
@@ -387,8 +387,7 @@
                         <asp:ListItem>Hội Đồng Khoa Học</asp:ListItem>
                     </asp:CheckBoxList>
                 </td>
-                     <td align="left" style="width:1%;">
-                </td>
+                     <td align="left" style="width:1%;">&nbsp;</td>
                 <td align="right" class="style1">
                 <asp:label id="m_lbl_description" CssClass="cssManField" runat="server" 
                 Text="Mô tả" />

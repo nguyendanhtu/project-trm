@@ -227,8 +227,7 @@
                 Text="Thuế suất" />
 		                    </td>
                 <td align="left" style="width:10%;">
-			<asp:textbox id="m_txt_thue_suat" CssClass="cssTextBox"  runat="server" 
-                MaxLength="64" Width="96%" />
+                <ew:NumericBox  id="m_txt_thue_suat" Width="96%" TextAlign="Right" runat="server"></ew:NumericBox> 
                          </td>
                 <td align="left" style="width:1%;">
                          <asp:RequiredFieldValidator ID="m_rfv_thue_suat" runat="server" 
@@ -311,9 +310,10 @@
 			<asp:label id="lblGiaTriHopDong" CssClass="cssManField" runat="server" 
                 Text="Giá trị hợp đồng" />
 		                    </td>
-                <td align="left" colspan="7">
-			<asp:textbox id="m_txt_gia_tri_hop_dong" CssClass="cssTextBox"  runat="server" 
-                MaxLength="64" Width="96%" />
+                 <td align="left" colspan="1">
+                <ew:NumericBox ID="m_txt_gia_tri_hop_dong" Width="96%" runat="server" TextAlign="Right">
+                </ew:NumericBox>
+			 
                          </td>
                 <td align="left" style="width:1%;">&nbsp;</td>
             </tr>
