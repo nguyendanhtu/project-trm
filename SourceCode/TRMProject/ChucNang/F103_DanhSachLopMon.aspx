@@ -84,8 +84,37 @@
             </tr>
             <tr>
                 <td align="right" style="width:5%;">
+			<asp:label id="Label19" CssClass="cssManField" runat="server" 
+                Text="Ngày bắt đầu:" Font-Bold="True" Font-Underline="True" />
+		                    </td>
+                <td align="left" style="width:10%;">
+			
+			        &nbsp;</td>
+                     <td align="left" style="width:1%;">
+                         &nbsp;</td>
+                <td align="right" style="width:5%;">
+			<asp:label id="Label17" CssClass="cssManField" runat="server" 
+                Text="Ngày kết thúc:" />
+		                    </td>
+                <td align="left" style="width:10%;">
+			
+			        &nbsp;</td>
+                     <td align="left" style="width:1%;">
+                         &nbsp;</td>
+                 <td align="right" style="width:5%;">
+			<asp:label id="Label6" CssClass="cssManField" runat="server" 
+                Text="Ngày thi:" />
+		                    </td>
+                <td align="left" style="width:10%;">
+			
+			        &nbsp;</td>            
+                         <td align="left" style="width:1%;">
+                             &nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" style="width:5%;">
 			<asp:label id="Label2" CssClass="cssManField" runat="server" 
-                Text="Ngày bắt đầu từ ngày" />
+                Text="Từ ngày" />
 		                    </td>
                 <td align="left" style="width:10%;">
 			
@@ -93,7 +122,8 @@
                         ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
                         ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
                         ShowGoToToday="True" Width="80%" SelectedDate="" 
-                        AllowArbitraryText="False" CellPadding="0px">
+                        AllowArbitraryText="False" CellPadding="0px" 
+                        Culture="Vietnamese (Vietnam)" Text="Chọn" DisableTextboxEntry="false" >
                         <weekdaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
                             font-size="XX-Small" forecolor="Black" />
                         <weekendstyle backcolor="LightGray" font-names="Verdana,Helvetica,Tahoma,Arial" 
@@ -129,15 +159,16 @@
                              Operator="GreaterThan" SetFocusOnError="True" Type="Date">*</asp:CompareValidator>
                 </td>
                 <td align="right" style="width:5%;">
-			<asp:label id="Label17" CssClass="cssManField" runat="server" 
-                Text="Ngày kết thúc từ" />
+			<asp:label id="Label20" CssClass="cssManField" runat="server" 
+                Text="Từ ngày" />
 		                    </td>
                 <td align="left" style="width:10%;">
 			
 			        <ew:CalendarPopup ID="m_dat_ngay_ket_thuc_tu" runat="server" 
                         ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
                         ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
-                        ShowGoToToday="True" Width="80%" SelectedDate="">
+                        ShowGoToToday="True" Width="80%" SelectedDate="" Culture="vi-VN" 
+                        DisableTextboxEntry="False">
                         <weekdaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
                             font-size="XX-Small" forecolor="Black" />
                         <weekendstyle backcolor="LightGray" font-names="Verdana,Helvetica,Tahoma,Arial" 
@@ -173,15 +204,16 @@
                              Operator="GreaterThan" SetFocusOnError="True" Type="Date">*</asp:CompareValidator>
                 </td>
                  <td align="right" style="width:5%;">
-			<asp:label id="Label6" CssClass="cssManField" runat="server" 
-                Text="Ngày thi từ ngày" />
+			<asp:label id="Label21" CssClass="cssManField" runat="server" 
+                Text="Từ ngày" />
 		                    </td>
                 <td align="left" style="width:10%;">
 			
 			        <ew:CalendarPopup ID="m_dat_ngay_thi_tu" runat="server" 
                         ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
                         ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
-                        ShowGoToToday="True" Width="80%" SelectedDate="">
+                        ShowGoToToday="True" Width="80%" SelectedDate="" Culture="vi-VN" 
+                        DisableTextboxEntry="False">
                         <weekdaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
                             font-size="XX-Small" forecolor="Black" />
                         <weekendstyle backcolor="LightGray" font-names="Verdana,Helvetica,Tahoma,Arial" 
@@ -225,7 +257,8 @@
 			        <ew:CalendarPopup ID="m_dat_ngay_bat_dau_den" runat="server" 
                         ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
                         ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
-                        ShowGoToToday="True" Width="80%" SelectedDate="">
+                        ShowGoToToday="True" Width="80%" SelectedDate="" Culture="vi-VN" 
+                        DisableTextboxEntry="False">
                         <weekdaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
                             font-size="XX-Small" forecolor="Black" />
                         <weekendstyle backcolor="LightGray" font-names="Verdana,Helvetica,Tahoma,Arial" 
@@ -262,7 +295,8 @@
 			        <ew:CalendarPopup ID="m_dat_ngay_ket_thuc_den" runat="server" 
                         ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
                         ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
-                        ShowGoToToday="True" Width="80%" SelectedDate="">
+                        ShowGoToToday="True" Width="80%" SelectedDate="" Culture="vi-VN" 
+                        DisableTextboxEntry="False">
                         <weekdaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
                             font-size="XX-Small" forecolor="Black" />
                         <weekendstyle backcolor="LightGray" font-names="Verdana,Helvetica,Tahoma,Arial" 
@@ -300,7 +334,8 @@
 			        <ew:CalendarPopup ID="m_dat_ngay_thi_den" runat="server" 
                         ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
                         ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
-                        ShowGoToToday="True" Width="80%" SelectedDate="">
+                        ShowGoToToday="True" Width="80%" SelectedDate="" Culture="vi-VN" 
+                        DisableTextboxEntry="False">
                         <weekdaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
                             font-size="XX-Small" forecolor="Black" />
                         <weekendstyle backcolor="LightGray" font-names="Verdana,Helvetica,Tahoma,Arial" 
@@ -396,8 +431,6 @@
 			<asp:button id="m_cmd_tao_moi0" accessKey="m" CssClass="cssButton" 
                 runat="server" Width="98px" Text="Thêm lớp môn" Height="24px" 
                 onclick="m_cmd_tao_moi" />
-		                    <asp:HyperLink ID="m_lnk_them_lop_mon" runat="server" 
-                CssClass="cssHyperLinkButton" Height="22px" Width="98px">Thêm lớp môn</asp:HyperLink>
 		                    </td>
 	</tr>
     <tr>
