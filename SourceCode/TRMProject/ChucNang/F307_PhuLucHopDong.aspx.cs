@@ -19,6 +19,7 @@ public partial class ChucNang_F307_PhuLucHopDong : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         m_lbl_thong_bao.Text = "";
+        m_cbo_noi_dung_tt.Enabled = true;
         if (!IsPostBack)
         {
             m_cmd_cap_nhat_pl.Enabled = true;
@@ -151,13 +152,17 @@ public partial class ChucNang_F307_PhuLucHopDong : System.Web.UI.Page
                 if (m_cbo_noi_dung_tt.Items.Count == 0)
                 {
                     m_lbl_mess.Text = "Chưa có nội dung thanh toán ứng với loại hơp đồng này";
+                    // Ko cho phéo add
                     m_cmd_luu_du_lieu.Enabled = false;
-                    m_cmd_cap_nhat_pl.Enabled = false;
                 }
+                // Nếu chưa có gì thì ko cho cập nhật
+                m_cmd_cap_nhat_pl.Enabled = false;
+                m_grv_gd_hop_dong_noi_dung_tt.Visible = false;
             }
             else
             {
                 // Load to grid
+                m_grv_gd_hop_dong_noi_dung_tt.Visible = true;
                 m_grv_gd_hop_dong_noi_dung_tt.DataSource = m_ds_v_gd_gd_hop_dong_noi_dung_tt.V_GD_HOP_DONG_NOI_DUNG_TT;
                 m_grv_gd_hop_dong_noi_dung_tt.DataBind();
             }
@@ -201,7 +206,13 @@ public partial class ChucNang_F307_PhuLucHopDong : System.Web.UI.Page
             throw v_e;
         }
     }
-
+    // Lấy được i nội dung thanh toán từ id phụ lục đã biết
+    private decimal get_id_noi_dung_tt_by_id_phu_luc(decimal ip_dc_id_phu_luc)
+    {
+        US_V_GD_HOP_DONG_NOI_DUNG_TT v_us_gd_phu_luc = new US_V_GD_HOP_DONG_NOI_DUNG_TT(ip_dc_id_phu_luc);
+        if (v_us_gd_phu_luc.IsIDNull()) return 0;
+        return v_us_gd_phu_luc.dcID_NOI_DUNG_TT;
+    }
     private bool check_enough_noi_dung_tt(int ip_i_num_of_noi_dung_in_database)
     {
         // Nếu số lượng nhỏ hơn, nghĩa là chưa đủ, return false
@@ -211,9 +222,10 @@ public partial class ChucNang_F307_PhuLucHopDong : System.Web.UI.Page
     }
     private bool check_exist_noi_dung_tt(decimal ip_dc_id_noi_dung_tt)
     {
-        for (int v_i = 0; v_i < m_cbo_noi_dung_tt.Items.Count; v_i++)
+        for (int v_i = 0; v_i < m_grv_gd_hop_dong_noi_dung_tt.Rows.Count; v_i++)
         {
-            if (ip_dc_id_noi_dung_tt == CIPConvert.ToDecimal(m_cbo_noi_dung_tt.Items[v_i].Value))
+            if (ip_dc_id_noi_dung_tt == get_id_noi_dung_tt_by_id_phu_luc(CIPConvert.ToDecimal(m_grv_gd_hop_dong_noi_dung_tt.DataKeys[v_i].Value)))
+           //if (ip_dc_id_noi_dung_tt == CIPConvert.ToDecimal(m_cbo_noi_dung_tt.Items[v_i].Value))
                 // True nghĩa là có tồn tại
                 return true;
         }
@@ -241,6 +253,7 @@ public partial class ChucNang_F307_PhuLucHopDong : System.Web.UI.Page
              reset_control();
              m_pnl_table.Visible = false;
              load_data_2_grid(CIPConvert.ToDecimal(Request.QueryString["id_hd"]));
+            // Cho phép cập nhật trở lai
              m_cmd_cap_nhat_pl.Enabled = true;
         }
         catch (Exception v_e)
@@ -269,6 +282,8 @@ public partial class ChucNang_F307_PhuLucHopDong : System.Web.UI.Page
                 return;
             }
             m_pnl_table.Visible = true;
+            // Cho phép add nhưng ko cho phép cập nhật
+            reset_control();
             m_cmd_cap_nhat_pl.Enabled = false;
             m_cmd_luu_du_lieu.Enabled = true;
         }
@@ -283,6 +298,8 @@ public partial class ChucNang_F307_PhuLucHopDong : System.Web.UI.Page
         {
             m_init_mode = DataEntryFormMode.UpdateDataState;
             m_cmd_luu_du_lieu.Enabled = false;
+            m_cbo_noi_dung_tt.Enabled = false;
+            m_cmd_cap_nhat_pl.Enabled = true;
             m_lbl_thong_bao.Text = "";
             m_pnl_table.Visible = true;
             load_data_2_us_by_id_and_show_on_form(e.NewSelectedIndex);
@@ -314,11 +331,11 @@ public partial class ChucNang_F307_PhuLucHopDong : System.Web.UI.Page
                 return;
             }
             form_2_us_object(m_us_v_gd_hop_dong_noi_dung_tt);
-            if (check_exist_noi_dung_tt(m_us_v_gd_hop_dong_noi_dung_tt.dcID_NOI_DUNG_TT))
-            {
-                m_lbl_thong_bao.Text = "Nội dung thanh tóan này đã tồn tại trong hợp đồng này";
-                return;
-            }
+            //if (check_exist_noi_dung_tt(m_us_v_gd_hop_dong_noi_dung_tt.dcID_NOI_DUNG_TT))
+            //{
+            //    m_lbl_thong_bao.Text = "Nội dung thanh tóan này đã tồn tại trong hợp đồng này";
+            //    return;
+            //}
             m_us_v_gd_hop_dong_noi_dung_tt.dcID =CIPConvert.ToDecimal(hdf_id_gv.Value);
             m_us_v_gd_hop_dong_noi_dung_tt.Update();
             m_lbl_thong_bao.Text = "Cập nhật bản ghi thành công";
