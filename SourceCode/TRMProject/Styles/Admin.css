@@ -83,14 +83,13 @@ body
 .cssHyperLinkButton
 {	
 	border: #5d5d5d 0px solid;
-	background-image:url(../images/Button/BGButton.jpg);
+	background-image:url('../images/Button/BGButton.jpg');
 	color: Black;
 	font-family: Tahoma, Arial, Times New Roman;
 	font-size: 11px;
 	font-weight: bold;
 	text-align:center;
 	cursor:hand;
-	height:20px;
 	padding-top:3px;
 	vertical-align:bottom;
 }
