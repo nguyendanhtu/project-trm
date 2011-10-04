@@ -23,9 +23,9 @@
         
         <table cellspacing="0" cellpadding="2" style="width:1000px;" class="cssTable" border="0"> 
             <tr>
-                <td align="right" style="width:5%;">
+                <td align="right" style="width:7%;">
 			<asp:label id="lblFullName" CssClass="cssManField" runat="server" 
-                Text="&lt;U&gt;T&lt;/U&gt;ên giảng viên" />
+                Text="&lt;U&gt;H&lt;/U&gt;ọ tên giảng viên" />
                          </td>
                 <td align="left" colspan="3">
                 <asp:TextBox ID="m_txt_ten_giang_vien" runat="server" CssClass="cssTextBox" 
