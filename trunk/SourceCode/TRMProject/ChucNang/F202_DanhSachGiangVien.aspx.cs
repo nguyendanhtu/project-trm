@@ -221,21 +221,12 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
     {
         try
         {
-            // thu thập dữ liệu            
+            // thu thập dữ liệu và chuẩn hóa        
             string v_str_ten_giang_vien = m_txt_ten_giang_vien.Text.Trim();
-            // Cắt string name
-            string[] v_str_ten_gv = v_str_ten_giang_vien.Split(' ');
-            string v_str_ho_va_ten_split = "";
-            // Việc này là để loại bỏ các dấu cách trong từ khóa search
-            for (int i = 0; i < v_str_ten_gv.Length; i++)
-            {
-                v_str_ho_va_ten_split += v_str_ten_gv[i];
-                v_str_ho_va_ten_split += " ";
-            }
-
-            v_str_ho_va_ten_split = v_str_ho_va_ten_split.Trim();
+            v_str_ten_giang_vien = Process_name_search(v_str_ten_giang_vien);
 
             string v_str_search_key_word = m_txt_tu_khoa_tim_kiem.Text.Trim();
+            v_str_search_key_word = Process_name_search(v_str_search_key_word);
 
             string v_str_gender="";
             if (rdl_gender_check.Items[0].Selected) v_str_gender = "All";
@@ -251,7 +242,7 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
             decimal v_dc_id_trang_thai_giang_vien = CIPConvert.ToDecimal(m_cbo_trang_thai_g_vien.SelectedValue);
             decimal v_dc_id_don_vi_quan_ly= CIPConvert.ToDecimal(m_cbo_don_vi_q_ly.SelectedValue);
 
-             collect_data_2_search(v_str_ho_va_ten_split
+            collect_data_2_search(v_str_ten_giang_vien
                                                   , v_str_search_key_word
                                                   , v_str_gender
                                                   , v_dc_id_trang_thai_giang_vien
@@ -260,7 +251,7 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
                                                   , CIPConvert.ToDecimal(v_str_month));
             // Thực hiện Search
 
-            m_us_dm_giang_vien.search_giang_vien(v_str_ho_va_ten_split
+            m_us_dm_giang_vien.search_giang_vien(v_str_ten_giang_vien
                                                 ,v_str_search_key_word      
                                                 ,v_str_gender   
                                                 ,v_dc_id_trang_thai_giang_vien
@@ -284,7 +275,20 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
             throw v_e;
         }
     }
-
+   
+    /// <summary>
+    /// Xóa các khoảng trắng, chuyển về một dạng chuẩn "Đinh Hồng Lĩnh"
+    /// </summary>
+    /// <param name="ip_str_name_search"></param>
+    /// <returns></returns>
+    private string Process_name_search(string ip_str_name_search)
+    {
+        while (ip_str_name_search.Contains("  "))
+        {
+            ip_str_name_search = ip_str_name_search.Replace("  ", " ");
+        }
+        return ip_str_name_search;
+    }
     /// <summary>
     /// Search sử dụng session
     /// </summary>
