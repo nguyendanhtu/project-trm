@@ -27,8 +27,8 @@ public partial class ChucNang_F307_PhuLucHopDong : System.Web.UI.Page
             if (Request.QueryString["id_hd"] != null)
             {
                 m_dc_id_hd = CIPConvert.ToDecimal(Request.QueryString["id_hd"]);
-                load_data_2_grid(m_dc_id_hd);
                 load_2_cbo_noi_dung_tt(get_id_loai_hd_hop_dong_id(m_dc_id_hd));
+                load_data_2_grid(m_dc_id_hd);
             }
         }
         load_data_2_basic_control();
@@ -148,6 +148,12 @@ public partial class ChucNang_F307_PhuLucHopDong : System.Web.UI.Page
             if (m_ds_v_gd_gd_hop_dong_noi_dung_tt.V_GD_HOP_DONG_NOI_DUNG_TT.Rows.Count == 0)
             {
                 m_pnl_table.Visible = true;
+                if (m_cbo_noi_dung_tt.Items.Count == 0)
+                {
+                    m_lbl_mess.Text = "Chưa có nội dung thanh toán ứng với loại hơp đồng này. Tạo nội dung thanh toán cho loại hợp đồng này";
+                    m_cmd_luu_du_lieu.Enabled = false;
+                    m_cmd_cap_nhat_pl.Enabled = false;
+                }
             }
             else
             {
@@ -195,6 +201,25 @@ public partial class ChucNang_F307_PhuLucHopDong : System.Web.UI.Page
             throw v_e;
         }
     }
+
+    private bool check_enough_noi_dung_tt(int ip_i_num_of_noi_dung_in_database)
+    {
+        // Nếu số lượng nhỏ hơn, nghĩa là chưa đủ, return false
+        if (m_cbo_noi_dung_tt.Items.Count > ip_i_num_of_noi_dung_in_database) return false; 
+        // còn nếu đã đủ ròio thì return true
+        return true;
+    }
+    private bool check_exist_noi_dung_tt(decimal ip_dc_id_noi_dung_tt)
+    {
+        for (int v_i = 0; v_i < m_cbo_noi_dung_tt.Items.Count; v_i++)
+        {
+            if (ip_dc_id_noi_dung_tt == CIPConvert.ToDecimal(m_cbo_noi_dung_tt.Items[v_i].Value))
+                // True nghĩa là có tồn tại
+                return true;
+        }
+        // false nghia là không tồn tại
+        return false;
+    }
     #endregion
 
     //
@@ -206,6 +231,11 @@ public partial class ChucNang_F307_PhuLucHopDong : System.Web.UI.Page
         try
         {
              form_2_us_object(m_us_v_gd_hop_dong_noi_dung_tt);
+             if (check_exist_noi_dung_tt(m_us_v_gd_hop_dong_noi_dung_tt.dcID_NOI_DUNG_TT))
+             {
+                 m_lbl_thong_bao.Text = "Nội dung thanh tóan này đã tồn tại trong hợp đồng này";
+                 return;
+             }
              m_us_v_gd_hop_dong_noi_dung_tt.Insert();
              m_lbl_thong_bao.Text = "Thêm bản ghi thành công";
              reset_control();
@@ -233,6 +263,11 @@ public partial class ChucNang_F307_PhuLucHopDong : System.Web.UI.Page
     {
         try
         {
+            if (check_enough_noi_dung_tt(m_grv_gd_hop_dong_noi_dung_tt.Rows.Count))
+            {
+                m_lbl_thong_bao.Text = "Số lượng phụ lục phải nhỏ hơn hoặc bằng số lượng nội dung thanh toán";
+                return;
+            }
             m_pnl_table.Visible = true;
             m_cmd_cap_nhat_pl.Enabled = false;
             m_cmd_luu_du_lieu.Enabled = true;
@@ -279,6 +314,11 @@ public partial class ChucNang_F307_PhuLucHopDong : System.Web.UI.Page
                 return;
             }
             form_2_us_object(m_us_v_gd_hop_dong_noi_dung_tt);
+            if (check_exist_noi_dung_tt(m_us_v_gd_hop_dong_noi_dung_tt.dcID_NOI_DUNG_TT))
+            {
+                m_lbl_thong_bao.Text = "Nội dung thanh tóan này đã tồn tại trong hợp đồng này";
+                return;
+            }
             m_us_v_gd_hop_dong_noi_dung_tt.dcID =CIPConvert.ToDecimal(hdf_id_gv.Value);
             m_us_v_gd_hop_dong_noi_dung_tt.Update();
             m_lbl_thong_bao.Text = "Cập nhật bản ghi thành công";

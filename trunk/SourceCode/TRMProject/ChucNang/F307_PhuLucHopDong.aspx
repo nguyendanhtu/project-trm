@@ -70,7 +70,8 @@
                  <ew:NumericBox ID="m_txt_so_luong_he_so" Width="96%" runat="server" TextAlign="Right">
                 </ew:NumericBox>
                          </td>
-                <td align="left" style="width:1%;"></td>
+                <td align="left" style="width:1%;"><asp:RequiredFieldValidator ID="req_vali2" runat="server" 
+                         ErrorMessage="Bạn phải nhập số lượng hệ số" Text="*" ControlToValidate="m_txt_so_luong_he_so"></asp:RequiredFieldValidator></td>
                  <td align="right" style="width:5%;"></td>
                 <td align="left" style="width:10%;"></td>
                 <td align="left" style="width:1%;"></td>
@@ -86,7 +87,8 @@
                 </ew:NumericBox>
                 </td>
                      <td align="left" style="width:1%;">
-                         &nbsp;</td>
+                         &nbsp;<asp:RequiredFieldValidator ID="req_validator" runat="server" 
+                         ErrorMessage="Bạn phải nhập đơn giá" Text="*" ControlToValidate="m_txt_don_gia_hd"></asp:RequiredFieldValidator></td>
                 <td align="right" style="width:5%;">
 			        &nbsp;</td>
                 <td align="left" style="width:10%;">
@@ -154,7 +156,7 @@
 		<td align="left">
         &nbsp;<asp:button id="cmd_them_moi" accessKey="c" CssClass="cssButton" 
                 runat="server" Width="98px" Text="Tạo mới(c)" 
-                Height="27px" onclick="cmd_them_moi_Click"/><br />
+                Height="27px" onclick="cmd_them_moi_Click" CausesValidation="false"/><br />
                 <asp:Label ID="m_lbl_thong_bao" CssClass="cssManField" runat="server"></asp:Label>
                 <asp:HiddenField ID="hdf_id_gv" runat="server" />
         </td>
