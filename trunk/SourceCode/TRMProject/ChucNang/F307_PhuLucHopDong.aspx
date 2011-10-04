@@ -24,7 +24,7 @@
             <tr>
                 <td align="right" style="width:7%;">
 			<asp:label id="lblSoHopDong" CssClass="cssManField" runat="server" 
-                Text="Số hợp đồng" />
+                Text="Số hợp đồng khung" />
                          </td>
                 <td align="left" style="width:10%;">
 			<asp:textbox id="m_txt_so_hop_dong" CssClass="cssTextBox" Enabled="false"  runat="server" 
@@ -192,12 +192,6 @@
                        <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
                         <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:TemplateField>
-                     <asp:BoundField DataField="SO_HOP_DONG" HeaderText="Số hợp đồng khung">
-                     <ItemStyle HorizontalAlign="Center"></ItemStyle>
-                    </asp:BoundField>
-                     <asp:BoundField DataField="TEN_GIANG_VIEN" HeaderText="Giảng viên">
-                     <ItemStyle HorizontalAlign="Center"></ItemStyle>
-                    </asp:BoundField>
                     <asp:BoundField DataField="NOI_DUNG_THANH_TOAN" HeaderText="Nội dung thanh toán">
                     </asp:BoundField>
                      <asp:TemplateField HeaderText="Số lượng - Hệ số" ItemStyle-HorizontalAlign="Center">
