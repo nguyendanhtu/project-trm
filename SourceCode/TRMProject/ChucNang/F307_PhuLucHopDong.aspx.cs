@@ -23,14 +23,15 @@ public partial class ChucNang_F307_PhuLucHopDong : System.Web.UI.Page
         {
             m_cmd_cap_nhat_pl.Enabled = true;
             m_cmd_luu_du_lieu.Enabled = true;
-            load_2_cbo_noi_dung_tt();
             // show on grid
             if (Request.QueryString["id_hd"] != null)
             {
                 m_dc_id_hd = CIPConvert.ToDecimal(Request.QueryString["id_hd"]);
                 load_data_2_grid(m_dc_id_hd);
+                load_2_cbo_noi_dung_tt(get_id_loai_hd_hop_dong_id(m_dc_id_hd));
             }
         }
+        load_data_2_basic_control();
     }
 
     #region Public Interface
@@ -56,14 +57,15 @@ public partial class ChucNang_F307_PhuLucHopDong : System.Web.UI.Page
         m_cbo_noi_dung_tt.SelectedIndex = 0;
     }
  
-    private void load_2_cbo_noi_dung_tt()
+    private void load_2_cbo_noi_dung_tt(decimal ip_dc_id_loai_hd)
     {
         US_DM_NOI_DUNG_THANH_TOAN v_us_noi_dung_thanh_toan = new US_DM_NOI_DUNG_THANH_TOAN();
         DS_DM_NOI_DUNG_THANH_TOAN v_ds_noi_dung_thanh_toan = new DS_DM_NOI_DUNG_THANH_TOAN();
         try
         {
-            v_us_noi_dung_thanh_toan.FillDataset(v_ds_noi_dung_thanh_toan);
+            v_us_noi_dung_thanh_toan.FillDataset(v_ds_noi_dung_thanh_toan," WHERE ID_LOAI_HOP_DONG="+ip_dc_id_loai_hd);
             m_cbo_noi_dung_tt.DataSource = v_ds_noi_dung_thanh_toan.DM_NOI_DUNG_THANH_TOAN;
+
             m_cbo_noi_dung_tt.DataValueField = DM_NOI_DUNG_THANH_TOAN.ID;
             m_cbo_noi_dung_tt.DataTextField = DM_NOI_DUNG_THANH_TOAN.TEN_NOI_DUNG;
             m_cbo_noi_dung_tt.DataBind();
@@ -109,6 +111,7 @@ public partial class ChucNang_F307_PhuLucHopDong : System.Web.UI.Page
         }
 
     }
+    // Load data và hiển thị lên form
     private void load_data_2_us_by_id_and_show_on_form(int ip_i_hop_dong_selected)
     {
         try
@@ -140,10 +143,18 @@ public partial class ChucNang_F307_PhuLucHopDong : System.Web.UI.Page
         try
         {
             m_us_v_gd_hop_dong_noi_dung_tt.FillDataset(m_ds_v_gd_gd_hop_dong_noi_dung_tt, " WHERE ID_HOP_DONG_KHUNG=" + ip_dc_id_hd);
-
-            // Load to grid
-            m_grv_gd_hop_dong_noi_dung_tt.DataSource = m_ds_v_gd_gd_hop_dong_noi_dung_tt.V_GD_HOP_DONG_NOI_DUNG_TT;
-            m_grv_gd_hop_dong_noi_dung_tt.DataBind();
+            
+            // Nếu chưa có phụ lục nào ứng với hợp đồng khung này
+            if (m_ds_v_gd_gd_hop_dong_noi_dung_tt.V_GD_HOP_DONG_NOI_DUNG_TT.Rows.Count == 0)
+            {
+                m_pnl_table.Visible = true;
+            }
+            else
+            {
+                // Load to grid
+                m_grv_gd_hop_dong_noi_dung_tt.DataSource = m_ds_v_gd_gd_hop_dong_noi_dung_tt.V_GD_HOP_DONG_NOI_DUNG_TT;
+                m_grv_gd_hop_dong_noi_dung_tt.DataBind();
+            }
         }
         catch (Exception v_e)
         {
@@ -151,6 +162,38 @@ public partial class ChucNang_F307_PhuLucHopDong : System.Web.UI.Page
             throw v_e;
         }
         
+    }
+    // Load data to so hợp đồng và tên giảng viên
+    private void load_data_2_basic_control()
+    {
+        try
+        {
+            US_V_DM_HOP_DONG_KHUNG v_us_dm_hd_khung = new US_V_DM_HOP_DONG_KHUNG(CIPConvert.ToDecimal(Request.QueryString["id_hd"]));
+            if (!v_us_dm_hd_khung.IsIDNull())
+            {
+                m_txt_ten_giang_vien.Text = v_us_dm_hd_khung.strGIANG_VIEN;
+                m_txt_so_hop_dong.Text = v_us_dm_hd_khung.strSO_HOP_DONG;
+            }
+        }
+        catch (Exception v_e)
+        {
+
+            throw v_e;
+        }
+    }
+    private decimal get_id_loai_hd_hop_dong_id(decimal ip_dc_hd_id)
+    {
+        try
+        {
+            US_V_DM_HOP_DONG_KHUNG v_us_dm_hop_dong_khung = new US_V_DM_HOP_DONG_KHUNG(ip_dc_hd_id);
+            if(v_us_dm_hop_dong_khung.IsIDNull()) return 0;
+            return v_us_dm_hop_dong_khung.dcID_LOAI_HOP_DONG;
+        }
+        catch (Exception v_e)
+        {
+
+            throw v_e;
+        }
     }
     #endregion
 
