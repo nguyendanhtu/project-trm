@@ -8,36 +8,30 @@
     <link href="~/Styles/Admin.css" rel="stylesheet" type="text/css" />
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
     </asp:ContentPlaceHolder>
-</head>
+    </head>
 <body>
     <form id="Form1" runat="server">
     <div class="page">
         <div class="header">
             <div class="title">
                 <h1>
-                    Phần mềm quản lý giảng viên - TRM
+                <asp:Label runat="server" ID="m_lbl_user_name0" CssClass="cssLabelTitle">PHẦN MỀM QUẢN LÝ GIẢNG VIÊN - TRM</asp:Label>
                 </h1>
             </div>
             <div class="loginDisplay">
-                <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
-                    <AnonymousTemplate>
-                        [ <a href="~/Account/Login.aspx" ID="HeadLoginStatus" runat="server">Đăng nhập</a> ]
-                    </AnonymousTemplate>
-                    <LoggedInTemplate>
-                        Xin chào <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
-                        [ <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Thoát" LogoutPageUrl="~/"/> ]
-                    </LoggedInTemplate>
-                </asp:LoginView>
+                <asp:HyperLink ID="m_lhk_user_name" runat="server" CssClass="accountInfo">m_lhk_user_name</asp:HyperLink>
             </div>
             <div class="clear hideSkiplink">
-                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false"  Orientation="Horizontal">
+                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" 
+                    EnableViewState="False"  Orientation="Horizontal">
                     <Items>
                         <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Quản trị hệ thống">
                             <asp:MenuItem Text="Đăng nhập" Value="Đăng nhập"></asp:MenuItem>
                             <asp:MenuItem Text="Phân quyền người dùng" Value="Phân quyền người dùng">
                             </asp:MenuItem>
                             <asp:MenuItem Text="Người sử dụng" Value="Người sử dụng"></asp:MenuItem>
-                            <asp:MenuItem Text="Đăng xuất" Value="Đăng xuất"></asp:MenuItem>
+                            <asp:MenuItem Text="Đăng xuất" Value="Đăng xuất" 
+                                NavigateUrl="~/Account/Logout.aspx"></asp:MenuItem>
                         </asp:MenuItem>
                         <asp:MenuItem Text="Quản lý danh mục">
                             <asp:MenuItem NavigateUrl="/TRMProject/DanhMuc/F101_Dictionary.aspx" 
