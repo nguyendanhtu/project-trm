@@ -136,6 +136,8 @@
                         Width="98px" />
                 </td>  
                   <td align="left" style="width:10%;">
+                      <asp:Button ID="m_cmd_exit" runat="server" accessKey="s" CssClass="cssButton" 
+                          Height="24px" Text="Thoát" Width="98px" CausesValidation="false" onclick="m_cmd_exit_Click" />
                  </td>  
             </tr>
         </table>
