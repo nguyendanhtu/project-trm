@@ -1,22 +1,12 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="F301_GdHopDongKhung.aspx.cs" Inherits="ChucNang_F301_GdHopDongKhung" %>
-
+﻿<%@ Page Title="F301 - Giao dịch hợp đồng khung" Language="C#" MasterPageFile="~/Site.master"  AutoEventWireup="true" CodeFile="F301_GdHopDongKhung.aspx.cs" Inherits="ChucNang_F301_GdHopDongKhung" %>
+<%@ Import Namespace ="IP.Core.IPCommon" %>
 <%@ Register assembly="eWorld.UI" namespace="eWorld.UI" tagprefix="ew" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
+ <link href="~/Styles/Admin.css" rel="stylesheet" type="text/css" />
+</asp:Content>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head id="Head1" runat="server">
-    <title>F301 - Giao dịch hợp đồng khung</title>
-    <script type="text/javascript">
-        function OpenPopup() {
-            window.open("/TRMProject/ChucNang/F305_ChonGiangVien.aspx", "_blank", "scrollbars=yes,resizable=no,width=800,height=580");
-            return false;
-        }
-    </script>
-    <link href="~/Styles/Admin.css" rel="stylesheet" type="text/css" />
-    </head>
-<body>
-    <form id="form1" runat="server">
+   <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
     <table cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0">
 	<tr>
 		<td class="cssPageTitleBG">
@@ -431,6 +421,5 @@
 	<tr>
     <td></td></tr>
 </table>
-    </form>
-</body>
-</html>
+</asp:Content>
+
