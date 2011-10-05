@@ -136,9 +136,7 @@
                         Width="98px" />
                 </td>  
                   <td align="left" style="width:10%;">
-                      <asp:Button ID="m_cmd_exit" runat="server" accessKey="s" CssClass="cssButton" 
-                          Height="24px" Text="Thoát" Width="98px" CausesValidation="false" onclick="m_cmd_exit_Click" />
-                 </td>  
+                      &nbsp;</td>  
             </tr>
         </table>
         </asp:Panel>
@@ -158,8 +156,12 @@
 		<td align="left">
         &nbsp;<asp:button id="cmd_them_moi" accessKey="c" CssClass="cssButton" 
                 runat="server" Width="98px" Text="Tạo mới(c)" 
-                Height="27px" onclick="cmd_them_moi_Click" CausesValidation="false"/><br />
-                <asp:Label ID="m_lbl_thong_bao" CssClass="cssManField" runat="server"></asp:Label>
+                Height="27px" onclick="cmd_them_moi_Click" CausesValidation="false"/>
+                
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <asp:Button ID="m_cmd_exit" runat="server" accessKey="s" CssClass="cssButton" 
+                          Height="24px" Text="Thoát" Width="98px" CausesValidation="false" 
+                          onclick="m_cmd_exit_Click" /><br />
+                          <asp:Label ID="m_lbl_thong_bao" CssClass="cssManField" runat="server"></asp:Label>
                 <asp:HiddenField ID="hdf_id_gv" runat="server" />
         </td>
         <td >
