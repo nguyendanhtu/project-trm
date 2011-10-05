@@ -399,7 +399,7 @@
                 <td align="left" style="width:10%;">
                  <asp:button id="m_cmd_thoat" CssClass="cssButton" 
                 runat="server" Width="98px" Text="Thoát" 
-                        Height="25px" CausesValidation="False"  />
+                        Height="25px" CausesValidation="False" onclick="m_cmd_thoat_Click"  />
                  </td>     
                 <td align="left" style="width:1%;"></td>
             </tr>

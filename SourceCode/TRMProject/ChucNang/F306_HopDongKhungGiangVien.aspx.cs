@@ -540,6 +540,7 @@ public partial class ChucNang_F306_HopDongKhungGiangVien : System.Web.UI.Page
         }
 
     }
+  
     #endregion
 
     #region Public Interfaces
@@ -668,6 +669,19 @@ public partial class ChucNang_F306_HopDongKhungGiangVien : System.Web.UI.Page
         catch (Exception v_e)
         {
             CSystemLog_301.ExceptionHandle(this,v_e);
+        }
+    }
+    protected void m_cmd_thoat_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            Response.Redirect("TRMProject/ChucNang/F202_DanhSachGiangVien.aspx", false);
+            HttpContext.Current.ApplicationInstance.CompleteRequest();
+        }
+        catch (Exception v_e)
+        {
+
+            CSystemLog_301.ExceptionHandle(this, v_e);
         }
     }
 }
