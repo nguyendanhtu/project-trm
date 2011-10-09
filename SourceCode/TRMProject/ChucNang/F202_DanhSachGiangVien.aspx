@@ -332,6 +332,8 @@
                      <asp:BoundField DataField="NGAY_CAP" DataFormatString="{0:dd/MM/yyyy}" HeaderText="Ngày cấp" />
                      <asp:BoundField DataField="NOI_CAP" HeaderText="Nơi cấp" />
                      <asp:BoundField DataField="DON_VI_QUAN_LY" HeaderText="Đơn vị quản lý" />
+                    <asp:BoundField DataField="PO_PHU_TRACH_CHINH" HeaderText="PO phụ trách chính" />
+                     <asp:BoundField DataField="PO_PHU_TRACH_PHU" HeaderText="PO phụ trách phụ" />
                      <asp:BoundField DataField="MA_SO_THUE" HeaderText="Mã số thuế" />
                        <asp:BoundField DataField="NGAY_BD_HOP_TAC" DataFormatString="{0:dd/MM/yyyy}" HeaderText="Ngày bắt đầu hợp tác" />
                     <asp:TemplateField>

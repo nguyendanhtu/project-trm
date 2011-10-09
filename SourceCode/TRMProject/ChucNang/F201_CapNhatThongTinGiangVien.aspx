@@ -389,18 +389,45 @@
                 </td>
                      <td align="left" style="width:1%;">&nbsp;</td>
                 <td align="right" class="style1">
-                <asp:label id="m_lbl_description" CssClass="cssManField" runat="server" 
-                Text="Mô tả" />
+			<asp:label id="lblMaPoChinh" CssClass="cssManField" runat="server" 
+                Text="PO phụ trách chính" /><br />
+                <p></p>
+			<asp:label id="lblMaPophu" Text="PO phụ trách phụ" CssClass="cssManField" runat="server" 
+                Tex="" />
                 </td>
                 <td align="left" style="width:10%;">
-                <asp:textbox id="m_txt_description" CssClass="cssTextBox"  runat="server" 
-               TextMode="MultiLine" Rows="4" Width="96%" />
+			        <asp:DropDownList ID="m_cbo_po_phu_trach_chinh" runat="server" 
+                        CssClass="cssDorpdownlist" Width="96%" />
+                <br /><p></p>
+              	<asp:DropDownList ID="m_cbo_po_phu_trach_phu" runat="server" 
+                        CssClass="cssDorpdownlist" Width="96%" />
+                
 			        </td>
                      <td align="left" style="width:1%;">
                          &nbsp;</td>
                 <td align="left" style="width:10%;">
                     &nbsp;</td>            
                          <td align="left" style="width:1%;"></td>
+            </tr>
+            <tr>
+                <td align="right" class="style2">
+                <asp:label id="m_lbl_description" CssClass="cssManField" runat="server" 
+                Text="Mô tả" />
+		                    </td>
+                <td align="left" class="style3">
+                <asp:textbox id="m_txt_description" CssClass="cssTextBox"  runat="server" 
+               TextMode="MultiLine" Rows="4" Width="96%" />
+                </td>
+                     <td align="left" style="width:1%;">&nbsp;</td>
+                <td align="right" class="style1">
+                    &nbsp;</td>
+                <td align="left" style="width:10%;">
+                    &nbsp;</td>
+                     <td align="left" style="width:1%;">
+                         &nbsp;</td>
+                <td align="left" style="width:10%;">
+                    &nbsp;</td>            
+                         <td align="left" style="width:1%;">&nbsp;</td>
             </tr>
             <tr>
                 <td align="right" class="style2">
