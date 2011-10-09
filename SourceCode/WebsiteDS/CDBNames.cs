@@ -228,7 +228,7 @@ namespace WebDS.CDBNames
         public const string SO_LUONG_HE_SO = "SO_LUONG_HE_SO";
         public const string DON_GIA_HD = "DON_GIA_HD";
     }
-    class HT_NGUOI_SU_DUNG
+   public class HT_NGUOI_SU_DUNG
     {
         public const string ID = "ID";
         public const string TEN_TRUY_CAP = "TEN_TRUY_CAP";
