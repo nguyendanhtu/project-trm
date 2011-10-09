@@ -359,7 +359,7 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
             m_grv_dm_danh_sach_hop_dong_khung.DataSource = m_ds_hop_dong_khung.V_DM_HOP_DONG_KHUNG;
 
             m_grv_dm_danh_sach_hop_dong_khung.DataBind();
-            m_lbl_loc_du_lieu.Text = "Kết quả lọc dữ liệu (" + m_ds_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows.Count + ")";
+            m_lbl_loc_du_lieu.Text = "Kết quả lọc dữ liệu: " + m_ds_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows.Count + " bản ghi";
 
         }
 
@@ -397,6 +397,7 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
             m_grv_dm_danh_sach_hop_dong_khung.Visible = true;
             m_grv_dm_danh_sach_hop_dong_khung.DataSource = m_ds_hop_dong_khung.V_DM_HOP_DONG_KHUNG;
             m_grv_dm_danh_sach_hop_dong_khung.DataBind();
+            m_lbl_loc_du_lieu.Text = "Kết quả lọc dữ liệu: " + m_ds_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows.Count + " bản ghi";
         }
         catch (Exception ve)
         {
