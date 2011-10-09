@@ -25,6 +25,7 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
             load_data_2_cbo_hoc_ham();
             load_cbo_trang_thai_giang_vien();
             load_cbo_po_phu_trach();
+            load_cbo_po_phu_trach_phu();
             if (Request.QueryString["mode"] != null && Request.QueryString["mode"].ToString().Equals("edit"))
             {
                 m_init_mode = DataEntryFormMode.UpdateDataState;
@@ -33,6 +34,9 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
                 load_data_2_us_by_id_and_show_on_form(m_dc_id);
                 m_txt_ma_giang_vien.Enabled = false;
             }
+
+            m_cbo_po_phu_trach_chinh.SelectedValue = CIPConvert.ToStr(Session["UserName"]);
+
         }
         if (Request.QueryString["mode"] != null && Request.QueryString["mode"].ToString().Equals("edit"))
         {
@@ -233,6 +237,8 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
                 ip_us_giang_vien.datNGAY_SINH = m_dat_ngay_sinh_gv.SelectedDate;
             if (m_dat_ngay_cap.SelectedDate != CIPConvert.ToDatetime("01/01/0001"))
                 ip_us_giang_vien.datNGAY_CAP = m_dat_ngay_cap.SelectedDate;
+            ip_us_giang_vien.strPO_PHU_TRACH_CHINH = m_cbo_po_phu_trach_chinh.SelectedValue;
+            ip_us_giang_vien.strPO_PHU_TRACH_PHU = m_cbo_po_phu_trach_phu.SelectedValue;
         }
         catch (Exception v_e)
         {
@@ -255,13 +261,9 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
             // Đây là giá trị thực
             m_cbo_po_phu_trach_chinh.DataValueField = HT_NGUOI_SU_DUNG.TEN_TRUY_CAP;
             m_cbo_po_phu_trach_chinh.DataTextField = HT_NGUOI_SU_DUNG.TEN;
+
             m_cbo_po_phu_trach_chinh.DataSource = v_ds_nguoi_su_dung.HT_NGUOI_SU_DUNG;
             m_cbo_po_phu_trach_chinh.DataBind();
-
-            m_cbo_po_phu_trach_phu.DataValueField = HT_NGUOI_SU_DUNG.TEN_TRUY_CAP;
-            m_cbo_po_phu_trach_phu.DataTextField = HT_NGUOI_SU_DUNG.TEN;
-            m_cbo_po_phu_trach_phu.DataSource = v_ds_nguoi_su_dung.HT_NGUOI_SU_DUNG;
-            m_cbo_po_phu_trach_phu.DataBind();
         }
         catch (Exception v_e)
         {
@@ -277,6 +279,16 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
             DS_HT_NGUOI_SU_DUNG v_ds_nguoi_su_dung = new DS_HT_NGUOI_SU_DUNG();
             // Đổ dữ liệu vào DS 
             v_us_nguoi_su_dung.FillDataset(v_ds_nguoi_su_dung);
+            DataRow v_dr = v_ds_nguoi_su_dung.HT_NGUOI_SU_DUNG.NewHT_NGUOI_SU_DUNGRow();
+            v_dr["ID"] = 0;
+            v_dr["TEN_TRUY_CAP"] = "KHONG_CO";
+            v_dr["TEN"] = "Không có";
+            v_dr["MAT_KHAU"] = "Không có"; 
+            v_dr["NGAY_TAO"] = "01/01/2000";
+            v_dr["NGUOI_TAO"] = "ADMIN";
+            v_dr["TRANG_THAI"] = 0;
+            v_dr["BUILT_IN_YN"] = 0;
+            v_ds_nguoi_su_dung.HT_NGUOI_SU_DUNG.Rows.InsertAt(v_dr, 0);
 
             //TReo dữ liệu vào Dropdownlist loại hợp đồng
             // dây là giá trị hiển thị
@@ -330,6 +342,8 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
             m_txt_co_quan_cong_tac.Text = ip_us_giang_vien.strTEN_CO_QUAN_CONG_TAC;
             m_txt_ten_ngan_hang.Text = ip_us_giang_vien.strTEN_NGAN_HANG;
             m_txt_truong_dao_tao.Text = ip_us_giang_vien.strTRUONG_DAO_TAO;
+            m_cbo_po_phu_trach_phu.SelectedValue = ip_us_giang_vien.strPO_PHU_TRACH_PHU;
+            m_cbo_po_phu_trach_chinh.SelectedValue = ip_us_giang_vien.strPO_PHU_TRACH_CHINH;
             //
             //calendar.Value = CIPConvert.ToStr(ip_us_giang_vien.datNGAY_SINH);
             if (ip_us_giang_vien.datNGAY_SINH != null)
