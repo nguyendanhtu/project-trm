@@ -24,6 +24,7 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
             load_data_2_cbo_hoc_vi();
             load_data_2_cbo_hoc_ham();
             load_cbo_trang_thai_giang_vien();
+            load_cbo_po_phu_trach();
             if (Request.QueryString["mode"] != null && Request.QueryString["mode"].ToString().Equals("edit"))
             {
                 m_init_mode = DataEntryFormMode.UpdateDataState;
@@ -240,7 +241,56 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
         }
 
     }
+    private void load_cbo_po_phu_trach()
+    {
+        try
+        {
+            US_HT_NGUOI_SU_DUNG v_us_nguoi_su_dung = new US_HT_NGUOI_SU_DUNG();
+            DS_HT_NGUOI_SU_DUNG v_ds_nguoi_su_dung = new DS_HT_NGUOI_SU_DUNG();
+            // Đổ dữ liệu vào DS 
+            v_us_nguoi_su_dung.FillDataset(v_ds_nguoi_su_dung);
 
+            //TReo dữ liệu vào Dropdownlist loại hợp đồng
+            // dây là giá trị hiển thị
+            // Đây là giá trị thực
+            m_cbo_po_phu_trach_chinh.DataValueField = HT_NGUOI_SU_DUNG.TEN_TRUY_CAP;
+            m_cbo_po_phu_trach_chinh.DataTextField = HT_NGUOI_SU_DUNG.TEN;
+            m_cbo_po_phu_trach_chinh.DataSource = v_ds_nguoi_su_dung.HT_NGUOI_SU_DUNG;
+            m_cbo_po_phu_trach_chinh.DataBind();
+
+            m_cbo_po_phu_trach_phu.DataValueField = HT_NGUOI_SU_DUNG.TEN_TRUY_CAP;
+            m_cbo_po_phu_trach_phu.DataTextField = HT_NGUOI_SU_DUNG.TEN;
+            m_cbo_po_phu_trach_phu.DataSource = v_ds_nguoi_su_dung.HT_NGUOI_SU_DUNG;
+            m_cbo_po_phu_trach_phu.DataBind();
+        }
+        catch (Exception v_e)
+        {
+            throw v_e;
+        }
+    }
+
+    private void load_cbo_po_phu_trach_phu()
+    {
+        try
+        {
+            US_HT_NGUOI_SU_DUNG v_us_nguoi_su_dung = new US_HT_NGUOI_SU_DUNG();
+            DS_HT_NGUOI_SU_DUNG v_ds_nguoi_su_dung = new DS_HT_NGUOI_SU_DUNG();
+            // Đổ dữ liệu vào DS 
+            v_us_nguoi_su_dung.FillDataset(v_ds_nguoi_su_dung);
+
+            //TReo dữ liệu vào Dropdownlist loại hợp đồng
+            // dây là giá trị hiển thị
+            // Đây là giá trị thực
+            m_cbo_po_phu_trach_phu.DataValueField = HT_NGUOI_SU_DUNG.TEN_TRUY_CAP;
+            m_cbo_po_phu_trach_phu.DataTextField = HT_NGUOI_SU_DUNG.TEN;
+            m_cbo_po_phu_trach_phu.DataSource = v_ds_nguoi_su_dung.HT_NGUOI_SU_DUNG;
+            m_cbo_po_phu_trach_phu.DataBind();
+        }
+        catch (Exception v_e)
+        {
+            throw v_e;
+        }
+    }
      private void us_object_2_form(US_V_DM_GIANG_VIEN ip_us_giang_vien)
     {
         try
