@@ -119,7 +119,7 @@
 	
     <tr>
 		<td class="cssPageTitleBG">
-		    <asp:label id="Label11" runat="server" CssClass="cssPageTitle" 
+		    <asp:label id="m_lbl_loc_du_lieu" runat="server" CssClass="cssPageTitle" 
                 Text="Kết quả lọc dữ liệu"/>
 		</td>
 	</tr>	
