@@ -44,7 +44,7 @@ public partial class ChucNang_F306_HopDongKhungGiangVien : System.Web.UI.Page
         {
             m_dc_id_gv = CIPConvert.ToDecimal(Request.QueryString["id_gv"]);
         }
-        // Text của header, nếu id_gv > 0
+
         if (Request.QueryString["mode"] != null && Request.QueryString["mode"].ToString() == "edit")
         {
             m_init_mode = DataEntryFormMode.UpdateDataState;
@@ -52,6 +52,7 @@ public partial class ChucNang_F306_HopDongKhungGiangVien : System.Web.UI.Page
         }
         else m_init_mode = DataEntryFormMode.InsertDataState;
 
+        // Text của header, nếu id_gv > 0
         if (m_dc_id_gv > 0)
         {
             m_pnl_table.Visible = false;
@@ -412,9 +413,20 @@ public partial class ChucNang_F306_HopDongKhungGiangVien : System.Web.UI.Page
             // Đổ dữ liệu từ US vào DS
             m_us_dm_hop_dong_khung.FillDataset(m_ds_hop_dong_khung," WHERE ID_GIANG_VIEN="+ip_dc_id_gv);
 
-            // Treo dữ liệu lên lưới
-            m_grv_dm_danh_sach_hop_dong_khung.DataSource = m_ds_hop_dong_khung.V_DM_HOP_DONG_KHUNG;
-            m_grv_dm_danh_sach_hop_dong_khung.DataBind();
+            // Nếu dữ liệu trống
+            if (m_ds_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows.Count == 0)
+            {
+                m_lbl_thong_bao.Text = "Chưa có hợp đông khung nào cho giảng viên này";
+                m_pnl_table.Visible = true;
+                m_cbo_gvien.SelectedValue =CIPConvert.ToStr(m_dc_id_gv);
+            }
+            else
+            {
+                m_pnl_table.Visible = false;
+                // Treo dữ liệu lên lưới
+                m_grv_dm_danh_sach_hop_dong_khung.DataSource = m_ds_hop_dong_khung.V_DM_HOP_DONG_KHUNG;
+                m_grv_dm_danh_sach_hop_dong_khung.DataBind();
+            }
         }
         catch (Exception v_e)
         {
