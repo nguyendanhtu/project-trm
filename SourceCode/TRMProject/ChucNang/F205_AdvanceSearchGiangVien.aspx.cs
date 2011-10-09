@@ -113,7 +113,7 @@ public partial class ChucNang_F205_AdvanceSearchGiangVien : System.Web.UI.Page
             m_grv_dm_danh_sach_giang_vien.Visible = true;
             m_grv_dm_danh_sach_giang_vien.DataSource = m_ds_dm_v_giang_vien.V_DM_GIANG_VIEN;
             m_grv_dm_danh_sach_giang_vien.DataBind();
-            m_lbl_loc_du_lieu.Text = "Kết quả lọc dữ liệu (" + m_ds_dm_v_giang_vien.V_DM_GIANG_VIEN.Rows.Count + ")";
+            m_lbl_loc_du_lieu.Text = "Kết quả lọc dữ liệu: " + m_ds_dm_v_giang_vien.V_DM_GIANG_VIEN.Rows.Count + " bản ghi";
         }
         catch (Exception v_e)
         {
