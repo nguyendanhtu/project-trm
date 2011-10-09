@@ -5,43 +5,33 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
     <table cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0">
-	<tr>
+    <tr>
 		<td class="cssPageTitleBG">
-		    <asp:label id="lblUser" runat="server" CssClass="cssPageTitle" 
-                Text="Thông tin phụ lục hợp đồng"/>
-		</td>
-	</tr>
-	<tr>
-		<td>
-		    <asp:validationsummary id="vdsCategory" runat="server" CssClass="cssManField" Font-Bold="true" />
-		   <asp:label id="m_lbl_mess" runat="server" CssClass="cssManField" />
+		    <asp:label id="m_lbl_thong_tin_hd" runat="server" CssClass="cssPageTitle" 
+                Text="Thông tin hợp đồng"/>
 		</td>
 	</tr>
     <tr>
 		<td>
-        <asp:Panel ID="m_pnl_table" Visible="false" runat="server">
         <table cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0"> 
             <tr>
                 <td align="right" style="width:7%;">
-			<asp:label id="lblSoHopDong" CssClass="cssManField" runat="server" 
-                Text="Số hợp đồng khung" />
-                         </td>
-                <td align="left" style="width:10%;">
-			<asp:textbox id="m_txt_so_hop_dong" CssClass="cssTextBox" Enabled="false"  runat="server" 
+			<asp:label id="Label1" CssClass="cssManField" runat="server" 
+                Text="Số hợp đồng khung: " /></td>
+                <td align="left" style="width:10%;"> &nbsp;
+			<asp:Label id="m_lbl_so_hop_dong"  runat="server" 
                 MaxLength="64" Width="96%" />
                          </td>
                          <td align="left" style="width:1%;"> 
                              &nbsp;</td>
                 <td align="right" style="width:7%;">
 			       
-			<asp:label id="lblgiang_vien" Enabled="false" CssClass="cssManField" runat="server" 
-                Text="Giảng viên" />
+			<asp:label id="Label5" CssClass="cssManField" runat="server" 
+                Text="Ngày ký: " />
 			       
 			    </td>
-                <td align="left" style="width:10%;">
-			<asp:textbox id="m_txt_ten_giang_vien" CssClass="cssTextBox" Enabled="false"  runat="server" 
-                MaxLength="64" Width="96%" />
-                         </td>
+                <td align="left" style="width:10%;"> &nbsp;
+			        <asp:label id="m_lbl_dat_ngay_ky" runat="server" /></td>
                 <td align="left" style="width:1%;">&nbsp;</td>
                  <td align="right" style="width:5%;">&nbsp;</td>
                 <td align="left" style="width:10%;">&nbsp;</td>
@@ -50,45 +40,38 @@
             <tr>
                 <td align="right" style="width:7%;">
 			       
-			<asp:label id="lblTenGiangVien" CssClass="cssManField" runat="server" 
-                Text="Nội dung thanh toán" />
+			<asp:label id="Label4" CssClass="cssManField" runat="server" 
+                Text="Đơn vị quản lý: " />
 			       
                          </td>
                 <td align="left" style="width:10%;">
-              <asp:DropDownList ID="m_cbo_noi_dung_tt" Width="96%" runat="server">
-               </asp:DropDownList>
-                         </td>
+                    &nbsp;<asp:Label ID="m_lbl_dv_qly" runat = "server"></asp:Label></td>
                          <td align="left" style="width:1%;"> 
                              &nbsp;</td>
                 <td align="right" style="width:5%;">
 			       
-			<asp:label id="lblMon4" CssClass="cssManField" runat="server" 
-                Text="Số lượng hệ số" />
+			<asp:label id="m_lbl_dv_thanh_toan" CssClass="cssManField" runat="server" 
+                Text="Đơn vị thanh toán: " />
 			       
 			    </td>
-                <td align="left" style="width:10%;">	
-                 <ew:NumericBox ID="m_txt_so_luong_he_so" Width="96%" runat="server" TextAlign="Right">
-                </ew:NumericBox>
-                         </td>
-                <td align="left" style="width:1%;"><asp:RequiredFieldValidator ID="req_vali2" runat="server" 
-                         ErrorMessage="Bạn phải nhập số lượng hệ số" Text="*" ControlToValidate="m_txt_so_luong_he_so"></asp:RequiredFieldValidator></td>
-                 <td align="right" style="width:5%;"></td>
+                <td align="left" colspan="3">	
+                    &nbsp;<asp:label id="m_lbl_don_vi_thanh_toan" runat="server" /></td>
                 <td align="left" style="width:10%;"></td>
                 <td align="left" style="width:1%;"></td>
             </tr>
             <tr>
                 <td align="right" style="width:7%;">
-			<asp:label id="lblGiaTriHopDong" CssClass="cssManField" runat="server" 
-                Text="Đơn giá hợp đồng" />
+			       
+			<asp:label id="Label2" Enabled="false" CssClass="cssManField" runat="server" 
+                Text="Giảng viên: " />
+			       
                 </td>
                 <td align="left" style="width:10%;">
-
-                <ew:NumericBox ID="m_txt_don_gia_hd" Width="96%" runat="server" TextAlign="Right">
-                </ew:NumericBox>
-                </td>
+                 &nbsp;
+			<asp:Label id="m_lbl_ten_giang_vien" runat="server" />
+                         </td>
                      <td align="left" style="width:1%;">
-                         &nbsp;<asp:RequiredFieldValidator ID="req_validator" runat="server" 
-                         ErrorMessage="Bạn phải nhập đơn giá" Text="*" ControlToValidate="m_txt_don_gia_hd"></asp:RequiredFieldValidator></td>
+                         &nbsp;</td>
                 <td align="right" style="width:5%;">
 			        &nbsp;</td>
                 <td align="left" style="width:10%;">
@@ -105,6 +88,107 @@
             </tr>
             <tr>
                 <td align="right" style="width:5%;"></td>
+                <td align="left" style="width:10%;">    
+			        &nbsp;</td> 
+                <td align="left" style="width:1%;"></td>
+                <td align="left" style="width:5%;">
+			        &nbsp;</td>
+                <td align="left" style="width:10%;">    
+			        &nbsp;</td> <td align="left" style="width:1%;"></td>
+                 <td align="right" style="width:5%;"></td>
+                <td align="left" style="width:10%;"></td>
+            </tr>
+            </table>
+
+		</td>
+	</tr>
+	<tr>
+		<td class="cssPageTitleBG">
+		    <asp:label id="lblUser" runat="server" CssClass="cssPageTitle" 
+                Text="Thông tin phụ lục hợp đồng"/>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		    <asp:validationsummary id="vdsCategory" runat="server" CssClass="cssManField" Font-Bold="true" />
+		   <asp:label id="m_lbl_mess" runat="server" CssClass="cssManField" />
+		</td>
+	</tr>
+    <tr>
+		<td>
+        <table cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0"> 
+            <tr>
+                <td align="right" style="width:7%;">
+			       
+			<asp:label id="lblTenGiangVien" CssClass="cssManField" runat="server" 
+                Text="Nội dung thanh toán" />
+			       
+                         </td>
+                <td align="left" colspan="6">
+              <asp:DropDownList ID="m_cbo_noi_dung_tt" Width="96%" runat="server">
+               </asp:DropDownList>
+                         </td>
+                <td align="left" style="width:10%;"></td>
+                <td align="left" style="width:1%;"></td>
+            </tr>
+            <tr>
+                <td align="right" style="width:7%;">
+			        &nbsp;</td>
+                <td align="left" style="width:10%;">
+
+                    &nbsp;</td>
+                     <td align="left" style="width:1%;">
+                         &nbsp;</td>
+                <td align="right" style="width:5%;">
+			        &nbsp;</td>
+                <td align="left" style="width:10%;">
+			
+			        &nbsp;</td>
+                      <td align="left" style="width:1%;">
+                          &nbsp;</td>
+                 <td align="right" style="width:5%;">
+			       
+			         &nbsp;</td>
+                <td align="left" style="width:10%;">
+		            &nbsp;</td>
+                <td align="left" style="width:1%;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" style="width:7%;">
+			       
+			<asp:label id="lblMon4" CssClass="cssManField" runat="server" 
+                Text="Số lượng hệ số" />
+			       
+                </td>
+                <td align="left" style="width:10%;">
+
+                 <ew:NumericBox ID="m_txt_so_luong_he_so" Width="96%" runat="server" TextAlign="Right">
+                </ew:NumericBox>
+                </td>
+                     <td align="left" style="width:1%;">
+                         <asp:RequiredFieldValidator ID="req_vali2" runat="server" 
+                         ErrorMessage="Bạn phải nhập số lượng hệ số" Text="*" ControlToValidate="m_txt_so_luong_he_so"></asp:RequiredFieldValidator></td>
+                <td align="right" style="width:5%;">
+			<asp:label id="lblGiaTriHopDong" CssClass="cssManField" runat="server" 
+                Text="Đơn giá hợp đồng" />
+                </td>
+                <td align="left" style="width:10%;">
+			
+                <ew:NumericBox ID="m_txt_don_gia_hd" Width="96%" runat="server" TextAlign="Right">
+                </ew:NumericBox>
+                </td>
+                      <td align="left" style="width:1%;">
+                          <asp:RequiredFieldValidator ID="req_validator" runat="server" 
+                         ErrorMessage="Bạn phải nhập đơn giá" Text="*" ControlToValidate="m_txt_don_gia_hd"></asp:RequiredFieldValidator></td>
+                 <td align="right" style="width:5%;">
+			       
+			         &nbsp;</td>
+                <td align="left" style="width:10%;">
+		            &nbsp;</td>
+                <td align="left" style="width:1%;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" style="width:5%;">&nbsp;</td>
                 <td align="left" style="width:10%;">    
 			        &nbsp;</td> 
                 <td align="left" style="width:1%;"></td>
@@ -139,7 +223,7 @@
                       &nbsp;</td>  
             </tr>
         </table>
-        </asp:Panel>
+
 		</td>
 	</tr>
 	<tr>
@@ -154,11 +238,7 @@
 	</tr>	
     <tr>
 		<td align="left">
-        &nbsp;<asp:button id="cmd_them_moi" accessKey="c" CssClass="cssButton" 
-                runat="server" Width="98px" Text="Tạo mới(c)" 
-                Height="27px" onclick="cmd_them_moi_Click" CausesValidation="false"/>
-                
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <asp:Button ID="m_cmd_exit" runat="server" accessKey="s" CssClass="cssButton" 
+                <asp:Button ID="m_cmd_exit" runat="server" accessKey="s" CssClass="cssButton" 
                           Height="24px" Text="Thoát" Width="98px" CausesValidation="false" 
                           onclick="m_cmd_exit_Click" /><br />
                           <asp:Label ID="m_lbl_thong_bao" CssClass="cssManField" runat="server"></asp:Label>
