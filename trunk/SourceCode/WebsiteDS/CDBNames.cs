@@ -228,6 +228,19 @@ namespace WebDS.CDBNames
         public const string SO_LUONG_HE_SO = "SO_LUONG_HE_SO";
         public const string DON_GIA_HD = "DON_GIA_HD";
     }
+    class HT_NGUOI_SU_DUNG
+    {
+        public const string ID = "ID";
+        public const string TEN_TRUY_CAP = "TEN_TRUY_CAP";
+        public const string TEN = "TEN";
+        public const string MAT_KHAU = "MAT_KHAU";
+        public const string NGAY_TAO = "NGAY_TAO";
+        public const string NGUOI_TAO = "NGUOI_TAO";
+        public const string TRANG_THAI = "TRANG_THAI";
+        public const string BUILT_IN_YN = "BUILT_IN_YN";
+        public const string ID_USER_GROUP = "ID_USER_GROUP";
+        public const string ID_TRAINING_PROJECT = "ID_TRAINING_PROJECT";
+    }
 
 
 }
