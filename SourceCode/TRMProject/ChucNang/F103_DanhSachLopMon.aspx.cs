@@ -12,7 +12,9 @@ public partial class ChuNang_F103_DanhSachLopMon : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        try {
+        try
+        {
+            
             if (!this.IsPostBack) {
                   load_2_cbo_dm_mon_hoc();
             }
@@ -55,7 +57,6 @@ public partial class ChuNang_F103_DanhSachLopMon : System.Web.UI.Page
             throw v_e;
         }
     }
-
     public string get_mapping_ten_mon_hoc(decimal i_dc_id_mon_hoc) {
         try {
             string v_str_ten_mon_hoc = "";
@@ -132,9 +133,25 @@ public partial class ChuNang_F103_DanhSachLopMon : System.Web.UI.Page
                             , m_ds_gd_lop_mon);
             m_grv.DataSource = m_ds_gd_lop_mon.GD_LOP_MON;
             m_grv.DataBind();
+            m_lbl_ket_qua_loc.Text = "Kết quả lọc dữ liệu: " + m_ds_gd_lop_mon.GD_LOP_MON.Rows.Count+" bản ghi";
         }
         catch (Exception v_e)
         {
+            throw v_e;
+        }
+    }
+    private void delete_row(int i_int_row_index)
+    {
+        try
+        {
+            decimal v_dc_id= CIPConvert.ToDecimal(m_grv.DataKeys[i_int_row_index].Value);
+            m_us_gd_lop_mon.DeleteByID(v_dc_id);
+            m_lbl_mess.Text = "Xóa bản ghi thành công.";
+            load_data_2_grid();  
+        }
+        catch (Exception v_e)
+        {
+            m_lbl_mess.Text = "Lỗi trong quá trình xóa bản ghi.";
             throw v_e;
         }
     }
@@ -175,12 +192,8 @@ public partial class ChuNang_F103_DanhSachLopMon : System.Web.UI.Page
     {
         try
         {
-            //Response.Write("<script>");
-            //Response.Write("window.open('F102_CapNhatThongTinLopMon.aspx?mode=insert&id_lop_mon=0')");
-            //Response.Write("</script>");  
-            string v_str_url = this.Request.Url.ToString();
-            Response.Redirect("F102_CapNhatThongTinLopMon.aspx?mode=insert&id_lop_mon=0");
-            load_data_2_grid();
+
+            this.ClientScript.RegisterStartupScript(this.Page.GetType(), "ThemMoiLopMon", "OpenSiteFromUrl('F102_CapNhatThongTinLopMon.aspx?mode=insert&id_lop_mon=0');", true);
             
         }
         catch (Exception v_e)
@@ -193,12 +206,25 @@ public partial class ChuNang_F103_DanhSachLopMon : System.Web.UI.Page
         try
         {
             m_grv.PageIndex = e.NewPageIndex;
-            load_data_2_grid();
+            //load_data_2_grid();
+            m_grv.DataBind();
         }
         catch (Exception v_e)
         {
             CSystemLog_301.ExceptionHandle(this, v_e);
         }
 
+    }
+    protected void m_grv_RowDeleting(object sender, GridViewDeleteEventArgs e)
+    {
+        try
+        {
+            m_lbl_mess.Text = "";
+            delete_row(e.RowIndex);
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(this, v_e);
+        }
     }
 }

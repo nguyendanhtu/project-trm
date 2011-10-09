@@ -1,7 +1,26 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="F103_DanhSachLopMon.aspx.cs" Inherits="ChuNang_F103_DanhSachLopMon" %>
 <%@ Import Namespace="WebDS.CDBNames" %>
+<%@ Import Namespace="IP.Core.IPCommon"%>
 <%@ Register assembly="eWorld.UI" namespace="eWorld.UI" tagprefix="ew" %>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
+   <script language="javascript" type="text/javascript">
+       function confirm_delete() {
+           if (confirm("Are you sure you want to delete the contact?") == true)
+               return true;
+           else
+               return false;
+       }
+
+       function OpenSiteFromUrl(siteUrl) {
+           var name = 'ProfileForm';
+           var appearence = 'dependent=yes,menubar=no,resizable=yes,' +
+                        'status=no,toolbar=no,titlebar=no, scrollbars=1' +
+                        'left=100,top=50,width=800px,height=600px';
+           var openWindow = window.open(siteUrl, name, appearence);
+           openWindow.focus();
+       }
+    </script>
     <table cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0">
 	<tr>
 		<td class="cssPageTitleBG">
@@ -435,7 +454,7 @@
 	</tr>
     <tr>
 		<td class="cssPageTitleBG">
-		    <asp:label id="Label11" runat="server" CssClass="cssPageTitle" 
+		    <asp:label id="m_lbl_ket_qua_loc" runat="server" CssClass="cssPageTitle" 
                 Text="Kết quả lọc dữ liệu"/>
 		</td>
 	</tr>	
@@ -445,7 +464,8 @@
                 Width="100%" DataKeyNames="ID" 
                 CellPadding="4" ForeColor="#333333" CssClass="cssGrid" 
                 onrowdatabound="m_grv_RowDataBound" AllowPaging="True" AllowSorting="True" 
-                onpageindexchanging="m_grv_PageIndexChanging" PageSize="20">
+                onpageindexchanging="m_grv_PageIndexChanging" PageSize="20" 
+                EnableModelValidation="True" onrowdeleting="m_grv_RowDeleting">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center"><ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
@@ -462,17 +482,30 @@
                                 Text="<%#get_mapping_ten_mon_hoc((decimal)Eval(GD_LOP_MON.ID_MON_HOC))%>"></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:BoundField DataField="NGAY_BAT_DAU" HeaderText="Ngày bắt đầu" 
-                        DataFormatString="{0:d}">
+                    <asp:TemplateField HeaderText="Ngày bắt đầu">
+                        <ItemTemplate>
+                            <asp:Label ID="m_lbl_ngay_bat_dau" runat="server" 
+                                Text='<%# Eval(GD_LOP_MON.NGAY_BAT_DAU,"{0:dd/MM/yyyy}") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Ngày kết thúc">
+                        <ItemTemplate>
+                            <asp:Label ID="m_lbl_ngay_ket_thuc" runat="server" Text='<%# Eval(GD_LOP_MON.NGAY_KET_THUC,"{0:dd/MM/yyyy}") %>' 
+                                ></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Ngày thi">
+                        <ItemTemplate>
+                            <asp:Label ID="m_lbl_ngay_thi" runat="server" 
+                                Text='<%# Eval(GD_LOP_MON.NGAY_THI,"{0:dd/MM/yyyy}") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:BoundField DataField="PO_PHU_TRACH" HeaderText="PO phụ trách">
                         <ItemStyle HorizontalAlign="Center"></ItemStyle></asp:BoundField>
-                    <asp:BoundField DataField="NGAY_KET_THUC" ItemStyle-HorizontalAlign="Center" 
-                        HeaderText="Ngày kết thúc" DataFormatString="{0:d}" >
-                    <ItemStyle HorizontalAlign="Center"></ItemStyle>
+                    <asp:BoundField DataField="CHUONG_TRINH_PHU_TRACH" ItemStyle-HorizontalAlign="Center" 
+                        HeaderText="CT phụ trách" >
+<ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:BoundField>
-                    <asp:BoundField DataField="NGAY_THI" HeaderText="Ngày thi" 
-                        DataFormatString="{0:d}" />
-                    <asp:BoundField DataField="PO_PHU_TRACH" HeaderText="PO phụ trách" />
-                    <asp:BoundField DataField="CHUONG_TRINH_PHU_TRACH" HeaderText="CT phụ trách" />
                     <asp:TemplateField HeaderText="Có Online?">
                         <ItemTemplate>
                             <asp:Label ID="m_lbl_lop_online_yn" runat="server" 
@@ -494,14 +527,14 @@
                         </ItemTemplate>
                      <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:TemplateField>
-                    <asp:BoundField DataField="SO_LUONG_HV" HeaderText="SL học viên">
-                    <ItemStyle HorizontalAlign="Center" />
+                    <asp:BoundField DataField="SO_LUONG_HV" HeaderText="SL học viên" >
+                    <ItemStyle HorizontalAlign="Right" />
                     </asp:BoundField>
                     <asp:BoundField DataField="SO_LUONG_ONLINES" HeaderText="Số tiết Online">
-                                        <ItemStyle HorizontalAlign="Center" />
+                                        <ItemStyle HorizontalAlign="Right" />
                     </asp:BoundField>
                     <asp:BoundField DataField="SO_LUONG_OFFLINE" HeaderText="Số tiết Offline">
-                                        <ItemStyle HorizontalAlign="Center" />
+                                        <ItemStyle HorizontalAlign="Right" />
                     </asp:BoundField>
                     <asp:CommandField DeleteText="" ShowDeleteButton="True" 
                         ItemStyle-HorizontalAlign="Center" ButtonType="Image" 
