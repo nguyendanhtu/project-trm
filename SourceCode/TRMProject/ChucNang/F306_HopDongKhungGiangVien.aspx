@@ -15,6 +15,12 @@
         <asp:Panel ID="m_pnl_table" runat="server">
            <table id="m_tb_them_moi_hd_khung" cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0"> 
             <tr>
+            <td colspan="2">
+		    <asp:validationsummary id="vdsCategory" runat="server" CssClass="cssManField" Font-Bold="true" />
+		   <asp:label id="m_lbl_mess" runat="server" CssClass="cssManField" />
+		</td>
+        </tr>
+            <tr>
                 <td align="right" style="width:5%;">
 			<asp:label id="lblSoHopDong" CssClass="cssManField" runat="server" 
                 Text="Số hợp đồng" />
@@ -224,7 +230,7 @@
                  <td align="right" style="width:5%;">
 			       
 			<asp:label id="lblThueSuat" CssClass="cssManField" runat="server" 
-                Text="Thuế suất" />
+                Text="Thuế suất (%)" />
 		                    </td>
                 <td align="left" style="width:10%;">
                 <ew:NumericBox  id="m_txt_thue_suat" Width="96%" TextAlign="Right" runat="server"></ew:NumericBox> 
@@ -233,7 +239,7 @@
                          <asp:RequiredFieldValidator ID="m_rfv_thue_suat" runat="server" 
                              
                              ErrorMessage="Bạn nhập thuế suất" Text="*"
-                             ControlToValidate="m_txt_thue_suat">%</asp:RequiredFieldValidator>
+                             ControlToValidate="m_txt_thue_suat">*</asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
