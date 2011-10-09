@@ -99,8 +99,8 @@ public partial class ChucNang_F307_PhuLucHopDong : System.Web.UI.Page
     {
         try
         {
-            m_txt_so_hop_dong.Text = ip_us_gd_hd_noi_dung_tt.strSO_HOP_DONG;
-            m_txt_ten_giang_vien.Text = ip_us_gd_hd_noi_dung_tt.strTEN_GIANG_VIEN;
+            //m_txt_so_hop_dong.Text = ip_us_gd_hd_noi_dung_tt.strSO_HOP_DONG;
+            //m_txt_ten_giang_vien.Text = ip_us_gd_hd_noi_dung_tt.strTEN_GIANG_VIEN;
             m_txt_so_luong_he_so.Text =CIPConvert.ToStr(ip_us_gd_hd_noi_dung_tt.dcSO_LUONG_HE_SO,"0");
             m_txt_don_gia_hd.Text =CIPConvert.ToStr(ip_us_gd_hd_noi_dung_tt.dcDON_GIA_HD,"0");
             m_cbo_noi_dung_tt.SelectedValue = CIPConvert.ToStr(ip_us_gd_hd_noi_dung_tt.dcID_NOI_DUNG_TT);
@@ -148,7 +148,7 @@ public partial class ChucNang_F307_PhuLucHopDong : System.Web.UI.Page
             // Nếu chưa có phụ lục nào ứng với hợp đồng khung này
             if (m_ds_v_gd_gd_hop_dong_noi_dung_tt.V_GD_HOP_DONG_NOI_DUNG_TT.Rows.Count == 0)
             {
-                m_pnl_table.Visible = true;
+               // m_pnl_table.Visible = true;
                 if (m_cbo_noi_dung_tt.Items.Count == 0)
                 {
                     m_lbl_mess.Text = "Chưa có nội dung thanh toán ứng với loại hơp đồng này";
@@ -182,8 +182,12 @@ public partial class ChucNang_F307_PhuLucHopDong : System.Web.UI.Page
             US_V_DM_HOP_DONG_KHUNG v_us_dm_hd_khung = new US_V_DM_HOP_DONG_KHUNG(CIPConvert.ToDecimal(Request.QueryString["id_hd"]));
             if (!v_us_dm_hd_khung.IsIDNull())
             {
-                m_txt_ten_giang_vien.Text = v_us_dm_hd_khung.strGIANG_VIEN;
-                m_txt_so_hop_dong.Text = v_us_dm_hd_khung.strSO_HOP_DONG;
+                m_lbl_ten_giang_vien.Text = v_us_dm_hd_khung.strGIANG_VIEN;
+                m_lbl_so_hop_dong.Text = v_us_dm_hd_khung.strSO_HOP_DONG;
+                if (v_us_dm_hd_khung.datNGAY_KY != null)
+                   m_lbl_dat_ngay_ky.Text =CIPConvert.ToStr(v_us_dm_hd_khung.datNGAY_KY,"dd/MM/yyyy");
+                m_lbl_don_vi_thanh_toan.Text = v_us_dm_hd_khung.strDON_VI_THANH_TOAN;
+                m_lbl_dv_qly.Text = v_us_dm_hd_khung.strDON_VI_QUAN_LY;
             }
         }
         catch (Exception v_e)
@@ -251,7 +255,7 @@ public partial class ChucNang_F307_PhuLucHopDong : System.Web.UI.Page
              m_us_v_gd_hop_dong_noi_dung_tt.Insert();
              m_lbl_thong_bao.Text = "Thêm bản ghi thành công";
              reset_control();
-             m_pnl_table.Visible = false;
+             //m_pnl_table.Visible = false;
              load_data_2_grid(CIPConvert.ToDecimal(Request.QueryString["id_hd"]));
             // Cho phép cập nhật trở lai
              m_cmd_cap_nhat_pl.Enabled = true;
@@ -272,26 +276,6 @@ public partial class ChucNang_F307_PhuLucHopDong : System.Web.UI.Page
             CSystemLog_301.Equals(this, v_e);
         }
     }
-    protected void cmd_them_moi_Click(object sender, EventArgs e)
-    {
-        try
-        {
-            if (check_enough_noi_dung_tt(m_grv_gd_hop_dong_noi_dung_tt.Rows.Count))
-            {
-                m_lbl_thong_bao.Text = "Số lượng phụ lục phải nhỏ hơn hoặc bằng số lượng nội dung thanh toán";
-                return;
-            }
-            m_pnl_table.Visible = true;
-            // Cho phép add nhưng ko cho phép cập nhật
-            reset_control();
-            m_cmd_cap_nhat_pl.Enabled = false;
-            m_cmd_luu_du_lieu.Enabled = true;
-        }
-        catch (Exception v_e)
-        {
-            CSystemLog_301.Equals(this, v_e);
-        }
-    }
     protected void m_grv_dm_danh_sach_hop_dong_khung_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
     {
         try
@@ -301,7 +285,7 @@ public partial class ChucNang_F307_PhuLucHopDong : System.Web.UI.Page
             m_cbo_noi_dung_tt.Enabled = false;
             m_cmd_cap_nhat_pl.Enabled = true;
             m_lbl_thong_bao.Text = "";
-            m_pnl_table.Visible = true;
+            //m_pnl_table.Visible = true;
             load_data_2_us_by_id_and_show_on_form(e.NewSelectedIndex);
         }
         catch (Exception V_e)
@@ -340,7 +324,7 @@ public partial class ChucNang_F307_PhuLucHopDong : System.Web.UI.Page
             m_us_v_gd_hop_dong_noi_dung_tt.Update();
             m_lbl_thong_bao.Text = "Cập nhật bản ghi thành công";
             reset_control();
-            m_pnl_table.Visible = false;
+            //m_pnl_table.Visible = false;
             m_cmd_luu_du_lieu.Enabled = true;
             load_data_2_grid(CIPConvert.ToDecimal(Request.QueryString["id_hd"]));
         }

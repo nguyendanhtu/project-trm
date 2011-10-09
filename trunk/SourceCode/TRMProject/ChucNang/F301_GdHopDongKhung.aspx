@@ -11,7 +11,7 @@
 	<tr>
 		<td class="cssPageTitleBG">
 		    <asp:label id="lblUser" runat="server" CssClass="cssPageTitle" 
-                Text="Thông tin lớp môn"/>
+                Text="Thông tin hợp đồng khung"/>
 		</td>
 	</tr>
 	<tr>
@@ -35,41 +35,12 @@
                          <td align="left" style="width:1%;"> 
                              <asp:RequiredFieldValidator ID="m_rfv_so_hop_dong" runat="server"  Text="*"
                         ControlToValidate="m_txt_so_hop_dong" ErrorMessage="Bạn phải nhập Số hợp đồng"></asp:RequiredFieldValidator></td>
-                <td align="left" style="width:5%;">
+                <td align="right" style="width:5%;">
 			       
-			    </td>
-                <td align="left" style="width:10%;">&nbsp;</td>
-                <td align="left" style="width:1%;"></td>
-                 <td align="right" style="width:5%;"></td>
-                <td align="left" style="width:10%;"></td>
-                <td align="left" style="width:1%;"></td>
-            </tr>
-            <tr>
-                <td align="right" style="width:5%;">
-			<asp:label id="lblTenGiangVien" CssClass="cssManField" runat="server" 
-                Text="Tên giảng viên" />
-                         </td>
-                <td align="left" style="width:10%;">	
-               <asp:DropDownList ID="m_cbo_gvien" Width="96%" runat="server">
-               </asp:DropDownList>              
-                         </td>
-                         <td align="left" style="width:1%;"> 
-                             &nbsp;</td>
-                <td align="left" style="width:5%;">
-			      <!--<asp:Button ID="m_cmd_chosose_gv" runat="server" Text="+" 
-                        CausesValidation="False" onclick="m_cmd_chosose_gv_Click1" />-->
-		            &nbsp;</td>
-                <td align="left" style="width:10%;">&nbsp;</td>
-                <td align="left" style="width:1%;">&nbsp;</td>
-                 <td align="right" style="width:5%;">&nbsp;</td>
-                <td align="left" style="width:10%;">&nbsp;</td>
-                <td align="left" style="width:1%;">&nbsp;</td>
-            </tr>
-            <tr>
-                <td align="right" style="width:5%;">
 			<asp:label id="lblNgayKi" CssClass="cssManField" runat="server" 
                 Text="Ngày kí" />
-		                    </td>
+			       
+			    </td>
                 <td align="left" style="width:10%;">
 			        <ew:CalendarPopup ID="m_dat_ngay_ki" runat="server" 
                         ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
@@ -102,9 +73,147 @@
                             font-size="XX-Small" forecolor="Black" />
                     </ew:CalendarPopup>
 		                    </td>
+                <td align="left" style="width:1%;"></td>
+                 <td align="right" style="width:5%;">
+			       
+			         &nbsp;</td>
+                <td align="left" style="width:10%;">	
+			
+		            &nbsp;</td>
+                <td align="left" style="width:1%;"></td>
+            </tr>
+            <tr>
+                <td align="right" style="width:5%;">
+			<asp:label id="lblDonViQuanLy" CssClass="cssManField" runat="server" 
+                Text="Đơn vị quản lý" />
+                         </td>
+                <td align="left" style="width:10%;">	
+			
+		    <asp:DropDownList id="m_cbo_dm_loai_don_vi_quan_li" runat="server" Width="96%" 
+                        CssClass="cssDorpdownlist"  />
+                         </td>
                          <td align="left" style="width:1%;"> 
                              &nbsp;</td>
-                <td align="left" style="width:5%;">
+                <td align="right" style="width:5%;">
+			<asp:label id="lblDonViThanhToan" CssClass="cssManField" runat="server" 
+                Text="Đơn vị thanh toán" />
+		                    </td>
+                <td align="left" style="width:10%;">
+			
+		    <asp:DropDownList id="m_cbo_dm_loai_don_vi_thanh_toan" runat="server" Width="96%" 
+                        CssClass="cssDorpdownlist"  />
+		                    </td>
+                <td align="left" style="width:1%;">&nbsp;</td>
+                 <td align="right" style="width:5%;">
+			       
+			<asp:label id="lblPophutrach" CssClass="cssManField" runat="server" 
+                Text="PO phụ trách" />
+			       
+			    </td>
+                <td align="left" style="width:10%;">	
+			
+		    <asp:DropDownList id="m_cbo_po_phu_trach" runat="server" Width="96%" 
+                        CssClass="cssDorpdownlist"  />
+                         </td>
+                <td align="left" style="width:1%;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" style="width:5%;">
+			<asp:label id="lblTenGiangVien" CssClass="cssManField" runat="server" 
+                Text="Tên giảng viên" />
+                         </td>
+                <td align="left" style="width:10%;">	
+               <asp:DropDownList ID="m_cbo_gvien" Width="96%" runat="server">
+               </asp:DropDownList>              
+                         </td>
+                         <td align="left" style="width:1%;"> 
+                             &nbsp;</td>
+                <td align="right" style="width:5%;">
+			      <!--<asp:Button ID="m_cmd_chosose_gv" runat="server" Text="+" 
+                        CausesValidation="False" onclick="m_cmd_chosose_gv_Click1" />-->
+		            &nbsp;<asp:label id="lblLoaiHopDong" CssClass="cssManField" runat="server" 
+                Text="Loại hợp đồng" />
+                </td>
+                <td align="left" style="width:10%;">
+		    <asp:DropDownList id="m_cbo_dm_loai_hop_dong" runat="server" Width="96%" 
+                        CssClass="cssDorpdownlist"  />
+		                    </td>
+                <td align="left" style="width:1%;">&nbsp;</td>
+                 <td align="right" style="width:5%;">&nbsp;</td>
+                <td align="left" style="width:10%;">&nbsp;</td>
+                <td align="left" style="width:1%;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" style="width:5%;">
+			<asp:label id="lblMon1" CssClass="cssManField" runat="server" 
+                Text="Môn 1" />
+                </td>
+                <td align="left" style="width:10%;">
+		    <asp:DropDownList id="m_cbo_dm_mon_hoc_1" runat="server" Width="96%" 
+                        CssClass="cssDorpdownlist"  />
+		                    </td>
+                         <td align="left" style="width:1%;"> 
+                         <asp:RequiredFieldValidator ID="m_rfv_trang_thai_hop_dong0" runat="server" 
+                             ErrorMessage="Bạn phải chọn ít nhất 1 môn học" Text="*"
+                             ControlToValidate="m_cbo_dm_mon_hoc_1"></asp:RequiredFieldValidator>
+                </td>
+                <td align="right" style="width:5%;">
+			       
+			<asp:label id="lblMon2" CssClass="cssManField" runat="server" 
+                Text="Môn 2" />
+		                    </td>
+                <td align="left" style="width:10%;">
+			
+		    <asp:DropDownList id="m_cbo_dm_mon_hoc_2" runat="server" Width="96%" 
+                        CssClass="cssDorpdownlist"  />
+                            </td>
+                <td align="left" style="width:1%;">&nbsp;</td>
+                 <td align="right" style="width:5%;">
+			       
+			<asp:label id="lblMon3" CssClass="cssManField" runat="server" 
+                Text="Môn 3" />
+                </td>
+                <td align="left" style="width:10%;">
+		    <asp:DropDownList id="m_cbo_dm_mon_hoc_3" runat="server" Width="96%" 
+                        CssClass="cssDorpdownlist"  />
+                </td>
+                <td align="left" style="width:1%;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" style="width:5%;">
+			<asp:label id="lblMon4" CssClass="cssManField" runat="server" 
+                Text="Môn 4" />
+                </td>
+                <td align="left" style="width:10%;">
+		    <asp:DropDownList id="m_cbo_dm_mon_hoc_4" runat="server" Width="96%" 
+                        CssClass="cssDorpdownlist"  />
+                </td>
+                         <td align="left" style="width:1%;"> 
+                             &nbsp;</td>
+                <td align="right" style="width:5%;">
+			       
+			<asp:label id="lblMon5" CssClass="cssManField" runat="server" 
+                Text="Môn 5" />
+                </td>
+                <td align="left" style="width:10%;">
+			
+		    <asp:DropDownList id="m_cbo_dm_mon_hoc_5" runat="server" Width="96%" 
+                        CssClass="cssDorpdownlist"  />
+                </td>
+                <td align="left" style="width:1%;">&nbsp;</td>
+                 <td align="right" style="width:5%;">
+			       
+			<asp:label id="lblMon6" CssClass="cssManField" runat="server" 
+                Text="Môn 6" />
+                </td>
+                <td align="left" style="width:10%;">
+		    <asp:DropDownList id="m_cbo_dm_mon_hoc_6" runat="server" Width="96%" 
+                        CssClass="cssDorpdownlist"  />
+                </td>
+                <td align="left" style="width:1%;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" style="width:5%;">
 			       
 			<asp:label id="lblNgayHieuLuc" CssClass="cssManField" runat="server" 
                 Text="Ngày hiệu lực" />
@@ -141,13 +250,15 @@
                             font-size="XX-Small" forecolor="Black" />
                     </ew:CalendarPopup>
                             </td>
-                <td align="left" style="width:1%;">&nbsp;</td>
-                 <td align="right" style="width:5%;">
+                     <td align="left" style="width:1%;">
+                         &nbsp;</td>
+                <td align="right" style="width:5%;">
 			       
 			<asp:label id="lblNgayKetThuc" CssClass="cssManField" runat="server" 
                 Text="Ngày kết thúc" />
 		                    </td>
                 <td align="left" style="width:10%;">
+			
 			        <ew:CalendarPopup ID="m_dat_ngay_ket_thuc" runat="server" 
                         ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
                         ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
@@ -179,28 +290,6 @@
                             font-size="XX-Small" forecolor="Black" />
                     </ew:CalendarPopup>
                             </td>
-                <td align="left" style="width:1%;">&nbsp;</td>
-            </tr>
-            <tr>
-                <td align="right" style="width:5%;">
-			<asp:label id="lblLoaiHopDong" CssClass="cssManField" runat="server" 
-                Text="Loại hợp đồng" />
-                </td>
-                <td align="left" style="width:10%;">
-		    <asp:DropDownList id="m_cbo_dm_loai_hop_dong" runat="server" Width="96%" 
-                        CssClass="cssDorpdownlist"  />
-                </td>
-                     <td align="left" style="width:1%;">
-                         &nbsp;</td>
-                <td align="right" style="width:5%;">
-			<asp:label id="lblDonViQuanLy" CssClass="cssManField" runat="server" 
-                Text="Đơn vị quản lý" />
-		                    </td>
-                <td align="left" style="width:10%;">
-			
-		    <asp:DropDownList id="m_cbo_dm_loai_don_vi_quan_li" runat="server" Width="96%" 
-                        CssClass="cssDorpdownlist"  />
-		                    </td>
                       <td align="left" style="width:1%;">
                           &nbsp;</td>
                  <td align="right" style="width:5%;">
@@ -222,14 +311,15 @@
                      <td align="left" style="width:1%;">
                          &nbsp;</td>
                 <td align="right" style="width:5%;">
-			<asp:label id="lblDonViThanhToan" CssClass="cssManField" runat="server" 
-                Text="Đơn vị thanh toán" />
+			<asp:label id="lblGiaTriHopDong" CssClass="cssManField" runat="server" 
+                Text="Giá trị hợp đồng" />
 		                    </td>
                 <td align="left" style="width:10%;">
 			
-		    <asp:DropDownList id="m_cbo_dm_loai_don_vi_thanh_toan" runat="server" Width="96%" 
-                        CssClass="cssDorpdownlist"  />
-		                    </td>
+                <ew:NumericBox ID="m_txt_gia_tri_hop_dong" Width="96%" runat="server" TextAlign="Right">
+                </ew:NumericBox>
+			 
+                         </td>
                       <td align="left" style="width:1%;">
                           &nbsp;</td>
                  <td align="right" style="width:5%;">
@@ -246,87 +336,6 @@
                              ErrorMessage="Bạn nhập thuế suất" Text="*"
                              ControlToValidate="m_txt_thue_suat">*</asp:RequiredFieldValidator>
                 </td>
-            </tr>
-            <tr>
-                <td align="right" style="width:5%;">
-			<asp:label id="lblMon1" CssClass="cssManField" runat="server" 
-                Text="Môn 1" />
-                </td>
-                <td align="left" style="width:10%;">
-		    <asp:DropDownList id="m_cbo_dm_mon_hoc_1" runat="server" Width="96%" 
-                        CssClass="cssDorpdownlist"  />
-                </td>
-                     <td align="left" style="width:1%;">
-                         <asp:RequiredFieldValidator ID="m_rfv_trang_thai_hop_dong0" runat="server" 
-                             ErrorMessage="Bạn phải chọn ít nhất 1 môn học" Text="*"
-                             ControlToValidate="m_cbo_dm_mon_hoc_1"></asp:RequiredFieldValidator>
-                </td>
-                <td align="right" style="width:5%;">
-			<asp:label id="lblMon2" CssClass="cssManField" runat="server" 
-                Text="Môn 2" />
-                </td>
-                <td align="left" style="width:10%;">
-			
-		    <asp:DropDownList id="m_cbo_dm_mon_hoc_2" runat="server" Width="96%" 
-                        CssClass="cssDorpdownlist"  />
-                </td>
-                      <td align="left" style="width:1%;">
-                          &nbsp;</td>
-                 <td align="right" style="width:5%;">
-			       
-			<asp:label id="lblMon3" CssClass="cssManField" runat="server" 
-                Text="Môn 3" />
-                </td>
-                <td align="left" style="width:10%;">
-		    <asp:DropDownList id="m_cbo_dm_mon_hoc_3" runat="server" Width="96%" 
-                        CssClass="cssDorpdownlist"  />
-                </td>
-                <td align="left" style="width:1%;">&nbsp;</td>
-            </tr>
-            <tr>
-                <td align="right" style="width:5%;">
-			<asp:label id="lblMon4" CssClass="cssManField" runat="server" 
-                Text="Môn 4" />
-                </td>
-                <td align="left" style="width:10%;">
-		    <asp:DropDownList id="m_cbo_dm_mon_hoc_4" runat="server" Width="96%" 
-                        CssClass="cssDorpdownlist"  />
-                </td>
-                     <td align="left" style="width:1%;">
-                         &nbsp;</td>
-                <td align="right" style="width:5%;">
-			<asp:label id="lblMon5" CssClass="cssManField" runat="server" 
-                Text="Môn 5" />
-                </td>
-                <td align="left" style="width:10%;">
-			
-		    <asp:DropDownList id="m_cbo_dm_mon_hoc_5" runat="server" Width="96%" 
-                        CssClass="cssDorpdownlist"  />
-                </td>
-                      <td align="left" style="width:1%;">
-                          &nbsp;</td>
-                 <td align="right" style="width:5%;">
-			       
-			<asp:label id="lblMon6" CssClass="cssManField" runat="server" 
-                Text="Môn 6" />
-                </td>
-                <td align="left" style="width:10%;">
-		    <asp:DropDownList id="m_cbo_dm_mon_hoc_6" runat="server" Width="96%" 
-                        CssClass="cssDorpdownlist"  />
-                </td>
-                <td align="left" style="width:1%;">&nbsp;</td>
-            </tr>
-            <tr>
-                <td align="right" style="width:5%;">
-			<asp:label id="lblGiaTriHopDong" CssClass="cssManField" runat="server" 
-                Text="Giá trị hợp đồng" />
-		                    </td>
-                <td align="left" colspan="1">
-                <ew:NumericBox ID="m_txt_gia_tri_hop_dong" Width="96%" runat="server" TextAlign="Right">
-                </ew:NumericBox>
-			 
-                         </td>
-                <td align="left" style="width:1%;">&nbsp;</td>
             </tr>
             <tr>
                 <td align="right" style="width:5%;">
@@ -381,16 +390,46 @@
                     &nbsp;</td>
             </tr>
             <tr>
-                <td align="right" style="width:5%;"></td>
+                <td align="right" style="width:5%;">
+                    <asp:Label ID="lblGhiChu1" runat="server" CssClass="cssManField" 
+                        Text="Ghi chú 2" />
+                </td>
+                <td align="left" colspan="7">    
+                    <asp:TextBox ID="m_txt_ghi_chu2" runat="server" CssClass="cssTextBox" 
+                        MaxLength="64" Width="96%" />
+                </td> 
+            </tr>
+            <tr>
+                <td align="right" style="width:5%;">
+                    <asp:Label ID="lblGhiChu2" runat="server" CssClass="cssManField" 
+                        Text="Ghi chú 3" />
+                </td>
+                <td align="left" colspan="7">    
+                    <asp:TextBox ID="m_txt_ghi_chu3" runat="server" CssClass="cssTextBox" 
+                        MaxLength="64" Width="96%" />
+                </td> 
+            </tr>
+            <tr>
+                <td align="right" style="width:5%;">
+                    <asp:Label ID="lblGhiChu3" runat="server" CssClass="cssManField" 
+                        Text="Ghi chú 4" />
+                </td>
+                <td align="left" colspan="7">    
+                    <asp:TextBox ID="m_txt_ghi_chu4" runat="server" CssClass="cssTextBox" 
+                        MaxLength="64" Width="96%" />
+                </td> 
+            </tr>
+            <tr>
+                <td align="right" style="width:5%;">&nbsp;</td>
                 <td align="left" style="width:10%;">    
 			        &nbsp;</td> 
-                <td align="left" style="width:1%;"></td>
+                <td align="left" style="width:1%;">&nbsp;</td>
                 <td align="left" style="width:5%;">
 			        &nbsp;</td>
                 <td align="left" style="width:10%;">    
-			        &nbsp;</td> <td align="left" style="width:1%;"></td>
-                 <td align="right" style="width:5%;"></td>
-                <td align="left" style="width:10%;"></td>
+			        &nbsp;</td> <td align="left" style="width:1%;">&nbsp;</td>
+                 <td align="right" style="width:5%;">&nbsp;</td>
+                <td align="left" style="width:10%;">&nbsp;</td>
             </tr>
             <tr>
                 <td align="right" style="width:5%;">
