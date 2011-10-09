@@ -413,7 +413,8 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
     {
         try
         {
-            Response.Redirect("/TRMProject/ChucNang/F201_CapNhatThongTinGiangVien.aspx?mode=add");
+            Response.Redirect("/TRMProject/ChucNang/F201_CapNhatThongTinGiangVien.aspx?mode=add",false);
+            HttpContext.Current.ApplicationInstance.CompleteRequest();
         }
         catch (Exception v_e)
         {
