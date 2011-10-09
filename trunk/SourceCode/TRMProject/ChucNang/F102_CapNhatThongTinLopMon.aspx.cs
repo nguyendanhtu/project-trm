@@ -109,6 +109,7 @@ public partial class ChucNang_F102_CapNhatThongTinLopMon : System.Web.UI.Page
         try
         {
             m_cmd_thoat.Attributes.Add("onclick", "window.close();");
+            
             if (this.Request.QueryString["mode"] != null && this.Request.QueryString["id_lop_mon"] != null)
             {
                 if (this.Request.QueryString["mode"] == "update")
@@ -149,6 +150,8 @@ public partial class ChucNang_F102_CapNhatThongTinLopMon : System.Web.UI.Page
                 case DataEntryFormMode.UpdateDataState:
                     m_us_gd_lop_mon.Update();
                     m_lbl_mess.Text = "Đã cập nhật dữ liệu thành công";
+                    Response.Write("<script language='javascript'> { window.close();}</script>");
+
                     break;
                 case DataEntryFormMode.InsertDataState:
                     // check trung ma lop mon
@@ -157,6 +160,8 @@ public partial class ChucNang_F102_CapNhatThongTinLopMon : System.Web.UI.Page
                         return; }
                     m_us_gd_lop_mon.Insert();
                     m_lbl_mess.Text = "Đã thêm mới dữ liệu thành công";
+                    Response.Write("<script language='javascript'> { window.close();}</script>");
+                    
                     break;
             }
 
