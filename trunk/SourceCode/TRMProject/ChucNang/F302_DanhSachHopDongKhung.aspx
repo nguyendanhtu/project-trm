@@ -271,6 +271,10 @@
                        <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
                         <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:TemplateField>
+                    <asp:BoundField DataField="SO_HOP_DONG" HeaderText="Số hợp đồng" 
+                        Visible="true">
+                        <ItemStyle HorizontalAlign="Center" Width="4%"></ItemStyle></asp:BoundField>
+                    <asp:BoundField DataField="NGAY_KY" HeaderText="Ngày ký" DataFormatString="{0:dd/MM/yyyy}" HtmlEncode="false" />
                      <asp:TemplateField>
                     <HeaderTemplate>Mã giảng viên</HeaderTemplate>
                     <ItemTemplate>
@@ -280,32 +284,18 @@
                     <ItemStyle Width="200px"/>
                     </asp:TemplateField>
                     <asp:TemplateField>
-                    <HeaderTemplate>Giảng viên</HeaderTemplate>
+                    <HeaderTemplate>Tên giảng viên</HeaderTemplate>
                     <ItemTemplate>
                     <label><a href='<%# "/TRMProject/ChucNang/F201_CapNhatThongTinGiangVien.aspx?mode=edit&id="+Eval("ID_GIANG_VIEN") %>'>
                     <%# Eval("GIANG_VIEN").ToString() %></a></label>
                     </ItemTemplate>
                     <ItemStyle Width="200px"/>
                     </asp:TemplateField>
-                    <asp:BoundField DataField="NGAY_KY" HeaderText="Ngày ký" DataFormatString="{0:dd/MM/yyyy}" HtmlEncode="false" />
-                     <asp:BoundField DataField="NGAY_HIEU_LUC" HeaderText="Ngày hiệu lực" DataFormatString="{0:dd/MM/yyyy}" HtmlEncode="false">
+                        <asp:BoundField DataField="LOAI_HOP_DONG" HeaderText="Loại hợp đồng">
                     </asp:BoundField>
-                    <asp:BoundField DataField="NGAY_KET_THUC_DU_KIEN" HeaderText="Ngày kết thúc " DataFormatString="{0:dd/MM/yyyy}" HtmlEncode="false">
-                    </asp:BoundField>
-                     <asp:BoundField DataField="SO_HOP_DONG" HeaderText="Số hợp đồng" 
-                        Visible="true">
-                        <ItemStyle HorizontalAlign="Center" Width="4%"></ItemStyle></asp:BoundField>
-                     <asp:BoundField DataField="LOAI_HOP_DONG" HeaderText="Loại hợp đồng">
-                    </asp:BoundField>
-                     <asp:BoundField DataField="DON_VI_QUAN_LY" HeaderText="Đơn vị quản lý">
-                    </asp:BoundField>
-                    <asp:BoundField DataField="TRANG_THAI_HOP_DONG" HeaderText="Trạng thái hợp đồng">
+                      <asp:BoundField DataField="DON_VI_QUAN_LY" HeaderText="Đơn vị quản lý">
                     </asp:BoundField>
                      <asp:BoundField DataField="DON_VI_THANH_TOAN" HeaderText="Đơn vị thanh toán">
-                    </asp:BoundField>
-                    <asp:BoundField DataField="THUE_SUAT" HeaderText="Thuế suất(%)">
-                    </asp:BoundField>
-                     <asp:BoundField DataField="MA_PO_PHU_TRACH" HeaderText="Mã PO Phụ trách">
                     </asp:BoundField>
                      <asp:BoundField DataField="FIRST_MON" HeaderText="Môn 1" />
                      <asp:BoundField DataField="SEC_MON" HeaderText="Môn 2" />
@@ -313,11 +303,17 @@
                      <asp:BoundField DataField="FOURTH_MON" HeaderText="Môn 4" />
                      <asp:BoundField DataField="FITH_MON" HeaderText="Môn 5" />
                      <asp:BoundField DataField="SIXTH_MON" HeaderText="Môn 6" />
+                     <asp:BoundField DataField="NGAY_HIEU_LUC" HeaderText="Ngày hiệu lực" DataFormatString="{0:dd/MM/yyyy}" HtmlEncode="false">
+                    </asp:BoundField>
+                    <asp:BoundField DataField="NGAY_KET_THUC_DU_KIEN" HeaderText="Ngày kết thúc " DataFormatString="{0:dd/MM/yyyy}" HtmlEncode="false">
+                    </asp:BoundField>
+                     <asp:BoundField DataField="TRANG_THAI_HOP_DONG" HeaderText="Trạng thái hợp đồng">
+                    </asp:BoundField>
+                     <asp:BoundField DataField="MA_PO_PHU_TRACH" HeaderText="Mã PO Phụ trách">
+                    </asp:BoundField>
                      <asp:BoundField DataField="GIA_TRI_HOP_DONG" HeaderText="Giá trị hợp đồng" />
-                     <asp:BoundField DataField="GHI_CHU" HeaderText="Ghi chú" />
-                     <asp:BoundField DataField="GHI_CHU2" HeaderText="Ghi chú 2" />
-                     <asp:BoundField DataField="GHI_CHU3" HeaderText="Ghi chú 3" />
-                     <asp:BoundField DataField="GHI_CHU4" HeaderText="Ghi chú 4" />
+                       <asp:BoundField DataField="THUE_SUAT" HeaderText="Thuế suất(%)">
+                    </asp:BoundField>
                     <asp:TemplateField>
                     <HeaderTemplate>Làm học liệu?</HeaderTemplate>
                     <ItemTemplate>
@@ -332,13 +328,17 @@
                     </ItemTemplate>
                     <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:TemplateField>
-                      <asp:TemplateField>
-                       <HeaderTemplate>Cơ sở hợp đồng?</HeaderTemplate>
+                    <asp:TemplateField>
+                       <HeaderTemplate>Có hướng dẫn?</HeaderTemplate>
                     <ItemTemplate>
                     <label><%# mapping_cs(Eval("CO_SO_HD_YN").ToString())%></label>
                     </ItemTemplate>
                     <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:TemplateField>
+                     <asp:BoundField DataField="GHI_CHU" HeaderText="Ghi chú" />
+                     <asp:BoundField DataField="GHI_CHU2" HeaderText="Ghi chú 2" />
+                     <asp:BoundField DataField="GHI_CHU3" HeaderText="Ghi chú 3" />
+                     <asp:BoundField DataField="GHI_CHU4" HeaderText="Ghi chú 4" />
                 </Columns>
                   <EditRowStyle BackColor="#7C6F57" />
                   <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
