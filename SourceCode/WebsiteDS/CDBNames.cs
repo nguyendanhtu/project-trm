@@ -228,6 +228,7 @@ namespace WebDS.CDBNames
         public const string NOI_DUNG_THANH_TOAN = "NOI_DUNG_THANH_TOAN";
         public const string SO_LUONG_HE_SO = "SO_LUONG_HE_SO";
         public const string DON_GIA_HD = "DON_GIA_HD";
+        public const string GHI_CHU_NOI_DUNG_TT = "GHI_CHU_NOI_DUNG_TT";
     }
    public class HT_NGUOI_SU_DUNG
     {
