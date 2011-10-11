@@ -111,7 +111,7 @@ first child of the left and right table columns */
     color: #f9f9f9;
     border: none;
     line-height: 2em;
-    font-size: 2em;
+    font-size: 1.4em;
 }
 
 .main
@@ -142,49 +142,62 @@ first child of the left and right table columns */
 /* TAB MENU   
 ----------------------------------------------------------*/
 
-div.hideSkiplink
-{
-    background-color:#3a4f63;
-    width:100%;
+#container {
+border: 1px solid #686;
+background: #3A4F63;
+float: left;
+width: 98%;
+ padding-left: 30px;
+ margin-bottom: 5px;
 }
 
-div.menu
+#container ul
 {
-    padding: 4px 0px 4px 8px;
+    float: left;
+    list-style:none;
 }
 
-div.menu ul
-{
-    list-style: none;
-    margin: 0px;
-    padding: 0px;
-    width: auto;
+#container ul {
+float: left;
+list-style: none;
+color: white;
 }
 
-div.menu ul li a, div.menu ul li a:visited
-{
-    background-color: #465c71;
-    border: 1px #4e667d solid;
-    color: #dde4ec;
-    display: block;
-    line-height: 1.35em;
-    padding: 4px 20px;
-    text-decoration: none;
-    white-space: nowrap;
+#container ul li {
+position: relative;
+float: left;
+border-right: 1px solid;
+ padding-bottom: 3px;
+ padding-top: 2px;
 }
 
-div.menu ul li a:hover
-{
-    background-color: #bfcbd6;
-    color: #465c71;
-    text-decoration: none;
+#container li a {
+display: block;
+color: white;
+font-weight: bold;
+text-decoration: none;
+padding: 2px 9px;
+}
+#container li a:hover {
+color: white;
+background: #BFCBD6;
 }
 
-div.menu ul li a:active
-{
-    background-color: #465c71;
-    color: #cfdbe6;
-    text-decoration: none;
+#container li ul{
+background:#3A4F63 ;
+position: absolute;
+display: none;
+width: 17em;
+}
+
+
+#container li:hover ul{
+display: block;
+}
+
+#container ul li ul li {
+	border: 0px 1px 1px 0px solid #686;
+width: 100%;
 }
 
 /* FORM ELEMENTS   
