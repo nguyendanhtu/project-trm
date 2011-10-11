@@ -76,10 +76,15 @@
                 <td align="left" style="width:1%;"></td>
                  <td align="right" style="width:5%;">
 			       
-			         &nbsp;</td>
+			<asp:label id="lblPophutrach" CssClass="cssManField" runat="server" 
+                Text="PO phụ trách" />
+			       
+			    </td>
                 <td align="left" style="width:10%;">	
 			
-		            &nbsp;</td>
+		    <asp:DropDownList id="m_cbo_po_phu_trach" runat="server" Width="96%" 
+                        CssClass="cssDorpdownlist"  />
+                         </td>
                 <td align="left" style="width:1%;"></td>
             </tr>
             <tr>
@@ -98,23 +103,14 @@
 			<asp:label id="lblDonViThanhToan" CssClass="cssManField" runat="server" 
                 Text="Đơn vị thanh toán" />
 		                    </td>
-                <td align="left" style="width:10%;">
+                <td align="left" colspan="3">
 			
-		    <asp:DropDownList id="m_cbo_dm_loai_don_vi_thanh_toan" runat="server" Width="96%" 
+		    <asp:DropDownList id="m_cbo_dm_loai_don_vi_thanh_toan" runat="server" Width="85%" 
                         CssClass="cssDorpdownlist"  />
 		                    </td>
-                <td align="left" style="width:1%;">&nbsp;</td>
-                 <td align="right" style="width:5%;">
-			       
-			<asp:label id="lblPophutrach" CssClass="cssManField" runat="server" 
-                Text="PO phụ trách" />
-			       
-			    </td>
                 <td align="left" style="width:10%;">	
 			
-		    <asp:DropDownList id="m_cbo_po_phu_trach" runat="server" Width="96%" 
-                        CssClass="cssDorpdownlist"  />
-                         </td>
+		            &nbsp;</td>
                 <td align="left" style="width:1%;">&nbsp;</td>
             </tr>
             <tr>
