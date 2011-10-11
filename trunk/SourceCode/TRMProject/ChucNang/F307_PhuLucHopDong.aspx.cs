@@ -158,6 +158,8 @@ public partial class ChucNang_F307_PhuLucHopDong : System.Web.UI.Page
                 // Nếu chưa có gì thì ko cho cập nhật
                 m_cmd_cap_nhat_pl.Enabled = false;
                 m_grv_gd_hop_dong_noi_dung_tt.Visible = false;
+                m_grv_gd_hop_dong_noi_dung_tt.DataSource = m_ds_v_gd_gd_hop_dong_noi_dung_tt.V_GD_HOP_DONG_NOI_DUNG_TT;
+                m_grv_gd_hop_dong_noi_dung_tt.DataBind();
             }
             else
             {
