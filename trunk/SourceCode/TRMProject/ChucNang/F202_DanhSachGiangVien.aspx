@@ -289,27 +289,27 @@
                     <label><%# mapping_gender(Eval("GIOI_TINH_YN").ToString()) %></label>
                     </ItemTemplate>
                     </asp:TemplateField>
-                     <asp:BoundField DataField="CHUC_VU_HIEN_TAI" HeaderText="Chức vụ hiện tại">
+                    <asp:BoundField DataField="DON_VI_QUAN_LY" HeaderText="Đơn vị quản lý" />
+                    <asp:BoundField DataField="DIA_CHI" HeaderText="Địa chỉ giảng viên" />
+                      <asp:BoundField DataField="TEN_CO_QUAN_CONG_TAC" HeaderText="Tên cơ quan công tác">
                     </asp:BoundField>
-                    <asp:BoundField DataField="CHUC_VU_CAO_NHAT" HeaderText="Chức vụ cao nhất">
+                      <asp:BoundField DataField="TEL_OFFICE" HeaderText="Điện thoại cơ quan">
+                    </asp:BoundField>
+                      <asp:BoundField DataField="MOBILE_PHONE" HeaderText="Điện thoại di động">
                     </asp:BoundField>
                      <asp:BoundField DataField="TEL_HOME" HeaderText="Điện thoại nhà riêng">
                     </asp:BoundField>
-                     <asp:BoundField DataField="TEL_OFFICE" HeaderText="Điện thoại cơ quan">
-                    </asp:BoundField>
-                    <asp:BoundField DataField="EMAIL" HeaderText="Email">
-                    </asp:BoundField>
-                     <asp:BoundField DataField="TEN_CO_QUAN_CONG_TAC" HeaderText="Tên cơ quan công tác">
+                      <asp:BoundField DataField="SO_CMTND" HeaderText="Số chứng minh" />
+                     <asp:BoundField DataField="NGAY_CAP" DataFormatString="{0:dd/MM/yyyy}" HeaderText="Ngày cấp" />
+                     <asp:BoundField DataField="NOI_CAP" HeaderText="Nơi cấp" />
+                       <asp:BoundField DataField="EMAIL" HeaderText="Email">
                     </asp:BoundField>
                     <asp:BoundField DataField="EMAIL_TOPICA" HeaderText="TOPICA Email">
                     </asp:BoundField>
-                    <asp:TemplateField Visible="false">
-                    <HeaderTemplate>Ảnh cá nhân</HeaderTemplate>
-                    <ItemTemplate>
-                    <img alt="anh ca nhan" src='<%# "/TRMProject/Images/PrivateImages/"+ Eval("ANH_CA_NHAN") %>' />
-                    </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:TemplateField>
+                     <asp:BoundField DataField="SO_TAI_KHOAN" HeaderText="Số tài khoản" />
+                     <asp:BoundField DataField="TEN_NGAN_HANG" HeaderText="Tên ngân hàng" />
+                        <asp:BoundField DataField="MA_SO_THUE" HeaderText="Mã số thuế" />
+                          <asp:TemplateField>
                     <HeaderTemplate>Học vị</HeaderTemplate>
                     <ItemTemplate>
                     <label><%# mapping_hoc_vi(CIPConvert.ToStr(Eval("HOC_VI")))%></label>
@@ -325,16 +325,19 @@
                    </asp:TemplateField>
                      <asp:BoundField DataField="CHUYEN_NGANH_CHINH" HeaderText="Chuyên ngành chính" />
                      <asp:BoundField DataField="TRUONG_DAO_TAO" HeaderText="Trường đào tạo" />
+                     <asp:BoundField DataField="CHUC_VU_HIEN_TAI" HeaderText="Chức vụ hiện tại">
+                    </asp:BoundField>
+                    <asp:BoundField DataField="CHUC_VU_CAO_NHAT" HeaderText="Chức vụ cao nhất">
+                    </asp:BoundField>
+                    <asp:TemplateField Visible="false">
+                    <HeaderTemplate>Ảnh cá nhân</HeaderTemplate>
+                    <ItemTemplate>
+                    <img alt="anh ca nhan" src='<%# "/TRMProject/Images/PrivateImages/"+ Eval("ANH_CA_NHAN") %>' />
+                    </ItemTemplate>
+                    </asp:TemplateField>
                      <asp:BoundField DataField="TRANG_THAI_GIANG_VIEN" HeaderText="Trạng thái giảng viên" />
-                     <asp:BoundField DataField="SO_TAI_KHOAN" HeaderText="Số tài khoản" />
-                     <asp:BoundField DataField="TEN_NGAN_HANG" HeaderText="Tên ngân hàng" />
-                     <asp:BoundField DataField="SO_CMTND" HeaderText="Số chứng minh" />
-                     <asp:BoundField DataField="NGAY_CAP" DataFormatString="{0:dd/MM/yyyy}" HeaderText="Ngày cấp" />
-                     <asp:BoundField DataField="NOI_CAP" HeaderText="Nơi cấp" />
-                     <asp:BoundField DataField="DON_VI_QUAN_LY" HeaderText="Đơn vị quản lý" />
                     <asp:BoundField DataField="PO_PHU_TRACH_CHINH" HeaderText="PO phụ trách chính" />
                      <asp:BoundField DataField="PO_PHU_TRACH_PHU" HeaderText="PO phụ trách phụ" />
-                     <asp:BoundField DataField="MA_SO_THUE" HeaderText="Mã số thuế" />
                        <asp:BoundField DataField="NGAY_BD_HOP_TAC" DataFormatString="{0:dd/MM/yyyy}" HeaderText="Ngày bắt đầu hợp tác" />
                     <asp:TemplateField>
                     <HeaderTemplate>GV hướng dẫn?</HeaderTemplate>
