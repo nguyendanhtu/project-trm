@@ -59,6 +59,9 @@ public partial class ChucNang_F306_HopDongKhungGiangVien : System.Web.UI.Page
             m_lbl_header_giang_vien.Text = "Danh sách hợp đồng khung của giảng viên: " + get_gv_info(m_dc_id_gv);
         }
 
+        // Đẩy dữ liệu lên lưới
+        load_data_2_grid(m_dc_id_gv);
+
         if (m_init_mode == DataEntryFormMode.UpdateDataState)
         {
             m_pnl_table.Visible = true;
@@ -66,10 +69,7 @@ public partial class ChucNang_F306_HopDongKhungGiangVien : System.Web.UI.Page
             m_txt_so_hop_dong.Enabled = false;
             m_cmd_luu_va_sinh_pl.Enabled = false;
             m_dc_id_hd = CIPConvert.ToDecimal(Request.QueryString["id_hd"]);
-        }
-       
-        // Đẩy dữ liệu lên lưới
-        load_data_2_grid(m_dc_id_gv);
+        }     
 
     }
     #region Members
@@ -484,6 +484,7 @@ public partial class ChucNang_F306_HopDongKhungGiangVien : System.Web.UI.Page
             if (m_rbt_co_so_hd_yn.Items[0].Selected)
                 ip_us_hd_khung.strCO_SO_HD_YN = "Y";
             else ip_us_hd_khung.strCO_SO_HD_YN = "N";
+
             ip_us_hd_khung.strGHI_CHU = m_txt_ghi_chu1.Text;
         }
         catch (Exception v_e)
@@ -532,7 +533,10 @@ public partial class ChucNang_F306_HopDongKhungGiangVien : System.Web.UI.Page
             m_txt_gia_tri_hop_dong.Text = CIPConvert.ToStr(ip_us_hd_khung.dcGIA_TRI_HOP_DONG);
 
             if (ip_us_hd_khung.strHOC_LIEU_YN == "Y")
+            {
                 m_rbt_hoclieu_yn.Items[0].Selected = true;
+                m_rbt_hoclieu_yn.Items[1].Selected = false;
+            }
             else m_rbt_hoclieu_yn.Items[1].Selected = true;
 
             if (ip_us_hd_khung.strVAN_HANH_YN == "Y")
