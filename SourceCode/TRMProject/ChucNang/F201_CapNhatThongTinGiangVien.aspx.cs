@@ -64,6 +64,7 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
         // Đẩy us lên form
         us_object_2_form(v_us_dm_giang_vien);
     }
+    // Load lên combo
     private void load_cbo_don_vi_quan_ly()
     {
         try
@@ -123,6 +124,29 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
             throw v_e;
         }
     }
+    private void load_cbo_trang_thai_giang_vien()
+    {
+        try
+        {
+            m_ds_cm_dm_tu_dien.CM_DM_TU_DIEN.Clear();
+            // Đổ dữ liệu vào DS 
+            m_us_cm_dm_tu_dien.FillDataset(m_ds_cm_dm_tu_dien, " WHERE ID_LOAI_TU_DIEN = " + (int)e_loai_tu_dien.TRANG_THAI_GIANG_VIEN); // Đây là lấy theo điều kiện
+
+            //TReo dữ liệu vào Dropdownlist loại hợp đồng
+            // dây là giá trị hiển thị
+            // Đây là giá trị thực
+            m_cbo_dm_trang_thai_giang_vien.DataValueField = CM_DM_TU_DIEN.ID;
+            m_cbo_dm_trang_thai_giang_vien.DataTextField = CM_DM_TU_DIEN.TEN;
+
+            m_cbo_dm_trang_thai_giang_vien.DataSource = m_ds_cm_dm_tu_dien.CM_DM_TU_DIEN;
+            m_cbo_dm_trang_thai_giang_vien.DataBind();
+        }
+        catch (Exception v_e)
+        {
+            throw v_e;
+        }
+    }
+
     private void reset_control()
     {
         m_txt_ma_giang_vien.Enabled = true;
@@ -146,7 +170,7 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
         m_txt_truong_dao_tao.Text = "";
         rb_sex.Items[0].Selected = true;
         m_dat_ngay_cap.Text = "";
-        //calendar.Value = "";
+        m_txt_dia_chi_gv.Text = "";
     }
     private bool check_ma_giang_vien()
     {
@@ -160,28 +184,13 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
             throw v_e;
         }
     }
-    private void load_cbo_trang_thai_giang_vien()
+    private bool check_check_loai_hop_dong()
     {
-        try
-        {
-            m_ds_cm_dm_tu_dien.CM_DM_TU_DIEN.Clear();
-            // Đổ dữ liệu vào DS 
-            m_us_cm_dm_tu_dien.FillDataset(m_ds_cm_dm_tu_dien, " WHERE ID_LOAI_TU_DIEN = " + (int)e_loai_tu_dien.TRANG_THAI_GIANG_VIEN); // Đây là lấy theo điều kiện
-
-            //TReo dữ liệu vào Dropdownlist loại hợp đồng
-            // dây là giá trị hiển thị
-            // Đây là giá trị thực
-            m_cbo_dm_trang_thai_giang_vien.DataValueField = CM_DM_TU_DIEN.ID;
-            m_cbo_dm_trang_thai_giang_vien.DataTextField = CM_DM_TU_DIEN.TEN;
-
-            m_cbo_dm_trang_thai_giang_vien.DataSource = m_ds_cm_dm_tu_dien.CM_DM_TU_DIEN;
-            m_cbo_dm_trang_thai_giang_vien.DataBind();
-        }
-        catch (Exception v_e)
-        {
-            throw v_e;
-        }
+        if (m_cbl_loai_hop_dong.SelectedIndex < 0)
+            return false;
+        return true;
     }
+
     private void save_data()
     {
         try
@@ -228,6 +237,7 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
             ip_us_giang_vien.strTEN_CO_QUAN_CONG_TAC = m_txt_co_quan_cong_tac.Text.Trim();
             ip_us_giang_vien.strTEN_GIANG_VIEN = m_txt_last_name.Text.Trim();
             ip_us_giang_vien.strTEN_NGAN_HANG = m_txt_ten_ngan_hang.Text.Trim();
+            ip_us_giang_vien.strDIA_CHI = m_txt_dia_chi_gv.Text.Trim();
             ip_us_giang_vien.strTRUONG_DAO_TAO = m_txt_truong_dao_tao.Text.Trim();
             if (m_dat_ngay_sinh_gv.SelectedDate != CIPConvert.ToDatetime("01/01/0001"))
                 ip_us_giang_vien.datNGAY_SINH = m_dat_ngay_sinh_gv.SelectedDate;
@@ -289,6 +299,7 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
             m_txt_truong_dao_tao.Text = ip_us_giang_vien.strTRUONG_DAO_TAO;
             m_txt_po_phu_trach_chinh.Text = ip_us_giang_vien.strPO_PHU_TRACH_CHINH;
             m_txt_po_phu_trach_phu.Text = ip_us_giang_vien.strPO_PHU_TRACH_PHU;
+            m_txt_dia_chi_gv.Text = ip_us_giang_vien.strDIA_CHI;
             //
             //calendar.Value = CIPConvert.ToStr(ip_us_giang_vien.datNGAY_SINH);
             if (!ip_us_giang_vien.IsNGAY_SINHNull() || ip_us_giang_vien.datNGAY_SINH != CIPConvert.ToDatetime("01/01/1900","dd/MM/yyyy"))
@@ -305,12 +316,7 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
         }
 
     }
-    private bool check_check_loai_hop_dong()
-    {
-        if (m_cbl_loai_hop_dong.SelectedIndex < 0)
-            return false;
-        return true;
-    }
+   
     #endregion
    
     //
