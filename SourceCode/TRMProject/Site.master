@@ -21,59 +21,57 @@
             <div class="loginDisplay">
                 <asp:HyperLink ID="m_lhk_user_name" runat="server" CssClass="accountInfo">m_lhk_user_name</asp:HyperLink>
             </div>
-            <div class="clear hideSkiplink">
-                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" 
-                    EnableViewState="False"  Orientation="Horizontal">
-                    <Items>
-                        <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Quản trị hệ thống">
-                            <asp:MenuItem Text="Đăng nhập" Value="Đăng nhập"></asp:MenuItem>
-                            <asp:MenuItem Text="Phân quyền người dùng" Value="Phân quyền người dùng">
-                            </asp:MenuItem>
-                            <asp:MenuItem Text="Người sử dụng" Value="Người sử dụng"></asp:MenuItem>
-                            <asp:MenuItem Text="Đăng xuất" Value="Đăng xuất" 
-                                NavigateUrl="~/Account/Logout.aspx"></asp:MenuItem>
-                        </asp:MenuItem>
-                        <asp:MenuItem Text="Quản lý danh mục">
-                            <asp:MenuItem NavigateUrl="/TRMProject/DanhMuc/F101_Dictionary.aspx" 
-                                Text="Từ điển hệ thống" Value="Từ điển hệ thống"></asp:MenuItem>
-                            <asp:MenuItem NavigateUrl="/TRMProject/DanhMuc/F300_MonHoc.aspx" 
-                                Text="Danh mục môn học" Value="Danh mục môn học">
-                            </asp:MenuItem>
-                            <asp:MenuItem NavigateUrl="/TRMProject/DanhMuc/F200_NoiDungThanhToan.aspx" 
-                                Text="Danh mục Nội dung thanh toán" Value="Danh mục Nội dung thanh toán">
-                            </asp:MenuItem>
-                            <asp:MenuItem NavigateUrl="/TRMProject/DanhMuc/F400_DonViThanhToan.aspx" 
-                                Text="Danh mục Đơn vị thanh toán" Value="Danh mục Đơn vị thanh toán">
-                            </asp:MenuItem>
-                        </asp:MenuItem>
-                        <asp:MenuItem Text="Nghiệp vụ">
-                            <asp:MenuItem Text="Cập nhật giảng viên" Value="Cập nhật giảng viên" NavigateUrl="/TRMProject/ChucNang/F202_DanhSachGiangVien.aspx">
-                            </asp:MenuItem>
-                            <asp:MenuItem Text="Cập nhật hợp đồng khung" Value="Cập nhật hợp đồng khung"
-                             NavigateUrl="/TRMProject/ChucNang/F302_DanhSachHopDongKhung.aspx">
-                            </asp:MenuItem>
-                            <asp:MenuItem Text="Cập nhật lớp môn" Value="Cập nhật lớp môn" 
-                                NavigateUrl="/TRMProject/ChucNang/F103_DanhSachLopMon.aspx"></asp:MenuItem>
-                            <asp:MenuItem Text="Cập nhật thanh toán" Value="Cập nhật thanh toán">
-                            </asp:MenuItem>
-                        </asp:MenuItem>
-                        <asp:MenuItem Text="Báo cáo">
-                            <asp:MenuItem Text="Danh sách giảng viên" Value="Danh sách giảng viên"></asp:MenuItem>
-                            <asp:MenuItem Text="Danh sách hợp đồng khung" Value="Danh sách hợp đồng khung"></asp:MenuItem>
-                            <asp:MenuItem Text="Danh sách lớp môn" Value="Danh sách lớp môn">
-                            </asp:MenuItem>
-                             <asp:MenuItem Text="Liệt kê thanh toán thực" Value="Liệt kê thanh toán thực">
-                            </asp:MenuItem>
-                        </asp:MenuItem>
-                        <asp:MenuItem NavigateUrl="~/About.aspx" Text="Trợ giúp">
-                            <asp:MenuItem Text="Giới thiệu Website" Value="Giới thiệu Website">
-                            </asp:MenuItem>
-                            <asp:MenuItem Text="Hướng dẫn sử dụng" Value="Hướng dẫn sử dụng"></asp:MenuItem>
-                        </asp:MenuItem>
-                    </Items>
-                </asp:Menu>
+
+            <div id="container">
+             <ul>   
+              <li><a href="/TRMProject/Default.aspx">Quản trị hệ thống</a>
+                <ul>
+                    <li><a href="#">Đăng nhập</a> </li>
+                    <li><a href="#">Phân quyền người dùng</a> </li>
+                    <li><a href="#">Người sử dụng</a> </li>
+                    <li><a href="#" >Đăng xuất</a></li>
+                </ul>
+              </li>
+
+               <li><a href="#">Quản lý danh mục</a>
+                    <ul>
+					    <li><a href="/TRMProject/DanhMuc/F101_Dictionary.aspx">Từ điển hệ thống</a></li>
+					    <li><a href="/TRMProject/DanhMuc/F300_MonHoc.aspx">Danh mục môn học</a></li>
+					    <li><a href="/TRMProject/DanhMuc/F200_NoiDungThanhToan.aspx">Danh mục Nội dung thanh toán</a></li>
+                        <li><a href="/TRMProject/DanhMuc/F400_DonViThanhToan.aspx">Danh mục Đơn vị thanh toán</a></li>
+				    </ul>
+              </li>
+
+               <li><a href="#">Nghiệp vụ</a>
+                   <ul>
+					    <li><a href="/TRMProject/ChucNang/F202_DanhSachGiangVien.aspx">Cập nhật giảng viên</a></li>
+					    <li><a href="/TRMProject/ChucNang/F302_DanhSachHopDongKhung.aspx">Cập nhật hợp đồng khung</a></li>
+					    <li><a href="/TRMProject/ChucNang/F103_DanhSachLopMon.aspx">Cập nhật lớp môn</a></li>
+                        <li><a href="#">Cập nhật thanh toán</a></li>
+				    </ul>
+              </li>
+
+               <li><a href="#">Báo cáo</a>
+                    <ul>
+					    <li><a href="#">Danh sách giảng viên</a></li>
+					    <li><a href="#">Danh sách hợp đồng khung</a></li>
+					    <li><a href="#">"Danh sách lớp môn</a></li>
+                         <li><a href="#">Liệt kê thanh toán thực</a></li>
+				    </ul>
+              </li>
+
+              <li><a href="#">Trợ giúp</a>
+                    <ul>
+					    <li><a href="#">Giới thiệu Website</a></li>
+					    <li><a href="#">Hướng dẫn sử dụng</a></li>
+				    </ul>
+              </li>
+
+             </ul>
+
             </div>
         </div>
+
         <div class="main">
             <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
         </div>
