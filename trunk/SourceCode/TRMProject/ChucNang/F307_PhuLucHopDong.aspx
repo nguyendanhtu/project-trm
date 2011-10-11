@@ -287,7 +287,9 @@
                      <asp:TemplateField HeaderText="Đơn giá" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%#CIPConvert.ToStr(CIPConvert.ToDecimal(Eval("DON_GIA_HD")),"0")%></ItemTemplate>
                         <ItemStyle HorizontalAlign="Center"></ItemStyle>
-                    </asp:TemplateField>                 
+                    </asp:TemplateField>  
+                     <asp:BoundField DataField="GHI_CHU_NOI_DUNG_TT" HeaderText="Ghi chú nội dung thanh toán">
+                    </asp:BoundField>               
                 </Columns>
                   <EditRowStyle BackColor="#7C6F57" />
                   <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
