@@ -410,6 +410,7 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
              if (m_rbt_co_so_hd_yn.Items[0].Selected)
                  ip_us_hd_khung.strCO_SO_HD_YN = "Y";
              else ip_us_hd_khung.strCO_SO_HD_YN = "N";
+
              ip_us_hd_khung.strGHI_CHU = m_txt_ghi_chu1.Text;
              ip_us_hd_khung.strGHI_CHU2 = m_txt_ghi_chu2.Text;
              ip_us_hd_khung.strGHI_CHU3 = m_txt_ghi_chu3.Text;
@@ -462,7 +463,10 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
              m_txt_gia_tri_hop_dong.Text = CIPConvert.ToStr(ip_us_hd_khung.dcGIA_TRI_HOP_DONG);
 
              if (ip_us_hd_khung.strHOC_LIEU_YN == "Y")
+             {
                  m_rbt_hoclieu_yn.Items[0].Selected = true;
+                 m_rbt_hoclieu_yn.Items[1].Selected = false;
+             }
              else m_rbt_hoclieu_yn.Items[1].Selected = true;
 
              if (ip_us_hd_khung.strVAN_HANH_YN == "Y")
