@@ -699,4 +699,17 @@ public partial class ChucNang_F306_HopDongKhungGiangVien : System.Web.UI.Page
             CSystemLog_301.ExceptionHandle(this, v_e);
         }
     }
+    protected void m_grv_dm_danh_sach_hop_dong_khung_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+        try
+        {
+            m_grv_dm_danh_sach_hop_dong_khung.PageIndex = e.NewPageIndex;
+            load_data_2_grid(m_dc_id_gv);
+        }
+        catch (Exception v_e)
+        {
+
+            CSystemLog_301.ExceptionHandle(this, v_e);
+        }
+    }
 }
