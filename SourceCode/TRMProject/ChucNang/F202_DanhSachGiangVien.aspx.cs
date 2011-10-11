@@ -268,7 +268,7 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
             m_grv_dm_danh_sach_giang_vien.Visible = true;
             m_grv_dm_danh_sach_giang_vien.DataSource = m_ds_giang_vien.V_DM_GIANG_VIEN;
             m_grv_dm_danh_sach_giang_vien.DataBind();
-            m_lbl_ket_qua_loc_du_lieu.Text = "Kết quả lọc dữ liệu ("+ m_ds_giang_vien.V_DM_GIANG_VIEN.Rows.Count+")";
+            m_lbl_ket_qua_loc_du_lieu.Text = "Kết quả lọc dữ liệu: " + m_ds_giang_vien.V_DM_GIANG_VIEN.Rows.Count + " bản ghi";
         }
         catch (Exception v_e)
         {
@@ -315,7 +315,7 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
             m_grv_dm_danh_sach_giang_vien.Visible = true;
             m_grv_dm_danh_sach_giang_vien.DataSource = m_ds_giang_vien.V_DM_GIANG_VIEN;
             m_grv_dm_danh_sach_giang_vien.DataBind();
-            m_lbl_ket_qua_loc_du_lieu.Text = "Kết quả lọc dữ liệu (" + m_ds_giang_vien.V_DM_GIANG_VIEN.Rows.Count + ")";
+            m_lbl_ket_qua_loc_du_lieu.Text = "Kết quả lọc dữ liệu: " + m_ds_giang_vien.V_DM_GIANG_VIEN.Rows.Count + " bản ghi";
         }
         catch (Exception ve)
         {
