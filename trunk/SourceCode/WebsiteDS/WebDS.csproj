@@ -114,7 +114,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="US_V_GD_HOP_DONG_NOI_DUNG_TT.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
