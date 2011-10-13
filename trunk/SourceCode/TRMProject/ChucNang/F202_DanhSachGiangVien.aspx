@@ -242,7 +242,7 @@
             onrowdeleting="m_grv_dm_danh_sach_giang_vien_RowDeleting" PageSize="15" >
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
-                 <asp:TemplateField>
+                 <asp:TemplateField Visible="false">
                     <ItemTemplate> <asp:LinkButton ID = "lbt_delete"  runat="server"
                      CommandName="Delete" ToolTip="Xóa" OnClientClick="return confirm ('Bạn có thực sự muốn xóa bản ghi này?')">
                      <img src="/TRMProject/Images/Button/deletered.png" alt="Delete" />
