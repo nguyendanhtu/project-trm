@@ -13,7 +13,7 @@ using IP.Core.IPUserService;
 using IP.Core.IPData;
 using System.Data;
 
-public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
+public partial class ChucNang_F901_Test_Surggestion_Textbox : System.Web.UI.Page
 {
      protected void Page_Load(object sender, EventArgs e)
     {
