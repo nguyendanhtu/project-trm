@@ -59,7 +59,7 @@
                 Text="Loại hợp đồng" />
 		                    </td>
                 <td align="left" style="width:10%;">
-			        <asp:DropDownList ID="m_cbo_loai_hop_dong_search" Widt="90%" 
+			        <asp:DropDownList ID="m_cbo_loai_hop_dong_search" 
                         runat="server" Height="22px" Width="90%"></asp:DropDownList></td>
                                  <td align="left" style="width:1%;"></td>
                 <td align="right" style="width:5%;">
@@ -67,7 +67,7 @@
                 Text="Đơn vị quản lý" />
 		                    </td>
                 <td align="left" style="width:10%;">
-                <asp:DropDownList ID="m_cbo_don_vi_quan_ly_search" Widt="90%" 
+                <asp:DropDownList ID="m_cbo_don_vi_quan_ly_search"
                         runat="server" Height="22px" Width="90%"></asp:DropDownList>
 			        &nbsp;</td>
                                  <td align="left" style="width:1%;"></td>
@@ -76,7 +76,7 @@
                 Text="Trạng thái hợp đồng" />
 		                    </td>
                 <td align="left" style="width:10%;">
-                                <asp:DropDownList ID="m_cbo_trang_thai_hop_dong_search" Widt="90%" 
+                                <asp:DropDownList ID="m_cbo_trang_thai_hop_dong_search" 
                         runat="server" Height="22px" Width="90%"></asp:DropDownList>
 			        &nbsp;</td>     <td align="left" style="width:1%;"></td>
             </tr>
@@ -157,9 +157,42 @@
                             </td>
                                  <td align="left" style="width:1%;">&nbsp;</td>
                  <td align="right" style="width:5%;">
-			         &nbsp;</td>
+			       
+			<asp:label id="lblNgayketthuc" CssClass="cssManField" runat="server" 
+                Text="Ngày kết thúc" />
+		                    </td>
                 <td align="left" style="width:10%;">
-                                &nbsp;</td>     <td align="left" style="width:1%;">&nbsp;</td>
+			        <ew:CalendarPopup ID="m_dat_date_ket_thuc" runat="server" 
+                        ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
+                        ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
+                        ShowGoToToday="True" Width="80%" Text="" Culture="vi-VN" 
+                        DisableTextboxEntry="False">
+                        <weekdaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <weekendstyle backcolor="LightGray" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <offmonthstyle backcolor="AntiqueWhite" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Gray" />
+                        <selecteddatestyle backcolor="Yellow" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Black" />
+                        <monthheaderstyle backcolor="Yellow" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Black" />
+                        <DayHeaderStyle BackColor="Orange" Font-Names="Verdana,Helvetica,Tahoma,Arial" 
+                            Font-Size="XX-Small" ForeColor="Black" />
+                        <cleardatestyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <gototodaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <TodayDayStyle BackColor="LightGoldenrodYellow" 
+                            Font-Names="Verdana,Helvetica,Tahoma,Arial" Font-Size="XX-Small" 
+                            ForeColor="Black" />
+                        <holidaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                    </ew:CalendarPopup>
+                            </td>     <td align="left" style="width:1%;">&nbsp;</td>
             </tr>
             <tr>
                 <td align="right" style="width:5%;">
