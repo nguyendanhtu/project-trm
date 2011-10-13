@@ -887,6 +887,7 @@ public class US_V_DM_HOP_DONG_KHUNG : US_Object
                                 , DateTime ip_dat_ngay_ky
 
                                  , DateTime ip_dat_ngay_hieu_luc
+                                 , DateTime ip_dat_ngay_ket_thuc
 
                                 , string ip_str_ma_po_quan_ly
 
@@ -910,6 +911,7 @@ public class US_V_DM_HOP_DONG_KHUNG : US_Object
         v_sp_search_hop_dong_khung.addDatetimeInputParam("@NGAY_KY", ip_dat_ngay_ky);
 
         v_sp_search_hop_dong_khung.addDatetimeInputParam("@NGAY_HIEU_LUC", ip_dat_ngay_hieu_luc);
+        v_sp_search_hop_dong_khung.addDatetimeInputParam("@NGAY_KET_THUC", ip_dat_ngay_ket_thuc);
 
         v_sp_search_hop_dong_khung.addNVarcharInputParam("@MA_PO_QUAN_LY", ip_str_ma_po_quan_ly);
 
