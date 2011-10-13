@@ -256,6 +256,8 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
             m_dat_ngay_ki.SelectedDate = CIPConvert.ToDatetime(CIPConvert.ToStr(Session["Sdatngaykykhung"]), "dd/MM/yyyy");
         if (CIPConvert.ToStr(Session["Sdathieuluckhung"]) != "")
             m_dat_ngay_hieu_luc.SelectedDate = CIPConvert.ToDatetime(CIPConvert.ToStr(Session["Sdathieuluckhung"]), "dd/MM/yyyy");
+        if (CIPConvert.ToStr(Session["Sdatketthuc"]) != "")
+            m_dat_ngay_hieu_luc.SelectedDate = CIPConvert.ToDatetime(CIPConvert.ToStr(Session["Sdatketthuc"]), "dd/MM/yyyy");
         m_cbo_trang_thai_hop_dong_search.SelectedValue = CIPConvert.ToStr(CIPConvert.ToDecimal(Session["Strangthaihdkhung"]));
     }
 
@@ -266,6 +268,7 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
                                   , decimal ip_dc_don_vi_quan_ly
                                   , DateTime ip_dat_ngay_ky
                                   , DateTime ip_dat_ngay_hieu_luc
+                                  , DateTime ip_dat_ngay_ket_thuc
                                   , string ip_str_ma_po_quan_ly)
     {
         Session["Snamekhung"] = ip_str_name;
@@ -277,6 +280,7 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
         Session["Sdatngaykykhung"] = ip_dat_ngay_ky;
         Session["Sdathieuluckhung"] = ip_dat_ngay_hieu_luc;
         Session["Spokhung"] = ip_str_ma_po_quan_ly;
+        Session["Sdatketthuc"] = ip_dat_ngay_ket_thuc;
     }
 
     #region Public Interfaces
@@ -320,13 +324,18 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
             string v_str_ma_po_quan_ly = m_txt_ma_PO_quan_ly.Text.Trim();
             string v_str_so_hop_dong = m_txt_so_hd.Text.Trim();
             DateTime v_dat_ngay_ki;
-            if(m_dat_ngay_ki.Text !="" )
+            if (m_dat_ngay_ki.SelectedDate != CIPConvert.ToDatetime("01/01/0001"))
               v_dat_ngay_ki = m_dat_ngay_ki.SelectedDate;
             else v_dat_ngay_ki = CIPConvert.ToDatetime("01/01/1900");
             DateTime v_dat_ngay_hieu_luc;
-            if (m_dat_ngay_hieu_luc.Text != "")
+            if (m_dat_ngay_hieu_luc.SelectedDate != CIPConvert.ToDatetime("01/01/0001"))
                 v_dat_ngay_hieu_luc = m_dat_ngay_hieu_luc.SelectedDate;
             else v_dat_ngay_hieu_luc = CIPConvert.ToDatetime("01/01/1900");
+
+            DateTime v_dat_ngay_ket_thuc;
+            if (m_dat_date_ket_thuc.SelectedDate != CIPConvert.ToDatetime("01/01/0001"))
+                v_dat_ngay_ket_thuc = m_dat_date_ket_thuc.SelectedDate;
+            else v_dat_ngay_ket_thuc = CIPConvert.ToDatetime("01/01/1900");
             collect_data_2_search(v_str_ten_giang_vien
                                                         , v_str_search_key_word
                                                         , v_str_so_hop_dong
@@ -335,6 +344,7 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
                                                         , v_dc_don_vi_quan_li
                                                         , v_dat_ngay_ki
                                                         , v_dat_ngay_hieu_luc
+                                                        , v_dat_ngay_ket_thuc
                                                         , v_str_ma_po_quan_ly);
 
             // Search
@@ -347,6 +357,7 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
                                                         , v_dc_don_vi_quan_li
                                                         , v_dat_ngay_ki
                                                         , v_dat_ngay_hieu_luc
+                                                        , v_dat_ngay_ket_thuc
                                                         , v_str_ma_po_quan_ly
                                                         , m_ds_hop_dong_khung);
             if (m_ds_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows.Count == 0)
@@ -385,7 +396,8 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
                                                , CIPConvert.ToDecimal(Session["Strangthaihdkhung"])
                                                , CIPConvert.ToDecimal(Session["Squanlykhung"])
                                                , CIPConvert.ToDatetime(CIPConvert.ToStr(Session["Sdatngaykykhung"]))
-                                               ,  CIPConvert.ToDatetime(CIPConvert.ToStr(Session["Sdatngaykykhung"]))
+                                               , CIPConvert.ToDatetime(CIPConvert.ToStr(Session["Sdathieuluckhung"]))
+                                               , CIPConvert.ToDatetime(CIPConvert.ToStr(Session["Sdatketthuc"]))
                                                , CIPConvert.ToStr(Session["Spokhung"])
                                                , m_ds_hop_dong_khung);
             if (m_ds_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows.Count == 0)

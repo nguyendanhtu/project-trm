@@ -690,7 +690,7 @@ public partial class ChucNang_F306_HopDongKhungGiangVien : System.Web.UI.Page
     {
         try
         {
-            Response.Redirect("TRMProject/ChucNang/F202_DanhSachGiangVien.aspx", false);
+            Response.Redirect("/TRMProject/ChucNang/F202_DanhSachGiangVien.aspx", false);
             HttpContext.Current.ApplicationInstance.CompleteRequest();
         }
         catch (Exception v_e)
