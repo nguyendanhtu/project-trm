@@ -206,8 +206,7 @@ public partial class ChuNang_F103_DanhSachLopMon : System.Web.UI.Page
         try
         {
             m_grv.PageIndex = e.NewPageIndex;
-            //load_data_2_grid();
-            m_grv.DataBind();
+            load_data_2_grid();
         }
         catch (Exception v_e)
         {
