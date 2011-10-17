@@ -26,7 +26,7 @@ public class PersonService : System.Web.Services.WebService
                       +" FROM DM_GIANG_VIEN dgv"
                       + " WHERE (dgv.HO_VA_TEN_DEM+' '+ dgv.TEN_GIANG_VIEN) LIKE N'" + ip_str_teacher_name + "%'"
                       + " OR (dgv.HO_VA_TEN_DEM+ dgv.TEN_GIANG_VIEN) LIKE N'" + ip_str_teacher_name + "%'"
-                      +" ORDER BY dgv.ID";
+                      +" ORDER BY dgv.TEN_GIANG_VIEN";
         SqlCommand v_comman = new SqlCommand(query, v_connec);
         SqlDataAdapter v_adap = new SqlDataAdapter(v_comman);
        v_adap.Fill(v_dt);
