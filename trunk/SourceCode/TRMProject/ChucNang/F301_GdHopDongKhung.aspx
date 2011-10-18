@@ -327,11 +327,7 @@
                  <ew:NumericBox ID="m_txt_thue_suat" Width="40%" runat="server" TextAlign="Right"></ew:NumericBox>
                          </td>
                 <td align="left" style="width:1%;">
-                         <asp:RequiredFieldValidator ID="m_rfv_thue_suat" runat="server" 
-                             
-                             ErrorMessage="Bạn nhập thuế suất" Text="*"
-                             ControlToValidate="m_txt_thue_suat">*</asp:RequiredFieldValidator>
-                </td>
+                         &nbsp;</td>
             </tr>
             <tr>
                 <td align="right" style="width:5%;">
