@@ -344,7 +344,13 @@
                     </asp:BoundField>
                      <asp:BoundField DataField="MA_PO_PHU_TRACH" HeaderText="Mã PO Phụ trách">
                     </asp:BoundField>
-                     <asp:BoundField DataField="GIA_TRI_HOP_DONG" HeaderText="Giá trị hợp đồng" />
+                      <asp:TemplateField>
+                    <HeaderTemplate>Giá trị hợp đồng</HeaderTemplate>
+                    <ItemTemplate>
+                    <label><%# Eval("GIA_TRI_HOP_DONG").ToString()%></label>
+                    </ItemTemplate>
+                    <ItemStyle HorizontalAlign="Center"></ItemStyle>
+                    </asp:TemplateField>
                        <asp:BoundField DataField="THUE_SUAT" HeaderText="Thuế suất(%)">
                     </asp:BoundField>
                     <asp:TemplateField>
