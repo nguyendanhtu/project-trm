@@ -309,6 +309,8 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
             if (m_ds_giang_vien.V_DM_GIANG_VIEN.Rows.Count == 0)
             {
                 m_lbl_thong_bao.Text = "Không có bản ghi nào phù hợp";
+                m_grv_dm_danh_sach_giang_vien.DataSource = m_ds_giang_vien.V_DM_GIANG_VIEN;
+                m_grv_dm_danh_sach_giang_vien.DataBind();
                 if (m_grv_dm_danh_sach_giang_vien.Visible == true) m_grv_dm_danh_sach_giang_vien.Visible = false;
                 return;
             }
