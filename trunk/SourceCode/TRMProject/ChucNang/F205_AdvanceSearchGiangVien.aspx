@@ -34,10 +34,10 @@
             <tr>
                 <td align="right" style="width:5%;">
 			<asp:label id="m_lbl_so_hop_dong" CssClass="cssManField" runat="server" 
-                Text="Số hợp đồng" />
+                Text="Số lượng hợp đồng đã ký" />
                          </td>
                 <td align="left" style="width:10%;">
-		            <asp:TextBox ID="m_txt_so_hop_dong" runat="server" Width="207px"></asp:TextBox>
+                     <ew:NumericBox ID="m_txt_so_hop_dong" Width="207px" runat="server" TextAlign="Left"></ew:NumericBox>
                          </td>
                          <td align="left" style="width:1%;"> 
                              &nbsp;</td>
