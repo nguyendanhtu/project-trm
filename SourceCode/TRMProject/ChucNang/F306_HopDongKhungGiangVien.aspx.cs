@@ -32,6 +32,7 @@ public partial class ChucNang_F306_HopDongKhungGiangVien : System.Web.UI.Page
             load_2_cbo_mon_hoc_4();
             load_2_cbo_mon_hoc_5();
             load_2_cbo_mon_hoc_6();
+            load_2_cbo_po_phu_trach();
             // Nếu là trạng thái edit mới load lại form, cho vào trong ispostback để tránh việc sau khi đã sửa dữ liệu, 
             //nó lại load lại form ban đầu
             if (Request.QueryString["mode"] != null && Request.QueryString["mode"].ToString() == "edit")
@@ -368,6 +369,29 @@ public partial class ChucNang_F306_HopDongKhungGiangVien : System.Web.UI.Page
         }
       
     }
+    private void load_2_cbo_po_phu_trach()
+    {
+        try
+        {
+            US_HT_NGUOI_SU_DUNG v_us_nguoi_su_dung = new US_HT_NGUOI_SU_DUNG();
+            DS_HT_NGUOI_SU_DUNG v_ds_nguoi_su_dung = new DS_HT_NGUOI_SU_DUNG();
+            // Đổ dữ liệu vào DS 
+            v_us_nguoi_su_dung.FillDataset(v_ds_nguoi_su_dung);
+
+            //TReo dữ liệu vào Dropdownlist loại hợp đồng
+            // Đây là giá trị thực
+            m_cbo_po_phu_trach.DataValueField = HT_NGUOI_SU_DUNG.TEN_TRUY_CAP;
+            // dây là giá trị hiển thị
+            m_cbo_po_phu_trach.DataTextField = HT_NGUOI_SU_DUNG.TEN;
+
+            m_cbo_po_phu_trach.DataSource = v_ds_nguoi_su_dung.HT_NGUOI_SU_DUNG;
+            m_cbo_po_phu_trach.DataBind();
+        }
+        catch (Exception v_e)
+        {
+            throw v_e;
+        }
+    }
     // Lưu dữ liệu
     private void save_data()
     {
@@ -486,6 +510,10 @@ public partial class ChucNang_F306_HopDongKhungGiangVien : System.Web.UI.Page
             else ip_us_hd_khung.strCO_SO_HD_YN = "N";
 
             ip_us_hd_khung.strGHI_CHU = m_txt_ghi_chu1.Text;
+            ip_us_hd_khung.strGHI_CHU2 = m_txt_ghi_chu2.Text;
+            ip_us_hd_khung.strGHI_CHU3 = m_txt_ghi_chu3.Text;
+            ip_us_hd_khung.strGHI_CHU4 = m_txt_ghi_chu4.Text;
+            ip_us_hd_khung.strMA_PO_PHU_TRACH = m_cbo_po_phu_trach.SelectedValue;
         }
         catch (Exception v_e)
         {
@@ -546,7 +574,12 @@ public partial class ChucNang_F306_HopDongKhungGiangVien : System.Web.UI.Page
             if (ip_us_hd_khung.strCO_SO_HD_YN == "Y")
                 m_rbt_co_so_hd_yn.Items[0].Selected = true;
             else m_rbt_co_so_hd_yn.Items[1].Selected = true;
-            ip_us_hd_khung.strGHI_CHU = m_txt_ghi_chu1.Text;
+            m_txt_ghi_chu1.Text = ip_us_hd_khung.strGHI_CHU;
+            m_txt_ghi_chu2.Text = ip_us_hd_khung.strGHI_CHU2;
+            m_txt_ghi_chu3.Text = ip_us_hd_khung.strGHI_CHU3;
+            m_txt_ghi_chu4.Text = ip_us_hd_khung.strGHI_CHU4;
+            m_cbo_po_phu_trach.SelectedValue = ip_us_hd_khung.strMA_PO_PHU_TRACH;
+           
         }
         catch (Exception v_e)
         {

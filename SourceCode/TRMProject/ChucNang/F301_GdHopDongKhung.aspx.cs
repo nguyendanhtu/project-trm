@@ -23,7 +23,6 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
             m_cmd_luu_va_sinh_pl.Enabled = true;
             if (!this.IsPostBack)
             {
-              //  m_cmd_chosose_gv.Attributes.Add("onclick", "javascript:return OpenPopup()");
                 load_2_cbo_don_vi_tt();
                 load_2_cbo_giang_vien();
                 load_2_cbo_trang_thai_hd();
@@ -50,6 +49,11 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
                 {
                     m_init_mode = DataEntryFormMode.InsertDataState;
                     m_txt_so_hop_dong.Enabled = true;
+                    if (Session["UserName"] != null)
+                    {
+                        m_cbo_po_phu_trach.SelectedValue = CIPConvert.ToStr(Session["UserName"]);
+                        m_cbo_po_phu_trach.ToolTip = CIPConvert.ToStr(Session["UserName"]);
+                    }
                 }
             }
 
@@ -172,11 +176,11 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
 
              //TReo dữ liệu vào Dropdownlist loại hợp đồng
              // Đây là giá trị thực
+
+             m_cbo_po_phu_trach.DataSource = v_ds_nguoi_su_dung.HT_NGUOI_SU_DUNG;             
              m_cbo_po_phu_trach.DataValueField = HT_NGUOI_SU_DUNG.TEN_TRUY_CAP;
              // dây là giá trị hiển thị
              m_cbo_po_phu_trach.DataTextField = HT_NGUOI_SU_DUNG.TEN;
-
-             m_cbo_po_phu_trach.DataSource = v_ds_nguoi_su_dung.HT_NGUOI_SU_DUNG;
              m_cbo_po_phu_trach.DataBind();
          }
          catch (Exception v_e)
@@ -415,7 +419,9 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
              ip_us_hd_khung.strGHI_CHU2 = m_txt_ghi_chu2.Text;
              ip_us_hd_khung.strGHI_CHU3 = m_txt_ghi_chu3.Text;
              ip_us_hd_khung.strGHI_CHU4 = m_txt_ghi_chu4.Text;
-             ip_us_hd_khung.strMA_PO_PHU_TRACH = m_cbo_po_phu_trach.SelectedValue;
+             if(m_init_mode == DataEntryFormMode.InsertDataState)
+               ip_us_hd_khung.strMA_PO_PHU_TRACH = m_cbo_po_phu_trach.SelectedValue;
+             else ip_us_hd_khung.strMA_PO_PHU_TRACH = m_cbo_po_phu_trach.ToolTip;
              ip_us_hd_khung.strGEN_PHU_LUC_YN = "N";
          }
          catch (Exception v_e)
@@ -480,7 +486,9 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
              m_txt_ghi_chu2.Text = ip_us_hd_khung.strGHI_CHU2;
              m_txt_ghi_chu3.Text = ip_us_hd_khung.strGHI_CHU3;
              m_txt_ghi_chu4.Text = ip_us_hd_khung.strGHI_CHU4;
+
              m_cbo_po_phu_trach.SelectedValue = ip_us_hd_khung.strMA_PO_PHU_TRACH;
+             m_cbo_po_phu_trach.ToolTip = ip_us_hd_khung.strMA_PO_PHU_TRACH;
          }
          catch (Exception v_e)
          {
