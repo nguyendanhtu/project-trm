@@ -174,7 +174,7 @@
                     <asp:TemplateField>
                     <HeaderTemplate>Tên giảng viên</HeaderTemplate>
                     <ItemTemplate>
-                    <label><%# Eval("TEN_GIANG_VIEN").ToString() %></label>
+                    <label><%# Eval("HO_VA_TEN_DEM").ToString().Trim() + " " + Eval("TEN_GIANG_VIEN").ToString()%></label>
                     </ItemTemplate>
                     <ItemStyle Width="200px"/>
                     </asp:TemplateField>
