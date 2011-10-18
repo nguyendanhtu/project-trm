@@ -468,11 +468,11 @@
                     </p>
                 </td>
                 <td align="left" style="width:10%;">
-                    <asp:textbox id="m_txt_po_phu_trach_chinh" CssClass="cssTextBox"  runat="server" 
+                    <asp:textbox id="m_txt_po_phu_trach_chinh" Enabled="false" CssClass="cssTextBox" ToolTip="PO phụ trách chính là user đang đăng nhập" runat="server" 
                 MaxLength="64" Width="96%" />
                 <br /><p>
-                    <asp:textbox id="m_txt_po_phu_trach_phu" CssClass="cssTextBox"  runat="server" 
-                MaxLength="64" Width="96%" />
+                <asp:DropDownList id="m_cbo_po_phu_trach_phu" runat="server" Width="96%" 
+                        CssClass="cssDorpdownlist"  />
                          </p>
                 
 			        </td>
