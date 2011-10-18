@@ -338,7 +338,8 @@ public partial class ChucNang_F901_Test_Surggestion_Textbox : System.Web.UI.Page
          try
          {
              ip_us_hd_khung.strSO_HOP_DONG = m_txt_so_hop_dong.Text;
-            // ip_us_hd_khung.dcID_GIANG_VIEN =CIPConvert.ToDecimal(m_cbo_gvien.SelectedValue);             
+             //ip_us_hd_khung.dcID_GIANG_VIEN =CIPConvert.ToDecimal(m_hdf_id_gv.Value);
+             m_lbl_id_gv.Text = m_hdf_id_gv.Value;
              if (m_dat_ngay_ki.SelectedDate != null)
                  ip_us_hd_khung.datNGAY_KY = m_dat_ngay_ki.SelectedDate;
              else ip_us_hd_khung.datNGAY_KY = CIPConvert.ToDatetime("01/01/1900");

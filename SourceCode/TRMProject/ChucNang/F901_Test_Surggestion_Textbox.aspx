@@ -20,6 +20,10 @@
 	<script type="text/javascript">
 	    $(function () {
 	        $(".tb").autocomplete({
+             select: function(event, ui)
+             {
+                 $("#<%=m_hdf_id_gv.ClientID %>").val(ui.item.ID);
+             },
 	            source: function (request, response) {
 	                $.ajax({
 	                    url: "PersonService.asmx/GetPersons",
@@ -31,7 +35,7 @@
 	                    success: function (data) {
 	                        response($.map(data.d, function (item) {
 	                            return {
-	                                value: item.Name                                                                    
+	                                value: item.Name
 	                            }
 	                        }))
 	                    },
@@ -95,12 +99,17 @@
              </asp:TextBox>
                          </td>
                          <td align="left" style="width:1%;"> 
-                             &nbsp;</td>
+                             <asp:RequiredFieldValidator ID="m_rfv_ten_giang_vien" runat="server"  Text="*"
+                        ControlToValidate="tbAuto" ErrorMessage="Bạn phải nhập tên giảng viên"></asp:RequiredFieldValidator></td>
                 <td align="left" style="width:5%;">
+                
 			      <!--<asp:Button ID="m_cmd_chosose_gv" runat="server" Text="+" 
                         CausesValidation="False" onclick="m_cmd_chosose_gv_Click1" />-->
-		            &nbsp;</td>
-                <td align="left" style="width:10%;">&nbsp;</td>
+		            &nbsp;<asp:label id="m_lbl_id_gv" CssClass="cssManField" runat="server" 
+                Text="" />
+                         </td>
+                <td align="left" style="width:10%;">&nbsp;
+                 <asp:HiddenField ID="m_hdf_id_gv" runat="server" />  </td>
                 <td align="left" style="width:1%;">&nbsp;</td>
                  <td align="right" style="width:5%;">&nbsp;</td>
                 <td align="left" style="width:10%;">&nbsp;</td>
