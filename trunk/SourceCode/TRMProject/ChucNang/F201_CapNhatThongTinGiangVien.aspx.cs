@@ -337,7 +337,7 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
             }
             if (!check_check_loai_hop_dong())
             {
-                m_lbl_mess.Text = "Bạn phải chọn ít nhất một loại công việc của giảng viên";
+                m_lbl_mess.Text = "Bạn phải chọn ít nhất một loại hình thức cộng tác của giảng viên";
                 return;
             }
 
