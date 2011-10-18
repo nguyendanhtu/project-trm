@@ -64,11 +64,12 @@ public partial class ChucNang_F307_PhuLucHopDong : System.Web.UI.Page
         DS_DM_NOI_DUNG_THANH_TOAN v_ds_noi_dung_thanh_toan = new DS_DM_NOI_DUNG_THANH_TOAN();
         try
         {
-            v_us_noi_dung_thanh_toan.FillDataset(v_ds_noi_dung_thanh_toan," WHERE ID_LOAI_HOP_DONG="+ip_dc_id_loai_hd);
+            v_us_noi_dung_thanh_toan.FillDataset(v_ds_noi_dung_thanh_toan," WHERE ID_LOAI_HOP_DONG = "+ip_dc_id_loai_hd);
             m_cbo_noi_dung_tt.DataSource = v_ds_noi_dung_thanh_toan.DM_NOI_DUNG_THANH_TOAN;
 
             m_cbo_noi_dung_tt.DataValueField = DM_NOI_DUNG_THANH_TOAN.ID;
             m_cbo_noi_dung_tt.DataTextField = DM_NOI_DUNG_THANH_TOAN.TEN_NOI_DUNG;
+
             m_cbo_noi_dung_tt.DataBind();
         }
         catch (Exception v_e)
