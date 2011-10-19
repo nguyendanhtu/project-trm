@@ -233,6 +233,7 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
     {
         try
         {
+            System.Globalization.CultureInfo enUS = new System.Globalization.CultureInfo("en-US"); 
             // thu thập dữ liệu và chuẩn hóa        
             string v_str_ten_giang_vien = m_txt_ten_giang_vien.Text.Trim();
             v_str_ten_giang_vien = Process_name_search(v_str_ten_giang_vien);
@@ -243,9 +244,12 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
             string v_str_gender="";
             v_str_gender = get_gender_search();
             DateTime v_dat_ngay_bd_hop_tac;
-            if (m_dat_ngay_bd_hop_tac.SelectedDate != CIPConvert.ToDatetime("01/01/0001"))
-                v_dat_ngay_bd_hop_tac = m_dat_ngay_bd_hop_tac.SelectedDate;
-            else v_dat_ngay_bd_hop_tac = CIPConvert.ToDatetime("01/01/1900");
+            if (DateTime.TryParseExact(CIPConvert.ToStr(m_dat_ngay_bd_hop_tac.SelectedDate),"dd/MM/yyyy",enUS, System.Globalization.DateTimeStyles.None,out v_dat_ngay_bd_hop_tac))
+            {
+                if (m_dat_ngay_bd_hop_tac.SelectedDate != CIPConvert.ToDatetime("01/01/0001"))
+                    v_dat_ngay_bd_hop_tac = m_dat_ngay_bd_hop_tac.SelectedDate;
+                else v_dat_ngay_bd_hop_tac = CIPConvert.ToDatetime("01/01/1900");
+            }            
             string v_str_month = m_cbo_thang_sn_GV.SelectedValue;
                  
             decimal v_dc_id_trang_thai_giang_vien = CIPConvert.ToDecimal(m_cbo_trang_thai_g_vien.SelectedValue);
