@@ -49,6 +49,7 @@ namespace WebDS.CDBNames
         public const string VAN_HANH_YN = "VAN_HANH_YN";
         public const string MA_TU_DIEN = "MA_TU_DIEN";
         public const string TEN_NGAN = "TEN_NGAN";
+        public const string SO_LUONG_HE_SO_DEFAULT = "SO_LUONG_HE_SO_DEFAULT";
     }
     public class DM_MON_HOC
     {
