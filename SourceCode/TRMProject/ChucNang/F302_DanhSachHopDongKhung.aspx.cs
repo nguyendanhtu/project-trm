@@ -360,6 +360,7 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
                                                         , v_dat_ngay_ket_thuc
                                                         , v_str_ma_po_quan_ly
                                                         , m_ds_hop_dong_khung);
+            m_lbl_loc_du_lieu.Text = "Kết quả lọc dữ liệu: " + m_ds_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows.Count + " bản ghi";
             if (m_ds_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows.Count == 0)
             {
                 m_lbl_thong_bao.Text = "Không có bản ghi nào phù hợp";
@@ -370,8 +371,6 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
             m_grv_dm_danh_sach_hop_dong_khung.DataSource = m_ds_hop_dong_khung.V_DM_HOP_DONG_KHUNG;
 
             m_grv_dm_danh_sach_hop_dong_khung.DataBind();
-            m_lbl_loc_du_lieu.Text = "Kết quả lọc dữ liệu: " + m_ds_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows.Count + " bản ghi";
-
         }
 
         catch (Exception v_e)
@@ -400,6 +399,7 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
                                                , CIPConvert.ToDatetime(CIPConvert.ToStr(Session["Sdatketthuc"]))
                                                , CIPConvert.ToStr(Session["Spokhung"])
                                                , m_ds_hop_dong_khung);
+            m_lbl_loc_du_lieu.Text = "Kết quả lọc dữ liệu: " + m_ds_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows.Count + " bản ghi";
             if (m_ds_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows.Count == 0)
             {
                 m_lbl_thong_bao.Text = "Không có bản ghi nào phù hợp";
@@ -409,7 +409,6 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
             m_grv_dm_danh_sach_hop_dong_khung.Visible = true;
             m_grv_dm_danh_sach_hop_dong_khung.DataSource = m_ds_hop_dong_khung.V_DM_HOP_DONG_KHUNG;
             m_grv_dm_danh_sach_hop_dong_khung.DataBind();
-            m_lbl_loc_du_lieu.Text = "Kết quả lọc dữ liệu: " + m_ds_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows.Count + " bản ghi";
         }
         catch (Exception ve)
         {
