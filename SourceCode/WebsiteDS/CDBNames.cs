@@ -218,7 +218,7 @@ namespace WebDS.CDBNames
         public const string THANH_TIEN = "THANH_TIEN";
     }
 
-   public class V_GD_HOP_DONG_NOI_DUNG_TT
+    public class V_GD_HOP_DONG_NOI_DUNG_TT
     {
         public const string ID = "ID";
         public const string ID_HOP_DONG_KHUNG = "ID_HOP_DONG_KHUNG";
@@ -226,10 +226,15 @@ namespace WebDS.CDBNames
         public const string TEN_GIANG_VIEN = "TEN_GIANG_VIEN";
         public const string ID_NOI_DUNG_TT = "ID_NOI_DUNG_TT";
         public const string NOI_DUNG_THANH_TOAN = "NOI_DUNG_THANH_TOAN";
-        public const string SO_LUONG_HE_SO = "SO_LUONG_HE_SO";
-        public const string DON_GIA_HD = "DON_GIA_HD";
         public const string GHI_CHU_NOI_DUNG_TT = "GHI_CHU_NOI_DUNG_TT";
+        public const string SO_LUONG_HE_SO = "SO_LUONG_HE_SO";
+        public const string MA_DON_VI_TINH = "MA_DON_VI_TINH";
+        public const string DON_VI_TINH = "DON_VI_TINH";
+        public const string MA_TAN_SUAT = "MA_TAN_SUAT";
+        public const string TAN_SUAT = "TAN_SUAT";
+        public const string DON_GIA_HD = "DON_GIA_HD";
     }
+
    public class HT_NGUOI_SU_DUNG
     {
         public const string ID = "ID";
