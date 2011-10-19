@@ -307,7 +307,7 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
 
         try
         {
-
+            System.Globalization.CultureInfo enUS = new System.Globalization.CultureInfo("en-US"); 
             // thu thập dữ liệu
 
             string v_str_ten_giang_vien = m_txt_ten_giang_vien.Text.Trim();
@@ -323,19 +323,33 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
             decimal v_dc_don_vi_quan_li = CIPConvert.ToDecimal(m_cbo_don_vi_quan_ly_search.SelectedValue);
             string v_str_ma_po_quan_ly = m_txt_ma_PO_quan_ly.Text.Trim();
             string v_str_so_hop_dong = m_txt_so_hd.Text.Trim();
+
             DateTime v_dat_ngay_ki;
-            if (m_dat_ngay_ki.SelectedDate != CIPConvert.ToDatetime("01/01/0001"))
-              v_dat_ngay_ki = m_dat_ngay_ki.SelectedDate;
-            else v_dat_ngay_ki = CIPConvert.ToDatetime("01/01/1900");
+            // Nếu ngày ký đúng định dạng
+            if(DateTime.TryParseExact(CIPConvert.ToStr(m_dat_ngay_ki.SelectedDate),"dd/MM/yyyy",enUS, System.Globalization.DateTimeStyles.None, out v_dat_ngay_ki))
+            { 
+                if (m_dat_ngay_ki.SelectedDate != CIPConvert.ToDatetime("01/01/0001"))
+                v_dat_ngay_ki = m_dat_ngay_ki.SelectedDate;
+                else v_dat_ngay_ki = CIPConvert.ToDatetime("01/01/1900");
+            }          
             DateTime v_dat_ngay_hieu_luc;
-            if (m_dat_ngay_hieu_luc.SelectedDate != CIPConvert.ToDatetime("01/01/0001"))
-                v_dat_ngay_hieu_luc = m_dat_ngay_hieu_luc.SelectedDate;
-            else v_dat_ngay_hieu_luc = CIPConvert.ToDatetime("01/01/1900");
+            if (DateTime.TryParseExact(CIPConvert.ToStr(m_dat_ngay_hieu_luc.SelectedDate), "dd/MM/yyyy", enUS, System.Globalization.DateTimeStyles.None, out v_dat_ngay_hieu_luc))
+            {
+                if (m_dat_ngay_hieu_luc.SelectedDate != CIPConvert.ToDatetime("01/01/0001"))
+                    v_dat_ngay_hieu_luc = m_dat_ngay_hieu_luc.SelectedDate;
+                else v_dat_ngay_hieu_luc = CIPConvert.ToDatetime("01/01/1900");
+            }
+            
 
             DateTime v_dat_ngay_ket_thuc;
-            if (m_dat_date_ket_thuc.SelectedDate != CIPConvert.ToDatetime("01/01/0001"))
-                v_dat_ngay_ket_thuc = m_dat_date_ket_thuc.SelectedDate;
-            else v_dat_ngay_ket_thuc = CIPConvert.ToDatetime("01/01/1900");
+            if (DateTime.TryParseExact(CIPConvert.ToStr(m_dat_date_ket_thuc.SelectedDate), "dd/MM/yyyy", enUS, System.Globalization.DateTimeStyles.None, out v_dat_ngay_ket_thuc))
+            {
+                if (m_dat_date_ket_thuc.SelectedDate != CIPConvert.ToDatetime("01/01/0001"))
+                    v_dat_ngay_ket_thuc = m_dat_date_ket_thuc.SelectedDate;
+                else v_dat_ngay_ket_thuc = CIPConvert.ToDatetime("01/01/1900");
+            }
+           
+
             collect_data_2_search(v_str_ten_giang_vien
                                                         , v_str_search_key_word
                                                         , v_str_so_hop_dong
