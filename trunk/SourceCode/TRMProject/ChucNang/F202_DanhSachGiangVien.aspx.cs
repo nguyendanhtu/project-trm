@@ -154,7 +154,7 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
         m_cbo_trang_thai_g_vien.SelectedValue = CIPConvert.ToStr(CIPConvert.ToDecimal(Session["Sstatus"]));
         m_cbo_don_vi_q_ly.SelectedValue = CIPConvert.ToStr(CIPConvert.ToDecimal(Session["Squanly"]));
         m_txt_tu_khoa_tim_kiem.Text = CIPConvert.ToStr(Session["Skey"]);
-        if (CIPConvert.ToStr(Session["Sdathoptac"]) != "")
+        if (CIPConvert.ToStr(Session["Sdathoptac"]) != "" && CIPConvert.ToDatetime(CIPConvert.ToStr(Session["Sdathoptac"])) != CIPConvert.ToDatetime("01/01/1900"))
             m_dat_ngay_bd_hop_tac.SelectedDate = CIPConvert.ToDatetime(CIPConvert.ToStr(Session["Sdathoptac"]), "dd/MM/yyyy");
         m_cbo_thang_sn_GV.SelectedValue = CIPConvert.ToStr(CIPConvert.ToDecimal(Session["Smonth"]));
     }
