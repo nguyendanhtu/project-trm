@@ -452,10 +452,10 @@
                     </asp:TemplateField>
                      <asp:BoundField DataField="GIA_TRI_HOP_DONG" HeaderText="Giá trị hợp đồng"  HtmlEncode="false">
                     </asp:BoundField>
-                     <asp:TemplateField Visible="false">
+                     <asp:TemplateField>
                     <HeaderTemplate>Thuế suất(%)</HeaderTemplate>
                     <ItemTemplate>
-                    <asp:Label ID="m_lbl_thue_suat" runat="server" Text='<%# Eval("THUE_SUAT").ToString()%>'></asp:Label>
+                    <asp:Label ID="m_lbl_thue_suat" runat="server" Text='<%# Eval("THUE_SUAT").ToString() +"%"%>'></asp:Label>
                     </ItemTemplate>
                     <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:TemplateField>
