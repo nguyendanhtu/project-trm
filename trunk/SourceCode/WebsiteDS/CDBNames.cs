@@ -70,7 +70,7 @@ namespace WebDS.CDBNames
         public const string MA_TAN_SUAT = "MA_TAN_SUAT";
         public const string HOC_LIEU_YN = "HOC_LIEU_YN";
         public const string VAN_HANH_YN = "VAN_HANH_YN";
-        public const string VAN_HANH_YN = "VAN_HANH_YN";
+        public const string SO_LUONG_HE_SO_DEFAULT = "SO_LUONG_HE_SO_DEFAULT";
     }
     public class DM_DON_VI_THANH_TOAN
     {
@@ -81,7 +81,6 @@ namespace WebDS.CDBNames
         public const string SO_DIEN_THOAI = "SO_DIEN_THOAI";
         public const string SO_TAI_KHOAN = "SO_TAI_KHOAN";
         public const string CAP_TAI = "CAP_TAI";
-        public const string SO_LUONG_HE_SO_DEFAULT = "SO_LUONG_HE_SO_DEFAULT";
     }
     public class GD_LOP_MON
     {
