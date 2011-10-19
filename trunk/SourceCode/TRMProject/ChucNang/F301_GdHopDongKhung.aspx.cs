@@ -372,13 +372,13 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
          {
              ip_us_hd_khung.strSO_HOP_DONG = m_txt_so_hop_dong.Text;
              ip_us_hd_khung.dcID_GIANG_VIEN =CIPConvert.ToDecimal(m_cbo_gvien.SelectedValue);
-             if (m_dat_ngay_ki.SelectedDate != null)
+             if (m_dat_ngay_ki.SelectedDate != CIPConvert.ToDatetime("01/01/0001"))
                  ip_us_hd_khung.datNGAY_KY = m_dat_ngay_ki.SelectedDate;
              else ip_us_hd_khung.datNGAY_KY = CIPConvert.ToDatetime("01/01/1900");
-             if (m_dat_ngay_hieu_luc.SelectedDate != null)
+             if (m_dat_ngay_hieu_luc.SelectedDate != CIPConvert.ToDatetime("01/01/0001"))
                  ip_us_hd_khung.datNGAY_HIEU_LUC = m_dat_ngay_hieu_luc.SelectedDate;
              else ip_us_hd_khung.datNGAY_HIEU_LUC = CIPConvert.ToDatetime("01/01/1900");
-             if (m_dat_ngay_ket_thuc.SelectedDate != null)
+             if (m_dat_ngay_ket_thuc.SelectedDate != CIPConvert.ToDatetime("01/01/0001"))
                  ip_us_hd_khung.datNGAY_KET_THUC_DU_KIEN = m_dat_ngay_ket_thuc.SelectedDate;
              else ip_us_hd_khung.datNGAY_KET_THUC_DU_KIEN = CIPConvert.ToDatetime("01/01/1900");
              
@@ -438,13 +438,13 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
          {
              m_txt_so_hop_dong.Text = ip_us_hd_khung.strSO_HOP_DONG;
              m_cbo_gvien.SelectedValue =CIPConvert.ToStr(ip_us_hd_khung.dcID_GIANG_VIEN);
-             if (ip_us_hd_khung.datNGAY_KY != null)
+             if (!ip_us_hd_khung.IsNGAY_KYNull())
                  m_dat_ngay_ki.SelectedDate = ip_us_hd_khung.datNGAY_KY;
             // else ip_us_hd_khung.datNGAY_KY = CIPConvert.ToDatetime("01/01/1900");
-             if (ip_us_hd_khung.datNGAY_HIEU_LUC !=null )
+             if (!ip_us_hd_khung.IsNGAY_HIEU_LUCNull() )
                  m_dat_ngay_hieu_luc.SelectedDate= ip_us_hd_khung.datNGAY_HIEU_LUC;
              //else ip_us_hd_khung.datNGAY_HIEU_LUC = CIPConvert.ToDatetime("01/01/1900");
-             if (ip_us_hd_khung.datNGAY_KET_THUC_DU_KIEN != null)
+             if (!ip_us_hd_khung.IsNGAY_KET_THUC_DU_KIENNull())
                  m_dat_ngay_ket_thuc.SelectedDate = ip_us_hd_khung.datNGAY_KET_THUC_DU_KIEN;
             // else ip_us_hd_khung.datNGAY_KET_THUC_DU_KIEN = CIPConvert.ToDatetime("01/01/1900");
 
