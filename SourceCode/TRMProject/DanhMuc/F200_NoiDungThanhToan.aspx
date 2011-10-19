@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="F200_NoiDungThanhToan.aspx.cs" Inherits="DanhMuc_NoiDungThanhToan" %>
-
+<%@ Register assembly="eWorld.UI" namespace="eWorld.UI" tagprefix="ew" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
     <style type="text/css">
         .style1
@@ -86,6 +86,14 @@
 		</td>
         <td>&nbsp;</td>
     </tr>
+	    <tr>
+		<td align="right">
+			<asp:label id="lbl_ma_tan_xuat0" CssClass="cssManField" runat="server" 
+                Text="Số lượng/hệ số Default" />
+		    </td>
+		<td valign="top" colspan="2">
+		    &nbsp; <ew:NumericBox ID="m_txt_so_luong_he_so_default" Width="323px" runat="server" TextAlign="Left"></ew:NumericBox></td>
+	    </tr>
 	    <tr>
 		<td align="right">
 			<asp:label id="lbl_ma_tan_xuat" CssClass="cssManField" runat="server" 
