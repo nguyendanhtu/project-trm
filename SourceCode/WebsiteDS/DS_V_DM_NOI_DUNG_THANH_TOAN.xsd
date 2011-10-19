@@ -2,17 +2,18 @@
 <xs:schema id="DS_V_DM_NOI_DUNG_THANH_TOAN" targetNamespace="http://tempuri.org/DS_V_DM_NOI_DUNG_THANH_TOAN.xsd" xmlns:mstns="http://tempuri.org/DS_V_DM_NOI_DUNG_THANH_TOAN.xsd" xmlns="http://tempuri.org/DS_V_DM_NOI_DUNG_THANH_TOAN.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="TRMConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="TRMConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.WebDS.Properties.Settings.GlobalReference.Default.TRMConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="TRMConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="TRMConnectionString1 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.WebDS.Properties.Settings.GlobalReference.Default.TRMConnectionString1" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="V_DM_NOI_DUNG_THANH_TOANTableAdapter" GeneratorDataComponentClassName="V_DM_NOI_DUNG_THANH_TOANTableAdapter" Name="V_DM_NOI_DUNG_THANH_TOAN" UserDataComponentName="V_DM_NOI_DUNG_THANH_TOANTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="TRMConnectionString (Settings)" DbObjectName="TRM.dbo.V_DM_NOI_DUNG_THANH_TOAN" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="TRMConnectionString1 (Settings)" DbObjectName="TRM.dbo.V_DM_NOI_DUNG_THANH_TOAN" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT ID, TEN_NOI_DUNG, GHI_CHU, ID_LOAI_HOP_DONG, MA_DON_VI_TINH, DON_GIA_DEFAULT, MA_TAN_SUAT, HOC_LIEU_YN, VAN_HANH_YN, MA_TU_DIEN, TEN_NGAN FROM dbo.V_DM_NOI_DUNG_THANH_TOAN</CommandText>
+                    <CommandText>SELECT ID, TEN_NOI_DUNG, GHI_CHU, ID_LOAI_HOP_DONG, MA_DON_VI_TINH, DON_GIA_DEFAULT, MA_TAN_SUAT, HOC_LIEU_YN, VAN_HANH_YN, SO_LUONG_HE_SO_DEFAULT, MA_TU_DIEN, TEN_NGAN FROM dbo.V_DM_NOI_DUNG_THANH_TOAN</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -28,6 +29,7 @@
               <Mapping SourceColumn="MA_TAN_SUAT" DataSetColumn="MA_TAN_SUAT" />
               <Mapping SourceColumn="HOC_LIEU_YN" DataSetColumn="HOC_LIEU_YN" />
               <Mapping SourceColumn="VAN_HANH_YN" DataSetColumn="VAN_HANH_YN" />
+              <Mapping SourceColumn="SO_LUONG_HE_SO_DEFAULT" DataSetColumn="SO_LUONG_HE_SO_DEFAULT" />
               <Mapping SourceColumn="MA_TU_DIEN" DataSetColumn="MA_TU_DIEN" />
               <Mapping SourceColumn="TEN_NGAN" DataSetColumn="TEN_NGAN" />
             </Mappings>
@@ -89,6 +91,7 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="SO_LUONG_HE_SO_DEFAULT" msprop:Generator_ColumnVarNameInTable="columnSO_LUONG_HE_SO_DEFAULT" msprop:Generator_ColumnPropNameInRow="SO_LUONG_HE_SO_DEFAULT" msprop:Generator_ColumnPropNameInTable="SO_LUONG_HE_SO_DEFAULTColumn" msprop:Generator_UserColumnName="SO_LUONG_HE_SO_DEFAULT" type="xs:decimal" minOccurs="0" />
               <xs:element name="MA_TU_DIEN" msprop:Generator_ColumnVarNameInTable="columnMA_TU_DIEN" msprop:Generator_ColumnPropNameInRow="MA_TU_DIEN" msprop:Generator_ColumnPropNameInTable="MA_TU_DIENColumn" msprop:Generator_UserColumnName="MA_TU_DIEN">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
