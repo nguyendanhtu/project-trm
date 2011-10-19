@@ -203,13 +203,15 @@
                         <ItemStyle HorizontalAlign="Center" Width="4%"></ItemStyle></asp:BoundField>
                     <asp:BoundField DataField="TEN_NOI_DUNG" HeaderText="Tên nội dung" />
                     <asp:BoundField DataField="TEN_NGAN" HeaderText="Loại hợp đồng" />
+                    <asp:BoundField DataField="DON_GIA_DEFAULT" HeaderText="Đơn giá" />
                     <asp:BoundField DataField="MA_DON_VI_TINH" HeaderText="Đơn vị tính" 
                         ItemStyle-HorizontalAlign="Center" >
 <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:BoundField>
-                    <asp:TemplateField HeaderText = "Đơn giá">
-                    <ItemTemplate><asp:Label ID="lbl_don_gia" runat="server"><%# Eval("DON_GIA_DEFAULT").ToString() %></asp:Label></ItemTemplate>
-                    </asp:TemplateField>
+                     <asp:BoundField DataField="SO_LUONG_HE_SO_DEFAULT" HeaderText="Số lượng hệ số Default" 
+                        ItemStyle-HorizontalAlign="Center" >
+<ItemStyle HorizontalAlign="Center"></ItemStyle>
+                    </asp:BoundField>
                     <asp:BoundField DataField="MA_TAN_SUAT" HeaderText="Mã tần xuất" 
                         ItemStyle-HorizontalAlign="Center" >
 <ItemStyle HorizontalAlign="Center"></ItemStyle>
