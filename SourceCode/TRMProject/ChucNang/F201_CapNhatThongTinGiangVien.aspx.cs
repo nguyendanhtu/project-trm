@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Text.RegularExpressions;
 
 
 using IP.Core.IPCommon;
@@ -255,6 +256,24 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
             ip_us_giang_vien.strCHUC_VU_HIEN_TAI = m_txt_chuc_vu_hien_tai.Text.Trim();
             ip_us_giang_vien.strCHUYEN_NGANH_CHINH = m_txt_chuyen_nganh_chinh.Text.Trim();
             ip_us_giang_vien.strDESCRIPTION = m_txt_description.Text.Trim();
+            if (m_txt_email.Text.Trim().Equals("")) ip_us_giang_vien.strEMAIL = "";
+            else if (!IsEmail(m_txt_email.Text))
+            {
+                string someScript;
+                someScript = "<script language='javascript'>alert('Email nhập sai định dạng !');</script>";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", someScript);
+                m_txt_email.Focus();
+                return;
+            }
+            if (m_txt_email_topica.Text.Trim().Equals("")) ip_us_giang_vien.strEMAIL_TOPICA = "";
+            else if (!IsEmail(m_txt_email_topica.Text))
+            {
+                string someScript;
+                someScript = "<script language='javascript'>alert('Email Topica nhập sai định dạng !');</script>";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", someScript);
+                m_txt_email_topica.Focus();
+                return;
+            }
             ip_us_giang_vien.strEMAIL = m_txt_email.Text.Trim();
             ip_us_giang_vien.strEMAIL_TOPICA = m_txt_email_topica.Text.Trim();
             ip_us_giang_vien.strGIOI_TINH_YN = rb_sex.Items[0].Selected ? "Y" : "N";
@@ -382,6 +401,21 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
          return "";
      }
     #endregion
+
+     #region Public Interface
+     public bool IsEmail(string email)
+     {
+         string MatchEmailPattern =
+            @"^(([\w-]+\.)+[\w-]+|([a-zA-Z]{1}|[\w-]{2,}))@"
+     + @"((([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\.([0-1]?
+				[0-9]{1,2}|25[0-5]|2[0-4][0-9])\."
+     + @"([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\.([0-1]?
+				[0-9]{1,2}|25[0-5]|2[0-4][0-9])){1}|"
+     + @"([a-zA-Z]+[\w-]+\.)+[a-zA-Z]{2,4})$";
+         if (email != null) return Regex.IsMatch(email, MatchEmailPattern);
+         else return false;
+     }
+     #endregion
    
     //
     //Event
@@ -395,13 +429,19 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
             {
                 if (!check_ma_giang_vien())
                 {
-                    m_lbl_mess.Text = "Mã giảng viên này đã tồn tại";
+                    string someScript;
+                    someScript = "<script language='javascript'>alert('Mã giảng viên này đã tồn tại');</script>";
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", someScript);
+                   // m_lbl_mess.Text = "Mã giảng viên này đã tồn tại";
                     return;
                 }
             }
             if (!check_check_loai_hop_dong())
             {
-                m_lbl_mess.Text = "Bạn phải chọn ít nhất một loại hình thức cộng tác của giảng viên";
+                string someScript;
+                someScript = "<script language='javascript'>alert('Bạn phải chọn ít nhất một loại hình thức cộng tác của giảng viên');</script>";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", someScript);
+               // m_lbl_mess.Text = "Bạn phải chọn ít nhất một loại hình thức cộng tác của giảng viên";
                 return;
             }
 

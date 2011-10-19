@@ -677,7 +677,12 @@ public partial class ChucNang_F306_HopDongKhungGiangVien : System.Web.UI.Page
             {
                 if (!check_so_hd())
                 {
-                    m_lbl_thong_bao.Text = "Số hợp đồng này đã tồn tại";
+                    string someScript;
+                    someScript = "<script language='javascript'>alert('Số hợp đồng này đã tồn tại');</script>";
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", someScript);
+                    // m_lbl_mess.Text = "Số hợp đồng này đã tồn tại";
+                    m_txt_so_hop_dong.Focus();
+                   // m_lbl_thong_bao.Text = "Số hợp đồng này đã tồn tại";
                     return;
                 }
             }
@@ -710,7 +715,12 @@ public partial class ChucNang_F306_HopDongKhungGiangVien : System.Web.UI.Page
             {
                 if (!check_so_hd())
                 {
-                    m_lbl_thong_bao.Text = "Số hợp đồng này đã tồn tại";
+                    string someScript;
+                    someScript = "<script language='javascript'>alert('Số hợp đồng này đã tồn tại');</script>";
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", someScript);
+                    // m_lbl_mess.Text = "Số hợp đồng này đã tồn tại";
+                    m_txt_so_hop_dong.Focus();
+                   // m_lbl_thong_bao.Text = "Số hợp đồng này đã tồn tại";
                     return;
                 }
             }
