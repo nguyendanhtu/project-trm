@@ -245,7 +245,8 @@
 			        &nbsp;</td>
                 <td align="left" >    
 			<asp:button id="m_cmd_xuat_excel" accessKey="x" CssClass="cssButton" 
-                runat="server" Width="98px" Text="Xuất Excel (x)" Height="22px"  />
+                runat="server" Width="98px" Text="Xuất Excel (x)" Height="22px" 
+                        onclick="m_cmd_xuat_excel_Click"  />
 			</td>
                              <td align="left" >&nbsp;</td>
                  <td align="right" ></td>
@@ -301,21 +302,42 @@
                     </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">
-                       <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
+                       <ItemTemplate><asp:Label ID="m_lbl_stt" runat="server" Text="<%# Container.DataItemIndex + 1 %>"></asp:Label></ItemTemplate>
                         <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:TemplateField>
-                    <asp:BoundField DataField="SO_HOP_DONG" HeaderText="Số hợp đồng" 
-                        Visible="true">
-                        <ItemStyle HorizontalAlign="Center" Width="4%"></ItemStyle></asp:BoundField>
+
+                     <asp:TemplateField>
+                    <HeaderTemplate>Số hợp đồng</HeaderTemplate>
+                    <ItemTemplate>
+                    <asp:Label ID="m_lbl_so_hop_dong" runat="server" Text='<%# Eval("SO_HOP_DONG").ToString() %>' ></asp:Label>
+                    </ItemTemplate>
+                     <ItemStyle HorizontalAlign="Center" Width="4%"></ItemStyle>
+                    </asp:TemplateField>
+                      <asp:TemplateField Visible="false">
+                    <HeaderTemplate>"Ngày ký</HeaderTemplate>
+                    <ItemTemplate>
+                    <asp:Label ID="m_lbl_ngay_ky" runat="server" Text='<%# Eval("NGAY_KY").ToString() %>' ></asp:Label>
+                    </ItemTemplate>
+                     <ItemStyle HorizontalAlign="Center" Width="4%"></ItemStyle>
+                    </asp:TemplateField>
                     <asp:BoundField DataField="NGAY_KY" HeaderText="Ngày ký" DataFormatString="{0:dd/MM/yyyy}" HtmlEncode="false" />
                      <asp:TemplateField>
                     <HeaderTemplate>Mã giảng viên</HeaderTemplate>
                     <ItemTemplate>
-                    <label>
-                    <%# get_ma_gv_form_id(CIPConvert.ToDecimal(Eval("ID_GIANG_VIEN"))) %></label>
+                    <asp:Label ID="m_lbl_ma_gv" runat="server" Text='<%# get_ma_gv_form_id(CIPConvert.ToDecimal(Eval("ID_GIANG_VIEN"))) %>'></asp:Label>
                     </ItemTemplate>
                     <ItemStyle Width="200px"/>
                     </asp:TemplateField>
+
+                     <asp:TemplateField Visible="false">
+                    <HeaderTemplate>Tên giảng viên</HeaderTemplate>
+                    <ItemTemplate>
+                    <asp:Label ID="m_lbl_ten_gv" runat="server"
+                    Text='<%# Eval("GIANG_VIEN").ToString() %>'></asp:Label>
+                    </ItemTemplate>
+                    <ItemStyle Width="200px"/>
+                    </asp:TemplateField>
+
                     <asp:TemplateField>
                     <HeaderTemplate>Tên giảng viên</HeaderTemplate>
                     <ItemTemplate>
@@ -324,60 +346,170 @@
                     </ItemTemplate>
                     <ItemStyle Width="200px"/>
                     </asp:TemplateField>
-                        <asp:BoundField DataField="LOAI_HOP_DONG" HeaderText="Loại hợp đồng">
-                    </asp:BoundField>
-                      <asp:BoundField DataField="DON_VI_QUAN_LY" HeaderText="Đơn vị quản lý">
-                    </asp:BoundField>
-                     <asp:BoundField DataField="DON_VI_THANH_TOAN" HeaderText="Đơn vị thanh toán">
-                    </asp:BoundField>
-                     <asp:BoundField DataField="FIRST_MON" HeaderText="Môn 1" />
-                     <asp:BoundField DataField="SEC_MON" HeaderText="Môn 2" />
-                     <asp:BoundField DataField="THIR_MON" HeaderText="Môn 3" />
-                     <asp:BoundField DataField="FOURTH_MON" HeaderText="Môn 4" />
-                     <asp:BoundField DataField="FITH_MON" HeaderText="Môn 5" />
-                     <asp:BoundField DataField="SIXTH_MON" HeaderText="Môn 6" />
+                       <asp:TemplateField>
+                    <HeaderTemplate>Loại hợp đồng</HeaderTemplate>
+                    <ItemTemplate>
+                    <asp:Label ID="m_lbl_loai_hop_dong" runat="server" Text='<%# Eval("LOAI_HOP_DONG").ToString() %>' ></asp:Label>
+                    </ItemTemplate>
+                     <ItemStyle HorizontalAlign="Center" Width="4%"></ItemStyle>
+                    </asp:TemplateField>
+                      <asp:TemplateField>
+                    <HeaderTemplate>Đơn vị quản lý</HeaderTemplate>
+                    <ItemTemplate>
+                    <asp:Label ID="m_lbl_don_vi_quan_ly" runat="server" Text='<%# Eval("DON_VI_QUAN_LY").ToString() %>' ></asp:Label>
+                    </ItemTemplate>
+                     <ItemStyle HorizontalAlign="Center" Width="4%"></ItemStyle>
+                    </asp:TemplateField>
+                     <asp:TemplateField>
+                    <HeaderTemplate>Đơn vị thanh toán</HeaderTemplate>
+                    <ItemTemplate>
+                    <asp:Label ID="m_lbl_don_vi_thanh_toan" runat="server" Text='<%# Eval("DON_VI_THANH_TOAN").ToString() %>' ></asp:Label>
+                    </ItemTemplate>
+                     <ItemStyle HorizontalAlign="Center" Width="4%"></ItemStyle>
+                    </asp:TemplateField>
+                    <asp:TemplateField>
+                    <HeaderTemplate>Môn 1</HeaderTemplate>
+                    <ItemTemplate>
+                    <asp:Label ID="m_lbl_mon_1" runat="server" Text='<%# Eval("FIRST_MON").ToString() %>' ></asp:Label>
+                    </ItemTemplate>
+                     <ItemStyle HorizontalAlign="Center" Width="4%"></ItemStyle>
+                    </asp:TemplateField>
+                     <asp:TemplateField>
+                    <HeaderTemplate>Môn 2</HeaderTemplate>
+                    <ItemTemplate>
+                    <asp:Label ID="m_lbl_mon_2" runat="server" Text='<%# Eval("SEC_MON").ToString() %>' ></asp:Label>
+                    </ItemTemplate>
+                     <ItemStyle HorizontalAlign="Center" Width="4%"></ItemStyle>
+                    </asp:TemplateField>
+                     <asp:TemplateField>
+                    <HeaderTemplate>Môn 3</HeaderTemplate>
+                    <ItemTemplate>
+                    <asp:Label ID="m_lbl_mon_3" runat="server" Text='<%# Eval("THIR_MON").ToString() %>' ></asp:Label>
+                    </ItemTemplate>
+                     <ItemStyle HorizontalAlign="Center" Width="4%"></ItemStyle>
+                    </asp:TemplateField>
+                     <asp:TemplateField>
+                    <HeaderTemplate>Môn 4</HeaderTemplate>
+                    <ItemTemplate>
+                    <asp:Label ID="m_lbl_mon_4" runat="server" Text='<%# Eval("FOURTH_MON").ToString() %>' ></asp:Label>
+                    </ItemTemplate>
+                     <ItemStyle HorizontalAlign="Center" Width="4%"></ItemStyle>
+                    </asp:TemplateField>
+                     <asp:TemplateField>
+                    <HeaderTemplate>Môn 5</HeaderTemplate>
+                    <ItemTemplate>
+                    <asp:Label ID="m_lbl_mon_5" runat="server" Text='<%# Eval("FITH_MON").ToString() %>' ></asp:Label>
+                    </ItemTemplate>
+                     <ItemStyle HorizontalAlign="Center" Width="4%"></ItemStyle>
+                    </asp:TemplateField>
+                     <asp:TemplateField>
+                    <HeaderTemplate>Môn 6</HeaderTemplate>
+                    <ItemTemplate>
+                    <asp:Label ID="m_lbl_mon_6" runat="server" Text='<%# Eval("SIXTH_MON").ToString() %>' ></asp:Label>
+                    </ItemTemplate>
+                     <ItemStyle HorizontalAlign="Center" Width="4%"></ItemStyle>
+                    </asp:TemplateField>
+                      <asp:TemplateField Visible="false">
+                    <HeaderTemplate>ngay hieu luc</HeaderTemplate>
+                    <ItemTemplate>
+                    <asp:Label ID="m_lbl_ngay_hieu_luc" runat="server" Text='<%# Eval("NGAY_HIEU_LUC").ToString() %>' ></asp:Label>
+                    </ItemTemplate>
+                     <ItemStyle HorizontalAlign="Center" Width="4%"></ItemStyle>
+                    </asp:TemplateField>
+
                      <asp:BoundField DataField="NGAY_HIEU_LUC" HeaderText="Ngày hiệu lực" DataFormatString="{0:dd/MM/yyyy}" HtmlEncode="false">
                     </asp:BoundField>
+                    <asp:TemplateField Visible="false">
+                    <HeaderTemplate>ngay ket thuc</HeaderTemplate>
+                    <ItemTemplate>
+                    <asp:Label ID="m_lbl_ngay_ket_thuc" runat="server" Text='<%# Eval("NGAY_KET_THUC_DU_KIEN").ToString() %>' ></asp:Label>
+                    </ItemTemplate>
+                     <ItemStyle HorizontalAlign="Center" Width="4%"></ItemStyle>
+                    </asp:TemplateField>
                     <asp:BoundField DataField="NGAY_KET_THUC_DU_KIEN" HeaderText="Ngày kết thúc " DataFormatString="{0:dd/MM/yyyy}" HtmlEncode="false">
                     </asp:BoundField>
-                     <asp:BoundField DataField="TRANG_THAI_HOP_DONG" HeaderText="Trạng thái hợp đồng">
-                    </asp:BoundField>
-                     <asp:BoundField DataField="MA_PO_PHU_TRACH" HeaderText="Mã PO Phụ trách">
-                    </asp:BoundField>
-                      <asp:TemplateField>
+                     <asp:TemplateField>
+                    <HeaderTemplate>Trạng thái hợp đồng</HeaderTemplate>
+                    <ItemTemplate>
+                    <asp:Label ID="m_lbl_trang_thai_hd" runat="server" Text='<%# Eval("TRANG_THAI_HOP_DONG").ToString() %>' ></asp:Label>
+                    </ItemTemplate>
+                     <ItemStyle HorizontalAlign="Center" Width="4%"></ItemStyle>
+                    </asp:TemplateField>
+                    <asp:TemplateField>
+                    <HeaderTemplate>Mã PO Phụ trách</HeaderTemplate>
+                    <ItemTemplate>
+                    <asp:Label ID="m_lbl_ma_po_phu_trach" runat="server" Text='<%# Eval("MA_PO_PHU_TRACH").ToString() %>' ></asp:Label>
+                    </ItemTemplate>
+                     <ItemStyle HorizontalAlign="Center" Width="4%"></ItemStyle>
+                    </asp:TemplateField>
+                    
+                      <asp:TemplateField Visible="false">
                     <HeaderTemplate>Giá trị hợp đồng</HeaderTemplate>
                     <ItemTemplate>
-                    <label><%# Eval("GIA_TRI_HOP_DONG").ToString()%></label>
+                    <asp:Label ID="m_lbl_gia_tri_hd" runat="server" Text='<%# Eval("GIA_TRI_HOP_DONG").ToString()%>'></asp:Label>
                     </ItemTemplate>
                     <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:TemplateField>
-                       <asp:BoundField DataField="THUE_SUAT" HeaderText="Thuế suất(%)">
+                     <asp:BoundField DataField="GIA_TRI_HOP_DONG" HeaderText="Giá trị hợp đồng"  HtmlEncode="false">
                     </asp:BoundField>
+                     <asp:TemplateField Visible="false">
+                    <HeaderTemplate>Thuế suất(%)</HeaderTemplate>
+                    <ItemTemplate>
+                    <asp:Label ID="m_lbl_thue_suat" runat="server" Text='<%# Eval("THUE_SUAT").ToString()%>'></asp:Label>
+                    </ItemTemplate>
+                    <ItemStyle HorizontalAlign="Center"></ItemStyle>
+                    </asp:TemplateField>
+
                     <asp:TemplateField>
                     <HeaderTemplate>Làm học liệu?</HeaderTemplate>
                     <ItemTemplate>
-                    <label><%# mapping_hl(Eval("HOC_LIEU_YN").ToString())%></label>
+                    <asp:Label ID="m_lbl_lam_hoc_lieu" runat="server" Text='<%# mapping_hl(Eval("HOC_LIEU_YN").ToString())%>'></asp:Label>
                     </ItemTemplate>
                     <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:TemplateField>
                     <asp:TemplateField>
                        <HeaderTemplate>Vận hành?</HeaderTemplate>
                     <ItemTemplate>
-                    <label><%# mapping_vh(Eval("VAN_HANH_YN").ToString())%></label>
+                    <asp:Label ID="m_lbl_van_hanh" runat="server" Text ='<%# mapping_vh(Eval("VAN_HANH_YN").ToString())%>'></asp:Label>
                     </ItemTemplate>
                     <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:TemplateField>
                     <asp:TemplateField>
                        <HeaderTemplate>Có hướng dẫn?</HeaderTemplate>
                     <ItemTemplate>
-                    <label><%# mapping_cs(Eval("CO_SO_HD_YN").ToString())%></label>
+                    <asp:Label  ID="m_lbl_co_so_hop_dong" runat="server" Text = '<%# mapping_cs(Eval("CO_SO_HD_YN").ToString())%>'></asp:Label>
                     </ItemTemplate>
                     <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:TemplateField>
-                     <asp:BoundField DataField="GHI_CHU" HeaderText="Ghi chú" />
-                     <asp:BoundField DataField="GHI_CHU2" HeaderText="Ghi chú 2" />
-                     <asp:BoundField DataField="GHI_CHU3" HeaderText="Ghi chú 3" />
-                     <asp:BoundField DataField="GHI_CHU4" HeaderText="Ghi chú 4" />
+                     <asp:TemplateField>
+                    <HeaderTemplate>Ghi chú</HeaderTemplate>
+                    <ItemTemplate>
+                    <asp:Label ID="m_lbl_ghi_chu" runat="server" Text='<%# Eval("GHI_CHU").ToString() %>' ></asp:Label>
+                    </ItemTemplate>
+                     <ItemStyle HorizontalAlign="Center" Width="4%"></ItemStyle>
+                    </asp:TemplateField>
+                    <asp:TemplateField>
+                    <HeaderTemplate>Ghi chú 2</HeaderTemplate>
+                    <ItemTemplate>
+                    <asp:Label ID="m_lbl_ghi_chu2" runat="server" Text='<%# Eval("GHI_CHU2").ToString() %>' ></asp:Label>
+                    </ItemTemplate>
+                     <ItemStyle HorizontalAlign="Center" Width="4%"></ItemStyle>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField>
+                    <HeaderTemplate>Ghi chú 3</HeaderTemplate>
+                    <ItemTemplate>
+                    <asp:Label ID="m_lbl_ghi_chu3" runat="server" Text='<%# Eval("GHI_CHU3").ToString() %>' ></asp:Label>
+                    </ItemTemplate>
+                     <ItemStyle HorizontalAlign="Center" Width="4%"></ItemStyle>
+                    </asp:TemplateField>
+                    <asp:TemplateField>
+                    <HeaderTemplate>Ghi chú 4</HeaderTemplate>
+                    <ItemTemplate>
+                    <asp:Label ID="m_lbl_ghi_chu4" runat="server" Text='<%# Eval("GHI_CHU4").ToString() %>' ></asp:Label>
+                    </ItemTemplate>
+                     <ItemStyle HorizontalAlign="Center" Width="4%"></ItemStyle>
+                    </asp:TemplateField>
                 </Columns>
                   <EditRowStyle BackColor="#7C6F57" />
                   <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
