@@ -36,7 +36,10 @@ public partial class ChucNang_F307_PhuLucHopDong : System.Web.UI.Page
     }
 
     #region Public Interface
-
+    public string mapping_ma_don_vi_tinh(string ip_str_ma_don_vi_tinh)
+    {
+        return "";
+    }
     #endregion
 
     #region Data Structure
@@ -347,6 +350,20 @@ public partial class ChucNang_F307_PhuLucHopDong : System.Web.UI.Page
         {
 
             CSystemLog_301.ExceptionHandle(this, v_e);
+        }
+    }
+    protected void m_cbo_noi_dung_tt_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        try
+        {
+            decimal v_dc_id_noi_dung_tt =CIPConvert.ToDecimal(m_cbo_noi_dung_tt.SelectedValue);
+            US_DM_NOI_DUNG_THANH_TOAN v_us_dm_noi_dung_tt = new US_DM_NOI_DUNG_THANH_TOAN(v_dc_id_noi_dung_tt);
+            m_txt_don_gia_hd.Text = CIPConvert.ToStr(v_us_dm_noi_dung_tt.dcDON_GIA_DEFAULT);
+            m_txt_so_luong_he_so.Text = CIPConvert.ToStr(v_us_dm_noi_dung_tt.dcSO_LUONG_HE_SO_DEFAULT);
+        }
+        catch (Exception v_e)
+        {            
+            throw v_e;
         }
     }
 }

@@ -125,7 +125,9 @@
 			       
                          </td>
                 <td align="left" colspan="6">
-              <asp:DropDownList ID="m_cbo_noi_dung_tt" Width="96%" runat="server">
+              <asp:DropDownList ID="m_cbo_noi_dung_tt" Width="96%" runat="server" 
+                        AutoPostBack="true" 
+                        onselectedindexchanged="m_cbo_noi_dung_tt_SelectedIndexChanged">
                </asp:DropDownList>
                          </td>
                 <td align="left" style="width:10%;"></td>
@@ -169,23 +171,46 @@
                          <asp:RequiredFieldValidator ID="req_vali2" runat="server" 
                          ErrorMessage="Bạn phải nhập số lượng hệ số" Text="*" ControlToValidate="m_txt_so_luong_he_so"></asp:RequiredFieldValidator></td>
                 <td align="right" style="width:5%;">
-			<asp:label id="lblGiaTriHopDong" CssClass="cssManField" runat="server" 
-                Text="Đơn giá hợp đồng" />
+			       
+			<asp:label id="lbldon_vi_tinh" CssClass="cssManField" runat="server" 
+                Text="Đơn vị tính" />
+			       
                 </td>
                 <td align="left" style="width:10%;">
 			
-                <ew:NumericBox ID="m_txt_don_gia_hd" Width="96%" runat="server" TextAlign="Right">
-                </ew:NumericBox>
-                </td>
+                    &nbsp;<asp:label id="m_lbl_don_vi_tinh" runat="server" /></td>
                       <td align="left" style="width:1%;">
-                          <asp:RequiredFieldValidator ID="req_validator" runat="server" 
-                         ErrorMessage="Bạn phải nhập đơn giá" Text="*" ControlToValidate="m_txt_don_gia_hd"></asp:RequiredFieldValidator></td>
+                          &nbsp;</td>
                  <td align="right" style="width:5%;">
 			       
 			         &nbsp;</td>
                 <td align="left" style="width:10%;">
 		            &nbsp;</td>
                 <td align="left" style="width:1%;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" style="width:5%;">
+			<asp:label id="lblGiaTriHopDong" CssClass="cssManField" runat="server" 
+                Text="Đơn giá hợp đồng" />
+                </td>
+                <td align="left" style="width:10%;">    
+			
+                <ew:NumericBox ID="m_txt_don_gia_hd" Width="96%" runat="server" TextAlign="Right">
+                </ew:NumericBox>
+                </td> 
+                <td align="left" style="width:1%;">
+                          <asp:RequiredFieldValidator ID="req_validator" runat="server" 
+                         ErrorMessage="Bạn phải nhập đơn giá" Text="*" ControlToValidate="m_txt_don_gia_hd"></asp:RequiredFieldValidator></td>
+                <td align="right" style="width:5%;">
+			       
+			<asp:label id="lbltan_suat" CssClass="cssManField" runat="server" 
+                Text="Tần suất" />
+			       
+                </td>
+                <td align="left" style="width:10%;">    
+			        &nbsp;<asp:label id="m_lbl_tan_suat" runat="server" /></td> <td align="left" style="width:1%;">&nbsp;</td>
+                 <td align="right" style="width:5%;">&nbsp;</td>
+                <td align="left" style="width:10%;">&nbsp;</td>
             </tr>
             <tr>
                 <td align="right" style="width:5%;">&nbsp;</td>
@@ -280,15 +305,17 @@
                     </asp:TemplateField>
                     <asp:BoundField DataField="NOI_DUNG_THANH_TOAN" HeaderText="Nội dung thanh toán">
                     </asp:BoundField>
-                     <asp:TemplateField HeaderText="Số lượng - Hệ số" ItemStyle-HorizontalAlign="Center">
+                     <asp:TemplateField HeaderText="Số lượng - Hệ số / Tần suất" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%#CIPConvert.ToStr(CIPConvert.ToDecimal(Eval("SO_LUONG_HE_SO")), "0")%></ItemTemplate>
                         <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:TemplateField> 
+                     <asp:BoundField DataField="DON_VI_TINH" HeaderText="Đơn vị tính">
+                    </asp:BoundField>
                      <asp:TemplateField HeaderText="Đơn giá" ItemStyle-HorizontalAlign="Center">
-                       <ItemTemplate><%#CIPConvert.ToStr(CIPConvert.ToDecimal(Eval("DON_GIA_HD")),"0")%></ItemTemplate>
+                       <ItemTemplate><%#CIPConvert.ToStr(CIPConvert.ToDecimal(Eval("DON_GIA_HD")),"#,###0")%></ItemTemplate>
                         <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:TemplateField>  
-                     <asp:BoundField DataField="GHI_CHU_NOI_DUNG_TT" HeaderText="Ghi chú nội dung thanh toán">
+                     <asp:BoundField DataField="TAN_SUAT" HeaderText="Tần suất">
                     </asp:BoundField>               
                 </Columns>
                   <EditRowStyle BackColor="#7C6F57" />
