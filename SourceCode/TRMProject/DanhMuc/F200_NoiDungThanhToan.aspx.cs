@@ -179,6 +179,7 @@ public partial class DanhMuc_NoiDungThanhToan : System.Web.UI.Page
         if (m_rd_yes_van_hanh.Checked)
             ip_us_noi_dung_thanh_toan.strVAN_HANH_YN = "Y";
         else ip_us_noi_dung_thanh_toan.strVAN_HANH_YN = "N";
+        ip_us_noi_dung_thanh_toan.dcSO_LUONG_HE_SO_DEFAULT = CIPConvert.ToDecimal(m_txt_so_luong_he_so_default.Text.Trim());
     }
     /// <summary>
     /// Hàm này có chức năng chuyển từ id_loai_hop_dong trong bảng dm_noi_dung_thanh_toan sang tên ngắn trong bảng từ điển
@@ -213,6 +214,7 @@ public partial class DanhMuc_NoiDungThanhToan : System.Web.UI.Page
         else m_rd_no_van_hanh.Checked = true;
         m_txt_ghi_chu.Text = ip_us_noi_dung_thanh_toan.strGHI_CHU;
         m_ddl_ma_tan_xuat.SelectedValue = ip_us_noi_dung_thanh_toan.strMA_TAN_SUAT;
+        m_txt_so_luong_he_so_default.Text = CIPConvert.ToStr(ip_us_noi_dung_thanh_toan.dcSO_LUONG_HE_SO_DEFAULT);
     }
     private void load_data_2_us_by_id(int ip_i_id)
     {
