@@ -57,7 +57,7 @@
                 Text="Đến từ" />
                          </td>
                 <td align="left" style="width:10%;">
-                    <asp:DropDownList ID="DropDownList1" runat="server" Height="17px" Width="206px">
+                    <asp:DropDownList ID="DropDownList1" runat="server" Height="22px" Width="206px">
                         <asp:ListItem Value="doanh_nghiep">Doanh nghiệp</asp:ListItem>
                         <asp:ListItem Value="truong_hoc">Trường học </asp:ListItem>
                         <asp:ListItem Value="all">Cả hai</asp:ListItem>

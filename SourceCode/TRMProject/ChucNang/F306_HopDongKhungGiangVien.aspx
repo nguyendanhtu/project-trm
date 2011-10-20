@@ -308,7 +308,7 @@
             <tr>
                 <td align="right" style="width:5%;">
 			<asp:label id="lblHocLieu" CssClass="cssManField" runat="server" 
-                Text="Học liệu" />
+                Text="Là hợp đồng học liệu" />
 		                    </td>
                 <td align="left" style="width:10%;">
 			        <asp:RadioButtonList ID="m_rbt_hoclieu_yn" runat="server" 
@@ -321,7 +321,7 @@
                          &nbsp;</td>
                 <td align="right" style="width:5%;">
 			<asp:label id="lblVanHanh" CssClass="cssManField" runat="server" 
-                Text="Vận hành" />
+                Text="Là hợp đồng vận hành" />
 		                    </td>
                 <td align="left" style="width:10%;">
 			        <asp:RadioButtonList ID="m_rbt_bt_vanhanh_yn" runat="server" 
@@ -334,7 +334,7 @@
                          &nbsp;</td>
                  <td align="right" style="width:5%;">
 			<asp:label id="lblco_so_hd" CssClass="cssManField" runat="server" 
-                Text="Có số hợp đồng?" />
+                Text="Đã cấp số hợp đồng?" />
 		                    </td>
                 <td align="left" style="width:10%;">
 			        <asp:RadioButtonList ID="m_rbt_co_so_hd_yn" runat="server" 
