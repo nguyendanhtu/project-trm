@@ -545,6 +545,10 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
          }
      }
     #endregion
+
+    //
+    // Events
+    //
     protected void m_cmd_luu_du_lieu_Click1(object sender, EventArgs e)
     {
         try
