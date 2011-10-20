@@ -4,6 +4,12 @@
     <head>
 		<title>Đăng nhập TRM</title>
         <link href="../Styles/Login.css" rel="stylesheet" type="text/css" />
+	    <style type="text/css">
+            .style1
+            {
+                color: #FFFF00;
+            }
+        </style>
 	</head>
 	<body style="margin:0px 0px 0px 0px;background-color:#808080;" onload="ShowTable();">
 		<form id="Form2" method="post" runat="server">
@@ -76,7 +82,8 @@
 		                                    <td colspan="4" valign="top" style="height:3px;"></td>
 	                                    </tr>
 	                                    <tr>
-		                                    <td colspan="4" align="center" valign="middle" style="height:34px;background-color:#dddddd;">
+		                                    <td colspan="4" align="center" valign="middle" 
+                                                style="height:34px;background-color:#dddddd;" class="style1">
 		                                        Copyright © 2011 - Designed by 3T. 
 		                                    </td>
 	                                    </tr>
