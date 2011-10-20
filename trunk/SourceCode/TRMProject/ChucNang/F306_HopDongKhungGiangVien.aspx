@@ -456,7 +456,8 @@
                 Width="101%" DataKeyNames="ID"
                 CellPadding="4" ForeColor="#333333" 
             AllowSorting="True" 
-                onpageindexchanging="m_grv_dm_danh_sach_hop_dong_khung_PageIndexChanging" >
+                onpageindexchanging="m_grv_dm_danh_sach_hop_dong_khung_PageIndexChanging" 
+                onrowdeleting="m_grv_dm_danh_sach_hop_dong_khung_RowDeleting" >
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
                 <asp:TemplateField>

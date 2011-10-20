@@ -602,7 +602,23 @@ public partial class ChucNang_F306_HopDongKhungGiangVien : System.Web.UI.Page
         }
 
     }
-  
+    private void delete_dm_hd_khung(int ip_i_row_del)
+    {
+        try
+        {
+            decimal v_dc_id_id_hd_khung = CIPConvert.ToDecimal(m_grv_dm_danh_sach_hop_dong_khung.DataKeys[ip_i_row_del].Value);
+            m_us_dm_hop_dong_khung.dcID = v_dc_id_id_hd_khung;
+            m_us_dm_hop_dong_khung.DeleteByID(v_dc_id_id_hd_khung);
+            m_lbl_thong_bao.Text = "Xóa bản ghi thành công";
+            load_data_2_grid(m_dc_id_gv);
+        }
+        catch (Exception v_e)
+        {
+
+            throw v_e;
+        }
+
+    }
     #endregion
 
     #region Public Interfaces
@@ -766,6 +782,17 @@ public partial class ChucNang_F306_HopDongKhungGiangVien : System.Web.UI.Page
         catch (Exception v_e)
         {
 
+            CSystemLog_301.ExceptionHandle(this, v_e);
+        }
+    }
+    protected void m_grv_dm_danh_sach_hop_dong_khung_RowDeleting(object sender, GridViewDeleteEventArgs e)
+    {
+        try
+        {
+            delete_dm_hd_khung(e.RowIndex);
+        }
+        catch (Exception v_e)
+        {
             CSystemLog_301.ExceptionHandle(this, v_e);
         }
     }
