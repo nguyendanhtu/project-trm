@@ -312,8 +312,8 @@
 		                    </td>
                 <td align="left" style="width:10%;">
 			
-                <ew:NumericBox ID="m_txt_gia_tri_hop_dong" Width="96%" runat="server" TextAlign="Right">
-                </ew:NumericBox>
+                <ew:NumericBox ID="m_txt_gia_tri_hop_dong" Width="96%" runat="server" 
+                        TextAlign="Right"></ew:NumericBox>
 			 
                          </td>
                       <td align="left" style="width:1%;">

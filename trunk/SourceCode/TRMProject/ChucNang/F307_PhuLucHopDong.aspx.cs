@@ -261,7 +261,10 @@ public partial class ChucNang_F307_PhuLucHopDong : System.Web.UI.Page
              form_2_us_object(m_us_v_gd_hop_dong_noi_dung_tt);
              if (check_exist_noi_dung_tt(m_us_v_gd_hop_dong_noi_dung_tt.dcID_NOI_DUNG_TT))
              {
-                 m_lbl_thong_bao.Text = "Nội dung thanh tóan này đã tồn tại trong hợp đồng này";
+                 string someScript;
+                 someScript = "<script language='javascript'>alert('Nội dung thanh tóan này đã tồn tại trong hợp đồng này');</script>";
+                 Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", someScript);
+                 //m_lbl_thong_bao.Text = "Nội dung thanh tóan này đã tồn tại trong hợp đồng này";
                  return;
              }
              m_us_v_gd_hop_dong_noi_dung_tt.Insert();
@@ -323,7 +326,10 @@ public partial class ChucNang_F307_PhuLucHopDong : System.Web.UI.Page
         {
             if (hdf_id_gv.Value == "")
             {
-                m_lbl_mess.Text = "Bạn phải chọn nội dung cần Cập nhật";
+                string someScript;
+                someScript = "<script language='javascript'>alert('Bạn phải chọn nội dung cần Cập nhật');</script>";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", someScript);
+                //m_lbl_mess.Text = "";
                 return;
             }
             form_2_us_object(m_us_v_gd_hop_dong_noi_dung_tt);
