@@ -123,7 +123,7 @@
                 <td align="right" style="width:10%;">
                     &nbsp;</td>
                 <td align="left" colspan="3" style="margin-left: 40px" rowspan="4">
-			        &nbsp;<asp:CheckBoxList ID="m_cbl_loai_hop_dong" runat="server">
+			        &nbsp;<asp:CheckBoxList ID="m_cbl_loai_hinh_thuc_cong_tac" runat="server">
                         <asp:ListItem>Hướng dẫn</asp:ListItem>
                         <asp:ListItem>Chuyên Môn</asp:ListItem>
                         <asp:ListItem>Viết Học Liệu</asp:ListItem>
