@@ -288,8 +288,8 @@
 		                    </td>
                 <td align="left" style="width:10%;">
 			
-		            <ew:NumericBox ID="m_txt_gia_tri_hop_dong" runat="server" TextAlign="Right" 
-                        Width="96%">
+		            <ew:NumericBox ID="m_txt_gia_tri_hop_dong"  DecimalSign="," runat="server" TextAlign="Right" 
+                        Width="70%">
                 </ew:NumericBox>
 		                    </td>
                       <td align="left" style="width:1%;">
