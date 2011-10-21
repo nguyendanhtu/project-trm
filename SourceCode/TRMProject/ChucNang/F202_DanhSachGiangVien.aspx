@@ -243,19 +243,19 @@
             onrowdeleting="m_grv_dm_danh_sach_giang_vien_RowDeleting" PageSize="15" >
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
-                 <asp:TemplateField>
-                    <ItemTemplate> <asp:LinkButton Visible="false" ID = "lbt_delete"  runat="server"
+                 <asp:TemplateField Visible="false" HeaderText="Xóa" >
+                    <ItemTemplate> <asp:LinkButton  ID = "lbt_delete"  runat="server"
                      CommandName="Delete" ToolTip="Xóa" OnClientClick="return confirm ('Bạn có thực sự muốn xóa bản ghi này?')">
                      <img src="/TRMProject/Images/Button/deletered.png" alt="Delete" />
                      </asp:LinkButton>
                     </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField>
+                    <asp:TemplateField HeaderText="Sửa">
                     <ItemTemplate> <asp:HyperLink ToolTip="Sửa" ImageUrl="/TRMProject/Images/Button/edit.png" ID = "lbt_edit" runat="server"
                      NavigateUrl='<%# "/TRMProject/ChucNang/F201_CapNhatThongTinGiangVien.aspx?mode=edit&id="+Eval("ID") %>'></asp:HyperLink>
                     </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField>
+                    <asp:TemplateField HeaderText="Hợp đồng giảng viên">
                     <ItemTemplate> <asp:HyperLink ToolTip="Hợp đồng giảng viên" ImageUrl="/TRMProject/Images/Button/detail.png" ID = "lbt_hop_dong_gv" runat="server"
                      NavigateUrl='<%# "/TRMProject/ChucNang/F306_HopDongKhungGiangVien.aspx?id_gv="+Eval("ID") %>'></asp:HyperLink>
                     </ItemTemplate>
@@ -472,21 +472,21 @@
                     <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:TemplateField>
                     <asp:TemplateField>
-                    <HeaderTemplate>GV chuyên môn </HeaderTemplate>
+                    <HeaderTemplate>GV chuyên môn?</HeaderTemplate>
                     <ItemTemplate>
                      <asp:Label ID="m_lbl_gv_chuyen_mon" runat="server" Text='<%# mapping_cm(Eval("GVCM_YN").ToString())%>'></asp:Label>
                     </ItemTemplate>
                     <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:TemplateField>
                     <asp:TemplateField>
-                    <HeaderTemplate>GV viết học liệu</HeaderTemplate>
+                    <HeaderTemplate>GV viết học liệu?</HeaderTemplate>
                      <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     <ItemTemplate>
                      <asp:Label ID="m_lbl_gv_viet_hoc_lieu" runat="server" Text='<%# mapping_viet_hl(Eval("GV_VIET_HL_YN").ToString())%>'></asp:Label>
                     </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField>
-                    <HeaderTemplate>GV duyệt học liệu</HeaderTemplate>
+                    <HeaderTemplate>GV duyệt học liệu?</HeaderTemplate>
                     <ItemTemplate>
                    <asp:Label ID="m_lbl_gv_duyet_hoc_lieu" runat="server" Text='<%# mapping_duyet_hl(Eval("GV_DUYET_HL_YN").ToString())%>'></asp:Label>
                     </ItemTemplate>
@@ -499,14 +499,14 @@
                     <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:TemplateField>
                     <asp:TemplateField>
-                    <HeaderTemplate>GV quay học liệu</HeaderTemplate>
+                    <HeaderTemplate>GV quay học liệu?</HeaderTemplate>
                     <ItemTemplate>
                     <asp:Label ID="m_lbl_gv_quay_hoc_lieu" runat="server" Text='<%# mapping_quay_hl(Eval("GV_QUAY_HL").ToString())%>'></asp:Label>
                     </ItemTemplate>
                     <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:TemplateField>
                      <asp:TemplateField>
-                    <HeaderTemplate>GV hội đồng khoa học</HeaderTemplate>
+                    <HeaderTemplate>GV hội đồng khoa học?</HeaderTemplate>
                     <ItemTemplate>
                     <asp:Label ID="m_lbl_gv_hoi_dong_kh" runat="server" Text='<%# mapping_hdkh(Eval("GV_HDKH_YN").ToString())%>'></asp:Label>
                     </ItemTemplate>
