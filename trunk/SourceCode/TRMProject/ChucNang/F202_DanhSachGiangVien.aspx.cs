@@ -157,6 +157,14 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
         if (CIPConvert.ToStr(Session["Sdathoptac"]) != "" && CIPConvert.ToDatetime(CIPConvert.ToStr(Session["Sdathoptac"])) != CIPConvert.ToDatetime("01/01/1900"))
             m_dat_ngay_bd_hop_tac.SelectedDate = CIPConvert.ToDatetime(CIPConvert.ToStr(Session["Sdathoptac"]), "dd/MM/yyyy");
         m_cbo_thang_sn_GV.SelectedValue = CIPConvert.ToStr(CIPConvert.ToDecimal(Session["Smonth"]));
+
+        if (CIPConvert.ToStr(Session["Sduyethl"]) == "Y") m_cbl_loai_hinh_thuc_cong_tac.Items[3].Selected = true;
+        if (CIPConvert.ToStr(Session["Shdkh"]) == "Y") m_cbl_loai_hinh_thuc_cong_tac.Items[6].Selected = true;
+        if (CIPConvert.ToStr(Session["Squayhl"]) == "Y") m_cbl_loai_hinh_thuc_cong_tac.Items[5].Selected = true;
+        if (CIPConvert.ToStr(Session["Sthamdinhhl"]) == "Y") m_cbl_loai_hinh_thuc_cong_tac.Items[4].Selected = true;
+        if (CIPConvert.ToStr(Session["Sviethl"]) == "Y") m_cbl_loai_hinh_thuc_cong_tac.Items[2].Selected = true;
+        if (CIPConvert.ToStr(Session["Sgvcm"]) == "Y") m_cbl_loai_hinh_thuc_cong_tac.Items[1].Selected = true;
+        if (CIPConvert.ToStr(Session["Sgvhd"]) == "Y") m_cbl_loai_hinh_thuc_cong_tac.Items[0].Selected = true;
     }
 
 
@@ -215,11 +223,18 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
     /// <param name="ip_dat_ngay_bd_hop_tac"></param>
     /// <param name="ip_dc_month_birthday"></param>
     private void collect_data_2_search(string ip_str_name,string ip_str_keyword
-                                    ,string ip_str_gender
+                                    , string ip_str_gender
                                     , decimal ip_dc_id_trang_thai_giang_vien
                                     , decimal ip_dc_id_don_vi_quan_ly
                                     , DateTime ip_dat_ngay_bd_hop_tac
-                                    , decimal ip_dc_month_birthday)
+                                    , decimal ip_dc_month_birthday
+                                    , string ip_str_gvhd
+                                    , string ip_str_gvcm
+                                    , string ip_str_gv_viet_hl
+                                    , string ip_str_gv_tham_dinh_hl
+                                    , string ip_str_duyet_hl
+                                    , string ip_str_gv_quay_hl
+                                    , string ip_str_hdkh)
     {
         Session["Sname"] = ip_str_name;
         Session["Skey"] = ip_str_keyword;
@@ -228,12 +243,20 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
         Session["Squanly"] = ip_dc_id_don_vi_quan_ly;
         Session["Sdathoptac"] = ip_dat_ngay_bd_hop_tac;
         Session["Smonth"] = ip_dc_month_birthday;
+        Session["Sgvcm"] = ip_str_gvcm;
+        Session["Sgvhd"] = ip_str_gvhd;
+        Session["Sviethl"] = ip_str_gv_viet_hl;
+        Session["Sduyethl"] = ip_str_duyet_hl;
+        Session["Sthamdinhhl"] = ip_str_gv_tham_dinh_hl;
+        Session["Squayhl"] = ip_str_gv_quay_hl;
+        Session["Shdkh"] = ip_str_hdkh;
     }
     private void get_form_search_data_and_load_to_grid()
     {
         try
         {
             System.Globalization.CultureInfo enUS = new System.Globalization.CultureInfo("en-US"); 
+
             // thu thập dữ liệu và chuẩn hóa        
             string v_str_ten_giang_vien = m_txt_ten_giang_vien.Text.Trim();
             v_str_ten_giang_vien = Process_name_search(v_str_ten_giang_vien);
@@ -255,13 +278,31 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
             decimal v_dc_id_trang_thai_giang_vien = CIPConvert.ToDecimal(m_cbo_trang_thai_g_vien.SelectedValue);
             decimal v_dc_id_don_vi_quan_ly= CIPConvert.ToDecimal(m_cbo_don_vi_q_ly.SelectedValue);
 
+            // Lấy dữ liệu loại hình cộng tác
+            string v_str_gvhd, v_str_gvcm, v_str_gv_viet_hl, v_str_gv_tham_dinh_hl, v_str_duyet_hl, v_str_gv_quay_hl, v_str_hdkh;
+            v_str_duyet_hl = m_cbl_loai_hinh_thuc_cong_tac.Items[3].Selected ? "Y" : "N";
+            v_str_hdkh = m_cbl_loai_hinh_thuc_cong_tac.Items[6].Selected ? "Y" : "N";
+            v_str_gv_quay_hl = m_cbl_loai_hinh_thuc_cong_tac.Items[5].Selected ? "Y" : "N";
+            v_str_gv_tham_dinh_hl = m_cbl_loai_hinh_thuc_cong_tac.Items[4].Selected ? "Y" : "N";
+            v_str_gv_viet_hl = m_cbl_loai_hinh_thuc_cong_tac.Items[2].Selected ? "Y" : "N";
+            v_str_gvcm = m_cbl_loai_hinh_thuc_cong_tac.Items[1].Selected ? "Y" : "N";
+            v_str_gvhd = m_cbl_loai_hinh_thuc_cong_tac.Items[0].Selected ? "Y" : "N";
+
+            // Thu thập dữ liệu và cho vào Session
             collect_data_2_search(v_str_ten_giang_vien
                                                   , v_str_search_key_word
                                                   , v_str_gender
                                                   , v_dc_id_trang_thai_giang_vien
                                                   , v_dc_id_don_vi_quan_ly
                                                   , v_dat_ngay_bd_hop_tac
-                                                  , CIPConvert.ToDecimal(v_str_month));
+                                                  , CIPConvert.ToDecimal(v_str_month)
+                                                  , v_str_gvhd
+                                                  , v_str_gvcm
+                                                  , v_str_gv_viet_hl
+                                                  , v_str_gv_tham_dinh_hl
+                                                  , v_str_duyet_hl
+                                                  ,v_str_gv_quay_hl
+                                                  ,v_str_hdkh);
             // Thực hiện Search
 
             m_us_dm_giang_vien.search_giang_vien(v_str_ten_giang_vien
@@ -271,7 +312,14 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
                                                 ,v_dc_id_don_vi_quan_ly
                                                 ,m_ds_giang_vien
                                                 ,v_dat_ngay_bd_hop_tac
-                                                ,CIPConvert.ToDecimal(v_str_month));
+                                                ,CIPConvert.ToDecimal(v_str_month)
+                                                ,v_str_gvhd
+                                                ,v_str_gvcm
+                                                ,v_str_gv_viet_hl
+                                                , v_str_gv_tham_dinh_hl
+                                                ,v_str_duyet_hl
+                                                ,v_str_gv_quay_hl
+                                                ,v_str_hdkh);
             m_lbl_ket_qua_loc_du_lieu.Text = "Kết quả lọc dữ liệu: " + m_ds_giang_vien.V_DM_GIANG_VIEN.Rows.Count + " bản ghi";
             if (m_ds_giang_vien.V_DM_GIANG_VIEN.Rows.Count == 0)
             {
@@ -318,7 +366,14 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
                                                , CIPConvert.ToDecimal(Session["Squanly"])
                                                , m_ds_giang_vien
                                                , CIPConvert.ToDatetime(CIPConvert.ToStr(Session["Sdathoptac"]))
-                                               , CIPConvert.ToDecimal(Session["Smonth"]));
+                                               , CIPConvert.ToDecimal(Session["Smonth"])
+                                               , CIPConvert.ToStr(Session["Sgvcm"])
+                                               , CIPConvert.ToStr(Session["Sgvhd"])
+                                               , CIPConvert.ToStr(Session["Sviethl"])
+                                               , CIPConvert.ToStr(Session["Sduyethl"])
+                                               , CIPConvert.ToStr(Session["Sthamdinhhl"])
+                                               , CIPConvert.ToStr(Session["Squayhl"])
+                                               , CIPConvert.ToStr(Session["Shdkh"]));
             m_lbl_ket_qua_loc_du_lieu.Text = "Kết quả lọc dữ liệu: " + m_ds_giang_vien.V_DM_GIANG_VIEN.Rows.Count + " bản ghi";
             if (m_ds_giang_vien.V_DM_GIANG_VIEN.Rows.Count == 0)
             {

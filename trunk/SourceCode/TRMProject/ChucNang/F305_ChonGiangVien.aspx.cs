@@ -140,14 +140,14 @@ public partial class ChucNang_F305_ChonGiangVien : System.Web.UI.Page
 
              // Thực hiện Search
 
-             m_us_dm_giang_vien.search_giang_vien(v_str_ho_va_ten_split
-                                                 , v_str_search_key_word
-                                                 , v_str_gender
-                                                 , v_dc_id_trang_thai_giang_vien
-                                                 , v_dc_id_don_vi_quan_ly
-                                                 , m_ds_giang_vien
-                                                 , v_dat_ngay_bd_hop_tac
-                                                 , CIPConvert.ToDecimal(v_str_month));
+             //m_us_dm_giang_vien.search_giang_vien(v_str_ho_va_ten_split
+             //                                    , v_str_search_key_word
+             //                                    , v_str_gender
+             //                                    , v_dc_id_trang_thai_giang_vien
+             //                                    , v_dc_id_don_vi_quan_ly
+             //                                    , m_ds_giang_vien
+             //                                    , v_dat_ngay_bd_hop_tac
+             //                                    , CIPConvert.ToDecimal(v_str_month));
              m_grv_dm_danh_sach_giang_vien_to_choose.DataSource = m_ds_giang_vien.V_DM_GIANG_VIEN;
              m_grv_dm_danh_sach_giang_vien_to_choose.DataBind();
          }
