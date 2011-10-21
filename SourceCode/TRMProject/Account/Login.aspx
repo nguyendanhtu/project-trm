@@ -65,7 +65,7 @@
 	                                    </tr>
 	                                    <tr>
 		                                    <td align="right">
-		                                        <asp:label id="Label1" Runat="server" CssClass="cssLabel" Text="<U>G</U>hi hớ mật khẩu:" />
+		                                        <asp:label id="Label1" Runat="server" CssClass="cssLabel" Text="<U>G</U>hi nhớ mật khẩu:" />
 		                                    </td>
 		                                    <td colspan="2" style="padding-left:4px;" align="left">
 		                                        <asp:checkbox id="cbxRememberPassword" AccessKey="g" CssClass="cssCheckbox" runat="server" />
