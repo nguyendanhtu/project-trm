@@ -172,6 +172,13 @@ public class US_DM_MON_HOC : US_Object
         else if (v_ds_mon_hoc.DM_MON_HOC.Rows[0][DM_MON_HOC.MA_MON_HOC].ToString().Equals(ip_str_ma_mon_ban_dau)) return true;
         return false;
     }
+
+    public void search_mon_hoc(string ip_str_tu_khoa, DS_DM_MON_HOC op_ds_dm_mon_hoc)
+    {
+        CStoredProc v_store = new CStoredProc("pr_V_DM_MON_HOC_Search");
+        v_store.addNVarcharInputParam("@TU_KHOA", ip_str_tu_khoa);
+        v_store.fillDataSetByCommand(this,op_ds_dm_mon_hoc);
+    }
     #endregion
 }
 }
