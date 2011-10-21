@@ -28,17 +28,37 @@
                 Text="&lt;U&gt;H&lt;/U&gt;ọ tên giảng viên" />
                          </td>
                 <td align="left" colspan="3">
-                <asp:TextBox ID="m_txt_ten_giang_vien" runat="server" CssClass="cssTextBox" 
+                &nbsp;<asp:TextBox ID="m_txt_ten_giang_vien" runat="server" CssClass="cssTextBox" 
                         Width="85%"></asp:TextBox>
 		            &nbsp;</td>
-                <td align="left" style="width:10%;">&nbsp;</td>
-                <td align="left" style="width:1%;"></td>
-                 <td align="right" style="width:5%;"></td>
+                <td align="right" style="width:10%;">
+                    <asp:label id="Label13" CssClass="cssManField" runat="server" 
+                Text="&lt;U&gt;T&lt;/U&gt;háng sinh nhật Giảng viên" />
+		            </td>
+                <td align="left" colspan="2">
+                    &nbsp;<asp:DropDownList id="m_cbo_thang_sn_GV" runat="server" Width="75%" 
+                        CssClass="cssDorpdownlist"  >
+                        <asp:ListItem Selected="True" Value="0">Tất cả</asp:ListItem>
+                        <asp:ListItem Value="1">1</asp:ListItem>
+                        <asp:ListItem>2</asp:ListItem>
+                        <asp:ListItem>3</asp:ListItem>
+                        <asp:ListItem>4</asp:ListItem>
+                        <asp:ListItem>5</asp:ListItem>
+                        <asp:ListItem>6</asp:ListItem>
+                        <asp:ListItem>7</asp:ListItem>
+                        <asp:ListItem>8</asp:ListItem>
+                        <asp:ListItem>9</asp:ListItem>
+                        <asp:ListItem>10</asp:ListItem>
+                        <asp:ListItem>11</asp:ListItem>
+                        <asp:ListItem>12</asp:ListItem>
+                    </asp:DropDownList>
+                    </td>
                 <td align="left" style="width:10%;"></td>
                 <td align="left" style="width:1%;"></td>
             </tr>
             <tr>
                 <td align="right" style="width:5%;">
+                    <br />
                     &nbsp;<asp:label id="m_lbl_sex" CssClass="cssManField" runat="server" 
                 Text="&lt;U&gt;G&lt;/U&gt;iới tính" /></td>
                 <td align="left" colspan="3">
@@ -49,35 +69,16 @@
                         <asp:ListItem Value="Male">Nam</asp:ListItem>
                         <asp:ListItem Value="Female">Nữ</asp:ListItem>
                     </asp:RadioButtonList></td>
-                <td align="left" style="width:10%;">
-                    &nbsp;</td>
-                <td align="left" style="width:1%;">
-                    &nbsp;</td>
-                <td align="right" style="width:5%;">
-                    &nbsp;</td>
-                <td align="left" style="width:10%;">
-                    &nbsp;</td>
-                <td align="left" style="width:1%;">
-                    &nbsp;</td>
-            </tr>
-            <tr>
-                <td align="right" style="width:5%;">
-                    &nbsp;<asp:label id="Label3" CssClass="cssManField" runat="server" 
-                Text="&lt;U&gt;T&lt;/U&gt;rạng thái giảng viên" /></td>
-                <td align="left" colspan="3">
-                    &nbsp; <asp:DropDownList id="m_cbo_trang_thai_g_vien" runat="server" Width="85%" 
-                        CssClass="cssDorpdownlist"  />
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    </td>
                 <td align="right" style="width:10%;">
+                    <br />
                     <asp:label id="Label12" CssClass="cssManField" runat="server" 
                 Text="&lt;U&gt;N&lt;/U&gt;gày bắt đầu hợp tác" />
 		            </td>
-                <td align="left" colspan="2" style="margin-left: 40px">
-               <ew:CalendarPopup ID="m_dat_ngay_bd_hop_tac" runat="server" 
+                <td align="left" colspan="2">
+               &nbsp;<ew:CalendarPopup ID="m_dat_ngay_bd_hop_tac" runat="server" 
                         ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
                         ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
-                        ShowGoToToday="True" Width="60%" Text="" Culture="vi-VN" 
+                        ShowGoToToday="True" Width="70%" Text="" Culture="vi-VN" 
                         DisableTextboxEntry="False">
                         <weekdaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
                             font-size="XX-Small" forecolor="Black" />
@@ -112,35 +113,40 @@
             </tr>
             <tr>
                 <td align="right" style="width:5%;">
+                    &nbsp;<asp:label id="Label3" CssClass="cssManField" runat="server" 
+                Text="&lt;U&gt;T&lt;/U&gt;rạng thái giảng viên" /></td>
+                <td align="left" colspan="3">
+                    &nbsp; <asp:DropDownList id="m_cbo_trang_thai_g_vien" runat="server" Width="85%" 
+                        CssClass="cssDorpdownlist"  />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </td>
+                <td align="right" style="width:10%;">
+                    &nbsp;</td>
+                <td align="left" colspan="3" style="margin-left: 40px" rowspan="4">
+			        &nbsp;<asp:CheckBoxList ID="m_cbl_loai_hop_dong" runat="server">
+                        <asp:ListItem>Hướng dẫn</asp:ListItem>
+                        <asp:ListItem>Chuyên Môn</asp:ListItem>
+                        <asp:ListItem>Viết Học Liệu</asp:ListItem>
+                        <asp:ListItem>Duyệt Học Liệu</asp:ListItem>
+                        <asp:ListItem>Thẩm định Học Liệu</asp:ListItem>
+                        <asp:ListItem>Quay học liệu</asp:ListItem>
+                        <asp:ListItem>Hội Đồng Khoa Học</asp:ListItem>
+                    </asp:CheckBoxList>
+                </td>
+                <td align="left" style="width:1%;">
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" style="width:5%;">
                     &nbsp;<asp:label id="Label5" CssClass="cssManField" runat="server" 
                 Text="&lt;U&gt;Đ&lt;/U&gt;ơn vị quản lý" /></td>
                 <td align="left" colspan="3">
                     &nbsp; <asp:DropDownList ID="m_cbo_don_vi_q_ly" runat="server" 
                         CssClass="cssDorpdownlist" Width="85%" /></td>
                 <td align="right" style="width:10%;">
-                    <asp:label id="Label13" CssClass="cssManField" runat="server" 
-                Text="&lt;U&gt;T&lt;/U&gt;háng sinh nhật Giảng viên" />
-		            </td>
-                <td align="left" colspan="2">
-                    <asp:DropDownList id="m_cbo_thang_sn_GV" runat="server" Width="65%" 
-                        CssClass="cssDorpdownlist"  >
-                        <asp:ListItem Selected="True" Value="0">Tất cả</asp:ListItem>
-                        <asp:ListItem Value="1">1</asp:ListItem>
-                        <asp:ListItem>2</asp:ListItem>
-                        <asp:ListItem>3</asp:ListItem>
-                        <asp:ListItem>4</asp:ListItem>
-                        <asp:ListItem>5</asp:ListItem>
-                        <asp:ListItem>6</asp:ListItem>
-                        <asp:ListItem>7</asp:ListItem>
-                        <asp:ListItem>8</asp:ListItem>
-                        <asp:ListItem>9</asp:ListItem>
-                        <asp:ListItem>10</asp:ListItem>
-                        <asp:ListItem>11</asp:ListItem>
-                        <asp:ListItem>12</asp:ListItem>
-                    </asp:DropDownList>
-                    </td>
-                <td align="left" style="width:10%;">
-                    &nbsp;</td>
+			<asp:label id="lblLoaiHopDongGiaoVien" CssClass="cssManField" runat="server" 
+                Text="Hình thức cộng tác:" />
+		                    </td>
                 <td align="left" style="width:1%;">
                     &nbsp;</td>
             </tr>                   
@@ -155,21 +161,15 @@
                     &nbsp;</td>
                 <td align="left" style="width:1%;">
                     &nbsp;</td>
-                <td align="right" style="width:5%;">
-                    &nbsp;</td>
-                <td align="left" style="width:10%;">
-                    &nbsp;</td>
-                <td align="left" style="width:1%;">
-                    &nbsp;</td>
             </tr>
             <tr>
-                <td align="right" style="width:5%;">
-			        &nbsp;</td>
-                   <td align="left" style="width:1%;" colspan="4">
+                <td align="left" colspan="5">
+
+                &nbsp;&nbsp;&nbsp;
 
                 <asp:label id="lblFullName1" CssClass="cssLabel" runat="server" 
                 
-                Text="(Từ khóa tìm kiếm: Mã giảng viên, tên giảng viên hoặc email, trường đào tạo,loại hợp đồng, ngày bắt đầu hợp tác, ngày sinh,....)" />
+                Text="(Từ khóa tìm kiếm: Mã giảng viên, tên giảng viên hoặc email, trường đào tạo,loại hợp đồng, ngày bắt đầu hợp tác,...)" />
 
 		        </td>
             </tr>
@@ -184,7 +184,8 @@
                 <td align="left" style="width:5%;">
 			        &nbsp;</td>
                 <td align="left" style="width:10%;">     
-			        &nbsp;</td>     <td align="left" style="width:1%;"></td>
+			        &nbsp;</td>     
+                    <td align="left" style="width:1%;"></td>
                  <td align="right" style="width:5%;"></td>
                 <td align="left" style="width:10%;"></td>     <td align="left" style="width:1%;"></td>
             </tr>
