@@ -256,6 +256,7 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
             ip_us_giang_vien.strCHUC_VU_HIEN_TAI = m_txt_chuc_vu_hien_tai.Text.Trim();
             ip_us_giang_vien.strCHUYEN_NGANH_CHINH = m_txt_chuyen_nganh_chinh.Text.Trim();
             ip_us_giang_vien.strDESCRIPTION = m_txt_description.Text.Trim();
+            
             //if (m_txt_email.Text.Trim().Equals("")) ip_us_giang_vien.strEMAIL = "";
             //else if (!IsEmail(m_txt_email.Text))
             //{
