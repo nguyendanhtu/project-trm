@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="F306_HopDongKhungGiangVien.aspx.cs" Inherits="ChucNang_F306_HopDongKhungGiangVien" %>
+﻿    <%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="F306_HopDongKhungGiangVien.aspx.cs" Inherits="ChucNang_F306_HopDongKhungGiangVien" %>
 <%@ Register assembly="eWorld.UI" namespace="eWorld.UI" tagprefix="ew" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
 </asp:Content>
@@ -460,19 +460,19 @@
                 onrowdeleting="m_grv_dm_danh_sach_hop_dong_khung_RowDeleting" >
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
-                <asp:TemplateField>
+                <asp:TemplateField HeaderText="Xóa">
                     <ItemTemplate> <asp:LinkButton ToolTip="Xóa" ID = "lbt_delete" runat="server"
                      CommandName="Delete" OnClientClick="return confirm ('Bạn có thực sự muốn xóa bản ghi này?')">
                       <img src="/TRMProject/Images/Button/deletered.png" alt="Delete" />
                      </asp:LinkButton>
                     </ItemTemplate>
                     </asp:TemplateField>
-                     <asp:TemplateField>
+                     <asp:TemplateField HeaderText="Sửa">
                     <ItemTemplate> <asp:HyperLink ToolTip="Sửa" ImageUrl="/TRMProject/Images/Button/edit.png" ID = "lbt_edit" runat="server"
                      NavigateUrl='<%# "/TRMProject/ChucNang/F306_HopDongKhungGiangVien.aspx?mode=edit&id_hd="+Eval("ID") %>'></asp:HyperLink>
                     </ItemTemplate>
                     </asp:TemplateField>
-                     <asp:TemplateField>
+                     <asp:TemplateField HeaderText="Phụ lục hợp đồng">
                     <ItemTemplate> <asp:HyperLink ToolTip="Phụ lục hợp đồng" ImageUrl="/TRMProject/Images/Button/detail.png" ID = "lbt_phu_luc_hop_dong" runat="server"
                      NavigateUrl='<%# "/TRMProject/ChucNang/F307_PhuLucHopDong.aspx?id_hd="+Eval("ID") %>'></asp:HyperLink>
                     </ItemTemplate>

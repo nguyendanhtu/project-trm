@@ -285,14 +285,14 @@
                 onrowdeleting="m_grv_gd_hop_dong_noi_dung_tt_RowDeleting" >
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
-                <asp:TemplateField>
+                <asp:TemplateField HeaderText="Xóa">
                     <ItemTemplate> <asp:LinkButton ToolTip="Xóa" ID = "lbt_delete" runat="server"
                      CommandName="Delete" CausesValidation="false" OnClientClick="return confirm ('Bạn có thực sự muốn xóa bản ghi này?')">
                       <img src="/TRMProject/Images/Button/deletered.png" alt="Delete" />
                      </asp:LinkButton>
                     </ItemTemplate>
                     </asp:TemplateField>
-                     <asp:TemplateField>
+                     <asp:TemplateField HeaderText="Sửa">
                     <ItemTemplate>
                      <asp:LinkButton CausesValidation="false" CommandName="Select" ToolTip="Sửa" ID = "lbt_edit" runat="server">
                     <img src='/TRMProject/Images/Button/edit.png' alt='Sửa' />
