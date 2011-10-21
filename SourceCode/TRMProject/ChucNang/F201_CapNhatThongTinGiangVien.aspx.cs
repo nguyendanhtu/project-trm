@@ -285,6 +285,7 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
 
             ip_us_giang_vien.strGV_DUYET_HL_YN = m_cbl_loai_hop_dong.Items[3].Selected ? "Y" : "N";
             ip_us_giang_vien.strGV_HDKH_YN = m_cbl_loai_hop_dong.Items[6].Selected ? "Y" : "N";
+            ip_us_giang_vien.strGV_QUAY_HL = m_cbl_loai_hop_dong.Items[5].Selected ? "Y" : "N";
             ip_us_giang_vien.strGV_THAM_DINH_HL_YN = m_cbl_loai_hop_dong.Items[4].Selected ? "Y" : "N";
             ip_us_giang_vien.strGV_VIET_HL_YN = m_cbl_loai_hop_dong.Items[2].Selected ? "Y" : "N";
             ip_us_giang_vien.strGVCM_YN = m_cbl_loai_hop_dong.Items[1].Selected ? "Y" : "N";
@@ -356,7 +357,8 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
             else rb_sex.Items[1].Selected = true;
 
             if (ip_us_giang_vien.strGV_DUYET_HL_YN == "Y") m_cbl_loai_hop_dong.Items[3].Selected = true;
-            if (ip_us_giang_vien.strGV_HDKH_YN == "Y") m_cbl_loai_hop_dong.Items[5].Selected = true;
+            if (ip_us_giang_vien.strGV_HDKH_YN == "Y") m_cbl_loai_hop_dong.Items[6].Selected = true;
+            if (ip_us_giang_vien.strGV_QUAY_HL == "Y") m_cbl_loai_hop_dong.Items[5].Selected = true;
             if (ip_us_giang_vien.strGV_THAM_DINH_HL_YN == "Y") m_cbl_loai_hop_dong.Items[4].Selected = true;
             if (ip_us_giang_vien.strGV_VIET_HL_YN == "Y") m_cbl_loai_hop_dong.Items[2].Selected = true;
             if (ip_us_giang_vien.strGVCM_YN == "Y") m_cbl_loai_hop_dong.Items[1].Selected = true;
