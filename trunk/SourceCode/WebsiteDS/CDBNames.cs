@@ -138,6 +138,7 @@ namespace WebDS.CDBNames
         public const string GV_VIET_HL_YN = "GV_VIET_HL_YN";
         public const string GV_DUYET_HL_YN = "GV_DUYET_HL_YN";
         public const string GV_THAM_DINH_HL_YN = "GV_THAM_DINH_HL_YN";
+        public const string GV_QUAY_HL = "GV_QUAY_HL";
         public const string GV_HDKH_YN = "GV_HDKH_YN";
         public const string DESCRIPTION = "DESCRIPTION";
         public const string NGAY_BD_HOP_TAC = "NGAY_BD_HOP_TAC";
