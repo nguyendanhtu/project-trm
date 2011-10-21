@@ -222,7 +222,7 @@
 	</tr>	
     <tr>
 		<td align="left">
-        &nbsp;<asp:button Visible="false" id="cmd_them_moi" accessKey="c" CssClass="cssButton" 
+        &nbsp;<asp:button  id="cmd_them_moi" accessKey="c" CssClass="cssButton" 
                 runat="server" Width="98px" Text="Tạo mới(c)" 
                 onclick="cmd_them_moi_Click" Height="28px"/>
                 <br />
@@ -495,6 +495,13 @@
                     <HeaderTemplate>GV thẩm định học liệu</HeaderTemplate>
                     <ItemTemplate>
                     <asp:Label ID="m_lbl_gv_tham_dinh_hoc_lieu" runat="server" Text='<%# mapping_tham_dinh_hl(Eval("GV_THAM_DINH_HL_YN").ToString())%>'></asp:Label>
+                    </ItemTemplate>
+                    <ItemStyle HorizontalAlign="Center"></ItemStyle>
+                    </asp:TemplateField>
+                    <asp:TemplateField>
+                    <HeaderTemplate>GV quay học liệu</HeaderTemplate>
+                    <ItemTemplate>
+                    <asp:Label ID="m_lbl_gv_quay_hoc_lieu" runat="server" Text='<%# mapping_quay_hl(Eval("GV_QUAY_HL").ToString())%>'></asp:Label>
                     </ItemTemplate>
                     <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:TemplateField>

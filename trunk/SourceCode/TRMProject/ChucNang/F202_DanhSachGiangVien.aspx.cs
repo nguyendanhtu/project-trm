@@ -383,6 +383,7 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_gv_viet_hoc_lieu")).Text.Trim() + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_gv_duyet_hoc_lieu")).Text.Trim() + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_gv_tham_dinh_hoc_lieu")).Text.Trim() + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_gv_quay_hoc_lieu")).Text.Trim() + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_gv_hoi_dong_kh")).Text.Trim() + "</td>";
             strTable += "\n</tr>";
         }
@@ -472,6 +473,7 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
         strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>GV viết học liệu?</td>";
         strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>GV duyệt học liệu?</td>";
         strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>GV thẩm định học liệu?</td>";
+        strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>GV quay học liệu?</td>";
         strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>GV hội đồng khoa học?</td>";
         strTable += "\n</tr>";
         loadGridExprort(ref strTable);
@@ -556,6 +558,12 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
     public string mapping_duyet_hl(string ip_str_duyet_hl_YN)
     {
         if (ip_str_duyet_hl_YN.Equals("Y"))
+            return "Có";
+        return "Không";
+    }
+    public string mapping_quay_hl(string ip_str_quay_hl_YN)
+    {
+        if (ip_str_quay_hl_YN.Equals("Y"))
             return "Có";
         return "Không";
     }
