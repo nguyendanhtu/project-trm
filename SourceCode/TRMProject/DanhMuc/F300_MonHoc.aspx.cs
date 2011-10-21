@@ -175,11 +175,11 @@ public partial class DanhMuc_F300_MonHoc : System.Web.UI.Page
                 return;
             }
             if (!check_validate()) return;
-            if (!check_ma_mon())
-            {
-                m_lbl_mess.Text = "Mã môn này đã tồn tại";
-                return;
-            }
+            //if (!check_ma_mon())
+            //{
+            //    m_lbl_mess.Text = "Mã môn này đã tồn tại";
+            //    return;
+            //}
             form_2_us_object(m_us_dm_mon_hoc);
             m_us_dm_mon_hoc.dcID = CIPConvert.ToDecimal(hdf_id.Value);
             m_us_dm_mon_hoc.Update();
