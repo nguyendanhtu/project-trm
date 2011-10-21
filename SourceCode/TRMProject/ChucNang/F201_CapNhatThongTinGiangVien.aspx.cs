@@ -256,24 +256,28 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
             ip_us_giang_vien.strCHUC_VU_HIEN_TAI = m_txt_chuc_vu_hien_tai.Text.Trim();
             ip_us_giang_vien.strCHUYEN_NGANH_CHINH = m_txt_chuyen_nganh_chinh.Text.Trim();
             ip_us_giang_vien.strDESCRIPTION = m_txt_description.Text.Trim();
-            if (m_txt_email.Text.Trim().Equals("")) ip_us_giang_vien.strEMAIL = "";
-            else if (!IsEmail(m_txt_email.Text))
-            {
-                string someScript;
-                someScript = "<script language='javascript'>alert('Email nhập sai định dạng !');</script>";
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", someScript);
-                m_txt_email.Focus();
-                return;
-            }
-            if (m_txt_email_topica.Text.Trim().Equals("")) ip_us_giang_vien.strEMAIL_TOPICA = "";
-            else if (!IsEmail(m_txt_email_topica.Text))
-            {
-                string someScript;
-                someScript = "<script language='javascript'>alert('Email Topica nhập sai định dạng !');</script>";
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", someScript);
-                m_txt_email_topica.Focus();
-                return;
-            }
+            //if (m_txt_email.Text.Trim().Equals("")) ip_us_giang_vien.strEMAIL = "";
+            //else if (!IsEmail(m_txt_email.Text))
+            //{
+            //    string someScript;
+            //    someScript = "<script language='javascript'>alert('Email nhập sai định dạng !');</script>";
+            //    Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", someScript);
+            //    m_txt_email.Focus();
+            //    return;
+            //}
+
+            //if (m_txt_email_topica.Text.Trim().Equals("")) ip_us_giang_vien.strEMAIL_TOPICA = "";
+            //else if (!IsEmail(m_txt_email_topica.Text))
+            //{
+            //    string someScript;
+            //    someScript = "<script language='javascript'>alert('Email Topica nhập sai định dạng !');</script>";
+            //    Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", someScript);
+            //    m_txt_email_topica.Focus();
+            //    return;
+            //}
+
+            ip_us_giang_vien.strEMAIL = m_txt_email.Text.Trim();
+            ip_us_giang_vien.strEMAIL_TOPICA = m_txt_email_topica.Text.Trim();
             ip_us_giang_vien.strEMAIL = m_txt_email.Text.Trim();
             ip_us_giang_vien.strEMAIL_TOPICA = m_txt_email_topica.Text.Trim();
             ip_us_giang_vien.strGIOI_TINH_YN = rb_sex.Items[0].Selected ? "Y" : "N";
