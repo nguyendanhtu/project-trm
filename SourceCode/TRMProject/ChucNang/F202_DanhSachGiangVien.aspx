@@ -222,7 +222,7 @@
 	</tr>	
     <tr>
 		<td align="left">
-        &nbsp;<asp:button  id="cmd_them_moi" accessKey="c" CssClass="cssButton" 
+        &nbsp;<asp:button Visible="false"  id="cmd_them_moi" accessKey="c" CssClass="cssButton" 
                 runat="server" Width="98px" Text="Tạo mới(c)" 
                 onclick="cmd_them_moi_Click" Height="28px"/>
                 <br />
@@ -244,7 +244,7 @@
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
                  <asp:TemplateField>
-                    <ItemTemplate> <asp:LinkButton ID = "lbt_delete"  runat="server"
+                    <ItemTemplate> <asp:LinkButton Visible="false" ID = "lbt_delete"  runat="server"
                      CommandName="Delete" ToolTip="Xóa" OnClientClick="return confirm ('Bạn có thực sự muốn xóa bản ghi này?')">
                      <img src="/TRMProject/Images/Button/deletered.png" alt="Delete" />
                      </asp:LinkButton>
