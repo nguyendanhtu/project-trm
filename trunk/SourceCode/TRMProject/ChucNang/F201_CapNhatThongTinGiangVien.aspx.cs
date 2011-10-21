@@ -282,12 +282,14 @@ public partial class ChuNang_F201_CapNhatThongTinGiangVien : System.Web.UI.Page
             ip_us_giang_vien.strEMAIL = m_txt_email.Text.Trim();
             ip_us_giang_vien.strEMAIL_TOPICA = m_txt_email_topica.Text.Trim();
             ip_us_giang_vien.strGIOI_TINH_YN = rb_sex.Items[0].Selected ? "Y" : "N";
+
             ip_us_giang_vien.strGV_DUYET_HL_YN = m_cbl_loai_hop_dong.Items[3].Selected ? "Y" : "N";
-            ip_us_giang_vien.strGV_HDKH_YN = m_cbl_loai_hop_dong.Items[5].Selected ? "Y" : "N";
+            ip_us_giang_vien.strGV_HDKH_YN = m_cbl_loai_hop_dong.Items[6].Selected ? "Y" : "N";
             ip_us_giang_vien.strGV_THAM_DINH_HL_YN = m_cbl_loai_hop_dong.Items[4].Selected ? "Y" : "N";
             ip_us_giang_vien.strGV_VIET_HL_YN = m_cbl_loai_hop_dong.Items[2].Selected ? "Y" : "N";
             ip_us_giang_vien.strGVCM_YN = m_cbl_loai_hop_dong.Items[1].Selected ? "Y" : "N";
             ip_us_giang_vien.strGVHD_YN = m_cbl_loai_hop_dong.Items[0].Selected ? "Y" : "N";
+
             ip_us_giang_vien.strHO_VA_TEN_DEM = m_txt_middle_name.Text.Trim();
             ip_us_giang_vien.strHOC_HAM = m_cbo_hoc_ham.SelectedValue;
             ip_us_giang_vien.strHOC_VI = m_cbo_hoc_vi.SelectedValue;

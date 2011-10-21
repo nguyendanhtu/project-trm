@@ -455,6 +455,7 @@
                         <asp:ListItem>Viết Học Liệu</asp:ListItem>
                         <asp:ListItem>Duyệt Học Liệu</asp:ListItem>
                         <asp:ListItem>Thẩm định Học Liệu</asp:ListItem>
+                        <asp:ListItem>Quay học liệu</asp:ListItem>
                         <asp:ListItem>Hội Đồng Khoa Học</asp:ListItem>
                     </asp:CheckBoxList>
                 </td>
