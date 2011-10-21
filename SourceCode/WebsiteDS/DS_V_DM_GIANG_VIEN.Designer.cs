@@ -347,6 +347,8 @@ namespace WebDS {
             
             private global::System.Data.DataColumn columnGV_THAM_DINH_HL_YN;
             
+            private global::System.Data.DataColumn columnGV_QUAY_HL;
+            
             private global::System.Data.DataColumn columnGV_HDKH_YN;
             
             private global::System.Data.DataColumn columnDESCRIPTION;
@@ -666,6 +668,14 @@ namespace WebDS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn GV_QUAY_HLColumn {
+                get {
+                    return this.columnGV_QUAY_HL;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn GV_HDKH_YNColumn {
                 get {
                     return this.columnGV_HDKH_YN;
@@ -783,6 +793,7 @@ namespace WebDS {
                         string GV_VIET_HL_YN, 
                         string GV_DUYET_HL_YN, 
                         string GV_THAM_DINH_HL_YN, 
+                        string GV_QUAY_HL, 
                         string GV_HDKH_YN, 
                         string DESCRIPTION, 
                         System.DateTime NGAY_BD_HOP_TAC, 
@@ -825,6 +836,7 @@ namespace WebDS {
                         GV_VIET_HL_YN,
                         GV_DUYET_HL_YN,
                         GV_THAM_DINH_HL_YN,
+                        GV_QUAY_HL,
                         GV_HDKH_YN,
                         DESCRIPTION,
                         NGAY_BD_HOP_TAC,
@@ -900,6 +912,7 @@ namespace WebDS {
                 this.columnGV_VIET_HL_YN = base.Columns["GV_VIET_HL_YN"];
                 this.columnGV_DUYET_HL_YN = base.Columns["GV_DUYET_HL_YN"];
                 this.columnGV_THAM_DINH_HL_YN = base.Columns["GV_THAM_DINH_HL_YN"];
+                this.columnGV_QUAY_HL = base.Columns["GV_QUAY_HL"];
                 this.columnGV_HDKH_YN = base.Columns["GV_HDKH_YN"];
                 this.columnDESCRIPTION = base.Columns["DESCRIPTION"];
                 this.columnNGAY_BD_HOP_TAC = base.Columns["NGAY_BD_HOP_TAC"];
@@ -979,6 +992,8 @@ namespace WebDS {
                 base.Columns.Add(this.columnGV_DUYET_HL_YN);
                 this.columnGV_THAM_DINH_HL_YN = new global::System.Data.DataColumn("GV_THAM_DINH_HL_YN", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnGV_THAM_DINH_HL_YN);
+                this.columnGV_QUAY_HL = new global::System.Data.DataColumn("GV_QUAY_HL", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGV_QUAY_HL);
                 this.columnGV_HDKH_YN = new global::System.Data.DataColumn("GV_HDKH_YN", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnGV_HDKH_YN);
                 this.columnDESCRIPTION = new global::System.Data.DataColumn("DESCRIPTION", typeof(string), null, global::System.Data.MappingType.Element);
@@ -1040,6 +1055,8 @@ namespace WebDS {
                 this.columnGV_DUYET_HL_YN.MaxLength = 1;
                 this.columnGV_THAM_DINH_HL_YN.AllowDBNull = false;
                 this.columnGV_THAM_DINH_HL_YN.MaxLength = 1;
+                this.columnGV_QUAY_HL.AllowDBNull = false;
+                this.columnGV_QUAY_HL.MaxLength = 1;
                 this.columnGV_HDKH_YN.AllowDBNull = false;
                 this.columnGV_HDKH_YN.MaxLength = 1;
                 this.columnDESCRIPTION.MaxLength = 250;
@@ -1686,6 +1703,17 @@ namespace WebDS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string GV_QUAY_HL {
+                get {
+                    return ((string)(this[this.tableV_DM_GIANG_VIEN.GV_QUAY_HLColumn]));
+                }
+                set {
+                    this[this.tableV_DM_GIANG_VIEN.GV_QUAY_HLColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string GV_HDKH_YN {
                 get {
                     return ((string)(this[this.tableV_DM_GIANG_VIEN.GV_HDKH_YNColumn]));
@@ -2300,6 +2328,7 @@ namespace WebDS.DS_V_DM_GIANG_VIENTableAdapters {
             tableMapping.ColumnMappings.Add("GV_VIET_HL_YN", "GV_VIET_HL_YN");
             tableMapping.ColumnMappings.Add("GV_DUYET_HL_YN", "GV_DUYET_HL_YN");
             tableMapping.ColumnMappings.Add("GV_THAM_DINH_HL_YN", "GV_THAM_DINH_HL_YN");
+            tableMapping.ColumnMappings.Add("GV_QUAY_HL", "GV_QUAY_HL");
             tableMapping.ColumnMappings.Add("GV_HDKH_YN", "GV_HDKH_YN");
             tableMapping.ColumnMappings.Add("DESCRIPTION", "DESCRIPTION");
             tableMapping.ColumnMappings.Add("NGAY_BD_HOP_TAC", "NGAY_BD_HOP_TAC");
@@ -2322,7 +2351,7 @@ namespace WebDS.DS_V_DM_GIANG_VIENTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT ID, MA_GIANG_VIEN, HO_VA_TEN_DEM, TEN_GIANG_VIEN, NGAY_SINH, GIOI_TINH_YN, CHUC_VU_HIEN_TAI, CHUC_VU_CAO_NHAT, TEL_HOME, TEL_OFFICE, MOBILE_PHONE, EMAIL, TEN_CO_QUAN_CONG_TAC, EMAIL_TOPICA, ANH_CA_NHAN, HOC_VI, HOC_HAM, CHUYEN_NGANH_CHINH, TRUONG_DAO_TAO, ID_TRANG_THAI_GIANG_VIEN, TRANG_THAI_GIANG_VIEN, SO_TAI_KHOAN, TEN_NGAN_HANG, SO_CMTND, NGAY_CAP, NOI_CAP, ID_DON_VI_QUAN_LY, DON_VI_QUAN_LY, MA_SO_THUE, GVHD_YN, GVCM_YN, GV_VIET_HL_YN, GV_DUYET_HL_YN, GV_THAM_DINH_HL_YN, GV_HDKH_YN, DESCRIPTION, NGAY_BD_HOP_TAC, PO_PHU_TRACH_CHINH, PO_PHU_TRACH_PHU, DIA_CHI FROM dbo.V_DM_GIANG_VIEN";
+            this._commandCollection[0].CommandText = @"SELECT ID, MA_GIANG_VIEN, HO_VA_TEN_DEM, TEN_GIANG_VIEN, NGAY_SINH, GIOI_TINH_YN, CHUC_VU_HIEN_TAI, CHUC_VU_CAO_NHAT, TEL_HOME, TEL_OFFICE, MOBILE_PHONE, EMAIL, TEN_CO_QUAN_CONG_TAC, EMAIL_TOPICA, ANH_CA_NHAN, HOC_VI, HOC_HAM, CHUYEN_NGANH_CHINH, TRUONG_DAO_TAO, ID_TRANG_THAI_GIANG_VIEN, TRANG_THAI_GIANG_VIEN, SO_TAI_KHOAN, TEN_NGAN_HANG, SO_CMTND, NGAY_CAP, NOI_CAP, ID_DON_VI_QUAN_LY, DON_VI_QUAN_LY, MA_SO_THUE, GVHD_YN, GVCM_YN, GV_VIET_HL_YN, GV_DUYET_HL_YN, GV_THAM_DINH_HL_YN, GV_QUAY_HL, GV_HDKH_YN, DESCRIPTION, NGAY_BD_HOP_TAC, PO_PHU_TRACH_CHINH, PO_PHU_TRACH_PHU, DIA_CHI FROM dbo.V_DM_GIANG_VIEN";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
