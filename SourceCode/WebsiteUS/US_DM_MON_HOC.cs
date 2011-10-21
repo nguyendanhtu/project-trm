@@ -162,6 +162,16 @@ public class US_DM_MON_HOC : US_Object
         if (v_ds_mon_hoc.DM_MON_HOC.Rows.Count == 0) return true;
         return false;
     }
+    public bool check_exist_ma_mon_update(string ip_str_ma_mon_moi, string ip_str_ma_mon_ban_dau)
+    {
+        US_DM_MON_HOC v_us_mon_hoc = new US_DM_MON_HOC();
+        DS_DM_MON_HOC v_ds_mon_hoc = new DS_DM_MON_HOC();
+
+        v_us_mon_hoc.FillDataset(v_ds_mon_hoc, " where MA_MON_HOC = '" + ip_str_ma_mon_moi + "'");
+        if (v_ds_mon_hoc.DM_MON_HOC.Rows.Count == 0) return true;
+        else if (v_ds_mon_hoc.DM_MON_HOC.Rows[0][DM_MON_HOC.MA_MON_HOC].ToString().Equals(ip_str_ma_mon_ban_dau)) return true;
+        return false;
+    }
     #endregion
 }
 }
