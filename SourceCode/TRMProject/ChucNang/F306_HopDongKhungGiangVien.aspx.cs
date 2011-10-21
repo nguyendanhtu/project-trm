@@ -434,6 +434,7 @@ public partial class ChucNang_F306_HopDongKhungGiangVien : System.Web.UI.Page
     {
         try
         {
+            m_ds_hop_dong_khung.Clear();
             // Đổ dữ liệu từ US vào DS
             m_us_dm_hop_dong_khung.FillDataset(m_ds_hop_dong_khung," WHERE ID_GIANG_VIEN="+ip_dc_id_gv);
 
@@ -447,10 +448,9 @@ public partial class ChucNang_F306_HopDongKhungGiangVien : System.Web.UI.Page
             else
             {
                 m_pnl_table.Visible = false;
-                // Treo dữ liệu lên lưới
-                m_grv_dm_danh_sach_hop_dong_khung.DataSource = m_ds_hop_dong_khung.V_DM_HOP_DONG_KHUNG;
-                m_grv_dm_danh_sach_hop_dong_khung.DataBind();
             }
+            m_grv_dm_danh_sach_hop_dong_khung.DataSource = m_ds_hop_dong_khung.V_DM_HOP_DONG_KHUNG;
+            m_grv_dm_danh_sach_hop_dong_khung.DataBind();
         }
         catch (Exception v_e)
         {
@@ -709,7 +709,7 @@ public partial class ChucNang_F306_HopDongKhungGiangVien : System.Web.UI.Page
             // Lưu dữ liệu
             save_data();
             reset_control();
-            m_pnl_table.Enabled =false;
+            m_pnl_table.Visible =false;
             // Chuyển vể danh sách giảng viên
             if (m_init_mode == DataEntryFormMode.UpdateDataState)
                 m_lbl_thong_bao.Text = "Cập nhật thông tin thành công";
@@ -747,7 +747,7 @@ public partial class ChucNang_F306_HopDongKhungGiangVien : System.Web.UI.Page
             // Lưu dữ liệu
             save_data_va_sinh_phu_luc();
             reset_control();
-            m_pnl_table.Enabled =false;
+            m_pnl_table.Visible =false;
             // Chuyển vể danh sách giảng viên
             if (m_init_mode == DataEntryFormMode.UpdateDataState)
                 m_lbl_thong_bao.Text = "Cập nhật thông tin thành công";
