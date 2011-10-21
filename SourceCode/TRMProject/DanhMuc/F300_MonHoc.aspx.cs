@@ -124,12 +124,31 @@ public partial class DanhMuc_F300_MonHoc : System.Web.UI.Page
         // Đẩy us lên form
         us_obj_2_form(v_us_dm_mon_hoc);
     }
-
+    private void search_mon_hoc(string ip_str_tu_khoa)
+    {
+        m_us_dm_mon_hoc.search_mon_hoc(ip_str_tu_khoa, m_ds_mon_hoc);
+        m_grv_dm_mon_hoc.DataSource = m_ds_mon_hoc.DM_MON_HOC;
+        m_grv_dm_mon_hoc.DataBind();
+        if (m_ds_mon_hoc.DM_MON_HOC.Rows.Count == 0) m_lbl_thong_bao.Text = "Không có môn nào thỏa mãn!";
+    }
     private bool check_ma_mon()
     {
         try
         {
             if (!m_us_dm_mon_hoc.check_exist_ma_mon(m_txt_ma_mon.Text.TrimEnd())) return false;
+            return true;
+        }
+        catch (Exception v_e)
+        {
+            throw v_e;
+        }
+    }
+
+    private bool check_ma_mon_update(string v_str_ma_mon_bd)
+    {
+        try
+        {
+            if (!m_us_dm_mon_hoc.check_exist_ma_mon_update(m_txt_ma_mon.Text.TrimEnd(), v_str_ma_mon_bd)) return false;
             return true;
         }
         catch (Exception v_e)
@@ -175,11 +194,11 @@ public partial class DanhMuc_F300_MonHoc : System.Web.UI.Page
                 return;
             }
             if (!check_validate()) return;
-            //if (!check_ma_mon())
-            //{
-            //    m_lbl_mess.Text = "Mã môn này đã tồn tại";
-            //    return;
-            //}
+            if (!check_ma_mon_update(hdf_id.Value))
+            {
+                m_lbl_mess.Text = "Mã môn này đã tồn tại";
+                return;
+            }
             form_2_us_object(m_us_dm_mon_hoc);
             m_us_dm_mon_hoc.dcID = CIPConvert.ToDecimal(hdf_id.Value);
             m_us_dm_mon_hoc.Update();
@@ -243,6 +262,20 @@ public partial class DanhMuc_F300_MonHoc : System.Web.UI.Page
         catch (Exception v_e)
         {
             CSystemLog_301.ExceptionHandle(this,v_e);
+        }
+    }
+    protected void m_cmd_tim_kiem_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            // Thu thập dữ liệu search
+            string v_str_tu_khoa_tim_kiem = m_txt_tu_khoa_tim_kiem.Text.Trim();            
+            // Search Môn học
+            search_mon_hoc(v_str_tu_khoa_tim_kiem);
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(this, v_e);
         }
     }
 }

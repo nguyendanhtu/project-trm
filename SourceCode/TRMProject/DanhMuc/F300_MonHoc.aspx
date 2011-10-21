@@ -83,6 +83,28 @@
                 Width="505px" Height="83px"></asp:TextBox>
         </td>
 	</tr>	
+	<tr>
+		<td align="right">
+			<asp:label id="lbl_ghi_chu0" CssClass="cssManField" runat="server" 
+                Text="Từ khóa tìm kiếm"/>
+		</td>
+		<td valign="top" colspan="2">
+			&nbsp;<asp:textbox id="m_txt_tu_khoa_tim_kiem" CssClass="cssTextBox" 
+                CausesValidation="false"  runat="server" 
+                MaxLength="64" Width="505px" />
+        </td>
+	</tr>	
+    <tr>
+		<td align="right">
+			&nbsp;</td>
+		<td valign="top" colspan="2">
+
+                <asp:label id="lblFullName1" CssClass="cssLabel" runat="server" 
+                
+                Text="(Từ khóa tìm kiếm: Mã môn học, tên môn, số đơn vị học trình)" />
+
+		        </td>
+	</tr>	
     <tr>
 		<td align="right">
 			&nbsp;</td>
@@ -92,12 +114,15 @@
 	<tr>
 	    <td></td>
 		<td colspan="2" align="left">
+			<asp:button id="m_cmd_tim_kiem" accessKey="c" CssClass="cssButton" 
+                runat="server" Width="98px" Text="Tìm kiếm(s)" 
+                onclick="m_cmd_tim_kiem_Click"/>&nbsp;&nbsp;
 			<asp:button id="m_cmd_tao_moi" accessKey="c" CssClass="cssButton" 
                 runat="server" Width="98px" Text="Tạo mới(c)" 
-                onclick="m_cmd_tao_moi_Click" />&nbsp;
+                onclick="m_cmd_tao_moi_Click" />&nbsp;&nbsp;
 			<asp:button id="m_cmd_cap_nhat" accessKey="u" CssClass="cssButton" 
                 runat="server" Width="98px" Text="Cập nhật(u)" 
-                onclick="m_cmd_cap_nhat_Click"  />&nbsp;
+                onclick="m_cmd_cap_nhat_Click"  />&nbsp;&nbsp;
 			<asp:button id="btnCancel" accessKey="r" CssClass="cssButton" runat="server" 
                 Width="98px" Text="Xóa trắng(r)" onclick="btnCancel_Click"  />
                 <asp:HiddenField ID="hdf_id" runat = "server" Value="" />
@@ -110,10 +135,9 @@
 		</td>
 	</tr>	
     <tr>
-		<td align="right">
-			&nbsp;</td>
-        <td >
-		    &nbsp;</td>
+		<td align="left" colspan="2">
+                <asp:label id="m_lbl_thong_bao" runat="server" CssClass="cssManField" />
+        </td>
 	</tr>	
 	<tr>
 		<td align="center" colspan="3" style="height:450px;" valign="top">
