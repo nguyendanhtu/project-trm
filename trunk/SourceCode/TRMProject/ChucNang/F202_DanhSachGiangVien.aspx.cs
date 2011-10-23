@@ -660,8 +660,8 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
         try
         {
             m_grv_dm_danh_sach_giang_vien.PageIndex = e.NewPageIndex;
-              search_using_session();
-            // get_form_search_data_and_load_to_grid();
+            //  search_using_session();
+            get_form_search_data_and_load_to_grid();
         }
         catch (Exception v_e)
         {
