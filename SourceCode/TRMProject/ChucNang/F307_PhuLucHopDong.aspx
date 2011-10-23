@@ -118,7 +118,7 @@
 		<td>
         <table cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0"> 
             <tr>
-                <td align="right" style="width:7%;">
+                <td align="right" style="width:8%;">
 			       
 			<asp:label id="lblTenGiangVien" CssClass="cssManField" runat="server" 
                 Text="Nội dung thanh toán" />
@@ -141,7 +141,7 @@
                     &nbsp;</td>
                      <td align="left" style="width:1%;">
                          &nbsp;</td>
-                <td align="right" style="width:5%;">
+                <td align="right" style="width:7%;">
 			        &nbsp;</td>
                 <td align="left" style="width:10%;">
 			
@@ -191,7 +191,7 @@
             <tr>
                 <td align="right" style="width:5%;">
 			<asp:label id="lblGiaTriHopDong" CssClass="cssManField" runat="server" 
-                Text="Đơn giá hợp đồng" />
+                Text="Đơn giá hợp đồng (VNĐ)" />
                 </td>
                 <td align="left" style="width:10%;">    
 			
@@ -204,7 +204,7 @@
                 <td align="right" style="width:5%;">
 			       
 			<asp:label id="lbltan_suat" CssClass="cssManField" runat="server" 
-                Text="Tần suất" />
+                Text="Tần suất thanh toán" />
 			       
                 </td>
                 <td align="left" style="width:10%;">    
@@ -291,6 +291,7 @@
                       <img src="/TRMProject/Images/Button/deletered.png" alt="Delete" />
                      </asp:LinkButton>
                     </ItemTemplate>
+                    <ItemStyle Width="3%" />
                     </asp:TemplateField>
                      <asp:TemplateField HeaderText="Sửa">
                     <ItemTemplate>
@@ -298,24 +299,28 @@
                     <img src='/TRMProject/Images/Button/edit.png' alt='Sửa' />
                     </asp:LinkButton>
                     </ItemTemplate>
+                    <ItemStyle Width="3%" />
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
-                        <ItemStyle HorizontalAlign="Center"></ItemStyle>
+                        <ItemStyle HorizontalAlign="Center" Width="4%"></ItemStyle>
                     </asp:TemplateField>
                     <asp:BoundField DataField="NOI_DUNG_THANH_TOAN" HeaderText="Nội dung thanh toán">
+                    <ItemStyle Width="50%" HorizontalAlign="Center" />
                     </asp:BoundField>
                      <asp:TemplateField HeaderText="Số lượng - Hệ số / Tần suất" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%#CIPConvert.ToStr(CIPConvert.ToDecimal(Eval("SO_LUONG_HE_SO")), "0")%></ItemTemplate>
-                        <ItemStyle HorizontalAlign="Center"></ItemStyle>
+                        <ItemStyle HorizontalAlign="Center" Width="15%"></ItemStyle>
                     </asp:TemplateField> 
                      <asp:BoundField DataField="DON_VI_TINH" HeaderText="Đơn vị tính">
+                     <ItemStyle Width="5%" HorizontalAlign="Center" />
                     </asp:BoundField>
-                     <asp:TemplateField HeaderText="Đơn giá" ItemStyle-HorizontalAlign="Center">
+                     <asp:TemplateField HeaderText="Đơn giá (VNĐ)" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%#CIPConvert.ToStr(CIPConvert.ToDecimal(Eval("DON_GIA_HD")),"#,###0")%></ItemTemplate>
-                        <ItemStyle HorizontalAlign="Center"></ItemStyle>
+                        <ItemStyle HorizontalAlign="Center" Width="10%"></ItemStyle>
                     </asp:TemplateField>  
                      <asp:BoundField DataField="TAN_SUAT" HeaderText="Tần suất">
+                     <ItemStyle Width="10%" />
                     </asp:BoundField>               
                 </Columns>
                   <EditRowStyle BackColor="#7C6F57" />
