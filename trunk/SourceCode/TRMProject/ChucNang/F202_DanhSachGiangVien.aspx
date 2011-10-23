@@ -317,12 +317,14 @@
                     <ItemTemplate>
                     <asp:Label ID="m_lbl_dia_chi" runat="server" Text='<%# Eval("DIA_CHI").ToString() %>'></asp:Label>
                     </ItemTemplate>
+                    <ItemStyle Width="7%" />
                     </asp:TemplateField>
                     <asp:TemplateField >
                     <HeaderTemplate>Tên cơ quan công tác</HeaderTemplate>
                     <ItemTemplate>
                     <asp:Label ID="m_lbl_co_qua_cong_tac" runat="server" Text='<%# Eval("TEN_CO_QUAN_CONG_TAC").ToString() %>'></asp:Label>
                     </ItemTemplate>
+                      <ItemStyle Width="7%" />
                     </asp:TemplateField>
                     <asp:TemplateField >
                     <HeaderTemplate>Điện thoại cơ quan</HeaderTemplate>
