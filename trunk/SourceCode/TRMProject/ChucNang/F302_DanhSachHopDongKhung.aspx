@@ -450,7 +450,7 @@
                     </ItemTemplate>
                     <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:TemplateField>
-                     <asp:BoundField DataField="GIA_TRI_HOP_DONG" DataFormatString="{0:N0}" HeaderText="Giá trị hợp đồng"  HtmlEncode="false">
+                     <asp:BoundField DataField="GIA_TRI_HOP_DONG" DataFormatString="{0:N0}" HeaderText="Giá trị hợp đồng" ItemStyle-HorizontalAlign="Right" HtmlEncode="false">
                     </asp:BoundField>
                      <asp:TemplateField Visible="false">
                     <HeaderTemplate>Thuế suất(%)</HeaderTemplate>
