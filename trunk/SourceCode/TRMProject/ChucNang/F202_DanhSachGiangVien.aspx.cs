@@ -393,53 +393,72 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
             throw ve;
         }
     }
-
+    private string convert_2_str(object ip_o_obj)
+    {
+        if (ip_o_obj == DBNull.Value)
+            return "";
+        return CIPConvert.ToStr(ip_o_obj);
+    }
+    private string convert_so_tk_2_str(object ip_o_obj)
+    {
+        if (ip_o_obj == DBNull.Value)
+            return "";
+        return CIPConvert.ToStr(ip_o_obj,"0");
+    }
+    private string convert_datetime_2_str(object ip_o_obj)
+    {
+        if (ip_o_obj == DBNull.Value)
+            return "";
+        return CIPConvert.ToStr(ip_o_obj,"dd/MM/yyyy");
+    }
     //
     // Region for Export Excel
     //
-    private void loadGridExprort(ref string strTable)
+    private void loadDSExprort(ref string strTable)
     {
+        int v_i_so_thu_tu = 0;
+        get_form_search_data_and_load_to_grid();
         // Mỗi cột dữ liệu ứng với từng dòng là label
-        foreach (GridViewRow grv in this.m_grv_dm_danh_sach_giang_vien.Rows)
+        foreach (DataRow grv in this.m_ds_giang_vien.V_DM_GIANG_VIEN.Rows)
         {
             strTable += "\n<tr>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_stt")).Text.Trim() + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_ma_gv")).Text + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_ten_gv")).Text.Trim() + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" +mapping_format_datetime(((Label)grv.FindControl("m_lbl_ngay_sinh")).Text.Trim()) + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_gender")).Text.Trim() + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_don_vi_quan_ly")).Text.Trim() + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_dia_chi")).Text + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_co_qua_cong_tac")).Text.Trim() + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" +((Label)grv.FindControl("m_lbl_dt_co_quan")).Text.Trim() + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_dt_di_dong")).Text.Trim() + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_dt_nha_rieng")).Text.Trim() + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ++v_i_so_thu_tu + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + (grv[V_DM_GIANG_VIEN.MA_GIANG_VIEN]).ToString() + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + CIPConvert.ToStr(grv[V_DM_GIANG_VIEN.HO_VA_TEN_DEM]).Trim()+" "+CIPConvert.ToStr(grv[V_DM_GIANG_VIEN.TEN_GIANG_VIEN])+ "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + convert_datetime_2_str(grv[V_DM_GIANG_VIEN.NGAY_SINH]) + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + mapping_gender(CIPConvert.ToStr(grv[V_DM_GIANG_VIEN.GIOI_TINH_YN])) + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + convert_2_str(grv[V_DM_GIANG_VIEN.DON_VI_QUAN_LY]) + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + convert_2_str(grv[V_DM_GIANG_VIEN.DIA_CHI]) + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + convert_2_str(grv[V_DM_GIANG_VIEN.TEN_CO_QUAN_CONG_TAC]) + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + convert_2_str(grv[V_DM_GIANG_VIEN.TEL_OFFICE])+ "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + convert_2_str(grv[V_DM_GIANG_VIEN.MOBILE_PHONE]) + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + convert_2_str(grv[V_DM_GIANG_VIEN.TEL_HOME]) + "</td>";
 
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_so_cmt")).Text.Trim() + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + mapping_format_datetime(((Label)grv.FindControl("m_lbl_ngay_cap")).Text.Trim()) + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_noi_cap")).Text.Trim() + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_email")).Text.Trim() + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_topica_email")).Text.Trim() + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_so_tai_khoan")).Text.Trim() + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_ten_ngan_hang")).Text.Trim() + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_ma_so_thue")).Text.Trim() + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_hoc_vi")).Text.Trim() + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_hoc_ham")).Text.Trim() + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_chuyen_nganh_chinh")).Text.Trim() + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_truong_dao_tao")).Text.Trim() + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_chuc_vu_hien_tai")).Text.Trim() + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_chuc_vu_cao_nhat")).Text.Trim() + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_trang_thai_gv")).Text.Trim() + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_po_phu_trach_chinh")).Text.Trim() + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_po_phu_trach_phu")).Text.Trim() + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + mapping_format_datetime(((Label)grv.FindControl("m_lbl_ngay_bd_hop_tac")).Text.Trim()) + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_gv_huong_dan")).Text.Trim() + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_gv_chuyen_mon")).Text.Trim() + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_gv_viet_hoc_lieu")).Text.Trim() + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_gv_duyet_hoc_lieu")).Text.Trim() + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_gv_tham_dinh_hoc_lieu")).Text.Trim() + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_gv_quay_hoc_lieu")).Text.Trim() + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_gv_hoi_dong_kh")).Text.Trim() + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + convert_2_str(grv[V_DM_GIANG_VIEN.SO_CMTND]) + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + convert_datetime_2_str(grv[V_DM_GIANG_VIEN.NGAY_CAP]) + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + convert_2_str(grv[V_DM_GIANG_VIEN.NOI_CAP]) + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + convert_2_str(grv[V_DM_GIANG_VIEN.EMAIL]) + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + convert_2_str(grv[V_DM_GIANG_VIEN.EMAIL_TOPICA]) + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + convert_so_tk_2_str(grv[V_DM_GIANG_VIEN.SO_TAI_KHOAN]) + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + convert_2_str(grv[V_DM_GIANG_VIEN.TEN_NGAN_HANG]) + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + convert_2_str(grv[V_DM_GIANG_VIEN.MA_SO_THUE]) + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + mapping_hoc_vi(grv[V_DM_GIANG_VIEN.HOC_VI].ToString()) + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + mapping_hoc_ham(grv[V_DM_GIANG_VIEN.HOC_HAM].ToString()) + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + convert_2_str(grv[V_DM_GIANG_VIEN.CHUYEN_NGANH_CHINH]) + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + convert_2_str(grv[V_DM_GIANG_VIEN.TRUONG_DAO_TAO]) + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + convert_2_str(grv[V_DM_GIANG_VIEN.CHUC_VU_HIEN_TAI]) + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + convert_2_str(grv[V_DM_GIANG_VIEN.CHUC_VU_CAO_NHAT]) + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + convert_2_str(grv[V_DM_GIANG_VIEN.TRANG_THAI_GIANG_VIEN]) + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + convert_2_str(grv[V_DM_GIANG_VIEN.PO_PHU_TRACH_CHINH]) + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + convert_2_str(grv[V_DM_GIANG_VIEN.PO_PHU_TRACH_PHU]) + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + convert_datetime_2_str(grv[V_DM_GIANG_VIEN.NGAY_BD_HOP_TAC]) + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + convert_2_str(grv[V_DM_GIANG_VIEN.GVHD_YN]) + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + mapping_cm(grv[V_DM_GIANG_VIEN.GVCM_YN].ToString()) + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + mapping_duyet_hl(grv[V_DM_GIANG_VIEN.GV_VIET_HL_YN].ToString()) + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + mapping_hd(grv[V_DM_GIANG_VIEN.GV_DUYET_HL_YN].ToString()) + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + mapping_tham_dinh_hl(grv[V_DM_GIANG_VIEN.GV_THAM_DINH_HL_YN].ToString()) + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + mapping_quay_hl(grv[V_DM_GIANG_VIEN.GV_QUAY_HL].ToString()) + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + mapping_hdkh(grv[V_DM_GIANG_VIEN.GV_HDKH_YN].ToString()) + "</td>";
             strTable += "\n</tr>";
         }
     }
@@ -531,7 +550,8 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
         strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>GV quay học liệu?</td>";
         strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>GV hội đồng khoa học?</td>";
         strTable += "\n</tr>";
-        loadGridExprort(ref strTable);
+        //loadGridExprort(ref strTable);
+        loadDSExprort(ref strTable);
         strTable += "\n</table>";
     }
 
@@ -568,6 +588,52 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
         catch
         {
             return "";
+        }
+    }
+    private void loadGridExprort(ref string strTable)
+    {
+        // Mỗi cột dữ liệu ứng với từng dòng là label
+        foreach (GridViewRow grv in this.m_grv_dm_danh_sach_giang_vien.Rows)
+        {
+            strTable += "\n<tr>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_stt")).Text.Trim() + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_ma_gv")).Text + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_ten_gv")).Text.Trim() + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + mapping_format_datetime(((Label)grv.FindControl("m_lbl_ngay_sinh")).Text.Trim()) + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_gender")).Text.Trim() + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_don_vi_quan_ly")).Text.Trim() + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_dia_chi")).Text + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_co_qua_cong_tac")).Text.Trim() + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_dt_co_quan")).Text.Trim() + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_dt_di_dong")).Text.Trim() + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_dt_nha_rieng")).Text.Trim() + "</td>";
+
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_so_cmt")).Text.Trim() + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + mapping_format_datetime(((Label)grv.FindControl("m_lbl_ngay_cap")).Text.Trim()) + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_noi_cap")).Text.Trim() + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_email")).Text.Trim() + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_topica_email")).Text.Trim() + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_so_tai_khoan")).Text.Trim() + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_ten_ngan_hang")).Text.Trim() + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_ma_so_thue")).Text.Trim() + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_hoc_vi")).Text.Trim() + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_hoc_ham")).Text.Trim() + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_chuyen_nganh_chinh")).Text.Trim() + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_truong_dao_tao")).Text.Trim() + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_chuc_vu_hien_tai")).Text.Trim() + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_chuc_vu_cao_nhat")).Text.Trim() + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_trang_thai_gv")).Text.Trim() + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_po_phu_trach_chinh")).Text.Trim() + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_po_phu_trach_phu")).Text.Trim() + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + mapping_format_datetime(((Label)grv.FindControl("m_lbl_ngay_bd_hop_tac")).Text.Trim()) + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_gv_huong_dan")).Text.Trim() + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_gv_chuyen_mon")).Text.Trim() + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_gv_viet_hoc_lieu")).Text.Trim() + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_gv_duyet_hoc_lieu")).Text.Trim() + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_gv_tham_dinh_hoc_lieu")).Text.Trim() + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_gv_quay_hoc_lieu")).Text.Trim() + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_gv_hoi_dong_kh")).Text.Trim() + "</td>";
+            strTable += "\n</tr>";
         }
     }
 
