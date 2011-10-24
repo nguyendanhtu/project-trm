@@ -122,7 +122,7 @@
                     </td>
                 <td align="right" style="width:10%;">
                     &nbsp;</td>
-                <td align="left" colspan="3" style="margin-left: 40px" rowspan="4">
+                <td align="left" colspan="3" style="margin-left: 40px" rowspan="6">
 			        &nbsp;<asp:CheckBoxList ID="m_cbl_loai_hinh_thuc_cong_tac" runat="server">
                         <asp:ListItem>Hướng dẫn</asp:ListItem>
                         <asp:ListItem>Chuyên Môn</asp:ListItem>
@@ -156,6 +156,30 @@
                 Text="Từ khóa tìm kiếm" /></td>
                 <td align="left" colspan="3">
                      &nbsp;<asp:TextBox ID="m_txt_tu_khoa_tim_kiem" runat="server" CssClass="cssTextBox" 
+                        Width="85%"></asp:TextBox></td>
+                <td align="left" style="width:10%;">
+                    &nbsp;</td>
+                <td align="left" style="width:1%;">
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" style="width:5%;">
+                    <asp:label id="Label14" CssClass="cssManField" runat="server" 
+                Text="PO phụ trách chính" /></td>
+                <td align="left" colspan="3">
+                     <asp:TextBox ID="m_txt_po_phu_trach_chinh" runat="server" CssClass="cssTextBox" 
+                        Width="85%"></asp:TextBox></td>
+                <td align="left" style="width:10%;">
+                    &nbsp;</td>
+                <td align="left" style="width:1%;">
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" style="width:5%;">
+                    <asp:label id="Label15" CssClass="cssManField" runat="server" 
+                Text="PO phụ trách phụ" /></td>
+                <td align="left" colspan="3">
+                     <asp:TextBox ID="m_txt_po_phu_trach_phu" runat="server" CssClass="cssTextBox" 
                         Width="85%"></asp:TextBox></td>
                 <td align="left" style="width:10%;">
                     &nbsp;</td>
