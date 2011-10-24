@@ -414,6 +414,18 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
     //
     // Region for Export Excel
     //
+    private string get_hinh_thuc_cong_tac()
+    {
+        string v_str_hinh_thuc_cong_tac = "";
+        for (int v_i = 0; v_i < m_cbl_loai_hinh_thuc_cong_tac.Items.Count; v_i++)
+        {
+            if (m_cbl_loai_hinh_thuc_cong_tac.Items[v_i].Selected) v_str_hinh_thuc_cong_tac += m_cbl_loai_hinh_thuc_cong_tac.Items[v_i].Text+ ", ";
+        }
+        v_str_hinh_thuc_cong_tac = v_str_hinh_thuc_cong_tac.Trim();
+        if(v_str_hinh_thuc_cong_tac.Length >0)
+        v_str_hinh_thuc_cong_tac = v_str_hinh_thuc_cong_tac.Substring(0, v_str_hinh_thuc_cong_tac.Length - 1);
+        return v_str_hinh_thuc_cong_tac;
+    }
     private void loadDSExprort(ref string strTable)
     {
         int v_i_so_thu_tu = 0;
@@ -508,8 +520,14 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
         strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
         strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>Ngày bắt đầu hợp tác: " + CIPConvert.ToStr(m_dat_ngay_bd_hop_tac.SelectedDate,"dd/MM/yyyy") + " </td>";
         strTable += "\n</tr>";
+        //
+        strTable += "\n<tr>";
+        strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
+        strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
+        strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>Hình thức cộng tác: " + get_hinh_thuc_cong_tac() + " </td>";
+        strTable += "\n</tr>";
         strTable += "\n</table>";
-            
+         
         //table noi dung
         strTable += "<table cellpadding='2' cellspacing='0' class='cssTableReport'>";
         strTable += "\n<tr>";
