@@ -165,9 +165,21 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
         if (CIPConvert.ToStr(Session["Sviethl"]) == "Y") m_cbl_loai_hinh_thuc_cong_tac.Items[2].Selected = true;
         if (CIPConvert.ToStr(Session["Sgvcm"]) == "Y") m_cbl_loai_hinh_thuc_cong_tac.Items[1].Selected = true;
         if (CIPConvert.ToStr(Session["Sgvhd"]) == "Y") m_cbl_loai_hinh_thuc_cong_tac.Items[0].Selected = true;
+
+        m_txt_po_phu_trach_chinh.Text = CIPConvert.ToStr(Session["Spochinh"]);
+        m_txt_po_phu_trach_chinh.Text = CIPConvert.ToStr(Session["Spophu"]);
     }
 
-
+    private int count_selected_hinh_thuc_cong_tac()
+    {
+        int v_i_so_hinh_thuc = 0;
+        for (int v_i = 0; v_i < m_cbl_loai_hinh_thuc_cong_tac.Items.Count; v_i++)
+        {
+            if (m_cbl_loai_hinh_thuc_cong_tac.Items[v_i].Selected)
+                v_i_so_hinh_thuc += 1;
+        }
+        return v_i_so_hinh_thuc;
+    }
     private void load_2_cbo_don_vi_q_ly()
     {
         try
@@ -234,7 +246,9 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
                                     , string ip_str_gv_tham_dinh_hl
                                     , string ip_str_duyet_hl
                                     , string ip_str_gv_quay_hl
-                                    , string ip_str_hdkh)
+                                    , string ip_str_hdkh
+                                    , string ip_str_po_phu_trach_chinh
+                                    , string ip_str_po_phu_trach_phu)
     {
         Session["Sname"] = ip_str_name;
         Session["Skey"] = ip_str_keyword;
@@ -250,6 +264,8 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
         Session["Sthamdinhhl"] = ip_str_gv_tham_dinh_hl;
         Session["Squayhl"] = ip_str_gv_quay_hl;
         Session["Shdkh"] = ip_str_hdkh;
+        Session["Spochinh"] = ip_str_po_phu_trach_chinh;
+        Session["Spophu"] = ip_str_po_phu_trach_phu;
     }
     private void get_form_search_data_and_load_to_grid()
     {
@@ -280,13 +296,31 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
 
             // Lấy dữ liệu loại hình cộng tác
             string v_str_gvhd, v_str_gvcm, v_str_gv_viet_hl, v_str_gv_tham_dinh_hl, v_str_duyet_hl, v_str_gv_quay_hl, v_str_hdkh;
-            v_str_duyet_hl = m_cbl_loai_hinh_thuc_cong_tac.Items[3].Selected ? "Y" : "N";
-            v_str_hdkh = m_cbl_loai_hinh_thuc_cong_tac.Items[6].Selected ? "Y" : "N";
-            v_str_gv_quay_hl = m_cbl_loai_hinh_thuc_cong_tac.Items[5].Selected ? "Y" : "N";
-            v_str_gv_tham_dinh_hl = m_cbl_loai_hinh_thuc_cong_tac.Items[4].Selected ? "Y" : "N";
-            v_str_gv_viet_hl = m_cbl_loai_hinh_thuc_cong_tac.Items[2].Selected ? "Y" : "N";
-            v_str_gvcm = m_cbl_loai_hinh_thuc_cong_tac.Items[1].Selected ? "Y" : "N";
-            v_str_gvhd = m_cbl_loai_hinh_thuc_cong_tac.Items[0].Selected ? "Y" : "N";
+            if (count_selected_hinh_thuc_cong_tac() == 0)
+            {
+                v_str_duyet_hl = "A";
+                v_str_hdkh = "A";
+                v_str_gv_quay_hl = "A";
+                v_str_gv_tham_dinh_hl = "A";
+                v_str_gv_viet_hl = "A";
+                v_str_gvcm = "A";
+                v_str_gvhd = "A";
+            }
+            else
+            {
+                v_str_duyet_hl = m_cbl_loai_hinh_thuc_cong_tac.Items[3].Selected ? "Y" : "N";
+                v_str_hdkh = m_cbl_loai_hinh_thuc_cong_tac.Items[6].Selected ? "Y" : "N";
+                v_str_gv_quay_hl = m_cbl_loai_hinh_thuc_cong_tac.Items[5].Selected ? "Y" : "N";
+                v_str_gv_tham_dinh_hl = m_cbl_loai_hinh_thuc_cong_tac.Items[4].Selected ? "Y" : "N";
+                v_str_gv_viet_hl = m_cbl_loai_hinh_thuc_cong_tac.Items[2].Selected ? "Y" : "N";
+                v_str_gvcm = m_cbl_loai_hinh_thuc_cong_tac.Items[1].Selected ? "Y" : "N";
+                v_str_gvhd = m_cbl_loai_hinh_thuc_cong_tac.Items[0].Selected ? "Y" : "N";
+            }
+            // Po phụ trách
+            string v_str_po_phu_trach_chinh, v_str_po_phu_trach_phu;
+            v_str_po_phu_trach_chinh = m_txt_po_phu_trach_chinh.Text.Trim();
+            v_str_po_phu_trach_phu = m_txt_po_phu_trach_phu.Text.Trim();
+
 
             // Thu thập dữ liệu và cho vào Session
             collect_data_2_search(v_str_ten_giang_vien
@@ -302,7 +336,9 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
                                                   , v_str_gv_tham_dinh_hl
                                                   , v_str_duyet_hl
                                                   ,v_str_gv_quay_hl
-                                                  ,v_str_hdkh);
+                                                  ,v_str_hdkh
+                                                  , v_str_po_phu_trach_chinh
+                                                  , v_str_po_phu_trach_phu);
             // Thực hiện Search
 
             m_us_dm_giang_vien.search_giang_vien(v_str_ten_giang_vien
@@ -319,7 +355,9 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
                                                 , v_str_gv_tham_dinh_hl
                                                 ,v_str_duyet_hl
                                                 ,v_str_gv_quay_hl
-                                                ,v_str_hdkh);
+                                                ,v_str_hdkh
+                                                ,v_str_po_phu_trach_chinh
+                                                ,v_str_po_phu_trach_phu);
             m_lbl_ket_qua_loc_du_lieu.Text = "Kết quả lọc dữ liệu: " + m_ds_giang_vien.V_DM_GIANG_VIEN.Rows.Count + " bản ghi";
             if (m_ds_giang_vien.V_DM_GIANG_VIEN.Rows.Count == 0)
             {
@@ -373,7 +411,9 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
                                                , CIPConvert.ToStr(Session["Sduyethl"])
                                                , CIPConvert.ToStr(Session["Sthamdinhhl"])
                                                , CIPConvert.ToStr(Session["Squayhl"])
-                                               , CIPConvert.ToStr(Session["Shdkh"]));
+                                               , CIPConvert.ToStr(Session["Shdkh"])
+                                               , CIPConvert.ToStr(Session["Spochinh"])
+                                               , CIPConvert.ToStr(Session["Spophu"]));
             m_lbl_ket_qua_loc_du_lieu.Text = "Kết quả lọc dữ liệu: " + m_ds_giang_vien.V_DM_GIANG_VIEN.Rows.Count + " bản ghi";
             if (m_ds_giang_vien.V_DM_GIANG_VIEN.Rows.Count == 0)
             {
@@ -526,6 +566,19 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
         strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
         strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>Hình thức cộng tác: " + get_hinh_thuc_cong_tac() + " </td>";
         strTable += "\n</tr>";
+        //
+        strTable += "\n<tr>";
+        strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
+        strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
+        strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>PO phụ trách chính: " + m_txt_po_phu_trach_chinh.Text + " </td>";
+        strTable += "\n</tr>";
+        //
+        strTable += "\n<tr>";
+        strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
+        strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
+        strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>PO phụ trách phụ: " + m_txt_po_phu_trach_phu.Text + " </td>";
+        strTable += "\n</tr>";
+
         strTable += "\n</table>";
          
         //table noi dung
