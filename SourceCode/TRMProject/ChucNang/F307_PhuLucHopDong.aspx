@@ -164,7 +164,7 @@
                 </td>
                 <td align="left" style="width:10%;">
 
-                 <ew:NumericBox ID="m_txt_so_luong_he_so" DecimalSign="," Width="96%" runat="server" TextAlign="Right">
+                 <ew:NumericBox ID="m_txt_so_luong_he_so" DecimalSign="." Width="96%" runat="server" TextAlign="Right">
                 </ew:NumericBox>
                 </td>
                      <td align="left" style="width:1%;">
@@ -195,7 +195,7 @@
                 </td>
                 <td align="left" style="width:10%;">    
 			
-                <ew:NumericBox ID="m_txt_don_gia_hd" Width="96%" DecimalSign="," runat="server" TextAlign="Right">
+                <ew:NumericBox ID="m_txt_don_gia_hd" Width="96%" DecimalSign="." runat="server" TextAlign="Right">
                 </ew:NumericBox>
                 </td> 
                 <td align="left" style="width:1%;">
