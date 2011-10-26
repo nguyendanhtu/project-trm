@@ -252,12 +252,12 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
 
         m_cbo_loai_hop_dong_search.SelectedValue = CIPConvert.ToStr(CIPConvert.ToDecimal(Session["Sloaihdkhung"]));
         m_cbo_don_vi_quan_ly_search.SelectedValue = CIPConvert.ToStr(CIPConvert.ToDecimal(Session["Squanlykhung"]));
-        if (CIPConvert.ToStr(Session["Sdatngaykykhung"]) != "")
+        if (CIPConvert.ToStr(Session["Sdatngaykykhung"]) != "" && CIPConvert.ToDatetime(CIPConvert.ToStr(Session["Sdatngaykykhung"]), "dd/MM/yyyy")!=CIPConvert.ToDatetime("01/01/1900","dd/MM/yyyy"))
             m_dat_ngay_ki.SelectedDate = CIPConvert.ToDatetime(CIPConvert.ToStr(Session["Sdatngaykykhung"]), "dd/MM/yyyy");
-        if (CIPConvert.ToStr(Session["Sdathieuluckhung"]) != "")
+        if (CIPConvert.ToStr(Session["Sdathieuluckhung"]) != "" && CIPConvert.ToDatetime(CIPConvert.ToStr(Session["Sdathieuluckhung"]), "dd/MM/yyyy") != CIPConvert.ToDatetime("01/01/1900", "dd/MM/yyyy"))
             m_dat_ngay_hieu_luc.SelectedDate = CIPConvert.ToDatetime(CIPConvert.ToStr(Session["Sdathieuluckhung"]), "dd/MM/yyyy");
-        if (CIPConvert.ToStr(Session["Sdatketthuc"]) != "")
-            m_dat_ngay_hieu_luc.SelectedDate = CIPConvert.ToDatetime(CIPConvert.ToStr(Session["Sdatketthuc"]), "dd/MM/yyyy");
+        if (CIPConvert.ToStr(Session["Sdatketthuc"]) != "" && CIPConvert.ToDatetime(CIPConvert.ToStr(Session["Sdatketthuc"]), "dd/MM/yyyy") != CIPConvert.ToDatetime("01/01/1900", "dd/MM/yyyy"))
+            m_dat_date_ket_thuc.SelectedDate = CIPConvert.ToDatetime(CIPConvert.ToStr(Session["Sdatketthuc"]), "dd/MM/yyyy");
         m_cbo_trang_thai_hop_dong_search.SelectedValue = CIPConvert.ToStr(CIPConvert.ToDecimal(Session["Strangthaihdkhung"]));
     }
 
@@ -281,6 +281,18 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
         Session["Sdathieuluckhung"] = ip_dat_ngay_hieu_luc;
         Session["Spokhung"] = ip_str_ma_po_quan_ly;
         Session["Sdatketthuc"] = ip_dat_ngay_ket_thuc;
+    }
+    private void clear_session() {
+        Session["Snamekhung"] = null;
+        Session["Skeykhung"] = null;
+        Session["Ssohdkhung"] = null;
+        Session["Sloaihdkhung"] = null;
+        Session["Squanlykhung"] = null;
+        Session["Strangthaihdkhung"] = null;
+        Session["Sdatngaykykhung"] = null;
+        Session["Sdathieuluckhung"] = null;
+        Session["Spokhung"] = null;
+        Session["Sdatketthuc"] = null;
     }
 
     #region Public Interfaces
@@ -665,6 +677,7 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
     {
         try
         {
+            clear_session();
             m_grv_dm_danh_sach_hop_dong_khung.PageSize = 50;
            get_form_search_data_and_load_to_grid();
         }
