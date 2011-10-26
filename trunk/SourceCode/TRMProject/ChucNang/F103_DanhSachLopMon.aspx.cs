@@ -8,6 +8,7 @@ using WebDS;
 using WebDS.CDBNames;
 using WebUS;
 using System.Data;
+using System.Web.UI.HtmlControls;
 public partial class ChuNang_F103_DanhSachLopMon : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
@@ -155,6 +156,26 @@ public partial class ChuNang_F103_DanhSachLopMon : System.Web.UI.Page
             throw v_e;
         }
     }
+    private void save_excel(string i_str_file_name){
+        Response.Clear();
+        Response.Buffer = true;
+        Response.AddHeader("content-disposition",
+         "attachment;filename=GridViewExport.xls");
+        Response.Charset = "";
+        Response.ContentType = "application/vnd.ms-excel";
+        System.IO.StringWriter sw = new System.IO.StringWriter();
+        HtmlTextWriter hw = new HtmlTextWriter(sw);
+        // Bỏ phân trang - Nếu chỉ muỗn Export Trang hiện hành thì chọn =true
+        m_grv.AllowPaging = false;
+        m_grv.DataBind();
+        m_grv.RenderControl(hw);
+        //Thay đổi Style
+        string style = @"";
+        Response.Write(style);
+        Response.Output.Write(sw.ToString());
+        Response.Flush();
+        Response.End();
+    }
     #endregion
     //
     //
@@ -225,5 +246,17 @@ public partial class ChuNang_F103_DanhSachLopMon : System.Web.UI.Page
         {
             CSystemLog_301.ExceptionHandle(this, v_e);
         }
+    }
+    protected void m_cmd_xuat_excel_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            save_excel("contact");
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(this, v_e);
+        }
+
     }
 }

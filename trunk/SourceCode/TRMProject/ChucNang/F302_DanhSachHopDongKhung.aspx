@@ -451,6 +451,7 @@
                     <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:TemplateField>
                      <asp:BoundField DataField="GIA_TRI_HOP_DONG" DataFormatString="{0:N0}" HeaderText="Giá trị hợp đồng" ItemStyle-HorizontalAlign="Right" HtmlEncode="false">
+<ItemStyle HorizontalAlign="Right"></ItemStyle>
                     </asp:BoundField>
                      <asp:TemplateField Visible="false">
                     <HeaderTemplate>Thuế suất(%)</HeaderTemplate>
@@ -514,6 +515,7 @@
                   <EditRowStyle BackColor="#7C6F57" />
                   <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
                   <HeaderStyle BackColor="#810c15" Font-Bold="True" ForeColor="White" />
+                  <PagerSettings Position="TopAndBottom" />
                   <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
                   <RowStyle BackColor="#E3EAEB" />
                 <SelectedRowStyle CssClass="cssSelectedRow" BackColor="#C5BBAF" Font-Bold="True" 
