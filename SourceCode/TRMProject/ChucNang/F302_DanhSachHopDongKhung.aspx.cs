@@ -24,7 +24,7 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
                 m_lbl_thong_bao.Text = "";
                 if (!IsPostBack)
                 {
-                    if (Session["Snamekhung"] != null)
+                    if (Session["Snamekhung"] != "")
                     {
                         session_2_form();
                         search_using_session();
@@ -283,16 +283,16 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
         Session["Sdatketthuc"] = ip_dat_ngay_ket_thuc;
     }
     private void clear_session() {
-        Session["Snamekhung"] = null;
-        Session["Skeykhung"] = null;
-        Session["Ssohdkhung"] = null;
-        Session["Sloaihdkhung"] = null;
-        Session["Squanlykhung"] = null;
-        Session["Strangthaihdkhung"] = null;
-        Session["Sdatngaykykhung"] = null;
-        Session["Sdathieuluckhung"] = null;
-        Session["Spokhung"] = null;
-        Session["Sdatketthuc"] = null;
+        Session["Snamekhung"] = "";
+        Session["Skeykhung"] = "";
+        Session["Ssohdkhung"] = "";
+        Session["Sloaihdkhung"] = "";
+        Session["Squanlykhung"] = "";
+        Session["Strangthaihdkhung"] = "";
+        Session["Sdatngaykykhung"] = "";
+        Session["Sdathieuluckhung"] = "";
+        Session["Spokhung"] = "";
+        Session["Sdatketthuc"] = "";
     }
 
     #region Public Interfaces

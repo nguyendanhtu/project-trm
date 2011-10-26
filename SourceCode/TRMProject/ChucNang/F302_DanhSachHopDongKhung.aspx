@@ -35,7 +35,7 @@
                 <td align="left" style="width:5%;">
 			       
 			<asp:label id="lblFullName2" CssClass="cssManField" runat="server" 
-                Text="&lt;U&gt;M&lt;/U&gt;ã PO quản lý" />
+                Text="&lt;U&gt;M&lt;/U&gt;ã PO phụ trách" />
 			       
 			    </td>
                 <td align="left" style="width:10%;">
