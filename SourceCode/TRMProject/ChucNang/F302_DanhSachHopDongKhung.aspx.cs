@@ -24,7 +24,7 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
                 m_lbl_thong_bao.Text = "";
                 if (!IsPostBack)
                 {
-                    if (Session["Snamekhung"] != "")
+                    if (Session["Snamekhung"] != null)
                     {
                         session_2_form();
                         search_using_session();

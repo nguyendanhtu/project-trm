@@ -191,18 +191,7 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
             // Đổ dữ liệu vào DS 
             v_us_cm_tu_dien.FillDataset(v_ds_cm_tu_dien, " WHERE ID_LOAI_TU_DIEN = "
                                                 + (int)e_loai_tu_dien.DON_VI_QUAN_LY_CHINH); // Đây là lấy theo điều kiện
-            //add item Tat Ca          
-            //v_dr_all_dv_quan_ly[CM_DM_TU_DIEN.ID] = 0;
-            //v_dr_all_dv_quan_ly[CM_DM_TU_DIEN.TEN] = "Tất cả";
 
-            //v_ds_cm_tu_dien.EnforceConstraints = false;
-            //v_ds_cm_tu_dien.CM_DM_TU_DIEN.Rows.InsertAt(v_dr_all_dv_quan_ly, 0);
-
-            //m_cbo_don_vi_q_ly.DataValueField = CM_DM_TU_DIEN.ID;
-            //m_cbo_don_vi_q_ly.DataTextField = CM_DM_TU_DIEN.TEN;
-
-            //m_cbo_don_vi_q_ly.DataSource = v_ds_cm_tu_dien.CM_DM_TU_DIEN;
-            //m_cbo_don_vi_q_ly.DataBind();
               m_cbo_don_vi_q_ly.Items.Add(new ListItem("Tất cả","0"));
             for (int i = 0; i < v_ds_cm_tu_dien.CM_DM_TU_DIEN.Rows.Count; i++)
             {
