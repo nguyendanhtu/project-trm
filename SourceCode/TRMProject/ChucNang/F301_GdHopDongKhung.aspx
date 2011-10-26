@@ -38,7 +38,7 @@
                 <td align="right" style="width:5%;">
 			       
 			<asp:label id="lblNgayKi" CssClass="cssManField" runat="server" 
-                Text="Ngày kí" />
+                Text="Ngày ký" />
 			       
 			    </td>
                 <td align="left" style="width:10%;">
@@ -73,7 +73,9 @@
                             font-size="XX-Small" forecolor="Black" />
                     </ew:CalendarPopup>
 		                    </td>
-                <td align="left" style="width:1%;"></td>
+                <td align="left" style="width:1%;"> 
+                             <asp:RequiredFieldValidator ID="m_rfv_ngay_ky" runat="server"  Text="*"
+                        ControlToValidate="m_dat_ngay_ki" ErrorMessage="Bạn phải nhập Ngày k"></asp:RequiredFieldValidator></td>
                  <td align="right" style="width:5%;">
 			       
 			<asp:label id="lblPophutrach" CssClass="cssManField" runat="server" 

@@ -52,7 +52,7 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
                     if (Session["UserName"] != null)
                     {
                         m_cbo_po_phu_trach.SelectedValue = CIPConvert.ToStr(Session["UserName"]);
-                        m_cbo_po_phu_trach.ToolTip = CIPConvert.ToStr(Session["UserName"]);
+                        //m_cbo_po_phu_trach.ToolTip = CIPConvert.ToStr(Session["UserName"]);
                     }
                 }
             }
@@ -374,12 +374,12 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
              ip_us_hd_khung.strSO_HOP_DONG = m_txt_so_hop_dong.Text;
              ip_us_hd_khung.dcID_GIANG_VIEN =CIPConvert.ToDecimal(m_cbo_gvien.SelectedValue);
              DateTime v_dat_out_result;
-             if (DateTime.TryParseExact(CIPConvert.ToStr(m_dat_ngay_ki.SelectedDate), "dd/MM/yyyy", enUS, System.Globalization.DateTimeStyles.None, out v_dat_out_result))
-             {
-                 if (m_dat_ngay_ki.SelectedDate != CIPConvert.ToDatetime("01/01/0001"))
-                     ip_us_hd_khung.datNGAY_KY = m_dat_ngay_ki.SelectedDate;
-                 else ip_us_hd_khung.datNGAY_KY = CIPConvert.ToDatetime("01/01/1900");
-             }
+             //if (DateTime.TryParseExact(CIPConvert.ToStr(m_dat_ngay_ki.SelectedDate), "dd/MM/yyyy", enUS, System.Globalization.DateTimeStyles.None, out v_dat_out_result))
+             //{
+             //    if (m_dat_ngay_ki.SelectedDate != CIPConvert.ToDatetime("01/01/0001"))
+             ip_us_hd_khung.datNGAY_KY = m_dat_ngay_ki.SelectedDate;
+             //    else ip_us_hd_khung.datNGAY_KY = CIPConvert.ToDatetime("01/01/1900");
+             //}
 
              if (DateTime.TryParseExact(CIPConvert.ToStr(m_dat_ngay_hieu_luc.SelectedDate), "dd/MM/yyyy", enUS, System.Globalization.DateTimeStyles.None, out v_dat_out_result))
              {
@@ -433,9 +433,7 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
              ip_us_hd_khung.strGHI_CHU2 = m_txt_ghi_chu2.Text;
              ip_us_hd_khung.strGHI_CHU3 = m_txt_ghi_chu3.Text;
              ip_us_hd_khung.strGHI_CHU4 = m_txt_ghi_chu4.Text;
-             if(m_init_mode == DataEntryFormMode.InsertDataState)
-               ip_us_hd_khung.strMA_PO_PHU_TRACH = m_cbo_po_phu_trach.SelectedValue;
-             else ip_us_hd_khung.strMA_PO_PHU_TRACH = m_cbo_po_phu_trach.ToolTip;
+             ip_us_hd_khung.strMA_PO_PHU_TRACH = m_cbo_po_phu_trach.SelectedValue;
              ip_us_hd_khung.strGEN_PHU_LUC_YN = "N";
          }
          catch (Exception v_e)
@@ -502,7 +500,7 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
              m_txt_ghi_chu4.Text = ip_us_hd_khung.strGHI_CHU4;
 
              m_cbo_po_phu_trach.SelectedValue = ip_us_hd_khung.strMA_PO_PHU_TRACH;
-             m_cbo_po_phu_trach.ToolTip = ip_us_hd_khung.strMA_PO_PHU_TRACH;
+             //m_cbo_po_phu_trach.ToolTip = ip_us_hd_khung.strMA_PO_PHU_TRACH;
          }
          catch (Exception v_e)
          {
