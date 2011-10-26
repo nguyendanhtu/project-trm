@@ -527,7 +527,7 @@ public partial class ChucNang_F306_HopDongKhungGiangVien : System.Web.UI.Page
             ip_us_hd_khung.strGHI_CHU2 = m_txt_ghi_chu2.Text;
             ip_us_hd_khung.strGHI_CHU3 = m_txt_ghi_chu3.Text;
             ip_us_hd_khung.strGHI_CHU4 = m_txt_ghi_chu4.Text;
-            ip_us_hd_khung.strMA_PO_PHU_TRACH = m_cbo_po_phu_trach.SelectedValue;
+            ip_us_hd_khung.strMA_PO_PHU_TRACH = CIPConvert.ToStr(m_cbo_po_phu_trach.SelectedValue);
         }
         catch (Exception v_e)
         {
@@ -626,11 +626,8 @@ public partial class ChucNang_F306_HopDongKhungGiangVien : System.Web.UI.Page
     {
         try
         {
-            US_V_DM_GIANG_VIEN v_us_dm_giang_vien = new US_V_DM_GIANG_VIEN();
-            DS_V_DM_GIANG_VIEN v_ds_dm_gv = new DS_V_DM_GIANG_VIEN();
-
-            v_us_dm_giang_vien.FillDataset(v_ds_dm_gv, " WHERE ID=" + ip_dc_id);
-            return v_ds_dm_gv.V_DM_GIANG_VIEN.Rows[0][V_DM_GIANG_VIEN.MA_GIANG_VIEN].ToString();
+            US_V_DM_GIANG_VIEN v_us_dm_giang_vien = new US_V_DM_GIANG_VIEN(ip_dc_id);
+            return v_us_dm_giang_vien.strMA_GIANG_VIEN;
         }
         catch (Exception v_e)
         {
