@@ -95,15 +95,17 @@ body
 }
 .cssDorpdownlist
 { 
-	border:1px solid #bbb;
-	border-bottom-color:#aaa;
-	border-right-color:#aaa;
+	border-left: 1px solid #bbb;
+	border-right: 1px solid #aaa;
+	border-top: 1px solid #bbb;
+	border-bottom: 1px solid #aaa;
 	background-color:#ffffff;
 	font-family: Tahoma, Arial, Times New Roman;
 	font-size:12px;
 	padding-left:2px; 
 	padding-top:3px;  
-	padding-bottom:3px; 
+	padding-bottom:3px;
+	margin-bottom: 0px;
 }
 .cssTextBox 
 { 

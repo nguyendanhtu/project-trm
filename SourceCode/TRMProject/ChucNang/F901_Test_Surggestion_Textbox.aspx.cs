@@ -18,50 +18,50 @@ public partial class ChucNang_F901_Test_Surggestion_Textbox : System.Web.UI.Page
      protected void Page_Load(object sender, EventArgs e)
     {
         try
-        {
-            m_cmd_luu_va_sinh_pl.Enabled = true;
-            if (!this.IsPostBack)
             {
-              //  m_cmd_chosose_gv.Attributes.Add("onclick", "javascript:return OpenPopup()");
-                load_2_cbo_don_vi_tt();
-                //load_2_cbo_giang_vien();
-                load_2_cbo_trang_thai_hd();
-                load_2_cbo_don_vi_quan_ly();
-                load_2_cbo_loai_hop_dong();
+        //    m_cmd_luu_va_sinh_pl.Enabled = true;
+        //    if (!this.IsPostBack)
+        //    {
+        //        //  m_cmd_chosose_gv.Attributes.Add("onclick", "javascript:return OpenPopup()");
+        //        load_2_cbo_don_vi_tt();
+        //        //load_2_cbo_giang_vien();
+        //        load_2_cbo_trang_thai_hd();
+        //        load_2_cbo_don_vi_quan_ly();
+        //        load_2_cbo_loai_hop_dong();
 
-                load_2_cbo_mon_hoc_1();
-                load_2_cbo_mon_hoc_2();
-                load_2_cbo_mon_hoc_3();
-                load_2_cbo_mon_hoc_4();
-                load_2_cbo_mon_hoc_5();
-                load_2_cbo_mon_hoc_6();
+        //        load_2_cbo_mon_hoc_1();
+        //        load_2_cbo_mon_hoc_2();
+        //        load_2_cbo_mon_hoc_3();
+        //        load_2_cbo_mon_hoc_4();
+        //        load_2_cbo_mon_hoc_5();
+        //        load_2_cbo_mon_hoc_6();
 
-                if (Request.QueryString["mode"] != null && Request.QueryString["mode"].ToString().Equals("edit"))
-                {
-                    m_init_mode = DataEntryFormMode.UpdateDataState;
-                    // Load data need to update - if mode = update
-                    load_data_2_us_by_id_and_show_on_form(CIPConvert.ToDecimal(Request.QueryString["id"]));
-                    m_txt_so_hop_dong.Enabled = false;
-                    m_cmd_luu_va_sinh_pl.Enabled = false;
-                }
-                else
-                {
-                    m_init_mode = DataEntryFormMode.InsertDataState;
-                    m_txt_so_hop_dong.Enabled = true;
-                }
-            }
+        //        if (Request.QueryString["mode"] != null && Request.QueryString["mode"].ToString().Equals("edit"))
+        //        {
+        //            m_init_mode = DataEntryFormMode.UpdateDataState;
+        //            // Load data need to update - if mode = update
+        //            load_data_2_us_by_id_and_show_on_form(CIPConvert.ToDecimal(Request.QueryString["id"]));
+        //            m_txt_so_hop_dong.Enabled = false;
+        //            m_cmd_luu_va_sinh_pl.Enabled = false;
+        //        }
+        //        else
+        //        {
+        //            m_init_mode = DataEntryFormMode.InsertDataState;
+        //            m_txt_so_hop_dong.Enabled = true;
+        //        }
+        //    }
 
-            if (Request.QueryString["mode"] != null && Request.QueryString["mode"].ToString().Equals("edit"))
-            {
-                m_init_mode = DataEntryFormMode.UpdateDataState;
-                m_dc_id = CIPConvert.ToDecimal(Request.QueryString["id"]);
-                m_txt_so_hop_dong.Enabled = false;
-            }
-            else
-            {
-                m_init_mode = DataEntryFormMode.InsertDataState;
-                m_txt_so_hop_dong.Enabled = true;
-            }
+        //    if (Request.QueryString["mode"] != null && Request.QueryString["mode"].ToString().Equals("edit"))
+        //    {
+        //        m_init_mode = DataEntryFormMode.UpdateDataState;
+        //        m_dc_id = CIPConvert.ToDecimal(Request.QueryString["id"]);
+        //        m_txt_so_hop_dong.Enabled = false;
+        //    }
+        //    else
+        //    {
+        //        m_init_mode = DataEntryFormMode.InsertDataState;
+        //        m_txt_so_hop_dong.Enabled = true;
+        //    }
         }
         catch (Exception v_e)
         {
@@ -533,8 +533,7 @@ public partial class ChucNang_F901_Test_Surggestion_Textbox : System.Web.UI.Page
     {
         try
         {
-            Response.Redirect("/TRMProject/ChucNang/F302_DanhSachHopDongKhung.aspx", false);
-            HttpContext.Current.ApplicationInstance.CompleteRequest();
+            
         }
         catch (Exception v_e)
         {
@@ -572,5 +571,9 @@ public partial class ChucNang_F901_Test_Surggestion_Textbox : System.Web.UI.Page
         {
             CSystemLog_301.ExceptionHandle(this, v_e);
         }
+    }
+    protected void m_txt_so_hop_dong_TextChanged(object sender, EventArgs e)
+    {
+       
     }
 }
