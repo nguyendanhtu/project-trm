@@ -26,7 +26,7 @@
                          </td>
                 <td align="left" style="width:10%;">
 			<asp:textbox id="m_txt_ma_lop_mon" CssClass="cssTextBox"  runat="server" 
-                MaxLength="64" Width="96%" />
+                MaxLength="500" Width="96%" />
                          </td>
                          <td align="left" style="width:1%;"> 
                              <asp:RequiredFieldValidator ID="m_rfv_ma_lop_mon" runat="server" 
