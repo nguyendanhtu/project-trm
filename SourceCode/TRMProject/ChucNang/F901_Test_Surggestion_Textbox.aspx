@@ -14,9 +14,9 @@
         }
     </script>
 
-     <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+     <link href="/TRMProject/Styles/jquery-ui.css" rel="stylesheet" type="text/css"/>
     <script type="text/javascript" src="/TRMProject/Scripts/jquery-1.4.1.min.js"></script>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js"></script>  
+    <script type="text/javascript" src="/TRMProject/Scripts/jquery-ui.min.js"></script>  
 	<script type="text/javascript">
 	    $(function () {
 	        $(".tb").autocomplete({
