@@ -83,9 +83,8 @@
 			       
 			    </td>
                 <td align="left" style="width:10%;">	
-			
-		    <asp:DropDownList id="m_cbo_po_phu_trach" runat="server" Width="96%" 
-                        CssClass="cssDorpdownlist"  />
+			<asp:DropDownList ID="m_cbo_po_phu_trach_hop_dong" runat = "server" CssClass="cssDorpdownlist" 
+            Width="96%"></asp:DropDownList>
                          </td>
                 <td align="left" style="width:1%;"></td>
             </tr>
