@@ -309,7 +309,7 @@
                     <ItemStyle Width="50%" HorizontalAlign="Center" />
                     </asp:BoundField>
                      <asp:TemplateField HeaderText="Số lượng - Hệ số / Tần suất" ItemStyle-HorizontalAlign="Center">
-                       <ItemTemplate><%#CIPConvert.ToStr(CIPConvert.ToDecimal(Eval("SO_LUONG_HE_SO")), "0")%></ItemTemplate>
+                       <ItemTemplate><%#CIPConvert.ToStr(CIPConvert.ToDecimal(Eval("SO_LUONG_HE_SO")), "0.00")%></ItemTemplate>
                         <ItemStyle HorizontalAlign="Center" Width="15%"></ItemStyle>
                     </asp:TemplateField> 
                      <asp:BoundField DataField="DON_VI_TINH" HeaderText="Đơn vị tính">

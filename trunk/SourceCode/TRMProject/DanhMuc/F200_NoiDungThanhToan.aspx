@@ -188,27 +188,29 @@
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
                   <asp:TemplateField>
-                    <ItemTemplate> <asp:LinkButton ID = "lbt_delete"  runat="server"
-                     CommandName="Delete" ToolTip="Xóa" OnClientClick="return confirm ('Bạn có thực sự muốn xóa bản ghi này?')">
+                    <ItemTemplate>
+                     <asp:LinkButton ID = "lbt_delete"  runat="server"
+                     CommandName="Delete" Text="Xóa" ToolTip="Xóa" OnClientClick="return confirm ('Bạn có thực sự muốn xóa bản ghi này?')">
                      </asp:LinkButton>
                     </ItemTemplate>
                     </asp:TemplateField>
+
+                     <asp:CommandField SelectText="Sửa" ShowSelectButton="True" />
                     <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
-
-<ItemStyle HorizontalAlign="Center"></ItemStyle>
+                        <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:TemplateField>
                     <asp:BoundField DataField="ID_LOAI_TU_DIEN" HeaderText="Loại từ điển" 
                         Visible="False">
                         <ItemStyle HorizontalAlign="Center" Width="4%"></ItemStyle></asp:BoundField>
                     <asp:BoundField DataField="TEN_NOI_DUNG" HeaderText="Tên nội dung" />
                     <asp:BoundField DataField="TEN_NGAN" HeaderText="Loại hợp đồng" />
-                    <asp:BoundField DataField="DON_GIA_DEFAULT" HeaderText="Đơn giá" />
+                    <asp:BoundField DataField="DON_GIA_DEFAULT" DataFormatString="{0:N0}" HeaderText="Đơn giá" />
                     <asp:BoundField DataField="MA_DON_VI_TINH" HeaderText="Đơn vị tính" 
                         ItemStyle-HorizontalAlign="Center" >
 <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:BoundField>
-                     <asp:BoundField DataField="SO_LUONG_HE_SO_DEFAULT" HeaderText="Số lượng hệ số Default" 
+                     <asp:BoundField DataField="SO_LUONG_HE_SO_DEFAULT" DataFormatString="{0:N1}" HeaderText="Số lượng hệ số Default" 
                         ItemStyle-HorizontalAlign="Center" >
 <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:BoundField>
