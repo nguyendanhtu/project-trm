@@ -32,9 +32,10 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
     {
         try
         {
+            m_txt_ten_giang_vien.Focus();
             m_lbl_thong_bao.Text = "";
             if (!IsPostBack)
-            {
+            {                
                 // Nếu đã tồn tại session, ta load lại dữ liệu lên form và search theo session
                 if (Session["Sname"] != null)
                 {
