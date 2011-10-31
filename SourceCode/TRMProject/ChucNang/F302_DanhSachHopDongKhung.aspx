@@ -448,7 +448,7 @@
                     <ItemTemplate>
                     <asp:Label ID="m_lbl_gia_tri_hd" runat="server" Text='<%# Eval("GIA_TRI_HOP_DONG").ToString()%>'></asp:Label>
                     </ItemTemplate>
-                    <ItemStyle HorizontalAlign="Center"></ItemStyle>
+                    <ItemStyle HorizontalAlign="Right"></ItemStyle>
                     </asp:TemplateField>
                      <asp:BoundField DataField="GIA_TRI_HOP_DONG" DataFormatString="{0:N0}" HeaderText="Giá trị hợp đồng" ItemStyle-HorizontalAlign="Right" HtmlEncode="false">
 <ItemStyle HorizontalAlign="Right"></ItemStyle>
