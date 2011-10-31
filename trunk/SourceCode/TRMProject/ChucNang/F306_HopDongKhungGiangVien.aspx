@@ -505,8 +505,8 @@
                     </asp:BoundField>
                      <asp:BoundField DataField="MA_PO_PHU_TRACH" HeaderText="Mã PO Phụ trách">
                     </asp:BoundField>
-                     <asp:BoundField DataField="GIA_TRI_HOP_DONG" DataFormatString="{0:N0}" HeaderText="Giá trị hợp đồng" />
-                    <asp:BoundField DataField="THUE_SUAT" HeaderText="Thuế suất(%)">
+                     <asp:BoundField ItemStyle-HorizontalAlign="Right" DataField="GIA_TRI_HOP_DONG" DataFormatString="{0:N0}" HeaderText="Giá trị hợp đồng" />
+                    <asp:BoundField DataField="THUE_SUAT" DataFormatString="{0:N1}%" HeaderText="Thuế suất(%)">
                     </asp:BoundField>
                     <asp:TemplateField>
                     <HeaderTemplate>Làm học liệu?</HeaderTemplate>
