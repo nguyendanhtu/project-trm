@@ -164,8 +164,8 @@
                 </td>
                 <td align="left" style="width:10%;">
 
-                 <ew:NumericBox ID="m_txt_so_luong_he_so" DecimalSign="." Width="96%" 
-                        runat="server" TextAlign="Right" DecimalPlaces="2" PlacesBeforeDecimal="2"></ew:NumericBox>
+                 <ew:NumericBox ID="m_txt_so_luong_he_so" Width="96%" 
+                        runat="server" TextAlign="Right" PlacesBeforeDecimal="1" DecimalPlaces="1"></ew:NumericBox>
                 </td>
                      <td align="left" style="width:1%;">
                          <asp:RequiredFieldValidator ID="req_vali2" runat="server" 
