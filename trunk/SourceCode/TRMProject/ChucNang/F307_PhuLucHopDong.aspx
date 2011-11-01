@@ -311,9 +311,9 @@
                      <asp:BoundField DataField="DON_VI_TINH" HeaderText="Đơn vị tính">
                      <ItemStyle Width="5%" HorizontalAlign="Center" />
                     </asp:BoundField>
-                     <asp:TemplateField HeaderText="Đơn giá (VNĐ)" ItemStyle-HorizontalAlign="Right">
+                     <asp:TemplateField HeaderText="Đơn giá (VNĐ)">
                        <ItemTemplate><%#CIPConvert.ToStr(CIPConvert.ToDecimal(Eval("DON_GIA_HD")),"#,###0")%></ItemTemplate>
-                        <ItemStyle HorizontalAlign="Center" Width="10%"></ItemStyle>
+                        <ItemStyle HorizontalAlign="Right" Width="10%"></ItemStyle>
                     </asp:TemplateField>  
                      <asp:BoundField DataField="TAN_SUAT" HeaderText="Tần suất thanh toán">
                      <ItemStyle Width="10%" />
