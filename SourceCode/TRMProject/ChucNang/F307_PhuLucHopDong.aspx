@@ -314,10 +314,11 @@
                      <asp:TemplateField HeaderText="Đơn giá (VNĐ)">
                        <ItemTemplate><%#CIPConvert.ToStr(CIPConvert.ToDecimal(Eval("DON_GIA_HD")),"#,###0")%></ItemTemplate>
                         <ItemStyle HorizontalAlign="Right" Width="10%"></ItemStyle>
+                    </asp:TemplateField> 
+                     <asp:TemplateField HeaderText="Tần suất thanh toán">
+                       <ItemTemplate><%# "Theo " + Eval("TAN_SUAT")%></ItemTemplate>
+                        <ItemStyle HorizontalAlign="Left" Width="10%"></ItemStyle>
                     </asp:TemplateField>  
-                     <asp:BoundField DataField="TAN_SUAT" HeaderText="Tần suất thanh toán">
-                     <ItemStyle Width="10%" />
-                    </asp:BoundField>               
                 </Columns>
                   <EditRowStyle BackColor="#7C6F57" />
                   <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
