@@ -36,7 +36,9 @@ public partial class ChucNang_F307_PhuLucHopDong : System.Web.UI.Page
             m_txt_don_gia_hd.Text = CIPConvert.ToStr(v_us_dm_noi_dung_tt.dcDON_GIA_DEFAULT, "#,###0");
             m_txt_so_luong_he_so.Text = CIPConvert.ToStr(v_us_dm_noi_dung_tt.dcSO_LUONG_HE_SO_DEFAULT, "#,###0");
             m_lbl_don_vi_tinh.Text = v_us_dm_noi_dung_tt.strDON_VI_TINH;
-            m_lbl_tan_suat.Text = v_us_dm_noi_dung_tt.strTAN_SUAT;
+            if (!v_us_dm_noi_dung_tt.IsTAN_SUATNull())
+                m_lbl_tan_suat.Text ="Theo "+v_us_dm_noi_dung_tt.strTAN_SUAT;
+            else m_lbl_tan_suat.Text = "";
         }
         load_data_2_basic_control();
     }
@@ -373,7 +375,9 @@ public partial class ChucNang_F307_PhuLucHopDong : System.Web.UI.Page
             m_txt_don_gia_hd.Text = CIPConvert.ToStr(v_us_dm_noi_dung_tt.dcDON_GIA_DEFAULT,"#,###0");
             m_txt_so_luong_he_so.Text = CIPConvert.ToStr(v_us_dm_noi_dung_tt.dcSO_LUONG_HE_SO_DEFAULT,"#,###0");
             m_lbl_don_vi_tinh.Text = v_us_dm_noi_dung_tt.strDON_VI_TINH;
-            m_lbl_tan_suat.Text = v_us_dm_noi_dung_tt.strTAN_SUAT;
+            if (!v_us_dm_noi_dung_tt.IsTAN_SUATNull())
+                m_lbl_tan_suat.Text = "Theo " + v_us_dm_noi_dung_tt.strTAN_SUAT;
+            else m_lbl_tan_suat.Text = "";
         }
         catch (Exception v_e)
         {            
