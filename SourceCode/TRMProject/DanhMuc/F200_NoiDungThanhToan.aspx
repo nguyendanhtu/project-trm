@@ -211,7 +211,7 @@
 <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:BoundField>
                      <asp:BoundField DataField="SO_LUONG_HE_SO_DEFAULT" DataFormatString="{0:N1}" HeaderText="Số lượng hệ số Default" 
-                        ItemStyle-HorizontalAlign="Center" >
+                        ItemStyle-HorizontalAlign="Center" > 
 <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:BoundField>
 
