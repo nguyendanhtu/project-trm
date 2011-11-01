@@ -214,10 +214,14 @@
                         ItemStyle-HorizontalAlign="Center" >
 <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:BoundField>
-                    <asp:BoundField DataField="MA_TAN_SUAT" HeaderText="Mã tần xuất" 
-                        ItemStyle-HorizontalAlign="Center" >
-<ItemStyle HorizontalAlign="Center"></ItemStyle>
-                    </asp:BoundField>
+
+                     <asp:TemplateField HeaderText="Tần suất thanh toán">
+                    <ItemTemplate>
+                    <label><%# mapping_ma_to_ten(Eval("MA_TAN_SUAT").ToString())%></label>
+                    </ItemTemplate>
+                    <ItemStyle HorizontalAlign="Center"></ItemStyle>
+                    </asp:TemplateField>
+
                     <asp:BoundField DataField="HOC_LIEU_YN" HeaderText="Học liệu YN" 
                         ItemStyle-HorizontalAlign="Center" >
 <ItemStyle HorizontalAlign="Center"></ItemStyle>

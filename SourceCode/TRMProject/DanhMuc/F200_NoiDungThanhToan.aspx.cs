@@ -128,7 +128,7 @@ public partial class DanhMuc_NoiDungThanhToan : System.Web.UI.Page
 
             //TReo dữ liệu vào Dropdownlist loại hợp đồng
             // dây là giá trị hiển thị
-            m_ddl_ma_don_vi_tinh.DataTextField = CM_DM_TU_DIEN.TEN;
+             m_ddl_ma_don_vi_tinh.DataTextField = CM_DM_TU_DIEN.TEN;
             // Đây là giá trị thực
             m_ddl_ma_don_vi_tinh.DataValueField = CM_DM_TU_DIEN.MA_TU_DIEN;
 
@@ -153,9 +153,10 @@ public partial class DanhMuc_NoiDungThanhToan : System.Web.UI.Page
 
             //TReo dữ liệu vào Dropdownlist loại hợp đồng
             // dây là giá trị hiển thị
+            m_ddl_ma_tan_xuat.DataTextField = CM_DM_TU_DIEN.TEN;
             // Đây là giá trị thực
-            m_ddl_ma_tan_xuat.DataValueField = CM_DM_TU_DIEN.MA_TU_DIEN;
-
+            m_ddl_ma_tan_xuat.DataValueField = CM_DM_TU_DIEN.MA_TU_DIEN;            
+            
             m_ddl_ma_tan_xuat.DataSource = m_ds_cm_dm_tu_dien.CM_DM_TU_DIEN;
             m_ddl_ma_tan_xuat.DataBind();
         }
@@ -247,6 +248,14 @@ public partial class DanhMuc_NoiDungThanhToan : System.Web.UI.Page
         return true;
     }
     #endregion
+
+    public string mapping_ma_to_ten(string ip_ma_tu_dien)
+    {
+        if (ip_ma_tu_dien == "") return "";
+
+        US_CM_DM_TU_DIEN v_us_cm_dm = new US_CM_DM_TU_DIEN("MA_TAN_SUAT", ip_ma_tu_dien);
+        return v_us_cm_dm.strTEN;
+    }
 
     #region Data Structure
     public enum e_loai_tu_dien
