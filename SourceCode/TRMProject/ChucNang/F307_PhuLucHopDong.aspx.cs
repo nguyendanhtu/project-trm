@@ -34,7 +34,7 @@ public partial class ChucNang_F307_PhuLucHopDong : System.Web.UI.Page
             decimal v_dc_id_noi_dung_tt = CIPConvert.ToDecimal(m_cbo_noi_dung_tt.SelectedValue);
             US_V_DM_NOI_DUNG_THANH_TOAN v_us_dm_noi_dung_tt = new US_V_DM_NOI_DUNG_THANH_TOAN(v_dc_id_noi_dung_tt);
             m_txt_don_gia_hd.Text = CIPConvert.ToStr(v_us_dm_noi_dung_tt.dcDON_GIA_DEFAULT, "#,###0");
-            m_txt_so_luong_he_so.Text = CIPConvert.ToStr(v_us_dm_noi_dung_tt.dcSO_LUONG_HE_SO_DEFAULT, "#,###0");
+            m_txt_so_luong_he_so.Text = CIPConvert.ToStr(v_us_dm_noi_dung_tt.dcSO_LUONG_HE_SO_DEFAULT, "#,###00");
             m_lbl_don_vi_tinh.Text = v_us_dm_noi_dung_tt.strDON_VI_TINH;
             if (!v_us_dm_noi_dung_tt.IsTAN_SUATNull())
                 m_lbl_tan_suat.Text ="Theo "+v_us_dm_noi_dung_tt.strTAN_SUAT;
@@ -113,7 +113,7 @@ public partial class ChucNang_F307_PhuLucHopDong : System.Web.UI.Page
         {
             //m_txt_so_hop_dong.Text = ip_us_gd_hd_noi_dung_tt.strSO_HOP_DONG;
             //m_txt_ten_giang_vien.Text = ip_us_gd_hd_noi_dung_tt.strTEN_GIANG_VIEN;
-            m_txt_so_luong_he_so.Text =CIPConvert.ToStr(ip_us_gd_hd_noi_dung_tt.dcSO_LUONG_HE_SO,"0");
+            m_txt_so_luong_he_so.Text =CIPConvert.ToStr(ip_us_gd_hd_noi_dung_tt.dcSO_LUONG_HE_SO,"0.00");
             m_txt_don_gia_hd.Text =CIPConvert.ToStr(ip_us_gd_hd_noi_dung_tt.dcDON_GIA_HD,"0");
             m_cbo_noi_dung_tt.SelectedValue = CIPConvert.ToStr(ip_us_gd_hd_noi_dung_tt.dcID_NOI_DUNG_TT);
         }
