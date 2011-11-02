@@ -2,6 +2,12 @@
 <%@ Register assembly="eWorld.UI" namespace="eWorld.UI" tagprefix="ew" %>
 <%@ Import Namespace="IP.Core.IPCommon" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
+<style>
+ .cssTextBoxnumber
+ {
+     text-align:right;
+ }
+</style>
     </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
     <table cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0">
@@ -163,13 +169,11 @@
 			       
                 </td>
                 <td align="left" style="width:10%;">
-
-                 <ew:NumericBox ID="m_txt_so_luong_he_so" Width="96%" 
-                        runat="server" TextAlign="Right" PlacesBeforeDecimal="1" DecimalPlaces="1"></ew:NumericBox>
-                </td>
-                     <td align="left" style="width:1%;">
-                         <asp:RequiredFieldValidator ID="req_vali2" runat="server" 
-                         ErrorMessage="Bạn phải nhập số lượng hệ số" Text="*" ControlToValidate="m_txt_so_luong_he_so"></asp:RequiredFieldValidator></td>
+                <ew:NumericBox ID="m_txt_so_luong_he_so" Width="96%" 
+                        runat="server" TextAlign= "Right"></ew:NumericBox>
+                        <asp:RequiredFieldValidator ID="req_vali2" runat="server" 
+                         ErrorMessage="Bạn phải nhập số lượng hệ số" Text="*" ControlToValidate="m_txt_so_luong_he_so">
+                         </asp:RequiredFieldValidator></td>
                 <td align="right" style="width:5%;">
 			       
 			<asp:label id="lbldon_vi_tinh" CssClass="cssManField" runat="server" 
