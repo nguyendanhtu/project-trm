@@ -494,10 +494,10 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + convert_2_str(grv[V_DM_GIANG_VIEN.PO_PHU_TRACH_CHINH]) + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + convert_2_str(grv[V_DM_GIANG_VIEN.PO_PHU_TRACH_PHU]) + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + convert_datetime_2_str(grv[V_DM_GIANG_VIEN.NGAY_BD_HOP_TAC]) + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + convert_2_str(grv[V_DM_GIANG_VIEN.GVHD_YN]) + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + mapping_hd(grv[V_DM_GIANG_VIEN.GVHD_YN].ToString()) + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + mapping_cm(grv[V_DM_GIANG_VIEN.GVCM_YN].ToString()) + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + mapping_duyet_hl(grv[V_DM_GIANG_VIEN.GV_VIET_HL_YN].ToString()) + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + mapping_hd(grv[V_DM_GIANG_VIEN.GV_DUYET_HL_YN].ToString()) + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + mapping_viet_hl(grv[V_DM_GIANG_VIEN.GV_VIET_HL_YN].ToString()) + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + mapping_duyet_hl(grv[V_DM_GIANG_VIEN.GV_DUYET_HL_YN].ToString()) + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + mapping_tham_dinh_hl(grv[V_DM_GIANG_VIEN.GV_THAM_DINH_HL_YN].ToString()) + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + mapping_quay_hl(grv[V_DM_GIANG_VIEN.GV_QUAY_HL].ToString()) + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + mapping_hdkh(grv[V_DM_GIANG_VIEN.GV_HDKH_YN].ToString()) + "</td>";
