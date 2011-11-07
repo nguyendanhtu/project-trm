@@ -145,9 +145,9 @@
                 <td align="left" style="width:10%;">
 
                     &nbsp;</td>
-                     <td align="left" style="width:1%;">
+                     <td align="left" style="width:1%">
                          &nbsp;</td>
-                <td align="right" style="width:7%;">
+                <td align="right" style="width:3%;">
 			        &nbsp;</td>
                 <td align="left" style="width:10%;">
 			
@@ -177,7 +177,7 @@
                 <td align="right" style="width:5%;">
 			       
 			        &nbsp;</td>
-                <td align="right" style="width:10%;">
+                <td align="right" style="width:7%;">
 			
 			<asp:label id="lbldon_vi_tinh" CssClass="cssManField" runat="server" 
                 Text="Đơn vị tính" />
@@ -205,7 +205,7 @@
                 <td align="left" style="width:1%;">
                           <asp:RequiredFieldValidator ID="req_validator" runat="server" 
                          ErrorMessage="Bạn phải nhập đơn giá" Text="*" ControlToValidate="m_txt_don_gia_hd"></asp:RequiredFieldValidator></td>
-                <td align="right" style="width:5%;">
+                <td align="right" style="width:9%;">
 			       
 			<asp:label id="lbltan_suat" CssClass="cssManField" runat="server" 
                 Text="Tần suất thanh toán" />
