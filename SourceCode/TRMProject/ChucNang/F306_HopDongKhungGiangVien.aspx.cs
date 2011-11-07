@@ -149,7 +149,7 @@ public partial class ChucNang_F306_HopDongKhungGiangVien : System.Web.UI.Page
         DS_DM_MON_HOC v_ds_dm_mon_hoc_1 = new DS_DM_MON_HOC();
         try
         {
-            v_us_dm_mon_hoc_1.FillDataset(v_ds_dm_mon_hoc_1);
+            v_us_dm_mon_hoc_1.FillDataset(v_ds_dm_mon_hoc_1," ORDER BY TEN_MON_HOC");
             m_cbo_dm_mon_hoc_1.DataSource = v_ds_dm_mon_hoc_1.DM_MON_HOC;
             m_cbo_dm_mon_hoc_1.DataValueField = DM_MON_HOC.ID;
             m_cbo_dm_mon_hoc_1.DataTextField = DM_MON_HOC.TEN_MON_HOC;
@@ -166,7 +166,7 @@ public partial class ChucNang_F306_HopDongKhungGiangVien : System.Web.UI.Page
         DS_DM_MON_HOC v_ds_dm_mon_hoc_2 = new DS_DM_MON_HOC();
         try
         {
-            v_us_dm_mon_hoc_2.FillDataset(v_ds_dm_mon_hoc_2);
+            v_us_dm_mon_hoc_2.FillDataset(v_ds_dm_mon_hoc_2, " ORDER BY TEN_MON_HOC");
             DataRow v_dr_none = v_ds_dm_mon_hoc_2.DM_MON_HOC.NewDM_MON_HOCRow();
             v_dr_none[DM_MON_HOC.ID] = "0";
             v_dr_none[DM_MON_HOC.TEN_MON_HOC] = "Không có";
@@ -191,7 +191,7 @@ public partial class ChucNang_F306_HopDongKhungGiangVien : System.Web.UI.Page
         DS_DM_MON_HOC v_ds_dm_mon_hoc_3 = new DS_DM_MON_HOC();
         try
         {
-            v_us_dm_mon_hoc_3.FillDataset(v_ds_dm_mon_hoc_3);
+            v_us_dm_mon_hoc_3.FillDataset(v_ds_dm_mon_hoc_3, " ORDER BY TEN_MON_HOC");
             DataRow v_dr_none = v_ds_dm_mon_hoc_3.DM_MON_HOC.NewDM_MON_HOCRow();
             v_dr_none[DM_MON_HOC.ID] = "0";
             v_dr_none[DM_MON_HOC.TEN_MON_HOC] = "Không có";
@@ -216,7 +216,7 @@ public partial class ChucNang_F306_HopDongKhungGiangVien : System.Web.UI.Page
         DS_DM_MON_HOC v_ds_dm_mon_hoc_4 = new DS_DM_MON_HOC();
         try
         {
-            v_us_dm_mon_hoc_4.FillDataset(v_ds_dm_mon_hoc_4);
+            v_us_dm_mon_hoc_4.FillDataset(v_ds_dm_mon_hoc_4, " ORDER BY TEN_MON_HOC");
             DataRow v_dr_none = v_ds_dm_mon_hoc_4.DM_MON_HOC.NewDM_MON_HOCRow();
             v_dr_none[DM_MON_HOC.ID] = "0";
             v_dr_none[DM_MON_HOC.TEN_MON_HOC] = "Không có";
@@ -240,7 +240,7 @@ public partial class ChucNang_F306_HopDongKhungGiangVien : System.Web.UI.Page
         DS_DM_MON_HOC v_ds_dm_mon_hoc_5 = new DS_DM_MON_HOC();
         try
         {
-            v_us_dm_mon_hoc_5.FillDataset(v_ds_dm_mon_hoc_5);
+            v_us_dm_mon_hoc_5.FillDataset(v_ds_dm_mon_hoc_5, " ORDER BY TEN_MON_HOC");
             DataRow v_dr_none = v_ds_dm_mon_hoc_5.DM_MON_HOC.NewDM_MON_HOCRow();
             v_dr_none[DM_MON_HOC.ID] = "0";
             v_dr_none[DM_MON_HOC.TEN_MON_HOC] = "Không có";
@@ -264,7 +264,7 @@ public partial class ChucNang_F306_HopDongKhungGiangVien : System.Web.UI.Page
         DS_DM_MON_HOC v_ds_dm_mon_hoc_6 = new DS_DM_MON_HOC();
         try
         {
-            v_us_dm_mon_hoc_6.FillDataset(v_ds_dm_mon_hoc_6);
+            v_us_dm_mon_hoc_6.FillDataset(v_ds_dm_mon_hoc_6, " ORDER BY TEN_MON_HOC");
             DataRow v_dr_none = v_ds_dm_mon_hoc_6.DM_MON_HOC.NewDM_MON_HOCRow();
             v_dr_none[DM_MON_HOC.ID] = "0";
             v_dr_none[DM_MON_HOC.TEN_MON_HOC] = "Không có";
