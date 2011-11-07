@@ -72,7 +72,7 @@
                 <td align="left" style="width:1%;"></td>
                  <td align="right" style="width:5%;">
                      <asp:Label ID="lblPophutrach" runat="server" CssClass="cssManField" 
-                         Text="PO phụ trách" />
+                         Text="PO phụ trách HĐ" />
                 </td>
                 <td align="left" style="width:10%;">
                     <asp:DropDownList ID="m_cbo_po_phu_trach" runat="server" 
@@ -83,7 +83,7 @@
             <tr>
                 <td align="right" style="width:5%;">
 			        <asp:Label ID="lblDonViQuanLy" runat="server" CssClass="cssManField" 
-                        Text="Đơn vị quản lý" />
+                        Text="Đơn vị quản lý HĐ" />
                          </td>
                 <td align="left" style="width:10%;">	
                     <asp:DropDownList ID="m_cbo_dm_loai_don_vi_quan_li" runat="server" 
@@ -291,6 +291,8 @@
 		            <ew:NumericBox ID="m_txt_gia_tri_hop_dong"  DecimalSign="," runat="server" TextAlign="Right" 
                         Width="70%">
                 </ew:NumericBox>
+		                    &nbsp;<asp:Label ID="lblMon7" runat="server" CssClass="cssManField" 
+                        Text="VNĐ" />
 		                    </td>
                       <td align="left" style="width:1%;">
                           &nbsp;</td>
