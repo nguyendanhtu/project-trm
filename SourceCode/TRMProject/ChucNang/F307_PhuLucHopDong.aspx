@@ -176,15 +176,15 @@
                          </asp:RequiredFieldValidator></td>
                 <td align="right" style="width:5%;">
 			       
+			        &nbsp;</td>
+                <td align="right" style="width:10%;">
+			
 			<asp:label id="lbldon_vi_tinh" CssClass="cssManField" runat="server" 
                 Text="Đơn vị tính" />
 			       
                 </td>
-                <td align="left" style="width:10%;">
-			
-                    &nbsp;<asp:label id="m_lbl_don_vi_tinh" runat="server" /></td>
                       <td align="left" style="width:1%;">
-                          &nbsp;</td>
+                          <asp:label id="m_lbl_don_vi_tinh" runat="server" /></td>
                  <td align="right" style="width:5%;">
 			       
 			         &nbsp;</td>
