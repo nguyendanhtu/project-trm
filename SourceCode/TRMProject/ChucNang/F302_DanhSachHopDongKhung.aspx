@@ -64,7 +64,7 @@
                                  <td align="left" style="width:1%;"></td>
                 <td align="right" style="width:5%;">
 			<asp:label id="Label18" CssClass="cssManField" runat="server" 
-                Text="Đơn vị quản lý" />
+                Text="Đơn vị quản lý HĐ" />
 		                    </td>
                 <td align="left" style="width:10%;">
                 <asp:DropDownList ID="m_cbo_don_vi_quan_ly_search"

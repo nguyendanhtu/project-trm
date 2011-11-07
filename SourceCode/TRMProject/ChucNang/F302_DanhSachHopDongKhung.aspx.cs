@@ -444,6 +444,25 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
         }
     }
 
+    private string convert_2_str(object ip_o_obj)
+    {
+        if (ip_o_obj == DBNull.Value)
+            return "";
+        return CIPConvert.ToStr(ip_o_obj);
+    }
+    private string convert_so_tien_2_str(object ip_o_obj)
+    {
+        if (ip_o_obj == DBNull.Value)
+            return "";
+        return CIPConvert.ToStr(ip_o_obj, "0");
+    }
+    private string convert_datetime_2_str(object ip_o_obj)
+    {
+        if (ip_o_obj == DBNull.Value)
+            return "";
+        return CIPConvert.ToStr(ip_o_obj, "dd/MM/yyyy");
+    }
+    
     //
     // Region for Export Excel
     //
@@ -631,7 +650,7 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
             strTable += "\n<tr>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_stt")).Text.Trim() + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_so_hop_dong")).Text + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_ngay_ky")).Text.Trim() + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + convert_datetime_2_str(((Label)grv.FindControl("m_lbl_ngay_ky")).Text.Trim()) + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_ma_gv")).Text.Trim() + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_ten_gv")).Text.Trim() + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_loai_hop_dong")).Text.Trim() + "</td>";
@@ -644,11 +663,11 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_mon_4")).Text.Trim() + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_mon_5")).Text.Trim() + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_mon_6")).Text.Trim() + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_ngay_hieu_luc")).Text.Trim() + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_ngay_ket_thuc")).Text.Trim() + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + convert_datetime_2_str(((Label)grv.FindControl("m_lbl_ngay_hieu_luc")).Text.Trim()) + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + convert_datetime_2_str(((Label)grv.FindControl("m_lbl_ngay_ket_thuc")).Text.Trim()) + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_trang_thai_hd")).Text.Trim() + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_ma_po_phu_trach")).Text.Trim() + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_gia_tri_hd")).Text.Trim() + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" +convert_so_tien_2_str(((Label)grv.FindControl("m_lbl_gia_tri_hd")).Text.Trim()) + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_thue_suat")).Text.Trim() + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_lam_hoc_lieu")).Text.Trim() + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ((Label)grv.FindControl("m_lbl_van_hanh")).Text.Trim() + "</td>";

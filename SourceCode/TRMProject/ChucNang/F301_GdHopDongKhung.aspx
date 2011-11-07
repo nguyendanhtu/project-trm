@@ -91,7 +91,7 @@
             <tr>
                 <td align="right" style="width:5%;">
 			<asp:label id="lblDonViQuanLy" CssClass="cssManField" runat="server" 
-                Text="Đơn vị quản lý" />
+                Text="Đơn vị quản lý HĐ" />
                          </td>
                 <td align="left" style="width:10%;">	
 			
