@@ -126,6 +126,7 @@
 			<asp:button id="btnCancel" accessKey="r" CssClass="cssButton" runat="server" 
                 Width="98px" Text="Xóa trắng(r)" onclick="btnCancel_Click"  />
                 <asp:HiddenField ID="hdf_id" runat = "server" Value="" />
+                <asp:HiddenField ID="hdf_ma_mon" runat = "server" Value="" />
 		</td>
 	</tr>
     <tr>
