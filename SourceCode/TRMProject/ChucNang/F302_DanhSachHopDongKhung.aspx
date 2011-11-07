@@ -462,21 +462,21 @@
                     </asp:TemplateField>
                     <asp:BoundField DataField="THUE_SUAT" DataFormatString="{0:N1}%" HeaderText="Thuế suất(%)"  HtmlEncode="false"></asp:BoundField>
                     <asp:TemplateField>
-                    <HeaderTemplate>Làm học liệu?</HeaderTemplate>
+                    <HeaderTemplate>HĐ học liệu?</HeaderTemplate>
                     <ItemTemplate>
                     <asp:Label ID="m_lbl_lam_hoc_lieu" runat="server" Text='<%# mapping_hl(Eval("HOC_LIEU_YN").ToString())%>'></asp:Label>
                     </ItemTemplate>
                     <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:TemplateField>
                     <asp:TemplateField>
-                       <HeaderTemplate>Vận hành?</HeaderTemplate>
+                       <HeaderTemplate>HĐ vận hành?</HeaderTemplate>
                     <ItemTemplate>
                     <asp:Label ID="m_lbl_van_hanh" runat="server" Text ='<%# mapping_vh(Eval("VAN_HANH_YN").ToString())%>'></asp:Label>
                     </ItemTemplate>
                     <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:TemplateField>
                     <asp:TemplateField>
-                       <HeaderTemplate>Có hướng dẫn?</HeaderTemplate>
+                       <HeaderTemplate>Có số hợp đồng?</HeaderTemplate>
                     <ItemTemplate>
                     <asp:Label  ID="m_lbl_co_so_hop_dong" runat="server" Text = '<%# mapping_cs(Eval("CO_SO_HD_YN").ToString())%>'></asp:Label>
                     </ItemTemplate>
