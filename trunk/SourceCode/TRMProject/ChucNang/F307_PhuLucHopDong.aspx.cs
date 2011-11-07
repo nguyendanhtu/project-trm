@@ -166,7 +166,10 @@ public partial class ChucNang_F307_PhuLucHopDong : System.Web.UI.Page
                // m_pnl_table.Visible = true;
                 if (m_cbo_noi_dung_tt.Items.Count == 0)
                 {
-                    m_lbl_mess.Text = "Chưa có nội dung thanh toán ứng với loại hơp đồng này";
+                   // m_lbl_mess.Text = "";
+                    string someScript;
+                    someScript = "<script language='javascript'>alert('Chưa có nội dung thanh toán ứng với loại hơp đồng này!');</script>";
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", someScript);
                     // Ko cho phéo add
                     m_cmd_luu_du_lieu.Enabled = false;
                 }
