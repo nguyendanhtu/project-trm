@@ -110,6 +110,13 @@
 		</td>
 	</tr>	
     <tr>
+		<td align="left">
+                <asp:label id="m_lbl_thong_bao" Visible="false" runat="server" CssClass="cssManField" />
+        </td>
+        <td >
+		    &nbsp;</td>
+	</tr>	
+    <tr>
 		<td align="right">
 			<asp:label id="Label5" CssClass="cssManField" runat="server" 
                 Text="&lt;U&gt;L&lt;/U&gt;oại từ điển"/>

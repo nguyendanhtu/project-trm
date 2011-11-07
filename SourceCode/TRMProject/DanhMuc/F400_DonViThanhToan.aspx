@@ -69,7 +69,7 @@
 		</td>
 		<td align="left">
 			<asp:textbox id="m_txt_dia_chi" CssClass="cssTextBox"  runat="server" 
-                MaxLength="64" Width="516px" />
+                MaxLength="500" Width="516px" />
         </td>
 		<td >
 			&nbsp;</td>

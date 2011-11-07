@@ -168,10 +168,22 @@
 		</td>
 	</tr>	
     <tr>
-		<td align="right">
-			&nbsp;</td>
+		<td align="left">
+                <asp:label id="m_lbl_thong_bao" Visible="false" runat="server" CssClass="cssManField" />
+        </td>
         <td >
 		    &nbsp;</td>
+	</tr>	
+    <tr>
+		<td align="right">
+			<asp:label id="lbl_ghi_chu0" CssClass="cssManField" runat="server" 
+                Text="&lt;U&gt;L&lt;/U&gt;oại hợp đồng" />
+		</td>
+        <td >
+		    <asp:DropDownList id="m_cbo_loai_hop_dong" runat="server" Width="320px" 
+                AutoPostBack="True" 
+                onselectedindexchanged="m_cbo_loai_hop_dong_SelectedIndexChanged" />
+        </td>
 	</tr>	
 	<tr>
 		<td align="center" colspan="3" style="height:450px;" valign="top">
@@ -222,14 +234,19 @@
                     <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:TemplateField>
 
-                    <asp:BoundField DataField="HOC_LIEU_YN" HeaderText="Học liệu YN" 
-                        ItemStyle-HorizontalAlign="Center" >
-<ItemStyle HorizontalAlign="Center"></ItemStyle>
-                    </asp:BoundField>
-                    <asp:BoundField DataField="VAN_HANH_YN" HeaderText="Vận hành YN" 
-                        ItemStyle-HorizontalAlign="Center" >
-<ItemStyle HorizontalAlign="Center"></ItemStyle>
-                    </asp:BoundField>
+                     <asp:TemplateField HeaderText="Học liệu YN?">
+                    <ItemTemplate>
+                    <label><%# mapping_YN(Eval("HOC_LIEU_YN").ToString())%></label>
+                    </ItemTemplate>
+                    <ItemStyle HorizontalAlign="Center"></ItemStyle>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="Vận hành YN?">
+                    <ItemTemplate>
+                    <label><%# mapping_YN(Eval("VAN_HANH_YN").ToString())%></label>
+                    </ItemTemplate>
+                    <ItemStyle HorizontalAlign="Center"></ItemStyle>
+                    </asp:TemplateField>
                     <asp:BoundField DataField="GHI_CHU" HeaderText="Ghi chú" />
                 </Columns>
                   <EditRowStyle BackColor="#7C6F57" />
