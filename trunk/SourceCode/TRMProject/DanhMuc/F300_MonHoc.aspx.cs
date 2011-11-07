@@ -119,8 +119,9 @@ public partial class DanhMuc_F300_MonHoc : System.Web.UI.Page
     private void load_data_2_us_by_id(int ip_i_id)
     {
         decimal v_dc_id_dm_mon_hoc = CIPConvert.ToDecimal(m_grv_dm_mon_hoc.DataKeys[ip_i_id].Value);
-        hdf_id.Value = v_dc_id_dm_mon_hoc.ToString();
+        hdf_id.Value = v_dc_id_dm_mon_hoc.ToString(); 
         US_DM_MON_HOC v_us_dm_mon_hoc = new US_DM_MON_HOC(v_dc_id_dm_mon_hoc);
+        hdf_ma_mon.Value = v_us_dm_mon_hoc.strMA_MON_HOC;
         // Đẩy us lên form
         us_obj_2_form(v_us_dm_mon_hoc);
     }
@@ -194,9 +195,12 @@ public partial class DanhMuc_F300_MonHoc : System.Web.UI.Page
                 return;
             }
             if (!check_validate()) return;
-            if (!check_ma_mon_update(hdf_id.Value))
+            // hdf_id lưu ID của môn chứ ko phải lưu mã môn
+            if (!check_ma_mon_update(hdf_ma_mon.Value))
             {
-                m_lbl_mess.Text = "Mã môn này đã tồn tại";
+                string someScript;
+                someScript = "<script language='javascript'>alert('Mã môn này đã tồn tại');</script>";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", someScript);
                 return;
             }
             form_2_us_object(m_us_dm_mon_hoc);
