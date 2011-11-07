@@ -42,6 +42,12 @@ public partial class DanhMuc_Dictionary : System.Web.UI.Page
             m_us_dm_tu_dien.fill_tu_dien_cung_loai_ds(CIPConvert.ToStr(m_cbo_loai_tu_dien_grv.SelectedValue), m_ds_dm_tu_dien);
             m_grv_dm_tu_dien.DataSource = m_ds_dm_tu_dien.CM_DM_TU_DIEN;
             m_grv_dm_tu_dien.DataBind();
+            if (m_ds_dm_tu_dien.CM_DM_TU_DIEN.Rows.Count == 0)
+            {
+                m_lbl_thong_bao.Text = "Chưa có nội dung thanh toán cho lọai hợp đồng này";
+                m_lbl_thong_bao.Visible = true;
+            }
+            else m_lbl_thong_bao.Visible = false;
         }
         catch (Exception v_e) {
             throw v_e;
@@ -218,6 +224,11 @@ public partial class DanhMuc_Dictionary : System.Web.UI.Page
         m_us_dm_tu_dien.strTEN_NGAN = m_txt_ten_ngan.Text.TrimEnd();
         m_us_dm_tu_dien.strGHI_CHU = m_txt_ghi_chu.Text.TrimEnd();
     }
+    private decimal get_id_from_ma(string ip_str_ma)
+    {
+        US_CM_DM_LOAI_TD v_us_cm_loai_tu_dien = new US_CM_DM_LOAI_TD(ip_str_ma);
+        return v_us_cm_loai_tu_dien.dcID;
+    }
     #endregion
 
     //
@@ -229,6 +240,7 @@ public partial class DanhMuc_Dictionary : System.Web.UI.Page
     {
         try
         {
+            m_cbo_loai_tu_dien.SelectedValue =CIPConvert.ToStr(get_id_from_ma(m_cbo_loai_tu_dien_grv.SelectedValue));
             load_data_2_grid();
         }
         catch (Exception v_e)

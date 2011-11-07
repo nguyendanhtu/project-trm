@@ -30,10 +30,11 @@ public partial class DanhMuc_NoiDungThanhToan : System.Web.UI.Page
         }
         if (!IsPostBack)
         {
-            load_data_to_grid();
             load_data_2_cbo_loai_hop_dong();
             load_data_2_cbo_ma_don_vi_tinh();            
             load_data_2_cbo_ma_tan_suat();
+            load_cbo_loai_hop_dong();
+            load_data_to_grid();
         }
     }
 
@@ -69,12 +70,17 @@ public partial class DanhMuc_NoiDungThanhToan : System.Web.UI.Page
         try
         {
             // Đổ dữ liệu từ US vào DS
-            m_us_dm_noi_dung_thanh_toan.FillDataset(m_ds_noi_dung_thanh_toan);
+            m_us_dm_noi_dung_thanh_toan.FillDataset(m_ds_noi_dung_thanh_toan, " WHERE ID_LOAI_HOP_DONG =  "+ CIPConvert.ToDecimal(m_cbo_loai_hop_dong.SelectedValue));
 
             // Treo dữ liệu lên lưới
             m_grv_dm_noi_dung_thanh_toan.DataSource = m_ds_noi_dung_thanh_toan.V_DM_NOI_DUNG_THANH_TOAN;
             m_grv_dm_noi_dung_thanh_toan.DataBind();
-
+            if (m_ds_noi_dung_thanh_toan.V_DM_NOI_DUNG_THANH_TOAN.Rows.Count == 0)
+            {
+                m_lbl_thong_bao.Text = "Chưa có nội dung thanh toán cho lọai hợp đồng này";
+                m_lbl_thong_bao.Visible = true;
+            }
+            else m_lbl_thong_bao.Visible = false;
         }
         catch (Exception v_e)
         {
@@ -249,8 +255,27 @@ public partial class DanhMuc_NoiDungThanhToan : System.Web.UI.Page
         }
         return true;
     }
+    private void load_cbo_loai_hop_dong()
+    {
+        try
+        {
+            US_CM_DM_TU_DIEN v_us_loai_hop_dong = new US_CM_DM_TU_DIEN();
+            DS_CM_DM_TU_DIEN v_ds_loai_loai_hop_dong = new DS_CM_DM_TU_DIEN();
+            v_us_loai_hop_dong.FillDataset(v_ds_loai_loai_hop_dong, " WHERE ID_LOAI_TU_DIEN = 5");
+            m_cbo_loai_hop_dong.DataSource = v_ds_loai_loai_hop_dong.CM_DM_TU_DIEN;
+
+            m_cbo_loai_hop_dong.DataTextField = CM_DM_TU_DIEN.TEN;
+            m_cbo_loai_hop_dong.DataValueField = CM_DM_TU_DIEN.ID;
+            m_cbo_loai_hop_dong.DataBind();
+        }
+        catch (Exception v_e)
+        {
+            throw v_e;
+        }
+    }
     #endregion
 
+    #region Public Interface
     public string mapping_ma_to_ten(string ip_ma_tu_dien)
     {
         if (ip_ma_tu_dien == "") return "";
@@ -258,6 +283,14 @@ public partial class DanhMuc_NoiDungThanhToan : System.Web.UI.Page
         US_CM_DM_TU_DIEN v_us_cm_dm = new US_CM_DM_TU_DIEN("MA_TAN_SUAT", ip_ma_tu_dien);
         return v_us_cm_dm.strTEN;
     }
+    public string mapping_YN(string ip_str_YN)
+    {
+        if(ip_str_YN=="") return "";
+        if (ip_str_YN.Equals("Y"))
+            return "Có";
+        return "Không";
+    }
+    #endregion
 
     #region Data Structure
     public enum e_loai_tu_dien
@@ -373,6 +406,18 @@ public partial class DanhMuc_NoiDungThanhToan : System.Web.UI.Page
         catch (Exception v_e)
         {
             CSystemLog_301.ExceptionHandle(this,v_e);
+        }
+    }
+    protected void m_cbo_loai_hop_dong_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        try
+        {
+            m_ddl_loai_hop_dong.SelectedValue = m_cbo_loai_hop_dong.SelectedValue;
+            load_data_to_grid();
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(this, v_e);
         }
     }
 }
