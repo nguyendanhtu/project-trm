@@ -17,7 +17,7 @@ public partial class ChucNang_F306_HopDongKhungGiangVien : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        m_txt_so_hop_dong.Enabled = true;
+        //m_txt_so_hop_dong.Enabled = true;
         m_cmd_luu_va_sinh_pl.Enabled = true;
         if (!IsPostBack)
         {
@@ -67,7 +67,7 @@ public partial class ChucNang_F306_HopDongKhungGiangVien : System.Web.UI.Page
         {
             m_pnl_table.Visible = true;
             m_cbo_gvien.Enabled = false;
-            m_txt_so_hop_dong.Enabled = false;
+            //m_txt_so_hop_dong.Enabled = false;
             m_cmd_luu_va_sinh_pl.Enabled = false;
             m_dc_id_hd = CIPConvert.ToDecimal(Request.QueryString["id_hd"]);
         }     
