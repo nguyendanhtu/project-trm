@@ -39,34 +39,28 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
 
                 if (Request.QueryString["mode"] != null && Request.QueryString["mode"].ToString().Equals("edit"))
                 {
-                    m_init_mode = DataEntryFormMode.UpdateDataState;
                     // Load data need to update - if mode = update
                     load_data_2_us_by_id_and_show_on_form(CIPConvert.ToDecimal(Request.QueryString["id"]));
-                    m_txt_so_hop_dong.Enabled = false;
                     m_cmd_luu_va_sinh_pl.Enabled = false;
                 }
-                else
-                {
-                    m_init_mode = DataEntryFormMode.InsertDataState;
-                    m_txt_so_hop_dong.Enabled = true;
-                    if (Session["UserName"] != null)
-                    {
-                       // m_cbo_po_phu_trach_chinh.SelectedValue = CIPConvert.ToStr(Session["UserName"]);
-                        //m_cbo_po_phu_trach.ToolTip = CIPConvert.ToStr(Session["UserName"]);
-                    }
-                }
+                //else
+                //{
+                //    if (Session["UserName"] != null)
+                //    {
+                //       // m_cbo_po_phu_trach_chinh.SelectedValue = CIPConvert.ToStr(Session["UserName"]);
+                //        //m_cbo_po_phu_trach.ToolTip = CIPConvert.ToStr(Session["UserName"]);
+                //    }
+                //}
             }
 
             if (Request.QueryString["mode"] != null && Request.QueryString["mode"].ToString().Equals("edit"))
             {
                 m_init_mode = DataEntryFormMode.UpdateDataState;
                 m_dc_id = CIPConvert.ToDecimal(Request.QueryString["id"]);
-                m_txt_so_hop_dong.Enabled = false;
             }
             else
             {
                 m_init_mode = DataEntryFormMode.InsertDataState;
-                m_txt_so_hop_dong.Enabled = true;
             }
         }
         catch (Exception v_e)
