@@ -79,10 +79,14 @@
                      <td align="left" style="width:1%;">
                          &nbsp;</td>
                 <td align="right" style="width:5%;">
-			        &nbsp;</td>
+			       
+			<asp:label id="m_lbl_dv_thanh_toan0" CssClass="cssManField" runat="server" 
+                Text="Loại hợp đồng" />
+			       
+			    </td>
                 <td align="left" style="width:10%;">
 			
-			        &nbsp;</td>
+			        <asp:label id="m_lbl_loai_hop_dong" runat="server" /></td>
                       <td align="left" style="width:1%;">
                           &nbsp;</td>
                  <td align="right" style="width:5%;">

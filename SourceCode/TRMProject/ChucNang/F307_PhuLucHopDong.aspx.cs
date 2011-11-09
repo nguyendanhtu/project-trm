@@ -208,6 +208,7 @@ public partial class ChucNang_F307_PhuLucHopDong : System.Web.UI.Page
                    m_lbl_dat_ngay_ky.Text =CIPConvert.ToStr(v_us_dm_hd_khung.datNGAY_KY,"dd/MM/yyyy");
                 m_lbl_don_vi_thanh_toan.Text = v_us_dm_hd_khung.strDON_VI_THANH_TOAN;
                 m_lbl_dv_qly.Text = v_us_dm_hd_khung.strDON_VI_QUAN_LY;
+                m_lbl_loai_hop_dong.Text =  v_us_dm_hd_khung.strLOAI_HOP_DONG;
             }
         }
         catch (Exception v_e)
