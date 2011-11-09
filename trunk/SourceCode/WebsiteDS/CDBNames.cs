@@ -253,5 +253,17 @@ namespace WebDS.CDBNames
         public const string ID_TRAINING_PROJECT = "ID_TRAINING_PROJECT";
     }
 
+   public class V_DM_DOT_THANH_TOAN
+   {
+       public const string ID = "ID";
+       public const string MA_DOT_TT = "MA_DOT_TT";
+       public const string TEN_DOT_TT = "TEN_DOT_TT";
+       public const string NGAY_TT_DU_KIEN = "NGAY_TT_DU_KIEN";
+       public const string ID_TRANG_THAI_DOT_TT = "ID_TRANG_THAI_DOT_TT";
+       public const string TRANG_THAI_DOT_TT = "TRANG_THAI_DOT_TT";
+       public const string ID_DON_VI_THANH_TOAN = "ID_DON_VI_THANH_TOAN";
+       public const string DON_VI_THANH_TOAN = "DON_VI_THANH_TOAN";
+       public const string GHI_CHU = "GHI_CHU";
+   }
 
 }
