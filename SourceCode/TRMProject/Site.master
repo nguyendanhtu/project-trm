@@ -42,6 +42,7 @@
 					    <li><a href="/TRMProject/DanhMuc/F300_MonHoc.aspx">Danh mục môn học</a></li>
 					    <li><a href="/TRMProject/DanhMuc/F200_NoiDungThanhToan.aspx">Danh mục Nội dung thanh toán</a></li>
                         <li><a href="/TRMProject/DanhMuc/F400_DonViThanhToan.aspx">Danh mục Đơn vị thanh toán</a></li>
+                        <li><a href="/TRMProject/DanhMuc/F500_DotThanhToan.aspx">Danh mục Đợt thanh toán</a></li>
 				    </ul>
               </li>
 
