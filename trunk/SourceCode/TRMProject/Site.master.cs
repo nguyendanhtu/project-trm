@@ -17,12 +17,12 @@ public partial class SiteMaster : System.Web.UI.MasterPage
             }
             else
             {
-                Response.Redirect("~/Account/Login.aspx");
+                Response.Redirect("/TRMProject/Account/Login.aspx");
             }
         }
         else
         {
-            Response.Redirect("~/Account/Login.aspx");
+            Response.Redirect("/TRMProject/Account/Login.aspx");
         }
     }
 }
