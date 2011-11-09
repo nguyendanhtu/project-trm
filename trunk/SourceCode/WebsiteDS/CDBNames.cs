@@ -19,6 +19,8 @@ namespace WebDS.CDBNames
         , MA_TAN_SUAT = 10
         , HOC_HAM = 11
         , HOC_VI = 12
+        , HINH_THUC_CONG_TAC = 13
+        , DOT_THANH_TOAN = 14
     }
 
     public class CM_DM_TU_DIEN
