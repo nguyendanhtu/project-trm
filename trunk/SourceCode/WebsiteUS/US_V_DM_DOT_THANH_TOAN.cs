@@ -235,5 +235,15 @@ public class US_V_DM_DOT_THANH_TOAN : US_Object
 		pm_objDR = getRowClone(pm_objDS.Tables[pm_strTableName].Rows[0]);
 	}
 #endregion
-	}
+
+    #region Additional Functions
+    public bool check_exist_ma_dot_thanh_toan(string ip_str_ma_dot_tt)
+    {
+        DS_V_DM_DOT_THANH_TOAN v_ds_dot_thanh_toan = new DS_V_DM_DOT_THANH_TOAN();
+        this.FillDataset(v_ds_dot_thanh_toan, " WHERE MA_DOT_TT= '"+ip_str_ma_dot_tt+"'");
+        if (v_ds_dot_thanh_toan.V_DM_DOT_THANH_TOAN.Rows.Count > 0) return true;
+        return false;
+    }
+    #endregion
+}
 }
