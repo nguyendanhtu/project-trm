@@ -146,9 +146,11 @@ public partial class DanhMuc_F500_DotThanhToan : System.Web.UI.Page
     }
     private void form_2_us_obj(US_V_DM_DOT_THANH_TOAN op_us_v_dm_dot_thanh_toan)
     {
+        System.Globalization.CultureInfo enUS = new System.Globalization.CultureInfo("en-US"); 
         op_us_v_dm_dot_thanh_toan.dcID_DON_VI_THANH_TOAN =CIPConvert.ToDecimal(m_cbo_dm_loai_don_vi_thanh_toan.SelectedValue);
         op_us_v_dm_dot_thanh_toan.strMA_DOT_TT = m_txt_ma_dot_tt.Text;
         op_us_v_dm_dot_thanh_toan.strTEN_DOT_TT = m_txt_ten_dot_tt.Text;
+        // Đây là tình trạng không nhập ngày
         if (m_dat_ngay_ket_thuc_du_kien.SelectedDate == CIPConvert.ToDatetime("01/01/0001", "dd/MM/yyyy"))
         {
              string someScript;
