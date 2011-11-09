@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="F500_DotThanhToan.aspx.cs" Inherits="DanhMuc_F500_DotThanhToan" %>
-
+<%@ Import Namespace ="IP.Core.IPCommon" %>
 <%@ Register assembly="eWorld.UI" namespace="eWorld.UI" tagprefix="ew" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
@@ -15,7 +15,7 @@
 	<tr>
 		<td colspan="5">
 		    <asp:validationsummary id="vdsCategory" runat="server" CssClass="cssManField" Font-Bold="true" />
-		   <asp:label id="m_lbl_mess" runat="server" CssClass="cssManField" />
+		   <asp:label id="m_lbl_mess" Visible="false" runat="server" CssClass="cssManField" />
 		</td>
 	</tr>
 	    <tr>
@@ -45,11 +45,11 @@
                 Text="&lt;U&gt;M&lt;/U&gt;ã đợt thanh toán" />
 		</td>
 		<td style="width:60%;">
-			<asp:textbox id="m_txt_ma_mon" CssClass="cssTextBox" 
+			<asp:textbox id="m_txt_ma_dot_tt" CssClass="cssTextBox" 
                 CausesValidation="false"  runat="server" 
                 MaxLength="100" Width="50%" />
                 &nbsp;(*)<asp:customvalidator id="m_ctv_ma_mon" runat="server" 
-                ControlToValidate="m_txt_ma_mon" ErrorMessage="Bạn phải nhập Mã môn" 
+                ControlToValidate="m_txt_ma_dot_tt" ErrorMessage="Bạn phải nhập Mã môn" 
                 Display="Static" Text="*" />
 		    </td>
 		<td style="width:10%;"> 
@@ -61,11 +61,11 @@
                 Text="&lt;U&gt;T&lt;/U&gt;ên đợt thanh toán" AccessKey="T" />
 		    </td>
 		<td align="left">
-			<asp:textbox id="m_txt_ten_mon" CssClass="cssTextBox" 
+			<asp:textbox id="m_txt_ten_dot_tt" CssClass="cssTextBox" 
                 CausesValidation="false"  runat="server" 
                 MaxLength="400" Width="65%" />
-                &nbsp;(*)<asp:customvalidator id="m_ctv_ten_mon" runat="server" 
-                ControlToValidate="m_txt_ten_mon" ErrorMessage="Bạn phải nhập Tên môn" 
+                &nbsp;(*)<asp:RequiredFieldValidator id="m_ctv_ten_mon" runat="server" 
+                ControlToValidate="m_txt_ten_dot_tt" ErrorMessage="Bạn phải nhập Tên đợt thanh toán" 
                 Display="Static" Text="*" />
             </td>
 		<td >
@@ -78,7 +78,7 @@
 		</td>
         <td align="left">
 			
-			        <ew:CalendarPopup ID="m_dat_ngay_sinh_gv" runat="server" 
+			        <ew:CalendarPopup ID="m_dat_ngay_ket_thuc_du_kien" runat="server" 
                         ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
                         ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
                         ShowGoToToday="True" Width="60%" SelectedDate="" Text="" Culture="vi-VN" 
@@ -130,7 +130,7 @@
 		</td>
 		<td valign="top" colspan="1">
 			
-			<asp:textbox id="m_txt_ten_mon0" TextMode="MultiLine" Rows="4" CssClass="cssTextBox" 
+			<asp:textbox id="m_txt_ghi_chu" TextMode="MultiLine" Rows="4" CssClass="cssTextBox" 
                 CausesValidation="false"  runat="server" 
                 MaxLength="400" Width="65%" />
         </td>
@@ -210,9 +210,9 @@
                     <ItemTemplate> <asp:LinkButton ID = "lbt_delete" runat="server" Text="Xóa" 
                      CommandName="Delete" OnClientClick="return confirm ('Bạn có thực sự muốn xóa bản ghi này?')"></asp:LinkButton>
                     </ItemTemplate>
-                    <ItemStyle Width="5%" />
+                    <ItemStyle Width="3%" />
                     </asp:TemplateField>
-                    <asp:CommandField SelectText="Sửa" ShowSelectButton="True" HeaderText="Sửa" ItemStyle-Width="5%" />
+                    <asp:CommandField SelectText="Sửa" ShowSelectButton="True" HeaderText="Sửa" ItemStyle-Width="2%" />
                     <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
                         <ItemStyle HorizontalAlign="Center" Width="5%"></ItemStyle>
@@ -221,17 +221,18 @@
                         Visible="true">
                         <ItemStyle HorizontalAlign="Center" Width="10%"></ItemStyle></asp:BoundField>
                     <asp:BoundField DataField="TEN_DOT_TT" HeaderText="Tên đợt TT" ItemStyle-Width="20%" />
-                    <asp:BoundField DataField="ID_DON_VI_THANH_TOAN" HeaderText="Đơn vị TT" 
+                    
+                    <asp:TemplateField HeaderText="Đơn vị TT" ItemStyle-HorizontalAlign="Center">
+                       <ItemTemplate><%# mapping_don_vi_thanh_toan(CIPConvert.ToDecimal(Eval("ID_DON_VI_THANH_TOAN"))) %></ItemTemplate>
+                        <ItemStyle HorizontalAlign="Center" Width="25%"></ItemStyle>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Trạng thái đợt TT" ItemStyle-HorizontalAlign="Center">
+                       <ItemTemplate><%# mapping_trang_thai_dot_thanh_toan(CIPConvert.ToDecimal(Eval("ID_TRANG_THAI_DOT_TT"))) %></ItemTemplate>
+                        <ItemStyle HorizontalAlign="Center" Width="20%"></ItemStyle>
+                    </asp:TemplateField>
+                      <asp:BoundField DataField="NGAY_TT_DU_KIEN" HeaderText="Ngày kết thúc dự kiên" DataFormatString="{0:dd/MM/yyyy}"
                         ItemStyle-HorizontalAlign="Center" >
-                    <ItemStyle HorizontalAlign="Center" Width="20%"></ItemStyle>
-                    </asp:BoundField>
-                      <asp:BoundField DataField="ID_TRANG_THAI_DOT_TT" HeaderText="Trạng thái đợt TT" 
-                        ItemStyle-HorizontalAlign="Center" >
-                    <ItemStyle HorizontalAlign="Center" Width="20%"></ItemStyle>
-                    </asp:BoundField>
-                      <asp:BoundField DataField="NGAY_TT_DU_KIEN" HeaderText="Ngày kết thúc dự kiên" 
-                        ItemStyle-HorizontalAlign="Center" >
-                    <ItemStyle HorizontalAlign="Center" Width="15%"></ItemStyle>
+                    <ItemStyle HorizontalAlign="Center" Width="10%"></ItemStyle>
                     </asp:BoundField>
                 </Columns>
                   <EditRowStyle BackColor="#7C6F57" />
