@@ -20,7 +20,7 @@ namespace WebUS{
 public class US_V_DM_DOT_THANH_TOAN : US_Object
 {
 	private const string c_TableName = "V_DM_DOT_THANH_TOAN";
-#region "Public Properties"
+    #region "Public Properties"
 	public decimal dcID 
 	{
 		get
@@ -209,7 +209,8 @@ public class US_V_DM_DOT_THANH_TOAN : US_Object
 	}
 
 #endregion
-#region "Init Functions"
+   
+    #region "Init Functions"
 	public US_V_DM_DOT_THANH_TOAN() 
 	{
 		pm_objDS = new DS_V_DM_DOT_THANH_TOAN();
