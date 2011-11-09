@@ -48,8 +48,8 @@
 			<asp:textbox id="m_txt_ma_dot_tt" CssClass="cssTextBox" 
                 CausesValidation="false"  runat="server" 
                 MaxLength="100" Width="50%" />
-                &nbsp;(*)<asp:customvalidator id="m_ctv_ma_mon" runat="server" 
-                ControlToValidate="m_txt_ma_dot_tt" ErrorMessage="Bạn phải nhập Mã môn" 
+                &nbsp;(*)<asp:RequiredFieldValidator id="m_ctv_ma_mon" runat="server" 
+                ControlToValidate="m_txt_ma_dot_tt" ErrorMessage="Bạn phải nhập Mã đợt thanh toán" 
                 Display="Static" Text="*" />
 		    </td>
 		<td style="width:10%;"> 
@@ -139,7 +139,9 @@
 		<td align="right">
 			&nbsp;</td>
 		<td valign="top" colspan="2">
-		    &nbsp;</td>
+       
+                <asp:HiddenField ID="hdf_id_dot_tt" runat = "server" Value="" />
+                </td>
 	</tr>	
 	<tr>
 	    <td></td>
@@ -208,7 +210,7 @@
                 <Columns>
                   <asp:TemplateField HeaderText="Xóa">
                     <ItemTemplate> <asp:LinkButton ID = "lbt_delete" runat="server" Text="Xóa" 
-                     CommandName="Delete" OnClientClick="return confirm ('Bạn có thực sự muốn xóa bản ghi này?')"></asp:LinkButton>
+                     CommandName="Delete" CausesValidation="false" OnClientClick="return confirm ('Bạn có thực sự muốn xóa bản ghi này?')"></asp:LinkButton>
                     </ItemTemplate>
                     <ItemStyle Width="3%" />
                     </asp:TemplateField>
