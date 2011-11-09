@@ -35,7 +35,7 @@
                 <td align="left" style="width:5%;">
 			       
 			<asp:label id="lblFullName2" CssClass="cssManField" runat="server" 
-                Text="&lt;U&gt;M&lt;/U&gt;ã PO phụ trách" />
+                Text="&lt;U&gt;M&lt;/U&gt;ã PO phụ trách hợp đồng" />
 			       
 			    </td>
                 <td align="left" style="width:10%;">
@@ -436,7 +436,7 @@
                      <ItemStyle HorizontalAlign="Center" Width="4%"></ItemStyle>
                     </asp:TemplateField>
                     <asp:TemplateField>
-                    <HeaderTemplate>Mã PO Phụ trách</HeaderTemplate>
+                    <HeaderTemplate>Mã PO Phụ trách hợp đồng</HeaderTemplate>
                     <ItemTemplate>
                     <asp:Label ID="m_lbl_ma_po_phu_trach" runat="server" Text='<%# Eval("MA_PO_PHU_TRACH").ToString() %>' ></asp:Label>
                     </ItemTemplate>

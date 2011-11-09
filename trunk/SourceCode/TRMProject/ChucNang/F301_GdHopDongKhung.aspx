@@ -79,7 +79,7 @@
                  <td align="right" style="width:5%;">
 			       
 			<asp:label id="lblPophutrach" CssClass="cssManField" runat="server" 
-                Text="PO phụ trách" />
+                Text="PO phụ trách hợp đồng" />
 			       
 			    </td>
                 <td align="left" style="width:10%;">	
@@ -318,7 +318,10 @@
 			 
                          </td>
                       <td align="left" style="width:1%;">
-                          &nbsp;</td>
+			       
+			<asp:label id="lblMon7" CssClass="cssManField" runat="server" 
+                Text="VNĐ" />
+                </td>
                  <td align="right" style="width:5%;">
 			       
 			<asp:label id="lblThueSuat" CssClass="cssManField" runat="server" 
