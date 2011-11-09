@@ -165,7 +165,7 @@
                 <td align="right" style="width:7%;">
 			       
 			<asp:label id="lblMon4" CssClass="cssManField" runat="server" 
-                Text="Số lượng hệ số" />
+                Text="Số lượng / hệ số" />
 			       
                 </td>
                 <td align="left" style="width:10%;">
