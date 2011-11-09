@@ -17,7 +17,7 @@ public partial class DanhMuc_F500_DotThanhToan : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
      {
-         m_lbl_mess.Visible = false;
+         m_lbl_mess.Text = "";
         if (!IsPostBack)
         {
             load_data_2_cbo_don_vi_tt();
@@ -168,12 +168,32 @@ public partial class DanhMuc_F500_DotThanhToan : System.Web.UI.Page
         m_txt_ten_dot_tt.Text = "";
         m_cbo_dm_loai_don_vi_thanh_toan.SelectedIndex = 0;
         m_cbo_dm_trang_thai_dot_thanh_toan.SelectedIndex = 0;
-        m_dat_ngay_ket_thuc_du_kien.SelectedDate = DateTime.Today;
+        m_dat_ngay_ket_thuc_du_kien.Text = "";
     }
     private bool check_exist_ma_dot_tt(string ip_str_ma_dot)
     {
         if (m_us_v_dm_dot_thanh_toan.check_exist_ma_dot_thanh_toan(ip_str_ma_dot)) return true;
         return false; // Nghĩa là chưa tồn tại
+    }
+    private void load_data_2_us_by_id(int ip_i_id)
+    {
+        decimal v_dc_id_dot_thanh_toan = CIPConvert.ToDecimal(m_grv_dm_dot_thanh_toan.DataKeys[ip_i_id].Value);
+        hdf_id_dot_tt.Value = CIPConvert.ToStr(v_dc_id_dot_thanh_toan);
+        //hdf_id.Value = v_dc_id_dm_mon_hoc.ToString();
+        US_V_DM_DOT_THANH_TOAN v_us_dm_dot_tt = new US_V_DM_DOT_THANH_TOAN(v_dc_id_dot_thanh_toan);
+        //hdf_ma_mon.Value = v_us_dm_mon_hoc.strMA_MON_HOC;
+        // Đẩy us lên form
+        us_obj_2_form(v_us_dm_dot_tt);
+        m_cmd_tao_moi.Enabled = false;
+    }
+    private void load_data_2_us_and_del(int ip_i_id)
+    {
+        decimal v_dc_id_dot_thanh_toan = CIPConvert.ToDecimal(m_grv_dm_dot_thanh_toan.DataKeys[ip_i_id].Value);
+        m_us_v_dm_dot_thanh_toan.dcID = v_dc_id_dot_thanh_toan;
+        m_us_v_dm_dot_thanh_toan.DeleteByID(v_dc_id_dot_thanh_toan);
+        m_lbl_mess.Text = "Xóa bản ghi thành công";
+        m_lbl_mess.Visible = true;
+        load_data_2_grid();
     }
     #endregion
 
@@ -182,7 +202,7 @@ public partial class DanhMuc_F500_DotThanhToan : System.Web.UI.Page
     {
         try
         {
-
+            load_data_2_us_by_id(e.NewSelectedIndex);
         }
         catch (Exception v_e)
         {
@@ -193,7 +213,7 @@ public partial class DanhMuc_F500_DotThanhToan : System.Web.UI.Page
     {
          try
         {
-
+            load_data_2_us_and_del(e.RowIndex);
         }
         catch (Exception v_e)
         {
@@ -239,7 +259,21 @@ public partial class DanhMuc_F500_DotThanhToan : System.Web.UI.Page
     {
         try
         {
-
+            if (hdf_id_dot_tt.Value == "")
+            {
+                string someScript;
+                someScript = "<script language='javascript'>alert('Bạn chưa chọn nội dung cần cập nhật');</script>";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", someScript);
+                m_dat_ngay_ket_thuc_du_kien.Focus();
+                return;
+            }
+            form_2_us_obj(m_us_v_dm_dot_thanh_toan);
+            m_us_v_dm_dot_thanh_toan.dcID =CIPConvert.ToDecimal(hdf_id_dot_tt.Value);
+            m_us_v_dm_dot_thanh_toan.Update();
+            m_lbl_mess.Text = "Cập nhật thông tin thành công";
+            load_data_2_grid();
+            reset_control();
+            m_cmd_tao_moi.Enabled = true;
         }
         catch (Exception v_e)
         {
