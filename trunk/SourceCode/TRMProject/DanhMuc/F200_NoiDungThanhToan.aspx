@@ -189,13 +189,13 @@
 		<td align="center" colspan="3" style="height:450px;" valign="top">
 		    &nbsp;
            
-        <asp:GridView ID="m_grv_dm_noi_dung_thanh_toan" AllowPaging="true" 
+        <asp:GridView ID="m_grv_dm_noi_dung_thanh_toan" AllowPaging="True" 
                 runat="server" AutoGenerateColumns="False" 
                 Width="100%" DataKeyNames="ID" 
                   onrowdeleting="m_grv_dm_tu_dien_RowDeleting" 
                 
                 onselectedindexchanging="m_grv_dm_noi_dung_thanh_toan_SelectedIndexChanging" 
-                CellPadding="4" ForeColor="#333333" GridLines="Both" AllowSorting="True" 
+                CellPadding="4" ForeColor="#333333" AllowSorting="True" 
                 onpageindexchanging="m_grv_dm_noi_dung_thanh_toan_PageIndexChanging">
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
@@ -217,15 +217,16 @@
                         <ItemStyle HorizontalAlign="Center" Width="4%"></ItemStyle></asp:BoundField>
                     <asp:BoundField DataField="TEN_NOI_DUNG" HeaderText="Tên nội dung" />
                     <asp:BoundField DataField="TEN_NGAN" HeaderText="Loại hợp đồng" />
-                    <asp:BoundField DataField="DON_GIA_DEFAULT" DataFormatString="{0:N0}" HeaderText="Đơn giá" />
+                     <asp:BoundField DataField="SO_LUONG_HE_SO_DEFAULT" DataFormatString="{0:N1}" HeaderText="Số lượng / hệ số Default" 
+                        ItemStyle-HorizontalAlign="Center" > 
+<ItemStyle HorizontalAlign="Center"></ItemStyle>
+                    </asp:BoundField>
+
                     <asp:BoundField DataField="MA_DON_VI_TINH" HeaderText="Đơn vị tính" 
                         ItemStyle-HorizontalAlign="Center" >
 <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:BoundField>
-                     <asp:BoundField DataField="SO_LUONG_HE_SO_DEFAULT" DataFormatString="{0:N1}" HeaderText="Số lượng hệ số Default" 
-                        ItemStyle-HorizontalAlign="Center" > 
-<ItemStyle HorizontalAlign="Center"></ItemStyle>
-                    </asp:BoundField>
+                    <asp:BoundField DataField="DON_GIA_DEFAULT" DataFormatString="{0:N0}" HeaderText="Đơn giá" />
 
                      <asp:TemplateField HeaderText="Tần suất thanh toán">
                     <ItemTemplate>
