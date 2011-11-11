@@ -51,10 +51,19 @@
 					    <li><a href="/TRMProject/ChucNang/F202_DanhSachGiangVien.aspx">Cập nhật giảng viên</a></li>
 					    <li><a href="/TRMProject/ChucNang/F302_DanhSachHopDongKhung.aspx">Cập nhật hợp đồng khung</a></li>
 					    <li><a href="/TRMProject/ChucNang/F103_DanhSachLopMon.aspx">Cập nhật lớp môn</a></li>
-                          <li><a href="/TRMProject/ChucNang/F401_LapDuToanChoDotThanhToan.aspx">Quản lý thanh toán</a></li>
 				    </ul>
               </li>
 
+              <li><a href="#">Quản lý thanh toán</a>
+                   <ul>
+					    <li><a href="/TRMProject/ChucNang/F401_LapDuToanChoDotThanhToan.aspx?id_trang_thai_dot_tt=1">1. Lập danh sách dự toán</a></li>
+					    <li><a href="/TRMProject/ChucNang/F401_LapDuToanChoDotThanhToan.aspx?id_trang_thai_dot_tt=2">2. Phê duyệt dự toán</a></li>
+					    <li><a href="/TRMProject/ChucNang/F401_LapDuToanChoDotThanhToan.aspx?id_trang_thai_dot_tt=3">3. Xuất danh sách dự toán</a></li>
+                          <li><a href="/TRMProject/ChucNang/F401_LapDuToanChoDotThanhToan.aspx?id_trang_thai_dot_tt=4">4. Xác nhận ngân hàng</a></li>
+                          <li><a href="/TRMProject/ChucNang/F401_LapDuToanChoDotThanhToan.aspx?id_trang_thai_dot_tt=5">5. Xác nhận giảng viên</a></li>
+                          <li><a href="/TRMProject/ChucNang/F401_LapDuToanChoDotThanhToan.aspx?id_trang_thai_dot_tt=6">6. Đóng đợt thanh toán</a></li>
+				    </ul>
+              </li>
                <li><a href="#">Báo cáo</a>
                     <ul>
 					    <li><a href="#">Danh sách giảng viên</a></li>
