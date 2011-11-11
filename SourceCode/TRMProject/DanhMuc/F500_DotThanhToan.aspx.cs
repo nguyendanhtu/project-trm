@@ -68,7 +68,7 @@ public partial class DanhMuc_F500_DotThanhToan : System.Web.UI.Page
 
             m_cbo_dm_trang_thai_dot_thanh_toan_search.DataSource = m_ds_cm_dm_tu_dien.CM_DM_TU_DIEN;
             m_cbo_dm_trang_thai_dot_thanh_toan_search.DataBind();
-
+            m_cbo_dm_trang_thai_dot_thanh_toan.SelectedIndex = 0;
         }
         catch (Exception v_e)
         {
@@ -204,6 +204,7 @@ public partial class DanhMuc_F500_DotThanhToan : System.Web.UI.Page
     {
         try
         {
+            m_cbo_dm_trang_thai_dot_thanh_toan.Enabled = true;
             load_data_2_us_by_id(e.NewSelectedIndex);
         }
         catch (Exception v_e)
@@ -276,6 +277,7 @@ public partial class DanhMuc_F500_DotThanhToan : System.Web.UI.Page
             load_data_2_grid();
             reset_control();
             m_cmd_tao_moi.Enabled = true;
+            m_cbo_dm_trang_thai_dot_thanh_toan.Enabled = false;
         }
         catch (Exception v_e)
         {
