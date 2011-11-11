@@ -73,7 +73,7 @@ public partial class ChucNang_F401_LapDuToanChoDotThanhToan : System.Web.UI.Page
                 v_str_return = string.Format("<a href='F402_DanhSachHopDongDuToan.aspx?Madot={0}'>Lập dự toán</a>", ip_str_ma_dot_tt);
                 break;
             case TRANG_THAI_DOT_TT.DA_LEN_DU_TOAN:
-                v_str_return = string.Format("<a href='F402_PheDuyetDuToan.aspx?Madot={0}'>Duyệt dự toán</a>", ip_str_ma_dot_tt);
+                v_str_return = string.Format("<a href='F403_PheDuyetDuToan.aspx?Madot={0}'>Duyệt dự toán</a>", ip_str_ma_dot_tt);
                 break;
             case TRANG_THAI_DOT_TT.DA_CHUYEN_KE_TOAN:
                 v_str_return =string.Format("<a href='F402_PheDuyetDuToan.aspx?Madot={0}'>Lên danh sách dự toán</a>",ip_str_ma_dot_tt); 

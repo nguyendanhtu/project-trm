@@ -121,7 +121,8 @@
                     <asp:BoundField DataField="MA_DOT_TT" HeaderText="Mã đợt thanh toán" 
                         Visible="true">
                         <ItemStyle HorizontalAlign="Center" Width="20%"></ItemStyle></asp:BoundField>                    
-                    <asp:TemplateField HeaderText="Đơn vị TT" ItemStyle-HorizontalAlign="Center">
+                    <asp:TemplateField HeaderText="Đơn vị thanh toán" 
+                        ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%# mapping_don_vi_thanh_toan(CIPConvert.ToDecimal(Eval("ID_DON_VI_THANH_TOAN"))) %></ItemTemplate>
                         <ItemStyle HorizontalAlign="Center" Width="30%"></ItemStyle>
                     </asp:TemplateField>
@@ -129,7 +130,8 @@
                         ItemStyle-HorizontalAlign="Center" >
                     <ItemStyle HorizontalAlign="Center" Width="10%"></ItemStyle>
                     </asp:BoundField>
-                     <asp:TemplateField HeaderText="Trạng thái đợt TT" ItemStyle-HorizontalAlign="Center">
+                     <asp:TemplateField HeaderText="Trạng thái đợt thanh toán" 
+                        ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%# mapping_trang_thai_dot_thanh_toan(CIPConvert.ToDecimal(Eval("ID_TRANG_THAI_DOT_TT"))) %></ItemTemplate>
                         <ItemStyle HorizontalAlign="Center" Width="15%"></ItemStyle>
                     </asp:TemplateField>
@@ -138,7 +140,7 @@
                        </ItemTemplate>
                         <ItemStyle HorizontalAlign="Center" Width="10%"></ItemStyle>
                     </asp:TemplateField>
-                     <asp:TemplateField HeaderText="Hỗ trơ" ItemStyle-HorizontalAlign="Center">
+                     <asp:TemplateField HeaderText="Hỗ trợ" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%# mapping_ho_tro_with_trang_thai_dot_tt(CIPConvert.ToDecimal(Eval("ID_TRANG_THAI_DOT_TT")), CIPConvert.ToStr(Eval("MA_DOT_TT")))%>
                        </ItemTemplate>
                         <ItemStyle HorizontalAlign="Center" Width="10%"></ItemStyle>
