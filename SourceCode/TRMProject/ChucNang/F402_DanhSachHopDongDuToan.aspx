@@ -114,7 +114,7 @@
                          </td>
                 <td align="left" style="width:10%;">
 		    <asp:TextBox ID="m_txt_ten_giang_vien" runat="server" CssClass="cssTextBox" 
-                        Width="90%"></asp:TextBox>
+                        Width="99%"></asp:TextBox>
                          </td>
                          <td align="left" style="width:1%;"> 
                              &nbsp;</td>
@@ -146,7 +146,7 @@
 		                    </td>
                 <td align="left" style="width:10%;">
 			        <asp:DropDownList ID="m_cbo_loai_hop_dong_search" 
-                        runat="server" Height="22px" Width="90%"></asp:DropDownList></td>
+                        runat="server" Height="22px" Width="99%"></asp:DropDownList></td>
                                  <td align="left" style="width:1%;"></td>
                 <td align="right" style="width:5%;">
 			<asp:label id="Label18" CssClass="cssManField" runat="server" 
@@ -366,8 +366,8 @@
                     <ItemTemplate> 
                         <asp:HyperLink ID="lbt_phu_luc_hop_dong" runat="server" 
                             ImageUrl="/TRMProject/Images/Button/detail.png" 
-                            NavigateUrl='<%# "/TRMProject/ChucNang/F307_PhuLucHopDong.aspx?id_hd="+Eval("ID") %>' 
-                            ToolTip="Phụ lục hợp đồng"></asp:HyperLink>
+                            NavigateUrl='<%# "/TRMProject/ChucNang/F407_LapDuToan.aspx?id_hd="+Eval("ID") %>' 
+                            ToolTip="Lập dự toán cho hợp đồng"></asp:HyperLink>
                     </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">

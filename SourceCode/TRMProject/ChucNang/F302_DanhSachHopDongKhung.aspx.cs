@@ -25,15 +25,14 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
                 m_txt_ten_giang_vien.Focus();
                 if (!IsPostBack)
                 {                    
+                    load_2_cbo_don_vi_quan_ly();
+                    load_data_2_loai_hop_dong();
+                    load_data_2_trang_thai_hop_dong();
                     if (Session["Snamekhung"] != null)
                     {
                         session_2_form();
                         search_using_session();
                     }
-                    load_2_cbo_don_vi_quan_ly();
-                    load_data_2_loai_hop_dong();
-                    load_data_2_trang_thai_hop_dong();
-
                     if (Request.QueryString["edit"] != null)
                     {
                         if (Request.QueryString["edit"].ToString().Equals("ok"))
