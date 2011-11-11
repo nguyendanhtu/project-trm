@@ -101,7 +101,7 @@
    <tr>
 		<td class="cssPageTitleBG" colspan="3">
 		    <asp:label id="Label5" runat="server" CssClass="cssPageTitle" 
-                Text="Danh sách hợp đồng khung"/>
+                Text="Thông tin hợp đồng khung"/>
 		</td>
 	</tr>	
   <tr>
@@ -131,7 +131,7 @@
                 <td align="left" style="width:1%;"></td>
                  <td align="right" style="width:5%;">
 			<asp:label id="lblFullName3" CssClass="cssManField" runat="server" 
-                Text="&lt;U&gt;S&lt;/U&gt;ố hợp đồng" />
+                Text="&lt;U&gt;S&lt;/U&gt;ố hợp đồng khung" />
                          </td>
                 <td align="left" style="width:10%;">
 		    <asp:TextBox ID="m_txt_so_hd" runat="server" CssClass="cssTextBox" 
@@ -366,7 +366,7 @@
                     <ItemTemplate> 
                         <asp:HyperLink ID="lbt_phu_luc_hop_dong" runat="server" 
                             ImageUrl="/TRMProject/Images/Button/detail.png" 
-                            NavigateUrl='<%# "/TRMProject/ChucNang/F407_LapDuToan.aspx?id_hd="+Eval("ID") %>' 
+                            NavigateUrl='<%# "/TRMProject/ChucNang/F407_LapDuToan.aspx?id_hd="+Eval("ID") %>'
                             ToolTip="Lập dự toán cho hợp đồng"></asp:HyperLink>
                     </ItemTemplate>
                     </asp:TemplateField>

@@ -21,8 +21,8 @@ public partial class ChucNang_F402_DanhSachHopDongDuToan : System.Web.UI.Page
         {
             if (Request.QueryString["Madot"] != null)
             {
-                string v_str_ma_dot = CIPConvert.ToStr(Request.QueryString["Madot"]);
-                fill_data_2_thong_tin_dot_tt(v_str_ma_dot);
+                string m_str_ma_dot = CIPConvert.ToStr(Request.QueryString["Madot"]);
+                fill_data_2_thong_tin_dot_tt(m_str_ma_dot);
                 load_2_cbo_don_vi_quan_ly();
                 load_data_2_loai_hop_dong();
                 load_data_2_trang_thai_hop_dong();
@@ -44,6 +44,7 @@ public partial class ChucNang_F402_DanhSachHopDongDuToan : System.Web.UI.Page
 
     US_V_DM_GIANG_VIEN m_us_dm_giang_vien = new US_V_DM_GIANG_VIEN();
     DS_V_DM_GIANG_VIEN m_ds_dm_giang_vien = new DS_V_DM_GIANG_VIEN();
+    public string m_str_ma_dot;
     #endregion
 
     #region Public Interfaces
@@ -365,6 +366,7 @@ public partial class ChucNang_F402_DanhSachHopDongDuToan : System.Web.UI.Page
                 if (m_grv_dm_danh_sach_hop_dong_khung.Visible == true) m_grv_dm_danh_sach_hop_dong_khung.Visible = false;
                 return;
             }
+            m_lbl_thong_bao.Visible = false;
             m_grv_dm_danh_sach_hop_dong_khung.Visible = true;
             m_grv_dm_danh_sach_hop_dong_khung.DataSource = m_ds_hop_dong_khung.V_DM_HOP_DONG_KHUNG;
 
@@ -442,8 +444,6 @@ public partial class ChucNang_F402_DanhSachHopDongDuToan : System.Web.UI.Page
     #endregion
 
     #region Events
-
-    #endregion
     protected void m_cmd_loc_du_lieu_Click(object sender, EventArgs e)
     {
         try
@@ -468,4 +468,6 @@ public partial class ChucNang_F402_DanhSachHopDongDuToan : System.Web.UI.Page
             CSystemLog_301.ExceptionHandle(this, v_e);
         }
     }
+    #endregion
+   
 }
