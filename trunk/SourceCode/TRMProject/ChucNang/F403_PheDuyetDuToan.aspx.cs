@@ -4,7 +4,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class ChucNang_F402_PheDuyetDuToan : System.Web.UI.Page
+public partial class ChucNang_F403_PheDuyetDuToan : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {

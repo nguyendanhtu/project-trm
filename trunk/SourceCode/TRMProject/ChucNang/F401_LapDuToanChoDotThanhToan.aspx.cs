@@ -33,6 +33,7 @@ public partial class ChucNang_F401_LapDuToanChoDotThanhToan : System.Web.UI.Page
     #endregion
 
     #region Public Interfaces
+    // Cái này cho phép cập nhật lại các bước trước nếu như cảm thấy lỗi
     public string mapping_ho_tro_with_trang_thai_dot_tt(decimal ip_dc_id_trang_thai_dot_thanh_toan, string ip_str_ma_dot_tt)
     {
         string v_str_ma_dot = get_ma_trang_thai_dot_tt_by_id(ip_dc_id_trang_thai_dot_thanh_toan);
@@ -65,27 +66,32 @@ public partial class ChucNang_F401_LapDuToanChoDotThanhToan : System.Web.UI.Page
     }
     public string mapping_action_with_trang_thai_dot_tt(decimal ip_dc_id_trang_thai_dot_thanh_toan, string ip_str_ma_dot_tt)
     {
-        string v_str_ma_dot = get_ma_trang_thai_dot_tt_by_id(ip_dc_id_trang_thai_dot_thanh_toan);
+        string v_str_ma_trang_thai_dot_tt = get_ma_trang_thai_dot_tt_by_id(ip_dc_id_trang_thai_dot_thanh_toan);
         string v_str_return="";
-        switch (v_str_ma_dot)
+        switch (v_str_ma_trang_thai_dot_tt)
         {
             case TRANG_THAI_DOT_TT.DA_LAP_DOT:
                 v_str_return = string.Format("<a href='F402_DanhSachHopDongDuToan.aspx?Madot={0}'>Lập dự toán</a>", ip_str_ma_dot_tt);
                 break;
             case TRANG_THAI_DOT_TT.DA_LEN_DU_TOAN:
+                // Chuyển sang bước duyệt dự toán, duyệt theo từng hợp đồng
                 v_str_return = string.Format("<a href='F403_PheDuyetDuToan.aspx?Madot={0}'>Duyệt dự toán</a>", ip_str_ma_dot_tt);
                 break;
             case TRANG_THAI_DOT_TT.DA_CHUYEN_KE_TOAN:
-                v_str_return =string.Format("<a href='F402_PheDuyetDuToan.aspx?Madot={0}'>Lên danh sách dự toán</a>",ip_str_ma_dot_tt); 
+                //// Chuyển sang bước lên danh sách dự toán
+                v_str_return = string.Format("<a href='F404_XuatDanhSachDuToan.aspx?Madot={0}'>Lên danh sách dự toán</a>", ip_str_ma_dot_tt); 
                 break;
             case TRANG_THAI_DOT_TT.DA_CHUYEN_NGAN_HANG:
-                v_str_return =string.Format("<a href='F402_PheDuyetDuToan.aspx?Madot={0}'>Xác nhận ngân hàng</a>",ip_str_ma_dot_tt); 
+                // Chuyển sang bước xác nhận ngân hàng(từng ngân hàng)
+                v_str_return = string.Format("<a href='F405_XacNhanNganHang.aspx?Madot={0}'>Xác nhận ngân hàng</a>", ip_str_ma_dot_tt); 
                 break;
             case TRANG_THAI_DOT_TT.DA_CO_XAC_NHAN_CUA_NGAN_HANG:
-                v_str_return =string.Format("<a href='F402_PheDuyetDuToan.aspx?Madot={0}'>Xác nhận giảng viên</a>",ip_str_ma_dot_tt); 
+                // Chuyển sang bước xác nhận giảng viên (từng giảng viên)
+                v_str_return = string.Format("<a href='F406_XacNhanGiangVien.aspx?Madot={0}'>Xác nhận giảng viên</a>", ip_str_ma_dot_tt); 
                 break;
             case TRANG_THAI_DOT_TT.DA_CO_XAC_NHAN_CUA_GIANG_VIEN:
-                v_str_return =string.Format("<a href='F402_PheDuyetDuToan.aspx?Madot={0}'>Đóng đợt thanh toán</a>",ip_str_ma_dot_tt);
+                // Đóng đợt thanh toán thì vào DM_DOT_THANH_TOAN chỉnh sửa trạng thái của đợt thanh toán
+                v_str_return = string.Format("<a href='F500_DotThanhToan.aspx?Madot={0}'>Đóng đợt thanh toán</a>", ip_str_ma_dot_tt);
                 break;
             case TRANG_THAI_DOT_TT.DA_KET_THUC: 
                 v_str_return = "Đã kết thúc";
