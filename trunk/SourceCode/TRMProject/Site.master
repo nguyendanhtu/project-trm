@@ -51,15 +51,7 @@
 					    <li><a href="/TRMProject/ChucNang/F202_DanhSachGiangVien.aspx">Cập nhật giảng viên</a></li>
 					    <li><a href="/TRMProject/ChucNang/F302_DanhSachHopDongKhung.aspx">Cập nhật hợp đồng khung</a></li>
 					    <li><a href="/TRMProject/ChucNang/F103_DanhSachLopMon.aspx">Cập nhật lớp môn</a></li>
-                          <li><a href="#">Quản lý thanh toán</a>
-                             <ul>
-                                <li><a href="/TRMProject/ChucNang/F401_LapDuToanChoDotThanhToan.aspx">1. Lập dự toán cho đợt thanh toán</a></li>
-                                <li><a href="/TRMProject/ChucNang/F402_PheDuyetDuToan.aspx">2. Phê duyệt dự toán</a></li>
-                                <li><a href="#">3. Xuất danh sách dự toán</a></li>
-                                <li><a href="#">4. Xác nhận chuyển khoản của Ngân hàng</a></li>
-                                <li><a href="#">5. Xác nhận của Giảng viên</a></li>
-                            </ul>
-                        </li>
+                          <li><a href="/TRMProject/ChucNang/F401_LapDuToanChoDotThanhToan.aspx">Quản lý thanh toán</a></li>
 				    </ul>
               </li>
 
