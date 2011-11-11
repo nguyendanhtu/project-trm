@@ -26,6 +26,11 @@ public partial class ChucNang_F402_DanhSachHopDongDuToan : System.Web.UI.Page
                 load_2_cbo_don_vi_quan_ly();
                 load_data_2_loai_hop_dong();
                 load_data_2_trang_thai_hop_dong();
+                if (Session["Snamekhungtt"] != null)
+                {
+                    session_2_form();
+                    search_using_session();
+                }
             }
         }
     }
