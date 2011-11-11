@@ -23,6 +23,16 @@ namespace WebDS.CDBNames
         , DOT_THANH_TOAN = 14
     }
 
+      public enum trang_thai_dot_tt
+      {
+           1_DA_LAP_DOT = 1
+          , 2_DA_LEN_DU_TOAN =2
+          , 3_DA_CHUYEN_KE_TOAN = 3
+          , 4_DA_CHUYEN_NGAN_HANG = 4
+          , 5_DA_CO_XAC_NHAN_CUA_NGAN_HANG = 5
+          , 6_DA_KET_THUC = 6  
+      }
+
     public class CM_DM_TU_DIEN
     {
         public const string ID = "ID";
