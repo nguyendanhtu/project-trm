@@ -356,9 +356,10 @@
 		    &nbsp;
             <asp:GridView ID="m_grv_dm_danh_sach_hop_dong_khung" AllowPaging="True" 
                 runat="server" AutoGenerateColumns="False" 
-                Width="101%" DataKeyNames="ID"
+                Width="100%" DataKeyNames="ID"
                 CellPadding="4" ForeColor="#333333" 
-            AllowSorting="True" >
+            AllowSorting="True" 
+                onpageindexchanging="m_grv_dm_danh_sach_hop_dong_khung_PageIndexChanging" >
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
                 <asp:TemplateField HeaderText="Dự toán hợp đồng">
@@ -401,7 +402,7 @@
                     <label><a href='<%# "/TRMProject/ChucNang/F201_CapNhatThongTinGiangVien.aspx?mode=edit&id="+Eval("ID_GIANG_VIEN") %>'>
                     <%# Eval("GIANG_VIEN").ToString() %></a></label>
                     </ItemTemplate>
-                    <ItemStyle Width="200px"/>
+                    <ItemStyle Width="10%"/>
                     </asp:TemplateField>
                     <asp:BoundField DataField="NGAY_KY" HeaderText="Ngày ký" DataFormatString="{0:dd/MM/yyyy}" HtmlEncode="false" />
                       <asp:BoundField DataField="NGAY_HIEU_LUC" HeaderText="Ngày hiệu lực" DataFormatString="{0:dd/MM/yyyy}" HtmlEncode="false">
@@ -420,14 +421,14 @@
                     <ItemTemplate>
                     <asp:Label ID="m_lbl_don_vi_thanh_toan" runat="server" Text='<%# Eval("DON_VI_THANH_TOAN").ToString() %>' ></asp:Label>
                     </ItemTemplate>
-                     <ItemStyle HorizontalAlign="Center" Width="4%"></ItemStyle>
+                     <ItemStyle HorizontalAlign="Center" Width="20%"></ItemStyle>
                     </asp:TemplateField>
                     <asp:TemplateField>
                     <HeaderTemplate>Môn 1</HeaderTemplate>
                     <ItemTemplate>
                     <asp:Label ID="m_lbl_mon_1" runat="server" Text='<%# Eval("FIRST_MON").ToString() %>' ></asp:Label>
                     </ItemTemplate>
-                     <ItemStyle HorizontalAlign="Center" Width="4%"></ItemStyle>
+                     <ItemStyle HorizontalAlign="Center" Width="10%"></ItemStyle>
                     </asp:TemplateField>
                      <asp:TemplateField>
                     <HeaderTemplate>Môn 2</HeaderTemplate>
@@ -469,7 +470,7 @@
                     <ItemTemplate>
                     <asp:Label ID="m_lbl_trang_thai_hd" runat="server" Text='<%# Eval("TRANG_THAI_HOP_DONG").ToString() %>' ></asp:Label>
                     </ItemTemplate>
-                     <ItemStyle HorizontalAlign="Center" Width="4%"></ItemStyle>
+                     <ItemStyle HorizontalAlign="Center" Width="10%"></ItemStyle>
                     </asp:TemplateField>                    
                       <asp:TemplateField Visible="false">
                     <HeaderTemplate>Giá trị hợp đồng</HeaderTemplate>

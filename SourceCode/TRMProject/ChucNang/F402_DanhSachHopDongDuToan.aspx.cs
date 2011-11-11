@@ -23,6 +23,9 @@ public partial class ChucNang_F402_DanhSachHopDongDuToan : System.Web.UI.Page
             {
                 string v_str_ma_dot = CIPConvert.ToStr(Request.QueryString["Madot"]);
                 fill_data_2_thong_tin_dot_tt(v_str_ma_dot);
+                load_2_cbo_don_vi_quan_ly();
+                load_data_2_loai_hop_dong();
+                load_data_2_trang_thai_hop_dong();
             }
         }
     }
@@ -190,23 +193,57 @@ public partial class ChucNang_F402_DanhSachHopDongDuToan : System.Web.UI.Page
             throw v_e;
         }
     }
+    private void load_2_cbo_don_vi_quan_ly()
+    {
+        try
+        {
+            DS_CM_DM_TU_DIEN v_ds_cm_tu_dien = new DS_CM_DM_TU_DIEN();
+            US_CM_DM_TU_DIEN v_us_cm_tu_dien = new US_CM_DM_TU_DIEN();
+            //v_ds_cm_tu_dien.Clear();
+            //DataRow v_dr_all_dv_quan_ly = m_ds_cm_dm_tu_dien.CM_DM_TU_DIEN.NewCM_DM_TU_DIENRow();
 
+            ////add item Tat Ca          
+            //v_dr_all_dv_quan_ly[CM_DM_TU_DIEN.ID] = 0;
+            //v_dr_all_dv_quan_ly[CM_DM_TU_DIEN.TEN] = "Tất cả";
+
+            //v_ds_cm_tu_dien.EnforceConstraints = false;
+            //v_ds_cm_tu_dien.CM_DM_TU_DIEN.Rows.InsertAt(v_dr_all_dv_quan_ly, 0);
+
+            // Đổ dữ liệu vào DS 
+            v_us_cm_tu_dien.FillDataset(v_ds_cm_tu_dien, " WHERE ID_LOAI_TU_DIEN = "
+                                                + (int)e_loai_tu_dien.DON_VI_QUAN_LY_CHINH); // Đây là lấy theo điều kiện
+            m_cbo_don_vi_quan_ly_search.Items.Add(new ListItem("Tất cả", "0"));
+            for (int i = 0; i < v_ds_cm_tu_dien.CM_DM_TU_DIEN.Rows.Count; i++)
+            {
+                m_cbo_don_vi_quan_ly_search.Items.Add(new ListItem(v_ds_cm_tu_dien.CM_DM_TU_DIEN[i][CM_DM_TU_DIEN.TEN].ToString(), v_ds_cm_tu_dien.CM_DM_TU_DIEN[i][CM_DM_TU_DIEN.ID].ToString()));
+            }
+
+            //for (int i = 0; i < v_ds_cm_tu_dien.CM_DM_TU_DIEN.Rows.Count; i++)
+            //{
+            //    m_cbo_don_vi_q_ly.Items.Add(new ListItem(v_ds_cm_tu_dien.CM_DM_TU_DIEN[i][CM_DM_TU_DIEN.TEN].ToString(), v_ds_cm_tu_dien.CM_DM_TU_DIEN[i][CM_DM_TU_DIEN.ID].ToString()));
+            //}
+        }
+        catch (Exception v_e)
+        {
+            throw v_e;
+        }
+    }
     private void session_2_form()
     {
-        m_txt_ten_giang_vien.Text = CIPConvert.ToStr(Session["Snamekhung"]);
-        m_txt_so_hd.Text = CIPConvert.ToStr(Session["Ssohdkhung"]);
-        m_txt_tu_khoa_tim_kiem.Text = CIPConvert.ToStr(Session["Skeykhung"]);
-        m_txt_ma_PO_quan_ly.Text = CIPConvert.ToStr(Session["Spokhung"]);
+        m_txt_ten_giang_vien.Text = CIPConvert.ToStr(Session["Snamekhungtt"]);
+        m_txt_so_hd.Text = CIPConvert.ToStr(Session["Ssohdkhungtt"]);
+        m_txt_tu_khoa_tim_kiem.Text = CIPConvert.ToStr(Session["Skeykhungtt"]);
+        m_txt_ma_PO_quan_ly.Text = CIPConvert.ToStr(Session["Spokhungtt"]);
 
-        m_cbo_loai_hop_dong_search.SelectedValue = CIPConvert.ToStr(CIPConvert.ToDecimal(Session["Sloaihdkhung"]));
-        m_cbo_don_vi_quan_ly_search.SelectedValue = CIPConvert.ToStr(CIPConvert.ToDecimal(Session["Squanlykhung"]));
-        if (CIPConvert.ToStr(Session["Sdatngaykykhung"]) != "" && CIPConvert.ToDatetime(CIPConvert.ToStr(Session["Sdatngaykykhung"]), "dd/MM/yyyy") != CIPConvert.ToDatetime("01/01/1900", "dd/MM/yyyy"))
-            m_dat_ngay_ki.SelectedDate = CIPConvert.ToDatetime(CIPConvert.ToStr(Session["Sdatngaykykhung"]), "dd/MM/yyyy");
-        if (CIPConvert.ToStr(Session["Sdathieuluckhung"]) != "" && CIPConvert.ToDatetime(CIPConvert.ToStr(Session["Sdathieuluckhung"]), "dd/MM/yyyy") != CIPConvert.ToDatetime("01/01/1900", "dd/MM/yyyy"))
-            m_dat_ngay_hieu_luc.SelectedDate = CIPConvert.ToDatetime(CIPConvert.ToStr(Session["Sdathieuluckhung"]), "dd/MM/yyyy");
-        if (CIPConvert.ToStr(Session["Sdatketthuc"]) != "" && CIPConvert.ToDatetime(CIPConvert.ToStr(Session["Sdatketthuc"]), "dd/MM/yyyy") != CIPConvert.ToDatetime("01/01/1900", "dd/MM/yyyy"))
-            m_dat_date_ket_thuc.SelectedDate = CIPConvert.ToDatetime(CIPConvert.ToStr(Session["Sdatketthuc"]), "dd/MM/yyyy");
-        m_cbo_trang_thai_hop_dong_search.SelectedValue = CIPConvert.ToStr(CIPConvert.ToDecimal(Session["Strangthaihdkhung"]));
+        m_cbo_loai_hop_dong_search.SelectedValue = CIPConvert.ToStr(CIPConvert.ToDecimal(Session["Sloaihdkhungtt"]));
+        m_cbo_don_vi_quan_ly_search.SelectedValue = CIPConvert.ToStr(CIPConvert.ToDecimal(Session["Squanlykhungtt"]));
+        if (CIPConvert.ToStr(Session["Sdatngaykykhungtt"]) != "" && CIPConvert.ToDatetime(CIPConvert.ToStr(Session["Sdatngaykykhungtt"]), "dd/MM/yyyy") != CIPConvert.ToDatetime("01/01/1900", "dd/MM/yyyy"))
+            m_dat_ngay_ki.SelectedDate = CIPConvert.ToDatetime(CIPConvert.ToStr(Session["Sdatngaykykhungtt"]), "dd/MM/yyyy");
+        if (CIPConvert.ToStr(Session["Sdathieuluckhungtt"]) != "" && CIPConvert.ToDatetime(CIPConvert.ToStr(Session["Sdathieuluckhungtt"]), "dd/MM/yyyy") != CIPConvert.ToDatetime("01/01/1900", "dd/MM/yyyy"))
+            m_dat_ngay_hieu_luc.SelectedDate = CIPConvert.ToDatetime(CIPConvert.ToStr(Session["Sdathieuluckhungtt"]), "dd/MM/yyyy");
+        if (CIPConvert.ToStr(Session["Sdatketthuctt"]) != "" && CIPConvert.ToDatetime(CIPConvert.ToStr(Session["Sdatketthuctt"]), "dd/MM/yyyy") != CIPConvert.ToDatetime("01/01/1900", "dd/MM/yyyy"))
+            m_dat_date_ket_thuc.SelectedDate = CIPConvert.ToDatetime(CIPConvert.ToStr(Session["Sdatketthuctt"]), "dd/MM/yyyy");
+        m_cbo_trang_thai_hop_dong_search.SelectedValue = CIPConvert.ToStr(CIPConvert.ToDecimal(Session["Strangthaihdkhungtt"]));
     }
 
     private void collect_data_2_search(string ip_str_name, string ip_str_keyword
@@ -219,29 +256,29 @@ public partial class ChucNang_F402_DanhSachHopDongDuToan : System.Web.UI.Page
                                   , DateTime ip_dat_ngay_ket_thuc
                                   , string ip_str_ma_po_quan_ly)
     {
-        Session["Snamekhung"] = ip_str_name;
-        Session["Skeykhung"] = ip_str_keyword;
-        Session["Ssohdkhung"] = ip_str_so_hd;
-        Session["Sloaihdkhung"] = ip_dc_id_loai_hd;
-        Session["Squanlykhung"] = ip_dc_don_vi_quan_ly;
-        Session["Strangthaihdkhung"] = ip_dc_id_trang_thai_hd;
-        Session["Sdatngaykykhung"] = ip_dat_ngay_ky;
-        Session["Sdathieuluckhung"] = ip_dat_ngay_hieu_luc;
-        Session["Spokhung"] = ip_str_ma_po_quan_ly;
-        Session["Sdatketthuc"] = ip_dat_ngay_ket_thuc;
+        Session["Snamekhungtt"] = ip_str_name;
+        Session["Skeykhungtt"] = ip_str_keyword;
+        Session["Ssohdkhungtt"] = ip_str_so_hd;
+        Session["Sloaihdkhungtt"] = ip_dc_id_loai_hd;
+        Session["Squanlykhungtt"] = ip_dc_don_vi_quan_ly;
+        Session["Strangthaihdkhungtt"] = ip_dc_id_trang_thai_hd;
+        Session["Sdatngaykykhungtt"] = ip_dat_ngay_ky;
+        Session["Sdathieuluckhungtt"] = ip_dat_ngay_hieu_luc;
+        Session["Spokhungtt"] = ip_str_ma_po_quan_ly;
+        Session["Sdatketthuctt"] = ip_dat_ngay_ket_thuc;
     }
     private void clear_session()
     {
-        Session["Snamekhung"] = "";
-        Session["Skeykhung"] = "";
-        Session["Ssohdkhung"] = "";
-        Session["Sloaihdkhung"] = "";
-        Session["Squanlykhung"] = "";
-        Session["Strangthaihdkhung"] = "";
-        Session["Sdatngaykykhung"] = "";
-        Session["Sdathieuluckhung"] = "";
-        Session["Spokhung"] = "";
-        Session["Sdatketthuc"] = "";
+        Session["Snamekhungtt"] = "";
+        Session["Skeykhungtt"] = "";
+        Session["Ssohdkhungtt"] = "";
+        Session["Sloaihdkhungtt"] = "";
+        Session["Squanlykhungtt"] = "";
+        Session["Strangthaihdkhungtt"] = "";
+        Session["Sdatngaykykhungtt"] = "";
+        Session["Sdathieuluckhungtt"] = "";
+        Session["Spokhungtt"] = "";
+        Session["Sdatketthuctt"] = "";
     }
 
     private void get_form_search_data_and_load_to_grid()
@@ -344,16 +381,16 @@ public partial class ChucNang_F402_DanhSachHopDongDuToan : System.Web.UI.Page
         try
         {
             m_ds_hop_dong_khung.Clear();
-            m_us_dm_hop_dong_khung.search_hop_dong_khung(CIPConvert.ToStr(Session["Snamekhung"])
-                                               , CIPConvert.ToStr(Session["Skeykhung"])
-                                               , CIPConvert.ToStr(Session["Ssohdkhung"])
-                                               , CIPConvert.ToDecimal(Session["Sloaihdkhung"])
-                                               , CIPConvert.ToDecimal(Session["Strangthaihdkhung"])
-                                               , CIPConvert.ToDecimal(Session["Squanlykhung"])
-                                               , CIPConvert.ToDatetime(CIPConvert.ToStr(Session["Sdatngaykykhung"]))
-                                               , CIPConvert.ToDatetime(CIPConvert.ToStr(Session["Sdathieuluckhung"]))
-                                               , CIPConvert.ToDatetime(CIPConvert.ToStr(Session["Sdatketthuc"]))
-                                               , CIPConvert.ToStr(Session["Spokhung"])
+            m_us_dm_hop_dong_khung.search_hop_dong_khung(CIPConvert.ToStr(Session["Snamekhungtt"])
+                                               , CIPConvert.ToStr(Session["Skeykhungtt"])
+                                               , CIPConvert.ToStr(Session["Ssohdkhungtt"])
+                                               , CIPConvert.ToDecimal(Session["Sloaihdkhungtt"])
+                                               , CIPConvert.ToDecimal(Session["Strangthaihdkhungtt"])
+                                               , CIPConvert.ToDecimal(Session["Squanlykhungtt"])
+                                               , CIPConvert.ToDatetime(CIPConvert.ToStr(Session["Sdatngaykykhungtt"]))
+                                               , CIPConvert.ToDatetime(CIPConvert.ToStr(Session["Sdathieuluckhungtt"]))
+                                               , CIPConvert.ToDatetime(CIPConvert.ToStr(Session["Sdatketthuctt"]))
+                                               , CIPConvert.ToStr(Session["Spokhungtt"])
                                                , m_ds_hop_dong_khung);
             m_lbl_loc_du_lieu.Text = "Kết quả lọc dữ liệu: " + m_ds_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows.Count + " bản ghi";
             if (m_ds_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows.Count == 0)
@@ -407,6 +444,19 @@ public partial class ChucNang_F402_DanhSachHopDongDuToan : System.Web.UI.Page
         try
         {
             get_form_search_data_and_load_to_grid();
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(this, v_e);
+        }
+    }
+    protected void m_grv_dm_danh_sach_hop_dong_khung_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+        try
+        {
+            m_grv_dm_danh_sach_hop_dong_khung.PageIndex = e.NewPageIndex;
+            get_form_search_data_and_load_to_grid();
+
         }
         catch (Exception v_e)
         {
