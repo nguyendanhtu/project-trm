@@ -86,6 +86,7 @@ public partial class ChucNang_F402_DanhSachHopDongDuToan : System.Web.UI.Page
         return CIPConvert.ToDecimal(v_ds_dot_tt.V_DM_DOT_THANH_TOAN.Rows[0][V_DM_DOT_THANH_TOAN.ID]);
     }
 
+    // Thông tin đợt thanh toán
     private void fill_data_2_thong_tin_dot_tt(string ip_str_ma_dot)
     {
         if (get_id_dot_tt_by_ma_dot(ip_str_ma_dot) == 0)
@@ -401,4 +402,15 @@ public partial class ChucNang_F402_DanhSachHopDongDuToan : System.Web.UI.Page
     #region Events
 
     #endregion
+    protected void m_cmd_loc_du_lieu_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            get_form_search_data_and_load_to_grid();
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(this, v_e);
+        }
+    }
 }
