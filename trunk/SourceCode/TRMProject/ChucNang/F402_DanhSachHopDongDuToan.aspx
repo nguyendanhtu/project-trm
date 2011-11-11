@@ -324,7 +324,7 @@
                 <td align="left">     
 			<asp:button id="m_cmd_loc_du_lieu" accessKey="l" CssClass="cssButton" 
                 runat="server" Width="98px" Text="Lọc dữ liệu(l)" 
-                        Height="23px" />
+                        Height="23px" onclick="m_cmd_loc_du_lieu_Click" />
 			</td>
                              <td align="left" style="width:1%;">&nbsp;</td>
                 <td align="right" >
