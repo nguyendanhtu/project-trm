@@ -284,7 +284,7 @@
                 onpageindexchanging="m_grv_dm_danh_sach_hop_dong_khung_PageIndexChanging" >
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
-                <asp:TemplateField HeaderText="Xóa">
+                     <asp:TemplateField HeaderText="Xóa">
                     <ItemTemplate> <asp:LinkButton ToolTip="Xóa" ID = "lbt_delete" runat="server"
                      CommandName="Delete" OnClientClick="return confirm ('Bạn có thực sự muốn xóa bản ghi này?')">
                       <img src="/TRMProject/Images/Button/deletered.png" alt="Delete" />
