@@ -58,7 +58,7 @@
                           <li><a href="/TRMProject/DanhMuc/F500_DotThanhToan.aspx">0- Lập đợt thanh toán</a></li>
 					      <li><a href="/TRMProject/ChucNang/F401_LapDuToanChoDotThanhToan.aspx?id_trang_thai_dot_tt=1">1. Lập danh sách dự toán</a></li>
 					      <li><a href="/TRMProject/ChucNang/F401_LapDuToanChoDotThanhToan.aspx?id_trang_thai_dot_tt=2">2. Phê duyệt dự toán</a></li>
-					      <li><a href="/TRMProject/ChucNang/F401_LapDuToanChoDotThanhToan.aspx?id_trang_thai_dot_tt=3">3. Xuất danh sách dự toán</a></li>
+					      <li><a href="/TRMProject/ChucNang/F401_LapDuToanChoDotThanhToan.aspx?id_trang_thai_dot_tt=3">3. Xuất danh sách thanh toán</a></li>
                           <li><a href="/TRMProject/ChucNang/F401_LapDuToanChoDotThanhToan.aspx?id_trang_thai_dot_tt=4">4. Xác nhận ngân hàng</a></li>
                           <li><a href="/TRMProject/ChucNang/F401_LapDuToanChoDotThanhToan.aspx?id_trang_thai_dot_tt=5">5. Xác nhận giảng viên</a></li>
                           <li><a href="/TRMProject/ChucNang/F401_LapDuToanChoDotThanhToan.aspx?id_trang_thai_dot_tt=6">6. Đóng đợt thanh toán</a></li>
