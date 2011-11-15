@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="F501_LapDuToan.aspx.cs" Inherits="ChucNang_F501_LapDuToan" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="F501_DuToanHopDongVanHanh.aspx.cs" Inherits="ChucNang_F501_DuToanHopDongVanHanh" %>
 <%@ Import Namespace ="IP.Core.IPCommon" %>
 <%@ Register assembly="eWorld.UI" namespace="eWorld.UI" tagprefix="ew" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
@@ -24,6 +24,17 @@
             height: 29px;
         }
     </style>
+     <script type="text/javascript">
+         function openPopUp() {
+             var popUrl = 'F601_CheckSoHopDong.aspx?sohd=' + document.getElementById('<%= m_txt_so_hop_dong.ClientID %>').value;
+             var name = 'KiemTraSoHopDong';
+             var appearence = 'dependent=yes,menubar=no,resizable=no,' +
+                                          'status=no,toolbar=no,titlebar=no,' +
+                                          'left=5,top=280,width=930px,height=640px';
+             var openWindow = window.open(popUrl, name, appearence);
+             openWindow.focus();
+         }
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
     <table  cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0">
@@ -72,7 +83,7 @@
                      <td align="left" style="width:1%">
 			        <asp:button id="m_cmd_check_so_hd" accessKey="c" CssClass="cssButton" 
                 runat="server" Width="98px" Text="Kiểm tra" 
-                        Height="24px" onclick="m_cmd_check_so_hd_Click"/>
+                        Height="24px" onclick="m_cmd_check_so_hd_Click" CausesValidation="false"/>
                 </td>
                 <td align="right" style="width:3%;">
 			        &nbsp;</td>
@@ -89,25 +100,20 @@
                 <td align="left" style="width:1%;">&nbsp;</td>
             </tr>
             <tr>
-                <td align="right" class="style1">
-			       
+                <td align="right" style="width:5%;">
 			        &nbsp;</td>
-                <td align="left" class="style2">
-                    &nbsp;</td>
-                <td align="left" class="style3">
-			       
-                        &nbsp;</td>
-                <td align="right" class="style1">
+                <td align="left" style="width:10%;">    
 			
-			        &nbsp;</td>
-                      <td align="left" class="style4">
+                    &nbsp;</td> 
+                <td align="left" style="width:1%;">
                           &nbsp;</td>
-                 <td align="right" class="style3">
+                <td align="right" style="width:9%;">
 			       
-			         &nbsp;</td>
-                <td align="left" class="style2">
-		            &nbsp;</td>
-                <td align="left" class="style4">&nbsp;</td>
+			        &nbsp;</td>
+                <td align="left" style="width:10%;">    
+			        &nbsp;</td> <td align="left" style="width:1%;">&nbsp;</td>
+                 <td align="right" style="width:5%;">&nbsp;</td>
+                <td align="left" style="width:10%;">&nbsp;</td>
             </tr>
             <tr>
                 <td align="right" style="width:5%;">
@@ -116,7 +122,39 @@
                 </td>
                 <td align="left" style="width:10%;">    
 			
-                    <asp:label id="m_lbl_ngay_thanh_toan" runat="server" />
+                   
+			        <ew:CalendarPopup ID="m_dat_ngay_thanh_toan" runat="server" 
+                        ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
+                        ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
+                        ShowGoToToday="True" Width="75%" SelectedDate="" Text="" Culture="vi-VN" 
+                        DisableTextboxEntry="False">
+                        <weekdaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <weekendstyle backcolor="LightGray" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <offmonthstyle backcolor="AntiqueWhite" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Gray" />
+                        <selecteddatestyle backcolor="Yellow" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Black" />
+                        <monthheaderstyle backcolor="Yellow" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Black" />
+                        <DayHeaderStyle BackColor="Orange" Font-Names="Verdana,Helvetica,Tahoma,Arial" 
+                            Font-Size="XX-Small" ForeColor="Black" />
+                        <cleardatestyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <gototodaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <TodayDayStyle BackColor="LightGoldenrodYellow" 
+                            Font-Names="Verdana,Helvetica,Tahoma,Arial" Font-Size="XX-Small" 
+                            ForeColor="Black" />
+                        <holidaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                    </ew:CalendarPopup>
+
+                   
                 </td> 
                 <td align="left" style="width:1%;">
                           &nbsp;</td>
@@ -142,8 +180,7 @@
                 <td align="left" style="width:1%;">			       
                         <asp:RequiredFieldValidator ID="req_vali3" runat="server" 
                          ErrorMessage="Bạn phải nhập số tiền thanh toán" Text="*" 
-                        ControlToValidate="m_txt_so_tien_thanh_toan">
-                         </asp:RequiredFieldValidator></td>
+                        ControlToValidate="m_txt_so_tien_thanh_toan"> </asp:RequiredFieldValidator></td>
                 <td align="left" style="width:5%;">
 			        &nbsp;</td>
                 <td align="left" style="width:10%;">    
@@ -219,8 +256,7 @@
                 Text="Mô tả" />
 			       
                 </td>
-                <td align="left" colspan="3">    
-
+                <td align="left" colspan="3">
                 <asp:TextBox ID="m_txt_mo_ta" Width="96%" 
                         runat="server"></asp:TextBox>
                          </td> 
@@ -274,7 +310,7 @@
 	<tr>
 		<td align="center" colspan="2" style="height:450px;" valign="top">
 		    &nbsp;
-   <asp:GridView ID="m_grv_gd_hop_dong_noi_dung_tt" AllowPaging="True" 
+   <asp:GridView ID="m_grv_danh_sach_du_toan" AllowPaging="True" 
                 runat="server" AutoGenerateColumns="False" 
                 Width="100%" DataKeyNames="ID"
                 CellPadding="4" ForeColor="#333333" 

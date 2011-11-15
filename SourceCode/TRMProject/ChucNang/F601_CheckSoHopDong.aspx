@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="F601_CheckSoHopDong.aspx.cs" Inherits="ChucNang_F601_CheckSoHopDong" %>
+﻿<%@ Page Title="" MasterPageFile="~/Site.master" Language="C#" AutoEventWireup="true" CodeFile="F601_CheckSoHopDong.aspx.cs" Inherits="ChucNang_F601_CheckSoHopDong" %>
 <%@ Import Namespace ="IP.Core.IPCommon" %>
 <%@ Register assembly="eWorld.UI" namespace="eWorld.UI" tagprefix="ew" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
@@ -35,8 +35,7 @@
                 runat="server" AutoGenerateColumns="False" 
                 Width="100%" DataKeyNames="ID"
                 CellPadding="4" ForeColor="#333333" 
-            AllowSorting="True" 
-                onpageindexchanging="m_grv_dm_danh_sach_hop_dong_khung_PageIndexChanging" >
+            AllowSorting="True" >
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
                 <asp:TemplateField HeaderText="Dự toán hợp đồng">
@@ -69,7 +68,7 @@
                      <asp:TemplateField>
                     <HeaderTemplate>Mã giảng viên</HeaderTemplate>
                     <ItemTemplate>
-                    <asp:Label ID="m_lbl_ma_gv" runat="server" Text='<%# get_ma_gv_form_id(CIPConvert.ToDecimal(Eval("ID_GIANG_VIEN"))) %>'></asp:Label>
+                    <asp:Label ID="m_lbl_ma_gv" runat="server" Text='<%# CIPConvert.ToDecimal(Eval("ID_GIANG_VIEN")) %>'></asp:Label>
                     </ItemTemplate>
                     <ItemStyle Width="200px"/>
                     </asp:TemplateField>
@@ -167,27 +166,6 @@
                     <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:TemplateField>
                     <asp:BoundField DataField="THUE_SUAT" DataFormatString="{0:N1}%" HeaderText="Thuế suất(%)"  HtmlEncode="false"></asp:BoundField>
-                    <asp:TemplateField>
-                    <HeaderTemplate>HĐ học liệu?</HeaderTemplate>
-                    <ItemTemplate>
-                    <asp:Label ID="m_lbl_lam_hoc_lieu" runat="server" Text='<%# mapping_hl(Eval("HOC_LIEU_YN").ToString())%>'></asp:Label>
-                    </ItemTemplate>
-                    <ItemStyle HorizontalAlign="Center"></ItemStyle>
-                    </asp:TemplateField>
-                    <asp:TemplateField>
-                       <HeaderTemplate>HĐ vận hành?</HeaderTemplate>
-                    <ItemTemplate>
-                    <asp:Label ID="m_lbl_van_hanh" runat="server" Text ='<%# mapping_vh(Eval("VAN_HANH_YN").ToString())%>'></asp:Label>
-                    </ItemTemplate>
-                    <ItemStyle HorizontalAlign="Center"></ItemStyle>
-                    </asp:TemplateField>
-                    <asp:TemplateField>
-                       <HeaderTemplate>Có số hợp đồng?</HeaderTemplate>
-                    <ItemTemplate>
-                    <asp:Label  ID="m_lbl_co_so_hop_dong" runat="server" Text = '<%# mapping_cs(Eval("CO_SO_HD_YN").ToString())%>'></asp:Label>
-                    </ItemTemplate>
-                    <ItemStyle HorizontalAlign="Center"></ItemStyle>
-                    </asp:TemplateField>
                 </Columns>
                   <EditRowStyle BackColor="#7C6F57" />
                   <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
