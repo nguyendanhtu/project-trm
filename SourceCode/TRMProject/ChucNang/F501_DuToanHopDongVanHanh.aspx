@@ -60,7 +60,7 @@
 		<td>
         <table cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0"> 
             <tr>
-                <td align="right" style="width:8%;">
+                <td align="right" style="width:10%;">
 			       
 			<asp:label id="lblTenGiangVien" CssClass="cssManField" runat="server" 
                 Text="Đợt thanh toán" />
@@ -108,12 +108,21 @@
             </tr>
             <tr>
                 <td align="right" style="width:5%;">
-			        &nbsp;</td>
+			       
+			<asp:label id="lblMon6" CssClass="cssManField" runat="server" 
+                Text="Mã lớp môn" />
+			       
+                </td>
                 <td align="left" style="width:10%;">    
 			
-                    &nbsp;</td> 
+                <asp:TextBox ID="m_txt_so_hop_dong0" Width="96%" 
+                        runat="server"></asp:TextBox>
+                        </td> 
                 <td align="left" style="width:1%;">
-                          &nbsp;</td>
+			        <asp:button id="m_cmd_check_ma_lop_mon" accessKey="c" CssClass="cssButton" 
+                runat="server" Width="98px" Text="Kiểm tra" 
+                        Height="24px" Visible="false"  CausesValidation="false"/>
+                </td>
                 <td align="right" style="width:9%;">
 			       
 			        &nbsp;</td>
@@ -247,8 +256,7 @@
 			       
                 </td>
                 <td align="left" colspan="3">    
-              <asp:DropDownList ID="m_cbo_trang_thai_thanh_toan" Width="96%" runat="server" 
-                        AutoPostBack="true" >
+              <asp:DropDownList ID="m_cbo_trang_thai_thanh_toan" Width="96%" runat="server">
                </asp:DropDownList>
                          </td> 
                 <td align="left" style="width:10%;">    
