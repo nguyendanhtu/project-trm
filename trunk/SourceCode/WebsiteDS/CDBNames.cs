@@ -21,6 +21,7 @@ namespace WebDS.CDBNames
         , HOC_VI = 12
         , HINH_THUC_CONG_TAC = 13
         , TRANG_THAI_DOT_THANH_TOAN = 14
+        , TRANG_THAI_THANH_TOAN = 15
     }
 
 
