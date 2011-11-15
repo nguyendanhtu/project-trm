@@ -214,6 +214,23 @@
             </tr>
             <tr>
                 <td align="right" style="width:5%;">
+			       
+			<asp:label id="lblMon5" CssClass="cssManField" runat="server" 
+                Text="Mô tả" />
+			       
+                </td>
+                <td align="left" colspan="3">    
+
+                <asp:TextBox ID="m_txt_mo_ta" Width="96%" 
+                        runat="server"></asp:TextBox>
+                         </td> 
+                <td align="left" style="width:10%;">    
+                    &nbsp;</td> <td align="left" style="width:1%;">&nbsp;</td>
+                 <td align="right" style="width:5%;">&nbsp;</td>
+                <td align="left" style="width:10%;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" style="width:5%;">
 			        &nbsp;</td>
                 <td align="left" style="width:1%;">
 			        <asp:button id="m_cmd_luu_du_lieu" accessKey="c" CssClass="cssButton" 
