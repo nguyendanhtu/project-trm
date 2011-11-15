@@ -124,7 +124,7 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
     }
     private void load_data_2_cbo_trang_thai_thanh_toan()
     {
-        m_us_cm_tu_dien.FillDataset(m_ds_cm_tu_dien, " WHERE ID_LOAI_TU_DIEN= "+ (int)e_loai_tu_dien.TRANG_THAI_DOT_THANH_TOAN);
+        m_us_cm_tu_dien.FillDataset(m_ds_cm_tu_dien, " WHERE ID_LOAI_TU_DIEN= "+ (int)e_loai_tu_dien.TRANG_THAI_THANH_TOAN);
 
         m_cbo_trang_thai_thanh_toan.DataTextField = CM_DM_TU_DIEN.TEN;
         m_cbo_trang_thai_thanh_toan.DataValueField = CM_DM_TU_DIEN.ID;
