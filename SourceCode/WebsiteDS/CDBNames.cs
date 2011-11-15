@@ -20,7 +20,7 @@ namespace WebDS.CDBNames
         , HOC_HAM = 11
         , HOC_VI = 12
         , HINH_THUC_CONG_TAC = 13
-        , DOT_THANH_TOAN = 14
+        , TRANG_THAI_DOT_THANH_TOAN = 14
     }
 
 
@@ -31,7 +31,8 @@ namespace WebDS.CDBNames
         public const string DA_CHUYEN_KE_TOAN = "3_DA_CHUYEN_KE_TOAN";
         public const string DA_CHUYEN_NGAN_HANG = "4_DA_CHUYEN_NGAN_HANG";
         public const string DA_CO_XAC_NHAN_CUA_NGAN_HANG = "5_DA_CO_XAC_NHAN_CUA_NGAN_HANG";
-        public const string DA_KET_THUC = "6_DA_KET_THUC";
+        public const string DA_CO_XAC_NHAN_CUA_GIANG_VIEN = "6_DA_CO_XAC_NHAN_CUA_GIANG_VIEN";
+        public const string DA_KET_THUC = "7_DA_KET_THUC";
     }
 
     public class CM_DM_TU_DIEN
