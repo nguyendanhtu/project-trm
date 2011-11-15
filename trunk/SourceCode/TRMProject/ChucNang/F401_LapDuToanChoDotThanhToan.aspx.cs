@@ -116,7 +116,7 @@ public partial class ChucNang_F401_LapDuToanChoDotThanhToan : System.Web.UI.Page
     private void load_data_2_cbo_trang_thai_dot_thanh_toan()
     {
         m_ds_cm_tu_dien.Clear();
-        m_us_cm_tu_dien.FillDataset(m_ds_cm_tu_dien, " WHERE ID_LOAI_TU_DIEN = "+ (int)e_loai_tu_dien.DOT_THANH_TOAN);
+        m_us_cm_tu_dien.FillDataset(m_ds_cm_tu_dien, " WHERE ID_LOAI_TU_DIEN = "+ (int)e_loai_tu_dien.TRANG_THAI_DOT_THANH_TOAN);
         DataRow v_dr_none = m_ds_cm_tu_dien.CM_DM_TU_DIEN.NewCM_DM_TU_DIENRow();
         v_dr_none[CM_DM_TU_DIEN.ID] = "0";
         v_dr_none[CM_DM_TU_DIEN.TEN] = "Tất cả";
