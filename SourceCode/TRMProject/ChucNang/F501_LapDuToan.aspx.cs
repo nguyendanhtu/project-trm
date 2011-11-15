@@ -210,7 +210,8 @@ public partial class ChucNang_F501_LapDuToan : System.Web.UI.Page
     {
         try
         {
-
+            string v_str_url = string.Format("F102_CapNhatThongTinLopMon.aspx?sohd={0}",m_txt_so_hop_dong.Text.Trim()); ;
+            this.ClientScript.RegisterStartupScript(this.Page.GetType(), "KiemTraSoHopDong", "OpenSiteFromUrl();", true);
         }
         catch (Exception v_e)
         {
