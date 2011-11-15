@@ -53,7 +53,7 @@ public partial class DanhMuc_F500_DotThanhToan : System.Web.UI.Page
         try
         {
             // Đổ dữ liệu vào DS 
-            m_us_cm_dm_tu_dien.FillDataset(m_ds_cm_dm_tu_dien, " WHERE ID_LOAI_TU_DIEN = " + (int)e_loai_tu_dien.DOT_THANH_TOAN); // Đây là lấy theo điều kiện
+            m_us_cm_dm_tu_dien.FillDataset(m_ds_cm_dm_tu_dien, " WHERE ID_LOAI_TU_DIEN = " + (int)e_loai_tu_dien.TRANG_THAI_DOT_THANH_TOAN); // Đây là lấy theo điều kiện
 
             //TReo dữ liệu vào Dropdownlist loại hợp đồng
             // dây là giá trị hiển thị
