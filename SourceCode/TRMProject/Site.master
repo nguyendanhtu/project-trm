@@ -59,7 +59,7 @@
 					      <li><a href="#">1. Lập dự toán</a>
                             <ul>
                                 <li><a href="/TRMProject/ChucNang/F602_DuToanHopDongHocLieu.aspx">1.1 Hợp đồng Học liệu</a></li>
-                                <li><a href="/TRMProject/ChucNang/F603_DuToanHopDongVanHanh.aspx">1.2 Hợp đồng Vận hành</a></li>
+                                <li><a href="/TRMProject/ChucNang/F501_DuToanHopDongVanHanh.aspx">1.2 Hợp đồng Vận hành</a></li>
                             </ul>
                           </li>
 					      <li><a href="/TRMProject/ChucNang/F401_LapDuToanChoDotThanhToan.aspx?id_trang_thai_dot_tt=2">2. Phê duyệt dự toán</a></li>
