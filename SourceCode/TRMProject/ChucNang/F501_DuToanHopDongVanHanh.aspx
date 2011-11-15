@@ -30,9 +30,16 @@
              var name = 'KiemTraSoHopDong';
              var appearence = 'dependent=yes,menubar=no,resizable=no,' +
                                           'status=no,toolbar=no,titlebar=no,' +
-                                          'left=5,top=280,width=930px,height=640px';
+                                          'left=5,top=280,width=990px,height=540px';
              var openWindow = window.open(popUrl, name, appearence);
              openWindow.focus();
+         }
+         function check_fill() {
+             var str_so_hd = document.getElementById('<%= m_txt_so_hop_dong.ClientID %>').value;
+             if (str_so_hd == "") {
+                 alert("Bạn chưa nhập số hợp đồng");
+                 return;
+             }
          }
     </script>
 </asp:Content>

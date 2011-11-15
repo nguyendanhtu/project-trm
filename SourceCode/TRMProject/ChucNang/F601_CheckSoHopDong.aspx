@@ -12,7 +12,7 @@
 		</td>
 	</tr>
     <tr>
-        <td align="right" style="width:10%">
+        <td align="right" style="width:15%">
 		  
                 <asp:label id="m_lbl_tu_khoa" runat="server" CssClass="cssManField" Text="Số hợp đồng tìm kiếm" />
 		</td>
@@ -24,9 +24,7 @@
     <tr>
 		<td colspan="4">
 		  
-                <asp:label id="m_lbl_thong_bao" runat="server" CssClass="cssManField" />
-		  
-		</td>
+                &nbsp;</td>
 	</tr>	
 	<tr>
 		<td align="center" style="height:450px;" valign="top" colspan="4">
@@ -38,19 +36,10 @@
             AllowSorting="True" >
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
-                <asp:TemplateField HeaderText="Dự toán hợp đồng">
-                    <ItemTemplate> 
-                        <asp:HyperLink ID="lbt_phu_luc_hop_dong" runat="server" 
-                            ImageUrl="/TRMProject/Images/Button/detail.png" 
-                            NavigateUrl='<%# "/TRMProject/ChucNang/F407_LapDuToan.aspx?id_hd="+Eval("ID") %>'
-                            ToolTip="Lập dự toán cho hợp đồng"></asp:HyperLink>
-                    </ItemTemplate>
-                    </asp:TemplateField>
                     <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><asp:Label ID="m_lbl_stt" runat="server" Text="<%# Container.DataItemIndex + 1 %>"></asp:Label></ItemTemplate>
                         <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:TemplateField>
-
                      <asp:TemplateField>
                     <HeaderTemplate>Số hợp đồng</HeaderTemplate>
                     <ItemTemplate>
