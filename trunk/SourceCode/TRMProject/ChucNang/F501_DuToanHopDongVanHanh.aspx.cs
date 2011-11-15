@@ -20,6 +20,7 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
         if (!IsPostBack)
         {
             load_data_2_cbo_dot_thanh_toan();
+            load_data_2_cbo_trang_thai_thanh_toan();
         }
         m_cmd_check_so_hd.Attributes.Add("onclick", "openPopUp()");
     }
@@ -120,6 +121,15 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
         m_cbo_dot_thanh_toan.DataSource = v_ds_dot_thanh_toan.V_DM_DOT_THANH_TOAN;
         m_cbo_dot_thanh_toan.DataBind();
     }
+    private void load_data_2_cbo_trang_thai_thanh_toan()
+    {
+        m_us_cm_tu_dien.FillDataset(m_ds_cm_tu_dien, " WHERE ID_LOAI_TU_DIEN= "+ (int)e_loai_tu_dien.DOT_THANH_TOAN);
+
+        m_cbo_trang_thai_thanh_toan.DataTextField = CM_DM_TU_DIEN.TEN;
+        m_cbo_trang_thai_thanh_toan.DataValueField = CM_DM_TU_DIEN.ID;
+        m_cbo_trang_thai_thanh_toan.DataSource = m_ds_cm_tu_dien.CM_DM_TU_DIEN;
+        m_cbo_trang_thai_thanh_toan.DataBind();
+    }
     private string get_ma_trang_thai(int ip_i_ma_from_query_str)
     {
         string v_str_ma_trang_thai_dot_tt = "";
@@ -179,6 +189,13 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
         US_CM_DM_TU_DIEN v_us_cm_dm_tu_dien = new US_CM_DM_TU_DIEN("DOT_THANH_TOAN", ip_str_ma_dot_tt);
         return v_us_cm_dm_tu_dien.dcID;
     }
+    private void reset_controls()
+    {
+        m_txt_so_hop_dong.Text = "";
+        m_txt_so_tien_thanh_toan.Text = "";
+        m_txt_so_tien_thue.Text = "";
+        m_txt_so_tien_thuc_nhan.Text = "";
+    }
     #endregion
 
     #region Events
@@ -186,8 +203,7 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
     {
         try
         {
-            string v_str_url = string.Format("F102_CapNhatThongTinLopMon.aspx?sohd={0}",m_txt_so_hop_dong.Text.Trim()); ;
-            this.ClientScript.RegisterStartupScript(this.Page.GetType(), "KiemTraSoHopDong", "OpenSiteFromUrl();", true);
+          
         }
         catch (Exception v_e)
         {
@@ -198,7 +214,7 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
     {
         try
         {
-
+            reset_controls();
         }
         catch (Exception v_e)
         {
@@ -209,7 +225,7 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
     {
         try
         {
-
+            reset_controls();
         }
         catch (Exception v_e)
         {
@@ -220,7 +236,7 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
     {
         try
         {
-
+            reset_controls();
         }
         catch (Exception v_e)
         {
@@ -231,7 +247,9 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
     {
         try
         {
-
+            decimal v_dc_id_dot_thanh_toan =CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue);
+            US_V_DM_DOT_THANH_TOAN v_us_dot_thanh_toan = new US_V_DM_DOT_THANH_TOAN(v_dc_id_dot_thanh_toan);
+            m_dat_ngay_thanh_toan.SelectedDate = v_us_dot_thanh_toan.datNGAY_TT_DU_KIEN;
         }
         catch (Exception v_e)
         {
