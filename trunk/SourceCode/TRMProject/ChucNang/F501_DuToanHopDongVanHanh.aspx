@@ -26,7 +26,7 @@
 <tr>
 		<td class="cssPageTitleBG">
 		    <asp:label id="lblUser" runat="server" CssClass="cssPageTitle" 
-                Text="Thông tin Dự toán"/>
+                Text="Thông tin Dự toán hợp đồng vận hành"/>
 		</td>
 	</tr>
 	<tr>
@@ -304,7 +304,7 @@
     <tr>
 		<td class="cssPageTitleBG" colspan="2">
 		    <asp:label id="Label11" runat="server" CssClass="cssPageTitle" 
-                Text="Danh sách dự toán"/>
+                Text="Danh sách dự toán hợp đồng vận hành"/>
 		</td>
 	</tr>	
     <tr>

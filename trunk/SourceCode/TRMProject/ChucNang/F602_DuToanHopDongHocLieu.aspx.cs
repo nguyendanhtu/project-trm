@@ -134,6 +134,10 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
     #endregion
 
     #region Private Methods
+    private string cut_end_string(string ip_str_string)
+    {
+        return ip_str_string.Substring(ip_str_string.Trim().Length - 1, 1);
+    }
     private void load_data_2_cbo_dot_thanh_toan()
     {
         DS_V_DM_DOT_THANH_TOAN v_ds_dot_thanh_toan = new DS_V_DM_DOT_THANH_TOAN();
@@ -210,6 +214,10 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
         m_txt_so_tien_thue1.Text = "";
         m_txt_so_tien_thuc_nhan.Text = "";
         //m_txt_ma_lop_mon.Text = "";
+        m_txt_lan_so.Text = "";
+        m_txt_lan_so.Visible = false;
+        lbl_lan_so.Visible = false;
+        rdl_noi_dung_list.Items[0].Selected = true;
         m_txt_mo_ta.Text = "";
     }
     private void when_cbo_dot_tt_changed()
@@ -243,21 +251,40 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
         m_dat_ngay_thanh_toan.SelectedDate = ip_us_gd_thanh_toan.datNGAY_THANH_TOAN;
         m_txt_so_tien_thanh_toan.Text = CIPConvert.ToStr(ip_us_gd_thanh_toan.dcTONG_TIEN_THANH_TOAN, "#.#");
         m_txt_so_tien_thuc_nhan.Text = CIPConvert.ToStr(ip_us_gd_thanh_toan.dcTONG_TIEN_THUC_NHAN, "#.#");
-        m_txt_so_tien_thue1.Text = CIPConvert.ToStr(ip_us_gd_thanh_toan.dcSO_TIEN_THUE, "#.#");
+        if (ip_us_gd_thanh_toan.dcSO_TIEN_THUE == 0) m_txt_so_tien_thue1.Text = CIPConvert.ToStr(0);
+        else m_txt_so_tien_thue1.Text = CIPConvert.ToStr(ip_us_gd_thanh_toan.dcSO_TIEN_THUE, "#.#");
         m_cbo_trang_thai_thanh_toan.SelectedValue = CIPConvert.ToStr(ip_us_gd_thanh_toan.dcID_TRANG_THAI_THANH_TOAN);
         m_txt_mo_ta.Text = ip_us_gd_thanh_toan.strDESCRIPTION;
+        if (ip_us_gd_thanh_toan.strREFERENCE_CODE != "")
+        {
+            rdl_noi_dung_list.Items[1].Selected = true;
+            m_txt_lan_so.Visible = true;
+            lbl_lan_so.Visible = true;
+            m_txt_lan_so.Text = cut_end_string(ip_us_gd_thanh_toan.strREFERENCE_CODE);
+        }
+        else
+        {
+            rdl_noi_dung_list.Items[0].Selected = true;
+            m_txt_lan_so.Visible = false;
+            lbl_lan_so.Visible = false;
+        }
     }
     private void form_2_us_obj(US_V_GD_THANH_TOAN op_us_gd_thanh_toan)
     {
         op_us_gd_thanh_toan.strSO_PHIEU_THANH_TOAN = get_ma_dot_tt_by_id_dot(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue));
         op_us_gd_thanh_toan.dcID_HOP_DONG_KHUNG = get_id_hd_khung_by_so_hd(m_txt_so_hop_dong.Text.Trim());
-        op_us_gd_thanh_toan.strREFERENCE_CODE = "";
         op_us_gd_thanh_toan.datNGAY_THANH_TOAN = m_dat_ngay_thanh_toan.SelectedDate;
         op_us_gd_thanh_toan.dcTONG_TIEN_THANH_TOAN = CIPConvert.ToDecimal(m_txt_so_tien_thanh_toan.Text);
         op_us_gd_thanh_toan.dcTONG_TIEN_THUC_NHAN = CIPConvert.ToDecimal(m_txt_so_tien_thuc_nhan.Text);
         op_us_gd_thanh_toan.dcSO_TIEN_THUE = CIPConvert.ToDecimal(m_txt_so_tien_thue1.Text);
         op_us_gd_thanh_toan.dcID_TRANG_THAI_THANH_TOAN = CIPConvert.ToDecimal(m_cbo_trang_thai_thanh_toan.SelectedValue);
         op_us_gd_thanh_toan.strDESCRIPTION = m_txt_mo_ta.Text.Trim();
+        //op_us_gd_thanh_toan.dcID_MON_HOC =CIPConvert.ToDecimal(m_txt_lan_so.Text.Trim());
+        if (rdl_noi_dung_list.Items[1].Selected)
+        {
+            op_us_gd_thanh_toan.strREFERENCE_CODE = "đợt " + m_txt_lan_so.Text.Trim();
+        }
+        else op_us_gd_thanh_toan.SetREFERENCE_CODENull();
     }
     private void load_data_2_us_by_id_and_show_on_form(int ip_i_thanh_toan_selected)
     {
@@ -390,6 +417,27 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
             CSystemLog_301.ExceptionHandle(this, v_e);
         }
     }
+    protected void rdl_gender_check_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        try
+        {
+            if (rdl_noi_dung_list.Items[1].Selected)
+            {
+                lbl_lan_so.Visible = true;
+                m_txt_lan_so.Visible = true;
+            }
+            else
+            {
+                lbl_lan_so.Visible = false;
+                m_txt_lan_so.Visible = false;
+            }
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(this, v_e);
+        }
+    }
 	#endregion
 
+  
 }
