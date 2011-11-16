@@ -141,6 +141,7 @@
 		<td valign="top" colspan="2">
        
                 <asp:HiddenField ID="hdf_id_dot_tt" runat = "server" Value="" />
+                <asp:HiddenField ID="hdf_ma_dot_tt" runat = "server" Value="" />
                 </td>
 	</tr>	
 	<tr>
