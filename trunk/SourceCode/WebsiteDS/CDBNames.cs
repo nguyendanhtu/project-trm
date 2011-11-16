@@ -286,6 +286,7 @@ namespace WebDS.CDBNames
        public const string ID = "ID";
        public const string SO_PHIEU_THANH_TOAN = "SO_PHIEU_THANH_TOAN";
        public const string ID_HOP_DONG_KHUNG = "ID_HOP_DONG_KHUNG";
+       public const string LOAI_HOP_DONG = "LOAI_HOP_DONG";
        public const string ID_GIANG_VIEN = "ID_GIANG_VIEN";
        public const string TEN_GIANG_VIEN = "TEN_GIANG_VIEN";
        public const string SO_TAI_KHOAN = "SO_TAI_KHOAN";
