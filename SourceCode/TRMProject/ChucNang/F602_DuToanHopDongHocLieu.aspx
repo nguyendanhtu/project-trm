@@ -48,7 +48,7 @@
 <tr>
 		<td class="cssPageTitleBG">
 		    <asp:label id="lblUser" runat="server" CssClass="cssPageTitle" 
-                Text="Thông tin Dự toán"/>
+                Text="Thông tin Dự toán hợp đồng học liệu"/>
 		</td>
 	</tr>
 	<tr>
@@ -167,9 +167,26 @@
                           &nbsp;</td>
                 <td align="right" style="width:9%;">
 			       
-			        &nbsp;</td>
+			<asp:label id="lblMon6" CssClass="cssManField" runat="server" 
+                Text="Nội dung thanh toán" />
+			       
+                </td>
                 <td align="left" style="width:10%;">    
-			        &nbsp;</td> <td align="left" style="width:1%;">&nbsp;</td>
+                    <asp:RadioButtonList ID="rdl_noi_dung_list" runat="server" 
+                       
+                        RepeatDirection="Horizontal" Width="98%" AutoPostBack="True" 
+                        onselectedindexchanged="rdl_gender_check_SelectedIndexChanged">
+                        <asp:ListItem Value="Thanhly" Selected="True">Thanh lý</asp:ListItem>
+                        <asp:ListItem Value="Tamung">Tạm ứng</asp:ListItem>
+                    </asp:RadioButtonList></td> <td align="left" style="width:1%;">
+			       
+			<asp:label id="lbl_lan_so" Visible="false" CssClass="cssManField" runat="server" 
+                Text="đợt " />
+			       
+                <asp:TextBox ID="m_txt_lan_so" Visible="false" Width="30%" CssClass="cssTextBox"
+                        runat="server"></asp:TextBox>
+			       
+                </td>
                  <td align="right" style="width:5%;">&nbsp;</td>
                 <td align="left" style="width:10%;">&nbsp;</td>
             </tr>
@@ -303,7 +320,7 @@
     <tr>
 		<td class="cssPageTitleBG" colspan="2">
 		    <asp:label id="Label11" runat="server" CssClass="cssPageTitle" 
-                Text="Danh sách dự toán"/>
+                Text="Danh sách dự toán hợp đồng học liệu"/>
 		</td>
 	</tr>	
     <tr>
