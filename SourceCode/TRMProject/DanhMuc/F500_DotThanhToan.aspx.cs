@@ -183,7 +183,7 @@ public partial class DanhMuc_F500_DotThanhToan : System.Web.UI.Page
         hdf_id_dot_tt.Value = CIPConvert.ToStr(v_dc_id_dot_thanh_toan);
         //hdf_id.Value = v_dc_id_dm_mon_hoc.ToString();
         US_V_DM_DOT_THANH_TOAN v_us_dm_dot_tt = new US_V_DM_DOT_THANH_TOAN(v_dc_id_dot_thanh_toan);
-        //hdf_ma_mon.Value = v_us_dm_mon_hoc.strMA_MON_HOC;
+        hdf_ma_dot_tt.Value = v_us_dm_dot_tt.strMA_DOT_TT;
         // Đẩy us lên form
         us_obj_2_form(v_us_dm_dot_tt);
         m_cmd_tao_moi.Enabled = false;
@@ -196,6 +196,13 @@ public partial class DanhMuc_F500_DotThanhToan : System.Web.UI.Page
         m_lbl_mess.Text = "Xóa bản ghi thành công";
         m_lbl_mess.Visible = true;
         load_data_2_grid();
+    }
+    // Nếu đợt thanh toán này chưa được sử dụng,hay chưa đc làm dự toán thì sẽ đc quyền Update nội dung bên trong đợt thanh toán
+     private bool enable_update_dot_thanh_toan()
+    {
+        //decimal v_dc_id_dot_tt = CIPConvert.ToDecimal(m_grv_dm_dot_thanh_toan.DataKeys[ip_i_id_tt].Value);
+        if (!hdf_ma_dot_tt.Value.Equals(m_txt_ma_dot_tt.Text.Trim())) return false;
+        return true;
     }
     #endregion
 
@@ -268,6 +275,14 @@ public partial class DanhMuc_F500_DotThanhToan : System.Web.UI.Page
                 someScript = "<script language='javascript'>alert('Bạn chưa chọn nội dung cần cập nhật');</script>";
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", someScript);
                 m_dat_ngay_ket_thuc_du_kien.Focus();
+                return;
+            }
+            if (!enable_update_dot_thanh_toan())
+            {
+                m_txt_ma_dot_tt.Text = hdf_ma_dot_tt.Value;
+                string script;
+                script = "<script language='javascript'>alert('Không thể thay đổi thông tin mã đợt thanh toán do đã tồn tại giao dịch thanh toán cho đợt thanh toán này');</script>";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", script);
                 return;
             }
             form_2_us_obj(m_us_v_dm_dot_thanh_toan);
