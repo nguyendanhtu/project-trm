@@ -287,15 +287,18 @@ namespace WebDS.CDBNames
        public const string SO_PHIEU_THANH_TOAN = "SO_PHIEU_THANH_TOAN";
        public const string ID_HOP_DONG_KHUNG = "ID_HOP_DONG_KHUNG";
        public const string ID_GIANG_VIEN = "ID_GIANG_VIEN";
-       public const string MA_LOP_MON = "MA_LOP_MON";
+       public const string TEN_GIANG_VIEN = "TEN_GIANG_VIEN";
+       public const string SO_TAI_KHOAN = "SO_TAI_KHOAN";
+       public const string TEN_NGAN_HANG = "TEN_NGAN_HANG";
+       public const string REFERENCE_CODE = "REFERENCE_CODE";
        public const string ID_MON_HOC = "ID_MON_HOC";
        public const string NGAY_THANH_TOAN = "NGAY_THANH_TOAN";
        public const string DESCRIPTION = "DESCRIPTION";
        public const string TONG_TIEN_THANH_TOAN = "TONG_TIEN_THANH_TOAN";
        public const string SO_TIEN_THUE = "SO_TIEN_THUE";
        public const string TONG_TIEN_THUC_NHAN = "TONG_TIEN_THUC_NHAN";
-       public const string REFERENCE_CODE = "REFERENCE_CODE";
        public const string ID_TRANG_THAI_THANH_TOAN = "ID_TRANG_THAI_THANH_TOAN";
    }
+
 
 }
