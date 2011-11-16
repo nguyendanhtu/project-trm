@@ -138,6 +138,11 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
     {
         return ip_str_string.Substring(ip_str_string.Trim().Length - 1, 1);
     }
+    private bool check_co_tam_ung(int ip_i_id)
+    {
+
+        return true;
+    }
     private void load_data_2_cbo_dot_thanh_toan()
     {
         DS_V_DM_DOT_THANH_TOAN v_ds_dot_thanh_toan = new DS_V_DM_DOT_THANH_TOAN();
@@ -438,6 +443,5 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
         }
     }
 	#endregion
-
-  
+ 
 }
