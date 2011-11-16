@@ -67,7 +67,7 @@
 			       
                          </td>
                 <td align="left" colspan="4">
-              <asp:DropDownList ID="m_cbo_dot_thanh_toan" Width="96%" runat="server" 
+              <asp:DropDownList ID="m_cbo_dot_thanh_toan" Width="96%" runat="server" CssClass="cssDorpdownlist"
                         AutoPostBack="true" 
                         onselectedindexchanged="m_cbo_dot_thanh_toan_SelectedIndexChanged" >
                </asp:DropDownList>
@@ -84,7 +84,7 @@
                 </td>
                 <td align="left" style="width:10%;">
 
-                <asp:TextBox ID="m_txt_so_hop_dong" Width="96%" 
+                <asp:TextBox ID="m_txt_so_hop_dong" Width="96%" CssClass="cssTextBox"
                         runat="server"></asp:TextBox>
                         </td>
                      <td align="left" style="width:1%">
@@ -232,9 +232,9 @@
                 Text="Số tiền thuế(VNĐ)" />
 			       
                 </td>
-                <td align="left" style="width:10%;">    
-                <ew:NumericBox ID="m_txt_so_tien_thue" Width="96%" 
-                        runat="server" TextAlign= "Right"></ew:NumericBox>
+                <td align="left" style="width:10%;">  
+                <asp:TextBox  ID="m_txt_so_tien_thue1" Width="96%" 
+                        runat="server"></asp:TextBox>
                         </td> <td align="left" style="width:1%;">&nbsp;</td>
                  <td align="right" style="width:5%;">&nbsp;</td>
                 <td align="left" style="width:10%;">&nbsp;</td>
@@ -264,7 +264,7 @@
 			       
                 </td>
                 <td align="left" colspan="3">
-                <asp:TextBox ID="m_txt_mo_ta" Width="96%" 
+                <asp:TextBox ID="m_txt_mo_ta" CssClass="cssTextBox" Width="96%" 
                         runat="server"></asp:TextBox>
                          </td> 
                 <td align="left" style="width:10%;">    
@@ -321,7 +321,8 @@
                 runat="server" AutoGenerateColumns="False" 
                 Width="100%" DataKeyNames="ID"
                 CellPadding="4" ForeColor="#333333" 
-            AllowSorting="True">
+            AllowSorting="True" onrowdeleting="m_grv_danh_sach_du_toan_RowDeleting" 
+                onselectedindexchanging="m_grv_danh_sach_du_toan_SelectedIndexChanging">
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
                 <asp:TemplateField HeaderText="Xóa">
@@ -344,24 +345,32 @@
                        <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
                         <ItemStyle HorizontalAlign="Center" Width="4%"></ItemStyle>
                     </asp:TemplateField>
-                    <asp:BoundField DataField="NOI_DUNG_THANH_TOAN" HeaderText="Nội dung thanh toán">
-                    <ItemStyle Width="50%" HorizontalAlign="Left" />
+                    <asp:BoundField DataField="SO_PHIEU_THANH_TOAN" HeaderText="Số phiếu thanh toán">
+                    <ItemStyle Width="15%" HorizontalAlign="Left" />
                     </asp:BoundField>
-                     <asp:TemplateField HeaderText="Số lượng - Hệ số / Tần suất" ItemStyle-HorizontalAlign="Center">
-                       <ItemTemplate><%#CIPConvert.ToStr(CIPConvert.ToDecimal(Eval("SO_LUONG_HE_SO")), "0.00")%></ItemTemplate>
-                        <ItemStyle HorizontalAlign="Center" Width="15%"></ItemStyle>
+                     <asp:TemplateField HeaderText="Số hợp đồng" ItemStyle-HorizontalAlign="Center">
+                       <ItemTemplate><%# get_so_hd_khung_by_id_hd(CIPConvert.ToDecimal(Eval("ID_HOP_DONG_KHUNG")))%></ItemTemplate>
+                        <ItemStyle HorizontalAlign="Center" Width="10%"></ItemStyle>
                     </asp:TemplateField> 
-                     <asp:BoundField DataField="DON_VI_TINH" HeaderText="Đơn vị tính">
-                     <ItemStyle Width="5%" HorizontalAlign="Center" />
+                    <asp:TemplateField HeaderText="Tên giảng viên" ItemStyle-HorizontalAlign="Center">
+                       <ItemTemplate><%# Eval("TEN_GIANG_VIEN")%></ItemTemplate>
+                        <ItemStyle HorizontalAlign="Center" Width="10%"></ItemStyle>
+                    </asp:TemplateField> 
+                     <asp:BoundField DataField="TONG_TIEN_THANH_TOAN" DataFormatString="{0:N0}" HeaderText="Tổng tiền thanh toán (VNĐ)">
+                     <ItemStyle Width="10%" HorizontalAlign="Center" />
                     </asp:BoundField>
-                     <asp:TemplateField HeaderText="Đơn giá (VNĐ)">
-                       <ItemTemplate><%#CIPConvert.ToStr(CIPConvert.ToDecimal(Eval("DON_GIA_HD")),"#,###0")%></ItemTemplate>
-                        <ItemStyle HorizontalAlign="Right" Width="10%"></ItemStyle>
-                    </asp:TemplateField> 
-                     <asp:TemplateField HeaderText="Tần suất thanh toán">
-                       <ItemTemplate><%# "Theo " + Eval("TAN_SUAT")%></ItemTemplate>
-                        <ItemStyle HorizontalAlign="Left" Width="10%"></ItemStyle>
-                    </asp:TemplateField>  
+                     <asp:BoundField DataField="SO_TIEN_THUE" DataFormatString="{0:N0}" HeaderText="Số tiền thuế (VNĐ)">
+                     <ItemStyle Width="10%" HorizontalAlign="Center" />
+                    </asp:BoundField>
+                     <asp:BoundField DataField="TONG_TIEN_THUC_NHAN" DataFormatString="{0:N0}" HeaderText="Tổng tiền thực nhận (VNĐ)">
+                     <ItemStyle Width="10%" HorizontalAlign="Center" />
+                    </asp:BoundField>
+                     <asp:BoundField DataField="NGAY_THANH_TOAN" DataFormatString="{0:dd/MM/yyyy}" HeaderText="Ngày thanh toán">
+                     <ItemStyle Width="10%" HorizontalAlign="Center" />
+                    </asp:BoundField>
+                      <asp:BoundField DataField="DESCRIPTION" HeaderText="Mô tả">
+                     <ItemStyle Width="15%" HorizontalAlign="Center" />
+                    </asp:BoundField>
                 </Columns>
                   <EditRowStyle BackColor="#7C6F57" />
                   <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
