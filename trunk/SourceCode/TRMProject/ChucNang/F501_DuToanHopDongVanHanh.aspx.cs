@@ -17,6 +17,7 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        m_lbl_thong_bao.Text = "";
         if (!IsPostBack)
         {
             load_data_2_cbo_dot_thanh_toan();
@@ -188,12 +189,6 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
             m_lbl_thong_bao.Visible = true;
             m_lbl_thong_bao.Text = "Chưa có Thanh toán nào ứng với Đợt thanh toán này";
         }
-        else
-        {
-            m_lbl_thong_bao.Visible =false;
-            m_lbl_thong_bao.Text = "";
-        }
-
         m_grv_danh_sach_du_toan.DataSource = v_ds_gd_thanh_toan.V_GD_THANH_TOAN;
         m_grv_danh_sach_du_toan.DataBind();
     }
@@ -334,9 +329,9 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
             form_2_us_obj(m_us_v_gd_thanh_toan);
             m_us_v_gd_thanh_toan.dcID = CIPConvert.ToDecimal(hdf_id_gv.Value);
             m_us_v_gd_thanh_toan.Update();
-            m_lbl_thong_bao.Text = "Cập nhật bản ghi thành công";
+            m_lbl_thong_bao.Visible = true;
+            m_lbl_thong_bao.Text = "Cập nhật bản ghi thành công";            
             reset_controls();
-            //m_pnl_table.Visible = false;
             m_cmd_luu_du_lieu.Enabled = true;
             load_data_2_grid(get_ma_dot_tt_by_id_dot(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue)));
         }
@@ -374,7 +369,6 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
             m_init_mode = DataEntryFormMode.UpdateDataState;
             m_cmd_luu_du_lieu.Enabled = false;
             m_cmd_cap_nhat_du_toan.Enabled = true;
-            m_lbl_thong_bao.Text = "";
             load_data_2_us_by_id_and_show_on_form(e.NewSelectedIndex);
         }
         catch (Exception V_e)
