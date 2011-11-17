@@ -214,7 +214,7 @@ public partial class DanhMuc_NoiDungThanhToan : System.Web.UI.Page
         m_txt_ten_noi_dung.Text = ip_us_noi_dung_thanh_toan.strTEN_NOI_DUNG;
         m_ddl_loai_hop_dong.SelectedValue = CIPConvert.ToStr( ip_us_noi_dung_thanh_toan.dcID_LOAI_HOP_DONG);
         m_ddl_ma_don_vi_tinh.SelectedValue = ip_us_noi_dung_thanh_toan.strMA_DON_VI_TINH;
-        m_txt_don_gia.Text = CIPConvert.ToStr(ip_us_noi_dung_thanh_toan.dcDON_GIA_DEFAULT,"0");
+        m_txt_don_gia.Text = CIPConvert.ToStr(ip_us_noi_dung_thanh_toan.dcDON_GIA_DEFAULT,"#,###");
         if (ip_us_noi_dung_thanh_toan.strHOC_LIEU_YN == "Y")
             m_rd_yes_hoc_lieu.Checked=true;
         else m_rd_no_hoc_lieu.Checked = true;
