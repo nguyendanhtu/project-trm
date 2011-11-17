@@ -61,6 +61,7 @@ public partial class ChucNang_F603_ThanhToanChiTiet : System.Web.UI.Page
         m_txt_so_luong_he_so.Text = "";
         m_txt_don_gia_hd.Text = "";
         m_cbo_noi_dung_tt.SelectedIndex = 0;
+        m_txt_description.Text = "";
     }
     // Cái này chỉ cho load các nội dung phụ lục có trong hợp đồng
     private void load_2_cbo_noi_dung_tt(decimal ip_dc_id_hd)
@@ -92,6 +93,7 @@ public partial class ChucNang_F603_ThanhToanChiTiet : System.Web.UI.Page
             op_us_gd_thanh_toan_detail.dcDON_GIA_TT = CIPConvert.ToDecimal(m_txt_don_gia_hd.Text.Trim());
             op_us_gd_thanh_toan_detail.dcSO_LUONG_HE_SO = CIPConvert.ToDecimal(m_txt_so_luong_he_so.Text.Trim());
             op_us_gd_thanh_toan_detail.dcID_GD_THANH_TOAN = CIPConvert.ToDecimal(Request.QueryString["id_gdtt"]);
+            op_us_gd_thanh_toan_detail.strDESCRIPTION = m_txt_description.Text;
         }
         catch (Exception v_e)
         {
@@ -108,6 +110,7 @@ public partial class ChucNang_F603_ThanhToanChiTiet : System.Web.UI.Page
             m_txt_so_luong_he_so.Text = CIPConvert.ToStr(ip_us_gd_thanh_toan_detail.dcSO_LUONG_HE_SO, "0.00");
             m_txt_don_gia_hd.Text = CIPConvert.ToStr(ip_us_gd_thanh_toan_detail.dcDON_GIA_TT, "0");
             m_cbo_noi_dung_tt.SelectedValue = CIPConvert.ToStr(ip_us_gd_thanh_toan_detail.dcID_NOI_DUNG_THANH_TOAN);
+            m_txt_description.Text = ip_us_gd_thanh_toan_detail.strDESCRIPTION;
         }
         catch (Exception v_e)
         {
@@ -227,11 +230,11 @@ public partial class ChucNang_F603_ThanhToanChiTiet : System.Web.UI.Page
         return v_us_v_gd_thanh_toan.dcID_HOP_DONG_KHUNG;
     }
     // Lấy được i nội dung thanh toán từ id phụ lục đã biết
-    private decimal get_id_noi_dung_tt_by_id_phu_luc(decimal ip_dc_id_phu_luc)
+    private decimal get_id_noi_dung_tt_by_id_thanh_toan_detail(decimal ip_dc_id_thanh_toan_detail)
     {
-        US_V_GD_HOP_DONG_NOI_DUNG_TT v_us_gd_phu_luc = new US_V_GD_HOP_DONG_NOI_DUNG_TT(ip_dc_id_phu_luc);
+        US_V_GD_THANH_TOAN_DETAIL v_us_gd_phu_luc = new US_V_GD_THANH_TOAN_DETAIL(ip_dc_id_thanh_toan_detail);
         if (v_us_gd_phu_luc.IsIDNull()) return 0;
-        return v_us_gd_phu_luc.dcID_NOI_DUNG_TT;
+        return v_us_gd_phu_luc.dcID_NOI_DUNG_THANH_TOAN;
     }
     private bool check_enough_noi_dung_tt(int ip_i_num_of_noi_dung_in_database)
     {
@@ -244,8 +247,7 @@ public partial class ChucNang_F603_ThanhToanChiTiet : System.Web.UI.Page
     {
         for (int v_i = 0; v_i < m_grv_gd_thanh_toan_detail.Rows.Count; v_i++)
         {
-            if (ip_dc_id_noi_dung_tt == get_id_noi_dung_tt_by_id_phu_luc(CIPConvert.ToDecimal(m_grv_gd_thanh_toan_detail.DataKeys[v_i].Value)))
-                //if (ip_dc_id_noi_dung_tt == CIPConvert.ToDecimal(m_cbo_noi_dung_tt.Items[v_i].Value))
+            if (ip_dc_id_noi_dung_tt == get_id_noi_dung_tt_by_id_thanh_toan_detail(CIPConvert.ToDecimal(m_grv_gd_thanh_toan_detail.DataKeys[v_i].Value)))
                 // True nghĩa là có tồn tại
                 return true;
         }
@@ -274,6 +276,12 @@ public partial class ChucNang_F603_ThanhToanChiTiet : System.Web.UI.Page
             throw v_e;
         }
     }
+    public string get_noi_dung_tt_by_id(decimal ip_dc_hd_tt_id)
+    {
+        US_V_GD_HOP_DONG_NOI_DUNG_TT v_us_gd_hop_dong_noi_dung_tt = new US_V_GD_HOP_DONG_NOI_DUNG_TT(ip_dc_hd_tt_id);
+        if (v_us_gd_hop_dong_noi_dung_tt.IsIDNull()) return "";
+        return v_us_gd_hop_dong_noi_dung_tt.strNOI_DUNG_THANH_TOAN;
+    }
     #endregion
 
     #region Events
@@ -282,10 +290,11 @@ public partial class ChucNang_F603_ThanhToanChiTiet : System.Web.UI.Page
         try
         {
             form_2_us_object(m_us_v_gd_thanh_toan_detail);
+            // dcID_NOI_DUNG_TT này đc lấy từ bảng GD_HOP_DONG_NOI_DUNG_TT chứ ko phải bảng DM_NOI_DUNG_TT
             if (check_exist_noi_dung_tt(m_us_v_gd_thanh_toan_detail.dcID_NOI_DUNG_THANH_TOAN))
             {
                 string someScript;
-                someScript = "<script language='javascript'>alert('Nội dung thanh tóan này đã tồn tại trong hợp đồng này');</script>";
+                someScript = "<script language='javascript'>alert('Nội dung thanh toán này đã tồn tại trong thanh toán này');</script>";
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", someScript);
                 return;
             }
@@ -311,15 +320,9 @@ public partial class ChucNang_F603_ThanhToanChiTiet : System.Web.UI.Page
                 string someScript;
                 someScript = "<script language='javascript'>alert('Bạn phải chọn nội dung cần Cập nhật');</script>";
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", someScript);
-                //m_lbl_mess.Text = "";
                 return;
             }
             form_2_us_object(m_us_v_gd_thanh_toan_detail);
-            //if (check_exist_noi_dung_tt(m_us_v_gd_hop_dong_noi_dung_tt.dcID_NOI_DUNG_TT))
-            //{
-            //    m_lbl_thong_bao.Text = "Nội dung thanh tóan này đã tồn tại trong hợp đồng này";
-            //    return;
-            //}
             m_us_v_gd_thanh_toan_detail.dcID = CIPConvert.ToDecimal(hdf_id_gv.Value);
             m_us_v_gd_thanh_toan_detail.Update();
             m_lbl_thong_bao.Text = "Cập nhật bản ghi thành công";
@@ -375,5 +378,34 @@ public partial class ChucNang_F603_ThanhToanChiTiet : System.Web.UI.Page
             CSystemLog_301.ExceptionHandle(this, v_e);
         }
     }
+    protected void m_grv_gd_thanh_toan_detail_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+    {
+        try
+        {
+           // m_init_mode = DataEntryFormMode.UpdateDataState;
+            m_cmd_luu_du_lieu.Enabled = false;
+            m_cbo_noi_dung_tt.Enabled = false;
+            m_cmd_cap_nhat_pl.Enabled = true;
+            m_lbl_thong_bao.Text = "";
+            load_data_2_us_by_id_and_show_on_form(e.NewSelectedIndex);
+        }
+        catch (Exception V_e)
+        {
+            CSystemLog_301.ExceptionHandle(this, V_e);
+        }
+    }
+    protected void m_grv_gd_thanh_toan_detail_RowDeleting(object sender, GridViewDeleteEventArgs e)
+    {
+        try
+        {
+            m_lbl_thong_bao.Text = "";
+            delete_row_hop_dong_noi_dung_tt(e.RowIndex);
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(this, v_e);
+        }
+    }
     #endregion
+   
 }
