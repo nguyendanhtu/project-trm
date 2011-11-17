@@ -149,8 +149,8 @@ public partial class ChucNang_F104_ChiTietLopMon : System.Web.UI.Page
     private void us_object_2_form() {
         m_cbo_dm_hop_dong_khung.SelectedValue = CIPConvert.ToStr(m_us_gd_lop_mon_detail.dcID_HOP_DONG_KHUNG);
         m_cbo_noi_dung_thanh_toan.SelectedValue = CIPConvert.ToStr( m_us_gd_lop_mon_detail.dcID_NOI_DUNG_THANH_TOAN);
-        m_txt_so_luong_he_so.Text = CIPConvert.ToStr(m_us_gd_lop_mon_detail.dcSO_LUONG_HE_SO,"#,###0.##");
-        m_txt_thanh_tien.Text = CIPConvert.ToStr(m_us_gd_lop_mon_detail.dcTHANH_TIEN, "#,###0");
+        m_txt_so_luong_he_so.Text = CIPConvert.ToStr(m_us_gd_lop_mon_detail.dcSO_LUONG_HE_SO, "0.0");
+        m_txt_thanh_tien.Text = CIPConvert.ToStr(m_us_gd_lop_mon_detail.dcTHANH_TIEN, "#,###");
         m_rbt_trang_thai_thanh_toan.SelectedValue = m_us_gd_lop_mon_detail.strDA_THANH_TOAN_YN;
     }
     #endregion

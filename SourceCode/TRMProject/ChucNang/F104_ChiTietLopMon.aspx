@@ -95,14 +95,19 @@
                 Text="Thành tiền" />
 		                    </td>
                 <td align="left" style="width:10%;">
-			        <ew:NumericBox ID="m_txt_thanh_tien" runat="server" Width="96%" 
-                        TextAlign="Right"></ew:NumericBox>
+                 <asp:TextBox  ID="m_txt_thanh_tien" CssClass="csscurrency" Width="96%" 
+                        runat="server"></asp:TextBox> 
                 </td>
                      <td align="left" style="width:1%;">
                          <asp:RequiredFieldValidator ID="m_rfv_offline2" runat="server" 
                              
                              ErrorMessage="Bạn phải nhập Thành tiền" 
                              ControlToValidate="m_txt_thanh_tien">*</asp:RequiredFieldValidator>
+                         <asp:RegularExpressionValidator ID="RegularExpressionValidator2" ErrorMessage="Invalid Price" Text="*"
+    ValidationGroup="complete" EnableClientScript="true" ControlToValidate="m_txt_thanh_tien"
+    ValidationExpression="^\d+(\.\d\d)?$" Display="Dynamic" runat="server"/>
+    <asp:CompareValidator runat="server" id="CompareValidator1" Operator="GreaterThan" Type="Currency"
+        Display="Dynamic" ValueToCompare="0" ControlToValidate="m_txt_thanh_tien" ErrorMessage = "Giá trị nhập không đúng định dạng" />                         
                 </td>
                  <td align="right" style="width:5%;">
 			         &nbsp;</td>

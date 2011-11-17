@@ -116,8 +116,8 @@ public partial class ChucNang_F307_PhuLucHopDong : System.Web.UI.Page
         {
             //m_txt_so_hop_dong.Text = ip_us_gd_hd_noi_dung_tt.strSO_HOP_DONG;
             //m_txt_ten_giang_vien.Text = ip_us_gd_hd_noi_dung_tt.strTEN_GIANG_VIEN;
-            m_txt_so_luong_he_so.Text =CIPConvert.ToStr(ip_us_gd_hd_noi_dung_tt.dcSO_LUONG_HE_SO,"0.00");
-            m_txt_don_gia_hd.Text =CIPConvert.ToStr(ip_us_gd_hd_noi_dung_tt.dcDON_GIA_HD,"0");
+            m_txt_so_luong_he_so.Text =CIPConvert.ToStr(ip_us_gd_hd_noi_dung_tt.dcSO_LUONG_HE_SO,"0.0");
+            m_txt_don_gia_hd.Text =CIPConvert.ToStr(ip_us_gd_hd_noi_dung_tt.dcDON_GIA_HD,"#,###");
             m_cbo_noi_dung_tt.SelectedValue = CIPConvert.ToStr(ip_us_gd_hd_noi_dung_tt.dcID_NOI_DUNG_TT);
         }
         catch (Exception v_e)

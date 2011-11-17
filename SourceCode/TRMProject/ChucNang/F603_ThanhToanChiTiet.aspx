@@ -2,12 +2,6 @@
 <%@ Register assembly="eWorld.UI" namespace="eWorld.UI" tagprefix="ew" %>
 <%@ Import Namespace="IP.Core.IPCommon" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
-<style type="text/css">
-.csscurrentcy 
-{
-    text-align:right;
-}
-</style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
 <table cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0">
@@ -172,7 +166,7 @@
                 Text="Đơn giá hợp đồng (VNĐ)" />
                 </td>
                 <td align="left" style="width:10%;">    
-			      <asp:TextBox  ID="m_txt_don_gia_hd" CssClass="csscurrentcy" Width="96%" 
+			      <asp:TextBox  ID="m_txt_don_gia_hd" CssClass="csscurrency" Width="96%" 
                         runat="server"></asp:TextBox> 
                 </td> 
                 <td align="left" style="width:1%;">
