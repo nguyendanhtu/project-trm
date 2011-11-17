@@ -174,16 +174,15 @@
                 <td align="left" style="width:10%;">    
                     <asp:RadioButtonList ID="rdl_noi_dung_list" runat="server" 
                        
-                        RepeatDirection="Horizontal" Width="98%" AutoPostBack="True" 
-                        onselectedindexchanged="rdl_gender_check_SelectedIndexChanged">
+                        RepeatDirection="Horizontal" Width="98%" AutoPostBack="True" >
                         <asp:ListItem Value="Thanhly" Selected="True">Thanh lý</asp:ListItem>
                         <asp:ListItem Value="Tamung">Tạm ứng</asp:ListItem>
                     </asp:RadioButtonList></td> <td align="left" style="width:1%;">
 			       
-			<asp:label id="lbl_lan_so" Visible="false" CssClass="cssManField" runat="server" 
+			<asp:label id="lbl_lan_so"  CssClass="cssManField" runat="server" 
                 Text="đợt " />
 			       
-                <asp:TextBox ID="m_txt_lan_so" Visible="false" Width="30%" CssClass="cssTextBox"
+                <asp:TextBox ID="m_txt_lan_so" Width="30%" CssClass="cssTextBox"
                         runat="server"></asp:TextBox>
 			       
                 </td>

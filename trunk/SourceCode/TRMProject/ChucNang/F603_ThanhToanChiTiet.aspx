@@ -185,16 +185,30 @@
                 <td align="left" style="width:10%;">&nbsp;</td>
             </tr>
             <tr>
-                <td align="right" style="width:5%;">&nbsp;</td>
-                <td align="left" style="width:10%;">    
-			        &nbsp;</td> 
-                <td align="left" style="width:1%;"></td>
-                <td align="left" style="width:5%;">
-			        &nbsp;</td>
+                <td align="right" style="width:5%;">
+			
+			<asp:label id="lbldescription" CssClass="cssManField" runat="server" 
+                Text="Mô tả" />
+			       
+                </td>
+                <td align="left" colspan="3">    
+			        &nbsp;<asp:TextBox id="m_txt_description" runat="server" Width="96%" ></asp:TextBox> </td> 
                 <td align="left" style="width:10%;">    
 			        &nbsp;</td> <td align="left" style="width:1%;"></td>
                  <td align="right" style="width:5%;"></td>
                 <td align="left" style="width:10%;"></td>
+            </tr>
+            <tr>
+                <td align="right" style="width:5%;">&nbsp;</td>
+                <td align="left" style="width:10%;">    
+			        &nbsp;</td> 
+                <td align="left" style="width:1%;">&nbsp;</td>
+                <td align="left" style="width:5%;">
+			        &nbsp;</td>
+                <td align="left" style="width:10%;">    
+			        &nbsp;</td> <td align="left" style="width:1%;">&nbsp;</td>
+                 <td align="right" style="width:5%;">&nbsp;</td>
+                <td align="left" style="width:10%;">&nbsp;</td>
             </tr>
             <tr>
                 <td align="right" style="width:5%;">
@@ -247,7 +261,8 @@
                 runat="server" AutoGenerateColumns="False" 
                 Width="100%" DataKeyNames="ID"
                 CellPadding="4" ForeColor="#333333" 
-            AllowSorting="True" >
+            AllowSorting="True" onrowdeleting="m_grv_gd_thanh_toan_detail_RowDeleting" 
+                onselectedindexchanging="m_grv_gd_thanh_toan_detail_SelectedIndexChanging" >
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
                 <asp:TemplateField HeaderText="Xóa">
@@ -256,7 +271,7 @@
                       <img src="/TRMProject/Images/Button/deletered.png" alt="Delete" />
                      </asp:LinkButton>
                     </ItemTemplate>
-                    <ItemStyle Width="3%" />
+                    <ItemStyle Width="3%" HorizontalAlign="Center"/>
                     </asp:TemplateField>
                      <asp:TemplateField HeaderText="Sửa">
                     <ItemTemplate>
@@ -264,7 +279,7 @@
                     <img src='/TRMProject/Images/Button/edit.png' alt='Sửa' />
                     </asp:LinkButton>
                     </ItemTemplate>
-                    <ItemStyle Width="3%" />
+                    <ItemStyle Width="3%" HorizontalAlign="Center" />
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
@@ -277,6 +292,10 @@
                     <asp:TemplateField HeaderText="Số hợp đồng" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%#  get_so_hop_dong_by_id(CIPConvert.ToDecimal(Eval("ID_HOP_DONG_KHUNG")))%></ItemTemplate>
                         <ItemStyle HorizontalAlign="Center" Width="15%"></ItemStyle>
+                    </asp:TemplateField> 
+                     <asp:TemplateField HeaderText="Nội dung thanh toán">
+                       <ItemTemplate><%#  get_noi_dung_tt_by_id(CIPConvert.ToDecimal(Eval("ID_NOI_DUNG_THANH_TOAN")))%></ItemTemplate>
+                        <ItemStyle HorizontalAlign="Left" Width="15%"></ItemStyle>
                     </asp:TemplateField> 
                      <asp:TemplateField HeaderText="Số lượng / hệ số" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%#CIPConvert.ToStr(CIPConvert.ToDecimal(Eval("SO_LUONG_HE_SO")), "0.00")%></ItemTemplate>

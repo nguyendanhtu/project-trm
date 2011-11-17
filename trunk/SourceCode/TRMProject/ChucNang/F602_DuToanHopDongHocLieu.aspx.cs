@@ -34,87 +34,9 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
     DS_CM_DM_TU_DIEN m_ds_cm_tu_dien = new DS_CM_DM_TU_DIEN();
     US_V_GD_THANH_TOAN m_us_v_gd_thanh_toan = new US_V_GD_THANH_TOAN();
     DS_V_GD_THANH_TOAN m_v_ds_gd_thanh_toan = new DS_V_GD_THANH_TOAN();
-    DataEntryFormMode m_init_mode = DataEntryFormMode.ViewDataState;
     #endregion
 
     #region Public Interfaces
-    // Cái này cho phép cập nhật lại các bước trước nếu như cảm thấy lỗi
-    public string mapping_ho_tro_with_trang_thai_dot_tt(decimal ip_dc_id_trang_thai_dot_thanh_toan, string ip_str_ma_dot_tt)
-    {
-        string v_str_ma_dot = get_ma_trang_thai_dot_tt_by_id(ip_dc_id_trang_thai_dot_thanh_toan);
-        string v_str_return = "";
-        switch (v_str_ma_dot)
-        {
-            case TRANG_THAI_DOT_TT.DA_LAP_DOT:
-                v_str_return = "";
-                break;
-            case TRANG_THAI_DOT_TT.DA_LEN_DU_TOAN:
-                v_str_return = string.Format("<a href='F402_PheDuyetDuToan.aspx?Madot={0}'>Chỉnh sửa dự toán</a>", ip_str_ma_dot_tt);
-                break;
-            case TRANG_THAI_DOT_TT.DA_CHUYEN_KE_TOAN:
-                v_str_return = string.Format("<a href='F402_PheDuyetDuToan.aspx?Madot={0}'>Duyệt lại dự toán</a>", ip_str_ma_dot_tt);
-                break;
-            case TRANG_THAI_DOT_TT.DA_CHUYEN_NGAN_HANG:
-                v_str_return = string.Format("<a href='F402_PheDuyetDuToan.aspx?Madot={0}'>Lập lại DS dự toán</a>", ip_str_ma_dot_tt);
-                break;
-            case TRANG_THAI_DOT_TT.DA_CO_XAC_NHAN_CUA_NGAN_HANG:
-                v_str_return = "";
-                break;
-            case TRANG_THAI_DOT_TT.DA_CO_XAC_NHAN_CUA_GIANG_VIEN:
-                v_str_return = "";
-                break;
-            case TRANG_THAI_DOT_TT.DA_KET_THUC:
-                v_str_return = "";
-                break;
-        }
-        return v_str_return;
-    }
-    public string mapping_action_with_trang_thai_dot_tt(decimal ip_dc_id_trang_thai_dot_thanh_toan, string ip_str_ma_dot_tt)
-    {
-        string v_str_ma_trang_thai_dot_tt = get_ma_trang_thai_dot_tt_by_id(ip_dc_id_trang_thai_dot_thanh_toan);
-        string v_str_return = "";
-        switch (v_str_ma_trang_thai_dot_tt)
-        {
-            case TRANG_THAI_DOT_TT.DA_LAP_DOT:
-                v_str_return = string.Format("<a href='F402_DanhSachHopDongDuToan.aspx?Madot={0}'>Lập dự toán</a>", ip_str_ma_dot_tt);
-                break;
-            case TRANG_THAI_DOT_TT.DA_LEN_DU_TOAN:
-                // Chuyển sang bước duyệt dự toán, duyệt theo từng hợp đồng
-                v_str_return = string.Format("<a href='F403_PheDuyetDuToan.aspx?Madot={0}'>Duyệt dự toán</a>", ip_str_ma_dot_tt);
-                break;
-            case TRANG_THAI_DOT_TT.DA_CHUYEN_KE_TOAN:
-                //// Chuyển sang bước lên danh sách dự toán
-                v_str_return = string.Format("<a href='F404_XuatDanhSachDuToan.aspx?Madot={0}'>Lên danh sách dự toán</a>", ip_str_ma_dot_tt);
-                break;
-            case TRANG_THAI_DOT_TT.DA_CHUYEN_NGAN_HANG:
-                // Chuyển sang bước xác nhận ngân hàng(từng ngân hàng)
-                v_str_return = string.Format("<a href='F405_XacNhanNganHang.aspx?Madot={0}'>Xác nhận ngân hàng</a>", ip_str_ma_dot_tt);
-                break;
-            case TRANG_THAI_DOT_TT.DA_CO_XAC_NHAN_CUA_NGAN_HANG:
-                // Chuyển sang bước xác nhận giảng viên (từng giảng viên)
-                v_str_return = string.Format("<a href='F406_XacNhanGiangVien.aspx?Madot={0}'>Xác nhận giảng viên</a>", ip_str_ma_dot_tt);
-                break;
-            case TRANG_THAI_DOT_TT.DA_CO_XAC_NHAN_CUA_GIANG_VIEN:
-                // Đóng đợt thanh toán thì vào DM_DOT_THANH_TOAN chỉnh sửa trạng thái của đợt thanh toán
-                v_str_return = string.Format("<a href='F500_DotThanhToan.aspx?Madot={0}'>Đóng đợt thanh toán</a>", ip_str_ma_dot_tt);
-                break;
-            case TRANG_THAI_DOT_TT.DA_KET_THUC:
-                v_str_return = "Đã kết thúc";
-                break;
-        }
-        return v_str_return;
-    }
-    public string mapping_don_vi_thanh_toan(decimal ip_dc_id_don_vi_tt)
-    {
-        US_DM_DON_VI_THANH_TOAN v_us_dm_don_vi_tt = new US_DM_DON_VI_THANH_TOAN(ip_dc_id_don_vi_tt);
-        if (!v_us_dm_don_vi_tt.IsIDNull()) return v_us_dm_don_vi_tt.strTEN_DON_VI;
-        return "";
-    }
-    public string mapping_trang_thai_dot_thanh_toan(decimal ip_dc_id_trang_thai_dot_tt)
-    {
-        US_CM_DM_TU_DIEN v_us_dm_tu_dien = new US_CM_DM_TU_DIEN(ip_dc_id_trang_thai_dot_tt);
-        return v_us_dm_tu_dien.strTEN;
-    }
     public string get_so_hd_khung_by_id_hd(decimal ip_dc_so_hd)
     {
         DS_V_DM_HOP_DONG_KHUNG v_ds_hd_khung = new DS_V_DM_HOP_DONG_KHUNG();
@@ -137,11 +59,6 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
     private string cut_end_string(string ip_str_string)
     {
         return ip_str_string.Substring(ip_str_string.Trim().Length - 1, 1);
-    }
-    private bool check_co_tam_ung(int ip_i_id)
-    {
-
-        return true;
     }
     private void load_data_2_cbo_dot_thanh_toan()
     {
@@ -263,15 +180,11 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
         if (ip_us_gd_thanh_toan.strREFERENCE_CODE != "")
         {
             rdl_noi_dung_list.Items[1].Selected = true;
-            m_txt_lan_so.Visible = true;
-            lbl_lan_so.Visible = true;
             m_txt_lan_so.Text = cut_end_string(ip_us_gd_thanh_toan.strREFERENCE_CODE);
         }
         else
         {
             rdl_noi_dung_list.Items[0].Selected = true;
-            m_txt_lan_so.Visible = false;
-            lbl_lan_so.Visible = false;
         }
     }
     private void form_2_us_obj(US_V_GD_THANH_TOAN op_us_gd_thanh_toan)
@@ -416,26 +329,6 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
         {
             m_lbl_thong_bao.Text = "";
             delete_row_thanh_toan(e.RowIndex);
-        }
-        catch (Exception v_e)
-        {
-            CSystemLog_301.ExceptionHandle(this, v_e);
-        }
-    }
-    protected void rdl_gender_check_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        try
-        {
-            if (rdl_noi_dung_list.Items[1].Selected)
-            {
-                lbl_lan_so.Visible = true;
-                m_txt_lan_so.Visible = true;
-            }
-            else
-            {
-                lbl_lan_so.Visible = false;
-                m_txt_lan_so.Visible = false;
-            }
         }
         catch (Exception v_e)
         {
