@@ -174,7 +174,7 @@
                 <td align="left" style="width:10%;">    
                     <asp:RadioButtonList ID="rdl_noi_dung_list" runat="server" 
                        
-                        RepeatDirection="Horizontal" Width="98%" AutoPostBack="True" >
+                        RepeatDirection="Horizontal" Width="98%" >
                         <asp:ListItem Value="Thanhly" Selected="True">Thanh lý</asp:ListItem>
                         <asp:ListItem Value="Tamung">Tạm ứng</asp:ListItem>
                     </asp:RadioButtonList></td> <td align="left" style="width:1%;">

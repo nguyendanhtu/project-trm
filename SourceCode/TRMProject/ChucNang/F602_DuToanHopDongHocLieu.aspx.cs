@@ -174,17 +174,20 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
         m_txt_so_tien_thanh_toan.Text = CIPConvert.ToStr(ip_us_gd_thanh_toan.dcTONG_TIEN_THANH_TOAN, "#.#");
         m_txt_so_tien_thuc_nhan.Text = CIPConvert.ToStr(ip_us_gd_thanh_toan.dcTONG_TIEN_THUC_NHAN, "#.#");
         if (ip_us_gd_thanh_toan.dcSO_TIEN_THUE == 0) m_txt_so_tien_thue1.Text = CIPConvert.ToStr(0);
-        else m_txt_so_tien_thue1.Text = CIPConvert.ToStr(ip_us_gd_thanh_toan.dcSO_TIEN_THUE, "#.#");
+        else m_txt_so_tien_thue1.Text = CIPConvert.ToStr(ip_us_gd_thanh_toan.dcSO_TIEN_THUE, "#,###");
         m_cbo_trang_thai_thanh_toan.SelectedValue = CIPConvert.ToStr(ip_us_gd_thanh_toan.dcID_TRANG_THAI_THANH_TOAN);
         m_txt_mo_ta.Text = ip_us_gd_thanh_toan.strDESCRIPTION;
         if (ip_us_gd_thanh_toan.strREFERENCE_CODE != "")
         {
             rdl_noi_dung_list.Items[1].Selected = true;
+            rdl_noi_dung_list.Items[0].Selected = false;
             m_txt_lan_so.Text = cut_end_string(ip_us_gd_thanh_toan.strREFERENCE_CODE);
         }
         else
         {
             rdl_noi_dung_list.Items[0].Selected = true;
+            rdl_noi_dung_list.Items[1].Selected = false;
+            m_txt_lan_so.Text = "";
         }
     }
     private void form_2_us_obj(US_V_GD_THANH_TOAN op_us_gd_thanh_toan)
@@ -313,7 +316,6 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
     {
         try
         {
-            m_init_mode = DataEntryFormMode.UpdateDataState;
             m_cmd_luu_du_lieu.Enabled = false;
             m_cmd_cap_nhat_du_toan.Enabled = true;
             load_data_2_us_by_id_and_show_on_form(e.NewSelectedIndex);
