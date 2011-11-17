@@ -300,6 +300,21 @@ namespace WebDS.CDBNames
        public const string TONG_TIEN_THUC_NHAN = "TONG_TIEN_THUC_NHAN";
        public const string ID_TRANG_THAI_THANH_TOAN = "ID_TRANG_THAI_THANH_TOAN";
    }
-
+   public class V_GD_THANH_TOAN_DETAIL
+   {
+       public const string ID = "ID";
+       public const string ID_GD_THANH_TOAN = "ID_GD_THANH_TOAN";
+       public const string DESCRIPTION = "DESCRIPTION";
+       public const string ID_HOP_DONG_KHUNG = "ID_HOP_DONG_KHUNG";
+       public const string ID_NOI_DUNG_THANH_TOAN = "ID_NOI_DUNG_THANH_TOAN";
+       public const string NOI_DUNG_THANH_TOAN = "NOI_DUNG_THANH_TOAN";
+       public const string SO_LUONG_HE_SO = "SO_LUONG_HE_SO";
+       public const string MA_DON_VI_TINH = "MA_DON_VI_TINH";
+       public const string DON_VI_TINH = "DON_VI_TINH";
+       public const string MA_TAN_SUAT = "MA_TAN_SUAT";
+       public const string TAN_SUAT = "TAN_SUAT";
+       public const string DON_GIA_TT = "DON_GIA_TT";
+       public const string REFERENCE_CODE = "REFERENCE_CODE";
+   }
 
 }
