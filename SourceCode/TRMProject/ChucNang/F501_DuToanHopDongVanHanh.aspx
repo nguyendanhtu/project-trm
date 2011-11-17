@@ -342,9 +342,14 @@
                     </ItemTemplate>
                     <ItemStyle Width="3%" />
                     </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Chi tiết thanh toán">
+                    <ItemTemplate> <asp:HyperLink ToolTip="Chi tiết thanh toán" ImageUrl="/TRMProject/Images/Button/green_dollar.png" ID = "lbt_phu_luc_hop_dong" runat="server"
+                     NavigateUrl='<%# "/TRMProject/ChucNang/F603_ThanhToanChiTiet.aspx?id_gdtt="+Eval("ID") %>'></asp:HyperLink>
+                    </ItemTemplate>
+                    </asp:TemplateField>
                     <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
-                        <ItemStyle HorizontalAlign="Center" Width="4%"></ItemStyle>
+                        <ItemStyle HorizontalAlign="Center" Width="3%"></ItemStyle>
                     </asp:TemplateField>
                     <asp:BoundField DataField="SO_PHIEU_THANH_TOAN" HeaderText="Số phiếu thanh toán">
                     <ItemStyle Width="15%" HorizontalAlign="Left" />
