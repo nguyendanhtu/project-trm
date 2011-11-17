@@ -206,7 +206,7 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
     {
         m_txt_so_hop_dong.Text = "";
         m_txt_so_tien_thanh_toan.Text = "";
-        m_txt_so_tien_thue.Text = "";
+        m_txt_so_tien_thue1.Text = "";
         m_txt_so_tien_thuc_nhan.Text = "";
         m_txt_ma_lop_mon.Text = "";
         m_txt_mo_ta.Text = "";
@@ -240,9 +240,9 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
         m_txt_so_hop_dong.Text = get_so_hd_khung_by_id_hd(ip_us_gd_thanh_toan.dcID_HOP_DONG_KHUNG);
         m_txt_ma_lop_mon.Text = ip_us_gd_thanh_toan.strREFERENCE_CODE;
         m_dat_ngay_thanh_toan.SelectedDate = ip_us_gd_thanh_toan.datNGAY_THANH_TOAN;
-        m_txt_so_tien_thanh_toan.Text =CIPConvert.ToStr(ip_us_gd_thanh_toan.dcTONG_TIEN_THANH_TOAN,"#.#");
-        m_txt_so_tien_thuc_nhan.Text = CIPConvert.ToStr(ip_us_gd_thanh_toan.dcTONG_TIEN_THUC_NHAN,"#.#");
-        m_txt_so_tien_thue.Text = CIPConvert.ToStr(ip_us_gd_thanh_toan.dcSO_TIEN_THUE,"#.#");
+        m_txt_so_tien_thanh_toan.Text =CIPConvert.ToStr(ip_us_gd_thanh_toan.dcTONG_TIEN_THANH_TOAN,"#,###");
+        m_txt_so_tien_thuc_nhan.Text = CIPConvert.ToStr(ip_us_gd_thanh_toan.dcTONG_TIEN_THUC_NHAN,"#,###");
+        m_txt_so_tien_thue1.Text = CIPConvert.ToStr(ip_us_gd_thanh_toan.dcSO_TIEN_THUE,"#,###");
         m_cbo_trang_thai_thanh_toan.SelectedValue = CIPConvert.ToStr(ip_us_gd_thanh_toan.dcID_TRANG_THAI_THANH_TOAN);
         m_txt_mo_ta.Text = ip_us_gd_thanh_toan.strDESCRIPTION;
     }
@@ -254,7 +254,7 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
         op_us_gd_thanh_toan.datNGAY_THANH_TOAN = m_dat_ngay_thanh_toan.SelectedDate;
         op_us_gd_thanh_toan.dcTONG_TIEN_THANH_TOAN =CIPConvert.ToDecimal(m_txt_so_tien_thanh_toan.Text);
         op_us_gd_thanh_toan.dcTONG_TIEN_THUC_NHAN =CIPConvert.ToDecimal(m_txt_so_tien_thuc_nhan.Text);
-        op_us_gd_thanh_toan.dcSO_TIEN_THUE = CIPConvert.ToDecimal(m_txt_so_tien_thue.Text);
+        op_us_gd_thanh_toan.dcSO_TIEN_THUE = CIPConvert.ToDecimal(m_txt_so_tien_thue1.Text);
         op_us_gd_thanh_toan.dcID_TRANG_THAI_THANH_TOAN =CIPConvert.ToDecimal(m_cbo_trang_thai_thanh_toan.SelectedValue);
         op_us_gd_thanh_toan.strDESCRIPTION = m_txt_mo_ta.Text.Trim();
     }
