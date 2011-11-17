@@ -471,7 +471,7 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
              //if (ip_us_hd_khung.dcID_MON6 == null) ip_us_hd_khung.dcID_MON6 = 0;
              m_cbo_dm_mon_hoc_6.SelectedValue = CIPConvert.ToStr(ip_us_hd_khung.dcID_MON6);
 
-             m_txt_thue_suat.Text = CIPConvert.ToStr(ip_us_hd_khung.dcTHUE_SUAT,"#.#");
+             m_txt_thue_suat.Text = CIPConvert.ToStr(ip_us_hd_khung.dcTHUE_SUAT,"0.0");
              m_txt_gia_tri_hop_dong.Text = CIPConvert.ToStr(ip_us_hd_khung.dcGIA_TRI_HOP_DONG,"#,###");
 
              if (ip_us_hd_khung.strHOC_LIEU_YN == "Y")
