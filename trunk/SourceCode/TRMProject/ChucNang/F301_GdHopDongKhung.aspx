@@ -312,15 +312,18 @@
                 Text="Giá trị hợp đồng" />
 		                    </td>
                 <td align="left" style="width:10%;">
-			
-                <ew:NumericBox ID="m_txt_gia_tri_hop_dong" Width="96%" runat="server" 
-                        TextAlign="Right"></ew:NumericBox>
-			 
+			     <asp:TextBox  ID="m_txt_gia_tri_hop_dong" CssClass="csscurrency" Width="96%" 
+                        runat="server"></asp:TextBox> 			 
                          </td>
                       <td align="left" style="width:1%;">
 			       
 			<asp:label id="lblMon7" CssClass="cssManField" runat="server" 
                 Text="VNĐ" />
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" ErrorMessage="Invalid Price" Text="*"
+    ValidationGroup="complete" EnableClientScript="true" ControlToValidate="m_txt_gia_tri_hop_dong"
+    ValidationExpression="^\d+(\.\d\d)?$" Display="Dynamic" runat="server"/>
+    <asp:CompareValidator runat="server" id="CompareValidator1" Operator="GreaterThan" Type="Currency"
+        Display="Dynamic" ValueToCompare="0" ControlToValidate="m_txt_gia_tri_hop_dong" ErrorMessage = "Giá trị nhập không đúng định dạng" />                         
                 </td>
                  <td align="right" style="width:5%;">
 			       

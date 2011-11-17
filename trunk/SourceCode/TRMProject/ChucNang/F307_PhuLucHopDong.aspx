@@ -203,12 +203,18 @@
                 </td>
                 <td align="left" style="width:10%;">    
 			
-                <ew:NumericBox ID="m_txt_don_gia_hd" Width="96%" DecimalSign="." runat="server" TextAlign="Right">
-                </ew:NumericBox>
+                 <asp:TextBox  ID="m_txt_don_gia_hd" CssClass="csscurrency" Width="96%" 
+                        runat="server"></asp:TextBox> 
                 </td> 
                 <td align="left" style="width:1%;">
                           <asp:RequiredFieldValidator ID="req_validator" runat="server" 
-                         ErrorMessage="Bạn phải nhập đơn giá" Text="*" ControlToValidate="m_txt_don_gia_hd"></asp:RequiredFieldValidator></td>
+                         ErrorMessage="Bạn phải nhập đơn giá" Text="*" ControlToValidate="m_txt_don_gia_hd"></asp:RequiredFieldValidator>
+                         <asp:RegularExpressionValidator ID="RegularExpressionValidator2" ErrorMessage="Invalid Price" Text="*"
+    ValidationGroup="complete" EnableClientScript="true" ControlToValidate="m_txt_don_gia_hd"
+    ValidationExpression="^\d+(\.\d\d)?$" Display="Dynamic" runat="server"/>
+    <asp:CompareValidator runat="server" id="CompareValidator1" Operator="GreaterThan" Type="Currency"
+        Display="Dynamic" ValueToCompare="0" ControlToValidate="m_txt_don_gia_hd" ErrorMessage = "Giá trị nhập không đúng định dạng" />
+                         </td>
                 <td align="right" style="width:9%;">
 			       
 			<asp:label id="lbltan_suat" CssClass="cssManField" runat="server" 
