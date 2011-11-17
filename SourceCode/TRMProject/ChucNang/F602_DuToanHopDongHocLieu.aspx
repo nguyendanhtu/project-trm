@@ -207,8 +207,8 @@
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ErrorMessage="Invalid Price" Text="*"
     ValidationGroup="complete" EnableClientScript="true" ControlToValidate="m_txt_so_tien_thanh_toan"
     ValidationExpression="^\d+(\.\d\d)?$" Display="Dynamic" runat="server"/>
-<asp:CompareValidator runat="server" id="compPrimeNumberPositive" Operator="GreaterThan" Type="Currency"
-        Display="Dynamic" ValueToCompare="0" ControlToValidate="m_txt_so_tien_thanh_toan" ErrorMessage = "value must be greater than zero." />
+    <asp:CompareValidator runat="server" id="compPrimeNumberPositive" Operator="GreaterThan" Type="Currency"
+        Display="Dynamic" ValueToCompare="0" ControlToValidate="m_txt_so_tien_thanh_toan" ErrorMessage = "Giá trị nhập không đúng định dạng" />
                         </td>
                 <td align="left" style="width:5%;">
 			        &nbsp;</td>
@@ -250,8 +250,9 @@
                         &nbsp;<asp:RegularExpressionValidator ID="RegularExpressionValidator2" ErrorMessage="Invalid Price" Text="*"
     ValidationGroup="complete" EnableClientScript="true" ControlToValidate="m_txt_so_tien_thuc_nhan"
     ValidationExpression="^\d+(\.\d\d)?$" Display="Dynamic" runat="server"/>
-<asp:CompareValidator runat="server" id="CompareValidator1" Operator="GreaterThan" Type="Currency"
-        Display="Dynamic" ValueToCompare="0" ControlToValidate="m_txt_so_tien_thuc_nhan" ErrorMessage = "value must be greater than zero." /></td>
+    <asp:CompareValidator runat="server" id="CompareValidator1" Operator="GreaterThan" Type="Currency"
+        Display="Dynamic" ValueToCompare="0" ControlToValidate="m_txt_so_tien_thuc_nhan" ErrorMessage = "Giá trị nhập không đúng định dạng" />
+    </td>
                 <td align="right" style="width:5%;">
 			       
 			<asp:label id="lbltan_suat2" CssClass="cssManField" runat="server" 
@@ -266,7 +267,7 @@
     ValidationGroup="complete" EnableClientScript="true" ControlToValidate="m_txt_so_tien_thue1"
     ValidationExpression="^\d+(\.\d\d)?$" Display="Dynamic" runat="server"/>
 <asp:CompareValidator runat="server" id="CompareValidator2" Operator="GreaterThan" Type="Currency"
-        Display="Dynamic" ValueToCompare="0" ControlToValidate="m_txt_so_tien_thue1" ErrorMessage = "value must be greater than zero." /></td>
+        Display="Dynamic" ValueToCompare="0" ControlToValidate="m_txt_so_tien_thue1" ErrorMessage = "Giá trị nhập không đúng định dạng" /></td>
                  <td align="right" style="width:5%;">&nbsp;</td>
                 <td align="left" style="width:10%;">&nbsp;</td>
             </tr>

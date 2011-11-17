@@ -137,8 +137,6 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
         m_txt_so_tien_thuc_nhan.Text = "";
         //m_txt_ma_lop_mon.Text = "";
         m_txt_lan_so.Text = "";
-        m_txt_lan_so.Visible = false;
-        lbl_lan_so.Visible = false;
         rdl_noi_dung_list.Items[0].Selected = true;
         m_txt_mo_ta.Text = "";
     }
