@@ -197,7 +197,7 @@
 			       
                 </td>
                 <td align="left" style="width:10%;">  
-                 <asp:TextBox  ID="m_txt_so_tien_thanh_toan" Width="96%" 
+                 <asp:TextBox  ID="m_txt_so_tien_thanh_toan" CssClass="csscurrency" Width="96%" 
                         runat="server"></asp:TextBox>  
                         </td> 
                 <td align="left" style="width:1%;">			       
@@ -243,7 +243,7 @@
 			       
                 </td>
                 <td align="left" style="width:10%;">  
-                    <asp:TextBox  ID="m_txt_so_tien_thuc_nhan" Width="96%" 
+                    <asp:TextBox  ID="m_txt_so_tien_thuc_nhan" CssClass="csscurrency" Width="96%" 
                         runat="server"></asp:TextBox>
                         </td> 
                 <td align="left" style="width:1%;">			       
@@ -260,7 +260,7 @@
 			       
                 </td>
                 <td align="left" style="width:10%;">  
-                <asp:TextBox  ID="m_txt_so_tien_thue1" Width="96%" 
+                <asp:TextBox  ID="m_txt_so_tien_thue1" CssClass="csscurrency" Width="96%" 
                         runat="server"></asp:TextBox>
                         </td> <td align="left" style="width:1%;">&nbsp;
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator3" ErrorMessage="Invalid Price" Text="*"
