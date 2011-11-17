@@ -107,8 +107,8 @@ public partial class ChucNang_F603_ThanhToanChiTiet : System.Web.UI.Page
     {
         try
         {
-            m_txt_so_luong_he_so.Text = CIPConvert.ToStr(ip_us_gd_thanh_toan_detail.dcSO_LUONG_HE_SO, "0.00");
-            m_txt_don_gia_hd.Text = CIPConvert.ToStr(ip_us_gd_thanh_toan_detail.dcDON_GIA_TT, "0");
+            m_txt_so_luong_he_so.Text = CIPConvert.ToStr(ip_us_gd_thanh_toan_detail.dcSO_LUONG_HE_SO, "0.0");
+            m_txt_don_gia_hd.Text = CIPConvert.ToStr(ip_us_gd_thanh_toan_detail.dcDON_GIA_TT, "#,###");
             m_cbo_noi_dung_tt.SelectedValue = CIPConvert.ToStr(ip_us_gd_thanh_toan_detail.dcID_NOI_DUNG_THANH_TOAN);
             m_txt_description.Text = ip_us_gd_thanh_toan_detail.strDESCRIPTION;
         }

@@ -2,6 +2,12 @@
 <%@ Register assembly="eWorld.UI" namespace="eWorld.UI" tagprefix="ew" %>
 <%@ Import Namespace="IP.Core.IPCommon" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
+<style type="text/css">
+.csscurrentcy 
+{
+    text-align:right;
+}
+</style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
 <table cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0">
@@ -136,13 +142,14 @@
 			       
                 </td>
                 <td align="left" style="width:10%;">
-                <ew:numericbox ID="m_txt_so_luong_he_so" Width="96%" 
-                        runat="server" TextAlign= "Right"></ew:numericbox>
-                        <asp:RequiredFieldValidator ID="req_vali2" runat="server" 
+                <ew:numericbox ID="m_txt_so_luong_he_so" Width="96%" runat="server" 
+                        TextAlign="Right">
+                </ew:numericbox>
+                       </td>
+                <td align="left" style="width:5%;">
+			        <asp:RequiredFieldValidator ID="req_vali2" runat="server" 
                          ErrorMessage="Bạn phải nhập số lượng hệ số" Text="*" ControlToValidate="m_txt_so_luong_he_so">
-                         </asp:RequiredFieldValidator></td>
-                <td align="right" style="width:5%;">
-			       
+                         </asp:RequiredFieldValidator>
 			        &nbsp;</td>
                 <td align="right" style="width:7%;">
 			
@@ -165,14 +172,18 @@
                 Text="Đơn giá hợp đồng (VNĐ)" />
                 </td>
                 <td align="left" style="width:10%;">    
-			
-                <ew:numericbox ID="m_txt_don_gia_hd" Width="96%" DecimalSign="." runat="server" 
-                        TextAlign="Right">
-                </ew:numericbox>
+			      <asp:TextBox  ID="m_txt_don_gia_hd" CssClass="csscurrentcy" Width="96%" 
+                        runat="server"></asp:TextBox> 
                 </td> 
                 <td align="left" style="width:1%;">
                           <asp:RequiredFieldValidator ID="req_validator" runat="server" 
-                         ErrorMessage="Bạn phải nhập đơn giá" Text="*" ControlToValidate="m_txt_don_gia_hd"></asp:RequiredFieldValidator></td>
+                         ErrorMessage="Bạn phải nhập đơn giá" Text="*" ControlToValidate="m_txt_don_gia_hd"></asp:RequiredFieldValidator>
+                         <asp:RegularExpressionValidator ID="RegularExpressionValidator2" ErrorMessage="Invalid Price" Text="*"
+    ValidationGroup="complete" EnableClientScript="true" ControlToValidate="m_txt_don_gia_hd"
+    ValidationExpression="^\d+(\.\d\d)?$" Display="Dynamic" runat="server"/>
+    <asp:CompareValidator runat="server" id="CompareValidator1" Operator="GreaterThan" Type="Currency"
+        Display="Dynamic" ValueToCompare="0" ControlToValidate="m_txt_don_gia_hd" ErrorMessage = "Giá trị nhập không đúng định dạng" />                         
+                         </td>
                 <td align="right" style="width:9%;">
 			       
 			<asp:label id="lbltan_suat" CssClass="cssManField" runat="server" 
