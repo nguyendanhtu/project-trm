@@ -107,6 +107,10 @@ body
 	padding-bottom:3px;
 	margin-bottom: 0px;
 }
+.csscurrency 
+{
+    text-align:right;
+}
 .cssTextBox 
 { 
 	border-left: 1px solid #bbb;
