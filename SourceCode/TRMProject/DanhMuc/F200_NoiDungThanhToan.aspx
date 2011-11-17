@@ -76,13 +76,16 @@
                 Text="&lt;U&gt;Đ&lt;/U&gt;ơn giá" />
 		</td>
         <td align="left">
-			<asp:textbox id="m_txt_don_gia" CssClass="cssTextBox"  runat="server" 
+			<asp:textbox id="m_txt_don_gia" CssClass="csscurrency"  runat="server" 
                 MaxLength="64" Width="322px" />
                 <asp:customvalidator id="m_ct_don_gia" runat="server" 
                 ControlToValidate="m_txt_don_gia" ErrorMessage="Bạn phải nhập đơn giá" 
                 Display="Static" Text="*" />
-            <asp:RegularExpressionValidator ID="Regex_don_gia" runat="server" Text="" ErrorMessage="Đơn giá phải là số"
-             ControlToValidate="m_txt_don_gia" ValidationExpression="^\d+$"></asp:RegularExpressionValidator>
+             <asp:RegularExpressionValidator ID="RegularExpressionValidator2" ErrorMessage="Invalid Price" Text="*"
+    ValidationGroup="complete" EnableClientScript="true" ControlToValidate="m_txt_don_gia"
+    ValidationExpression="^\d+(\.\d\d)?$" Display="Dynamic" runat="server"/>
+    <asp:CompareValidator runat="server" id="CompareValidator1" Operator="GreaterThan" Type="Currency"
+        Display="Dynamic" ValueToCompare="0" ControlToValidate="m_txt_don_gia" ErrorMessage = "Đơn giá phải là 1 số dương" /> 
 		</td>
         <td>&nbsp;</td>
     </tr>
@@ -92,7 +95,10 @@
                 Text="Số lượng/hệ số Default" />
 		    </td>
 		<td valign="top" colspan="2">
-		    &nbsp; <ew:NumericBox ID="m_txt_so_luong_he_so_default" Width="323px" runat="server" TextAlign="Left"></ew:NumericBox></td>
+		    &nbsp; 
+            <ew:NumericBox ID="m_txt_so_luong_he_so_default" Width="323px" runat="server" TextAlign="Left">
+            </ew:NumericBox>
+            </td>
 	    </tr>
 	    <tr>
 		<td align="right">
