@@ -112,17 +112,26 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
     }
     private void load_data_2_grid(string ip_str_ma_dot_tt)
     {
-        US_V_GD_THANH_TOAN v_us_gd_thanh_toan = new US_V_GD_THANH_TOAN();
-        DS_V_GD_THANH_TOAN v_ds_gd_thanh_toan = new DS_V_GD_THANH_TOAN();
-        // Số phiếu thanh toán là mã đợt thanh toán
-        v_us_gd_thanh_toan.FillDataset(v_ds_gd_thanh_toan, " WHERE SO_PHIEU_THANH_TOAN = '" + ip_str_ma_dot_tt + "' AND LOAI_HOP_DONG='HL'");
-        if (v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count == 0)
+        if (ip_str_ma_dot_tt == "")
         {
             m_lbl_thong_bao.Visible = true;
-            m_lbl_thong_bao.Text = "Chưa có Thanh toán nào ứng với Đợt thanh toán này";
+            m_lbl_thong_bao.Text = "Chưa tạo Đợt thanh toán";
+            return;
         }
-        m_grv_danh_sach_du_toan.DataSource = v_ds_gd_thanh_toan.V_GD_THANH_TOAN;
-        m_grv_danh_sach_du_toan.DataBind();
+        else
+        {
+            US_V_GD_THANH_TOAN v_us_gd_thanh_toan = new US_V_GD_THANH_TOAN();
+            DS_V_GD_THANH_TOAN v_ds_gd_thanh_toan = new DS_V_GD_THANH_TOAN();
+            // Số phiếu thanh toán là mã đợt thanh toán
+            v_us_gd_thanh_toan.FillDataset(v_ds_gd_thanh_toan, " WHERE SO_PHIEU_THANH_TOAN = '" + ip_str_ma_dot_tt + "' AND LOAI_HOP_DONG='HL'");
+            if (v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count == 0)
+            {
+                m_lbl_thong_bao.Visible = true;
+                m_lbl_thong_bao.Text = "Chưa có Thanh toán nào ứng với Đợt thanh toán này";
+            }
+            m_grv_danh_sach_du_toan.DataSource = v_ds_gd_thanh_toan.V_GD_THANH_TOAN;
+            m_grv_danh_sach_du_toan.DataBind();
+        }
     }
     private string get_ma_trang_thai_dot_tt_by_id(decimal ip_dc_id_dot_tt)
     {
