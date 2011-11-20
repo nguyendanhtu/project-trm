@@ -357,7 +357,7 @@
                     <ItemStyle Width="3%" />
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Chi tiết thanh toán">
-                    <ItemTemplate> <asp:HyperLink ToolTip="Chi tiết thanh toán" ImageUrl="/TRMProject/Images/Button/green_dollar.png" ID = "lbt_phu_luc_hop_dong" runat="server"
+                    <ItemTemplate> <asp:HyperLink ToolTip="Chi tiết thanh toán" ImageUrl="/TRMProject/Images/Button/detail.png" ID = "lbt_phu_luc_hop_dong" runat="server"
                      NavigateUrl='<%# "/TRMProject/ChucNang/F603_ThanhToanChiTiet.aspx?id_gdtt="+Eval("ID") %>'></asp:HyperLink>
                     </ItemTemplate>
                     </asp:TemplateField>
