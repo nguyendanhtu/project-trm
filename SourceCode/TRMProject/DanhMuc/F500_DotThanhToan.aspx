@@ -74,7 +74,7 @@
     <tr>
         <td align="right">
 			<asp:label id="lbl_ngay_ket_thuc_du_kien" CssClass="cssManField" runat="server" 
-                Text="&lt;U&gt;N&lt;/U&gt;gày kết thúc dự kiến" AccessKey="T" />
+                Text="&lt;U&gt;N&lt;/U&gt;gày thanh toán dự kiến" AccessKey="T" />
 		</td>
         <td align="left">
 			
@@ -218,12 +218,12 @@
                     <asp:CommandField SelectText="Sửa" ShowSelectButton="True" HeaderText="Sửa" ItemStyle-Width="2%" />
                     <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
-                        <ItemStyle HorizontalAlign="Center" Width="5%"></ItemStyle>
+                        <ItemStyle HorizontalAlign="Center" Width="3%"></ItemStyle>
                     </asp:TemplateField>
                     <asp:BoundField DataField="MA_DOT_TT" HeaderText="Mã đợt thanh toán" 
                         Visible="true">
-                        <ItemStyle HorizontalAlign="Center" Width="10%"></ItemStyle></asp:BoundField>
-                    <asp:BoundField DataField="TEN_DOT_TT" HeaderText="Tên đợt TT" ItemStyle-Width="20%" />
+                        <ItemStyle HorizontalAlign="Center" Width="17%"></ItemStyle></asp:BoundField>
+                    <asp:BoundField DataField="TEN_DOT_TT" HeaderText="Tên đợt TT" ItemStyle-Width="25%" />
                     
                     <asp:TemplateField HeaderText="Đơn vị TT" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%# mapping_don_vi_thanh_toan(CIPConvert.ToDecimal(Eval("ID_DON_VI_THANH_TOAN"))) %></ItemTemplate>
@@ -231,11 +231,11 @@
                     </asp:TemplateField>
                      <asp:TemplateField HeaderText="Trạng thái đợt TT" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%# mapping_trang_thai_dot_thanh_toan(CIPConvert.ToDecimal(Eval("ID_TRANG_THAI_DOT_TT"))) %></ItemTemplate>
-                        <ItemStyle HorizontalAlign="Center" Width="20%"></ItemStyle>
+                        <ItemStyle HorizontalAlign="Center" Width="11%"></ItemStyle>
                     </asp:TemplateField>
-                      <asp:BoundField DataField="NGAY_TT_DU_KIEN" HeaderText="Ngày kết thúc dự kiên" DataFormatString="{0:dd/MM/yyyy}"
+                      <asp:BoundField DataField="NGAY_TT_DU_KIEN" HeaderText="Ngày thanh toán dự kiến" DataFormatString="{0:dd/MM/yyyy}"
                         ItemStyle-HorizontalAlign="Center" >
-                    <ItemStyle HorizontalAlign="Center" Width="10%"></ItemStyle>
+                    <ItemStyle HorizontalAlign="Center" Width="12%"></ItemStyle>
                     </asp:BoundField>
                 </Columns>
                   <EditRowStyle BackColor="#7C6F57" />
