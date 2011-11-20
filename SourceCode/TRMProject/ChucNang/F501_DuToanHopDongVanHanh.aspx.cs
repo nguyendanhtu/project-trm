@@ -23,7 +23,6 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
             load_data_2_cbo_dot_thanh_toan();
             load_data_2_cbo_trang_thai_thanh_toan();
             when_cbo_dot_tt_changed();
-            load_data_2_grid(get_ma_dot_tt_by_id_dot(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue)));
         }
         m_cmd_check_so_hd.Attributes.Add("onclick", "openPopUp()");
     }
@@ -222,6 +221,8 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
     }
     private void when_cbo_dot_tt_changed()
     {
+        if (m_cbo_dot_thanh_toan.Items.Count == 0)
+            return;        
         decimal v_dc_id_dot_thanh_toan = CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue);
         US_V_DM_DOT_THANH_TOAN v_us_dot_thanh_toan = new US_V_DM_DOT_THANH_TOAN(v_dc_id_dot_thanh_toan);
         m_dat_ngay_thanh_toan.SelectedDate = v_us_dot_thanh_toan.datNGAY_TT_DU_KIEN;

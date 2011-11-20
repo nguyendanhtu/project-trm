@@ -26,8 +26,8 @@ public partial class ChucNang_F403_PheDuyetDuToan : System.Web.UI.Page
             load_data_2_cbo_dot_thanh_toan();
             load_data_2_cbo_trang_thai_thanh_toan();
             load_data_2_cbo_trang_thai_thanh_toan_search();
-            //when_cbo_dot_tt_changed();
-            load_data_2_grid(get_ma_dot_tt_by_id_dot(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue)));
+            when_cbo_dot_tt_changed();
+           // load_data_2_grid(get_ma_dot_tt_by_id_dot(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue)));
         }
     }
 
@@ -239,6 +239,8 @@ public partial class ChucNang_F403_PheDuyetDuToan : System.Web.UI.Page
     }
     private void when_cbo_dot_tt_changed()
     {
+        if (m_cbo_dot_thanh_toan.Items.Count == 0)
+            return;
         decimal v_dc_id_dot_thanh_toan = CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue);
         US_V_DM_DOT_THANH_TOAN v_us_dot_thanh_toan = new US_V_DM_DOT_THANH_TOAN(v_dc_id_dot_thanh_toan);
         m_dat_ngay_thanh_toan.SelectedDate = v_us_dot_thanh_toan.datNGAY_TT_DU_KIEN;
@@ -246,7 +248,6 @@ public partial class ChucNang_F403_PheDuyetDuToan : System.Web.UI.Page
             load_data_2_grid(get_ma_dot_tt_by_id_dot(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue)));
         else
             load_data_2_grid_search_trang_thai(get_ma_dot_tt_by_id_dot(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue)), CIPConvert.ToDecimal(m_cbo_trang_thai_tt_search.SelectedValue));   
-        //load_data_2_grid(get_ma_dot_tt_by_id_dot(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue)));
     }
     private decimal get_id_dot_tt_by_ma_dot(string ip_str_ma_dot)
     {
