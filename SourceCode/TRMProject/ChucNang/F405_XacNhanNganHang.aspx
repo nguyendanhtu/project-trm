@@ -121,9 +121,19 @@
    <asp:GridView ID="m_grv_danh_sach_thanh_toan" AllowPaging="True" 
                 runat="server" AutoGenerateColumns="False" 
                 Width="100%" DataKeyNames="ID"
-                CellPadding="4" ForeColor="#333333" >
+                CellPadding="4" ForeColor="#333333" PageSize="100" 
+                onselectedindexchanging="m_grv_danh_sach_thanh_toan_SelectedIndexChanging" >
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
+                     <asp:TemplateField HeaderText="Xác nhận của Ngân hàng">
+                    <ItemTemplate>
+                     <asp:LinkButton CausesValidation="false" CommandName="Select" ToolTip="Xác nhận của Ngân hàng" 
+                    OnClientClick="return confirm ('Đã có xác nhận từ Ngân hàng?')"  ID = "lbt_edit" runat="server">
+                    <img src='/TRMProject/Images/Button/Update.gif' alt='Xác nhận của Ngân hàng' />
+                    </asp:LinkButton>
+                    </ItemTemplate>
+                    <ItemStyle Width="5%" HorizontalAlign="Center" />
+                    </asp:TemplateField>
                     <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
                         <ItemStyle HorizontalAlign="Center" Width="5%"></ItemStyle>
