@@ -464,7 +464,5 @@ public partial class ChucNang_F403_PheDuyetDuToan : System.Web.UI.Page
             CSystemLog_301.ExceptionHandle(this, v_e);
         }
     }
-    #endregion    
-  
-   
+    #endregion
 }
