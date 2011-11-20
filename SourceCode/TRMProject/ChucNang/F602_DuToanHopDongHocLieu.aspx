@@ -279,8 +279,7 @@
 			       
                 </td>
                 <td align="left" colspan="3">    
-              <asp:DropDownList ID="m_cbo_trang_thai_thanh_toan" Width="96%" runat="server" 
-                        AutoPostBack="true" >
+              <asp:DropDownList ID="m_cbo_trang_thai_thanh_toan" Width="96%" runat="server">
                </asp:DropDownList>
                          </td> 
                 <td align="left" style="width:10%;">    
@@ -391,7 +390,7 @@
                     </asp:TemplateField> 
                     <asp:TemplateField HeaderText="Tên giảng viên" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%# Eval("TEN_GIANG_VIEN")%></ItemTemplate>
-                        <ItemStyle HorizontalAlign="Center" Width="10%"></ItemStyle>
+                        <ItemStyle HorizontalAlign="Left" Width="10%"></ItemStyle>
                     </asp:TemplateField> 
                      <asp:BoundField DataField="TONG_TIEN_THANH_TOAN" DataFormatString="{0:N0}" HeaderText="Tổng tiền thanh toán (VNĐ)">
                      <ItemStyle Width="10%" HorizontalAlign="Center" />
@@ -406,7 +405,7 @@
                      <ItemStyle Width="10%" HorizontalAlign="Center" />
                     </asp:BoundField>
                       <asp:BoundField DataField="DESCRIPTION" HeaderText="Mô tả">
-                     <ItemStyle Width="15%" HorizontalAlign="Center" />
+                     <ItemStyle Width="15%" HorizontalAlign="Left" />
                     </asp:BoundField>
                 </Columns>
                   <EditRowStyle BackColor="#7C6F57" />

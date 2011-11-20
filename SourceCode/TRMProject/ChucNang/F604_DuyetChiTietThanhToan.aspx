@@ -1,6 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="F603_ThanhToanChiTiet.aspx.cs" Inherits="ChucNang_F603_ThanhToanChiTiet" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="F604_DuyetChiTietThanhToan.aspx.cs" Inherits="ChucNang_F604_DuyetChiTietThanhToan" %>
 <%@ Register assembly="eWorld.UI" namespace="eWorld.UI" tagprefix="ew" %>
 <%@ Import Namespace="IP.Core.IPCommon" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
@@ -60,9 +61,15 @@
                 <td align="left" style="width:1%;"></td>
             </tr>
             <tr>
-                <td align="right" style="width:5%;"></td>
+                <td align="right" style="width:5%;">
+			       
+			<asp:label id="m_lbl_tong_tien_thanh_toan" CssClass="cssManField" runat="server" 
+                Text="Tổng tiền thanh toán: " />
+			       
+                         </td>
                 <td align="left" style="width:10%;">    
-			        &nbsp;</td> 
+                    &nbsp;<asp:label id="m_lbl_tong_tien_thanh_toan_hop_dong" runat="server" />&nbsp; 
+                    VNĐ</td> 
                 <td align="left" style="width:1%;"></td>
                 <td align="left" style="width:5%;">
 			        &nbsp;</td>
@@ -99,8 +106,7 @@
                          </td>
                 <td align="left" colspan="6">
               <asp:DropDownList ID="m_cbo_noi_dung_tt" Width="96%" runat="server" 
-                        AutoPostBack="true" 
-                        onselectedindexchanged="m_cbo_noi_dung_tt_SelectedIndexChanged" >
+                        AutoPostBack="true" >
                </asp:DropDownList>
                          </td>
                 <td align="left" style="width:10%;"></td>
@@ -219,22 +225,19 @@
                 <td align="right" style="width:5%;">
 			        &nbsp;</td>
                 <td align="left" style="width:1%;">
-			        <asp:button id="m_cmd_luu_du_lieu" accessKey="s" CssClass="cssButton" 
-                runat="server" Width="98px" Text="Tạo chi tiết" 
-                        Height="24px" onclick="m_cmd_luu_du_lieu_Click" />
-                </td>
-			   <td align="left" style="width:1%;"></td>
-                 <td align="left" colspan="2">
                      <asp:Button ID="m_cmd_cap_nhat_pl" runat="server" accessKey="s" 
                          CssClass="cssButton" Height="24px" 
-                         Text="Cập nhật chi tiết" Width="98px" onclick="m_cmd_cap_nhat_pl_Click"/>
+                         Text="Duyệt chi tiết" Width="98px" onclick="m_cmd_cap_nhat_pl_Click"/>
+                </td>
+			   <td align="left" style="width:1%;"></td>
+                 <td align="left" colspan="1">
+                    <asp:Button ID="m_cmd_xoa_trang" runat="server" CausesValidation="False" 
+                        CssClass="cssButton" Height="25px" Text="Xóa trắng" 
+                        Width="98px"/>
                  </td>
                 <td align="left" style="width:1%;"></td>
                 <td align="left" style="width:10%;">
-                    <asp:Button ID="m_cmd_xoa_trang" runat="server" CausesValidation="False" 
-                        CssClass="cssButton" Height="25px" Text="Xóa trắng" 
-                        Width="98px" onclick="m_cmd_xoa_trang_Click" />
-                </td>  
+                    &nbsp;</td>  
                   <td align="left" style="width:10%;">
                       &nbsp;</td>  
             </tr>
@@ -252,7 +255,7 @@
 		<td align="left">
                 <asp:Button ID="m_cmd_exit" runat="server" accessKey="s" CssClass="cssButton" 
                           Height="24px" Text="Thoát" Width="98px" CausesValidation="false" 
-                          onclick="m_cmd_exit_Click" /><br />
+                    onclick="m_cmd_exit_Click" /><br />
                           <asp:Label ID="m_lbl_thong_bao" CssClass="cssManField" runat="server"></asp:Label>
                 <asp:HiddenField ID="hdf_id_gv" runat="server" />
         </td>
@@ -278,9 +281,9 @@
                     </ItemTemplate>
                     <ItemStyle Width="3%" HorizontalAlign="Center"/>
                     </asp:TemplateField>
-                     <asp:TemplateField HeaderText="Sửa">
+                     <asp:TemplateField HeaderText="Duyệt chi tiết">
                     <ItemTemplate>
-                     <asp:LinkButton CausesValidation="false" CommandName="Select" ToolTip="Sửa" ID = "lbt_edit" runat="server">
+                     <asp:LinkButton CausesValidation="false" CommandName="Select" ToolTip="Duyệt chi tiết" ID = "lbt_edit" runat="server">
                     <img src='/TRMProject/Images/Button/edit.png' alt='Sửa' />
                     </asp:LinkButton>
                     </ItemTemplate>
@@ -333,6 +336,5 @@
 	</tr>
 
 </table>
-
 </asp:Content>
 
