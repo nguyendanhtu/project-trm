@@ -37,7 +37,7 @@
                 <td align="right" style="width:5%;">
 			       
 			<asp:label id="lbltan_suat3" CssClass="cssManField" runat="server" 
-                Text="Trạng thái thanh toán" />
+                Text="Trạng thái dự toán" />
 			       
                 </td>
                 <td align="left" colspan="3">    
