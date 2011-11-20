@@ -62,11 +62,11 @@
                                 <li><a href="/TRMProject/ChucNang/F501_DuToanHopDongVanHanh.aspx">1.2 Hợp đồng Vận hành</a></li>
                             </ul>
                           </li>
-					      <li><a href="/TRMProject/ChucNang/F401_LapDuToanChoDotThanhToan.aspx?id_trang_thai_dot_tt=2">2. Phê duyệt dự toán</a></li>
-					      <li><a href="/TRMProject/ChucNang/F401_LapDuToanChoDotThanhToan.aspx?id_trang_thai_dot_tt=3">3. Xuất danh sách thanh toán</a></li>
-                          <li><a href="/TRMProject/ChucNang/F401_LapDuToanChoDotThanhToan.aspx?id_trang_thai_dot_tt=4">4. Xác nhận ngân hàng</a></li>
-                          <li><a href="/TRMProject/ChucNang/F401_LapDuToanChoDotThanhToan.aspx?id_trang_thai_dot_tt=5">5. Xác nhận giảng viên</a></li>
-                          <li><a href="/TRMProject/ChucNang/F401_LapDuToanChoDotThanhToan.aspx?id_trang_thai_dot_tt=6">6. Đóng đợt thanh toán</a></li>
+					      <li><a href="/TRMProject/ChucNang/F403_PheDuyetDuToan.aspx">2. Phê duyệt dự toán</a></li>
+					      <li><a href="/TRMProject/ChucNang/F404_XuatDanhSachDuToan.aspx">3. Xuất danh sách thanh toán</a></li>
+                          <li><a href="/TRMProject/ChucNang/F405_XacNhanNganHang.aspx">4. Xác nhận ngân hàng</a></li>
+                          <li><a href="/TRMProject/ChucNang/F406_XacNhanGiangVien.aspx">5. Xác nhận giảng viên</a></li>
+                          <li><a href="/TRMProject/DanhMuc/F500_DotThanhToan.aspx">6. Đóng đợt thanh toán</a></li>
 				    </ul>
               </li>
                <li><a href="#">Báo cáo</a>

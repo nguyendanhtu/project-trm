@@ -13,7 +13,7 @@ using IP.Core.IPUserService;
 using IP.Core.IPData;
 using System.Data;
 
-public partial class ChucNang_F603_ThanhToanChiTiet : System.Web.UI.Page
+public partial class ChucNang_F604_DuyetChiTietThanhToan : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -21,34 +21,19 @@ public partial class ChucNang_F603_ThanhToanChiTiet : System.Web.UI.Page
         m_cbo_noi_dung_tt.Enabled = true;
         if (!IsPostBack)
         {
-            m_cmd_cap_nhat_pl.Enabled = true;
-            m_cmd_luu_du_lieu.Enabled = true;
             enable_controls();
             // show on grid
             if (Request.QueryString["id_gdtt"] != null)
             {
                 //Lấy ID GD_THANH_TOAN
                 m_dc_id_gd_thanh_toan = CIPConvert.ToDecimal(Request.QueryString["id_gdtt"]);
+               // Nếu hợp đồng đã có tạm ứng
                 if (check_tam_ung(m_dc_id_gd_thanh_toan))
                 {
-                    //Chứa loại hợp đồng : học liệu hay vận hành
-                    //string v_str_loai_hd = "";
-                    //if (Request.QueryString["loai"] != null)
-                    //    v_str_loai_hd = CIPConvert.ToStr(Request.QueryString["loai"]);
                     string somescript;
                     somescript = "<script language='javascript'>alert('Không có chi tiết thanh toán cho hợp đồng đã được tạm ứng')</script>";
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "Thongbao", somescript);
                     disable_controls();
-                    //if (v_str_loai_hd.Equals("hl"))
-                   // {
-                        //Response.Redirect("/TRMProject/ChucNang/F602_DuToanHopDongHocLieu.aspx", false);
-                        //HttpContext.Current.ApplicationInstance.CompleteRequest();
-                    //}
-                    //else
-                    //{
-                    //    Response.Redirect("/TRMProject/ChucNang/F501_DuToanHopDongVanHanh.aspx", false);
-                    //    HttpContext.Current.ApplicationInstance.CompleteRequest();
-                    //}
                     return;
                 }
                 else
@@ -173,7 +158,7 @@ public partial class ChucNang_F603_ThanhToanChiTiet : System.Web.UI.Page
         load_data_2_grid(CIPConvert.ToDecimal(Request.QueryString["id_gdtt"]));
     }
     // Load toàn bộ thanh toán detail của thanh toán đang xét
-    private void load_data_2_grid(decimal ip_dc_id_thanh_toan)
+    private void load_data_2_grid(decimal ip_dc_id_thanh_toan)  
     {
         try
         {
@@ -185,14 +170,11 @@ public partial class ChucNang_F603_ThanhToanChiTiet : System.Web.UI.Page
                 // Nếu lý do chưa có là do bản chất chưa có phụ lục nào ứng với hợp đồng của thanh toán này thì hiển thị alert !
                 if (m_cbo_noi_dung_tt.Items.Count == 0)
                 {
+                    disable_controls();
                     string someScript;
                     someScript = "<script language='javascript'>alert('Không có nội dung thanh toán ứng với giao dịch thanh toán này!');</script>";
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", someScript);
-                    // Ko cho phéo add thêm
-                    m_cmd_luu_du_lieu.Enabled = false;
                 }
-                // Nếu chưa có gì thì ko cho cập nhật (chỉ cho add thêm)
-                m_cmd_cap_nhat_pl.Enabled = false;
                 m_grv_gd_thanh_toan_detail.Visible = false;
                 m_grv_gd_thanh_toan_detail.DataSource = m_ds_v_gd_thanh_toan_detail.V_GD_THANH_TOAN_DETAIL;
                 m_grv_gd_thanh_toan_detail.DataBind();
@@ -221,10 +203,11 @@ public partial class ChucNang_F603_ThanhToanChiTiet : System.Web.UI.Page
             if (!v_us_gd_thanh_toan.IsIDNull())
             {
                 m_lbl_so_phieu_thanh_toan.Text = v_us_gd_thanh_toan.strSO_PHIEU_THANH_TOAN;
-                m_lbl_so_hop_dong.Text =get_so_hop_dong_by_id(v_us_gd_thanh_toan.dcID_HOP_DONG_KHUNG);
+                m_lbl_so_hop_dong.Text = get_so_hop_dong_by_id(v_us_gd_thanh_toan.dcID_HOP_DONG_KHUNG);
                 if (v_us_gd_thanh_toan.datNGAY_THANH_TOAN != null)
                     m_lbl_dat_ngay_thanh_toan.Text = CIPConvert.ToStr(v_us_gd_thanh_toan.datNGAY_THANH_TOAN, "dd/MM/yyyy");
-                m_lbl_don_vi_thanh_toan.Text =get_dv_thanh_toan_by_id_hd(v_us_gd_thanh_toan.dcID_HOP_DONG_KHUNG);
+                m_lbl_don_vi_thanh_toan.Text = get_dv_thanh_toan_by_id_hd(v_us_gd_thanh_toan.dcID_HOP_DONG_KHUNG);
+                m_lbl_tong_tien_thanh_toan_hop_dong.Text = CIPConvert.ToStr(v_us_gd_thanh_toan.dcTONG_TIEN_THANH_TOAN,"#,###");
             }
         }
         catch (Exception v_e)
@@ -300,7 +283,7 @@ public partial class ChucNang_F603_ThanhToanChiTiet : System.Web.UI.Page
         m_txt_so_luong_he_so.Enabled = false;
         m_txt_description.Enabled = false;
         m_cmd_cap_nhat_pl.Enabled = false;
-        m_cmd_luu_du_lieu.Enabled = false;
+        m_cmd_xoa_trang.Enabled = false;
     }
     private void enable_controls()
     {
@@ -308,6 +291,8 @@ public partial class ChucNang_F603_ThanhToanChiTiet : System.Web.UI.Page
         m_txt_don_gia_hd.Enabled = true;
         m_txt_so_luong_he_so.Enabled = true;
         m_txt_description.Enabled = true;
+        m_cmd_cap_nhat_pl.Enabled = true;
+        m_cmd_xoa_trang.Enabled = true;
     }
     #endregion
 
@@ -339,33 +324,7 @@ public partial class ChucNang_F603_ThanhToanChiTiet : System.Web.UI.Page
     }
     #endregion
 
-    #region Events
-    protected void m_cmd_luu_du_lieu_Click(object sender, EventArgs e)
-    {
-        try
-        {
-            form_2_us_object(m_us_v_gd_thanh_toan_detail);
-            // dcID_NOI_DUNG_TT này đc lấy từ bảng GD_HOP_DONG_NOI_DUNG_TT chứ ko phải bảng DM_NOI_DUNG_TT
-            if (check_exist_noi_dung_tt(m_us_v_gd_thanh_toan_detail.dcID_NOI_DUNG_THANH_TOAN))
-            {
-                string someScript;
-                someScript = "<script language='javascript'>alert('Nội dung thanh toán này đã tồn tại trong thanh toán này');</script>";
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", someScript);
-                return;
-            }
-            m_us_v_gd_thanh_toan_detail.Insert();
-            m_lbl_thong_bao.Text = "Thêm bản ghi thành công";
-            reset_control();
-            //m_pnl_table.Visible = false;
-            load_data_2_grid(CIPConvert.ToDecimal(Request.QueryString["id_gdtt"]));
-            // Cho phép cập nhật trở lai
-            m_cmd_cap_nhat_pl.Enabled = true;
-        }
-        catch (Exception v_e)
-        {
-            CSystemLog_301.ExceptionHandle(this, v_e);
-        }
-    }
+    #region Members
     protected void m_cmd_cap_nhat_pl_Click(object sender, EventArgs e)
     {
         try
@@ -373,60 +332,16 @@ public partial class ChucNang_F603_ThanhToanChiTiet : System.Web.UI.Page
             if (hdf_id_gv.Value == "")
             {
                 string someScript;
-                someScript = "<script language='javascript'>alert('Bạn phải chọn nội dung cần Cập nhật');</script>";
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", someScript);
+                someScript = "<script language='javascript'>alert('Bạn phải chọn chi tiết thanh toán cần duyệt');</script>";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Duyet", someScript);
                 return;
             }
             form_2_us_object(m_us_v_gd_thanh_toan_detail);
             m_us_v_gd_thanh_toan_detail.dcID = CIPConvert.ToDecimal(hdf_id_gv.Value);
             m_us_v_gd_thanh_toan_detail.Update();
-            m_lbl_thong_bao.Text = "Cập nhật bản ghi thành công";
+            m_lbl_thong_bao.Text = "Duyệt chi tiết thành công";
             reset_control();
-            //m_pnl_table.Visible = false;
-            m_cmd_luu_du_lieu.Enabled = true;
             load_data_2_grid(CIPConvert.ToDecimal(Request.QueryString["id_gdtt"]));
-        }
-        catch (Exception v_e)
-        {
-            CSystemLog_301.ExceptionHandle(this, v_e);
-        }
-    }
-    protected void m_cmd_xoa_trang_Click(object sender, EventArgs e)
-    {
-        try
-        {
-            reset_control();
-        }
-        catch (Exception v_e)
-        {
-            CSystemLog_301.ExceptionHandle(this, v_e);
-        }
-    }
-    protected void m_cmd_exit_Click(object sender, EventArgs e)
-    {
-        try
-        {
-            Response.Redirect("/TRMProject/ChucNang/F501_DuToanHopDongVanHanh.aspx", false);
-            HttpContext.Current.ApplicationInstance.CompleteRequest();
-        }
-        catch (Exception v_e)
-        {
-
-            CSystemLog_301.ExceptionHandle(this, v_e);
-        }
-    }
-    protected void m_cbo_noi_dung_tt_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        try
-        {
-            decimal v_dc_id_hd_tt = CIPConvert.ToDecimal(m_cbo_noi_dung_tt.SelectedValue);
-            US_V_GD_HOP_DONG_NOI_DUNG_TT v_us_dm_noi_dung_tt = new US_V_GD_HOP_DONG_NOI_DUNG_TT(v_dc_id_hd_tt);
-            m_txt_don_gia_hd.Text = CIPConvert.ToStr(v_us_dm_noi_dung_tt.dcDON_GIA_HD, "#,#");
-            m_txt_so_luong_he_so.Text = CIPConvert.ToStr(v_us_dm_noi_dung_tt.dcSO_LUONG_HE_SO, "#,#");
-            m_lbl_don_vi_tinh.Text = v_us_dm_noi_dung_tt.strDON_VI_TINH;
-            if (!v_us_dm_noi_dung_tt.IsTAN_SUATNull())
-                m_lbl_tan_suat.Text = "Theo " + v_us_dm_noi_dung_tt.strTAN_SUAT;
-            else m_lbl_tan_suat.Text = "";
         }
         catch (Exception v_e)
         {
@@ -437,10 +352,7 @@ public partial class ChucNang_F603_ThanhToanChiTiet : System.Web.UI.Page
     {
         try
         {
-           // m_init_mode = DataEntryFormMode.UpdateDataState;
-            m_cmd_luu_du_lieu.Enabled = false;
             m_cbo_noi_dung_tt.Enabled = false;
-            m_cmd_cap_nhat_pl.Enabled = true;
             m_lbl_thong_bao.Text = "";
             load_data_2_us_by_id_and_show_on_form(e.NewSelectedIndex);
         }
@@ -461,6 +373,20 @@ public partial class ChucNang_F603_ThanhToanChiTiet : System.Web.UI.Page
             CSystemLog_301.ExceptionHandle(this, v_e);
         }
     }
+    protected void m_cmd_exit_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            Response.Redirect("/TRMProject/ChucNang/F403_PheDuyetDuToan.aspx", false);
+            HttpContext.Current.ApplicationInstance.CompleteRequest();
+        }
+        catch (Exception v_e)
+        {
+
+            CSystemLog_301.ExceptionHandle(this, v_e);
+        }
+    }
     #endregion
+
    
 }
