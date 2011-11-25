@@ -148,7 +148,7 @@ font-family:Verdana, Arial, Helvetica, sans-serif;
 }
 
 #nav, #nav ul{
-margin:0;
+margin:0px;
 padding:0;
 list-style-type:none;
 list-style-position:outside;
@@ -156,9 +156,13 @@ position:relative;
 line-height:2em; 
 }
 
+#nav
+{
+    padding-left:20px;
+ }
 #nav a{
 display:block;
-padding:0px 9px;
+padding:1px 9px;
 font-weight: bold;
 border:1px solid #333;
 color:white;
@@ -194,7 +198,7 @@ top:auto;
 }	
 
 #nav li ul ul {
-left:225px;
+left:235px;
 margin:0px 0 0 10px;
 }
 
