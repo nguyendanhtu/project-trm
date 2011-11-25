@@ -4,6 +4,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head id="Head1" runat="server">
     <title></title>
+    <script type="text/javascript" src="/TRMProject/Scripts/jquery-1.4.1.min.js"></script>
+    <script type="text/javascript" src="/TRMProject/Scripts/menu.js"></script>
     <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Styles/Admin.css" rel="stylesheet" type="text/css" />
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
@@ -24,7 +26,7 @@
                 <asp:HyperLink ID="m_lnk_logout" runat="server" CssClass="accountInfo" NavigateUrl="/TRMProject/Account/Logout.aspx">Đăng xuất</asp:HyperLink>
             </div>
          </div>
-             <ul>   
+             <ul id='nav'>   
              <li><a href="/TRMProject/Default.aspx">Home</a></li>
               <li><a href="#">Quản trị hệ thống</a>
                 <ul>
