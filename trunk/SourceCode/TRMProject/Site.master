@@ -24,7 +24,6 @@
                 <asp:HyperLink ID="m_lnk_logout" runat="server" CssClass="accountInfo" NavigateUrl="/TRMProject/Account/Logout.aspx">Đăng xuất</asp:HyperLink>
             </div>
          </div>
-            <div id="container">
              <ul>   
              <li><a href="/TRMProject/Default.aspx">Home</a></li>
               <li><a href="#">Quản trị hệ thống</a>
@@ -56,13 +55,13 @@
               <li><a href="#">Quản lý thanh toán</a>
                    <ul>
                           <li><a href="/TRMProject/DanhMuc/F500_DotThanhToan.aspx">0- Lập đợt thanh toán</a></li>
-					      <li><a href="#">1. Lập dự toán</a>
+					      <li><a href="#">1. Lên bảng kê cho đợt thanh toán</a>
                             <ul>
                                 <li><a href="/TRMProject/ChucNang/F602_DuToanHopDongHocLieu.aspx">1.1 Hợp đồng Học liệu</a></li>
                                 <li><a href="/TRMProject/ChucNang/F501_DuToanHopDongVanHanh.aspx">1.2 Hợp đồng Vận hành</a></li>
                             </ul>
                           </li>
-					      <li><a href="/TRMProject/ChucNang/F403_PheDuyetDuToan.aspx">2. Phê duyệt dự toán</a></li>
+					      <li><a href="/TRMProject/ChucNang/F403_PheDuyetDuToan.aspx">2. Duyệt chứng từ</a></li>
 					      <li><a href="/TRMProject/ChucNang/F404_XuatDanhSachDuToan.aspx">3. Xuất danh sách thanh toán</a></li>
                           <li><a href="/TRMProject/ChucNang/F405_XacNhanNganHang.aspx">4. Xác nhận ngân hàng</a></li>
                           <li><a href="/TRMProject/ChucNang/F406_XacNhanGiangVien.aspx">5. Xác nhận giảng viên</a></li>
@@ -86,10 +85,6 @@
               </li>
 
              </ul>
-
-            </div>
-
-
         <div class="main">
             <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
         </div>
