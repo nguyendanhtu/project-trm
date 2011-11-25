@@ -193,7 +193,7 @@
                 <td align="right" style="width:5%;">
 			       
 			<asp:label id="lbltan_suat" CssClass="cssManField" runat="server" 
-                Text="Số tiền thanh toán" />
+                Text="Số tiền thanh toán(VNĐ)(*)" />
 			       
                 </td>
                 <td align="left" style="width:10%;">  
@@ -238,23 +238,6 @@
             <tr>
                 <td align="right" style="width:5%;">
 			       
-			<asp:label id="lbltan_suat1" CssClass="cssManField" runat="server" 
-                Text="Số tiền thực nhận (VNĐ)" />
-			       
-                </td>
-                <td align="left" style="width:10%;">  
-                    <asp:TextBox  ID="m_txt_so_tien_thuc_nhan" CssClass="csscurrency" Width="96%" 
-                        runat="server"></asp:TextBox>
-                        </td> 
-                <td align="left" style="width:1%;">			       
-                        &nbsp;<asp:RegularExpressionValidator ID="RegularExpressionValidator2" ErrorMessage="Invalid Price" Text="*"
-    ValidationGroup="complete" EnableClientScript="true" ControlToValidate="m_txt_so_tien_thuc_nhan"
-    ValidationExpression="^\d+(\.\d\d)?$" Display="Dynamic" runat="server"/>
-    <asp:CompareValidator runat="server" id="CompareValidator1" Operator="GreaterThan" Type="Currency"
-        Display="Dynamic" ValueToCompare="0" ControlToValidate="m_txt_so_tien_thuc_nhan" ErrorMessage = "Giá trị nhập không đúng định dạng" />
-    </td>
-                <td align="right" style="width:5%;">
-			       
 			<asp:label id="lbltan_suat2" CssClass="cssManField" runat="server" 
                 Text="Số tiền thuế(VNĐ)" />
 			       
@@ -262,12 +245,30 @@
                 <td align="left" style="width:10%;">  
                 <asp:TextBox  ID="m_txt_so_tien_thue1" CssClass="csscurrency" Width="96%" 
                         runat="server"></asp:TextBox>
-                        </td> <td align="left" style="width:1%;">&nbsp;
+                        </td> 
+                <td align="left" style="width:1%;">			       
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator3" ErrorMessage="Invalid Price" Text="*"
     ValidationGroup="complete" EnableClientScript="true" ControlToValidate="m_txt_so_tien_thue1"
     ValidationExpression="^\d+(\.\d\d)?$" Display="Dynamic" runat="server"/>
 <asp:CompareValidator runat="server" id="CompareValidator2" Operator="GreaterThan" Type="Currency"
-        Display="Dynamic" ValueToCompare="0" ControlToValidate="m_txt_so_tien_thue1" ErrorMessage = "Giá trị nhập không đúng định dạng" /></td>
+        Display="Dynamic" ValueToCompare="0" ControlToValidate="m_txt_so_tien_thue1" ErrorMessage = "Giá trị nhập không đúng định dạng" />
+    </td>
+                <td align="right" style="width:5%;">
+			       
+			<asp:label id="lbltan_suat1" CssClass="cssManField" runat="server" 
+                Text="Số tiền thực nhận (VNĐ)" />
+			       
+                </td>
+                <td align="left" style="width:10%;">  
+                    <asp:TextBox  ID="m_txt_so_tien_thuc_nhan" CssClass="csscurrency" Width="96%" 
+                        runat="server"></asp:TextBox>
+                        </td> <td align="left" style="width:1%;">&nbsp;
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator2" ErrorMessage="Invalid Price" Text="*"
+    ValidationGroup="complete" EnableClientScript="true" ControlToValidate="m_txt_so_tien_thuc_nhan"
+    ValidationExpression="^\d+(\.\d\d)?$" Display="Dynamic" runat="server"/>
+    <asp:CompareValidator runat="server" id="CompareValidator1" Operator="GreaterThan" Type="Currency"
+        Display="Dynamic" ValueToCompare="0" ControlToValidate="m_txt_so_tien_thuc_nhan" ErrorMessage = "Giá trị nhập không đúng định dạng" />
+                </td>
                  <td align="right" style="width:5%;">&nbsp;</td>
                 <td align="left" style="width:10%;">&nbsp;</td>
             </tr>
@@ -372,8 +373,8 @@
                     </ItemTemplate>
                     <ItemStyle Width="3%" />
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Chi tiết thanh toán">
-                    <ItemTemplate> <asp:HyperLink ToolTip="Chi tiết thanh toán" ImageUrl="/TRMProject/Images/Button/detail.png" ID = "lbt_phu_luc_hop_dong" runat="server"
+                    <asp:TemplateField HeaderText="Chi tiết dự toán">
+                    <ItemTemplate> <asp:HyperLink ToolTip="Chi tiết dự toán" ImageUrl="/TRMProject/Images/Button/detail.png" ID = "lbt_phu_luc_hop_dong" runat="server"
                      NavigateUrl='<%# "/TRMProject/ChucNang/F603_ThanhToanChiTiet.aspx?id_gdtt="+Eval("ID") %>'></asp:HyperLink>
                     </ItemTemplate>
                     </asp:TemplateField>

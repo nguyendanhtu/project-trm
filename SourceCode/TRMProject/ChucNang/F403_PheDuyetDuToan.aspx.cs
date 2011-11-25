@@ -20,6 +20,7 @@ public partial class ChucNang_F403_PheDuyetDuToan : System.Web.UI.Page
     {
         m_txt_tham_so.Visible = false;
         m_lbl_thong_bao.Text = "";
+        m_grv_danh_sach_du_toan.Visible = true;
         if (!IsPostBack)
         {           
             m_cbo_dot_thanh_toan.Enabled = true;
@@ -214,7 +215,8 @@ public partial class ChucNang_F403_PheDuyetDuToan : System.Web.UI.Page
             m_lbl_thong_bao.Visible = true;
             m_lbl_thong_bao.Text = "Không có thanh toán nào phù hợp";
         }
-        m_grv_danh_sach_du_toan.Visible = true;
+        else 
+            m_grv_danh_sach_du_toan.Visible = true;
         m_grv_danh_sach_du_toan.DataSource = v_ds_gd_thanh_toan.V_GD_THANH_TOAN;
         m_grv_danh_sach_du_toan.DataBind();
     }
