@@ -168,7 +168,7 @@
                 <td align="right" style="width:5%;">
 			       
 			<asp:label id="lbltan_suat" CssClass="cssManField" runat="server" 
-                Text="Số tiền thanh toán(*)" />
+                Text="Số tiền thanh toán(VNĐ)(*)" />
 			       
                 </td>
                 <td align="left" style="width:10%;">    
@@ -356,8 +356,8 @@
                     </ItemTemplate>
                     <ItemStyle Width="3%" />
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Chi tiết thanh toán">
-                    <ItemTemplate> <asp:HyperLink ToolTip="Chi tiết thanh toán" ImageUrl="/TRMProject/Images/Button/detail.png" ID = "lbt_phu_luc_hop_dong" runat="server"
+                    <asp:TemplateField HeaderText="Chi tiết dự toán">
+                    <ItemTemplate> <asp:HyperLink ToolTip="Chi tiết dự toán" ImageUrl="/TRMProject/Images/Button/detail.png" ID = "lbt_phu_luc_hop_dong" runat="server"
                      NavigateUrl='<%# "/TRMProject/ChucNang/F603_ThanhToanChiTiet.aspx?id_gdtt="+Eval("ID") %>'></asp:HyperLink>
                     </ItemTemplate>
                     </asp:TemplateField>
