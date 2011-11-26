@@ -4,8 +4,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head id="Head1" runat="server">
     <title></title>
-    <script type="text/javascript" src="/TRMProject/Scripts/jquery-1.4.1.min.js"></script>
-    <script type="text/javascript" src="/TRMProject/Scripts/menu.js"></script>
     <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Styles/Admin.css" rel="stylesheet" type="text/css" />
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
@@ -26,6 +24,7 @@
                 <asp:HyperLink ID="m_lnk_logout" runat="server" CssClass="accountInfo" NavigateUrl="/TRMProject/Account/Logout.aspx">Đăng xuất</asp:HyperLink>
             </div>
          </div>
+         <div id='wapper'>
              <ul id='nav'>   
              <li><a href="/TRMProject/Default.aspx">Home</a></li>
               <li><a href="#">Quản trị hệ thống</a>
@@ -56,18 +55,40 @@
 
               <li><a href="#">Quản lý thanh toán</a>
                    <ul>
-                          <li><a href="/TRMProject/DanhMuc/F500_DotThanhToan.aspx">0- Lập đợt thanh toán</a></li>
+                          <li><a href="/TRMProject/DanhMuc/F500_DotThanhToan.aspx">0. Lập đợt thanh toán</a></li>
 					      <li><a href="#">1. Lên bảng kê cho đợt thanh toán</a>
                             <ul>
                                 <li><a href="/TRMProject/ChucNang/F602_DuToanHopDongHocLieu.aspx">1.1 Hợp đồng Học liệu</a></li>
                                 <li><a href="/TRMProject/ChucNang/F501_DuToanHopDongVanHanh.aspx">1.2 Hợp đồng Vận hành</a></li>
                             </ul>
                           </li>
-					      <li><a href="/TRMProject/ChucNang/F403_PheDuyetDuToan.aspx">2. Duyệt chứng từ</a></li>
-					      <li><a href="/TRMProject/ChucNang/F404_XuatDanhSachDuToan.aspx">3. Xuất danh sách thanh toán</a></li>
-                          <li><a href="/TRMProject/ChucNang/F405_XacNhanNganHang.aspx">4. Xác nhận ngân hàng</a></li>
-                          <li><a href="/TRMProject/ChucNang/F406_XacNhanGiangVien.aspx">5. Xác nhận giảng viên</a></li>
-                          <li><a href="/TRMProject/DanhMuc/F500_DotThanhToan.aspx">6. Đóng đợt thanh toán</a></li>
+					      <li><a href="#">2. Duyệt chứng từ</a>
+                            <ul>
+                                <li><a href="/TRMProject/ChucNang/F602_DuToanHopDongHocLieu.aspx">2.1 Duyệt tất cả chứng từ</a></li>
+                                <li><a href="/TRMProject/ChucNang/F501_DuToanHopDongVanHanh.aspx">2.2 Chỉnh sửa chứng từ</a></li>
+                                <li><a href="#">2.3 Xuất danh sách thanh toán</a>
+                                 <ul>
+                                     <li><a href="/TRMProject/ChucNang/F404_XuatDanhSachDuToan.aspx">2.3.1 Hợp đồng học liệu</a></li>
+                                     <li><a href="/TRMProject/ChucNang/F404_XuatDanhSachDuToan.aspx">2.3.2 Hợp đồng vận hành</a></li>
+                                 </ul>
+                                </li>
+                            </ul>
+                          </li>
+                          <li><a href="#">3. Xác nhận ngân hàng</a>
+                           <ul>
+                                <li><a href="/TRMProject/ChucNang/F405_XacNhanNganHang.aspx">3.1 Xác nhận toàn bộ</a></li>
+                                <li><a href="/TRMProject/ChucNang/F501_DuToanHopDongVanHanh.aspx">3.2 Chỉnh sửa xác nhận ngân hàng</a></li>
+                            </ul>
+                          </li>
+                          <li><a href="#">4. Xác nhận giảng viên</a>
+                          <ul>
+                                <li><a href="/TRMProject/ChucNang/F406_XacNhanGiangVien.aspx">4.1 Xác nhận từng giảng viên</a></li>
+                                <li><a href="/TRMProject/ChucNang/F406_XacNhanGiangVien.aspx">4.2 Xác nhận toàn bộ giảng viên</a></li>
+                                <li><a href="/TRMProject/ChucNang/F406_XacNhanGiangVien.aspx">4.3 Chỉnh sửa xác nhận giảng viên</a></li>
+                            </ul>
+                          </li>
+                          <li><a href="/TRMProject/DanhMuc/F500_DotThanhToan.aspx">5. Đóng đợt thanh toán</a></li>
+                          <li><a href="/TRMProject/DanhMuc/F500_DotThanhToan.aspx">6. Xử lý các chứng từ tồn đọng</a></li>
 				    </ul>
               </li>
                <li><a href="#">Báo cáo</a>
@@ -85,8 +106,8 @@
 					    <li><a href="#">Hướng dẫn sử dụng</a></li>
 				    </ul>
               </li>
-
              </ul>
+             </div>
         <div class="main">
             <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
         </div>
