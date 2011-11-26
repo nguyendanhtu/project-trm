@@ -255,6 +255,18 @@ public class US_V_DM_DOT_THANH_TOAN : US_Object
         v_cstore.addNVarcharInputParam("@MA_DOT_TT", ip_str_ma_dot_tt);
         v_cstore.fillDataSetByCommand(this, op_ds_v_dm_dot_thanh_toan);
     }
+        
+     public void load_danh_muc_dot_tt(decimal ip_dc_thang_tt
+                             , decimal ip_dc_id_don_vi_tt
+                             , decimal ip_dc_id_trang_thai_dot_tt
+                             , DS_V_DM_DOT_THANH_TOAN op_ds_v_dm_dot_thanh_toan)
+    {
+        CStoredProc v_cstore = new CStoredProc("pr_V_DM_DOT_THANH_TOAN_Search_Danh_Muc");
+        v_cstore.addDecimalInputParam("@ID_DON_VI_TT", ip_dc_id_don_vi_tt);
+        v_cstore.addDecimalInputParam("@ID_TRANG_THAI_DOT_TT", ip_dc_id_trang_thai_dot_tt);
+        v_cstore.addDecimalInputParam("@THANG_TT", ip_dc_thang_tt);
+        v_cstore.fillDataSetByCommand(this, op_ds_v_dm_dot_thanh_toan);
+    }
     #endregion
 }
 }
