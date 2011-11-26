@@ -160,7 +160,7 @@
 	</tr>
     <tr>
 		<td class="cssPageTitleBG" colspan="3">
-		    <asp:label id="Label11" runat="server" CssClass="cssPageTitle" 
+		    <asp:label id="lbl_danh_sach_dot_tt_result" runat="server" CssClass="cssPageTitle" 
                 Text="Danh sách Đợt thanh toán"/>
 		</td>
 	</tr>	
@@ -193,6 +193,29 @@
 		    <asp:DropDownList id="m_cbo_dm_trang_thai_dot_thanh_toan_search" runat="server" Width="30%" AutoPostBack="true"
                         CssClass="cssDorpdownlist" 
                  onselectedindexchanged="m_cbo_dm_trang_thai_dot_thanh_toan_search_SelectedIndexChanged"  />
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <asp:label id="Label12" runat="server" Text="Tháng thanh toán" 
+                 CssClass="cssManField" />
+			
+		    &nbsp;
+			
+		    <asp:DropDownList id="m_cbo_thang_thanh_toan" runat="server" 
+                 Width="10%" AutoPostBack="true"
+                        CssClass="cssDorpdownlist" 
+                 onselectedindexchanged="m_cbo_thang_thanh_toan_SelectedIndexChanged">
+                <asp:ListItem Value="0">Tất cả</asp:ListItem>
+                <asp:ListItem>1</asp:ListItem>
+                <asp:ListItem>2</asp:ListItem>
+                <asp:ListItem>3</asp:ListItem>
+                <asp:ListItem>4</asp:ListItem>
+                <asp:ListItem>5</asp:ListItem>
+                <asp:ListItem>6</asp:ListItem>
+                <asp:ListItem>7</asp:ListItem>
+                <asp:ListItem>8</asp:ListItem>
+                <asp:ListItem>9</asp:ListItem>
+                <asp:ListItem>10</asp:ListItem>
+                <asp:ListItem>11</asp:ListItem>
+                <asp:ListItem>12</asp:ListItem>
+             </asp:DropDownList>
         </td>
 
 	</tr>
