@@ -110,13 +110,14 @@ public partial class DanhMuc_F500_DotThanhToan : System.Web.UI.Page
     {
         decimal v_dc_id_trang_thai_dot_tt;
         decimal v_dc_id_don_vi_tt;
+        decimal v_dc_thang_tt;
         v_dc_id_don_vi_tt = CIPConvert.ToDecimal(m_cbo_dm_loai_don_vi_thanh_toan_search.SelectedValue);
         v_dc_id_trang_thai_dot_tt = CIPConvert.ToDecimal(m_cbo_dm_trang_thai_dot_thanh_toan_search.SelectedValue);
-
+        v_dc_thang_tt = CIPConvert.ToDecimal(m_cbo_thang_thanh_toan.SelectedValue);
         DS_V_DM_DOT_THANH_TOAN v_ds_v_dm_dot_tt = new DS_V_DM_DOT_THANH_TOAN();
         US_V_DM_DOT_THANH_TOAN v_us_v_dm_dot_tt = new US_V_DM_DOT_THANH_TOAN();
-
-        v_us_v_dm_dot_tt.FillDataset(v_ds_v_dm_dot_tt, " WHERE ID_TRANG_THAI_DOT_TT = " + v_dc_id_trang_thai_dot_tt + " AND ID_DON_VI_THANH_TOAN = "+v_dc_id_don_vi_tt);
+        // Search danh mục
+        v_us_v_dm_dot_tt.load_danh_muc_dot_tt(v_dc_thang_tt, v_dc_id_don_vi_tt, v_dc_id_trang_thai_dot_tt, v_ds_v_dm_dot_tt);
 
         if (v_ds_v_dm_dot_tt.V_DM_DOT_THANH_TOAN.Rows.Count == 0)
         {
@@ -334,6 +335,18 @@ public partial class DanhMuc_F500_DotThanhToan : System.Web.UI.Page
             CSystemLog_301.ExceptionHandle(this, v_e);
         }
     }
+    protected void m_cbo_thang_thanh_toan_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        try
+        {
+            load_data_2_grid();
+        }
+        catch (Exception v_e)
+        {
+
+            CSystemLog_301.ExceptionHandle(this, v_e);
+        }
+    }
     #endregion
-   
+
 }

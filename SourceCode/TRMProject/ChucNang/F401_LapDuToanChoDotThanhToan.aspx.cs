@@ -180,7 +180,7 @@ public partial class ChucNang_F401_LapDuToanChoDotThanhToan : System.Web.UI.Page
         string v_str_ma_trang_thai_dot_tt = "";
         v_str_ma_trang_thai_dot_tt = get_ma_trang_thai(ip_i_loai_trang_thai_dot_tt);
         decimal v_dc_id_trang_thai_dot_tt = get_id_trang_thai_dot_tt_by_ma(v_str_ma_trang_thai_dot_tt);
-        // Thu thậ dữ liệu để search
+        // Thu thập dữ liệu để search
         string v_str_ma_dot_tt = m_txt_ma_dot_thanh_toan_search.Text.Trim();
        // decimal v_dc_id_trang_thai_dot_tt = CIPConvert.ToDecimal(m_cbo_trang_thai_dot_thanh_toan_search.SelectedValue);
         decimal v_dc_id_don_vi_tt = CIPConvert.ToDecimal(m_cbo_dm_loai_don_vi_thanh_toan_search.SelectedValue);
