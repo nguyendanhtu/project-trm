@@ -87,8 +87,8 @@
                                 <li><a href="/TRMProject/ChucNang/F406_XacNhanGiangVien.aspx">4.3 Chỉnh sửa xác nhận giảng viên</a></li>
                             </ul>
                           </li>
-                          <li><a href="/TRMProject/DanhMuc/F500_DotThanhToan.aspx">5. Đóng đợt thanh toán</a></li>
-                          <li><a href="/TRMProject/DanhMuc/F500_DotThanhToan.aspx">6. Xử lý các chứng từ tồn đọng</a></li>
+                           <li><a href="/TRMProject/DanhMuc/F500_DotThanhToan.aspx">5. Xử lý các chứng từ tồn đọng</a></li>
+                          <li><a href="/TRMProject/DanhMuc/F500_DotThanhToan.aspx">6. Đóng đợt thanh toán</a></li>
 				    </ul>
               </li>
                <li><a href="#">Báo cáo</a>
