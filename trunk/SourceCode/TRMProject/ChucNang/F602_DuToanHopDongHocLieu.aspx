@@ -350,6 +350,7 @@
 		<td align="left">
                           <asp:Label ID="m_lbl_thong_bao" CssClass="cssManField" runat="server"></asp:Label>
                 <asp:HiddenField ID="hdf_id_gv" runat="server" />
+                <asp:HiddenField ID="hdf_check_click_kiem_tra_so_hd" runat="server" />
         </td>
         <td >
 		    &nbsp;</td>

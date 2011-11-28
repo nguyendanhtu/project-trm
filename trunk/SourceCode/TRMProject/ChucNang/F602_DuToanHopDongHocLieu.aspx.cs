@@ -85,32 +85,6 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
         m_cbo_trang_thai_thanh_toan.DataSource = m_ds_cm_tu_dien.CM_DM_TU_DIEN;
         m_cbo_trang_thai_thanh_toan.DataBind();
     }
-    private string get_ma_trang_thai(int ip_i_ma_from_query_str)
-    {
-        string v_str_ma_trang_thai_dot_tt = "";
-        switch (ip_i_ma_from_query_str)
-        {
-            case 1:
-                v_str_ma_trang_thai_dot_tt = TRANG_THAI_DOT_TT.DA_LAP_DOT;
-                break;
-            case 2:
-                v_str_ma_trang_thai_dot_tt = TRANG_THAI_DOT_TT.DA_LEN_DU_TOAN;
-                break;
-            case 3:
-                v_str_ma_trang_thai_dot_tt = TRANG_THAI_DOT_TT.DA_CHUYEN_KE_TOAN;  // Đây nghĩa la đã duyệt dự toán
-                break;
-            case 4:
-                v_str_ma_trang_thai_dot_tt = TRANG_THAI_DOT_TT.DA_CHUYEN_NGAN_HANG;
-                break;
-            case 5:
-                v_str_ma_trang_thai_dot_tt = TRANG_THAI_DOT_TT.DA_CO_XAC_NHAN_CUA_NGAN_HANG;
-                break;
-            case 6:
-                v_str_ma_trang_thai_dot_tt = TRANG_THAI_DOT_TT.DA_CO_XAC_NHAN_CUA_GIANG_VIEN; //Cái này chuyển trạng thái sang kết thúc đợt thanh toán
-                break;
-        }
-        return v_str_ma_trang_thai_dot_tt;
-    }
     private void load_data_2_grid(string ip_str_ma_dot_tt)
     {
         if (ip_str_ma_dot_tt == "")
@@ -257,6 +231,15 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
         v_us_cm_tu_dien.FillDataset(v_ds_tu_dien, " WHERE ID_LOAI_TU_DIEN = 14 AND MA_TU_DIEN LIKE N'%DA_KET_THUC%'");
         return CIPConvert.ToDecimal(v_ds_tu_dien.CM_DM_TU_DIEN.Rows[0][CM_DM_TU_DIEN.ID]);
     }
+    private bool check_exist_so_hop_dong(string ip_str_so_hd)
+    {
+        US_DM_HOP_DONG_KHUNG v_us_dm_hop_dong_khung = new US_DM_HOP_DONG_KHUNG();
+        DS_DM_HOP_DONG_KHUNG v_ds_dm_hop_dong_khung = new DS_DM_HOP_DONG_KHUNG();
+        v_us_dm_hop_dong_khung.FillDataset(v_ds_dm_hop_dong_khung, " WHERE SO_HOP_DONG='"+ip_str_so_hd+"'");
+        if (v_ds_dm_hop_dong_khung.DM_HOP_DONG_KHUNG.Rows.Count == 0)
+            return false; // Nghĩa là không tồn tại số hợp đồng đó
+        return true; // Nghĩa là tồn tại số hợp đồng đó
+    }
     #endregion
 
     #region Events
@@ -264,7 +247,7 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
     {
         try
         {
-           
+            hdf_check_click_kiem_tra_so_hd.Value = "Đã check";
         }
         catch (Exception v_e)
         {
@@ -275,6 +258,21 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
     {
         try
         {
+            if (hdf_check_click_kiem_tra_so_hd.Value == null)
+            {
+                string someScript;
+                someScript = "<script language='javascript'>alert('Bạn chưa kiểm tra lại số hợp đồng. Nhấn nút Kiểm tra để thực hiện việc đó.');</script>";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", someScript);
+                return;
+            }
+            if (!check_exist_so_hop_dong(m_txt_so_hop_dong.Text.Trim()))
+            {
+                string Script;
+                Script = "<script language='javascript'>alert('Số hợp đồng không tồn tại trong hệ thống');</script>";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", Script);
+                //m_lbl_mess.Text = "";
+                return;
+            }
             form_2_us_obj(m_us_v_gd_thanh_toan);
             m_us_v_gd_thanh_toan.Insert();
             load_data_2_grid(get_ma_dot_tt_by_id_dot(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue)));
