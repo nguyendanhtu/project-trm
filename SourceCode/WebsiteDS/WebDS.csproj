@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CDBNames.cs" />
+    <Compile Include="CValidatePaymentStates.cs" />
     <Compile Include="DS_DM_DON_VI_THANH_TOAN.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
