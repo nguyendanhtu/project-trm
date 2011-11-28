@@ -410,7 +410,8 @@ public partial class ChucNang_F301_GdHopDongKhung : System.Web.UI.Page
              ip_us_hd_khung.dcTHUE_SUAT =CIPConvert.ToDecimal(m_txt_thue_suat.Text);
              if(m_txt_gia_tri_hop_dong.Text !="")
               ip_us_hd_khung.dcGIA_TRI_HOP_DONG=CIPConvert.ToDecimal(m_txt_gia_tri_hop_dong.Text);
-            
+             // Lúc nhập hơp đồng thì để giá trị nghiệm thu thực tế bằng null
+             ip_us_hd_khung.SetGIA_TRI_NGHIEM_THU_THUC_TENull();
              if (m_rbt_hoclieu_yn.Items[0].Selected)
                  ip_us_hd_khung.strHOC_LIEU_YN = "Y";
              else ip_us_hd_khung.strHOC_LIEU_YN = "N";
