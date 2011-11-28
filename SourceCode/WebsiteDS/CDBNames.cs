@@ -303,6 +303,7 @@ namespace WebDS.CDBNames
        public const string NGAY_THANH_TOAN = "NGAY_THANH_TOAN";
        public const string DESCRIPTION = "DESCRIPTION";
        public const string TONG_TIEN_THANH_TOAN = "TONG_TIEN_THANH_TOAN";
+       public const string GIA_TRI_NGHIEM_THU_THUC_TE = "GIA_TRI_NGHIEM_THU_THUC_TE";
        public const string SO_TIEN_THUE = "SO_TIEN_THUE";
        public const string TONG_TIEN_THUC_NHAN = "TONG_TIEN_THUC_NHAN";
        public const string ID_TRANG_THAI_THANH_TOAN = "ID_TRANG_THAI_THANH_TOAN";
