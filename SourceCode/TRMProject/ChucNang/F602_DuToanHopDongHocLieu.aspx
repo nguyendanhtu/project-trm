@@ -181,10 +181,18 @@
 			       
 			<asp:label id="lbl_lan_so"  CssClass="cssManField" runat="server" 
                 Text="đợt " />
-			       
-                <asp:TextBox ID="m_txt_lan_so" Width="30%" CssClass="cssTextBox"
-                        runat="server"></asp:TextBox>
-			       
+			    <asp:DropDownList ID="m_cbo_lan_so" Width="40%" runat="server" CssClass="cssDorpdownlist">
+                    <asp:ListItem>1</asp:ListItem>
+                    <asp:ListItem>2</asp:ListItem>
+                    <asp:ListItem>3</asp:ListItem>
+                    <asp:ListItem>4</asp:ListItem>
+                    <asp:ListItem>5</asp:ListItem>
+                    <asp:ListItem>6</asp:ListItem>
+                    <asp:ListItem>7</asp:ListItem>
+                    <asp:ListItem>8</asp:ListItem>
+                    <asp:ListItem>9</asp:ListItem>
+                    <asp:ListItem>10</asp:ListItem>
+               </asp:DropDownList>
                 </td>
                  <td align="right" style="width:5%;">&nbsp;</td>
                 <td align="left" style="width:10%;">&nbsp;</td>

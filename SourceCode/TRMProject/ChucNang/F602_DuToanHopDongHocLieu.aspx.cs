@@ -24,7 +24,6 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
             load_data_2_cbo_dot_thanh_toan();
             load_data_2_cbo_trang_thai_thanh_toan();
             when_cbo_dot_tt_changed();
-           // load_data_2_grid(get_ma_dot_tt_by_id_dot(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue)));
         }
         m_cmd_check_so_hd.Attributes.Add("onclick", "openPopUp()");
     }
@@ -56,6 +55,7 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
     #endregion
 
     #region Private Methods
+    // Lấy giá trị số lần
     private string cut_end_string(string ip_str_string)
     {
         return ip_str_string.Substring(ip_str_string.Trim().Length - 1, 1);
@@ -65,11 +65,12 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
 
         return true;
     }
+    // Chỉ load lên những đợt thanh toán chưa kết thúc
     private void load_data_2_cbo_dot_thanh_toan()
     {
         DS_V_DM_DOT_THANH_TOAN v_ds_dot_thanh_toan = new DS_V_DM_DOT_THANH_TOAN();
         US_V_DM_DOT_THANH_TOAN v_us_dot_thanh_toan = new US_V_DM_DOT_THANH_TOAN();
-        v_us_dot_thanh_toan.FillDataset(v_ds_dot_thanh_toan);
+        v_us_dot_thanh_toan.FillDataset(v_ds_dot_thanh_toan, " WHERE ID_TRANG_THAI_DOT_TT != " + get_id_trang_thai_dot_tt_da_ket_thuc());
         m_cbo_dot_thanh_toan.DataTextField = V_DM_DOT_THANH_TOAN.TEN_DOT_TT;
         m_cbo_dot_thanh_toan.DataValueField = V_DM_DOT_THANH_TOAN.ID;
         m_cbo_dot_thanh_toan.DataSource = v_ds_dot_thanh_toan.V_DM_DOT_THANH_TOAN;
@@ -149,8 +150,7 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
         m_txt_so_tien_thanh_toan.Text = "";
         m_txt_so_tien_thue1.Text = "";
         m_txt_so_tien_thuc_nhan.Text = "";
-        //m_txt_ma_lop_mon.Text = "";
-        m_txt_lan_so.Text = "";
+        m_cbo_lan_so.SelectedIndex = 0;
         rdl_noi_dung_list.Items[0].Selected = true;
         m_txt_mo_ta.Text = "";
     }
@@ -195,13 +195,13 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
         {
             rdl_noi_dung_list.Items[1].Selected = true;
             rdl_noi_dung_list.Items[0].Selected = false;
-            m_txt_lan_so.Text = cut_end_string(ip_us_gd_thanh_toan.strREFERENCE_CODE);
+            m_cbo_lan_so.SelectedValue = cut_end_string(ip_us_gd_thanh_toan.strREFERENCE_CODE);
         }
         else
         {
             rdl_noi_dung_list.Items[0].Selected = true;
             rdl_noi_dung_list.Items[1].Selected = false;
-            m_txt_lan_so.Text = "";
+            m_cbo_lan_so.SelectedIndex = 0;
         }
     }
     private void form_2_us_obj(US_V_GD_THANH_TOAN op_us_gd_thanh_toan)
@@ -214,10 +214,10 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
         op_us_gd_thanh_toan.dcSO_TIEN_THUE = CIPConvert.ToDecimal(m_txt_so_tien_thue1.Text);
         op_us_gd_thanh_toan.dcID_TRANG_THAI_THANH_TOAN = CIPConvert.ToDecimal(m_cbo_trang_thai_thanh_toan.SelectedValue);
         op_us_gd_thanh_toan.strDESCRIPTION = m_txt_mo_ta.Text.Trim();
-        //op_us_gd_thanh_toan.dcID_MON_HOC =CIPConvert.ToDecimal(m_txt_lan_so.Text.Trim());
+        //op_us_gd_thanh_toan.dcID_MON_HOC =CIPConvert.ToDecimal(m_cbo_lan_so.Text.Trim());
         if (rdl_noi_dung_list.Items[1].Selected)
         {
-            op_us_gd_thanh_toan.strREFERENCE_CODE = "đợt " + m_txt_lan_so.Text.Trim();
+            op_us_gd_thanh_toan.strREFERENCE_CODE = "đợt " + m_cbo_lan_so.SelectedValue;
         }
         else op_us_gd_thanh_toan.SetREFERENCE_CODENull();
     }
@@ -249,6 +249,13 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
         m_lbl_thong_bao.Text = "Xóa bản ghi thành công";
         // Load lại dữ liệu
         load_data_2_grid(get_ma_dot_tt_by_id_dot(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue)));
+    }
+    private decimal get_id_trang_thai_dot_tt_da_ket_thuc()
+    {
+        US_CM_DM_TU_DIEN v_us_cm_tu_dien = new US_CM_DM_TU_DIEN();
+        DS_CM_DM_TU_DIEN v_ds_tu_dien = new DS_CM_DM_TU_DIEN();
+        v_us_cm_tu_dien.FillDataset(v_ds_tu_dien, " WHERE ID_LOAI_TU_DIEN = 14 AND MA_TU_DIEN LIKE N'%DA_KET_THUC%'");
+        return CIPConvert.ToDecimal(v_ds_tu_dien.CM_DM_TU_DIEN.Rows[0][CM_DM_TU_DIEN.ID]);
     }
     #endregion
 
