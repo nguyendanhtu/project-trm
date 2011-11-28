@@ -28,14 +28,20 @@ namespace WebDS.CDBNames
  public class TRANG_THAI_DOT_TT
     {
         public const string DA_LAP_DOT = "1_DA_LAP_DOT";
-        public const string DA_LEN_DU_TOAN = "2_DA_LEN_DU_TOAN";
-        public const string DA_CHUYEN_KE_TOAN = "3_DA_CHUYEN_KE_TOAN";
-        public const string DA_CHUYEN_NGAN_HANG = "4_DA_CHUYEN_NGAN_HANG";
-        public const string DA_CO_XAC_NHAN_CUA_NGAN_HANG = "5_DA_CO_XAC_NHAN_CUA_NGAN_HANG";
-        public const string DA_CO_XAC_NHAN_CUA_GIANG_VIEN = "6_DA_CO_XAC_NHAN_CUA_GIANG_VIEN";
-        public const string DA_KET_THUC = "7_DA_KET_THUC";
+        public const string DA_LAP_BANG_KE_XONG = "2_DA_LAP_BANG_KE_XONG";
+        public const string DA_THANH_TOAN = "3_DA_THANH_TOAN";
+        public const string DA_KET_THUC = "4_DA_KET_THUC";
     }
-
+ public class TRANG_THAI_THANH_TOAN
+ {
+     public const string DA_LEN_BANG_KE = "1_DA_LEN_BANG_KE";
+     public const string CHUNG_TU_DA_DUOC_DUYET = "2_CHUNG_TU_DA_DUOC_DUYET";
+     public const string CHUNG_TU_KHONG_DUOC_DUYET = "3_CHUNG_TU_KHONG_DUOC_DUYET";
+     public const string NGAN_HANG_CHUYEN_KHOAN_THANH_CONG = "4_NGAN_HANG_CHUYEN_KHOAN_THANH_CONG";
+     public const string NGAN_HANG_CHUYEN_KHOAN_KHONG_THANH_CONG = "5_NGAN_HANG_CHUYEN_KHOAN_KHONG_THANH_CONG";
+     public const string CHUA_CO_XAC_NHAN_CUA_GIANG_VIEN = "6_CHUA_CO_XAC_NHAN_CUA_GIANG_VIEN";
+     public const string DA_CO_XAC_NHAN_CUA_GIANG_VIEN = "7_DA_CO_XAC_NHAN_CUA_GIANG_VIEN";
+ }
     public class CM_DM_TU_DIEN
     {
         public const string ID = "ID";
