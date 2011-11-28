@@ -172,6 +172,7 @@ namespace WebDS.CDBNames
          public const string NGAY_HIEU_LUC = "NGAY_HIEU_LUC";
          public const string NGAY_KET_THUC_DU_KIEN = "NGAY_KET_THUC_DU_KIEN";
          public const string GIA_TRI_HOP_DONG = "GIA_TRI_HOP_DONG";
+         public const string GIA_TRI_NGHIEM_THU_THUC_TE = "GIA_TRI_NGHIEM_THU_THUC_TE";
          public const string ID_LOAI_HOP_DONG = "ID_LOAI_HOP_DONG";
          public const string LOAI_HOP_DONG = "LOAI_HOP_DONG";
          public const string ID_DON_VI_QUAN_LY = "ID_DON_VI_QUAN_LY";
