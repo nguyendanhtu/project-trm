@@ -289,6 +289,27 @@ public class US_V_GD_THANH_TOAN : US_Object
 	public void SetTONG_TIEN_THANH_TOANNull() {
 		pm_objDR["TONG_TIEN_THANH_TOAN"] = System.Convert.DBNull;
 	}
+    public decimal dcGIA_TRI_NGHIEM_THU_THUC_TE
+    {
+        get
+        {
+            return CNull.RowNVLDecimal(pm_objDR, "GIA_TRI_NGHIEM_THU_THUC_TE", IPConstants.c_DefaultDecimal);
+        }
+        set
+        {
+            pm_objDR["GIA_TRI_NGHIEM_THU_THUC_TE"] = value;
+        }
+    }
+
+    public bool IsGIA_TRI_NGHIEM_THU_THUC_TENull()
+    {
+        return pm_objDR.IsNull("GIA_TRI_NGHIEM_THU_THUC_TE");
+    }
+
+    public void SetGIA_TRI_NGHIEM_THU_THUC_TENull()
+    {
+        pm_objDR["GIA_TRI_NGHIEM_THU_THUC_TE"] = System.Convert.DBNull;
+    }
 
 	public decimal dcSO_TIEN_THUE 
 	{
