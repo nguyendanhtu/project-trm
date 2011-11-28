@@ -36,72 +36,6 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
     #endregion
 
     #region Public Interfaces
-    // Cái này cho phép cập nhật lại các bước trước nếu như cảm thấy lỗi
-    public string mapping_ho_tro_with_trang_thai_dot_tt(decimal ip_dc_id_trang_thai_dot_thanh_toan, string ip_str_ma_dot_tt)
-    {
-        string v_str_ma_dot = get_ma_trang_thai_dot_tt_by_id(ip_dc_id_trang_thai_dot_thanh_toan);
-        string v_str_return = "";
-        switch (v_str_ma_dot)
-        {
-            case TRANG_THAI_DOT_TT.DA_LAP_DOT:
-                v_str_return = "";
-                break;
-            case TRANG_THAI_DOT_TT.DA_LEN_DU_TOAN:
-                v_str_return = string.Format("<a href='F402_PheDuyetDuToan.aspx?Madot={0}'>Chỉnh sửa dự toán</a>", ip_str_ma_dot_tt);
-                break;
-            case TRANG_THAI_DOT_TT.DA_CHUYEN_KE_TOAN:
-                v_str_return = string.Format("<a href='F402_PheDuyetDuToan.aspx?Madot={0}'>Duyệt lại dự toán</a>", ip_str_ma_dot_tt);
-                break;
-            case TRANG_THAI_DOT_TT.DA_CHUYEN_NGAN_HANG:
-                v_str_return = string.Format("<a href='F402_PheDuyetDuToan.aspx?Madot={0}'>Lập lại DS dự toán</a>", ip_str_ma_dot_tt);
-                break;
-            case TRANG_THAI_DOT_TT.DA_CO_XAC_NHAN_CUA_NGAN_HANG:
-                v_str_return = "";
-                break;
-            case TRANG_THAI_DOT_TT.DA_CO_XAC_NHAN_CUA_GIANG_VIEN:
-                v_str_return = "";
-                break;
-            case TRANG_THAI_DOT_TT.DA_KET_THUC:
-                v_str_return = "";
-                break;
-        }
-        return v_str_return;
-    }
-    public string mapping_action_with_trang_thai_dot_tt(decimal ip_dc_id_trang_thai_dot_thanh_toan, string ip_str_ma_dot_tt)
-    {
-        string v_str_ma_trang_thai_dot_tt = get_ma_trang_thai_dot_tt_by_id(ip_dc_id_trang_thai_dot_thanh_toan);
-        string v_str_return = "";
-        switch (v_str_ma_trang_thai_dot_tt)
-        {
-            case TRANG_THAI_DOT_TT.DA_LAP_DOT:
-                v_str_return = string.Format("<a href='F402_DanhSachHopDongDuToan.aspx?Madot={0}'>Lập dự toán</a>", ip_str_ma_dot_tt);
-                break;
-            case TRANG_THAI_DOT_TT.DA_LEN_DU_TOAN:
-                // Chuyển sang bước duyệt dự toán, duyệt theo từng hợp đồng
-                v_str_return = string.Format("<a href='F403_PheDuyetDuToan.aspx?Madot={0}'>Duyệt dự toán</a>", ip_str_ma_dot_tt);
-                break;
-            case TRANG_THAI_DOT_TT.DA_CHUYEN_KE_TOAN:
-                //// Chuyển sang bước lên danh sách dự toán
-                v_str_return = string.Format("<a href='F404_XuatDanhSachDuToan.aspx?Madot={0}'>Lên danh sách dự toán</a>", ip_str_ma_dot_tt);
-                break;
-            case TRANG_THAI_DOT_TT.DA_CHUYEN_NGAN_HANG:
-                // Chuyển sang bước xác nhận ngân hàng(từng ngân hàng)
-                v_str_return = string.Format("<a href='F405_XacNhanNganHang.aspx?Madot={0}'>Xác nhận ngân hàng</a>", ip_str_ma_dot_tt);
-                break;
-            case TRANG_THAI_DOT_TT.DA_CO_XAC_NHAN_CUA_NGAN_HANG:
-                // Chuyển sang bước xác nhận giảng viên (từng giảng viên)
-                v_str_return = string.Format("<a href='F406_XacNhanGiangVien.aspx?Madot={0}'>Xác nhận giảng viên</a>", ip_str_ma_dot_tt);
-                break;
-            case TRANG_THAI_DOT_TT.DA_CO_XAC_NHAN_CUA_GIANG_VIEN:
-                // Đóng đợt thanh toán thì vào DM_DOT_THANH_TOAN chỉnh sửa trạng thái của đợt thanh toán
-                v_str_return = string.Format("<a href='F500_DotThanhToan.aspx?Madot={0}'>Đóng đợt thanh toán</a>", ip_str_ma_dot_tt);
-                break;
-            case TRANG_THAI_DOT_TT.DA_KET_THUC:
-                v_str_return = "Đã kết thúc";
-                break;
-        }
-        return v_str_return;
-    }
     public string mapping_don_vi_thanh_toan(decimal ip_dc_id_don_vi_tt)
     {
         US_DM_DON_VI_THANH_TOAN v_us_dm_don_vi_tt = new US_DM_DON_VI_THANH_TOAN(ip_dc_id_don_vi_tt);
@@ -150,32 +84,6 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
         m_cbo_trang_thai_thanh_toan.DataValueField = CM_DM_TU_DIEN.ID;
         m_cbo_trang_thai_thanh_toan.DataSource = m_ds_cm_tu_dien.CM_DM_TU_DIEN;
         m_cbo_trang_thai_thanh_toan.DataBind();
-    }
-    private string get_ma_trang_thai(int ip_i_ma_from_query_str)
-    {
-        string v_str_ma_trang_thai_dot_tt = "";
-        switch (ip_i_ma_from_query_str)
-        {
-            case 1:
-                v_str_ma_trang_thai_dot_tt = TRANG_THAI_DOT_TT.DA_LAP_DOT;
-                break;
-            case 2:
-                v_str_ma_trang_thai_dot_tt = TRANG_THAI_DOT_TT.DA_LEN_DU_TOAN;
-                break;
-            case 3:
-                v_str_ma_trang_thai_dot_tt = TRANG_THAI_DOT_TT.DA_CHUYEN_KE_TOAN;  // Đây nghĩa la đã duyệt dự toán
-                break;
-            case 4:
-                v_str_ma_trang_thai_dot_tt = TRANG_THAI_DOT_TT.DA_CHUYEN_NGAN_HANG;
-                break;
-            case 5:
-                v_str_ma_trang_thai_dot_tt = TRANG_THAI_DOT_TT.DA_CO_XAC_NHAN_CUA_NGAN_HANG;
-                break;
-            case 6:
-                v_str_ma_trang_thai_dot_tt = TRANG_THAI_DOT_TT.DA_CO_XAC_NHAN_CUA_GIANG_VIEN; //Cái này chuyển trạng thái sang kết thúc đợt thanh toán
-                break;
-        }
-        return v_str_ma_trang_thai_dot_tt;
     }
     private void load_data_2_grid(string ip_str_ma_dot_tt)
     {
@@ -304,6 +212,15 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
         v_us_cm_tu_dien.FillDataset(v_ds_tu_dien, " WHERE ID_LOAI_TU_DIEN = 14 AND MA_TU_DIEN LIKE N'%DA_KET_THUC%'");
         return CIPConvert.ToDecimal(v_ds_tu_dien.CM_DM_TU_DIEN.Rows[0][CM_DM_TU_DIEN.ID]);
     }
+    private bool check_exist_so_hop_dong(string ip_str_so_hd)
+    {
+        US_DM_HOP_DONG_KHUNG v_us_dm_hop_dong_khung = new US_DM_HOP_DONG_KHUNG();
+        DS_DM_HOP_DONG_KHUNG v_ds_dm_hop_dong_khung = new DS_DM_HOP_DONG_KHUNG();
+        v_us_dm_hop_dong_khung.FillDataset(v_ds_dm_hop_dong_khung, " WHERE SO_HOP_DONG='" + ip_str_so_hd + "'");
+        if (v_ds_dm_hop_dong_khung.DM_HOP_DONG_KHUNG.Rows.Count == 0)
+            return false; // Nghĩa là không tồn tại số hợp đồng đó
+        return true; // Nghĩa là tồn tại số hợp đồng đó
+    }
     #endregion
 
     #region Events
@@ -311,7 +228,7 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
     {
         try
         {
-          
+            hdf_check_click_kiem_tra_so_hd.Value = "Đã check";
         }
         catch (Exception v_e)
         {
@@ -322,6 +239,13 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
     {
         try
         {
+            if (hdf_check_click_kiem_tra_so_hd.Value == null)
+            {
+                string someScript;
+                someScript = "<script language='javascript'>alert('Bạn chưa kiểm tra lại số hợp đồng. Nhấn nút Kiểm tra để thực hiện việc đó.');</script>";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", someScript);
+                return;
+            }
             form_2_us_obj(m_us_v_gd_thanh_toan);
             m_us_v_gd_thanh_toan.Insert();
             load_data_2_grid(get_ma_dot_tt_by_id_dot(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue)));
@@ -341,6 +265,14 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
                 string someScript;
                 someScript = "<script language='javascript'>alert('Bạn phải chọn thanh toán cần Cập nhật');</script>";
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", someScript);
+                //m_lbl_mess.Text = "";
+                return;
+            }
+            if (!check_exist_so_hop_dong(m_txt_so_hop_dong.Text.Trim()))
+            {
+                string Script;
+                Script = "<script language='javascript'>alert('Số hợp đồng không tồn tại trong hệ thống');</script>";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", Script);
                 //m_lbl_mess.Text = "";
                 return;
             }

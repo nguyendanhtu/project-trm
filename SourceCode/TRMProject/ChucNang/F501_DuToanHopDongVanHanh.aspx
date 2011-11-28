@@ -26,7 +26,7 @@
 <tr>
 		<td class="cssPageTitleBG">
 		    <asp:label id="lblUser" runat="server" CssClass="cssPageTitle" 
-                Text="Thông tin Dự toán hợp đồng vận hành"/>
+                Text="Thông tin thanh toán hợp đồng vận hành"/>
 		</td>
 	</tr>
 	<tr>
@@ -291,14 +291,14 @@
 			        &nbsp;</td>
                 <td align="left" style="width:1%;">
 			        <asp:button id="m_cmd_luu_du_lieu" accessKey="c" CssClass="cssButton" 
-                runat="server" Width="98px" Text="Tạo dự toán" 
+                runat="server" Width="98px" Text="Tạo bảng kê" 
                         Height="24px" onclick="m_cmd_luu_du_lieu_Click"/>
                 </td>
 			   <td align="left" style="width:1%;"></td>
                  <td align="left" colspan="2">
                      <asp:Button ID="m_cmd_cap_nhat_du_toan" runat="server" accessKey="s" 
                          CssClass="cssButton" Height="24px" 
-                         Text="Cập nhật dự toán" Width="98px" 
+                         Text="Cập nhật bản kê" Width="98px" 
                          onclick="m_cmd_cap_nhat_du_toan_Click" />
                  </td>
                 <td align="left" style="width:1%;">
@@ -318,13 +318,14 @@
     <tr>
 		<td class="cssPageTitleBG" colspan="2">
 		    <asp:label id="Label11" runat="server" CssClass="cssPageTitle" 
-                Text="Danh sách dự toán hợp đồng vận hành"/>
+                Text="Bảng kê các khoản thanh toán hợp đồng vận hành"/>
 		</td>
 	</tr>	
     <tr>
 		<td align="left">
                           <asp:Label ID="m_lbl_thong_bao" CssClass="cssManField" runat="server"></asp:Label>
                 <asp:HiddenField ID="hdf_id_gv" runat="server" />
+                <asp:HiddenField ID="hdf_check_click_kiem_tra_so_hd" runat="server" />
         </td>
         <td >
 		    &nbsp;</td>
@@ -356,8 +357,8 @@
                     </ItemTemplate>
                     <ItemStyle Width="3%" />
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Chi tiết dự toán">
-                    <ItemTemplate> <asp:HyperLink ToolTip="Chi tiết dự toán" ImageUrl="/TRMProject/Images/Button/detail.png" ID = "lbt_phu_luc_hop_dong" runat="server"
+                    <asp:TemplateField HeaderText="Chi tiết bảng kê">
+                    <ItemTemplate> <asp:HyperLink ToolTip="Chi tiết bảng kê" ImageUrl="/TRMProject/Images/Button/detail.png" ID = "lbt_phu_luc_hop_dong" runat="server"
                      NavigateUrl='<%# "/TRMProject/ChucNang/F603_ThanhToanChiTiet.aspx?id_gdtt="+Eval("ID") %>'></asp:HyperLink>
                     </ItemTemplate>
                     </asp:TemplateField>

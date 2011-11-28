@@ -102,32 +102,6 @@ public partial class ChucNang_F404_XuatDanhSachDuToan : System.Web.UI.Page
         m_cbo_dot_thanh_toan.DataSource = v_ds_dot_thanh_toan.V_DM_DOT_THANH_TOAN;
         m_cbo_dot_thanh_toan.DataBind();
     }
-    private string get_ma_trang_thai(int ip_i_ma_from_query_str)
-    {
-        string v_str_ma_trang_thai_dot_tt = "";
-        switch (ip_i_ma_from_query_str)
-        {
-            case 1:
-                v_str_ma_trang_thai_dot_tt = TRANG_THAI_DOT_TT.DA_LAP_DOT;
-                break;
-            case 2:
-                v_str_ma_trang_thai_dot_tt = TRANG_THAI_DOT_TT.DA_LEN_DU_TOAN;
-                break;
-            case 3:
-                v_str_ma_trang_thai_dot_tt = TRANG_THAI_DOT_TT.DA_CHUYEN_KE_TOAN;  // Đây nghĩa la đã duyệt dự toán
-                break;
-            case 4:
-                v_str_ma_trang_thai_dot_tt = TRANG_THAI_DOT_TT.DA_CHUYEN_NGAN_HANG;
-                break;
-            case 5:
-                v_str_ma_trang_thai_dot_tt = TRANG_THAI_DOT_TT.DA_CO_XAC_NHAN_CUA_NGAN_HANG;
-                break;
-            case 6:
-                v_str_ma_trang_thai_dot_tt = TRANG_THAI_DOT_TT.DA_CO_XAC_NHAN_CUA_GIANG_VIEN; //Cái này chuyển trạng thái sang kết thúc đợt thanh toán
-                break;
-        }
-        return v_str_ma_trang_thai_dot_tt;
-    }
     private void load_data_2_grid(string ip_str_ma_dot_tt)
     {
         // Số phiếu thanh toán là mã đợt thanh toán
