@@ -240,6 +240,11 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
             return false; // Nghĩa là không tồn tại số hợp đồng đó
         return true; // Nghĩa là tồn tại số hợp đồng đó
     }
+    private string get_ma_trang_thai_thanh_toan_by_id(decimal ip_dc_id_tt)
+    {
+        US_CM_DM_TU_DIEN v_us_cm_dm_tu_dien = new US_CM_DM_TU_DIEN(ip_dc_id_tt);
+        return v_us_cm_dm_tu_dien.strMA_TU_DIEN;
+    }
     #endregion
 
     #region Events
@@ -258,7 +263,7 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
     {
         try
         {
-            if (hdf_check_click_kiem_tra_so_hd.Value == null)
+            if (hdf_check_click_kiem_tra_so_hd.Value == "")
             {
                 string someScript;
                 someScript = "<script language='javascript'>alert('Bạn chưa kiểm tra lại số hợp đồng. Nhấn nút Kiểm tra để thực hiện việc đó.');</script>";
@@ -268,7 +273,7 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
             if (!check_exist_so_hop_dong(m_txt_so_hop_dong.Text.Trim()))
             {
                 string Script;
-                Script = "<script language='javascript'>alert('Số hợp đồng không tồn tại trong hệ thống');</script>";
+                Script = "<script language='javascript'>alert('Số hợp đồng không tồn tại trong hệ thống. Hãy kiểm tra lại số hợp đồng!');</script>";
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", Script);
                 //m_lbl_mess.Text = "";
                 return;
@@ -277,6 +282,7 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
             m_us_v_gd_thanh_toan.Insert();
             load_data_2_grid(get_ma_dot_tt_by_id_dot(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue)));
             reset_controls();
+            hdf_check_click_kiem_tra_so_hd.Value = "";
         }
         catch (Exception v_e)
         {
@@ -295,7 +301,37 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
                 //m_lbl_mess.Text = "";
                 return;
             }
+            if (hdf_check_click_kiem_tra_so_hd.Value == "")
+            {
+                string someScript;
+                someScript = "<script language='javascript'>alert('Bạn chưa kiểm tra lại số hợp đồng. Nhấn nút Kiểm tra để thực hiện việc đó.');</script>";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", someScript);
+                return;
+            }
+            if (!check_exist_so_hop_dong(m_txt_so_hop_dong.Text.Trim()))
+            {
+                string Script;
+                Script = "<script language='javascript'>alert('Số hợp đồng không tồn tại trong hệ thống');</script>";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", Script);
+                //m_lbl_mess.Text = "";
+                return;
+            }
             form_2_us_obj(m_us_v_gd_thanh_toan);
+           
+            // Nếu đây là update thông tin bảng kê, kiểm tra trạng thái mới có phù hợp không?
+            if (hdf_id_trang_thai_thanh_toan_cu.Value != "")
+            {
+                CValidatePaymentStates v_cvalidate_state = new CValidatePaymentStates();
+                v_cvalidate_state.Trang_thai_thanh_toan_hien_tai = get_ma_trang_thai_thanh_toan_by_id(CIPConvert.ToDecimal(hdf_id_trang_thai_thanh_toan_cu.Value));
+                v_cvalidate_state.set_trang_thai();
+                if (!v_cvalidate_state.check_chuyen_trang_thai(get_ma_trang_thai_thanh_toan_by_id(m_us_v_gd_thanh_toan.dcID_TRANG_THAI_THANH_TOAN)))
+                {
+                    string someScript;
+                    someScript = "<script language='javascript'>alert('Không chuyển từ trạng thái ban đầu của thanh toán về trạng thái này được!');</script>";
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", someScript);
+                    return;
+                }
+            }
             m_us_v_gd_thanh_toan.dcID = CIPConvert.ToDecimal(hdf_id_gv.Value);
             m_us_v_gd_thanh_toan.Update();
             m_lbl_thong_bao.Visible = true;
