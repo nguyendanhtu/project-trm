@@ -28,43 +28,50 @@ namespace WebDS
 
         public void set_trang_thai()
         {
-            trang_thai_chuyen_duoc = new string[3];
+            trang_thai_chuyen_duoc = new string[4];
             switch (Trang_thai_thanh_toan_hien_tai)
             {               
                 case TRANG_THAI_THANH_TOAN.DA_LEN_BANG_KE:
                     trang_thai_chuyen_duoc[0] = TRANG_THAI_THANH_TOAN.CHUNG_TU_DA_DUOC_DUYET;
                     trang_thai_chuyen_duoc[1] = TRANG_THAI_THANH_TOAN.CHUNG_TU_KHONG_DUOC_DUYET;
                     trang_thai_chuyen_duoc[2] = TRANG_THAI_THANH_TOAN.DA_LEN_BANG_KE;
+                    trang_thai_chuyen_duoc[3] = "";
                     break;
                 case TRANG_THAI_THANH_TOAN.CHUNG_TU_DA_DUOC_DUYET:
                     trang_thai_chuyen_duoc[0] = TRANG_THAI_THANH_TOAN.NGAN_HANG_CHUYEN_KHOAN_THANH_CONG;
                     trang_thai_chuyen_duoc[1] = TRANG_THAI_THANH_TOAN.NGAN_HANG_CHUYEN_KHOAN_KHONG_THANH_CONG;
                     trang_thai_chuyen_duoc[2] = TRANG_THAI_THANH_TOAN.CHUNG_TU_DA_DUOC_DUYET;
+                    trang_thai_chuyen_duoc[3] = TRANG_THAI_THANH_TOAN.CHUNG_TU_KHONG_DUOC_DUYET;
                     break;
                 case TRANG_THAI_THANH_TOAN.CHUNG_TU_KHONG_DUOC_DUYET:
                     trang_thai_chuyen_duoc[0] = TRANG_THAI_THANH_TOAN.CHUNG_TU_DA_DUOC_DUYET;
                     trang_thai_chuyen_duoc[1] = TRANG_THAI_THANH_TOAN.CHUNG_TU_KHONG_DUOC_DUYET;
                     trang_thai_chuyen_duoc[2] = "";
+                    trang_thai_chuyen_duoc[3] = "";
                     break;
                  case TRANG_THAI_THANH_TOAN.NGAN_HANG_CHUYEN_KHOAN_THANH_CONG:
                     trang_thai_chuyen_duoc[0] = TRANG_THAI_THANH_TOAN.CHUA_CO_XAC_NHAN_CUA_GIANG_VIEN;
                     trang_thai_chuyen_duoc[1] = TRANG_THAI_THANH_TOAN.DA_CO_XAC_NHAN_CUA_GIANG_VIEN;
                     trang_thai_chuyen_duoc[2] = TRANG_THAI_THANH_TOAN.NGAN_HANG_CHUYEN_KHOAN_THANH_CONG;
+                    trang_thai_chuyen_duoc[3] = "";
                     break;
                  case TRANG_THAI_THANH_TOAN.NGAN_HANG_CHUYEN_KHOAN_KHONG_THANH_CONG:
                     trang_thai_chuyen_duoc[0] = TRANG_THAI_THANH_TOAN.NGAN_HANG_CHUYEN_KHOAN_THANH_CONG;
                     trang_thai_chuyen_duoc[1] = TRANG_THAI_THANH_TOAN.NGAN_HANG_CHUYEN_KHOAN_KHONG_THANH_CONG;
                     trang_thai_chuyen_duoc[2] = "";
+                    trang_thai_chuyen_duoc[3] = "";
                     break;
                  case TRANG_THAI_THANH_TOAN.CHUA_CO_XAC_NHAN_CUA_GIANG_VIEN:
                     trang_thai_chuyen_duoc[0] = TRANG_THAI_THANH_TOAN.DA_CO_XAC_NHAN_CUA_GIANG_VIEN;
                     trang_thai_chuyen_duoc[1] = TRANG_THAI_THANH_TOAN.CHUA_CO_XAC_NHAN_CUA_GIANG_VIEN;
                     trang_thai_chuyen_duoc[2] = "";
+                    trang_thai_chuyen_duoc[3] = "";
                     break;
                  case TRANG_THAI_THANH_TOAN.DA_CO_XAC_NHAN_CUA_GIANG_VIEN:
                     trang_thai_chuyen_duoc[0] = TRANG_THAI_THANH_TOAN.DA_CO_XAC_NHAN_CUA_GIANG_VIEN;
                     trang_thai_chuyen_duoc[1] = "";
                     trang_thai_chuyen_duoc[2] = "";
+                    trang_thai_chuyen_duoc[3] = "";
                     break;
             }
         }
