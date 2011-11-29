@@ -94,6 +94,32 @@ public partial class ChucNang_F404_XuatDanhSachThanhToanHocLieu : System.Web.UI.
         }
         return v_str_noi_dung;
     }
+   
+    public decimal get_so_tien_da_thanh_toan(decimal ip_dc_id_hop_dong)
+    {
+        decimal v_dc_so_tien_da_tt = 0;
+        m_us_v_gd_thanh_toan.FillDataset(m_v_ds_gd_thanh_toan, " WHERE ID_HOP_DONG_KHUNG=" + ip_dc_id_hop_dong + " AND REFERENCE_CODE IS NOT NULL");
+        if (m_v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count == 0) return 0;
+        else
+        {
+            foreach (DataRow dtr in m_v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows)
+            {
+                v_dc_so_tien_da_tt += CIPConvert.ToDecimal(dtr[V_GD_THANH_TOAN.TONG_TIEN_THANH_TOAN]);
+            }
+        }
+        return v_dc_so_tien_da_tt;
+    }
+    
+    public decimal get_so_tien_con_phai_thanh_toan(decimal ip_dc_id_thanh_toan, decimal ip_dc_id_hop_dong)
+    {
+        // Nếu là tạm ứng nghiệm thu thực tế bằng null
+        US_V_GD_THANH_TOAN v_us_gd_tt = new US_V_GD_THANH_TOAN(ip_dc_id_thanh_toan);      
+        // Nếu là tạm ứng lần >=2 thì: giá trị còn lại phải thanh toán bằng giá trị hđ trừ đi đã thanh toán
+        if (v_us_gd_tt.IsGIA_TRI_NGHIEM_THU_THUC_TENull())
+            return (v_us_gd_tt.dcGIA_TRI_HOP_DONG - get_so_tien_da_thanh_toan(ip_dc_id_hop_dong));
+        // Nếu là thanh lý thì: giá trị còn lại phải thanh toán bằng giá trị nghiệm thu thực tế trừ đi đã thanh toán
+        return (v_us_gd_tt.dcGIA_TRI_NGHIEM_THU_THUC_TE - get_so_tien_da_thanh_toan(ip_dc_id_hop_dong));
+    }
     #endregion
 
     #region Private Methods
@@ -274,11 +300,11 @@ public partial class ChucNang_F404_XuatDanhSachThanhToanHocLieu : System.Web.UI.
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + CIPConvert.ToStr(grv[V_GD_THANH_TOAN.TEN_NGAN_HANG]).Trim() + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + CIPConvert.ToStr(grv[V_GD_THANH_TOAN.GIA_TRI_HOP_DONG], "#,###").Trim() + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + CIPConvert.ToStr(grv[V_GD_THANH_TOAN.GIA_TRI_NGHIEM_THU_THUC_TE], "#,###").Trim() + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + "đã thanh toán" + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + 1 + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + CIPConvert.ToStr(grv[V_GD_THANH_TOAN.TONG_TIEN_THANH_TOAN],"#,###").Trim() + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + CIPConvert.ToStr(grv[V_GD_THANH_TOAN.SO_TIEN_THUE], "#,###").Trim() + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + CIPConvert.ToStr(grv[V_GD_THANH_TOAN.TONG_TIEN_THUC_NHAN], "#,###").Trim() + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + "còn phải thanh toán" + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + 1 + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + mapping_noi_dung_tt(CIPConvert.ToDecimal(grv[V_GD_THANH_TOAN.ID]),CIPConvert.ToDecimal(grv[V_GD_THANH_TOAN.ID_HOP_DONG_KHUNG]))+ "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + CIPConvert.ToStr(grv[V_GD_THANH_TOAN.DESCRIPTION]).Trim() + "</td>";
             strTable += "\n</tr>";

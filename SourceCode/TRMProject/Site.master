@@ -68,8 +68,8 @@
                                 <li><a href="/TRMProject/ChucNang/F403_ChinhSuaPheDuyetChungTu.aspx">2.2 Chỉnh sửa duyệt chứng từ</a></li>
                                 <li><a href="#">2.3 Xuất danh sách thanh toán</a>
                                  <ul>
-                                     <li><a href="/TRMProject/ChucNang/F404_XuatDanhSachThanhToan.aspx">2.3.1 Hợp đồng học liệu</a></li>
-                                     <li><a href="/TRMProject/ChucNang/F404_XuatDanhSachThanhToan.aspx">2.3.2 Hợp đồng vận hành</a></li>
+                                     <li><a href="/TRMProject/ChucNang/F404_XuatDanhSachThanhToanHocLieu.aspx">2.3.1 Hợp đồng học liệu</a></li>
+                                     <li><a href="/TRMProject/ChucNang/F404_XuatDanhSachThanhToanHocLieu.aspx">2.3.2 Hợp đồng vận hành</a></li>
                                  </ul>
                                 </li>
                             </ul>
