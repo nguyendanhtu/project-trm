@@ -13,7 +13,7 @@ using WebDS;
 using WebDS.CDBNames;
 using System.Data;
 
-public partial class ChucNang_F406_XacNhanGiangVien : System.Web.UI.Page
+public partial class ChucNang_F406_XacNhanToanBoGiangVien : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
