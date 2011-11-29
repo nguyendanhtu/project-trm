@@ -17,7 +17,12 @@ public partial class ChucNang_F408_XacNhanToanBoNganHang : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        if (!IsPostBack)
+        {
+            load_data_2_dot_tt();
+            string v_str_ma_dot = m_cbo_dot_thanh_toan.SelectedValue;
+            fill_data_2_thong_tin_dot_tt(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue));
+        }
     }
 
     #region Members
@@ -195,4 +200,48 @@ public partial class ChucNang_F408_XacNhanToanBoNganHang : System.Web.UI.Page
         return "Không";
     }
     #endregion
+
+    #region Events
+    protected void m_cmd_xac_nhan_tat_ca_ngan_hang_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            // Chuyển trạng thái của đợt thanh toán từ 1 sang 2
+            // và chuyển tất cả trạng thái của thanh toán trong đợt thanh toán này từ 1 -> 2
+            m_us_dm_dot_thanh_toan.strMA_DOT_TT = get_ma_dot_tt_form_id(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue));
+            m_us_dm_dot_thanh_toan.xac_nhan_toan_bo_ngan_hang();
+            string someScript;
+            someScript = "<script language='javascript'>alert('Toàn bộ chứng từ trong đợt thanh toán này đã được duyệt!');</script>";
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "onsuccess", someScript);
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(this, v_e);
+        }
+    }
+    protected void m_cmd_thoat_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            Response.Redirect("/TRMProject/Default.aspx", false);
+            HttpContext.Current.ApplicationInstance.CompleteRequest();
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(this, v_e);
+        }
+    }
+    protected void m_cbo_dot_thanh_toan_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        try
+        {
+            fill_data_2_thong_tin_dot_tt(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue));
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(this, v_e);
+        }
+    }
+    #endregion
+   
 }
