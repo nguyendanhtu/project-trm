@@ -522,7 +522,14 @@ public class US_V_GD_THANH_TOAN : US_Object
     }
     public void update_xac_nhan_giang_vien()
     {
-        CStoredProc v_cstore = new CStoredProc("pr_V_GD_THANH_TOAN_Update_NganHang");
+        CStoredProc v_cstore = new CStoredProc("pr_V_GD_THANH_TOAN_Update_GiangVien");
+        v_cstore.addDecimalInputParam("@ID", this.dcID);
+        v_cstore.addDecimalInputParam("@ID_TRANG_THAI_THANH_TOAN", this.dcID_TRANG_THAI_THANH_TOAN);
+        v_cstore.ExecuteCommand(this);
+    }
+    public void duyet_xac_nhan_giang_vien()
+    {
+        CStoredProc v_cstore = new CStoredProc("pr_V_GD_THANH_TOAN_Update_GiangVien");
         v_cstore.addDecimalInputParam("@ID", this.dcID);
         v_cstore.addDecimalInputParam("@ID_TRANG_THAI_THANH_TOAN", this.dcID_TRANG_THAI_THANH_TOAN);
         v_cstore.ExecuteCommand(this);
