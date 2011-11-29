@@ -173,7 +173,6 @@
                 </td>
                 <td align="left" style="width:10%;">    
                     <asp:RadioButtonList ID="rdl_noi_dung_list" runat="server" 
-                       
                         RepeatDirection="Horizontal" Width="98%" >
                         <asp:ListItem Value="Thanhly" Selected="True">Thanh lý</asp:ListItem>
                         <asp:ListItem Value="Tamung">Tạm ứng</asp:ListItem>
@@ -200,15 +199,32 @@
             <tr>
                 <td align="right" style="width:5%;">
 			       
+			<asp:label id="lblMon7" CssClass="cssManField" runat="server" 
+                Text="Tổng giá trị nghiệm thu thực tế" />
+                </td>
+                <td align="left" style="width:10%;">  
+                 <asp:TextBox  ID="m_txt_gia_tri_nghiem_thu_thuc_te" CssClass="csscurrency" Width="96%" 
+                        runat="server"></asp:TextBox>  
+                        </td> 
+                <td align="left" style="width:1%;">			       
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator4" 
+                            ErrorMessage="Invalid Price" Text="*"
+    ValidationGroup="complete" EnableClientScript="true" ControlToValidate="m_txt_gia_tri_nghiem_thu_thuc_te"
+    ValidationExpression="^\d+(\.\d\d)?$" Display="Dynamic" runat="server"/>
+    <asp:CompareValidator runat="server" id="compPrimeNumberPositive0" Operator="GreaterThan" Type="Currency"
+        Display="Dynamic" ValueToCompare="0" ControlToValidate="m_txt_gia_tri_nghiem_thu_thuc_te" 
+                            ErrorMessage = "Giá trị nhập không đúng định dạng" />
+                        </td>
+                <td align="left" style="width:5%;">
+			       
 			<asp:label id="lbltan_suat" CssClass="cssManField" runat="server" 
                 Text="Số tiền thanh toán(VNĐ)(*)" />
 			       
                 </td>
-                <td align="left" style="width:10%;">  
+                <td align="left" style="width:10%;">    
                  <asp:TextBox  ID="m_txt_so_tien_thanh_toan" CssClass="csscurrency" Width="96%" 
                         runat="server"></asp:TextBox>  
-                        </td> 
-                <td align="left" style="width:1%;">			       
+                        </td> <td align="left" style="width:1%;">			       
                         <asp:RequiredFieldValidator ID="req_vali3" runat="server" 
                          ErrorMessage="Bạn phải nhập số tiền thanh toán" Text="*" 
                         ControlToValidate="m_txt_so_tien_thanh_toan"> </asp:RequiredFieldValidator>
@@ -218,10 +234,6 @@
     <asp:CompareValidator runat="server" id="compPrimeNumberPositive" Operator="GreaterThan" Type="Currency"
         Display="Dynamic" ValueToCompare="0" ControlToValidate="m_txt_so_tien_thanh_toan" ErrorMessage = "Giá trị nhập không đúng định dạng" />
                         </td>
-                <td align="left" style="width:5%;">
-			        &nbsp;</td>
-                <td align="left" style="width:10%;">    
-			        &nbsp;</td> <td align="left" style="width:1%;"></td>
                  <td align="right" style="width:5%;"></td>
                 <td align="left" style="width:10%;"></td>
             </tr>
@@ -403,17 +415,20 @@
                        <ItemTemplate><%# Eval("TEN_GIANG_VIEN")%></ItemTemplate>
                         <ItemStyle HorizontalAlign="Left" Width="10%"></ItemStyle>
                     </asp:TemplateField> 
+                      <asp:BoundField DataField="GIA_TRI_NGHIEM_THU_THUC_TE" DataFormatString="{0:N0}" HeaderText="Giá trị nghiệm thu thực tế (VNĐ)">
+                     <ItemStyle Width="8%" HorizontalAlign="Center" />
+                    </asp:BoundField>
                      <asp:BoundField DataField="TONG_TIEN_THANH_TOAN" DataFormatString="{0:N0}" HeaderText="Tổng tiền thanh toán (VNĐ)">
-                     <ItemStyle Width="10%" HorizontalAlign="Center" />
+                     <ItemStyle Width="8%" HorizontalAlign="Center" />
                     </asp:BoundField>
                      <asp:BoundField DataField="SO_TIEN_THUE" DataFormatString="{0:N0}" HeaderText="Số tiền thuế (VNĐ)">
-                     <ItemStyle Width="10%" HorizontalAlign="Center" />
+                     <ItemStyle Width="8%" HorizontalAlign="Center" />
                     </asp:BoundField>
                      <asp:BoundField DataField="TONG_TIEN_THUC_NHAN" DataFormatString="{0:N0}" HeaderText="Tổng tiền thực nhận (VNĐ)">
                      <ItemStyle Width="10%" HorizontalAlign="Center" />
                     </asp:BoundField>
                      <asp:BoundField DataField="NGAY_THANH_TOAN" DataFormatString="{0:dd/MM/yyyy}" HeaderText="Ngày thanh toán">
-                     <ItemStyle Width="10%" HorizontalAlign="Center" />
+                     <ItemStyle Width="8%" HorizontalAlign="Center" />
                     </asp:BoundField>
                       <asp:BoundField DataField="DESCRIPTION" HeaderText="Mô tả">
                      <ItemStyle Width="15%" HorizontalAlign="Left" />
