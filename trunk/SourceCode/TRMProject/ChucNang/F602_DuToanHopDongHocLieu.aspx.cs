@@ -166,6 +166,7 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
         else m_txt_so_tien_thue1.Text = CIPConvert.ToStr(ip_us_gd_thanh_toan.dcSO_TIEN_THUE, "#,###");
         m_cbo_trang_thai_thanh_toan.SelectedValue = CIPConvert.ToStr(ip_us_gd_thanh_toan.dcID_TRANG_THAI_THANH_TOAN);
         m_txt_mo_ta.Text = ip_us_gd_thanh_toan.strDESCRIPTION;
+        hdf_id_trang_thai_thanh_toan_cu.Value = CIPConvert.ToStr(ip_us_gd_thanh_toan.dcID_TRANG_THAI_THANH_TOAN);
         // Thanh toán này là tạm ứng
         if (ip_us_gd_thanh_toan.strREFERENCE_CODE != "")
         {
