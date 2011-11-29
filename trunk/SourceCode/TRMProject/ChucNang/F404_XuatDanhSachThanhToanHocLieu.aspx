@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="F404_XuatDanhSachThanhToan.aspx.cs" Inherits="ChucNang_F404_XuatDanhSachThanhToan" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="F404_XuatDanhSachThanhToanHocLieu.aspx.cs" Inherits="ChucNang_F404_XuatDanhSachThanhToanHocLieu" %>
 <%@ Import Namespace ="IP.Core.IPCommon" %>
 <%@ Register assembly="eWorld.UI" namespace="eWorld.UI" tagprefix="ew" %>
 

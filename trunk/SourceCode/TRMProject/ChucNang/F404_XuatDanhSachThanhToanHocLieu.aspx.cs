@@ -13,7 +13,7 @@ using WebDS;
 using WebDS.CDBNames;
 using System.Data;
 
-public partial class ChucNang_F404_XuatDanhSachThanhToan : System.Web.UI.Page
+public partial class ChucNang_F404_XuatDanhSachThanhToanHocLieu : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
