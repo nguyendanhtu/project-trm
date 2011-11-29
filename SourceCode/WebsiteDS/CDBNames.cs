@@ -304,10 +304,15 @@ namespace WebDS.CDBNames
        public const string DESCRIPTION = "DESCRIPTION";
        public const string TONG_TIEN_THANH_TOAN = "TONG_TIEN_THANH_TOAN";
        public const string GIA_TRI_NGHIEM_THU_THUC_TE = "GIA_TRI_NGHIEM_THU_THUC_TE";
+       public const string SO_HOP_DONG = "SO_HOP_DONG";
+       public const string THOI_GIAN = "THOI_GIAN";
+       public const string ID_DON_VI_QUAN_LY = "ID_DON_VI_QUAN_LY";
+       public const string GIA_TRI_HOP_DONG = "GIA_TRI_HOP_DONG";
        public const string SO_TIEN_THUE = "SO_TIEN_THUE";
        public const string TONG_TIEN_THUC_NHAN = "TONG_TIEN_THUC_NHAN";
        public const string ID_TRANG_THAI_THANH_TOAN = "ID_TRANG_THAI_THANH_TOAN";
    }
+
    public class V_GD_THANH_TOAN_DETAIL
    {
        public const string ID = "ID";
