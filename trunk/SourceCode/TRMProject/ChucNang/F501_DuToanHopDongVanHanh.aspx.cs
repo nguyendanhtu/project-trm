@@ -172,6 +172,7 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
         op_us_gd_thanh_toan.strREFERENCE_CODE = m_txt_ma_lop_mon.Text.Trim();
         op_us_gd_thanh_toan.datNGAY_THANH_TOAN = m_dat_ngay_thanh_toan.SelectedDate;
         op_us_gd_thanh_toan.dcTONG_TIEN_THANH_TOAN =CIPConvert.ToDecimal(m_txt_so_tien_thanh_toan.Text);
+        op_us_gd_thanh_toan.SetGIA_TRI_NGHIEM_THU_THUC_TENull();
         op_us_gd_thanh_toan.dcTONG_TIEN_THUC_NHAN =CIPConvert.ToDecimal(m_txt_so_tien_thuc_nhan.Text);
         op_us_gd_thanh_toan.dcSO_TIEN_THUE = CIPConvert.ToDecimal(m_txt_so_tien_thue1.Text);
         op_us_gd_thanh_toan.dcID_TRANG_THAI_THANH_TOAN = CIPConvert.ToDecimal(m_cbo_trang_thai_thanh_toan.SelectedValue);
