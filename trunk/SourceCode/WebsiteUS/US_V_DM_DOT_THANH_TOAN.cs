@@ -267,6 +267,12 @@ public class US_V_DM_DOT_THANH_TOAN : US_Object
         v_cstore.addDecimalInputParam("@THANG_TT", ip_dc_thang_tt);
         v_cstore.fillDataSetByCommand(this, op_ds_v_dm_dot_thanh_toan);
     }
+     public void duyet_toan_bo_chung_tu()
+     {
+         CStoredProc v_cstore = new CStoredProc("pr_V_GD_THANH_TOAN_Duyet_Tat_Ca_Chung_Tu");
+         v_cstore.addNVarcharInputParam("@MA_DOT_THANH_TOAN", this.strMA_DOT_TT);
+         v_cstore.ExecuteCommand(this);
+     }
     #endregion
 }
 }
