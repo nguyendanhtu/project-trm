@@ -407,7 +407,6 @@ public class US_V_GD_THANH_TOAN : US_Object
         v_cstore.addDecimalInputParam("@ID_TRANG_THAI_THANH_TOAN", this.dcID_TRANG_THAI_THANH_TOAN);
         v_cstore.ExecuteCommand(this);
     }
-    #region Additional Functions
     public void update_xac_nhan_giang_vien()
     {
         CStoredProc v_cstore = new CStoredProc("pr_V_GD_THANH_TOAN_Update_NganHang");
@@ -415,7 +414,13 @@ public class US_V_GD_THANH_TOAN : US_Object
         v_cstore.addDecimalInputParam("@ID_TRANG_THAI_THANH_TOAN", this.dcID_TRANG_THAI_THANH_TOAN);
         v_cstore.ExecuteCommand(this);
     }
-    #endregion
+    public void chinh_sua_chung_tu()
+    {
+        CStoredProc v_cstore = new CStoredProc("pr_V_GD_THANH_TOAN_Chinh_Sua_Chung_Tu");
+        v_cstore.addDecimalInputParam("@ID", this.dcID);
+        v_cstore.addDecimalInputParam("@ID_TRANG_THAI_THANH_TOAN", this.dcID_TRANG_THAI_THANH_TOAN);
+        v_cstore.ExecuteCommand(this);
+    }
     #endregion
 }
 }
