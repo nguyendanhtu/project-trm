@@ -4,169 +4,176 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
-    <table  cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0">
-<tr>
+    <table cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0">
+    <tr>
 		<td class="cssPageTitleBG">
-		    <asp:label id="Label1" runat="server" CssClass="cssPageTitle" 
-                Text="Thông tin Thanh toán"/>
+		    <asp:label id="m_lbl_thong_tin_hd" runat="server" CssClass="cssPageTitle" 
+                Text="Thông tin Đợt thanh toán"/>
 		</td>
-	</tr>
-	<tr>
-		<td>
-		    &nbsp;</td>
 	</tr>
     <tr>
 		<td>
         <table cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0"> 
             <tr>
-                <td align="right" style="width:14%;">			       
-			<asp:label id="Label2" CssClass="cssManField" runat="server" 
-                Text="Đợt thanh toán" />			       
+                <td align="right" style="width:7%;">
+			<asp:label id="Label1" CssClass="cssManField" runat="server" 
+                Text="Đơn vị thanh toán: " /></td>
+                <td align="left" colspan="4"> &nbsp;
+			<asp:Label id="m_lbl_don_vi_thanh_toan"  runat="server" 
+                Width="96%" />
+                    &nbsp;
+			             </td>
+                <td align="left" style="width:1%;">&nbsp;</td>
+                 <td align="right" style="width:5%;">&nbsp;</td>
+                <td align="left" style="width:10%;">&nbsp;</td>
+                <td align="left" style="width:1%;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" style="width:7%;">
+			       
+			<asp:label id="Label4" CssClass="cssManField" runat="server" 
+                Text="Đợt thanh toán " />
+			       
                          </td>
-                <td align="left" colspan="4">
+                <td align="left" style="width:10%;">
               <asp:DropDownList ID="m_cbo_dot_thanh_toan" CssClass="cssDorpdownlist" Width="96%" runat="server" 
                         AutoPostBack="true" 
                         onselectedindexchanged="m_cbo_dot_thanh_toan_SelectedIndexChanged">
                </asp:DropDownList>
                          </td>
+                         <td align="left" style="width:1%;"> 
+                             &nbsp;</td>
+                <td align="right" style="width:7%;">
+			       
+			        &nbsp;</td>
+                <td align="left" colspan="3">	
+			        &nbsp;</td>
                 <td align="left" style="width:10%;"></td>
                 <td align="left" style="width:1%;"></td>
             </tr>
             <tr>
-                <td align="right" style="width:5%;">
+                <td align="right" style="width:7%;">
 			       
-			<asp:label id="lbltan_suat3" CssClass="cssManField" runat="server" 
-                Text="Ngày thanh toán" />
-			       
-                </td>
-                <td align="left" colspan="3">    
-                    &nbsp;<asp:Label ID="m_lbl_ngay_thanh_toan" runat="server"></asp:Label></td> 
-                <td align="left" style="width:10%;">    
-                    &nbsp;</td> <td align="left" style="width:1%;">&nbsp;</td>
-                 <td align="right" style="width:5%;">&nbsp;</td>
-                <td align="left" style="width:10%;">&nbsp;</td>
-            </tr>
-            <tr>
-                <td align="right" style="width:5%;">
-			       
-			<asp:label id="lbltan_suat4" CssClass="cssManField" runat="server" 
-                Text="Đơn vị thanh toán" />
+			<asp:label id="Label2" Enabled="false" CssClass="cssManField" runat="server" 
+                Text="Ngày thanh toán dự kiến: " />
 			       
                 </td>
-                <td align="left" colspan="3">
-                    <asp:Label ID="m_lbl_dv_thanh_toan" runat="server"></asp:Label>
-                </td> 
-                <td align="left" style="width:10%;">    
-                    &nbsp;</td> <td align="left" style="width:1%;">&nbsp;</td>
-                 <td align="right" style="width:5%;">&nbsp;</td>
-                <td align="left" style="width:10%;">&nbsp;</td>
-            </tr>
-            <tr>
-                <td align="right" style="width:5%;">
-			        &nbsp;</td>
-                <td align="left" style="width:1%;">
-                     &nbsp;</td>
-			   <td align="left" style="width:1%;">
-                     &nbsp;</td>
-                 <td align="left">
-                     &nbsp;</td>
-                <td align="left" style="width:1%;">
-                    &nbsp;</td>
                 <td align="left" style="width:10%;">
-                    &nbsp;</td>  
-                  <td align="left" style="width:10%;">
-                      &nbsp;</td>  
+                 &nbsp;
+			<asp:Label id="m_lbl_ngay_tt_du_kien" runat="server" />
+                         </td>
+                     <td align="left" style="width:1%;">
+                         &nbsp;</td>
+                <td align="right" style="width:5%;">
+			       
+			<asp:label id="lbl_trang_thai_dot_tt" CssClass="cssManField" runat="server" 
+                Text="Trạng thái đợt thanh toán" />
+			       
+			    </td>
+                <td align="left" style="width:10%;">
+			
+			        <asp:label id="m_lbl_trang_thai_dot_tt" runat="server" /></td>
+                      <td align="left" style="width:1%;">
+                          &nbsp;</td>
+                 <td align="right" style="width:5%;">
+			       
+			         &nbsp;</td>
+                <td align="left" style="width:10%;">
+		            &nbsp;</td>
+                <td align="left" style="width:1%;">&nbsp;</td>
             </tr>
-        </table>
+            <tr>
+                <td align="right" style="width:5%;"></td>
+                <td align="left" style="width:10%;">    
+			        &nbsp;</td> 
+                <td align="left" style="width:1%;"></td>
+                <td align="left" style="width:5%;">
+			        &nbsp;</td>
+                <td align="left" style="width:10%;">    
+			        &nbsp;</td> <td align="left" style="width:1%;"></td>
+                 <td align="right" style="width:5%;"></td>
+                <td align="left" style="width:10%;"></td>
+            </tr>
+            <tr>
+                <td align="right" style="width:5%;">&nbsp;</td>
+                <td align="left" style="width:10%;">    
+			        <asp:button id="m_cmd_xac_nhan_tat_ca_giang_vien" accessKey="c" CssClass="cssButton" 
+                runat="server" Width="98px" Text="Xác nhận tất cả" 
+                        Height="24px" onclick="m_cmd_xac_nhan_tat_ca_giang_vien_Click" />
+                </td> 
+                <td align="left" style="width:1%;">&nbsp;</td>
+                <td align="left" style="width:5%;">
+                     <asp:Button ID="m_cmd_thoat" runat="server" accessKey="s" 
+                         CssClass="cssButton" Height="24px" 
+                         Text="Thoát" Width="98px" onclick="m_cmd_thoat_Click"/>
+                 </td>
+                <td align="left" style="width:10%;">    
+			        &nbsp;</td> <td align="left" style="width:1%;">&nbsp;</td>
+                 <td align="right" style="width:5%;">&nbsp;</td>
+                <td align="left" style="width:10%;">&nbsp;</td>
+            </tr>
+            </table>
 
 		</td>
 	</tr>
-    <tr>
-		<td class="cssPageTitleBG" colspan="2">
-		    <asp:label id="Label3" runat="server" CssClass="cssPageTitle" 
-                Text="Danh sách Thanh toán"/>
+
+     <tr>
+		<td class="cssPageTitleBG" colspan="4">
+		    <asp:label id="m_lbl_loc_du_lieu" runat="server" CssClass="cssPageTitle" 
+                Text="Danh sách bản kê các khoản thanh toán"/>
 		</td>
 	</tr>	
     <tr>
-		<td align="left">
-                <asp:Label ID="m_lbl_thong_bao" CssClass="cssManField" runat="server"></asp:Label>
-                <asp:HiddenField ID="HiddenField1" runat="server" />
-                 <p style="text-align:center">
-                 <span class="cssManField">Trạng thái thanh toán&nbsp;&nbsp; </span>
-                      <asp:DropDownList ID="m_cbo_trang_thai_tt_search" CssClass="cssDorpdownlist" runat="server" 
-                        AutoPostBack="true"  Width="25%" 
-                         onselectedindexchanged="m_cbo_trang_thai_tt_search_SelectedIndexChanged" >
-               </asp:DropDownList>                         
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        </p>
-                        <p style="text-align:center">
-                <span class="cssManField">Số hợp đồng&nbsp;&nbsp; </span><asp:TextBox ID="m_txt_so_hd_search" CssClass="cssTextBox" Width="20%" 
-                        runat="server"></asp:TextBox>
-                        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-                    <asp:Button ID="m_cmd_search" runat="server" accessKey="s" 
-                         CssClass="cssButton" Height="24px" 
-                         Text="Tìm kiếm" Width="98px" CausesValidation="false" 
-                                onclick="m_cmd_search_Click" />
-                 </span>
-                 <br />
-                        </p>
-        </td>
-        <td >
-		    &nbsp;</td>
+		<td colspan="4">
+		  
+                &nbsp;</td>
 	</tr>	
-
 	<tr>
-		<td align="center" colspan="2" style="height:450px;" valign="top">
+		<td align="center" style="height:450px;" valign="top" colspan="4">
 		    &nbsp;
-   <asp:GridView ID="m_grv_danh_sach_thanh_toan" AllowPaging="True" 
+            <asp:GridView Visible="false" ID="m_grv_danh_sach_du_toan" AllowPaging="True" 
                 runat="server" AutoGenerateColumns="False" 
                 Width="100%" DataKeyNames="ID"
-                CellPadding="4" ForeColor="#333333" PageSize="100" 
-                onselectedindexchanging="m_grv_danh_sach_thanh_toan_SelectedIndexChanging"  >
+                CellPadding="4" ForeColor="#333333">
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
-                 <asp:TemplateField HeaderText="Xác nhận của Giảng viên">
-                    <ItemTemplate>
-                     <asp:LinkButton CausesValidation="false" CommandName="Select" ToolTip="Xác nhận của Giảng viên" 
-                     OnClientClick="return confirm ('Đã có xác nhận từ Giảng viên?')" ID = "lbt_edit" runat="server">
-                    <img src='/TRMProject/Images/Button/Update.gif' alt='Xác nhận của Giảng viên' />
-                    </asp:LinkButton>
+                    <asp:TemplateField HeaderText="Chi tiết bảng kê" Visible="false">
+                    <ItemTemplate> <asp:HyperLink ToolTip="Chi tiết bảng kê" ImageUrl="/TRMProject/Images/Button/detail.png" ID = "lbt_phu_luc_hop_dong" runat="server"
+                     NavigateUrl='<%# "/TRMProject/ChucNang/F603_ThanhToanChiTiet.aspx?id_gdtt="+Eval("ID") %>'></asp:HyperLink>
                     </ItemTemplate>
-                    <ItemStyle Width="5%" HorizontalAlign="Center" />
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
-                        <ItemStyle HorizontalAlign="Center" Width="5%"></ItemStyle>
+                        <ItemStyle HorizontalAlign="Center" Width="3%"></ItemStyle>
                     </asp:TemplateField>
+                    <asp:BoundField DataField="SO_PHIEU_THANH_TOAN" HeaderText="Số phiếu thanh toán">
+                    <ItemStyle Width="15%" HorizontalAlign="Left" />
+                    </asp:BoundField>
+                     <asp:TemplateField HeaderText="Số hợp đồng" ItemStyle-HorizontalAlign="Center">
+                       <ItemTemplate><%# get_so_hd_khung_by_id_hd(CIPConvert.ToDecimal(Eval("ID_HOP_DONG_KHUNG")))%></ItemTemplate>
+                        <ItemStyle HorizontalAlign="Center" Width="10%"></ItemStyle>
+                    </asp:TemplateField> 
+                     <asp:BoundField DataField="REFERENCE_CODE" HeaderText="Mã lớp">
+                    <ItemStyle Width="7%" HorizontalAlign="Left" />
+                    </asp:BoundField>
                     <asp:TemplateField HeaderText="Tên giảng viên" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%# Eval("TEN_GIANG_VIEN")%></ItemTemplate>
                         <ItemStyle HorizontalAlign="Left" Width="10%"></ItemStyle>
                     </asp:TemplateField> 
-                    <asp:BoundField HeaderText="Số tài khoản" DataField="SO_TAI_KHOAN">
-                    <ItemStyle Width="10%" HorizontalAlign="Left" />
+                     <asp:BoundField DataField="TONG_TIEN_THANH_TOAN" DataFormatString="{0:N0}" HeaderText="Tổng tiền thanh toán (VNĐ)">
+                     <ItemStyle Width="7%" HorizontalAlign="Center" />
                     </asp:BoundField>
-                     <asp:TemplateField HeaderText="Ngân hàng" ItemStyle-HorizontalAlign="Center">
-                       <ItemTemplate><%# Eval("TEN_NGAN_HANG")%></ItemTemplate>
-                        <ItemStyle HorizontalAlign="Left" Width="15%"></ItemStyle>
-                    </asp:TemplateField> 
-                     <asp:BoundField DataField="TONG_TIEN_THANH_TOAN" DataFormatString="{0:N0}" 
-                     HeaderText="Tổng tiền thanh toán (VNĐ)">
-                     <ItemStyle Width="10%" HorizontalAlign="Right" />
+                     <asp:BoundField DataField="SO_TIEN_THUE" DataFormatString="{0:N0}" HeaderText="Số tiền thuế (VNĐ)">
+                     <ItemStyle Width="7%" HorizontalAlign="Center" />
                     </asp:BoundField>
-                     <asp:BoundField DataField="SO_TIEN_THUE" DataFormatString="{0:N0}" 
-                     HeaderText="Số tiền thuế (VNĐ)">
-                     <ItemStyle Width="10%" HorizontalAlign="Right" />
+                     <asp:BoundField DataField="TONG_TIEN_THUC_NHAN" DataFormatString="{0:N0}" HeaderText="Tổng tiền thực nhận (VNĐ)">
+                     <ItemStyle Width="7%" HorizontalAlign="Center" />
                     </asp:BoundField>
-                     <asp:BoundField DataField="TONG_TIEN_THUC_NHAN" DataFormatString="{0:N0}" 
-                     HeaderText="Tổng tiền thực nhận (VNĐ)">
-                     <ItemStyle Width="10%" HorizontalAlign="Right" />
+                     <asp:BoundField DataField="NGAY_THANH_TOAN" DataFormatString="{0:dd/MM/yyyy}" HeaderText="Ngày thanh toán">
+                     <ItemStyle Width="10%" HorizontalAlign="Center" />
                     </asp:BoundField>
-                     <asp:TemplateField HeaderText="Nội dung thanh toán" ItemStyle-HorizontalAlign="Center">
-                       <ItemTemplate><%# mapping_noi_dung_tt(CIPConvert.ToDecimal(Eval("ID")),CIPConvert.ToDecimal(Eval("ID_HOP_DONG_KHUNG")))%></ItemTemplate>
-                        <ItemStyle HorizontalAlign="Left" Width="20%"></ItemStyle>
-                    </asp:TemplateField> 
-                      <asp:BoundField DataField="DESCRIPTION" HeaderText="Ghi chú">
-                     <ItemStyle Width="10%" HorizontalAlign="Left" />
+                      <asp:BoundField DataField="DESCRIPTION" HeaderText="Mô tả">
+                     <ItemStyle Width="15%" HorizontalAlign="Left" />
                     </asp:BoundField>
                 </Columns>
                   <EditRowStyle BackColor="#7C6F57" />
@@ -176,9 +183,9 @@
                   <RowStyle BackColor="#E3EAEB" />
                 <SelectedRowStyle CssClass="cssSelectedRow" BackColor="#C5BBAF" Font-Bold="True" 
                       ForeColor="#333333"></SelectedRowStyle>
-            </asp:GridView>
+            </asp:GridView>           
             </td>
 	</tr>
-</table>
+ </table>
 </asp:Content>
 

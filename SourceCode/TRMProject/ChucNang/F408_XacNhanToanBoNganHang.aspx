@@ -37,7 +37,8 @@
                          </td>
                 <td align="left" style="width:10%;">
               <asp:DropDownList ID="m_cbo_dot_thanh_toan" CssClass="cssDorpdownlist" Width="96%" runat="server" 
-                        AutoPostBack="true" >
+                        AutoPostBack="true" 
+                        onselectedindexchanged="m_cbo_dot_thanh_toan_SelectedIndexChanged">
                </asp:DropDownList>
                          </td>
                          <td align="left" style="width:1%;"> 
@@ -96,15 +97,15 @@
             <tr>
                 <td align="right" style="width:5%;">&nbsp;</td>
                 <td align="left" style="width:10%;">    
-			        <asp:button id="m_cmd_duyet_tat_ca_chung_tu" accessKey="c" CssClass="cssButton" 
-                runat="server" Width="98px" Text="Duyệt tất cả" 
-                        Height="24px"/>
+			        <asp:button id="m_cmd_xac_nhan_tat_ca_ngan_hang" accessKey="c" CssClass="cssButton" 
+                runat="server" Width="98px" Text="Xác nhận tất cả" 
+                        Height="24px" onclick="m_cmd_xac_nhan_tat_ca_ngan_hang_Click" />
                 </td> 
                 <td align="left" style="width:1%;">&nbsp;</td>
                 <td align="left" style="width:5%;">
                      <asp:Button ID="m_cmd_thoat" runat="server" accessKey="s" 
                          CssClass="cssButton" Height="24px" 
-                         Text="Thoát" Width="98px" />
+                         Text="Thoát" Width="98px" onclick="m_cmd_thoat_Click"/>
                  </td>
                 <td align="left" style="width:10%;">    
 			        &nbsp;</td> <td align="left" style="width:1%;">&nbsp;</td>
