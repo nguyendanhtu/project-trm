@@ -29,6 +29,9 @@ public partial class ChucNang_F402_DuyetTatCaBanKeThanhToan : System.Web.UI.Page
     US_V_GD_THANH_TOAN m_us_gd_thanh_toan = new US_V_GD_THANH_TOAN();
     DS_V_GD_THANH_TOAN m_ds_gd_thanh_toan = new DS_V_GD_THANH_TOAN();
 
+    US_V_DM_DOT_THANH_TOAN m_us_dm_dot_thanh_toan = new US_V_DM_DOT_THANH_TOAN();
+    DS_V_DM_DOT_THANH_TOAN m_ds_dm_dot_thanh_toan = new DS_V_DM_DOT_THANH_TOAN();
+
     US_CM_DM_TU_DIEN m_us_cm_dm_tu_dien = new US_CM_DM_TU_DIEN();
     DS_CM_DM_TU_DIEN m_ds_cm_dm_tu_dien = new DS_CM_DM_TU_DIEN();
     public string m_str_ma_dot;
@@ -120,6 +123,15 @@ public partial class ChucNang_F402_DuyetTatCaBanKeThanhToan : System.Web.UI.Page
         if (v_ds_tu_dien.CM_DM_TU_DIEN.Rows.Count == 0) return 487;
         return CIPConvert.ToDecimal(v_ds_tu_dien.CM_DM_TU_DIEN.Rows[0][CM_DM_TU_DIEN.ID]);
     }
+
+    private decimal get_id_trang_thai_dot_tt_da_lap_bang_ke()
+    {
+        US_CM_DM_TU_DIEN v_us_cm_tu_dien = new US_CM_DM_TU_DIEN();
+        DS_CM_DM_TU_DIEN v_ds_tu_dien = new DS_CM_DM_TU_DIEN();
+        v_us_cm_tu_dien.FillDataset(v_ds_tu_dien, " WHERE ID_LOAI_TU_DIEN = 14 AND MA_TU_DIEN LIKE N'%DA_LAP_BANG_KE%'");
+        if (v_ds_tu_dien.CM_DM_TU_DIEN.Rows.Count == 0) return 489;
+        return CIPConvert.ToDecimal(v_ds_tu_dien.CM_DM_TU_DIEN.Rows[0][CM_DM_TU_DIEN.ID]);
+    }
     /// <summary>
     /// Xóa các khoảng trắng, chuyển về một dạng chuẩn "Đinh Hồng Lĩnh"
     /// </summary>
@@ -206,7 +218,13 @@ public partial class ChucNang_F402_DuyetTatCaBanKeThanhToan : System.Web.UI.Page
     {
         try
         {
-
+            // Chuyển trạng thái của đợt thanh toán từ 1 sang 2
+            // và chuyển tất cả trạng thái của thanh toán trong đợt thanh toán này từ 1 -> 2
+            m_us_dm_dot_thanh_toan.strMA_DOT_TT = get_ma_dot_tt_form_id(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue));
+            m_us_dm_dot_thanh_toan.duyet_toan_bo_chung_tu();
+            string someScript;
+            someScript = "<script language='javascript'>alert('Toàn bộ chứng từ trong đợt thanh toán này đã được duyệt!');</script>";
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "onsuccess", someScript);
         }
         catch (Exception v_e)
         {
