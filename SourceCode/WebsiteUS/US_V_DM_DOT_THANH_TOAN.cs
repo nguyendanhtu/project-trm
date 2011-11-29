@@ -273,6 +273,18 @@ public class US_V_DM_DOT_THANH_TOAN : US_Object
          v_cstore.addNVarcharInputParam("@MA_DOT_THANH_TOAN", this.strMA_DOT_TT);
          v_cstore.ExecuteCommand(this);
      }
+     public void xac_nhan_toan_bo_giang_vien()
+     {
+         CStoredProc v_cstore = new CStoredProc("pr_V_GD_THANH_TOAN_Xac_Nhan_Toan_Bo_Giang_Vien");
+         v_cstore.addNVarcharInputParam("@MA_DOT_THANH_TOAN", this.strMA_DOT_TT);
+         v_cstore.ExecuteCommand(this);
+     }
+     public void xac_nhan_toan_bo_ngan_hang()
+     {
+         CStoredProc v_cstore = new CStoredProc("pr_V_GD_THANH_TOAN_Xac_Nhan_Toan_Bo_Ngan_Hang");
+         v_cstore.addNVarcharInputParam("@MA_DOT_THANH_TOAN", this.strMA_DOT_TT);
+         v_cstore.ExecuteCommand(this);
+     }
     #endregion
 }
 }
