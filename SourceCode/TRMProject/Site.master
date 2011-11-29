@@ -65,7 +65,7 @@
 					      <li><a href="#">2. Duyệt chứng từ</a>
                             <ul>
                                 <li><a href="/TRMProject/ChucNang/F402_DuyetTatCaBanKeThanhToan.aspx">2.1 Duyệt tất cả chứng từ</a></li>
-                                <li><a href="/TRMProject/ChucNang/">2.2 Chỉnh sửa chứng từ</a></li>
+                                <li><a href="/TRMProject/ChucNang/F403_ChinhSuaPheDuyetChungTu.aspx">2.2 Chỉnh sửa chứng từ</a></li>
                                 <li><a href="#">2.3 Xuất danh sách thanh toán</a>
                                  <ul>
                                      <li><a href="/TRMProject/ChucNang/F404_XuatDanhSachThanhToan.aspx">2.3.1 Hợp đồng học liệu</a></li>
