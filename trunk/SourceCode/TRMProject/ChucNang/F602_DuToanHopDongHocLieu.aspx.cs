@@ -280,6 +280,11 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
          if (v_us_dm_hop_dong.dcID_DON_VI_THANH_TOAN != ip_dc_id_dv_thanh_toan) return false;
          return true;
      }
+     private string get_ten_dv_thanh_toan(decimal ip_dc_id_dv_thanh_toan)
+     {
+         US_DM_DON_VI_THANH_TOAN v_us_dm_dv_tt = new US_DM_DON_VI_THANH_TOAN(ip_dc_id_dv_thanh_toan);
+         return v_us_dm_dv_tt.strTEN_DON_VI;
+     }
     #endregion
 
     #region Events
@@ -313,10 +318,11 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
                 //m_lbl_mess.Text = "";
                 return;
             }
-            if(!check_hop_dong_ung_voi_dv_thanh_toan(get_id_don_vi_thanh_toan_by_id_dot_tt(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue)),1))
+            decimal v_dc_id_dv_tt = get_id_don_vi_thanh_toan_by_id_dot_tt(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue));
+            if (!check_hop_dong_ung_voi_dv_thanh_toan(v_dc_id_dv_tt, get_id_hd_khung_by_so_hd(m_txt_so_hop_dong.Text.Trim())))
             {
                 string Script;
-                Script = "<script language='javascript'>alert('Hợp đồng này không phải do ...quản lý');</script>";
+                Script = "<script language='javascript'>alert('Hợp đồng này không do "+get_ten_dv_thanh_toan(v_dc_id_dv_tt)+" thanh toán');</script>";
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "oncheck1", Script);
                 //m_lbl_mess.Text = "";
                 return;

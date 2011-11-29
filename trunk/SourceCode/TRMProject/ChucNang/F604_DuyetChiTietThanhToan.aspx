@@ -28,8 +28,7 @@
                          </td>
                 <td align="left" colspan="4">
               <asp:DropDownList ID="m_cbo_dot_thanh_toan" CssClass="cssDorpdownlist" Width="96%" runat="server" 
-                        AutoPostBack="true" 
-                        onselectedindexchanged="m_cbo_dot_thanh_toan_SelectedIndexChanged">
+                        AutoPostBack="true">
                </asp:DropDownList>
                          </td>
                 <td align="left" style="width:10%;"></td>
@@ -241,19 +240,19 @@
                 <td align="left" style="width:1%;">
                      <asp:Button ID="m_cmd_cap_nhat_du_toan" runat="server" accessKey="s" 
                          CssClass="cssButton" Height="24px" 
-                         Text="Chỉnh sửa" Width="98px" onclick="m_cmd_cap_nhat_du_toan_Click"/>
+                         Text="Chỉnh sửa" Width="98px"/>
                  </td>
 			   <td align="left" style="width:1%;">
                      &nbsp;</td>
                  <td align="left" colspan="1">
                     <asp:Button ID="m_cmd_bo_qua" runat="server" CausesValidation="False" 
                         CssClass="cssButton" Height="25px"  Text="Bỏ qua" 
-                        Width="98px" onclick="m_cmd_bo_qua_Click" />
+                        Width="98px"/>
                 </td>
                 <td align="right" style="width:1%;">
                     <asp:Button ID="m_cmd_xoa_trang" runat="server" CausesValidation="False" 
                         CssClass="cssButton" Height="25px"  Text="Thoát" 
-                        Width="98px" onclick="m_cmd_xoa_trang_Click"/>
+                        Width="98px"/>
                 </td>
                 <td align="left" style="width:10%;">
                     &nbsp;</td>  
@@ -280,8 +279,7 @@
                         <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                     <asp:Button ID="m_cmd_search" runat="server" accessKey="s" 
                          CssClass="cssButton" Height="24px" 
-                         Text="Tìm kiếm" Width="98px" CausesValidation="false" 
-                                onclick="m_cmd_search_Click"/>
+                         Text="Tìm kiếm" Width="98px" CausesValidation="false" />
                  </span>
                  <br />
                         </p>
@@ -296,8 +294,7 @@
    <asp:GridView ID="m_grv_danh_sach_du_toan" AllowPaging="True" 
                 runat="server" AutoGenerateColumns="False" 
                 Width="100%" DataKeyNames="ID"
-                CellPadding="4" ForeColor="#333333" 
-                onselectedindexchanging="m_grv_danh_sach_du_toan_SelectedIndexChanging" >
+                CellPadding="4" ForeColor="#333333">
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
                      <asp:TemplateField HeaderText="Chỉnh sửa xác nhận ngân hàng">
