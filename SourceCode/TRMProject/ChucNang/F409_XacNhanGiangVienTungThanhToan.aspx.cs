@@ -14,7 +14,7 @@ using WebDS.CDBNames;
 using System.Data;
 
 
-public partial class ChucNang_F409_XacNhanNganHangTungThanhToan : System.Web.UI.Page
+public partial class ChucNang_F409_XacNhanGiangVienTungThanhToan : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
