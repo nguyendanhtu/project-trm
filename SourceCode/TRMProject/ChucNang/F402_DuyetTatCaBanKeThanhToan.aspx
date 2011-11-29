@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="F402_DanhSachHopDongDuToan.aspx.cs" Inherits="ChucNang_F402_DanhSachHopDongDuToan" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="F402_DuyetTatCaBanKeThanhToan.aspx.cs" Inherits="ChucNang_F402_DuyetTatCaBanKeThanhToan" %>
 <%@ Import Namespace ="IP.Core.IPCommon" %>
 <%@ Register assembly="eWorld.UI" namespace="eWorld.UI" tagprefix="ew" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
@@ -20,7 +20,7 @@
                 Text="Đơn vị thanh toán: " /></td>
                 <td align="left" colspan="4"> &nbsp;
 			<asp:Label id="m_lbl_don_vi_thanh_toan"  runat="server" 
-                MaxLength="64" Width="96%" />
+                Width="96%" />
                     &nbsp;
 			             </td>
                 <td align="left" style="width:1%;">&nbsp;</td>
