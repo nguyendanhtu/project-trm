@@ -13,8 +13,7 @@
 	</tr>
 	<tr>
 		<td>
-		    <asp:validationsummary id="vdsCategory" runat="server" CssClass="cssManField" Font-Bold="true" />
-		</td>
+		    &nbsp;</td>
 	</tr>
     <tr>
 		<td>
@@ -275,14 +274,6 @@
 		<td align="left">
                           <asp:Label ID="m_lbl_thong_bao" CssClass="cssManField" runat="server"></asp:Label>
                 <asp:HiddenField ID="hdf_id_gv" runat="server" /><asp:HiddenField ID="hdf_id_trang_thai_thanh_toan_cu" runat="server" />
-                <p style="text-align:center">
-                 <span class="cssManField">Trạng thái thanh toán&nbsp;&nbsp; </span>
-                      <asp:DropDownList ID="m_cbo_trang_thai_tt_search" CssClass="cssDorpdownlist" runat="server" 
-                        AutoPostBack="true"  Width="25%" 
-                        onselectedindexchanged="m_cbo_trang_thai_tt_search_SelectedIndexChanged" >
-               </asp:DropDownList>                         
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        </p>
                         <p style="text-align:center">
                 <span class="cssManField">Số hợp đồng&nbsp;&nbsp; </span><asp:TextBox ID="m_txt_so_hd_search" CssClass="cssTextBox" Width="20%" 
                         runat="server"></asp:TextBox>
