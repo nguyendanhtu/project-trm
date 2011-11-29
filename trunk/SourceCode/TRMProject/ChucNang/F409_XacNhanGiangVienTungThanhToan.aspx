@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="F409_XacNhanNganHangTungThanhToan.aspx.cs" Inherits="ChucNang_F409_XacNhanNganHangTungThanhToan" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="F409_XacNhanGiangVienTungThanhToan.aspx.cs" Inherits="ChucNang_F409_XacNhanGiangVienTungThanhToan" %>
 <%@ Import Namespace ="IP.Core.IPCommon" %>
 <%@ Register assembly="eWorld.UI" namespace="eWorld.UI" tagprefix="ew" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">

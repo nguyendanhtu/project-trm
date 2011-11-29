@@ -76,14 +76,14 @@
                           </li>
                           <li><a href="#">3. Xác nhận ngân hàng</a>
                            <ul>
-                                <li><a href="/TRMProject/ChucNang/F405_XacNhanNganHang.aspx">3.1 Xác nhận toàn bộ</a></li>
-                                <li><a href="/TRMProject/ChucNang/F501_DuToanHopDongVanHanh.aspx">3.2 Chỉnh sửa xác nhận ngân hàng</a></li>
+                                <li><a href="/TRMProject/ChucNang/F408_XacNhanToanBoNganHang.aspx">3.1 Xác nhận toàn bộ</a></li>
+                                <li><a href="/TRMProject/ChucNang/F405_ChinhSuaXacNhanNganHang.aspx">3.2 Chỉnh sửa xác nhận ngân hàng</a></li>
                             </ul>
                           </li>
                           <li><a href="#">4. Xác nhận giảng viên</a>
                           <ul>
                                 <li><a href="/TRMProject/ChucNang/F406_XacNhanGiangVien.aspx">4.1 Xác nhận từng giảng viên</a></li>
-                                <li><a href="/TRMProject/ChucNang/F406_XacNhanGiangVien.aspx">4.2 Xác nhận toàn bộ giảng viên</a></li>
+                                <li><a href="/TRMProject/ChucNang/F409_XacNhanGiangVienTungThanhToan.aspx">4.2 Xác nhận toàn bộ giảng viên</a></li>
                                 <li><a href="/TRMProject/ChucNang/F406_XacNhanGiangVien.aspx">4.3 Chỉnh sửa xác nhận giảng viên</a></li>
                             </ul>
                           </li>
