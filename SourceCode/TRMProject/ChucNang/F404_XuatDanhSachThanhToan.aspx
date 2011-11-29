@@ -119,14 +119,15 @@
                        <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
                         <ItemStyle HorizontalAlign="Center" Width="5%"></ItemStyle>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Tên giảng viên" ItemStyle-HorizontalAlign="Center">
+                    <asp:TemplateField HeaderText="Họ tên" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%# Eval("TEN_GIANG_VIEN")%></ItemTemplate>
                         <ItemStyle HorizontalAlign="Left" Width="10%"></ItemStyle>
                     </asp:TemplateField> 
                     <asp:BoundField HeaderText="Số tài khoản" DataField="SO_TAI_KHOAN">
                     <ItemStyle Width="10%" HorizontalAlign="Left" />
                     </asp:BoundField>
-                     <asp:TemplateField HeaderText="Ngân hàng" ItemStyle-HorizontalAlign="Center">
+                     <asp:TemplateField HeaderText="Tên ngân hàng" 
+                        ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%# Eval("TEN_NGAN_HANG")%></ItemTemplate>
                         <ItemStyle HorizontalAlign="Left" Width="15%"></ItemStyle>
                     </asp:TemplateField> 
