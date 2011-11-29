@@ -84,7 +84,7 @@
                           <ul>
                                 <li><a href="/TRMProject/ChucNang/F406_XacNhanGiangVien.aspx">4.1 Xác nhận từng giảng viên</a></li>
                                 <li><a href="/TRMProject/ChucNang/F409_XacNhanGiangVienTungThanhToan.aspx">4.2 Xác nhận toàn bộ giảng viên</a></li>
-                                <li><a href="/TRMProject/ChucNang/F406_XacNhanGiangVien.aspx">4.3 Chỉnh sửa xác nhận giảng viên</a></li>
+                                <li><a href="/TRMProject/ChucNang/F410_ChinhSuaXacNhanGV.aspx">4.3 Chỉnh sửa xác nhận giảng viên</a></li>
                             </ul>
                           </li>
                            <li><a href="/TRMProject/DanhMuc/F500_DotThanhToan.aspx">5. Xử lý các chứng từ tồn đọng</a></li>
