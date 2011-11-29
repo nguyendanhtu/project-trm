@@ -228,6 +228,25 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
         US_CM_DM_TU_DIEN v_us_cm_dm_tu_dien = new US_CM_DM_TU_DIEN(ip_dc_id_tt);
         return v_us_cm_dm_tu_dien.strMA_TU_DIEN;
     }
+    
+    // Kiểm tra xem hợp đồng có đúng là do đơn vị thanh toán đó thanh toán không???
+    private bool check_hop_dong_ung_voi_dv_thanh_toan(decimal ip_dc_id_dv_thanh_toan, decimal ip_dc_id_hop_dong)
+    {
+        US_DM_HOP_DONG_KHUNG v_us_dm_hop_dong = new US_DM_HOP_DONG_KHUNG(ip_dc_id_hop_dong);
+        if (v_us_dm_hop_dong.dcID_DON_VI_THANH_TOAN != ip_dc_id_dv_thanh_toan) return false;
+        return true;
+    }
+    private string get_ten_dv_thanh_toan(decimal ip_dc_id_dv_thanh_toan)
+    {
+        US_DM_DON_VI_THANH_TOAN v_us_dm_dv_tt = new US_DM_DON_VI_THANH_TOAN(ip_dc_id_dv_thanh_toan);
+        return v_us_dm_dv_tt.strTEN_DON_VI;
+    }
+    private decimal get_id_don_vi_thanh_toan_by_id_dot_tt(decimal ip_dc_id_dot_tt)
+    {
+        US_V_DM_DOT_THANH_TOAN v_us_dot_tt = new US_V_DM_DOT_THANH_TOAN(ip_dc_id_dot_tt);
+        return v_us_dot_tt.dcID_DON_VI_THANH_TOAN;
+    }
+    //private void 
     #endregion
 
     #region Events
@@ -258,6 +277,16 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
                 string Script;
                 Script = "<script language='javascript'>alert('Số hợp đồng không tồn tại trong hệ thống');</script>";
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", Script);
+                //m_lbl_mess.Text = "";
+                return;
+            }
+            // Check hợp đồng do bên đv thanh toán này thanh toán
+            decimal v_dc_id_dv_tt = get_id_don_vi_thanh_toan_by_id_dot_tt(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue));
+            if (!check_hop_dong_ung_voi_dv_thanh_toan(v_dc_id_dv_tt, get_id_hd_khung_by_so_hd(m_txt_so_hop_dong.Text.Trim())))
+            {
+                string Script;
+                Script = "<script language='javascript'>alert('Hợp đồng này không do " + get_ten_dv_thanh_toan(v_dc_id_dv_tt) + " thanh toán');</script>";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "oncheck1", Script);
                 //m_lbl_mess.Text = "";
                 return;
             }
