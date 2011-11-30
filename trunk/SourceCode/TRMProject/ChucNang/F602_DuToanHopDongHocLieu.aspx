@@ -300,7 +300,7 @@
 			       
                 </td>
                 <td align="left" colspan="3">    
-              <asp:DropDownList ID="m_cbo_trang_thai_thanh_toan" Width="96%" runat="server">
+              <asp:DropDownList ID="m_cbo_trang_thai_thanh_toan" Width="96%" Enabled="false" runat="server">
                </asp:DropDownList>
                          </td> 
                 <td align="left" style="width:10%;">    
