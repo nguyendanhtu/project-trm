@@ -212,7 +212,7 @@ public partial class DanhMuc_F500_DotThanhToan : System.Web.UI.Page
     {
         try
         {
-            m_cbo_dm_trang_thai_dot_thanh_toan.Enabled = true;
+            //m_cbo_dm_trang_thai_dot_thanh_toan.Enabled = true;
             load_data_2_us_by_id(e.NewSelectedIndex);
         }
         catch (Exception v_e)
@@ -293,7 +293,7 @@ public partial class DanhMuc_F500_DotThanhToan : System.Web.UI.Page
             load_data_2_grid();
             reset_control();
             m_cmd_tao_moi.Enabled = true;
-            m_cbo_dm_trang_thai_dot_thanh_toan.Enabled = false;
+            //m_cbo_dm_trang_thai_dot_thanh_toan.Enabled = false;
         }
         catch (Exception v_e)
         {

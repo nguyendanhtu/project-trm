@@ -126,6 +126,7 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
         m_txt_so_tien_thuc_nhan.Text = "";
         m_txt_ma_lop_mon.Text = "";
         m_txt_mo_ta.Text = "";
+        m_cbo_trang_thai_thanh_toan.SelectedIndex = 0;
     }
     private void when_cbo_dot_tt_changed()
     {
@@ -228,7 +229,16 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
         US_CM_DM_TU_DIEN v_us_cm_dm_tu_dien = new US_CM_DM_TU_DIEN(ip_dc_id_tt);
         return v_us_cm_dm_tu_dien.strMA_TU_DIEN;
     }
-    
+    private decimal get_id_trang_thai_da_len_bang_ke()
+    {
+        US_CM_DM_TU_DIEN v_us_cm_tu_dien = new US_CM_DM_TU_DIEN();
+        DS_CM_DM_TU_DIEN v_ds_tu_dien = new DS_CM_DM_TU_DIEN();
+        v_us_cm_tu_dien.FillDataset(v_ds_tu_dien, " WHERE ID_LOAI_TU_DIEN = 15 AND MA_TU_DIEN LIKE N'%DA_LEN_BANG_KE%'");
+        // Nếu ko có giá trị phù hợp, ta dùng id_trang_thai hiện tại của cbo_trang_thai_thanh_toan
+        if (v_ds_tu_dien.CM_DM_TU_DIEN.Rows.Count == 0)
+            return CIPConvert.ToDecimal(m_cbo_trang_thai_thanh_toan.SelectedValue);
+        return CIPConvert.ToDecimal(v_ds_tu_dien.CM_DM_TU_DIEN.Rows[0][CM_DM_TU_DIEN.ID]);
+    }
     // Kiểm tra xem hợp đồng có đúng là do đơn vị thanh toán đó thanh toán không???
     private bool check_hop_dong_ung_voi_dv_thanh_toan(decimal ip_dc_id_dv_thanh_toan, decimal ip_dc_id_hop_dong)
     {

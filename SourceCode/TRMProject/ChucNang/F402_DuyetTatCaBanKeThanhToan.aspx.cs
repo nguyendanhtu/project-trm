@@ -21,7 +21,9 @@ public partial class ChucNang_F402_DuyetTatCaBanKeThanhToan : System.Web.UI.Page
         {
             load_data_2_dot_tt();
             string v_str_ma_dot = m_cbo_dot_thanh_toan.SelectedValue;
-            fill_data_2_thong_tin_dot_tt(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue));
+            if (m_cbo_dot_thanh_toan.Items.Count > 0)
+                fill_data_2_thong_tin_dot_tt(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue));
+            m_cmd_duyet_tat_ca_chung_tu.Enabled = true;
          }
     }
 
@@ -110,10 +112,15 @@ public partial class ChucNang_F402_DuyetTatCaBanKeThanhToan : System.Web.UI.Page
         DS_V_DM_DOT_THANH_TOAN v_ds_dot_thanh_toan = new DS_V_DM_DOT_THANH_TOAN();
         US_V_DM_DOT_THANH_TOAN v_us_dot_thanh_toan = new US_V_DM_DOT_THANH_TOAN();
         v_us_dot_thanh_toan.FillDataset(v_ds_dot_thanh_toan, " WHERE ID_TRANG_THAI_DOT_TT = " + get_id_trang_thai_dot_tt_da_lap_dot());
-        m_cbo_dot_thanh_toan.DataTextField = V_DM_DOT_THANH_TOAN.TEN_DOT_TT;
-        m_cbo_dot_thanh_toan.DataValueField = V_DM_DOT_THANH_TOAN.ID;
-        m_cbo_dot_thanh_toan.DataSource = v_ds_dot_thanh_toan.V_DM_DOT_THANH_TOAN;
-        m_cbo_dot_thanh_toan.DataBind();
+        //m_cbo_dot_thanh_toan.DataTextField = V_DM_DOT_THANH_TOAN.TEN_DOT_TT;
+        //m_cbo_dot_thanh_toan.DataValueField = V_DM_DOT_THANH_TOAN.ID;
+        //m_cbo_dot_thanh_toan.DataSource = v_ds_dot_thanh_toan.V_DM_DOT_THANH_TOAN;
+        //m_cbo_dot_thanh_toan.DataBind();
+        for (int i = 0; i < v_ds_dot_thanh_toan.V_DM_DOT_THANH_TOAN.Rows.Count; i++)
+        {
+            if(CIPConvert.ToDecimal(v_ds_dot_thanh_toan.V_DM_DOT_THANH_TOAN.Rows[i][V_DM_DOT_THANH_TOAN.ID])!= get_id_of_dot_tt_kho())
+                m_cbo_dot_thanh_toan.Items.Add(new ListItem(CIPConvert.ToStr(v_ds_dot_thanh_toan.V_DM_DOT_THANH_TOAN.Rows[i][V_DM_DOT_THANH_TOAN.TEN_DOT_TT]),CIPConvert.ToStr(v_ds_dot_thanh_toan.V_DM_DOT_THANH_TOAN.Rows[i][V_DM_DOT_THANH_TOAN.ID])));
+        }
     }
     private decimal get_id_trang_thai_dot_tt_da_lap_dot()
     {
@@ -199,6 +206,15 @@ public partial class ChucNang_F402_DuyetTatCaBanKeThanhToan : System.Web.UI.Page
             return "Có";
         return "Không";
     }
+    private decimal get_id_of_dot_tt_kho()
+    {
+        US_V_DM_DOT_THANH_TOAN v_us_v_dm_dot_tt = new US_V_DM_DOT_THANH_TOAN();
+        DS_V_DM_DOT_THANH_TOAN v_ds_v_dm_dot_tt = new DS_V_DM_DOT_THANH_TOAN();
+        v_us_v_dm_dot_tt.FillDataset(v_ds_v_dm_dot_tt, " WHERE MA_DOT_TT LIKE '%KHO%'");
+        if (v_ds_v_dm_dot_tt.V_DM_DOT_THANH_TOAN.Rows.Count == 0)
+            return 25;
+        return CIPConvert.ToDecimal(v_ds_v_dm_dot_tt.V_DM_DOT_THANH_TOAN.Rows[0][V_DM_DOT_THANH_TOAN.ID]);
+    }
     #endregion
 
     #region Events
@@ -248,6 +264,9 @@ public partial class ChucNang_F402_DuyetTatCaBanKeThanhToan : System.Web.UI.Page
         try
         {
             fill_data_2_thong_tin_dot_tt(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue));
+            if (CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue) == get_id_of_dot_tt_kho())
+                m_cmd_duyet_tat_ca_chung_tu.Enabled = false;
+            else m_cmd_duyet_tat_ca_chung_tu.Enabled = true;
         }
         catch (Exception v_e)
         {
