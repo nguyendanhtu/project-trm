@@ -534,6 +534,12 @@ public class US_V_GD_THANH_TOAN : US_Object
         v_cstore.addDecimalInputParam("@ID_TRANG_THAI_THANH_TOAN", this.dcID_TRANG_THAI_THANH_TOAN);
         v_cstore.ExecuteCommand(this);
     }
+    public void xu_ly_xac_nhan_ngan_hang()
+    {
+        CStoredProc v_cstore = new CStoredProc("pr_V_GD_THANH_TOAN_Xac_Nhan_NganHang");
+        v_cstore.addDecimalInputParam("@ID", this.dcID);
+        v_cstore.ExecuteCommand(this);
+    }
     public void chinh_sua_chung_tu()
     {
         CStoredProc v_cstore = new CStoredProc("pr_V_GD_THANH_TOAN_Chinh_Sua_Chung_Tu");
