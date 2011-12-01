@@ -286,6 +286,50 @@ public class US_V_GD_THANH_TOAN : US_Object
         pm_objDR["DESCRIPTION"] = System.Convert.DBNull;
     }
 
+    public decimal dcDA_THANH_TOAN
+    {
+        get
+        {
+            return CNull.RowNVLDecimal(pm_objDR, "DA_THANH_TOAN", IPConstants.c_DefaultDecimal);
+        }
+        set
+        {
+            pm_objDR["DA_THANH_TOAN"] = value;
+        }
+    }
+
+    public bool IsDA_THANH_TOANNull()
+    {
+        return pm_objDR.IsNull("DA_THANH_TOAN");
+    }
+
+    public void SetDA_THANH_TOANNull()
+    {
+        pm_objDR["DA_THANH_TOAN"] = System.Convert.DBNull;
+    }
+
+    public decimal dcCON_PHAI_THANH_TOAN
+    {
+        get
+        {
+            return CNull.RowNVLDecimal(pm_objDR, "CON_PHAI_THANH_TOAN", IPConstants.c_DefaultDecimal);
+        }
+        set
+        {
+            pm_objDR["CON_PHAI_THANH_TOAN"] = value;
+        }
+    }
+
+    public bool IsCON_PHAI_THANH_TOANNull()
+    {
+        return pm_objDR.IsNull("CON_PHAI_THANH_TOAN");
+    }
+
+    public void SetCON_PHAI_THANH_TOANNull()
+    {
+        pm_objDR["CON_PHAI_THANH_TOAN"] = System.Convert.DBNull;
+    }
+
     public decimal dcTONG_TIEN_THANH_TOAN
     {
         get
