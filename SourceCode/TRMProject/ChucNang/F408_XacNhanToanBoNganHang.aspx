@@ -15,7 +15,7 @@
 		<td>
         <table cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0"> 
             <tr>
-                <td align="right" style="width:7%;">
+                <td align="right" style="width:7%;height:30px;">
 			<asp:label id="Label1" CssClass="cssManField" runat="server" 
                 Text="Đơn vị thanh toán: " /></td>
                 <td align="left" colspan="4"> &nbsp;
@@ -29,7 +29,7 @@
                 <td align="left" style="width:1%;">&nbsp;</td>
             </tr>
             <tr>
-                <td align="right" style="width:7%;">
+                <td align="right" style="width:7%;height:30px;">
 			       
 			<asp:label id="Label4" CssClass="cssManField" runat="server" 
                 Text="Đợt thanh toán " />
@@ -43,7 +43,7 @@
                          </td>
                          <td align="left" style="width:1%;"> 
                              &nbsp;</td>
-                <td align="right" style="width:7%;">
+                <td align="right" style="width:7%;height:30px;">
 			       
 			        &nbsp;</td>
                 <td align="left" colspan="3">	
@@ -52,7 +52,7 @@
                 <td align="left" style="width:1%;"></td>
             </tr>
             <tr>
-                <td align="right" style="width:7%;">
+                <td align="right" style="width:7%;height:30px;">
 			       
 			<asp:label id="Label2" Enabled="false" CssClass="cssManField" runat="server" 
                 Text="Ngày thanh toán dự kiến: " />
