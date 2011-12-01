@@ -322,7 +322,7 @@
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator2" ErrorMessage="Invalid Price" Text="*"
     ValidationGroup="complete" EnableClientScript="true" ControlToValidate="m_txt_gia_tri_hop_dong"
     ValidationExpression="^\d+(\.\d\d)?$" Display="Dynamic" runat="server"/>
-    <asp:CompareValidator runat="server" id="CompareValidator1" Operator="GreaterThan" Type="Currency"
+    <asp:CompareValidator runat="server" id="CompareValidator1" Operator="GreaterThanEqual" Type="Currency"
         Display="Dynamic" ValueToCompare="0" ControlToValidate="m_txt_gia_tri_hop_dong" ErrorMessage = "Giá trị nhập không đúng định dạng" />                         
                 </td>
                  <td align="right" style="width:5%;">
