@@ -48,7 +48,7 @@
 <tr>
 		<td class="cssPageTitleBG">
 		    <asp:label id="lblUser" runat="server" CssClass="cssPageTitle" 
-                Text="Thông tin Dự toán hợp đồng học liệu"/>
+                Text="Thông tin bảng kê hợp đồng học liệu"/>
 		</td>
 	</tr>
 	<tr>
@@ -217,11 +217,11 @@
                         </td>
                 <td align="right" style="width:5%;">
 			       
-			<asp:label id="lblMon8" CssClass="cssManField" runat="server" 
+			<asp:label id="lblMon8" CssClass="cssManField" Visible="false" runat="server" 
                 Text="Số tiền đã thanh toán (VNĐ)" />
                 </td>
                 <td align="left" style="width:10%;">    
-                    <asp:Label ID="lbl_da_tt" runat="server"></asp:Label></td> <td align="left" style="width:1%;">			       
+                    <asp:Label ID="lbl_da_tt" Text="" runat="server"></asp:Label></td> <td align="left" style="width:1%;">			       
                         &nbsp;</td>
                  <td align="right" style="width:5%;"></td>
                 <td align="left" style="width:10%;"></td>
@@ -354,14 +354,14 @@
 			        &nbsp;</td>
                 <td align="left" style="width:1%;">
 			        <asp:button id="m_cmd_luu_du_lieu" accessKey="c" CssClass="cssButton" 
-                runat="server" Width="98px" Text="Tạo dự toán" 
+                runat="server" Width="98px" Text="Tạo bảng kê" 
                         Height="24px" onclick="m_cmd_luu_du_lieu_Click"/>
                 </td>
 			   <td align="left" style="width:1%;"></td>
                  <td align="left" colspan="2">
                      <asp:Button ID="m_cmd_cap_nhat_du_toan" runat="server" accessKey="s" 
                          CssClass="cssButton" Height="24px" 
-                         Text="Cập nhật dự toán" Width="98px" onclick="m_cmd_cap_nhat_du_toan_Click" 
+                         Text="Cập nhật bảng kê" Width="98px" onclick="m_cmd_cap_nhat_du_toan_Click" 
                        />
                  </td>
                 <td align="left" style="width:1%;"></td>
@@ -380,7 +380,7 @@
     <tr>
 		<td class="cssPageTitleBG" colspan="2">
 		    <asp:label id="Label11" runat="server" CssClass="cssPageTitle" 
-                Text="Danh sách dự toán hợp đồng học liệu"/>
+                Text="Danh sách bảng kê hợp đồng học liệu"/>
 		</td>
 	</tr>	
     <tr>
@@ -420,8 +420,8 @@
                     </ItemTemplate>
                     <ItemStyle Width="3%" />
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Chi tiết dự toán">
-                    <ItemTemplate> <asp:HyperLink ToolTip="Chi tiết dự toán" ImageUrl="/TRMProject/Images/Button/detail.png" ID = "lbt_phu_luc_hop_dong" runat="server"
+                    <asp:TemplateField HeaderText="Chi tiết bảng kê">
+                    <ItemTemplate> <asp:HyperLink ToolTip="Chi tiết bảng kê" ImageUrl="/TRMProject/Images/Button/detail.png" ID = "lbt_phu_luc_hop_dong" runat="server"
                      NavigateUrl='<%# "/TRMProject/ChucNang/F603_ThanhToanChiTiet.aspx?id_gdtt="+Eval("ID") %>'></asp:HyperLink>
                     </ItemTemplate>
                     </asp:TemplateField>
@@ -429,7 +429,7 @@
                        <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
                         <ItemStyle HorizontalAlign="Center" Width="3%"></ItemStyle>
                     </asp:TemplateField>
-                    <asp:BoundField DataField="SO_PHIEU_THANH_TOAN" HeaderText="Số phiếu thanh toán">
+                    <asp:BoundField DataField="SO_PHIEU_THANH_TOAN" HeaderText="Mã đợt thanh toán">
                     <ItemStyle Width="15%" HorizontalAlign="Left" />
                     </asp:BoundField>
                      <asp:TemplateField HeaderText="Số hợp đồng" ItemStyle-HorizontalAlign="Center">
