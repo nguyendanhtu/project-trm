@@ -246,7 +246,7 @@
                     <asp:BoundField DataField="MA_DOT_TT" HeaderText="Mã đợt thanh toán" 
                         Visible="true">
                         <ItemStyle HorizontalAlign="Center" Width="17%"></ItemStyle></asp:BoundField>
-                    <asp:BoundField DataField="TEN_DOT_TT" HeaderText="Tên đợt TT" ItemStyle-Width="25%" />
+                    <asp:BoundField DataField="TEN_DOT_TT" HeaderText="Tên đợt TT" ItemStyle-Width="15%" />
                     
                     <asp:TemplateField HeaderText="Đơn vị TT" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%# mapping_don_vi_thanh_toan(CIPConvert.ToDecimal(Eval("ID_DON_VI_THANH_TOAN"))) %></ItemTemplate>
@@ -258,8 +258,10 @@
                     </asp:TemplateField>
                       <asp:BoundField DataField="NGAY_TT_DU_KIEN" HeaderText="Ngày thanh toán dự kiến" DataFormatString="{0:dd/MM/yyyy}"
                         ItemStyle-HorizontalAlign="Center" >
-                    <ItemStyle HorizontalAlign="Center" Width="12%"></ItemStyle>
+                    <ItemStyle HorizontalAlign="Center" Width="10%"></ItemStyle>
                     </asp:BoundField>
+                     <asp:BoundField DataField="GHI_CHU" HeaderText="Ghi chú" >
+                        <ItemStyle HorizontalAlign="Center" Width="17%"></ItemStyle></asp:BoundField>
                 </Columns>
                   <EditRowStyle BackColor="#7C6F57" />
                   <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
