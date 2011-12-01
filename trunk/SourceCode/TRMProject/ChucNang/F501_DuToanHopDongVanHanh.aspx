@@ -26,7 +26,7 @@
 <tr>
 		<td class="cssPageTitleBG">
 		    <asp:label id="lblUser" runat="server" CssClass="cssPageTitle" 
-                Text="Thông tin thanh toán hợp đồng vận hành"/>
+                Text="Thông tin bảng kê hợp đồng vận hành"/>
 		</td>
 	</tr>
 	<tr>
@@ -325,7 +325,7 @@
     <tr>
 		<td class="cssPageTitleBG" colspan="2">
 		    <asp:label id="Label11" runat="server" CssClass="cssPageTitle" 
-                Text="Bảng kê các khoản thanh toán hợp đồng vận hành"/>
+                Text="Danh sách bảng kê hợp đồng vận hành"/>
 		</td>
 	</tr>	
     <tr>
@@ -374,7 +374,7 @@
                        <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
                         <ItemStyle HorizontalAlign="Center" Width="3%"></ItemStyle>
                     </asp:TemplateField>
-                    <asp:BoundField DataField="SO_PHIEU_THANH_TOAN" HeaderText="Số phiếu thanh toán">
+                    <asp:BoundField DataField="SO_PHIEU_THANH_TOAN" HeaderText="Mã đợt thanh toán">
                     <ItemStyle Width="15%" HorizontalAlign="Left" />
                     </asp:BoundField>
                      <asp:TemplateField HeaderText="Số hợp đồng" ItemStyle-HorizontalAlign="Center">
