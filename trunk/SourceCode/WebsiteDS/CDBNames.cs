@@ -302,6 +302,8 @@ namespace WebDS.CDBNames
        public const string ID_MON_HOC = "ID_MON_HOC";
        public const string NGAY_THANH_TOAN = "NGAY_THANH_TOAN";
        public const string DESCRIPTION = "DESCRIPTION";
+       public const string DA_THANH_TOAN = "DA_THANH_TOAN";
+       public const string CON_PHAI_THANH_TOAN = "CON_PHAI_THANH_TOAN";
        public const string TONG_TIEN_THANH_TOAN = "TONG_TIEN_THANH_TOAN";
        public const string GIA_TRI_NGHIEM_THU_THUC_TE = "GIA_TRI_NGHIEM_THU_THUC_TE";
        public const string SO_HOP_DONG = "SO_HOP_DONG";
