@@ -285,6 +285,12 @@ public class US_V_DM_DOT_THANH_TOAN : US_Object
          v_cstore.addNVarcharInputParam("@MA_DOT_THANH_TOAN", this.strMA_DOT_TT);
          v_cstore.ExecuteCommand(this);
      }
+     public void dong_dot_thanh_toan()
+     {
+         CStoredProc v_cstore = new CStoredProc("pr_V_GD_THANH_TOAN_Dong_Dot_Thanh_Toan");
+         v_cstore.addNVarcharInputParam("@MA_DOT_THANH_TOAN", this.strMA_DOT_TT);
+         v_cstore.ExecuteCommand(this);
+     }
     #endregion
 }
 }
