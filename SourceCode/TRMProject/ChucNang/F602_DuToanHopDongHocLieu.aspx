@@ -197,7 +197,7 @@
                 <td align="left" style="width:10%;">&nbsp;</td>
             </tr>
             <tr>
-                <td align="right" style="width:5%;">
+                <td align="right" style="width:5%; height:40px;">
 			       
 			<asp:label id="lblMon7" CssClass="cssManField" runat="server" 
                 Text="Tổng giá trị nghiệm thu thực tế" />
@@ -215,33 +215,52 @@
         Display="Dynamic" ValueToCompare="0" ControlToValidate="m_txt_gia_tri_nghiem_thu_thuc_te" 
                             ErrorMessage = "Giá trị nhập không đúng định dạng" />
                         </td>
-                <td align="left" style="width:5%;">
+                <td align="right" style="width:5%;">
 			       
-			<asp:label id="lbltan_suat" CssClass="cssManField" runat="server" 
-                Text="Số tiền thanh toán(VNĐ)(*)" />
-			       
+			<asp:label id="lblMon8" CssClass="cssManField" runat="server" 
+                Text="Số tiền đã thanh toán (VNĐ)" />
                 </td>
                 <td align="left" style="width:10%;">    
-                 <asp:TextBox  ID="m_txt_so_tien_thanh_toan" CssClass="csscurrency" Width="96%" 
-                        runat="server"></asp:TextBox>  
-                        </td> <td align="left" style="width:1%;">			       
-                        <asp:RequiredFieldValidator ID="req_vali3" runat="server" 
-                         ErrorMessage="Bạn phải nhập số tiền thanh toán" Text="*" 
-                        ControlToValidate="m_txt_so_tien_thanh_toan"> </asp:RequiredFieldValidator>
-                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ErrorMessage="Invalid Price" Text="*"
-    ValidationGroup="complete" EnableClientScript="true" ControlToValidate="m_txt_so_tien_thanh_toan"
-    ValidationExpression="^\d+(\.\d\d)?$" Display="Dynamic" runat="server"/>
-    <asp:CompareValidator runat="server" id="compPrimeNumberPositive" Operator="GreaterThan" Type="Currency"
-        Display="Dynamic" ValueToCompare="0" ControlToValidate="m_txt_so_tien_thanh_toan" ErrorMessage = "Giá trị nhập không đúng định dạng" />
-                        </td>
+                    <asp:Label ID="lbl_da_tt" runat="server"></asp:Label></td> <td align="left" style="width:1%;">			       
+                        &nbsp;</td>
                  <td align="right" style="width:5%;"></td>
                 <td align="left" style="width:10%;"></td>
             </tr>
             <tr>
                 <td align="right" style="width:5%;">
 			       
+			<asp:label id="lbltan_suat" CssClass="cssManField" runat="server" 
+                Text="Số tiền thanh toán đợt này (VNĐ) (*)" />
+			       
+                </td>
+                <td align="left" style="width:10%;">    
+                 <asp:TextBox  ID="m_txt_so_tien_thanh_toan" CssClass="csscurrency" Width="96%" 
+                        runat="server"></asp:TextBox>  
+                        </td> 
+                <td align="left" style="width:1%;">			       
+                        <asp:RequiredFieldValidator ID="req_vali3" runat="server" 
+                         ErrorMessage="Bạn phải nhập số tiền thanh toán" Text="*" 
+                        ControlToValidate="m_txt_so_tien_thanh_toan"> </asp:RequiredFieldValidator>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ErrorMessage="Invalid Price" Text="*"
+    ValidationGroup="complete" EnableClientScript="true" ControlToValidate="m_txt_so_tien_thanh_toan"
+    ValidationExpression="^\d+(\.\d\d)?$" Display="Dynamic" runat="server"/>
+    <asp:CompareValidator runat="server" id="compPrimeNumberPositive" Operator="GreaterThanEqual" Type="Currency"
+        Display="Dynamic" ValueToCompare="0" ControlToValidate="m_txt_so_tien_thanh_toan" ErrorMessage = "Giá trị nhập không đúng định dạng" />
+                        </td>
+                <td align="right" style="width:5%;">
+			       
+			        &nbsp;</td>
+                <td align="left" style="width:10%;">    
+			        &nbsp;</td>
+                     <td align="left" style="width:1%;">&nbsp;</td>
+                 <td align="right" style="width:5%;">&nbsp;</td>
+                <td align="left" style="width:10%;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" style="width:5%;">
+			       
 			<asp:label id="lbltan_suat0" CssClass="cssManField" runat="server" 
-                Text="Trong đó:" Font-Underline= "true" />
+                Text="Trong đó:" Font-Underline= "true" Font-Bold="true" />
 			       
                 </td>
                 <td align="left" style="width:10%;">    
@@ -266,11 +285,14 @@
                 <asp:TextBox  ID="m_txt_so_tien_thue1" CssClass="csscurrency" Width="96%" 
                         runat="server"></asp:TextBox>
                         </td> 
-                <td align="left" style="width:1%;">			       
+                <td align="left" style="width:1%;">
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
+                         ErrorMessage="Bạn phải nhập số tiền thuế" Text="*" 
+                        ControlToValidate="m_txt_so_tien_thue1"> </asp:RequiredFieldValidator>	       
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator3" ErrorMessage="Invalid Price" Text="*"
     ValidationGroup="complete" EnableClientScript="true" ControlToValidate="m_txt_so_tien_thue1"
     ValidationExpression="^\d+(\.\d\d)?$" Display="Dynamic" runat="server"/>
-<asp:CompareValidator runat="server" id="CompareValidator2" Operator="GreaterThan" Type="Currency"
+<asp:CompareValidator runat="server" id="CompareValidator2" Operator="GreaterThanEqual" Type="Currency"
         Display="Dynamic" ValueToCompare="0" ControlToValidate="m_txt_so_tien_thue1" ErrorMessage = "Giá trị nhập không đúng định dạng" />
     </td>
                 <td align="right" style="width:5%;">
@@ -283,10 +305,13 @@
                     <asp:TextBox  ID="m_txt_so_tien_thuc_nhan" CssClass="csscurrency" Width="96%" 
                         runat="server"></asp:TextBox>
                         </td> <td align="left" style="width:1%;">&nbsp;
+                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
+                         ErrorMessage="Bạn phải nhập số tiền thực nhận" Text="*" 
+                        ControlToValidate="m_txt_so_tien_thuc_nhan"> </asp:RequiredFieldValidator>	
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator2" ErrorMessage="Invalid Price" Text="*"
     ValidationGroup="complete" EnableClientScript="true" ControlToValidate="m_txt_so_tien_thuc_nhan"
     ValidationExpression="^\d+(\.\d\d)?$" Display="Dynamic" runat="server"/>
-    <asp:CompareValidator runat="server" id="CompareValidator1" Operator="GreaterThan" Type="Currency"
+    <asp:CompareValidator runat="server" id="CompareValidator1" Operator="GreaterThanEqual" Type="Currency"
         Display="Dynamic" ValueToCompare="0" ControlToValidate="m_txt_so_tien_thuc_nhan" ErrorMessage = "Giá trị nhập không đúng định dạng" />
                 </td>
                  <td align="right" style="width:5%;">&nbsp;</td>

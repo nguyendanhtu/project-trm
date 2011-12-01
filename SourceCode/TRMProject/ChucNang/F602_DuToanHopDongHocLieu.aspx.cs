@@ -188,8 +188,10 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
         op_us_gd_thanh_toan.dcID_HOP_DONG_KHUNG = get_id_hd_khung_by_so_hd(m_txt_so_hop_dong.Text.Trim());
         op_us_gd_thanh_toan.datNGAY_THANH_TOAN = m_dat_ngay_thanh_toan.SelectedDate;
         op_us_gd_thanh_toan.dcTONG_TIEN_THANH_TOAN = CIPConvert.ToDecimal(m_txt_so_tien_thanh_toan.Text);
-        op_us_gd_thanh_toan.dcTONG_TIEN_THUC_NHAN = CIPConvert.ToDecimal(m_txt_so_tien_thuc_nhan.Text);
-        op_us_gd_thanh_toan.dcSO_TIEN_THUE = CIPConvert.ToDecimal(m_txt_so_tien_thue1.Text);
+        if (m_txt_so_tien_thuc_nhan.Text == "") op_us_gd_thanh_toan.dcTONG_TIEN_THUC_NHAN = 0;
+        else op_us_gd_thanh_toan.dcTONG_TIEN_THUC_NHAN = CIPConvert.ToDecimal(m_txt_so_tien_thuc_nhan.Text);
+        if (m_txt_so_tien_thue1.Text == "") op_us_gd_thanh_toan.dcSO_TIEN_THUE = 0;
+        else op_us_gd_thanh_toan.dcSO_TIEN_THUE = CIPConvert.ToDecimal(m_txt_so_tien_thue1.Text);
         op_us_gd_thanh_toan.dcID_TRANG_THAI_THANH_TOAN = CIPConvert.ToDecimal(m_cbo_trang_thai_thanh_toan.SelectedValue);
         op_us_gd_thanh_toan.strDESCRIPTION = m_txt_mo_ta.Text.Trim();
         if (rdl_noi_dung_list.Items[1].Selected == true)
@@ -273,7 +275,6 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
      {
  
      }
-
     // Kiểm tra xem hợp đồng có đúng là do đơn vị thanh toán đó thanh toán không???
      private bool check_hop_dong_ung_voi_dv_thanh_toan(decimal ip_dc_id_dv_thanh_toan, decimal ip_dc_id_hop_dong)
      {
@@ -286,6 +287,13 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
          US_DM_DON_VI_THANH_TOAN v_us_dm_dv_tt = new US_DM_DON_VI_THANH_TOAN(ip_dc_id_dv_thanh_toan);
          return v_us_dm_dv_tt.strTEN_DON_VI;
      }
+     private decimal get_so_tien_da_tt(decimal ip_dc_id_so_hd)
+     {
+         US_V_GD_THANH_TOAN v_us_v_gd_tt = new US_V_GD_THANH_TOAN();
+         DS_V_GD_THANH_TOAN v_ds_v_gd_tt = new DS_V_GD_THANH_TOAN();
+         v_us_v_gd_tt.FillDataset(v_ds_v_gd_tt," WHERE ID_HOP_DONG_KHUNG ="+ip_dc_id_so_hd);
+         return CIPConvert.ToDecimal(v_ds_v_gd_tt.V_GD_THANH_TOAN.Rows[0][V_GD_THANH_TOAN.DA_THANH_TOAN]);
+     }
     #endregion
 
     #region Events
@@ -294,6 +302,7 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
         try
         {
             hdf_check_click_kiem_tra_so_hd.Value = "Đã check";
+            //lbl_da_tt.Text = CIPConvert.ToStr(get_so_tien_da_tt(get_id_hd_khung_by_so_hd(m_txt_so_hop_dong.Text.Trim())),"#,###");
         }
         catch (Exception v_e)
         {
