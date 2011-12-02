@@ -144,17 +144,8 @@
                      HeaderText="Tổng giá trị (VNĐ)">
                      <ItemStyle Width="10%" HorizontalAlign="Right" />
                     </asp:BoundField>
-                     <asp:BoundField DataField="GIA_TRI_NGHIEM_THU_THUC_TE" DataFormatString="{0:N0}" 
-                     HeaderText="Giá trị nghiệm thu thực tế (VNĐ)">
-                     <ItemStyle Width="10%" HorizontalAlign="Right" />
-                    </asp:BoundField>
-                      <asp:TemplateField HeaderText="Đã thanh toán" 
-                        ItemStyle-HorizontalAlign="Center">
-                       <ItemTemplate>1</ItemTemplate>
-                        <ItemStyle HorizontalAlign="Left" Width="15%"></ItemStyle>
-                    </asp:TemplateField>
                      <asp:BoundField DataField="TONG_TIEN_THANH_TOAN" DataFormatString="{0:N0}" 
-                     HeaderText="Tổng thanh toán (VNĐ)">
+                     HeaderText="Tổng số tiền thanh toán (VNĐ)">
                      <ItemStyle Width="10%" HorizontalAlign="Right" />
                     </asp:BoundField>
                      <asp:BoundField DataField="SO_TIEN_THUE" DataFormatString="{0:N0}" 
@@ -165,10 +156,6 @@
                      HeaderText="Tổng tiền thực nhận (VNĐ)">
                      <ItemStyle Width="10%" HorizontalAlign="Right" />
                     </asp:BoundField>
-                      <asp:TemplateField HeaderText="Số tiền còn phải thanh toán" ItemStyle-HorizontalAlign="Center">
-                       <ItemTemplate>1</ItemTemplate>
-                        <ItemStyle HorizontalAlign="Left" Width="10%"></ItemStyle>
-                    </asp:TemplateField> 
                      <asp:TemplateField HeaderText="Nội dung thanh toán" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%# mapping_noi_dung_tt(CIPConvert.ToDecimal(Eval("ID")),CIPConvert.ToDecimal(Eval("ID_HOP_DONG_KHUNG")))%></ItemTemplate>
                         <ItemStyle HorizontalAlign="Left" Width="20%"></ItemStyle>

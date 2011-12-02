@@ -310,6 +310,8 @@ namespace WebDS.CDBNames
        public const string THOI_GIAN = "THOI_GIAN";
        public const string ID_DON_VI_QUAN_LY = "ID_DON_VI_QUAN_LY";
        public const string GIA_TRI_HOP_DONG = "GIA_TRI_HOP_DONG";
+       public const string PO_PHU_TRACH_CHINH = "PO_PHU_TRACH_CHINH";
+       public const string PO_PHU_TRACH_PHU = "PO_PHU_TRACH_PHU";
        public const string SO_TIEN_THUE = "SO_TIEN_THUE";
        public const string TONG_TIEN_THUC_NHAN = "TONG_TIEN_THUC_NHAN";
        public const string ID_TRANG_THAI_THANH_TOAN = "ID_TRANG_THAI_THANH_TOAN";
