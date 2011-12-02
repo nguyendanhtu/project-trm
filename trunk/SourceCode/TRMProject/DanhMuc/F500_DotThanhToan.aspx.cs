@@ -347,6 +347,5 @@ public partial class DanhMuc_F500_DotThanhToan : System.Web.UI.Page
             CSystemLog_301.ExceptionHandle(this, v_e);
         }
     }
-    #endregion
-
+    #endregion 
 }
