@@ -462,6 +462,50 @@ public class US_V_GD_THANH_TOAN : US_Object
         pm_objDR["GIA_TRI_HOP_DONG"] = System.Convert.DBNull;
     }
 
+    public string strPO_PHU_TRACH_CHINH
+    {
+        get
+        {
+            return CNull.RowNVLString(pm_objDR, "PO_PHU_TRACH_CHINH", IPConstants.c_DefaultString);
+        }
+        set
+        {
+            pm_objDR["PO_PHU_TRACH_CHINH"] = value;
+        }
+    }
+
+    public bool IsPO_PHU_TRACH_CHINHNull()
+    {
+        return pm_objDR.IsNull("PO_PHU_TRACH_CHINH");
+    }
+
+    public void SetPO_PHU_TRACH_CHINHNull()
+    {
+        pm_objDR["PO_PHU_TRACH_CHINH"] = System.Convert.DBNull;
+    }
+
+    public string strPO_PHU_TRACH_PHU
+    {
+        get
+        {
+            return CNull.RowNVLString(pm_objDR, "PO_PHU_TRACH_PHU", IPConstants.c_DefaultString);
+        }
+        set
+        {
+            pm_objDR["PO_PHU_TRACH_PHU"] = value;
+        }
+    }
+
+    public bool IsPO_PHU_TRACH_PHUNull()
+    {
+        return pm_objDR.IsNull("PO_PHU_TRACH_PHU");
+    }
+
+    public void SetPO_PHU_TRACH_PHUNull()
+    {
+        pm_objDR["PO_PHU_TRACH_PHU"] = System.Convert.DBNull;
+    }
+
     public decimal dcSO_TIEN_THUE
     {
         get
