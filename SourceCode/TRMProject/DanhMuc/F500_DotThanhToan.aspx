@@ -120,7 +120,7 @@
 		<td valign="top" >
 			
 		    <asp:DropDownList id="m_cbo_dm_trang_thai_dot_thanh_toan" runat="server" Width="30%" 
-                        CssClass="cssDorpdownlist" Enabled="False"  />
+                        CssClass="cssDorpdownlist" Enabled="False"/>
         </td>
 	</tr>	
 	<tr>
@@ -174,7 +174,7 @@
 	</tr>	
     <tr>
 		<td align="right">
-                <asp:label id="Label1" runat="server" Text="Đơn vị thanht toán" CssClass="cssManField" />
+                <asp:label id="Label1" runat="server" Text="Đơn vị thanh toán" CssClass="cssManField" />
         </td>
          <td align="left">  
 			
