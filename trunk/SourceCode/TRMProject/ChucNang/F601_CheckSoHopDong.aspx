@@ -6,7 +6,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
     <table cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0">
          <tr>
-		<td class="cssPageTitleBG" colspan="4">
+		<td class="cssPageTitleBG" colspan="3">
 		    <asp:label id="m_lbl_loc_du_lieu" runat="server" CssClass="cssPageTitle" 
                 Text="Danh sách Hợp đồng khung"/>
 		</td>
@@ -22,12 +22,18 @@
 		    &nbsp;</td>
     </tr>	
     <tr>
-		<td colspan="4">
+		<td colspan="3">
 		  
                 &nbsp;</td>
 	</tr>	
+    <tr>
+		<td colspan="3">
+		  
+                          <asp:Label ID="m_lbl_thong_bao" CssClass="cssManField" runat="server"></asp:Label>
+                </td>
+	</tr>	
 	<tr>
-		<td align="center" style="height:450px;" valign="top" colspan="4">
+		<td align="center" style="height:450px;" valign="top" colspan="3">
 		    &nbsp;
             <asp:GridView ID="m_grv_dm_danh_sach_hop_dong_khung" AllowPaging="True" 
                 runat="server" AutoGenerateColumns="False" 
