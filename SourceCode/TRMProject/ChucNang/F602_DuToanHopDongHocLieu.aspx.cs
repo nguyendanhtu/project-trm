@@ -380,40 +380,45 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
                 return;
             }
             // Nếu là thanh lý thì yêu cầu nhập nghiệm thu thực tế
-            if (!check_nhap_nghiem_thu_thuc_te())
+            if (rdl_noi_dung_list.Items[0].Selected == true)
             {
-                string soScript;
-                soScript = "<script language='javascript'>alert('Đây là lần thanh lý hợp đồng. Xin hãy nhập tổng giá trị nghiệm thu thực tế');</script>";
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "oncheck2", soScript);
-                //m_lbl_mess.Text = "";
-                return;
-            }
-            // Nếu là tạm ứng thì yêu cầu nhập đợt tạm ứng lớn hơn 1 đơn vị đợt đã tạm ứng
-            int v_i_so_lan_tam_ung = get_so_lan_tam_ung(v_dc_id_hop_dong_khung);
-            // Nếu chưa có tạm ứng
-            if (v_i_so_lan_tam_ung == 0)
-            {
-                // Nếu chưa có tạm ứng mà chọn đợt >=2
-                if (int.Parse(m_cbo_lan_so.SelectedValue) > v_i_so_lan_tam_ung + 1)
+                if (m_txt_gia_tri_nghiem_thu_thuc_te.Text.Trim().Equals(""))
                 {
                     string soScript;
-                    soScript = "<script language='javascript'>alert('Hợp đồng này chưa được tạm ứng. Chọn đợt tạm ứng là 1');</script>";
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "oncheck4", soScript);
-                    m_cbo_lan_so.SelectedValue = CIPConvert.ToStr(1);
+                    soScript = "<script language='javascript'>alert('Đây là lần thanh lý hợp đồng. Xin hãy nhập tổng giá trị nghiệm thu thực tế');</script>";
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "oncheck2", soScript);
                     return;
                 }
             }
-             // Nếu đã có tạm ứng
-            else 
+            else
             {
-                // đợt tạm ứng chọn ko phù hợp
-                if (int.Parse(m_cbo_lan_so.SelectedValue) <= v_i_so_lan_tam_ung || int.Parse(m_cbo_lan_so.SelectedValue) > v_i_so_lan_tam_ung+1)
+                // Nếu là tạm ứng thì yêu cầu nhập đợt tạm ứng lớn hơn 1 đơn vị đợt đã tạm ứng
+                int v_i_so_lan_tam_ung = get_so_lan_tam_ung(v_dc_id_hop_dong_khung);
+                // Nếu chưa có tạm ứng
+                if (v_i_so_lan_tam_ung == 0)
                 {
-                    string soScript;
-                    soScript = "<script language='javascript'>alert('Hợp đồng này đã được tạm ứng "+v_i_so_lan_tam_ung+" lần. Hãy chọn đợt tạm ứng là "+(v_i_so_lan_tam_ung+1)+"');</script>";
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "oncheck5", soScript);
-                    m_cbo_lan_so.SelectedValue = CIPConvert.ToStr(v_i_so_lan_tam_ung+1);
-                    return;
+                    // Nếu chưa có tạm ứng mà chọn đợt >=2
+                    if (int.Parse(m_cbo_lan_so.SelectedValue) > v_i_so_lan_tam_ung + 1)
+                    {
+                        string soScript;
+                        soScript = "<script language='javascript'>alert('Hợp đồng này chưa được tạm ứng. Chọn đợt tạm ứng là 1');</script>";
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "oncheck4", soScript);
+                        m_cbo_lan_so.SelectedValue = CIPConvert.ToStr(1);
+                        return;
+                    }
+                }
+                // Nếu đã có tạm ứng
+                else
+                {
+                    // đợt tạm ứng chọn ko phù hợp
+                    if (int.Parse(m_cbo_lan_so.SelectedValue) <= v_i_so_lan_tam_ung || int.Parse(m_cbo_lan_so.SelectedValue) > v_i_so_lan_tam_ung + 1)
+                    {
+                        string soScript;
+                        soScript = "<script language='javascript'>alert('Hợp đồng này đã được tạm ứng " + v_i_so_lan_tam_ung + " lần. Hãy chọn đợt tạm ứng là " + (v_i_so_lan_tam_ung + 1) + "');</script>";
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "oncheck5", soScript);
+                        m_cbo_lan_so.SelectedValue = CIPConvert.ToStr(v_i_so_lan_tam_ung + 1);
+                        return;
+                    }
                 }
             }
             if (!check_nghiem_thu_va_thanh_toan())
@@ -447,13 +452,6 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", someScript);
                 return;
             }
-            //if (hdf_check_click_kiem_tra_so_hd.Value == "")
-            //{
-            //    string someScript;
-            //    someScript = "<script language='javascript'>alert('Bạn chưa kiểm tra lại số hợp đồng. Nhấn nút Kiểm tra để thực hiện việc đó.');</script>";
-            //    Page.ClientScript.RegisterStartupScript(this.GetType(), "oncheck3", someScript);
-            //    return;
-            //}
             if (!check_exist_so_hop_dong(m_txt_so_hop_dong.Text.Trim()))
             {
                 string Script;
@@ -472,43 +470,19 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
                 //m_lbl_mess.Text = "";
                 return;
             }
+
             // Nếu là thanh lý thì yêu cầu nhập nghiệm thu thực tế
-            if (!check_nhap_nghiem_thu_thuc_te())
+            if (rdl_noi_dung_list.Items[0].Selected == true)
             {
-                string soScript;
-                soScript = "<script language='javascript'>alert('Đây là lần thanh lý hợp đồng. Xin hãy nhập tổng giá trị nghiệm thu thực tế');</script>";
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "oncheck5", soScript);
-                return;
-            }
-            // Nếu là tạm ứng thì yêu cầu nhập đợt tạm ứng lớn hơn 1 đơn vị đợt đã tạm ứng
-            int v_i_so_lan_tam_ung = get_so_lan_tam_ung(v_dc_id_hop_dong_khung);
-            // Nếu chưa có tạm ứng
-            if (v_i_so_lan_tam_ung == 0)
-            {
-                // Nếu chưa có tạm ứng mà chọn đợt >=2
-                if (int.Parse(m_cbo_lan_so.SelectedValue) > v_i_so_lan_tam_ung + 1)
+                if (m_txt_gia_tri_nghiem_thu_thuc_te.Text.Trim().Equals(""))
                 {
                     string soScript;
-                    soScript = "<script language='javascript'>alert('Hợp đồng này chưa được tạm ứng. Chọn đợt tạm ứng là 1');</script>";
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "oncheck4", soScript);
-                    m_cbo_lan_so.SelectedValue = CIPConvert.ToStr(1);
-                    return;
-                }
-            }
-            // Nếu đã có tạm ứng
-            else
-            {
-                // đợt tạm ứng chọn ko phù hợp
-                if (int.Parse(m_cbo_lan_so.SelectedValue) <= v_i_so_lan_tam_ung || int.Parse(m_cbo_lan_so.SelectedValue) > v_i_so_lan_tam_ung + 1)
-                {
-                    string soScript;
-                    soScript = "<script language='javascript'>alert('Hợp đồng này đã được tạm ứng " + v_i_so_lan_tam_ung + " lần. Hãy chọn đợt tạm ứng là " + (v_i_so_lan_tam_ung + 1) + "');</script>";
+                    soScript = "<script language='javascript'>alert('Đây là lần thanh lý hợp đồng. Xin hãy nhập tổng giá trị nghiệm thu thực tế');</script>";
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "oncheck5", soScript);
-                    m_cbo_lan_so.SelectedValue = CIPConvert.ToStr(v_i_so_lan_tam_ung + 1);
                     return;
                 }
             }
-            
+
             if (!check_nghiem_thu_va_thanh_toan())
             {
                 string soScript;
@@ -538,6 +512,7 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
             m_lbl_thong_bao.Visible = true;
             m_lbl_thong_bao.Text = "Cập nhật bản ghi thành công";
             reset_controls();
+            m_cbo_lan_so.Enabled = true;
             m_cmd_luu_du_lieu.Enabled = true;
             m_txt_so_hop_dong.Enabled = true;
             m_cmd_check_so_hd.Visible = true;
@@ -578,6 +553,7 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
             m_cmd_cap_nhat_du_toan.Enabled = true;
             load_data_2_us_by_id_and_show_on_form(e.NewSelectedIndex);
             m_cmd_check_so_hd.Visible = false;
+            m_cbo_lan_so.Enabled = false;
         }
         catch (Exception V_e)
         {
