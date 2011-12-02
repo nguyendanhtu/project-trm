@@ -26,7 +26,7 @@
     </style>
     <script type="text/javascript">
         function openPopUp() {
-            var popUrl = 'F601_CheckSoHopDong.aspx?sohd=' + document.getElementById('<%= m_txt_so_hop_dong.ClientID %>').value;
+            var popUrl = 'F601_CheckSoHopDong.aspx?loai=HL&sohd=' + document.getElementById('<%= m_txt_so_hop_dong.ClientID %>').value;
             var name = 'KiemTraSoHopDong';
             var appearence = 'dependent=yes,menubar=no,resizable=no,' +
                                           'status=no,toolbar=no,titlebar=no,' +

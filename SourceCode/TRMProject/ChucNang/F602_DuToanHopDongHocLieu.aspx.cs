@@ -253,7 +253,8 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
         US_CM_DM_TU_DIEN v_us_cm_dm_tu_dien = new US_CM_DM_TU_DIEN(ip_dc_id_tt);
         return v_us_cm_dm_tu_dien.strMA_TU_DIEN;
     }
-     private bool check_nhap_nghiem_thu_thuc_te()
+    // Kiểm tra đây có phải lập bảng kê cho thanh lý hợp đồng ko?
+    private bool check_nhap_nghiem_thu_thuc_te()
     {
          if(rdl_noi_dung_list.Items[0].Selected ==true && m_txt_gia_tri_nghiem_thu_thuc_te.Text.Trim().Equals("")) return false;
        return true;
@@ -271,9 +272,25 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
          US_V_DM_DOT_THANH_TOAN v_us_dot_tt = new US_V_DM_DOT_THANH_TOAN(ip_dc_id_dot_tt);
          return v_us_dot_tt.dcID_DON_VI_THANH_TOAN;
      }
-    private void check_so_lan_tam_ung()
+     private void check_so_lan_tam_ung()
      {
  
+     }
+    // Kiểm tra hợp đồng đã được thanh lý chưa? 
+    private bool check_thanh_ly(decimal ip_dc_id_hop_dong_khung)
+      {
+            US_V_GD_THANH_TOAN v_us_v_gd_tt = new US_V_GD_THANH_TOAN();
+            DS_V_GD_THANH_TOAN v_ds_v_gd_tt = new DS_V_GD_THANH_TOAN();
+            // lấy toàn bộ thanh toán của hợp đồng theo id_hop_dong
+            v_us_v_gd_tt.FillDataset(v_ds_v_gd_tt, " WHERE ID_HOP_DONG_KHUNG=" + ip_dc_id_hop_dong_khung + " ORDER BY ID");
+            // Nếu đã có thanh toán
+            if (v_ds_v_gd_tt.V_GD_THANH_TOAN.Rows.Count > 0)
+                // kiểm tra xem đã thanh lý chưa
+                // Sử dụng dòng cuối cùng, ứng với thanh toán cuối cùng của hd này
+                // Nếu đã thanh lý, reference_code là null
+                if (v_ds_v_gd_tt.V_GD_THANH_TOAN.Rows[v_ds_v_gd_tt.V_GD_THANH_TOAN.Rows.Count - 1][V_GD_THANH_TOAN.REFERENCE_CODE].GetType() == typeof(DBNull))
+                    return false; // Nghĩa là đã được thanh lý
+            return true; // Chưa đc thanh lý
      }
     // Kiểm tra xem hợp đồng có đúng là do đơn vị thanh toán đó thanh toán không???
      private bool check_hop_dong_ung_voi_dv_thanh_toan(decimal ip_dc_id_dv_thanh_toan, decimal ip_dc_id_hop_dong)
@@ -293,6 +310,22 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
          DS_V_GD_THANH_TOAN v_ds_v_gd_tt = new DS_V_GD_THANH_TOAN();
          v_us_v_gd_tt.FillDataset(v_ds_v_gd_tt," WHERE ID_HOP_DONG_KHUNG ="+ip_dc_id_so_hd);
          return CIPConvert.ToDecimal(v_ds_v_gd_tt.V_GD_THANH_TOAN.Rows[0][V_GD_THANH_TOAN.DA_THANH_TOAN]);
+     }
+     private int get_so_lan_tam_ung(decimal ip_dc_id_hd_khung)
+     {
+        US_V_GD_THANH_TOAN v_us_v_gd_tt = new US_V_GD_THANH_TOAN();
+        DS_V_GD_THANH_TOAN v_ds_v_gd_tt = new DS_V_GD_THANH_TOAN();
+        // lấy toàn bộ thanh toán của hợp đồng theo id_hop_dong
+        v_us_v_gd_tt.FillDataset(v_ds_v_gd_tt, " WHERE ID_HOP_DONG_KHUNG=" + ip_dc_id_hd_khung + " ORDER BY ID");
+        string v_str_so_lan_tam_ung;
+        // Nếu đã có thanh toán
+        if (v_ds_v_gd_tt.V_GD_THANH_TOAN.Rows.Count > 0)
+        {
+            v_str_so_lan_tam_ung = cut_end_string(CIPConvert.ToStr(v_ds_v_gd_tt.V_GD_THANH_TOAN.Rows[v_ds_v_gd_tt.V_GD_THANH_TOAN.Rows.Count - 1][V_GD_THANH_TOAN.REFERENCE_CODE]));
+            return int.Parse(v_str_so_lan_tam_ung);
+        }
+         // Nếu chưa có thanh toán nào --> chưa có tạm ứng
+         return 0;
      }
     #endregion
 
@@ -328,12 +361,21 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
                 //m_lbl_mess.Text = "";
                 return;
             }
+            decimal v_dc_id_hop_dong_khung = get_id_hd_khung_by_so_hd(m_txt_so_hop_dong.Text.Trim());
+            if (!check_thanh_ly(v_dc_id_hop_dong_khung))
+            {
+                string someScript;
+                someScript = "<script language='javascript'>{ alert('Hợp đồng này đã được thanh lý!'); window.close(); }</script>";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "oncheck0", someScript);
+                return;
+            }
+            // Kiểm tra đơn vị thanh toán
             decimal v_dc_id_dv_tt = get_id_don_vi_thanh_toan_by_id_dot_tt(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue));
-            if (!check_hop_dong_ung_voi_dv_thanh_toan(v_dc_id_dv_tt, get_id_hd_khung_by_so_hd(m_txt_so_hop_dong.Text.Trim())))
+            if (!check_hop_dong_ung_voi_dv_thanh_toan(v_dc_id_dv_tt, v_dc_id_hop_dong_khung))
             {
                 string Script;
                 Script = "<script language='javascript'>alert('Hợp đồng này không do "+get_ten_dv_thanh_toan(v_dc_id_dv_tt)+" thanh toán');</script>";
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "oncheck1", Script);
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "oncheck3", Script);
                 //m_lbl_mess.Text = "";
                 return;
             }
@@ -346,6 +388,34 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
                 //m_lbl_mess.Text = "";
                 return;
             }
+            // Nếu là tạm ứng thì yêu cầu nhập đợt tạm ứng lớn hơn 1 đơn vị đợt đã tạm ứng
+            int v_i_so_lan_tam_ung = get_so_lan_tam_ung(v_dc_id_hop_dong_khung);
+            // Nếu chưa có tạm ứng
+            if (v_i_so_lan_tam_ung == 0)
+            {
+                // Nếu chưa có tạm ứng mà chọn đợt >=2
+                if (int.Parse(m_cbo_lan_so.SelectedValue) > v_i_so_lan_tam_ung + 1)
+                {
+                    string soScript;
+                    soScript = "<script language='javascript'>alert('Hợp đồng này chưa được tạm ứng. Chọn đợt tạm ứng là 1');</script>";
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "oncheck4", soScript);
+                    m_cbo_lan_so.SelectedValue = CIPConvert.ToStr(1);
+                    return;
+                }
+            }
+             // Nếu đã có tạm ứng
+            else 
+            {
+                // đợt tạm ứng chọn ko phù hợp
+                if (int.Parse(m_cbo_lan_so.SelectedValue) <= v_i_so_lan_tam_ung || int.Parse(m_cbo_lan_so.SelectedValue) > v_i_so_lan_tam_ung+1)
+                {
+                    string soScript;
+                    soScript = "<script language='javascript'>alert('Hợp đồng này đã được tạm ứng "+v_i_so_lan_tam_ung+" lần. Hãy chọn đợt tạm ứng là "+(v_i_so_lan_tam_ung+1)+"');</script>";
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "oncheck5", soScript);
+                    m_cbo_lan_so.SelectedValue = CIPConvert.ToStr(v_i_so_lan_tam_ung+1);
+                    return;
+                }
+            }
             if (!check_nghiem_thu_va_thanh_toan())
             {
                 string soScript;
@@ -354,11 +424,11 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
                 //m_lbl_mess.Text = "";
                 return;
             }
-
             form_2_us_obj(m_us_v_gd_thanh_toan);
             m_us_v_gd_thanh_toan.Insert();
             load_data_2_grid(get_ma_dot_tt_by_id_dot(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue)));
             reset_controls();
+            m_lbl_thong_bao.Text = "Thêm bản ghi thành công!";
             hdf_check_click_kiem_tra_so_hd.Value = "";
         }
         catch (Exception v_e)
@@ -391,6 +461,17 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "oncheck4", Script);
                 return;
             }
+            decimal v_dc_id_hop_dong_khung = get_id_hd_khung_by_so_hd(m_txt_so_hop_dong.Text.Trim());
+            // Kiểm tra đơn vị thanh toán
+            decimal v_dc_id_dv_tt = get_id_don_vi_thanh_toan_by_id_dot_tt(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue));
+            if (!check_hop_dong_ung_voi_dv_thanh_toan(v_dc_id_dv_tt, v_dc_id_hop_dong_khung))
+            {
+                string Script;
+                Script = "<script language='javascript'>alert('Hợp đồng này không do " + get_ten_dv_thanh_toan(v_dc_id_dv_tt) + " thanh toán');</script>";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "oncheck3", Script);
+                //m_lbl_mess.Text = "";
+                return;
+            }
             // Nếu là thanh lý thì yêu cầu nhập nghiệm thu thực tế
             if (!check_nhap_nghiem_thu_thuc_te())
             {
@@ -399,13 +480,43 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "oncheck5", soScript);
                 return;
             }
-              if (!check_nghiem_thu_va_thanh_toan())
+            // Nếu là tạm ứng thì yêu cầu nhập đợt tạm ứng lớn hơn 1 đơn vị đợt đã tạm ứng
+            int v_i_so_lan_tam_ung = get_so_lan_tam_ung(v_dc_id_hop_dong_khung);
+            // Nếu chưa có tạm ứng
+            if (v_i_so_lan_tam_ung == 0)
+            {
+                // Nếu chưa có tạm ứng mà chọn đợt >=2
+                if (int.Parse(m_cbo_lan_so.SelectedValue) > v_i_so_lan_tam_ung + 1)
+                {
+                    string soScript;
+                    soScript = "<script language='javascript'>alert('Hợp đồng này chưa được tạm ứng. Chọn đợt tạm ứng là 1');</script>";
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "oncheck4", soScript);
+                    m_cbo_lan_so.SelectedValue = CIPConvert.ToStr(1);
+                    return;
+                }
+            }
+            // Nếu đã có tạm ứng
+            else
+            {
+                // đợt tạm ứng chọn ko phù hợp
+                if (int.Parse(m_cbo_lan_so.SelectedValue) <= v_i_so_lan_tam_ung || int.Parse(m_cbo_lan_so.SelectedValue) > v_i_so_lan_tam_ung + 1)
+                {
+                    string soScript;
+                    soScript = "<script language='javascript'>alert('Hợp đồng này đã được tạm ứng " + v_i_so_lan_tam_ung + " lần. Hãy chọn đợt tạm ứng là " + (v_i_so_lan_tam_ung + 1) + "');</script>";
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "oncheck5", soScript);
+                    m_cbo_lan_so.SelectedValue = CIPConvert.ToStr(v_i_so_lan_tam_ung + 1);
+                    return;
+                }
+            }
+            
+            if (!check_nghiem_thu_va_thanh_toan())
             {
                 string soScript;
                 soScript = "<script language='javascript'>alert('Giá trị nghiệm thu thực tế và tổng tiền thanh toán phải bằng nhau');</script>";
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "oncheck2", soScript);
                 return;
             }
+
             form_2_us_obj(m_us_v_gd_thanh_toan);
            
             // Nếu đây là update thông tin bảng kê, kiểm tra trạng thái mới có phù hợp không?
