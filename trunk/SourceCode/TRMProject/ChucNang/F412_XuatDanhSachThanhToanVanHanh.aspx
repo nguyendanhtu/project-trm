@@ -140,8 +140,8 @@
                        <ItemTemplate><%# Eval("TEN_NGAN_HANG")%></ItemTemplate>
                         <ItemStyle HorizontalAlign="Left" Width="15%"></ItemStyle>
                     </asp:TemplateField> 
-                       <asp:BoundField DataField="GIA_TRI_HOP_DONG" DataFormatString="{0:N0}" 
-                     HeaderText="Tổng giá trị (VNĐ)">
+                       <asp:BoundField DataField="DA_THANH_TOAN" DataFormatString="{0:N0}" 
+                     HeaderText="Tổng tiền đã thanh toán (VNĐ)">
                      <ItemStyle Width="10%" HorizontalAlign="Right" />
                     </asp:BoundField>
                      <asp:BoundField DataField="TONG_TIEN_THANH_TOAN" DataFormatString="{0:N0}" 
@@ -154,6 +154,14 @@
                     </asp:BoundField>
                      <asp:BoundField DataField="TONG_TIEN_THUC_NHAN" DataFormatString="{0:N0}" 
                      HeaderText="Tổng tiền thực nhận (VNĐ)">
+                     <ItemStyle Width="10%" HorizontalAlign="Right" />
+                    </asp:BoundField>
+                      <asp:BoundField DataField="PO_PHU_TRACH_CHINH" 
+                     HeaderText="PO phụ trách chính">
+                     <ItemStyle Width="10%" HorizontalAlign="Right" />
+                    </asp:BoundField>
+                      <asp:BoundField DataField="REFERENCE_CODE"
+                     HeaderText="Mã lớp môn">
                      <ItemStyle Width="10%" HorizontalAlign="Right" />
                     </asp:BoundField>
                      <asp:TemplateField HeaderText="Nội dung thanh toán" ItemStyle-HorizontalAlign="Center">

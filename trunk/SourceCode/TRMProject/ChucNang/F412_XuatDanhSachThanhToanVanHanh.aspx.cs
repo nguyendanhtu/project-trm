@@ -136,7 +136,7 @@ public partial class ChucNang_F412_XuatDanhSachThanhToanVanHanh : System.Web.UI.
     private void load_data_2_grid(string ip_str_ma_dot_tt)
     {
         // Số phiếu thanh toán là mã đợt thanh toán
-        m_us_v_gd_thanh_toan.FillDataset(m_v_ds_gd_thanh_toan, " WHERE SO_PHIEU_THANH_TOAN = '" + ip_str_ma_dot_tt + "'");
+        m_us_v_gd_thanh_toan.FillDataset(m_v_ds_gd_thanh_toan, " WHERE SO_PHIEU_THANH_TOAN = '" + ip_str_ma_dot_tt + "' AND LOAI_HOP_DONG='VH'");
         if (m_v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count == 0)
         {
             m_lbl_thong_bao.Visible = true;
@@ -298,14 +298,13 @@ public partial class ChucNang_F412_XuatDanhSachThanhToanVanHanh : System.Web.UI.
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + CIPConvert.ToStr(grv[V_GD_THANH_TOAN.THOI_GIAN]).Trim() + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + CIPConvert.ToStr(grv[V_GD_THANH_TOAN.SO_TAI_KHOAN]).Trim() + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + CIPConvert.ToStr(grv[V_GD_THANH_TOAN.TEN_NGAN_HANG]).Trim() + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + CIPConvert.ToStr(grv[V_GD_THANH_TOAN.GIA_TRI_HOP_DONG], "#,###").Trim() + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + CIPConvert.ToStr(grv[V_GD_THANH_TOAN.GIA_TRI_NGHIEM_THU_THUC_TE], "#,###").Trim() + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + 1 + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + CIPConvert.ToStr(grv[V_GD_THANH_TOAN.DA_THANH_TOAN], "#,###").Trim() + "</td>";          
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + CIPConvert.ToStr(grv[V_GD_THANH_TOAN.TONG_TIEN_THANH_TOAN], "#,###").Trim() + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + CIPConvert.ToStr(grv[V_GD_THANH_TOAN.SO_TIEN_THUE], "#,###").Trim() + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + CIPConvert.ToStr(grv[V_GD_THANH_TOAN.TONG_TIEN_THUC_NHAN], "#,###").Trim() + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + 1 + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + mapping_noi_dung_tt(CIPConvert.ToDecimal(grv[V_GD_THANH_TOAN.ID]), CIPConvert.ToDecimal(grv[V_GD_THANH_TOAN.ID_HOP_DONG_KHUNG])) + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + CIPConvert.ToStr(grv[V_GD_THANH_TOAN.PO_PHU_TRACH_CHINH]).Trim() + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + CIPConvert.ToStr(grv[V_GD_THANH_TOAN.REFERENCE_CODE]).Trim() + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + CIPConvert.ToStr(grv[V_GD_THANH_TOAN.DESCRIPTION]).Trim() + "</td>";
             strTable += "\n</tr>";
         }
@@ -350,14 +349,13 @@ public partial class ChucNang_F412_XuatDanhSachThanhToanVanHanh : System.Web.UI.
         strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>Thời gian thực hiện</td>";
         strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>Số tài khoản</td>";
         strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>Tên ngân hàng</td>";
-        strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>Tổng giá trị HĐ</td>";
-        strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>Tổng giá trị nghiệm thu thực tế(VNĐ)</td>";
-        strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>Đã thanh toán (VNĐ)</td>";
+        strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>Tổng tiền đã thanh toán</td>";
         strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>Tổng tiền thanh toán (VNĐ)</td>";
         strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>Số tiền thuế (VNĐ)</td>";
         strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>Tổng tiền thực nhận (VNĐ)</td>";
-        strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>Số tiền còn phải thanh toán (VNĐ)</td>";
         strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>Nội dung thanh toán</td>";
+        strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>PO quản lý chính</td>";
+        strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>Mã lớp môn</td>";
         strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>Ghi chú</td>";
         strTable += "\n</tr>";
         loadDSExprort(ref strTable);
