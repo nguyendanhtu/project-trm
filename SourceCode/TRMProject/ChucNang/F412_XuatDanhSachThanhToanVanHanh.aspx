@@ -36,7 +36,7 @@
                 <td align="right" style="width:5%;">
 			       
 			<asp:label id="lbltan_suat3" CssClass="cssManField" runat="server" 
-                Text="Trạng thái dự toán" />
+                Text="Trạng thái bảng kê" />
 			       
                 </td>
                 <td align="left" colspan="3">    
@@ -44,8 +44,8 @@
                        
                         RepeatDirection="Horizontal" Width="55%">
                         <asp:ListItem Selected="True">All</asp:ListItem>
-                        <asp:ListItem Value="DaDuyet">Đã duyệt</asp:ListItem>
-                        <asp:ListItem Value="ChuaDuyet">Chưa duyệt</asp:ListItem>
+                        <asp:ListItem Value="DaDuyet">Đã duyệt bảng kê</asp:ListItem>
+                        <asp:ListItem Value="ChuaDuyet">Chưa duyệt bảng kê</asp:ListItem>
                     </asp:RadioButtonList></td> 
                 <td align="left" style="width:10%;">    
                     &nbsp;</td> <td align="left" style="width:1%;">&nbsp;</td>
@@ -116,7 +116,7 @@
                 <Columns>
                     <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
-                        <ItemStyle HorizontalAlign="Center" Width="5%"></ItemStyle>
+                        <ItemStyle HorizontalAlign="Center" Width="2%"></ItemStyle>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Họ tên" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%# Eval("TEN_GIANG_VIEN")%></ItemTemplate>
@@ -130,46 +130,46 @@
                     <ItemStyle Width="10%" HorizontalAlign="Left" />
                     </asp:BoundField>
                       <asp:BoundField HeaderText="Thời gian thực hiện" DataField="THOI_GIAN">
-                    <ItemStyle Width="10%" HorizontalAlign="Left" />
+                    <ItemStyle Width="8%" HorizontalAlign="Left" />
                     </asp:BoundField>
                     <asp:BoundField HeaderText="Số tài khoản" DataField="SO_TAI_KHOAN">
-                    <ItemStyle Width="10%" HorizontalAlign="Left" />
+                    <ItemStyle Width="9%" HorizontalAlign="Left" />
                     </asp:BoundField>
                      <asp:TemplateField HeaderText="Tên ngân hàng" 
                         ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%# Eval("TEN_NGAN_HANG")%></ItemTemplate>
-                        <ItemStyle HorizontalAlign="Left" Width="15%"></ItemStyle>
+                        <ItemStyle HorizontalAlign="Left" Width="10%"></ItemStyle>
                     </asp:TemplateField> 
                        <asp:BoundField DataField="DA_THANH_TOAN" DataFormatString="{0:N0}" 
                      HeaderText="Tổng tiền đã thanh toán (VNĐ)">
-                     <ItemStyle Width="10%" HorizontalAlign="Right" />
+                     <ItemStyle Width="5%" HorizontalAlign="Right" />
                     </asp:BoundField>
                      <asp:BoundField DataField="TONG_TIEN_THANH_TOAN" DataFormatString="{0:N0}" 
                      HeaderText="Tổng số tiền thanh toán (VNĐ)">
-                     <ItemStyle Width="10%" HorizontalAlign="Right" />
+                     <ItemStyle Width="5%" HorizontalAlign="Right" />
                     </asp:BoundField>
                      <asp:BoundField DataField="SO_TIEN_THUE" DataFormatString="{0:N0}" 
                      HeaderText="Số tiền thuế (VNĐ)">
-                     <ItemStyle Width="10%" HorizontalAlign="Right" />
+                     <ItemStyle Width="5%" HorizontalAlign="Right" />
                     </asp:BoundField>
                      <asp:BoundField DataField="TONG_TIEN_THUC_NHAN" DataFormatString="{0:N0}" 
                      HeaderText="Tổng tiền thực nhận (VNĐ)">
-                     <ItemStyle Width="10%" HorizontalAlign="Right" />
+                     <ItemStyle Width="5%" HorizontalAlign="Right" />
                     </asp:BoundField>
                       <asp:BoundField DataField="PO_PHU_TRACH_CHINH" 
                      HeaderText="PO phụ trách chính">
-                     <ItemStyle Width="10%" HorizontalAlign="Right" />
+                     <ItemStyle Width="5%" HorizontalAlign="Right" />
                     </asp:BoundField>
                       <asp:BoundField DataField="REFERENCE_CODE"
                      HeaderText="Mã lớp môn">
-                     <ItemStyle Width="10%" HorizontalAlign="Right" />
+                     <ItemStyle Width="5%" HorizontalAlign="Right" />
                     </asp:BoundField>
                      <asp:TemplateField HeaderText="Nội dung thanh toán" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%# mapping_noi_dung_tt(CIPConvert.ToDecimal(Eval("ID")),CIPConvert.ToDecimal(Eval("ID_HOP_DONG_KHUNG")))%></ItemTemplate>
-                        <ItemStyle HorizontalAlign="Left" Width="20%"></ItemStyle>
+                        <ItemStyle HorizontalAlign="Left" Width="12%"></ItemStyle>
                     </asp:TemplateField> 
                       <asp:BoundField DataField="DESCRIPTION" HeaderText="Ghi chú">
-                     <ItemStyle Width="10%" HorizontalAlign="Left" />
+                     <ItemStyle Width="13%" HorizontalAlign="Left" />
                     </asp:BoundField>
                 </Columns>
                   <EditRowStyle BackColor="#7C6F57" />
