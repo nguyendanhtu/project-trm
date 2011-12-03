@@ -37,7 +37,7 @@
                 <td align="right" style="width:5%;">
 			       
 			<asp:label id="lbltan_suat3" CssClass="cssManField" runat="server" 
-                Text="Trạng thái dự toán" />
+                Text="Trạng thái bảng kê" />
 			       
                 </td>
                 <td align="left" colspan="3">    
@@ -45,8 +45,8 @@
                        
                         RepeatDirection="Horizontal" Width="55%">
                         <asp:ListItem Selected="True">All</asp:ListItem>
-                        <asp:ListItem Value="DaDuyet">Đã duyệt</asp:ListItem>
-                        <asp:ListItem Value="ChuaDuyet">Chưa duyệt</asp:ListItem>
+                        <asp:ListItem Value="DaDuyet">Đã duyệt bảng kê</asp:ListItem>
+                        <asp:ListItem Value="ChuaDuyet">Chưa duyệt bảng kê</asp:ListItem>
                     </asp:RadioButtonList></td> 
                 <td align="left" style="width:10%;">    
                     &nbsp;</td> <td align="left" style="width:1%;">&nbsp;</td>
