@@ -119,7 +119,7 @@
 
      <tr>
 		<td class="cssPageTitleBG" colspan="4">
-		    <asp:label id="m_lbl_loc_du_lieu" runat="server" CssClass="cssPageTitle" 
+		    <asp:label Visible="false" id="m_lbl_loc_du_lieu" runat="server" CssClass="cssPageTitle" 
                 Text="Danh sách bản kê các khoản thanh toán"/>
 		</td>
 	</tr>	
