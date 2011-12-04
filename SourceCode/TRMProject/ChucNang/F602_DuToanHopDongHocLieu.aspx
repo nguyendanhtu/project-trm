@@ -370,15 +370,16 @@
                  <td align="left" colspan="2">
                      <asp:Button ID="m_cmd_cap_nhat_du_toan" runat="server" accessKey="s" 
                          CssClass="cssButton" Height="24px" 
-                         Text="Cập nhật bảng kê" Width="98px" onclick="m_cmd_cap_nhat_du_toan_Click" 
+                         Text="Cập nhật bảng kê" Width="101px" onclick="m_cmd_cap_nhat_du_toan_Click" 
                        />
                  </td>
-                <td align="left" style="width:1%;"></td>
-                <td align="left" style="width:10%;">
+                <td align="left" style="width:1%;">
                     <asp:Button ID="m_cmd_xoa_trang" runat="server" CausesValidation="False" 
                         CssClass="cssButton" Height="25px"  Text="Xóa trắng" 
                         Width="98px" onclick="m_cmd_xoa_trang_Click" />
-                </td>  
+                </td>
+                <td align="left" style="width:10%;">
+                    &nbsp;</td>  
                   <td align="left" style="width:10%;">
                       &nbsp;</td>  
             </tr>
