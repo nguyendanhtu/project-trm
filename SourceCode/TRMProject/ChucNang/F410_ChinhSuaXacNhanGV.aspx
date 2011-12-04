@@ -8,7 +8,7 @@
 <tr>
 		<td class="cssPageTitleBG">
 		    <asp:label id="lblUser" runat="server" CssClass="cssPageTitle" 
-                Text="Thông tin Dự toán"/>
+                Text="Thông tin thanh toán"/>
 		</td>
 	</tr>
 	<tr>
@@ -265,8 +265,8 @@
 	</tr>
     <tr>
 		<td class="cssPageTitleBG" colspan="2">
-		    <asp:label id="Label11" runat="server" CssClass="cssPageTitle" 
-                Text="Danh sách dự toán"/>
+		    <asp:label id="m_lbl_danh_sach_thanh_toan" runat="server" CssClass="cssPageTitle" 
+                Text="Danh sách thanh toán"/>
 		</td>
 	</tr>	
     <tr>
