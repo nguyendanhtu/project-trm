@@ -127,8 +127,8 @@
 	</tr>
 
      <tr>
-		<td colspan="4">
-		    <asp:label id="m_lbl_loc_du_lieu" Visible="false" runat="server" CssClass="cssPageTitle" 
+		<td class="cssPageTitleBG" colspan="4">
+		    <asp:label Visible="false" id="m_lbl_loc_du_lieu" runat="server" CssClass="cssPageTitle" 
                 Text="Danh sách bản kê các khoản thanh toán"/>
 		</td>
 	</tr>	
