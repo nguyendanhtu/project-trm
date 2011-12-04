@@ -26,7 +26,7 @@
                 <td align="left" colspan="4">
               <asp:DropDownList ID="m_cbo_dot_thanh_toan" CssClass="cssDorpdownlist" Width="96%" runat="server" 
                         AutoPostBack="true" 
-                        onselectedindexchanged="m_cbo_dot_thanh_toan_SelectedIndexChanged1">
+                        onselectedindexchanged="m_cbo_dot_thanh_toan_SelectedIndexChanged">
                </asp:DropDownList>
                          </td>
                 <td align="left" style="width:10%;"></td>
@@ -127,7 +127,7 @@
 	</tr>
     <tr>
 		<td class="cssPageTitleBG" colspan="2">
-		    <asp:label id="Label11" runat="server" CssClass="cssPageTitle" 
+		    <asp:label id="m_lbl_danh_sach_thanh_toan" runat="server" CssClass="cssPageTitle" 
                 Text="Danh sách Thanh toán"/>
 		</td>
 	</tr>	
