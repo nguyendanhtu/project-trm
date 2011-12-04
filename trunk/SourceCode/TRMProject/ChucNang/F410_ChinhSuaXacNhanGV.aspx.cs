@@ -372,7 +372,7 @@ public partial class ChucNang_F410_ChinhSuaXacNhanGV : System.Web.UI.Page
     {
         try
         {
-            Response.Redirect("/TRMProject/ChucNang/F403_ChinhSuaPheDuyetChungTu.aspx", false);
+            Response.Redirect("/TRMProject/ChucNang/F410_ChinhSuaXacNhanGV.aspx", false);
             HttpContext.Current.ApplicationInstance.CompleteRequest();
         }
         catch (Exception v_e)

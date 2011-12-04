@@ -455,7 +455,7 @@ public partial class ChucNang_F413_XuLyCacChungTuTonDong : System.Web.UI.Page
     {
         try
         {
-            Response.Redirect("/TRMProject/ChucNang/F403_ChinhSuaPheDuyetChungTu.aspx", false);
+            Response.Redirect("/TRMProject/ChucNang/F413_XuLyCacChungTuTonDong.aspx", false);
             HttpContext.Current.ApplicationInstance.CompleteRequest();
         }
         catch (Exception v_e)

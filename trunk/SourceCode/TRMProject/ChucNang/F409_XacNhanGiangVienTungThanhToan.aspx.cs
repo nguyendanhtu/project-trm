@@ -446,7 +446,7 @@ public partial class ChucNang_F409_XacNhanGiangVienTungThanhToan : System.Web.UI
     {
         try
         {
-            Response.Redirect("/TRMProject/ChucNang/F403_ChinhSuaPheDuyetChungTu.aspx", false);
+            Response.Redirect("/TRMProject/ChucNang/F409_XacNhanGiangVienTungThanhToan.aspx", false);
             HttpContext.Current.ApplicationInstance.CompleteRequest();
         }
         catch (Exception v_e)
