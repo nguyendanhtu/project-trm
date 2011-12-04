@@ -7,13 +7,13 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
 <table cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0">
 	<tr>
-		<td class="cssPageTitleBG" colspan="5">
+		<td class="cssPageTitleBG" colspan="3">
 		    <asp:label id="lblUser" runat="server" CssClass="cssPageTitle" 
                 Text="Danh mục đợt thanh toán"/>
 		</td>
 	</tr>
 	<tr>
-		<td colspan="5">
+		<td colspan="3">
 		    <asp:validationsummary id="vdsCategory" runat="server" CssClass="cssManField" Font-Bold="true" />
 		   <asp:label id="m_lbl_mess" Visible="false" runat="server" CssClass="cssManField" />
 		</td>
@@ -112,6 +112,46 @@
 		</td>
         <td>&nbsp;</td>
     </tr>
+	<tr>
+		<td align="right">
+			<asp:label id="lbl_ngay_thu_chung_tu" CssClass="cssManField" runat="server" 
+                Text="&lt;U&gt;N&lt;/U&gt;gày thu chứng từ" AccessKey="T" />
+		</td>
+		<td valign="top" >
+			
+			        <ew:CalendarPopup ID="m_dat_ngay_thu_chung_tu" runat="server" 
+                        ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
+                        ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
+                        ShowGoToToday="True" Width="60%" SelectedDate="" Text="" Culture="vi-VN" 
+                        DisableTextboxEntry="False">
+                        <weekdaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <weekendstyle backcolor="LightGray" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <offmonthstyle backcolor="AntiqueWhite" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Gray" />
+                        <selecteddatestyle backcolor="Yellow" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Black" />
+                        <monthheaderstyle backcolor="Yellow" 
+                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
+                            forecolor="Black" />
+                        <DayHeaderStyle BackColor="Orange" Font-Names="Verdana,Helvetica,Tahoma,Arial" 
+                            Font-Size="XX-Small" ForeColor="Black" />
+                        <cleardatestyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <gototodaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                        <TodayDayStyle BackColor="LightGoldenrodYellow" 
+                            Font-Names="Verdana,Helvetica,Tahoma,Arial" Font-Size="XX-Small" 
+                            ForeColor="Black" />
+                        <holidaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
+                            font-size="XX-Small" forecolor="Black" />
+                    </ew:CalendarPopup>
+
+        </td>
+	</tr>	
 	<tr>
 		<td align="right">
 			<asp:label id="lbl_trang_thai_dot_tt" CssClass="cssManField" runat="server" 
@@ -220,7 +260,7 @@
 
 	</tr>
 	<tr>
-		<td align="center" colspan="5" style="height:450px;" valign="top">
+		<td align="center" colspan="3" style="height:450px;" valign="top">
 		    &nbsp;
            
               <asp:GridView ID="m_grv_dm_dot_thanh_toan" runat="server" AutoGenerateColumns="False" 
@@ -234,7 +274,7 @@
                 <Columns>
                   <asp:TemplateField HeaderText="Xóa">
                     <ItemTemplate> <asp:LinkButton ID = "lbt_delete" runat="server" Text="Xóa" 
-                     CommandName="Delete" CausesValidation="false" OnClientClick="return confirm ('Bạn có thực sự muốn xóa bản ghi này?')"></asp:LinkButton>
+                     CommandName="Delete" CausesValidation="false" OnClientClick="return confirm ('Xóa đợt thanh toán sẽ xóa toàn bộ các thanh toán trong đợt thanh toán đó. Bạn có thực sự muốn xóa đợt thanh tóan này?')"></asp:LinkButton>
                     </ItemTemplate>
                     <ItemStyle Width="3%" />
                     </asp:TemplateField>
@@ -245,18 +285,22 @@
                     </asp:TemplateField>
                     <asp:BoundField DataField="MA_DOT_TT" HeaderText="Mã đợt thanh toán" 
                         Visible="true">
-                        <ItemStyle HorizontalAlign="Center" Width="17%"></ItemStyle></asp:BoundField>
+                        <ItemStyle HorizontalAlign="Center" Width="15%"></ItemStyle></asp:BoundField>
                     <asp:BoundField DataField="TEN_DOT_TT" HeaderText="Tên đợt TT" ItemStyle-Width="15%" />
                     
                     <asp:TemplateField HeaderText="Đơn vị TT" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%# mapping_don_vi_thanh_toan(CIPConvert.ToDecimal(Eval("ID_DON_VI_THANH_TOAN"))) %></ItemTemplate>
-                        <ItemStyle HorizontalAlign="Center" Width="25%"></ItemStyle>
+                        <ItemStyle HorizontalAlign="Center" Width="20%"></ItemStyle>
                     </asp:TemplateField>
                      <asp:TemplateField HeaderText="Trạng thái đợt TT" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%# mapping_trang_thai_dot_thanh_toan(CIPConvert.ToDecimal(Eval("ID_TRANG_THAI_DOT_TT"))) %></ItemTemplate>
-                        <ItemStyle HorizontalAlign="Center" Width="11%"></ItemStyle>
+                        <ItemStyle HorizontalAlign="Center" Width="10%"></ItemStyle>
                     </asp:TemplateField>
                       <asp:BoundField DataField="NGAY_TT_DU_KIEN" HeaderText="Ngày thanh toán dự kiến" DataFormatString="{0:dd/MM/yyyy}"
+                        ItemStyle-HorizontalAlign="Center" >
+                    <ItemStyle HorizontalAlign="Center" Width="10%"></ItemStyle>
+                    </asp:BoundField>
+                    <asp:BoundField DataField="NGAY_THU_CHUNG_TU" HeaderText="Ngày thu chứng từ" DataFormatString="{0:dd/MM/yyyy}"
                         ItemStyle-HorizontalAlign="Center" >
                     <ItemStyle HorizontalAlign="Center" Width="10%"></ItemStyle>
                     </asp:BoundField>

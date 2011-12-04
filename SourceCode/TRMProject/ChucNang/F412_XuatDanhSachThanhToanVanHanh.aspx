@@ -19,30 +19,66 @@
 		<td>
         <table cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0"> 
             <tr>
-                <td align="right" style="width:14%;">			       
+                <td align="right" style="width:14%; height:35px;">			       
 			<asp:label id="lblTenGiangVien" CssClass="cssManField" runat="server" 
                 Text="Đợt thanh toán" />			       
                          </td>
                 <td align="left" colspan="4">
               <asp:DropDownList ID="m_cbo_dot_thanh_toan" CssClass="cssDorpdownlist" Width="96%" runat="server" 
                         AutoPostBack="true" 
-                        onselectedindexchanged="m_cbo_dot_thanh_toan_SelectedIndexChanged" >
+                        onselectedindexchanged="m_cbo_dot_thanh_toan_SelectedIndexChanged1">
                </asp:DropDownList>
                          </td>
                 <td align="left" style="width:10%;"></td>
                 <td align="left" style="width:1%;"></td>
             </tr>
             <tr>
-                <td align="right" style="width:5%;">
+                <td align="right" style="width:5%;height:35px;">
+			       
+			<asp:label id="Label1" CssClass="cssManField" runat="server" 
+                Text="Đơn vị thanh toán: " />
+			       
+                </td>
+                <td align="left" colspan="4">    
+			<asp:Label id="m_lbl_don_vi_thanh_toan"  runat="server" 
+                Width="96%" />
+                    </td> 
+                <td align="left" style="width:1%;">&nbsp;</td>
+                 <td align="right" style="width:5%;">&nbsp;</td>
+                <td align="left" style="width:10%;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" style="width:5%;height:35px;">
+			       
+			<asp:label id="Label2" Enabled="false" CssClass="cssManField" runat="server" 
+                Text="Ngày thanh toán dự kiến: " />
+			       
+                </td>
+                <td align="left" colspan="2">    
+			<asp:Label id="m_lbl_ngay_tt_du_kien" runat="server" />
+                         </td> 
+                <td align="right" style="width:10%;">    
+			       
+			<asp:label id="lbl_trang_thai_dot_tt" CssClass="cssManField" runat="server" 
+                Text="Trạng thái đợt thanh toán: " />
+			       
+			    </td> <td align="left" style="width:1%;">
+			
+			        <asp:label id="m_lbl_trang_thai_dot_tt" runat="server" /></td>
+                 <td align="right" style="width:5%;">&nbsp;</td>
+                <td align="left" style="width:10%;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" style="width:5%;height:35px;">
 			       
 			<asp:label id="lbltan_suat3" CssClass="cssManField" runat="server" 
                 Text="Trạng thái bảng kê" />
 			       
                 </td>
-                <td align="left" colspan="3">    
+                <td align="left" colspan="4">    
                     <asp:RadioButtonList ID="rdl_trang_thai_tt_check" runat="server" 
                        
-                        RepeatDirection="Horizontal" Width="55%">
+                        RepeatDirection="Horizontal" Width="78%">
                         <asp:ListItem Selected="True">All</asp:ListItem>
                         <asp:ListItem Value="DaDuyet">Đã duyệt bảng kê</asp:ListItem>
                         <asp:ListItem Value="ChuaDuyet">Chưa duyệt bảng kê</asp:ListItem>

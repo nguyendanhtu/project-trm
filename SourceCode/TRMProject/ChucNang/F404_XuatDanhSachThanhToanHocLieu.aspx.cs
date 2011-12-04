@@ -125,7 +125,7 @@ public partial class ChucNang_F404_XuatDanhSachThanhToanHocLieu : System.Web.UI.
     {
         DS_V_DM_DOT_THANH_TOAN v_ds_dot_thanh_toan = new DS_V_DM_DOT_THANH_TOAN();
         US_V_DM_DOT_THANH_TOAN v_us_dot_thanh_toan = new US_V_DM_DOT_THANH_TOAN();
-        v_us_dot_thanh_toan.FillDataset(v_ds_dot_thanh_toan);
+        v_us_dot_thanh_toan.FillDataset(v_ds_dot_thanh_toan, " WHERE ID_TRANG_THAI_DOT_TT= " + get_id_trang_thai_dot_tt_da_lap_bang_ke());
         m_cbo_dot_thanh_toan.DataTextField = V_DM_DOT_THANH_TOAN.TEN_DOT_TT;
         m_cbo_dot_thanh_toan.DataValueField = V_DM_DOT_THANH_TOAN.ID;
         m_cbo_dot_thanh_toan.DataSource = v_ds_dot_thanh_toan.V_DM_DOT_THANH_TOAN;
@@ -290,6 +290,14 @@ public partial class ChucNang_F404_XuatDanhSachThanhToanHocLieu : System.Web.UI.
             return CIPConvert.ToStr(0);
         return CIPConvert.ToStr(ip_obj_nghiem_thu_thuc_te, "#,###");
     }
+    private decimal get_id_trang_thai_dot_tt_da_lap_bang_ke()
+    {
+        US_CM_DM_TU_DIEN v_us_cm_tu_dien = new US_CM_DM_TU_DIEN();
+        DS_CM_DM_TU_DIEN v_ds_tu_dien = new DS_CM_DM_TU_DIEN();
+        v_us_cm_tu_dien.FillDataset(v_ds_tu_dien, " WHERE ID_LOAI_TU_DIEN = 14 AND MA_TU_DIEN LIKE N'%DA_LAP_BANG_KE%'");
+        if (v_ds_tu_dien.CM_DM_TU_DIEN.Rows.Count == 0) return 489;
+        return CIPConvert.ToDecimal(v_ds_tu_dien.CM_DM_TU_DIEN.Rows[0][CM_DM_TU_DIEN.ID]);
+    }
     #endregion
 
     #region Export Excel
@@ -327,7 +335,7 @@ public partial class ChucNang_F404_XuatDanhSachThanhToanHocLieu : System.Web.UI.
         strTable += "\n<tr>";
         strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
         strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
-        strTable += "\n<td><align='center' class='cssTableView' style='width: 100%;  height: 40px; font-size: large; color:White; background-color:#810C15;' nowrap='wrap'>F404 - DANH SÁCH THANH TOÁN " + "</td>";
+        strTable += "\n<td><align='center' class='cssTableView' style='width: 100%;  height: 40px; font-size: large; color:White; background-color:#810C15;' nowrap='wrap'>DANH SÁCH THANH TOÁN HỢP ĐỒNG HỌC LIỆU" + "</td>";
         strTable += "\n</tr>";
         //
         strTable += "\n<tr>";

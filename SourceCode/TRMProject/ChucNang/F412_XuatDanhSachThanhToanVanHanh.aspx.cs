@@ -21,6 +21,8 @@ public partial class ChucNang_F412_XuatDanhSachThanhToanVanHanh : System.Web.UI.
         {
             m_lbl_thong_bao.Text = "";
             load_data_2_cbo_dot_thanh_toan();
+            if (m_cbo_dot_thanh_toan.Items.Count > 0)
+                fill_data_2_thong_tin_dot_tt(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue));
         }
     }
 
@@ -123,11 +125,12 @@ public partial class ChucNang_F412_XuatDanhSachThanhToanVanHanh : System.Web.UI.
     #endregion
 
     #region Private Methods
+    // chỉ load những đợt thanh toán đã duyệt chứng từ, hay ở trạng thái 2
     private void load_data_2_cbo_dot_thanh_toan()
     {
         DS_V_DM_DOT_THANH_TOAN v_ds_dot_thanh_toan = new DS_V_DM_DOT_THANH_TOAN();
         US_V_DM_DOT_THANH_TOAN v_us_dot_thanh_toan = new US_V_DM_DOT_THANH_TOAN();
-        v_us_dot_thanh_toan.FillDataset(v_ds_dot_thanh_toan);
+        v_us_dot_thanh_toan.FillDataset(v_ds_dot_thanh_toan, " WHERE ID_TRANG_THAI_DOT_TT= " + get_id_trang_thai_dot_tt_da_lap_bang_ke());
         m_cbo_dot_thanh_toan.DataTextField = V_DM_DOT_THANH_TOAN.TEN_DOT_TT;
         m_cbo_dot_thanh_toan.DataValueField = V_DM_DOT_THANH_TOAN.ID;
         m_cbo_dot_thanh_toan.DataSource = v_ds_dot_thanh_toan.V_DM_DOT_THANH_TOAN;
@@ -286,6 +289,23 @@ public partial class ChucNang_F412_XuatDanhSachThanhToanVanHanh : System.Web.UI.
             return CIPConvert.ToStr(0);
         return CIPConvert.ToStr(ip_obj_nghiem_thu_thuc_te, "#,###");
     }
+    private decimal get_id_trang_thai_dot_tt_da_lap_bang_ke()
+    {
+        US_CM_DM_TU_DIEN v_us_cm_tu_dien = new US_CM_DM_TU_DIEN();
+        DS_CM_DM_TU_DIEN v_ds_tu_dien = new DS_CM_DM_TU_DIEN();
+        v_us_cm_tu_dien.FillDataset(v_ds_tu_dien, " WHERE ID_LOAI_TU_DIEN = 14 AND MA_TU_DIEN LIKE N'%DA_LAP_BANG_KE%'");
+        if (v_ds_tu_dien.CM_DM_TU_DIEN.Rows.Count == 0) return 489;
+        return CIPConvert.ToDecimal(v_ds_tu_dien.CM_DM_TU_DIEN.Rows[0][CM_DM_TU_DIEN.ID]);
+    }
+    // Thông tin đợt thanh toán
+    private void fill_data_2_thong_tin_dot_tt(decimal ip_dc_id_dot)
+    {
+        US_V_DM_DOT_THANH_TOAN v_us_dm_dot_thanh_toan = new US_V_DM_DOT_THANH_TOAN(ip_dc_id_dot);
+        m_lbl_don_vi_thanh_toan.Text = v_us_dm_dot_thanh_toan.strDON_VI_THANH_TOAN;
+        m_lbl_ngay_tt_du_kien.Text = CIPConvert.ToStr(v_us_dm_dot_thanh_toan.datNGAY_TT_DU_KIEN, "dd/MM/yyyy");
+        m_lbl_trang_thai_dot_tt.Text = v_us_dm_dot_thanh_toan.strTRANG_THAI_DOT_TT;
+        load_data_2_grid(get_ma_dot_tt_by_id_dot(ip_dc_id_dot));
+    }
     #endregion
 
     #region Export Excel
@@ -322,7 +342,7 @@ public partial class ChucNang_F412_XuatDanhSachThanhToanVanHanh : System.Web.UI.
         strTable += "\n<tr>";
         strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
         strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
-        strTable += "\n<td><align='center' class='cssTableView' style='width: 100%;  height: 40px; font-size: large; color:White; background-color:#810C15;' nowrap='wrap'>F404 - DANH SÁCH THANH TOÁN " + "</td>";
+        strTable += "\n<td><align='center' class='cssTableView' style='width: 100%;  height: 40px; font-size: large; color:White; background-color:#810C15;' nowrap='wrap'>DANH SÁCH THANH TOÁN HỢP ĐỒNG VẬN HÀNH" + "</td>";
         strTable += "\n</tr>";
         //
         strTable += "\n<tr>";
@@ -458,6 +478,17 @@ public partial class ChucNang_F412_XuatDanhSachThanhToanVanHanh : System.Web.UI.
         try
         {
             search_data_show_on_grid();
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(this, v_e);
+        }
+    }
+    protected void m_cbo_dot_thanh_toan_SelectedIndexChanged1(object sender, EventArgs e)
+    {
+        try
+        {
+            fill_data_2_thong_tin_dot_tt(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue));
         }
         catch (Exception v_e)
         {
