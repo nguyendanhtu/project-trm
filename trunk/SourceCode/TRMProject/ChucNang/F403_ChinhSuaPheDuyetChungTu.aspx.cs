@@ -307,7 +307,7 @@ public partial class ChucNang_F403_ChinhSuaPheDuyetChungTu : System.Web.UI.Page
     }
     private void disable_controls()
     {
-        m_cbo_dot_thanh_toan.Enabled = false;
+        //m_cbo_dot_thanh_toan.Enabled = false;
         m_dat_ngay_thanh_toan.Enabled = false;
         m_txt_mo_ta.Enabled = false;
         m_txt_so_hop_dong.Enabled = false;
