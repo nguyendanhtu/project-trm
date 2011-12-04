@@ -15,6 +15,15 @@
 		<td>
         <table cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0"> 
             <tr>
+                <td align="left" style="height:35px;" colspan="5">
+                          <asp:Label ID="m_lbl_thong_bao" CssClass="cssManField" runat="server"></asp:Label>
+                </td>
+                <td align="left" style="width:1%;">&nbsp;</td>
+                 <td align="right" style="width:5%;">&nbsp;</td>
+                <td align="left" style="width:10%;">&nbsp;</td>
+                <td align="left" style="width:1%;">&nbsp;</td>
+            </tr>
+            <tr>
                 <td align="right" style="width:7%; height:35px;">
 			<asp:label id="Label1" CssClass="cssManField" runat="server" 
                 Text="Đơn vị thanh toán: " /></td>
@@ -95,7 +104,7 @@
                 <td align="left" style="width:10%;"></td>
             </tr>
             <tr>
-                <td align="right" style="width:5%;">&nbsp;</td>
+                <td align="right" style="width:5%; height:40px">&nbsp;</td>
                 <td align="left" style="width:10%;">    
 			        <asp:button id="m_cmd_duyet_tat_ca_chung_tu" accessKey="c" CssClass="cssButton" 
                 runat="server" Width="98px" Text="Duyệt tất cả" 
@@ -118,8 +127,8 @@
 	</tr>
 
      <tr>
-		<td class="cssPageTitleBG" colspan="4">
-		    <asp:label id="m_lbl_loc_du_lieu" runat="server" CssClass="cssPageTitle" 
+		<td colspan="4">
+		    <asp:label id="m_lbl_loc_du_lieu" Visible="false" runat="server" CssClass="cssPageTitle" 
                 Text="Danh sách bản kê các khoản thanh toán"/>
 		</td>
 	</tr>	

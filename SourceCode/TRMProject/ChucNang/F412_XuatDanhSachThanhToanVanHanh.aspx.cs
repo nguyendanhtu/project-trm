@@ -148,6 +148,7 @@ public partial class ChucNang_F412_XuatDanhSachThanhToanVanHanh : System.Web.UI.
         else m_lbl_thong_bao.Text = "";
         m_grv_danh_sach_du_toan.DataSource = m_v_ds_gd_thanh_toan.V_GD_THANH_TOAN;
         m_grv_danh_sach_du_toan.DataBind();
+        m_lbl_danh_sach_thanh_toan.Text = "Danh sách Thanh toán: " + m_v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count + " thanh toán";
     }
     private decimal get_id_trang_thai_da_duyet()
     {
@@ -183,6 +184,7 @@ public partial class ChucNang_F412_XuatDanhSachThanhToanVanHanh : System.Web.UI.
             }
             m_grv_danh_sach_du_toan.DataSource = m_v_ds_gd_thanh_toan.V_GD_THANH_TOAN;
             m_grv_danh_sach_du_toan.DataBind();
+            m_lbl_danh_sach_thanh_toan.Text = "Danh sách Thanh toán: " + m_v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count + " thanh toán";
         }
     }
     private decimal get_id_by_so_hop_dong(string ip_str_so_hd)
@@ -477,18 +479,8 @@ public partial class ChucNang_F412_XuatDanhSachThanhToanVanHanh : System.Web.UI.
     {
         try
         {
-            search_data_show_on_grid();
-        }
-        catch (Exception v_e)
-        {
-            CSystemLog_301.ExceptionHandle(this, v_e);
-        }
-    }
-    protected void m_cbo_dot_thanh_toan_SelectedIndexChanged1(object sender, EventArgs e)
-    {
-        try
-        {
             fill_data_2_thong_tin_dot_tt(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue));
+            search_data_show_on_grid();
         }
         catch (Exception v_e)
         {
