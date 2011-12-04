@@ -131,6 +131,7 @@ public partial class ChucNang_F409_XacNhanGiangVienTungThanhToan : System.Web.UI
             }
             m_grv_danh_sach_du_toan.DataSource = m_v_ds_gd_thanh_toan.V_GD_THANH_TOAN;
             m_grv_danh_sach_du_toan.DataBind();
+            m_lbl_danh_sach_thanh_toan.Text = "Danh sách thanh toán: "+m_v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count+" thanh toán";
         }
     }  
     private void load_data_2_grid_search(string ip_str_ma_dot_tt, string ip_str_so_hd, decimal ip_dc_id_trang_thai_tt)

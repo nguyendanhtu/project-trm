@@ -124,6 +124,7 @@ public partial class ChucNang_F410_ChinhSuaXacNhanGV : System.Web.UI.Page
             }
             m_grv_danh_sach_du_toan.DataSource = v_ds_gd_thanh_toan.V_GD_THANH_TOAN;
             m_grv_danh_sach_du_toan.DataBind();
+            m_lbl_danh_sach_thanh_toan.Text = "Danh sách thanh toán: " + m_v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count + " thanh toán";
         }
     }
     private decimal get_id_by_so_hop_dong(string ip_str_so_hd)

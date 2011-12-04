@@ -130,6 +130,7 @@ public partial class ChucNang_F413_XuLyCacChungTuTonDong : System.Web.UI.Page
             }
             m_grv_danh_sach_du_toan.DataSource = m_v_ds_gd_thanh_toan.V_GD_THANH_TOAN;
             m_grv_danh_sach_du_toan.DataBind();
+            m_lbl_danh_sach_chung_tu_ton_dong.Text = "Danh sách các chứng từ tồn đọng: " + m_v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count + " chứng từ";
         }
     }
     private void load_data_2_grid_search(string ip_str_ma_dot_tt, string ip_str_so_hd, decimal ip_dc_id_trang_thai_tt)
@@ -159,6 +160,7 @@ public partial class ChucNang_F413_XuLyCacChungTuTonDong : System.Web.UI.Page
         m_grv_danh_sach_du_toan.Visible = true;
         m_grv_danh_sach_du_toan.DataSource = v_ds_gd_thanh_toan.V_GD_THANH_TOAN;
         m_grv_danh_sach_du_toan.DataBind();
+        m_lbl_danh_sach_chung_tu_ton_dong.Text = "Danh sách các chứng từ tồn đọng: " + v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count + " chứng từ";
     }
     private decimal get_id_trang_thai_dot_tt_da_lap_dot()
     {
@@ -221,6 +223,7 @@ public partial class ChucNang_F413_XuLyCacChungTuTonDong : System.Web.UI.Page
             }
             m_grv_danh_sach_du_toan.DataSource = v_ds_gd_thanh_toan.V_GD_THANH_TOAN;
             m_grv_danh_sach_du_toan.DataBind();
+            m_lbl_danh_sach_chung_tu_ton_dong.Text = "Danh sách các chứng từ tồn đọng: " + v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count + " chứng từ";   
         }
     }
     private decimal get_id_by_so_hop_dong(string ip_str_so_hd)
