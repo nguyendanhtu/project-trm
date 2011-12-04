@@ -429,6 +429,7 @@ public partial class ChucNang_F413_XuLyCacChungTuTonDong : System.Web.UI.Page
                 v_cvalidate_state.set_trang_thai();
                 if (!v_cvalidate_state.check_chuyen_trang_thai(get_ma_trang_thai_thanh_toan_by_id(m_us_v_gd_thanh_toan.dcID_TRANG_THAI_THANH_TOAN)))
                 {
+                    // TRường hợp chứng từ không được duyệt chuyển về chứng từ đã được duyệt vẫn chấp nhận được
                     string someScript;
                     someScript = "<script language='javascript'>alert('Không chuyển từ trạng thái ban đầu của thanh toán về trạng thái này được!');</script>";
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "onload2", someScript);
