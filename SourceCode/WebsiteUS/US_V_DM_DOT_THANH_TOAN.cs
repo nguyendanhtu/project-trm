@@ -105,6 +105,28 @@ public class US_V_DM_DOT_THANH_TOAN : US_Object
 		pm_objDR["NGAY_TT_DU_KIEN"] = System.Convert.DBNull;
 	}
 
+    public DateTime datNGAY_THU_CHUNG_TU
+    {
+        get
+        {
+            return CNull.RowNVLDate(pm_objDR, "NGAY_THU_CHUNG_TU", IPConstants.c_DefaultDate);
+        }
+        set
+        {
+            pm_objDR["NGAY_THU_CHUNG_TU"] = value;
+        }
+    }
+
+    public bool IsNGAY_THU_CHUNG_TUNull()
+    {
+        return pm_objDR.IsNull("NGAY_THU_CHUNG_TU");
+    }
+
+    public void SetNGAY_THU_CHUNG_TUNull()
+    {
+        pm_objDR["NGAY_THU_CHUNG_TU"] = System.Convert.DBNull;
+    }
+
 	public decimal dcID_TRANG_THAI_DOT_TT 
 	{
 		get
