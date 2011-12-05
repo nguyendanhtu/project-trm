@@ -52,6 +52,12 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
         if (v_ds_dot_tt.V_DM_DOT_THANH_TOAN.Rows.Count == 0) return "";
         return CIPConvert.ToStr(v_ds_dot_tt.V_DM_DOT_THANH_TOAN.Rows[0][V_DM_DOT_THANH_TOAN.MA_DOT_TT]);
     }
+    public string mapping_magv_by_id(decimal ip_dc_id_gv)
+    {
+        US_V_DM_GIANG_VIEN v_dm_gv = new US_V_DM_GIANG_VIEN(ip_dc_id_gv);
+        if (v_dm_gv.IsIDNull()) return "";
+        return v_dm_gv.strMA_GIANG_VIEN;
+    }
     #endregion
 
     #region Private Methods
