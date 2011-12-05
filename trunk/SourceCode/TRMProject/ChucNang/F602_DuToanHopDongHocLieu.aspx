@@ -360,18 +360,33 @@
             </tr>
             <tr>
                 <td align="right" style="width:5%;">
+			       
+			        &nbsp;</td>
+                <td align="left" colspan="3">
+                    &nbsp;</td> 
+                <td align="left" style="width:10%;">    
+                    &nbsp;</td> <td align="left" style="width:1%;">&nbsp;</td>
+                 <td align="right" style="width:5%;">&nbsp;</td>
+                <td align="left" style="width:10%;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" style="width:5%;">
 			        &nbsp;</td>
                 <td align="left" style="width:1%;">
 			        <asp:button id="m_cmd_luu_du_lieu" accessKey="c" CssClass="cssButton" 
                 runat="server" Width="98px" Text="Tạo bảng kê" 
                         Height="24px" onclick="m_cmd_luu_du_lieu_Click"/>
                 </td>
-			   <td align="left" style="width:1%;"></td>
-                 <td align="left" colspan="2">
+			   <td align="left" style="width:1%;">
                      <asp:Button ID="m_cmd_cap_nhat_du_toan" runat="server" accessKey="s" 
                          CssClass="cssButton" Height="24px" 
                          Text="Cập nhật bảng kê" Width="101px" onclick="m_cmd_cap_nhat_du_toan_Click" 
                        />
+                 </td>
+                 <td align="center" colspan="2">
+                    <asp:Button ID="m_cmd_xuat_excel" runat="server" CausesValidation="False" 
+                        CssClass="cssButton" Height="25px"  Text="Xuất Excel" 
+                        Width="98px"/>
                  </td>
                 <td align="left" style="width:1%;">
                     <asp:Button ID="m_cmd_xoa_trang" runat="server" CausesValidation="False" 
@@ -445,6 +460,10 @@
                      <asp:TemplateField HeaderText="Số hợp đồng" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%# get_so_hd_khung_by_id_hd(CIPConvert.ToDecimal(Eval("ID_HOP_DONG_KHUNG")))%></ItemTemplate>
                         <ItemStyle HorizontalAlign="Center" Width="10%"></ItemStyle>
+                    </asp:TemplateField> 
+                    <asp:TemplateField HeaderText="Mã giảng viên" ItemStyle-HorizontalAlign="Center">
+                       <ItemTemplate><%# mapping_magv_by_id(CIPConvert.ToDecimal(Eval("ID_GIANG_VIEN")))%></ItemTemplate>
+                        <ItemStyle HorizontalAlign="Left" Width="7%"></ItemStyle>
                     </asp:TemplateField> 
                     <asp:TemplateField HeaderText="Tên giảng viên" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%# Eval("TEN_GIANG_VIEN")%></ItemTemplate>

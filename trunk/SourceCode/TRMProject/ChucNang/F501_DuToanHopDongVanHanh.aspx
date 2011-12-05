@@ -310,12 +310,16 @@
                 runat="server" Width="98px" Text="Tạo bảng kê" 
                         Height="24px" onclick="m_cmd_luu_du_lieu_Click"/>
                 </td>
-			   <td align="left" style="width:1%;"></td>
-                 <td align="left" colspan="2">
+			   <td align="left" style="width:1%;">
                      <asp:Button ID="m_cmd_cap_nhat_du_toan" runat="server" accessKey="s" 
                          CssClass="cssButton" Height="24px" 
                          Text="Cập nhật bản kê" Width="98px" 
                          onclick="m_cmd_cap_nhat_du_toan_Click" />
+                 </td>
+                 <td align="center" colspan="2">
+                    <asp:Button ID="m_cmd_xuat_excel" runat="server" CausesValidation="False" 
+                        CssClass="cssButton" Height="25px"  Text="Xuất Excel" 
+                        Width="98px" onclick="m_cmd_xuat_excel_Click"/>
                  </td>
                 <td align="left" style="width:1%;">
                     <asp:Button ID="m_cmd_xoa_trang" runat="server" CausesValidation="False" 
@@ -393,6 +397,10 @@
                      <asp:BoundField DataField="REFERENCE_CODE" HeaderText="Mã lớp">
                     <ItemStyle Width="7%" HorizontalAlign="Left" />
                     </asp:BoundField>
+                    <asp:TemplateField HeaderText="Mã giảng viên" ItemStyle-HorizontalAlign="Center">
+                       <ItemTemplate><%# mapping_magv_by_id(CIPConvert.ToDecimal(Eval("ID_GIANG_VIEN")))%></ItemTemplate>
+                        <ItemStyle HorizontalAlign="Left" Width="7%"></ItemStyle>
+                    </asp:TemplateField> 
                     <asp:TemplateField HeaderText="Tên giảng viên" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%# Eval("TEN_GIANG_VIEN")%></ItemTemplate>
                         <ItemStyle HorizontalAlign="Left" Width="10%"></ItemStyle>
