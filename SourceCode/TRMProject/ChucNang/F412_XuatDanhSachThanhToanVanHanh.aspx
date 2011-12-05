@@ -154,6 +154,10 @@
                        <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
                         <ItemStyle HorizontalAlign="Center" Width="2%"></ItemStyle>
                     </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Mã giảng viên" ItemStyle-HorizontalAlign="Center">
+                       <ItemTemplate><%# mapping_magv_by_id(CIPConvert.ToDecimal(Eval("ID_GIANG_VIEN")))%></ItemTemplate>
+                        <ItemStyle HorizontalAlign="Left" Width="7%"></ItemStyle>
+                    </asp:TemplateField> 
                     <asp:TemplateField HeaderText="Họ tên" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%# Eval("TEN_GIANG_VIEN")%></ItemTemplate>
                         <ItemStyle HorizontalAlign="Left" Width="10%"></ItemStyle>
@@ -181,7 +185,7 @@
                      <ItemStyle Width="5%" HorizontalAlign="Right" />
                     </asp:BoundField>
                      <asp:BoundField DataField="TONG_TIEN_THANH_TOAN" DataFormatString="{0:N0}" 
-                     HeaderText="Tổng số tiền thanh toán (VNĐ)">
+                     HeaderText="Tổng số tiền thanh toán đợt này (VNĐ)">
                      <ItemStyle Width="5%" HorizontalAlign="Right" />
                     </asp:BoundField>
                      <asp:BoundField DataField="SO_TIEN_THUE" DataFormatString="{0:N0}" 
@@ -189,7 +193,7 @@
                      <ItemStyle Width="5%" HorizontalAlign="Right" />
                     </asp:BoundField>
                      <asp:BoundField DataField="TONG_TIEN_THUC_NHAN" DataFormatString="{0:N0}" 
-                     HeaderText="Tổng tiền thực nhận (VNĐ)">
+                     HeaderText="Tổng tiền thực nhận đợt này (VNĐ)">
                      <ItemStyle Width="5%" HorizontalAlign="Right" />
                     </asp:BoundField>
                       <asp:BoundField DataField="PO_PHU_TRACH_CHINH" 
