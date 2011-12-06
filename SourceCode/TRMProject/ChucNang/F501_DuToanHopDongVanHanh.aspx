@@ -26,7 +26,7 @@
 <tr>
 		<td class="cssPageTitleBG">
 		    <asp:label id="lblUser" runat="server" CssClass="cssPageTitle" 
-                Text="Thông tin bảng kê hợp đồng vận hành"/>
+                Text="Lên bảng kê hợp đồng vận hành"/>
 		</td>
 	</tr>
 	<tr>

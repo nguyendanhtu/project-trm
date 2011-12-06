@@ -8,7 +8,7 @@
     <tr>
 		<td class="cssPageTitleBG">
 		    <asp:label id="m_lbl_thong_tin_hd" runat="server" CssClass="cssPageTitle" 
-                Text="Thông tin Đợt thanh toán"/>
+                Text="Xác nhận toàn bộ giảng viên các thanh toán trong đợt thanh toán"/>
 		</td>
 	</tr>
     <tr>

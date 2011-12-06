@@ -8,7 +8,7 @@
 <tr>
 		<td class="cssPageTitleBG">
 		    <asp:label id="lblUser" runat="server" CssClass="cssPageTitle" 
-                Text="Thông tin chứng từ tồn đọng"/>
+                Text="Xử lý chứng từ tồn đọng"/>
 		</td>
 	</tr>
 	<tr>
