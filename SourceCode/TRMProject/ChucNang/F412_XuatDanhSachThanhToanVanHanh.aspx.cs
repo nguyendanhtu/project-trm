@@ -291,6 +291,7 @@ public partial class ChucNang_F412_XuatDanhSachThanhToanVanHanh : System.Web.UI.
     }
     private string mapping_so_tien(object ip_obj_nghiem_thu_thuc_te)
     {
+        if (ip_obj_nghiem_thu_thuc_te.GetType() == typeof(DBNull)) return "";
         if (CIPConvert.ToDecimal(ip_obj_nghiem_thu_thuc_te) == 0)
             return CIPConvert.ToStr(0);
         return CIPConvert.ToStr(ip_obj_nghiem_thu_thuc_te, "#,###");
