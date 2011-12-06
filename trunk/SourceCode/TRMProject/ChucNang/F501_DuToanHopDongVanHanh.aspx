@@ -405,13 +405,15 @@
                        <ItemTemplate><%# Eval("TEN_GIANG_VIEN")%></ItemTemplate>
                         <ItemStyle HorizontalAlign="Left" Width="10%"></ItemStyle>
                     </asp:TemplateField> 
-                     <asp:BoundField DataField="TONG_TIEN_THANH_TOAN" DataFormatString="{0:N0}" HeaderText="Tổng tiền thanh toán (VNĐ)">
+                     <asp:BoundField DataField="TONG_TIEN_THANH_TOAN" DataFormatString="{0:N0}" 
+                        HeaderText="Tổng tiền thanh toán đợt này (VNĐ)">
                      <ItemStyle Width="7%" HorizontalAlign="Center" />
                     </asp:BoundField>
                      <asp:BoundField DataField="SO_TIEN_THUE" DataFormatString="{0:N0}" HeaderText="Số tiền thuế (VNĐ)">
                      <ItemStyle Width="7%" HorizontalAlign="Center" />
                     </asp:BoundField>
-                     <asp:BoundField DataField="TONG_TIEN_THUC_NHAN" DataFormatString="{0:N0}" HeaderText="Tổng tiền thực nhận (VNĐ)">
+                     <asp:BoundField DataField="TONG_TIEN_THUC_NHAN" DataFormatString="{0:N0}" 
+                        HeaderText="Tổng tiền thực nhận đợt này (VNĐ)">
                      <ItemStyle Width="7%" HorizontalAlign="Center" />
                     </asp:BoundField>
                      <asp:BoundField DataField="NGAY_THANH_TOAN" DataFormatString="{0:dd/MM/yyyy}" HeaderText="Ngày thanh toán">
