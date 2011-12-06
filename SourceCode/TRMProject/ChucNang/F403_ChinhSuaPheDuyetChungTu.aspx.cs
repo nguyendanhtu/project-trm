@@ -183,8 +183,10 @@ public partial class ChucNang_F403_ChinhSuaPheDuyetChungTu : System.Web.UI.Page
         if (m_cbo_dot_thanh_toan.Items.Count == 0)
         {
             m_lbl_thong_bao1.Text = "Chưa có đợt thanh toán nào";
+            m_cmd_search.Enabled = false;
             return;
         }
+        m_cmd_search.Enabled = true;
         decimal v_dc_id_dot_thanh_toan = CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue);
         US_V_DM_DOT_THANH_TOAN v_us_dot_thanh_toan = new US_V_DM_DOT_THANH_TOAN(v_dc_id_dot_thanh_toan);
         m_dat_ngay_thanh_toan.SelectedDate = v_us_dot_thanh_toan.datNGAY_TT_DU_KIEN;

@@ -22,7 +22,11 @@ public partial class ChucNang_F412_XuatDanhSachThanhToanVanHanh : System.Web.UI.
             m_lbl_thong_bao.Text = "";
             load_data_2_cbo_dot_thanh_toan();
             if (m_cbo_dot_thanh_toan.Items.Count > 0)
+            {
+                m_cmd_tim_kiem.Enabled = true;
                 fill_data_2_thong_tin_dot_tt(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue));
+            }
+            else m_cmd_tim_kiem.Enabled = false;
         }
     }
 
