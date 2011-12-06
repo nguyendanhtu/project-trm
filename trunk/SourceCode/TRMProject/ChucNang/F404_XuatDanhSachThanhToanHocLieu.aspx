@@ -9,7 +9,7 @@
 <tr>
 		<td class="cssPageTitleBG">
 		    <asp:label id="lblUser" runat="server" CssClass="cssPageTitle" 
-                Text="Thông tin Thanh toán"/>
+                Text="Xuất danh sách thanh toán hợp đồng học liệu"/>
 		</td>
 	</tr>
 	<tr>
