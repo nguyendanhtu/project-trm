@@ -114,15 +114,15 @@ public partial class DanhMuc_F500_DotThanhToan : System.Web.UI.Page
         v_dc_id_don_vi_tt = CIPConvert.ToDecimal(m_cbo_dm_loai_don_vi_thanh_toan_search.SelectedValue);
         v_dc_id_trang_thai_dot_tt = CIPConvert.ToDecimal(m_cbo_dm_trang_thai_dot_thanh_toan_search.SelectedValue);
         v_dc_thang_tt = CIPConvert.ToDecimal(m_cbo_thang_thanh_toan.SelectedValue);
-        DS_V_DM_DOT_THANH_TOAN v_ds_v_dm_dot_tt = new DS_V_DM_DOT_THANH_TOAN();
-        US_V_DM_DOT_THANH_TOAN v_us_v_dm_dot_tt = new US_V_DM_DOT_THANH_TOAN();
+        //DS_V_DM_DOT_THANH_TOAN v_ds_v_dm_dot_tt = new DS_V_DM_DOT_THANH_TOAN();
+        //US_V_DM_DOT_THANH_TOAN v_us_v_dm_dot_tt = new US_V_DM_DOT_THANH_TOAN();
         // Search danh mục
-        v_us_v_dm_dot_tt.load_danh_muc_dot_tt(v_dc_thang_tt, v_dc_id_don_vi_tt, v_dc_id_trang_thai_dot_tt, v_ds_v_dm_dot_tt);
+        m_us_v_dm_dot_thanh_toan.load_danh_muc_dot_tt(v_dc_thang_tt, v_dc_id_don_vi_tt, v_dc_id_trang_thai_dot_tt, m_ds_v_dm_dot_thanh_toan);
 
-        if (v_ds_v_dm_dot_tt.V_DM_DOT_THANH_TOAN.Rows.Count == 0)
+        if (m_ds_v_dm_dot_thanh_toan.V_DM_DOT_THANH_TOAN.Rows.Count == 0)
         {
             m_lbl_thong_bao.Text = "Không có đợt thanh toán nào phù hợp";
-            m_grv_dm_dot_thanh_toan.DataSource = v_ds_v_dm_dot_tt.V_DM_DOT_THANH_TOAN;
+            m_grv_dm_dot_thanh_toan.DataSource = m_ds_v_dm_dot_thanh_toan.V_DM_DOT_THANH_TOAN;
             m_grv_dm_dot_thanh_toan.DataBind();
             m_grv_dm_dot_thanh_toan.Visible = false;
             m_lbl_thong_bao.Visible = true;
@@ -131,7 +131,7 @@ public partial class DanhMuc_F500_DotThanhToan : System.Web.UI.Page
         {
             m_lbl_thong_bao.Visible = false;
             m_grv_dm_dot_thanh_toan.Visible = true;
-            m_grv_dm_dot_thanh_toan.DataSource = v_ds_v_dm_dot_tt.V_DM_DOT_THANH_TOAN;
+            m_grv_dm_dot_thanh_toan.DataSource = m_ds_v_dm_dot_thanh_toan.V_DM_DOT_THANH_TOAN;
             m_grv_dm_dot_thanh_toan.DataBind();
         }
     }
@@ -225,7 +225,102 @@ public partial class DanhMuc_F500_DotThanhToan : System.Web.UI.Page
          v_us_v_gd_tt.FillDataset(v_ds_v_gd_tt, " WHERE SO_PHIEU_THANH_TOAN='"+ip_str_ma_dot_tt+"'");
          return v_ds_v_gd_tt.V_GD_THANH_TOAN.Rows.Count;
      }
+     private string mapping_date(object ip_obj_date)
+     {
+         if (ip_obj_date.GetType() == typeof(DBNull)) return "";
+         return CIPConvert.ToStr(ip_obj_date,"dd/MM/yyyy");
+     }
+     private string mapping_string(object ip_obj_string)
+     {
+         if (ip_obj_string.GetType() == typeof(DBNull)) return "";
+         return CIPConvert.ToStr(ip_obj_string);
+     }
     #endregion
+
+     #region Export Excel
+     private void loadDSExprort(ref string strTable)
+     {
+         int v_i_so_thu_tu = 0;
+         load_data_2_grid();
+         // Mỗi cột dữ liệu ứng với từng dòng là label
+         foreach (DataRow grv in this.m_ds_v_dm_dot_thanh_toan.V_DM_DOT_THANH_TOAN.Rows)
+         {
+             strTable += "\n<tr>";
+             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ++v_i_so_thu_tu + "</td>";
+             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + CIPConvert.ToStr(grv[V_DM_DOT_THANH_TOAN.MA_DOT_TT]).Trim() + "</td>"; // Mã đợt thanh toán
+             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + CIPConvert.ToStr(grv[V_DM_DOT_THANH_TOAN.TEN_DOT_TT]).Trim() + "</td>"; // Tên đợt thanh toán
+             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + CIPConvert.ToStr(grv[V_DM_DOT_THANH_TOAN.DON_VI_THANH_TOAN]).Trim() + "</td>"; // ĐV thanh toán
+             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + CIPConvert.ToStr(grv[V_DM_DOT_THANH_TOAN.TRANG_THAI_DOT_TT]).Trim() + "</td>"; // Trạng thái đợt thanh toán
+             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + CIPConvert.ToStr(grv[V_DM_DOT_THANH_TOAN.NGAY_TT_DU_KIEN],"dd/MM/yyyy") + "</td>";
+             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + mapping_date(grv[V_DM_DOT_THANH_TOAN.NGAY_THU_CHUNG_TU]) + "</td>";
+             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + mapping_string(grv[V_DM_DOT_THANH_TOAN.GHI_CHU])+ "</td>";
+             strTable += "\n</tr>";
+         }
+     }
+
+     private void loadTieuDe(ref string strTable)
+     {
+         // Định nghĩa table
+         strTable += "<table cellpadding='2' cellspacing='0' class='cssTableReport'>";
+         strTable += "\n<tr>";
+         strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
+         strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
+         strTable += "\n<td><align='center' class='cssTableView' style='width: 100%;  height: 40px; font-size: large; color:White; background-color:#810C15;' nowrap='wrap'>DANH SÁCH ĐỢT THANH TOÁN" + "</td>";
+         strTable += "\n</tr>";
+         strTable += "\n</table>";
+
+         //table noi dung
+         strTable += "<table cellpadding='2' cellspacing='0' class='cssTableReport'>";
+         strTable += "\n<tr>";
+         strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>STT</td>";
+         strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>Mã đợt thanh toán</td>";
+         strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>Tên đợt thanh toán</td>";
+         strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'Đơn vị TT</td>";
+         strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>Trạng thái đợt TT</td>";
+         strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>Ngày thanh toán dự kiến</td>";
+         strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>Ngày thu chứng từ</td>";
+         strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>Ghi chú</td>";
+         strTable += "\n</tr>";
+         loadDSExprort(ref strTable);
+         strTable += "\n</table>";
+     }
+
+     private string loadExport()
+     {
+         try
+         {
+             string strHTML = "<html xmlns:o='urn:schemas-microsoft-com:office:office'"
+             + "\n xmlns:x='urn:schemas-microsoft-com:office:excel'"
+             + "\n xmlns='http://www.w3.org/TR/REC-html40'>"
+             + "\n <head>"
+             + "\n <meta http-equiv=Content-Type content='text/html; charset=utf-8'>"
+             + "\n <meta name=ProgId content=Excel.Sheet>"
+             + "\n <meta name=Generator content='Microsoft Excel 11'>"
+             + "\n <link rel=File-List href='Book1_files/filelist.xml'>"
+             + "\n <style id='Book1_28091_Styles'><!--table"
+             + "\n 	{mso-displayed-decimal-separator:'\\.';"
+             + "\n 	mso-displayed-thousand-separator:'\\,';}"
+             + ".cssTitleReport"
+             + "{font-family: tahoma; font-size: 11px;font-weight:normal;border: 1px #000000 solid;text-align:left;}"
+             + ".cssTableView"
+             + "{color:#FFFFFF;background-color:#800000;font-family: tahoma,Arial,Times New Roman; font-size: 12px;font-weight:bold;border: 1px #000000 solid;}"
+             + "\n 	--></style>"
+             + "\n 	</head>"
+             + "\n 	<body><div id='Book1_28091' align=center x:publishsource='Excel'>";
+             string strTable = "";
+             loadTieuDe(ref strTable);
+             strHTML += strTable;
+             strHTML += "\n </div></body> ";
+             strHTML += "\n </html> ";
+
+             return strHTML;
+         }
+         catch
+         {
+             return "";
+         }
+     }
+     #endregion
 
     #region Events
     protected void m_grv_dm_dot_thanh_toan_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
@@ -366,5 +461,28 @@ public partial class DanhMuc_F500_DotThanhToan : System.Web.UI.Page
             CSystemLog_301.ExceptionHandle(this, v_e);
         }
     }
-    #endregion 
+    protected void m_cmd_xuat_excel_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            string html = loadExport();
+            string strNamFile = "DSDotThanhToan" + DateTime.Now.Day + "-" + DateTime.Now.Month + "-" + DateTime.Now.Year + ".xls";
+            Response.Cache.SetExpires(DateTime.Now.AddSeconds(1));
+            Response.Clear();
+            Response.AppendHeader("content-disposition", "attachment;filename=" + strNamFile);
+            Response.Charset = "UTF-8";
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            Response.ContentType = "text/csv";
+            Response.ContentType = "application/vnd.ms-excel";
+            this.EnableViewState = false;
+            Response.Write("\r\n");
+            Response.Write(html);
+            HttpContext.Current.ApplicationInstance.CompleteRequest();
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(this, v_e);
+        }
+    }
+    #endregion
 }
