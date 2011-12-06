@@ -69,19 +69,17 @@
                 Text="Số hợp đồng khung(*)" />
 			       
                 </td>
-                <td align="left" style="width:10%;">
+                <td align="left" colspan="2">
 
                 <asp:TextBox ID="m_txt_so_hop_dong" Width="96%" 
                         runat="server" CssClass="cssTextBox"></asp:TextBox>
                         </td>
-                     <td align="left" style="width:1%">
+                <td align="right" style="width:5%;">
 
 			        <asp:button id="m_cmd_check_so_hd" accessKey="c" CssClass="cssButton" 
                 runat="server" Width="98px" Text="Kiểm tra" 
                         Height="24px" onclick="m_cmd_check_so_hd_Click" CausesValidation="false"/>
                 </td>
-                <td align="right" style="width:5%;">
-			        &nbsp;</td>
                 <td align="left" style="width:10%;">
 			
 			        &nbsp;</td>
