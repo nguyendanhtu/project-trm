@@ -130,6 +130,7 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
             }
             m_grv_danh_sach_du_toan.DataSource = m_v_ds_gd_thanh_toan.V_GD_THANH_TOAN;
             m_grv_danh_sach_du_toan.DataBind();
+            m_lbl_result.Text = "Danh sách bảng kê hợp đồng học liệu: " + m_v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count+" bản ghi";
         }
     }
     private string get_ma_trang_thai_dot_tt_by_id(decimal ip_dc_id_dot_tt)
