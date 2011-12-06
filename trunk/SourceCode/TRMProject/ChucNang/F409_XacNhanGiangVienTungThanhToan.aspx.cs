@@ -237,7 +237,10 @@ public partial class ChucNang_F409_XacNhanGiangVienTungThanhToan : System.Web.UI
     private void when_cbo_dot_tt_changed()
     {
         if (m_cbo_dot_thanh_toan.Items.Count == 0)
+        {
+            m_lbl_thong_bao0.Text = "Chưa có đợt thanh toán nào";
             return;
+        }
         decimal v_dc_id_dot_thanh_toan = CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue);
         US_V_DM_DOT_THANH_TOAN v_us_dot_thanh_toan = new US_V_DM_DOT_THANH_TOAN(v_dc_id_dot_thanh_toan);
         m_dat_ngay_thanh_toan.SelectedDate = v_us_dot_thanh_toan.datNGAY_TT_DU_KIEN;

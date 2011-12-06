@@ -13,7 +13,9 @@
 	</tr>
 	<tr>
 		<td>
-		    &nbsp;</td>
+                          <asp:Label ID="m_lbl_thong_bao0" CssClass="cssManField" 
+                runat="server"></asp:Label>
+                </td>
 	</tr>
     <tr>
 		<td>
