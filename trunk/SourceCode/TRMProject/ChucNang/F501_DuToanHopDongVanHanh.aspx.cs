@@ -198,7 +198,15 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
         op_us_gd_thanh_toan.strSO_PHIEU_THANH_TOAN =get_ma_dot_tt_by_id_dot(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue));
         op_us_gd_thanh_toan.dcID_HOP_DONG_KHUNG =get_id_hd_khung_by_so_hd(m_txt_so_hop_dong.Text.Trim());
         op_us_gd_thanh_toan.strREFERENCE_CODE = m_txt_ma_lop_mon.Text.Trim();
-        op_us_gd_thanh_toan.datNGAY_THANH_TOAN = m_dat_ngay_thanh_toan.SelectedDate;
+        if (m_dat_ngay_thanh_toan.SelectedDate == CIPConvert.ToDatetime("01/01/0001", "dd/MM/yyyy"))
+        {
+            string sScript;
+            sScript = "<script language='javascript'>alert('Bạn phải nhập ngày thanh toán');</script>";
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", sScript);
+            m_dat_ngay_thanh_toan.Focus();
+            return;
+        }
+        else op_us_gd_thanh_toan.datNGAY_THANH_TOAN = m_dat_ngay_thanh_toan.SelectedDate;
         op_us_gd_thanh_toan.dcTONG_TIEN_THANH_TOAN =CIPConvert.ToDecimal(m_txt_so_tien_thanh_toan.Text);
         op_us_gd_thanh_toan.SetGIA_TRI_NGHIEM_THU_THUC_TENull();
         op_us_gd_thanh_toan.dcTONG_TIEN_THUC_NHAN =CIPConvert.ToDecimal(m_txt_so_tien_thuc_nhan.Text);
@@ -283,7 +291,11 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
         US_V_DM_DOT_THANH_TOAN v_us_dot_tt = new US_V_DM_DOT_THANH_TOAN(ip_dc_id_dot_tt);
         return v_us_dot_tt.dcID_DON_VI_THANH_TOAN;
     }
-    //private void 
+    private string mapping_string(object ip_obj_string)
+    {
+        if (ip_obj_string.GetType() == typeof(DBNull)) return "";
+        return CIPConvert.ToStr(ip_obj_string);
+    }
     #endregion
 
     #region Export Excel
@@ -304,8 +316,8 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + mapping_so_tien(grv[V_GD_THANH_TOAN.TONG_TIEN_THANH_TOAN]) + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + mapping_so_tien(grv[V_GD_THANH_TOAN.SO_TIEN_THUE]) + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + mapping_so_tien(grv[V_GD_THANH_TOAN.TONG_TIEN_THUC_NHAN]) + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + CIPConvert.ToStr(grv[V_GD_THANH_TOAN.NGAY_THANH_TOAN]).Trim() + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + CIPConvert.ToStr(grv[V_GD_THANH_TOAN.DESCRIPTION]).Trim() + "</td>";  // Mô tả, ghi chú
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + CIPConvert.ToStr(grv[V_GD_THANH_TOAN.NGAY_THANH_TOAN],"dd/MM/yyyy") + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + mapping_string(grv[V_GD_THANH_TOAN.DESCRIPTION]) + "</td>";  // Mô tả, ghi chú
             strTable += "\n</tr>";
         }
     }
