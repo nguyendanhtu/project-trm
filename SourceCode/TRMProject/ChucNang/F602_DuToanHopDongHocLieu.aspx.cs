@@ -274,6 +274,7 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
         US_CM_DM_TU_DIEN v_us_cm_tu_dien = new US_CM_DM_TU_DIEN();
         DS_CM_DM_TU_DIEN v_ds_tu_dien = new DS_CM_DM_TU_DIEN();
         v_us_cm_tu_dien.FillDataset(v_ds_tu_dien, " WHERE ID_LOAI_TU_DIEN = 14 AND MA_TU_DIEN LIKE N'%DA_LAP_DOT%'");
+        if (v_ds_tu_dien.CM_DM_TU_DIEN.Rows.Count == 0) return 503;
         return CIPConvert.ToDecimal(v_ds_tu_dien.CM_DM_TU_DIEN.Rows[0][CM_DM_TU_DIEN.ID]);
     }
     private bool check_exist_so_hop_dong(string ip_str_so_hd)

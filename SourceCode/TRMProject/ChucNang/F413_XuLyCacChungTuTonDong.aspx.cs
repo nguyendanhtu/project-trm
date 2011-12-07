@@ -167,7 +167,7 @@ public partial class ChucNang_F413_XuLyCacChungTuTonDong : System.Web.UI.Page
         US_CM_DM_TU_DIEN v_us_cm_tu_dien = new US_CM_DM_TU_DIEN();
         DS_CM_DM_TU_DIEN v_ds_tu_dien = new DS_CM_DM_TU_DIEN();
         v_us_cm_tu_dien.FillDataset(v_ds_tu_dien, " WHERE ID_LOAI_TU_DIEN = 14 AND MA_TU_DIEN LIKE N'%DA_LAP_DOT%'");
-        if (v_ds_tu_dien.CM_DM_TU_DIEN.Rows.Count == 0) return 490;
+        if (v_ds_tu_dien.CM_DM_TU_DIEN.Rows.Count == 0) return 503;
         return CIPConvert.ToDecimal(v_ds_tu_dien.CM_DM_TU_DIEN.Rows[0][CM_DM_TU_DIEN.ID]);
     }
     private decimal get_id_of_dot_tt_kho()
@@ -366,9 +366,7 @@ public partial class ChucNang_F413_XuLyCacChungTuTonDong : System.Web.UI.Page
         US_CM_DM_TU_DIEN v_us_cm_tu_dien = new US_CM_DM_TU_DIEN();
         DS_CM_DM_TU_DIEN v_ds_tu_dien = new DS_CM_DM_TU_DIEN();
         v_us_cm_tu_dien.FillDataset(v_ds_tu_dien, " WHERE ID_LOAI_TU_DIEN = 14 AND MA_TU_DIEN LIKE N'%DA_THANH_TOAN%'");
-        // Nếu ko có giá trị phù hợp, ta dùng id_trang_thai hiện tại của cbo_trang_thai_thanh_toan
-        if (v_ds_tu_dien.CM_DM_TU_DIEN.Rows.Count == 0)
-            return CIPConvert.ToDecimal(m_cbo_trang_thai_thanh_toan.SelectedValue);
+        if (v_ds_tu_dien.CM_DM_TU_DIEN.Rows.Count == 0) return 505;
         return CIPConvert.ToDecimal(v_ds_tu_dien.CM_DM_TU_DIEN.Rows[0][CM_DM_TU_DIEN.ID]);
     }
     private decimal get_id_trang_thai_chua_co_xac_nhan_cua_giang_vien()
@@ -376,9 +374,7 @@ public partial class ChucNang_F413_XuLyCacChungTuTonDong : System.Web.UI.Page
         US_CM_DM_TU_DIEN v_us_cm_tu_dien = new US_CM_DM_TU_DIEN();
         DS_CM_DM_TU_DIEN v_ds_tu_dien = new DS_CM_DM_TU_DIEN();
         v_us_cm_tu_dien.FillDataset(v_ds_tu_dien, " WHERE ID_LOAI_TU_DIEN = 15 AND MA_TU_DIEN LIKE N'%CHUA_CO_XAC_NHAN_CUA_GIANG_VIEN%'");
-        // Nếu ko có giá trị phù hợp, ta dùng id_trang_thai hiện tại của cbo_trang_thai_thanh_toan
-        if (v_ds_tu_dien.CM_DM_TU_DIEN.Rows.Count == 0)
-            return CIPConvert.ToDecimal(m_cbo_trang_thai_thanh_toan.SelectedValue);
+        if (v_ds_tu_dien.CM_DM_TU_DIEN.Rows.Count == 0) return 516;
         return CIPConvert.ToDecimal(v_ds_tu_dien.CM_DM_TU_DIEN.Rows[0][CM_DM_TU_DIEN.ID]);
     }
     private string get_ma_trang_thai_thanh_toan_by_id(decimal ip_dc_id_tt)
