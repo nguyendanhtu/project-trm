@@ -25,6 +25,7 @@ public partial class ChucNang_F605_CheckMaLopMon : System.Web.UI.Page
             {
                 v_str_so_hd = CIPConvert.ToStr(Request.QueryString["sohd"]);
                 v_str_ma_lop_mon = CIPConvert.ToStr(Request.QueryString["malop"]);
+               // Kiểm tra bỏ trống
                 if (v_str_so_hd.Equals(""))
                 {
                     string someScript;
@@ -40,11 +41,22 @@ public partial class ChucNang_F605_CheckMaLopMon : System.Web.UI.Page
                     return;
                 }
 
+                // Check tồn tại
+                if (!check_exist_ma_mon(v_str_ma_lop_mon))
+                {
+                    string script;
+                    script = "<script language='javascript'>alert('Lớp môn này không tồn tại trong hệ thống')</script>";
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "oncheckmalop", script);
+                    return;
+                }
+                // Hiển thị lên labels
                 m_lbl_so_hd.Text = v_str_so_hd;
                 m_lbl_ma_lop_mon.Text= v_str_ma_lop_mon;
 
-                kiem_tra_toan_bo_thanh_toan_ung_hop_dong(get_id_hd_khung_by_so_hd(v_str_so_hd));
-                // Đoạn này đã lấy được số hợp đồng, search và đổ lên lưới
+                // Kiểm tra hợp đồng khung và lớp môn là 1 cặp
+                kiem_tra_toan_bo_thanh_toan_ung_hop_dong(get_id_hd_khung_by_so_hd(v_str_so_hd), v_str_ma_lop_mon);
+                
+                // Đoạn này đã lấy được số hợp đồng, mã lớp môn, search và đổ lên lưới (lịch sử thanh toán của hợp đồng ứng với mã lớp môn này)
                 load_data_2_grid(v_str_so_hd, v_str_ma_lop_mon);
             }
 
@@ -60,7 +72,7 @@ public partial class ChucNang_F605_CheckMaLopMon : System.Web.UI.Page
     {
         return ip_str_string.Substring(ip_str_string.Trim().Length - 1, 1);
     }
-    private void load_data_2_grid(string ip_str_ma_hop_dong, string ip_str_loai_hd)
+    private void load_data_2_grid(string ip_str_ma_hop_dong, string ip_str_ma_lop_mon)
     {
         US_V_DM_HOP_DONG_KHUNG v_us_hop_dong_khung = new US_V_DM_HOP_DONG_KHUNG();
         DS_V_DM_HOP_DONG_KHUNG v_ds_hop_dong_khung = new DS_V_DM_HOP_DONG_KHUNG();
@@ -73,34 +85,7 @@ public partial class ChucNang_F605_CheckMaLopMon : System.Web.UI.Page
             Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", someScript);
             return;
         }
-        // Kiểm tra lập bảng kê HĐ nào thì nhập hợp đồng loại đó
-        // Nếu đây là lập bảng kê cho hợp đồng vận hành
-        if (ip_str_loai_hd.Equals("VH"))
-        {
-            // nhưng số hợp đồng nhập vào lại của hợp đồng học liệu
-            if (CIPConvert.ToStr(v_ds_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows[0][V_DM_HOP_DONG_KHUNG.HOC_LIEU_YN]).Equals("Y"))
-            {
-                m_lbl_thong_bao.Text = "";
-                string someScript;
-                someScript = "<script language='javascript'>{ alert('Ta đang dự toán cho hợp đồng vận hành. Hợp đồng nhập vào là hợp đông học liệu'); window.close(); }</script>";
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", someScript);
-                return;
-            }
-        }
-        // Nếu là HĐ học liệu
-        else
-        {
-            // nhưng số hợp đồng nhập vào lại của hợp đồng vận hành
-            if (CIPConvert.ToStr(v_ds_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows[0][V_DM_HOP_DONG_KHUNG.VAN_HANH_YN]).Equals("Y"))
-            {
-                m_lbl_thong_bao.Text = "";
-                string someScript;
-                someScript = "<script language='javascript'>{ alert('Ta đang dự toán cho hợp đồng học liệu. Hợp đồng nhập vào là hợp đông vận hành'); window.close(); }</script>";
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", someScript);
-                return;
-            }
-        }
-
+        
         m_grv_dm_danh_sach_hop_dong_khung.DataSource = v_ds_hop_dong_khung.V_DM_HOP_DONG_KHUNG;
         m_grv_dm_danh_sach_hop_dong_khung.DataBind();
     }
@@ -112,7 +97,8 @@ public partial class ChucNang_F605_CheckMaLopMon : System.Web.UI.Page
         if (v_ds_hd_khung.V_DM_HOP_DONG_KHUNG.Rows.Count == 0) return 0;
         return CIPConvert.ToDecimal(v_ds_hd_khung.V_DM_HOP_DONG_KHUNG.Rows[0][V_DM_HOP_DONG_KHUNG.ID]);
     }
-    private void kiem_tra_toan_bo_thanh_toan_ung_hop_dong(decimal ip_dc_id_hop_dong_khung)
+    // Hàm này kiểm tra
+    private void kiem_tra_toan_bo_thanh_toan_ung_hop_dong(decimal ip_dc_id_hop_dong_khung, string ip_str_ma_lop_mon)
     {
         US_V_GD_THANH_TOAN v_us_v_gd_tt = new US_V_GD_THANH_TOAN();
         DS_V_GD_THANH_TOAN v_ds_v_gd_tt = new DS_V_GD_THANH_TOAN();
@@ -140,6 +126,15 @@ public partial class ChucNang_F605_CheckMaLopMon : System.Web.UI.Page
                 m_lbl_thong_bao.Text = "Hợp đồng này đã được tạm ứng " + v_str_so_lan_tam_ung + " lần. Số tiền đã thanh toán là: " + CIPConvert.ToStr(v_dc_so_tien_da_tt, "#,###");
             }
         // Nếu số dòng ==0 nghĩa là chưa có thanh toán nào, ko thực hiện gì
+    }
+    private bool check_exist_ma_mon(string ip_str_ma_lop_mon)
+    {
+        US_GD_LOP_MON v_us_gd_lop_mon = new US_GD_LOP_MON();
+        DS_GD_LOP_MON v_ds_gd_lop_mon = new DS_GD_LOP_MON();
+        v_us_gd_lop_mon.FillDataset(v_ds_gd_lop_mon, " WHERE MA_LOP_MON='" + ip_str_ma_lop_mon + "'");
+        if (v_ds_gd_lop_mon.GD_LOP_MON.Rows.Count == 0)
+            return false; // Nghĩa là không tồn tại lớp môn đó
+        return true; // Nghĩa là tồn tại lớp môn đó
     }
     #endregion
 
