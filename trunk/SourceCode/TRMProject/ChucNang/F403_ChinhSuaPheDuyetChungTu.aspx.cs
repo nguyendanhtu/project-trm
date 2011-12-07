@@ -86,7 +86,7 @@ public partial class ChucNang_F403_ChinhSuaPheDuyetChungTu : System.Web.UI.Page
     {
         DS_V_DM_DOT_THANH_TOAN v_ds_dot_thanh_toan = new DS_V_DM_DOT_THANH_TOAN();
         US_V_DM_DOT_THANH_TOAN v_us_dot_thanh_toan = new US_V_DM_DOT_THANH_TOAN();
-        v_us_dot_thanh_toan.FillDataset(v_ds_dot_thanh_toan, " WHERE ID_TRANG_THAI_DOT_TT=" + get_id_trang_thai_da_duoc_duyet());
+        v_us_dot_thanh_toan.FillDataset(v_ds_dot_thanh_toan, " WHERE ID_TRANG_THAI_DOT_TT=" + get_id_trang_thai_dot_thanh_toan_da_duoc_duyet());
         m_cbo_dot_thanh_toan.DataTextField = V_DM_DOT_THANH_TOAN.TEN_DOT_TT;
         m_cbo_dot_thanh_toan.DataValueField = V_DM_DOT_THANH_TOAN.ID;
         m_cbo_dot_thanh_toan.DataSource = v_ds_dot_thanh_toan.V_DM_DOT_THANH_TOAN;
@@ -285,14 +285,13 @@ public partial class ChucNang_F403_ChinhSuaPheDuyetChungTu : System.Web.UI.Page
         // Load lại dữ liệu
         load_data_2_grid(get_ma_dot_tt_by_id_dot(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue)));
     }
-    private decimal get_id_trang_thai_da_duoc_duyet()
+    private decimal get_id_trang_thai_dot_thanh_toan_da_duoc_duyet()
     {
         US_CM_DM_TU_DIEN v_us_cm_tu_dien = new US_CM_DM_TU_DIEN();
         DS_CM_DM_TU_DIEN v_ds_tu_dien = new DS_CM_DM_TU_DIEN();
         v_us_cm_tu_dien.FillDataset(v_ds_tu_dien, " WHERE ID_LOAI_TU_DIEN = 14 AND MA_TU_DIEN LIKE N'%DA_LAP_BANG_KE_XONG%'");
         // Nếu ko có giá trị phù hợp, ta dùng id_trang_thai hiện tại của cbo_trang_thai_thanh_toan
-        if (v_ds_tu_dien.CM_DM_TU_DIEN.Rows.Count == 0)
-            return CIPConvert.ToDecimal(m_cbo_trang_thai_thanh_toan.SelectedValue);
+        if (v_ds_tu_dien.CM_DM_TU_DIEN.Rows.Count == 0) return 504;
         return CIPConvert.ToDecimal(v_ds_tu_dien.CM_DM_TU_DIEN.Rows[0][CM_DM_TU_DIEN.ID]);
     }
     private decimal get_id_trang_thai_chua_duyet_chung_tu()

@@ -121,7 +121,7 @@ public partial class ChucNang_F406_XacNhanToanBoGiangVien : System.Web.UI.Page
         US_CM_DM_TU_DIEN v_us_cm_tu_dien = new US_CM_DM_TU_DIEN();
         DS_CM_DM_TU_DIEN v_ds_tu_dien = new DS_CM_DM_TU_DIEN();
         v_us_cm_tu_dien.FillDataset(v_ds_tu_dien, " WHERE ID_LOAI_TU_DIEN = 14 AND MA_TU_DIEN LIKE N'%DA_LAP_DOT%'");
-        if (v_ds_tu_dien.CM_DM_TU_DIEN.Rows.Count == 0) return 487;
+        if (v_ds_tu_dien.CM_DM_TU_DIEN.Rows.Count == 0) return 503;
         return CIPConvert.ToDecimal(v_ds_tu_dien.CM_DM_TU_DIEN.Rows[0][CM_DM_TU_DIEN.ID]);
     }
 
@@ -130,7 +130,7 @@ public partial class ChucNang_F406_XacNhanToanBoGiangVien : System.Web.UI.Page
         US_CM_DM_TU_DIEN v_us_cm_tu_dien = new US_CM_DM_TU_DIEN();
         DS_CM_DM_TU_DIEN v_ds_tu_dien = new DS_CM_DM_TU_DIEN();
         v_us_cm_tu_dien.FillDataset(v_ds_tu_dien, " WHERE ID_LOAI_TU_DIEN = 14 AND MA_TU_DIEN LIKE N'%DA_LAP_BANG_KE%'");
-        if (v_ds_tu_dien.CM_DM_TU_DIEN.Rows.Count == 0) return 489;
+        if (v_ds_tu_dien.CM_DM_TU_DIEN.Rows.Count == 0) return 504;
         return CIPConvert.ToDecimal(v_ds_tu_dien.CM_DM_TU_DIEN.Rows[0][CM_DM_TU_DIEN.ID]);
     }
     private decimal get_id_trang_thai_dot_tt_da_thanh_toan()
@@ -138,7 +138,7 @@ public partial class ChucNang_F406_XacNhanToanBoGiangVien : System.Web.UI.Page
         US_CM_DM_TU_DIEN v_us_cm_tu_dien = new US_CM_DM_TU_DIEN();
         DS_CM_DM_TU_DIEN v_ds_tu_dien = new DS_CM_DM_TU_DIEN();
         v_us_cm_tu_dien.FillDataset(v_ds_tu_dien, " WHERE ID_LOAI_TU_DIEN = 14 AND MA_TU_DIEN LIKE N'%DA_THANH_TOAN%'");
-        if (v_ds_tu_dien.CM_DM_TU_DIEN.Rows.Count == 0) return 490;
+        if (v_ds_tu_dien.CM_DM_TU_DIEN.Rows.Count == 0) return 505;
         return CIPConvert.ToDecimal(v_ds_tu_dien.CM_DM_TU_DIEN.Rows[0][CM_DM_TU_DIEN.ID]);
     }
     /// <summary>
