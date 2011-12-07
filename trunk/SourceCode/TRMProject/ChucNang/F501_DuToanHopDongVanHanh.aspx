@@ -12,12 +12,14 @@
              var openWindow = window.open(popUrl, name, appearence);
              openWindow.focus();
          }
-         function check_fill() {
-             var str_so_hd = document.getElementById('<%= m_txt_so_hop_dong.ClientID %>').value;
-             if (str_so_hd == "") {
-                 alert("Bạn chưa nhập số hợp đồng");
-                 return;
-             }
+         function openPopUpMaLopMon() {
+             var popUrl = 'F605_CheckMaLopMon.aspx?malop=' + document.getElementById('<%= m_txt_ma_lop_mon.ClientID%>').value + '&sohd=' + document.getElementById('<%= m_txt_so_hop_dong.ClientID %>').value;
+             var name = 'KiemTraSoHopDong';
+             var appearence = 'dependent=yes,menubar=no,resizable=no,' +
+                                          'status=no,toolbar=no,titlebar=no,' +
+                                          'left=5,top=280,width=990px,height=540px';
+             var openWindow = window.open(popUrl, name, appearence);
+             openWindow.focus();
          }
     </script>
 </asp:Content>

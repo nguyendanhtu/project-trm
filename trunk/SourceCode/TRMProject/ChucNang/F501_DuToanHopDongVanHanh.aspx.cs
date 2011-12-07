@@ -26,6 +26,7 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
             when_cbo_dot_tt_changed();
         }
         m_cmd_check_so_hd.Attributes.Add("onclick", "openPopUp()");
+        m_cmd_check_ma_lop_mon.Attributes.Add("onclick", "openPopUpMaLopMon()");
     }
 
     #region Members
@@ -633,12 +634,6 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
         {
             hdf_check_click_kiem_tra_lop_mon.Value = "Đã check";
             string script;
-            if (m_txt_ma_lop_mon.Text == "")
-            {
-                script = "<script language='javascript'>alert('Bạn chưa nhập mã lớp môn!')</script>";
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "checknull", script);
-                return;
-            }
             if (!check_exist_ma_mon(m_txt_ma_lop_mon.Text.Trim()))
             {
                 script = "<script language='javascript'>alert('Lớp môn này không tồn tại trong hệ thống')</script>";
