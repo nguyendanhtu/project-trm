@@ -23,9 +23,15 @@ public partial class ChucNang_F402_DuyetTatCaBanKeThanhToan : System.Web.UI.Page
             load_data_2_dot_tt();
             string v_str_ma_dot = m_cbo_dot_thanh_toan.SelectedValue;
             if (m_cbo_dot_thanh_toan.Items.Count > 0)
+            {
                 fill_data_2_thong_tin_dot_tt(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue));
-            else m_lbl_thong_bao.Text = "Chưa có đợt thanh toán nào !";
-            m_cmd_duyet_tat_ca_chung_tu.Enabled = true;
+                m_cmd_duyet_tat_ca_chung_tu.Enabled = true;
+            }
+            else
+            {
+                m_lbl_thong_bao.Text = "Chưa có đợt thanh toán nào !";
+                m_cmd_duyet_tat_ca_chung_tu.Enabled = false;
+            }
          }
     }
 
