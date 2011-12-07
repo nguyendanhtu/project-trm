@@ -77,7 +77,7 @@
                 <td align="right" style="width:5%;">
 
 			        <asp:button id="m_cmd_check_so_hd" accessKey="c" CssClass="cssButton" 
-                runat="server" Width="98px" Text="Kiểm tra" 
+                runat="server" Width="98px" Text="Kiểm tra HĐ" 
                         Height="24px" onclick="m_cmd_check_so_hd_Click" CausesValidation="false"/>
                 </td>
                 <td align="left" style="width:10%;">
@@ -109,8 +109,9 @@
                          ErrorMessage="Bạn phải nhập mã lớp môn" Text="*" 
                         ControlToValidate="m_txt_ma_lop_mon"> </asp:RequiredFieldValidator>
 			        <asp:button id="m_cmd_check_ma_lop_mon" accessKey="c" CssClass="cssButton" 
-                runat="server" Width="98px" Text="Kiểm tra" 
-                        Height="24px" Visible="false"  CausesValidation="false"/>
+                runat="server" Width="98px" Text="Kiểm tra LM" 
+                        Height="24px"  CausesValidation="false" 
+                            onclick="m_cmd_check_ma_lop_mon_Click"/>
                 </td>
                 <td align="right" style="width:9%;">
 			       
@@ -345,6 +346,7 @@
                 <asp:HiddenField ID="hdf_id_gv" runat="server" />
                 <asp:HiddenField ID="hdf_id_trang_thai_thanh_toan_cu" runat="server" />
                 <asp:HiddenField ID="hdf_check_click_kiem_tra_so_hd" runat="server" />
+                <asp:HiddenField ID="hdf_check_click_kiem_tra_lop_mon" runat="server" />
         </td>
         <td >
 		    &nbsp;</td>

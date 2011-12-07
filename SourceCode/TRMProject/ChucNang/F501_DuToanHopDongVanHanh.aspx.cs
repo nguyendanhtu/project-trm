@@ -296,6 +296,31 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
         if (ip_obj_string.GetType() == typeof(DBNull)) return "";
         return CIPConvert.ToStr(ip_obj_string);
     }
+    private bool check_exist_ma_mon(string ip_str_ma_lop_mon)
+    {
+        US_GD_LOP_MON v_us_gd_lop_mon = new US_GD_LOP_MON();
+        DS_GD_LOP_MON v_ds_gd_lop_mon = new DS_GD_LOP_MON();
+        v_us_gd_lop_mon.FillDataset(v_ds_gd_lop_mon, " WHERE MA_LOP_MON='" + ip_str_ma_lop_mon + "'");
+        if (v_ds_gd_lop_mon.GD_LOP_MON.Rows.Count == 0)
+            return false; // Nghĩa là không tồn tại lớp môn đó
+        return true; // Nghĩa là tồn tại lớp môn đó
+    }
+    // Kiểm tra hợp đồng đã được thanh lý chưa? 
+    private bool check_thanh_ly(decimal ip_dc_id_hop_dong_khung)
+    {
+        US_V_GD_THANH_TOAN v_us_v_gd_tt = new US_V_GD_THANH_TOAN();
+        DS_V_GD_THANH_TOAN v_ds_v_gd_tt = new DS_V_GD_THANH_TOAN();
+        // lấy toàn bộ thanh toán của hợp đồng theo id_hop_dong
+        v_us_v_gd_tt.FillDataset(v_ds_v_gd_tt, " WHERE ID_HOP_DONG_KHUNG=" + ip_dc_id_hop_dong_khung + " ORDER BY ID");
+        // Nếu đã có thanh toán
+        if (v_ds_v_gd_tt.V_GD_THANH_TOAN.Rows.Count > 0)
+            // kiểm tra xem đã thanh lý chưa
+            // Sử dụng dòng cuối cùng, ứng với thanh toán cuối cùng của hd này
+            // Nếu đã thanh lý, reference_code là null
+            if (v_ds_v_gd_tt.V_GD_THANH_TOAN.Rows[v_ds_v_gd_tt.V_GD_THANH_TOAN.Rows.Count - 1][V_GD_THANH_TOAN.REFERENCE_CODE].GetType() == typeof(DBNull))
+                return false; // Nghĩa là đã được thanh lý
+        return true; // Chưa đc thanh lý
+    }
     #endregion
 
     #region Export Excel
@@ -414,7 +439,14 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
             if (hdf_check_click_kiem_tra_so_hd.Value == null)
             {
                 string someScript;
-                someScript = "<script language='javascript'>alert('Bạn chưa kiểm tra lại số hợp đồng. Nhấn nút Kiểm tra để thực hiện việc đó.');</script>";
+                someScript = "<script language='javascript'>alert('Bạn chưa kiểm tra lại số hợp đồng. Nhấn nút Kiểm tra HĐ để thực hiện việc đó.');</script>";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", someScript);
+                return;
+            }
+            if (hdf_check_click_kiem_tra_lop_mon.Value == null)
+            {
+                string someScript;
+                someScript = "<script language='javascript'>alert('Bạn chưa kiểm tra lại lớp môn. Nhấn nút Kiểm tra LM để thực hiện việc đó.');</script>";
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", someScript);
                 return;
             }
@@ -424,6 +456,13 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
                 Script = "<script language='javascript'>alert('Số hợp đồng không tồn tại trong hệ thống');</script>";
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", Script);
                 //m_lbl_mess.Text = "";
+                return;
+            }
+            if (!check_exist_ma_mon(m_txt_ma_lop_mon.Text.Trim()))
+            {
+                string script;
+                script = "<script language='javascript'>alert('Lớp môn này không tồn tại trong hệ thống')</script>";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "oncheckmalop", script);
                 return;
             }
             // Check hợp đồng do bên đv thanh toán này thanh toán
@@ -461,7 +500,14 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
             if (hdf_check_click_kiem_tra_so_hd.Value == null)
             {
                 string someScript;
-                someScript = "<script language='javascript'>alert('Bạn chưa kiểm tra lại số hợp đồng. Nhấn nút Kiểm tra để thực hiện việc đó.');</script>";
+                someScript = "<script language='javascript'>alert('Bạn chưa kiểm tra lại số hợp đồng. Nhấn nút Kiểm tra HĐ để thực hiện việc đó.');</script>";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", someScript);
+                return;
+            }
+            if (hdf_check_click_kiem_tra_lop_mon.Value == null)
+            {
+                string someScript;
+                someScript = "<script language='javascript'>alert('Bạn chưa kiểm tra lại lớp môn. Nhấn nút Kiểm tra LM để thực hiện việc đó.');</script>";
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", someScript);
                 return;
             }
@@ -471,6 +517,13 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
                 Script = "<script language='javascript'>alert('Số hợp đồng không tồn tại trong hệ thống. Hãy kiểm tra lại số hợp đồng!');</script>";
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", Script);
                 //m_lbl_mess.Text = "";
+                return;
+            }
+            if (!check_exist_ma_mon(m_txt_ma_lop_mon.Text.Trim()))
+            {
+                string script;
+                script = "<script language='javascript'>alert('Lớp môn này không tồn tại trong hệ thống')</script>";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "oncheckmalop", script);
                 return;
             }
             form_2_us_obj(m_us_v_gd_thanh_toan);
@@ -496,6 +549,7 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
             m_cmd_luu_du_lieu.Enabled = true;
             load_data_2_grid(get_ma_dot_tt_by_id_dot(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue)));
             hdf_check_click_kiem_tra_so_hd.Value = "";
+            hdf_check_click_kiem_tra_lop_mon.Value = "";
         }
         catch (Exception v_e)
         {
@@ -573,6 +627,31 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
             CSystemLog_301.ExceptionHandle(this, v_e);
         }
     }
-    #endregion   
-   
+    protected void m_cmd_check_ma_lop_mon_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            hdf_check_click_kiem_tra_lop_mon.Value = "Đã check";
+            string script;
+            if (m_txt_ma_lop_mon.Text == "")
+            {
+                script = "<script language='javascript'>alert('Bạn chưa nhập mã lớp môn!')</script>";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "checknull", script);
+                return;
+            }
+            if (!check_exist_ma_mon(m_txt_ma_lop_mon.Text.Trim()))
+            {
+                script = "<script language='javascript'>alert('Lớp môn này không tồn tại trong hệ thống')</script>";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "oncheckmalop", script);
+                return;
+            }
+            script = "<script language='javascript'>alert('Mã lớp môn hợp lệ')</script>";
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "onsucced", script);
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(this, v_e);
+        }
+    }
+    #endregion    
 }
