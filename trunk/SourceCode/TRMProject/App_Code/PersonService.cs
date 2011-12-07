@@ -50,7 +50,7 @@ public class PersonService : System.Web.Services.WebService
 
     private SqlConnection getConnection()
     {
-        string v_str_query_string = "Data Source=.\\SQLEXPRESS; Initial Catalog=TRM; User Id=sa; Password=sa;";
+        string v_str_query_string = "Data Source=.\\SQLEXPRESS; Initial Catalog=TRM; User Id=sa; Password=123456;";
         return new SqlConnection(v_str_query_string);
     }
 }
