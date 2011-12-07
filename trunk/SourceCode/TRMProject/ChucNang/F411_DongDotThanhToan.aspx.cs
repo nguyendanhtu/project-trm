@@ -22,8 +22,15 @@ public partial class ChucNang_F411_DongDotThanhToan : System.Web.UI.Page
             load_data_2_dot_tt();
             string v_str_ma_dot = m_cbo_dot_thanh_toan.SelectedValue;
             if (m_cbo_dot_thanh_toan.Items.Count > 0)
+            {
                 fill_data_2_thong_tin_dot_tt(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue));
-            m_cmd_dong_dot_tt.Enabled = true;
+                m_cmd_dong_dot_tt.Enabled = true;
+            }
+            else
+            {
+                m_cmd_dong_dot_tt.Enabled = false;
+                m_lbl_thong_bao1.Text = "Chưa có đợt thanh toán nào";
+            }
         }
     }
 
