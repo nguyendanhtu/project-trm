@@ -15,6 +15,16 @@
 		<td>
         <table cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0"> 
             <tr>
+                <td align="left" colspan="5">
+                          <asp:Label ID="m_lbl_thong_bao1" CssClass="cssManField" 
+                runat="server"></asp:Label>
+                </td>
+                <td align="left" style="width:1%;">&nbsp;</td>
+                 <td align="right" style="width:5%;">&nbsp;</td>
+                <td align="left" style="width:10%;">&nbsp;</td>
+                <td align="left" style="width:1%;">&nbsp;</td>
+            </tr>
+            <tr>
                 <td align="right" style="width:7%; height:30px;">
 			<asp:label id="Label1" CssClass="cssManField" runat="server" 
                 Text="Đơn vị thanh toán: " /></td>

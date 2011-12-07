@@ -21,8 +21,14 @@ public partial class ChucNang_F406_XacNhanToanBoGiangVien : System.Web.UI.Page
         {
             load_data_2_dot_tt();
             string v_str_ma_dot = m_cbo_dot_thanh_toan.SelectedValue;
-            if(m_cbo_dot_thanh_toan.Items.Count>0)
+            if (m_cbo_dot_thanh_toan.Items.Count > 0)
+            {
                 fill_data_2_thong_tin_dot_tt(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue));
+                m_cmd_xac_nhan_tat_ca_giang_vien.Enabled = true;
+            }
+            else
+                m_lbl_thong_bao1.Text = "Chưa có đợt thanh toán nào";
+                m_cmd_xac_nhan_tat_ca_giang_vien.Enabled = false;
         }
     }
 
