@@ -246,7 +246,7 @@ public partial class ChucNang_F409_XacNhanGiangVienTungThanhToan : System.Web.UI
         decimal v_dc_id_dot_thanh_toan = CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue);
         US_V_DM_DOT_THANH_TOAN v_us_dot_thanh_toan = new US_V_DM_DOT_THANH_TOAN(v_dc_id_dot_thanh_toan);
         m_dat_ngay_thanh_toan.SelectedDate = v_us_dot_thanh_toan.datNGAY_TT_DU_KIEN;
-        load_data_2_grid_search_trang_thai(v_us_dot_thanh_toan.strMA_DOT_TT, CIPConvert.ToDecimal(m_cbo_trang_thai_thanh_toan.SelectedValue));
+        load_data_2_grid_search_trang_thai(v_us_dot_thanh_toan.strMA_DOT_TT, CIPConvert.ToDecimal(m_cbo_trang_thai_tt_search.SelectedValue));
     }
     private decimal get_id_dot_tt_by_ma_dot(string ip_str_ma_dot)
     {

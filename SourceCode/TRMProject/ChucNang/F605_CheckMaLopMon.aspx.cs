@@ -53,11 +53,18 @@ public partial class ChucNang_F605_CheckMaLopMon : System.Web.UI.Page
                 m_lbl_so_hd.Text = v_str_so_hd;
                 m_lbl_ma_lop_mon.Text= v_str_ma_lop_mon;
 
+                decimal ip_dc_d_hop_dong = get_id_hd_khung_by_so_hd(v_str_so_hd);
                 // Kiểm tra hợp đồng khung và lớp môn là 1 cặp
-                kiem_tra_toan_bo_thanh_toan_ung_hop_dong(get_id_hd_khung_by_so_hd(v_str_so_hd), v_str_ma_lop_mon);
-                
-                // Đoạn này đã lấy được số hợp đồng, mã lớp môn, search và đổ lên lưới (lịch sử thanh toán của hợp đồng ứng với mã lớp môn này)
-                load_data_2_grid(v_str_so_hd, v_str_ma_lop_mon);
+                if (!check_tuong_ung_lop_mon_hop_dong(ip_dc_d_hop_dong, v_str_ma_lop_mon))
+                {
+                    string scriptalert;
+                    scriptalert = "<script language='javascript'>alert('Lớp môn và hợp đồng không tương ứng với nhau')</script>";
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "onchecktuongung", scriptalert);
+                    return;
+                }
+                // Đoạn này đã lấy được số hợp đồng, mã lớp môn, search và đổ lên lưới 
+                //(hiển thị lịch sử thanh toán của hợp đồng ứng với mã lớp môn này)
+                load_data_2_grid_lich_su(ip_dc_d_hop_dong, v_str_ma_lop_mon);
             }
 
         }
@@ -72,21 +79,20 @@ public partial class ChucNang_F605_CheckMaLopMon : System.Web.UI.Page
     {
         return ip_str_string.Substring(ip_str_string.Trim().Length - 1, 1);
     }
-    private void load_data_2_grid(string ip_str_ma_hop_dong, string ip_str_ma_lop_mon)
+    private void load_data_2_grid_lich_su(decimal ip_dc_id_hop_dong, string ip_str_ma_lop_mon)
     {
-        US_V_DM_HOP_DONG_KHUNG v_us_hop_dong_khung = new US_V_DM_HOP_DONG_KHUNG();
-        DS_V_DM_HOP_DONG_KHUNG v_ds_hop_dong_khung = new DS_V_DM_HOP_DONG_KHUNG();
+        US_V_GD_THANH_TOAN v_us_gd_thanh_toan = new US_V_GD_THANH_TOAN();
+        DS_V_GD_THANH_TOAN v_ds_gd_thanh_toan = new DS_V_GD_THANH_TOAN();
 
-        v_us_hop_dong_khung.FillDataset(v_ds_hop_dong_khung, " WHERE SO_HOP_DONG = '" + ip_str_ma_hop_dong + "'");
-        if (v_ds_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows.Count == 0)
+        v_us_gd_thanh_toan.FillDataset(v_ds_gd_thanh_toan, " WHERE ID_HOP_DONG_KHUNG ="+ip_dc_id_hop_dong+" AND REFERENCE_CODE = '" + ip_str_ma_lop_mon + "'");
+        if (v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count == 0)
         {
-            string someScript;
-            someScript = "<script language='javascript'>{ alert('Không có hợp đồng nào phù hợp!'); window.close(); }</script>";
-            Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", someScript);
+            string seScript;
+            seScript = "<script language='javascript'>{ alert('Chưa có thanh toán nào ứng với lớp môn và hợp đồng này'); window.close(); }</script>";
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "onloadgrid", seScript);
             return;
         }
-        
-        m_grv_dm_danh_sach_hop_dong_khung.DataSource = v_ds_hop_dong_khung.V_DM_HOP_DONG_KHUNG;
+        m_grv_dm_danh_sach_hop_dong_khung.DataSource = v_ds_gd_thanh_toan.V_GD_THANH_TOAN;
         m_grv_dm_danh_sach_hop_dong_khung.DataBind();
     }
     private decimal get_id_hd_khung_by_so_hd(string ip_str_so_hd)
@@ -97,7 +103,26 @@ public partial class ChucNang_F605_CheckMaLopMon : System.Web.UI.Page
         if (v_ds_hd_khung.V_DM_HOP_DONG_KHUNG.Rows.Count == 0) return 0;
         return CIPConvert.ToDecimal(v_ds_hd_khung.V_DM_HOP_DONG_KHUNG.Rows[0][V_DM_HOP_DONG_KHUNG.ID]);
     }
+    private decimal get_id_lop_mon_by_ma_lop_mon(string ip_str_ma_lop_mon)
+    {
+        DS_GD_LOP_MON v_ds_lop_mon = new DS_GD_LOP_MON();
+        US_GD_LOP_MON v_us_lop_mon = new US_GD_LOP_MON();
+        v_us_lop_mon.FillDataset(v_ds_lop_mon, " WHERE MA_LOP_MON = '" + ip_str_ma_lop_mon + "'");
+        if (v_ds_lop_mon.GD_LOP_MON.Rows.Count == 0) return 0;
+        return CIPConvert.ToDecimal(v_ds_lop_mon.GD_LOP_MON.Rows[0][GD_LOP_MON.ID]);
+    }
+    private bool check_tuong_ung_lop_mon_hop_dong(decimal ip_dc_id_hop_dong,string ip_str_ma_lop_mon)
+    {
+        US_GD_LOP_MON_DETAIL v_us_gd_lop_mon_detail = new US_GD_LOP_MON_DETAIL();
+        DS_GD_LOP_MON_DETAIL v_ds_gd_lop_mon_detail = new DS_GD_LOP_MON_DETAIL();
+        decimal v_dc_id_lop_mon = get_id_lop_mon_by_ma_lop_mon(ip_str_ma_lop_mon);
+        v_us_gd_lop_mon_detail.FillDataset(v_ds_gd_lop_mon_detail, " WHERE ID_HOP_DONG_KHUNG = " + ip_dc_id_hop_dong + " AND ID_LOP_MON=" + v_dc_id_lop_mon);
+        if (v_ds_gd_lop_mon_detail.GD_LOP_MON_DETAIL.Rows.Count == 0)
+            return false; // Nghĩa là không tương ứng
+        return true; // Nghĩa là tương ứng (hay chúng là 1 cặp)
+    }
     // Hàm này kiểm tra
+    // - Lớp môn có ứng với hợp đồng không?
     private void kiem_tra_toan_bo_thanh_toan_ung_hop_dong(decimal ip_dc_id_hop_dong_khung, string ip_str_ma_lop_mon)
     {
         US_V_GD_THANH_TOAN v_us_v_gd_tt = new US_V_GD_THANH_TOAN();
@@ -119,7 +144,6 @@ public partial class ChucNang_F605_CheckMaLopMon : System.Web.UI.Page
             // Nếu ko phải thanh lý mà là tạm ứng, kiểm tra số lần tạm ứng
             else
             {
-
                 decimal v_dc_so_tien_da_tt = 0;
                 string v_str_so_lan_tam_ung = cut_end_string(CIPConvert.ToStr(v_ds_v_gd_tt.V_GD_THANH_TOAN.Rows[v_ds_v_gd_tt.V_GD_THANH_TOAN.Rows.Count - 1][V_GD_THANH_TOAN.REFERENCE_CODE]));
                 v_dc_so_tien_da_tt += CIPConvert.ToDecimal(v_ds_v_gd_tt.V_GD_THANH_TOAN.Rows[v_ds_v_gd_tt.V_GD_THANH_TOAN.Rows.Count - 1][V_GD_THANH_TOAN.DA_THANH_TOAN]) + CIPConvert.ToDecimal(v_ds_v_gd_tt.V_GD_THANH_TOAN.Rows[v_ds_v_gd_tt.V_GD_THANH_TOAN.Rows.Count - 1][V_GD_THANH_TOAN.TONG_TIEN_THANH_TOAN]);
