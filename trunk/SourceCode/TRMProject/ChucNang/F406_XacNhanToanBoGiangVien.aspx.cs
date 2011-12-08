@@ -17,6 +17,7 @@ public partial class ChucNang_F406_XacNhanToanBoGiangVien : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        m_cmd_xac_nhan_tat_ca_giang_vien.Enabled = true;
         if (!IsPostBack)
         {
             load_data_2_dot_tt();
