@@ -561,14 +561,14 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
                     }
                 }
             }
-            if (!check_nghiem_thu_va_thanh_toan())
-            {
-                string soScript;
-                soScript = "<script language='javascript'>alert('Giá trị nghiệm thu thực tế và tổng tiền thanh toán phải bằng nhau');</script>";
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "oncheck2", soScript);
-                //m_lbl_mess.Text = "";
-                return;
-            }
+            //if (!check_nghiem_thu_va_thanh_toan())
+            //{
+            //    string soScript;
+            //    soScript = "<script language='javascript'>alert('Giá trị nghiệm thu thực tế và tổng tiền thanh toán phải bằng nhau');</script>";
+            //    Page.ClientScript.RegisterStartupScript(this.GetType(), "oncheck2", soScript);
+            //    //m_lbl_mess.Text = "";
+            //    return;
+            //}
             form_2_us_obj(m_us_v_gd_thanh_toan);
             m_us_v_gd_thanh_toan.Insert();
             load_data_2_grid(get_ma_dot_tt_by_id_dot(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue)));
