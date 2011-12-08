@@ -55,7 +55,7 @@ public partial class ChucNang_F601_CheckSoHopDong : System.Web.UI.Page
         US_V_DM_HOP_DONG_KHUNG v_us_hop_dong_khung = new US_V_DM_HOP_DONG_KHUNG();
         DS_V_DM_HOP_DONG_KHUNG v_ds_hop_dong_khung = new DS_V_DM_HOP_DONG_KHUNG();
 
-        v_us_hop_dong_khung.FillDataset(v_ds_hop_dong_khung, " WHERE SO_HOP_DONG = '"+ip_str_ma_hop_dong+"'");
+        v_us_hop_dong_khung.FillDataset(v_ds_hop_dong_khung, " WHERE SO_HOP_DONG = N'"+ip_str_ma_hop_dong+"'");
         if (v_ds_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows.Count == 0)
         {
             string someScript;
