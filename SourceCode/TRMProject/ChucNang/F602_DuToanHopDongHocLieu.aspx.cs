@@ -740,6 +740,7 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
     {
         try
         {
+            m_grv_danh_sach_du_toan.PageIndex = e.NewPageIndex;
             load_data_2_grid(get_ma_dot_tt_by_id_dot(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue)));
         }
         catch (Exception v_e)
