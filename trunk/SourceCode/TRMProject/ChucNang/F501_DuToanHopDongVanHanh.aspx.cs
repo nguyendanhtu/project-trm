@@ -444,6 +444,7 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", someScript);
                 return;
             }
+            // check bấm kiểm tra mã lớp môn
             if (hdf_check_click_kiem_tra_lop_mon.Value == null)
             {
                 string someScript;
@@ -451,6 +452,7 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", someScript);
                 return;
             }
+            // Kiểm tra tồn tại hợp đồng
             if (!check_exist_so_hop_dong(m_txt_so_hop_dong.Text.Trim()))
             {
                 string Script;
@@ -459,6 +461,7 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
                 //m_lbl_mess.Text = "";
                 return;
             }
+            // Kiểm tra tồn tại mã lớp môn
             if (!check_exist_ma_mon(m_txt_ma_lop_mon.Text.Trim()))
             {
                 string script;
@@ -633,15 +636,15 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
         try
         {
             hdf_check_click_kiem_tra_lop_mon.Value = "Đã check";
-            string script;
-            if (!check_exist_ma_mon(m_txt_ma_lop_mon.Text.Trim()))
-            {
-                script = "<script language='javascript'>alert('Lớp môn này không tồn tại trong hệ thống')</script>";
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "oncheckmalop", script);
-                return;
-            }
-            script = "<script language='javascript'>alert('Mã lớp môn hợp lệ')</script>";
-            Page.ClientScript.RegisterStartupScript(this.GetType(), "onsucced", script);
+            //string script;
+            //if (!check_exist_ma_mon(m_txt_ma_lop_mon.Text.Trim()))
+            //{
+            //    script = "<script language='javascript'>alert('Lớp môn này không tồn tại trong hệ thống')</script>";
+            //    Page.ClientScript.RegisterStartupScript(this.GetType(), "oncheckmalop", script);
+            //    return;
+            //}
+            //script = "<script language='javascript'>alert('Mã lớp môn hợp lệ')</script>";
+            //Page.ClientScript.RegisterStartupScript(this.GetType(), "onsucced", script);
         }
         catch (Exception v_e)
         {
