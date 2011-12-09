@@ -142,7 +142,7 @@
                         ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
                         ShowGoToToday="True" Width="80%" SelectedDate="" 
                         AllowArbitraryText="False" CellPadding="0px" 
-                        Culture="Vietnamese (Vietnam)" Text="Chọn" DisableTextboxEntry="false" >
+                        Culture="vi-VN" Text="Chọn" DisableTextboxEntry="false" >
                         <weekdaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
                             font-size="XX-Small" forecolor="Black" />
                         <weekendstyle backcolor="LightGray" font-names="Verdana,Helvetica,Tahoma,Arial" 
