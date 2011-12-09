@@ -525,11 +525,13 @@
                     <asp:BoundField DataField="SO_LUONG_OFFLINE" HeaderText="Số tiết Offline">
                                         <ItemStyle HorizontalAlign="Right" />
                     </asp:BoundField>
-                    <asp:CommandField DeleteText="" ShowDeleteButton="True" 
-                        ItemStyle-HorizontalAlign="Center" ButtonType="Image" 
-                        DeleteImageUrl="~/Images/Button/deletered.png" >
-<ItemStyle HorizontalAlign="Center"></ItemStyle>
-                    </asp:CommandField>
+                    <asp:TemplateField HeaderText="Xóa">
+                    <ItemTemplate> <asp:LinkButton ToolTip="Xóa" ID = "lbt_delete" runat="server"
+                     CommandName="Delete" OnClientClick="return confirm ('Bạn có thực sự muốn xóa bản ghi này?')">
+                      <img src="/TRMProject/Images/Button/deletered.png" alt="Delete" />
+                     </asp:LinkButton>
+                    </ItemTemplate>
+                    </asp:TemplateField>
                     <asp:TemplateField>
                         <ItemTemplate>
                             <asp:HyperLink ID="m_lnk_sua" runat="server" Target="_blank"
