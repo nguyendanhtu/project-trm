@@ -45,18 +45,15 @@
                 Text="Đợt thanh toán " />
 			       
                          </td>
-                <td align="left" style="width:10%;">
+                <td align="left" colspan="4">
               <asp:DropDownList ID="m_cbo_dot_thanh_toan" CssClass="cssDorpdownlist" Width="96%" runat="server" 
                         AutoPostBack="true" 
                         onselectedindexchanged="m_cbo_dot_thanh_toan_SelectedIndexChanged">
                </asp:DropDownList>
                          </td>
-                         <td align="left" style="width:1%;"> 
-                             &nbsp;</td>
-                <td align="right" style="width:7%;">
-			       
+                <td align="left">	
 			        &nbsp;</td>
-                <td align="left" colspan="3">	
+                <td align="left">	
 			        &nbsp;</td>
                 <td align="left" style="width:10%;"></td>
                 <td align="left" style="width:1%;"></td>
