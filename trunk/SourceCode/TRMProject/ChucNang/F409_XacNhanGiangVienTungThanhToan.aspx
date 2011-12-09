@@ -306,7 +306,8 @@
                 runat="server" AutoGenerateColumns="False" 
                 Width="100%" DataKeyNames="ID"
                 CellPadding="4" ForeColor="#333333" 
-                onselectedindexchanging="m_grv_danh_sach_du_toan_SelectedIndexChanging">
+                onselectedindexchanging="m_grv_danh_sach_du_toan_SelectedIndexChanging" PageSize="20"
+                onpageindexchanging="m_grv_danh_sach_du_toan_PageIndexChanging">
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
                      <asp:TemplateField HeaderText="Chỉnh sửa xác nhận giảng viên">

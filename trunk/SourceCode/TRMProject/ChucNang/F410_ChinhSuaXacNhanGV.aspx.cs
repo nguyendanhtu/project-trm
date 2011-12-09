@@ -155,7 +155,10 @@ public partial class ChucNang_F410_ChinhSuaXacNhanGV : System.Web.UI.Page
             m_lbl_thong_bao.Text = "Không có thanh toán nào phù hợp";
         }
         else
+        {
             m_grv_danh_sach_du_toan.Visible = true;
+            m_lbl_danh_sach_thanh_toan.Text = "Danh sách thanh toán: " + v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count + " thanh toán";
+        }
         m_grv_danh_sach_du_toan.DataSource = v_ds_gd_thanh_toan.V_GD_THANH_TOAN;
         m_grv_danh_sach_du_toan.DataBind();
     }
@@ -408,5 +411,20 @@ public partial class ChucNang_F410_ChinhSuaXacNhanGV : System.Web.UI.Page
             CSystemLog_301.ExceptionHandle(this, v_e);
         }
     }
-    #endregion
+    protected void m_grv_danh_sach_du_toan_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+        try
+        {
+            m_grv_danh_sach_du_toan.PageIndex = e.NewPageIndex;
+            if (m_txt_so_hd_search.Text == "")
+                load_data_2_grid(get_ma_dot_tt_by_id_dot(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue)));
+            else
+                load_data_2_grid_search(get_ma_dot_tt_by_id_dot(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue)), m_txt_so_hd_search.Text.Trim());
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(this, v_e);
+        }
+    }
+    #endregion   
 }
