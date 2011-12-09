@@ -400,6 +400,10 @@
                      <asp:BoundField DataField="REFERENCE_CODE" HeaderText="Mã lớp">
                     <ItemStyle Width="7%" HorizontalAlign="Left" />
                     </asp:BoundField>
+                     <asp:TemplateField HeaderText="Thời gian lớp môn" ItemStyle-HorizontalAlign="Left">
+                       <ItemTemplate><%# mapping_time_lop_mon(CIPConvert.ToStr(Eval("REFERENCE_CODE")))%></ItemTemplate>
+                        <ItemStyle HorizontalAlign="Left" Width="7%"></ItemStyle>
+                    </asp:TemplateField> 
                     <asp:TemplateField HeaderText="Mã giảng viên" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%# mapping_magv_by_id(CIPConvert.ToDecimal(Eval("ID_GIANG_VIEN")))%></ItemTemplate>
                         <ItemStyle HorizontalAlign="Left" Width="7%"></ItemStyle>

@@ -71,6 +71,14 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
         if (v_dm_gv.IsIDNull()) return "";
         return v_dm_gv.strMA_GIANG_VIEN;
     }
+    public string mapping_time_lop_mon(string ip_str_ma_lop_mon)
+    {
+        US_GD_LOP_MON v_us_gd_lop_mon = new US_GD_LOP_MON();
+        DS_GD_LOP_MON v_ds_gd_lop_mon = new DS_GD_LOP_MON();
+
+        v_us_gd_lop_mon.FillDataset(v_ds_gd_lop_mon, " WHERE MA_LOP_MON=N'" + ip_str_ma_lop_mon + "'");
+        return CIPConvert.ToStr(v_ds_gd_lop_mon.GD_LOP_MON.Rows[0][GD_LOP_MON.NGAY_BAT_DAU], "dd/MM/yyyy") + " - " + CIPConvert.ToStr(v_ds_gd_lop_mon.GD_LOP_MON.Rows[0][GD_LOP_MON.NGAY_KET_THUC], "dd/MM/yyyy");
+    }
     #endregion
 
     #region Private Methods
