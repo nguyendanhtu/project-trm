@@ -136,13 +136,11 @@
                 Text="Từ ngày" />
 		                    </td>
                 <td align="left" style="width:10%;">
-			
-			        <ew:CalendarPopup ID="m_dat_ngay_bat_dau_tu" runat="server" 
+						        <ew:CalendarPopup ID="m_dat_ngay_bat_dau_tu" runat="server" 
                         ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
                         ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
-                        ShowGoToToday="True" Width="80%" SelectedDate="" 
-                        AllowArbitraryText="False" CellPadding="0px" 
-                        Culture="vi-VN" Text="Chọn" DisableTextboxEntry="false" >
+                        ShowGoToToday="True" Width="80%" SelectedDate="" Text="" Culture="vi-VN" 
+                        DisableTextboxEntry="False">
                         <weekdaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
                             font-size="XX-Small" forecolor="Black" />
                         <weekendstyle backcolor="LightGray" font-names="Verdana,Helvetica,Tahoma,Arial" 
@@ -168,7 +166,6 @@
                         <holidaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
                             font-size="XX-Small" forecolor="Black" />
                     </ew:CalendarPopup>
-			
                 </td>
                      <td align="left" style="width:1%;">
                          <asp:CompareValidator ID="CompareValidator1" runat="server" 
@@ -182,11 +179,10 @@
                 Text="Từ ngày" />
 		                    </td>
                 <td align="left" style="width:10%;">
-			
-			        <ew:CalendarPopup ID="m_dat_ngay_ket_thuc_tu" runat="server" 
+			    			        <ew:CalendarPopup ID="m_dat_ngay_ket_thuc_tu" runat="server" 
                         ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
                         ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
-                        ShowGoToToday="True" Width="80%" SelectedDate="" Culture="vi-VN" 
+                        ShowGoToToday="True" Width="80%" SelectedDate="" Text="" Culture="vi-VN" 
                         DisableTextboxEntry="False">
                         <weekdaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
                             font-size="XX-Small" forecolor="Black" />
@@ -213,7 +209,6 @@
                         <holidaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
                             font-size="XX-Small" forecolor="Black" />
                     </ew:CalendarPopup>
-			
 		                    </td>
                      <td align="left" style="width:1%;">
                          <asp:CompareValidator ID="CompareValidator2" runat="server" 
@@ -227,11 +222,10 @@
                 Text="Từ ngày" />
 		                    </td>
                 <td align="left" style="width:10%;">
-			
-			        <ew:CalendarPopup ID="m_dat_ngay_thi_tu" runat="server" 
+						        <ew:CalendarPopup ID="m_dat_ngay_thi_tu" runat="server" 
                         ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
                         ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
-                        ShowGoToToday="True" Width="80%" SelectedDate="" Culture="vi-VN" 
+                        ShowGoToToday="True" Width="80%" SelectedDate="" Text="" Culture="vi-VN" 
                         DisableTextboxEntry="False">
                         <weekdaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
                             font-size="XX-Small" forecolor="Black" />
@@ -258,7 +252,6 @@
                         <holidaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
                             font-size="XX-Small" forecolor="Black" />
                     </ew:CalendarPopup>
-			
 		                    </td>            
                          <td align="left" style="width:1%;">
                              <asp:CompareValidator ID="CompareValidator3" runat="server" 
@@ -273,10 +266,10 @@
                 Text="Đến ngày" />
 		                    </td>
                 <td align="left" style="width:10%;">
-			        <ew:CalendarPopup ID="m_dat_ngay_bat_dau_den" runat="server" 
+                			        <ew:CalendarPopup ID="m_dat_ngay_bat_dau_den" runat="server" 
                         ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
                         ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
-                        ShowGoToToday="True" Width="80%" SelectedDate="" Culture="vi-VN" 
+                        ShowGoToToday="True" Width="80%" SelectedDate="" Text="" Culture="vi-VN" 
                         DisableTextboxEntry="False">
                         <weekdaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
                             font-size="XX-Small" forecolor="Black" />
@@ -310,11 +303,10 @@
                 Text="Đến ngày" />
 		                    </td>
                 <td align="left" style="width:10%;">
-
-			        <ew:CalendarPopup ID="m_dat_ngay_ket_thuc_den" runat="server" 
+                			        <ew:CalendarPopup ID="m_dat_ngay_ket_thuc_den" runat="server" 
                         ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
                         ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
-                        ShowGoToToday="True" Width="80%" SelectedDate="" Culture="vi-VN" 
+                        ShowGoToToday="True" Width="80%" SelectedDate="" Text="" Culture="vi-VN" 
                         DisableTextboxEntry="False">
                         <weekdaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
                             font-size="XX-Small" forecolor="Black" />
@@ -341,7 +333,6 @@
                         <holidaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
                             font-size="XX-Small" forecolor="Black" />
                     </ew:CalendarPopup>
-
                             </td>
                                  <td align="left" style="width:1%;"></td>
                  <td align="right" style="width:5%;">
@@ -349,11 +340,10 @@
                 Text="Đến ngày" />
 		                    </td>
                 <td align="left" style="width:10%;">
-
-			        <ew:CalendarPopup ID="m_dat_ngay_thi_den" runat="server" 
+                			        <ew:CalendarPopup ID="m_dat_ngay_thi_den" runat="server" 
                         ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
                         ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
-                        ShowGoToToday="True" Width="80%" SelectedDate="" Culture="vi-VN" 
+                        ShowGoToToday="True" Width="80%" SelectedDate="" Text="" Culture="vi-VN" 
                         DisableTextboxEntry="False">
                         <weekdaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
                             font-size="XX-Small" forecolor="Black" />
@@ -380,7 +370,6 @@
                         <holidaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
                             font-size="XX-Small" forecolor="Black" />
                     </ew:CalendarPopup>
-
 		        </td>     <td align="left" style="width:1%;"></td>
             </tr>
             <tr>
