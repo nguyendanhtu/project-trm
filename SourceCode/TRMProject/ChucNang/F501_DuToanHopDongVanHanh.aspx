@@ -361,7 +361,8 @@
                 Width="100%" DataKeyNames="ID"
                 CellPadding="4" ForeColor="#333333" 
             AllowSorting="True" onrowdeleting="m_grv_danh_sach_du_toan_RowDeleting" 
-                onselectedindexchanging="m_grv_danh_sach_du_toan_SelectedIndexChanging">
+                onselectedindexchanging="m_grv_danh_sach_du_toan_SelectedIndexChanging" 
+                onpageindexchanging="m_grv_danh_sach_du_toan_PageIndexChanging" PageSize="20">
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
                 <asp:TemplateField HeaderText="Xóa">
