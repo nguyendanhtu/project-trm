@@ -29,7 +29,7 @@ public partial class ChucNang_F102_CapNhatThongTinLopMon : System.Web.UI.Page
         DS_DM_MON_HOC v_ds_dm_mon_hoc = new DS_DM_MON_HOC();
         try
         {
-            v_us_dm_mon_hoc.FillDataset(v_ds_dm_mon_hoc);
+            v_us_dm_mon_hoc.FillDataset(v_ds_dm_mon_hoc, " ORDER BY TEN_MON_HOC");
             m_cbo_dm_mon_hoc.DataSource = v_ds_dm_mon_hoc.DM_MON_HOC;
             m_cbo_dm_mon_hoc.DataValueField = DM_MON_HOC.ID;
             m_cbo_dm_mon_hoc.DataTextField = DM_MON_HOC.TEN_MON_HOC;

@@ -39,7 +39,7 @@ public partial class ChuNang_F103_DanhSachLopMon : System.Web.UI.Page
         DS_DM_MON_HOC v_ds_dm_mon_hoc = new DS_DM_MON_HOC();
         try
         {
-            v_us_dm_mon_hoc.FillDataset(v_ds_dm_mon_hoc);
+            v_us_dm_mon_hoc.FillDataset(v_ds_dm_mon_hoc, " ORDER BY TEN_MON_HOC");
 
             //add item Tat Ca
             DataRow v_dr_all = v_ds_dm_mon_hoc.DM_MON_HOC.NewDM_MON_HOCRow();
