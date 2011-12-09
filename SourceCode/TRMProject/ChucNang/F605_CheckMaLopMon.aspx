@@ -34,9 +34,14 @@
                           <asp:Label ID="m_lbl_thong_bao" CssClass="cssManField" runat="server"></asp:Label>
                 </td>
 	</tr>	
+    <tr>
+		<td class="cssPageTitleBG"colspan="3" >
+		    <asp:label id="m_lbl_lich_su_giao_dich" runat="server" CssClass="cssPageTitle" 
+                Text="Lịch sử giao dịch"/>
+		</td>
+	</tr>
 	<tr>
-		<td align="center" style="height:450px;" valign="top" colspan="3">
-		    &nbsp;
+		<td align="center" valign="top" colspan="3">
             <asp:GridView ID="m_grv_dm_danh_sach_hop_dong_khung" AllowPaging="True" 
                 runat="server" AutoGenerateColumns="False" 
                 Width="100%" DataKeyNames="ID"
@@ -59,33 +64,18 @@
                     <asp:TemplateField HeaderText="Tên giảng viên">
                     <ItemTemplate>
                     <label><a href='<%# "/TRMProject/ChucNang/F201_CapNhatThongTinGiangVien.aspx?mode=edit&id="+Eval("ID_GIANG_VIEN") %>'>
-                    <%# Eval("GIANG_VIEN").ToString() %></a></label>
+                    <%# Eval("TEN_GIANG_VIEN").ToString() %></a></label>
                     </ItemTemplate>
                     <ItemStyle Width="10%"/>
-                    </asp:TemplateField>
-                     <asp:TemplateField Visible="False">
-                    <HeaderTemplate>Giá trị hợp đồng</HeaderTemplate>
-                    <ItemTemplate>
-                    <asp:Label ID="m_lbl_gia_tri_hd" runat="server" 
-                            Text='<%# Eval("GIA_TRI_HOP_DONG").ToString()%>' ></asp:Label>
-                    </ItemTemplate>
-                     <ItemStyle HorizontalAlign="Right"></ItemStyle>
-                    </asp:TemplateField>                    
-                    <asp:BoundField DataField="GIA_TRI_HOP_DONG" HeaderText="Giá trị hợp đồng" 
-                        DataFormatString="{0:N0}" HtmlEncode="false" >
-                      <ItemStyle HorizontalAlign="Right" />
-                    </asp:BoundField>
-                      <asp:TemplateField Visible="false">
-                    <HeaderTemplate>Thuế suất(%)</HeaderTemplate>
-                    <ItemTemplate>
-                    <asp:Label ID="m_lbl_thue_suat" runat="server" 
-                            Text='<%# Eval("THUE_SUAT").ToString() +"%"%>'></asp:Label>
-                    </ItemTemplate>
+                    </asp:TemplateField> 
+                      <asp:TemplateField HeaderText="Thời gian lớp môn">
+                    <ItemTemplate><%# mapping_time_lop_mon(CIPConvert.ToStr(Eval("REFERENCE_CODE")))%></ItemTemplate>
                     <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:TemplateField>
-                      <asp:BoundField DataField="THUE_SUAT" HeaderText="Thuế suất(%)" 
-                        DataFormatString="{0:N1}%" HtmlEncode="false">
-                    </asp:BoundField>
+                     <asp:TemplateField HeaderText="Đã thanh toán">
+                    <ItemTemplate><%# CIPConvert.ToStr(Eval("DA_THANH_TOAN"), "#,###") + CIPConvert.ToStr(Eval("TONG_TIEN_THANH_TOAN"), "#,###")%></ItemTemplate>
+                     <ItemStyle HorizontalAlign="Right"></ItemStyle>
+                    </asp:TemplateField>                   
                 </Columns>
                   <EditRowStyle BackColor="#7C6F57" />
                   <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
