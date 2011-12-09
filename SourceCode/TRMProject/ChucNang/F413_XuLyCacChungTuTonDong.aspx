@@ -301,9 +301,10 @@
 		    &nbsp;
    <asp:GridView ID="m_grv_danh_sach_du_toan" AllowPaging="True" 
                 runat="server" AutoGenerateColumns="False" 
-                Width="100%" DataKeyNames="ID"
+                Width="100%" DataKeyNames="ID" PageSize="20"
                 CellPadding="4" ForeColor="#333333" 
-                onselectedindexchanging="m_grv_danh_sach_du_toan_SelectedIndexChanging">
+                onselectedindexchanging="m_grv_danh_sach_du_toan_SelectedIndexChanging" 
+                onpageindexchanging="m_grv_danh_sach_du_toan_PageIndexChanging">
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
                      <asp:TemplateField HeaderText="Xử lý chứng từ tồn đọng">

@@ -406,7 +406,6 @@ public partial class ChucNang_F405_ChinhSuaXacNhanNganHang : System.Web.UI.Page
             CSystemLog_301.ExceptionHandle(this, v_e);
         }
     }
-    #endregion
     protected void m_grv_danh_sach_du_toan_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {
         try
@@ -422,4 +421,6 @@ public partial class ChucNang_F405_ChinhSuaXacNhanNganHang : System.Web.UI.Page
             CSystemLog_301.ExceptionHandle(this, v_e);
         }
     }
+    #endregion
+    
 }

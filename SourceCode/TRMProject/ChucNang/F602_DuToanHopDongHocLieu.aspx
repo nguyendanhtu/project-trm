@@ -426,7 +426,7 @@
             AllowSorting="True" onrowdeleting="m_grv_danh_sach_du_toan_RowDeleting" 
                 onselectedindexchanging="m_grv_danh_sach_du_toan_SelectedIndexChanging" 
                 onpageindexchanging="m_grv_danh_sach_du_toan_PageIndexChanging" 
-                PageSize="10">
+                PageSize="20">
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
                 <asp:TemplateField HeaderText="Xóa">
