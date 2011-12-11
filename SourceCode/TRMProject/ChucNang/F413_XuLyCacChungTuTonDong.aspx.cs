@@ -290,7 +290,7 @@ public partial class ChucNang_F413_XuLyCacChungTuTonDong : System.Web.UI.Page
         string[] v_str_result = ip_str_tam_ung.Split(' ');
         return (v_str_result[2] + " " + v_str_result[3]);
     }
-    private void us_obj_2_form(US_V_GD_THANH_TOAN ip_us_gd_thanh_toan)
+    private void us_obj_2_form(US_V_GD_THANH_TOAN ip_us_gd_thanh_toan) 
     {
         m_txt_tham_so.Visible = true;
         m_cbo_dot_thanh_toan.SelectedValue = CIPConvert.ToStr(get_id_dot_tt_by_ma_dot(ip_us_gd_thanh_toan.strSO_PHIEU_THANH_TOAN));
@@ -323,6 +323,7 @@ public partial class ChucNang_F413_XuLyCacChungTuTonDong : System.Web.UI.Page
         string v_str_old_ma_dot_tt="";
         // Sau bước này, mã đợt thanh toán cũ được đựng trong v_str_old_ma_dot_tt
         m_txt_mo_ta.Text = cut_description_string(ip_us_gd_thanh_toan.strDESCRIPTION,ref v_str_old_ma_dot_tt);
+        //m_cbo_dot_thanh_toan.SelectedValue = v_str_old_ma_dot_tt;
     }
     private string cut_description_string(string ip_str_description, ref string ip_str_old_ma_dot_tt)
     {

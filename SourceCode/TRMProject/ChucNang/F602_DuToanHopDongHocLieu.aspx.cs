@@ -305,6 +305,14 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
              else return false;
          return true;
      }
+     private bool check_nghiem_thu_va_thanh_toan_update(decimal ip_dc_id_hd_khung)
+     {
+         if (rdl_noi_dung_list.Items[0].Selected == true)
+             if (CIPConvert.ToDecimal(m_txt_gia_tri_nghiem_thu_thuc_te.Text.Trim()) == (CIPConvert.ToDecimal(m_txt_so_tien_thanh_toan.Text.Trim())) + get_so_tien_da_thanh_toan_update(ip_dc_id_hd_khung))
+                 return true;
+             else return false;
+         return true;
+     }
      private decimal get_id_don_vi_thanh_toan_by_id_dot_tt(decimal ip_dc_id_dot_tt)
      {
          US_V_DM_DOT_THANH_TOAN v_us_dot_tt = new US_V_DM_DOT_THANH_TOAN(ip_dc_id_dot_tt);
@@ -380,8 +388,24 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
          if (v_ds_v_gd_tt.V_GD_THANH_TOAN.Rows.Count > 0)
          {
              decimal v_dc_so_tien_da_tt = 0;
-             string v_str_so_lan_tam_ung = cut_end_string(CIPConvert.ToStr(v_ds_v_gd_tt.V_GD_THANH_TOAN.Rows[v_ds_v_gd_tt.V_GD_THANH_TOAN.Rows.Count - 1][V_GD_THANH_TOAN.REFERENCE_CODE]));
+             //string v_str_so_lan_tam_ung = cut_end_string(CIPConvert.ToStr(v_ds_v_gd_tt.V_GD_THANH_TOAN.Rows[v_ds_v_gd_tt.V_GD_THANH_TOAN.Rows.Count - 1][V_GD_THANH_TOAN.REFERENCE_CODE]));
              v_dc_so_tien_da_tt += CIPConvert.ToDecimal(v_ds_v_gd_tt.V_GD_THANH_TOAN.Rows[v_ds_v_gd_tt.V_GD_THANH_TOAN.Rows.Count - 1][V_GD_THANH_TOAN.DA_THANH_TOAN]) + CIPConvert.ToDecimal(v_ds_v_gd_tt.V_GD_THANH_TOAN.Rows[v_ds_v_gd_tt.V_GD_THANH_TOAN.Rows.Count - 1][V_GD_THANH_TOAN.TONG_TIEN_THANH_TOAN]);
+             return v_dc_so_tien_da_tt;
+         }
+         else return 0;
+     }
+     private decimal get_so_tien_da_thanh_toan_update(decimal ip_dc_id_hop_dong_khung)
+     {
+         US_V_GD_THANH_TOAN v_us_v_gd_tt = new US_V_GD_THANH_TOAN();
+         DS_V_GD_THANH_TOAN v_ds_v_gd_tt = new DS_V_GD_THANH_TOAN();
+         // lấy toàn bộ thanh toán của hợp đồng theo id_hop_dong
+         v_us_v_gd_tt.FillDataset(v_ds_v_gd_tt, " WHERE ID_HOP_DONG_KHUNG=" + ip_dc_id_hop_dong_khung + " ORDER BY ID");
+         // Nếu đã có thanh toán
+         if (v_ds_v_gd_tt.V_GD_THANH_TOAN.Rows.Count > 0)
+         {
+             decimal v_dc_so_tien_da_tt = 0;
+             //string v_str_so_lan_tam_ung = cut_end_string(CIPConvert.ToStr(v_ds_v_gd_tt.V_GD_THANH_TOAN.Rows[v_ds_v_gd_tt.V_GD_THANH_TOAN.Rows.Count - 1][V_GD_THANH_TOAN.REFERENCE_CODE]));
+             v_dc_so_tien_da_tt += CIPConvert.ToDecimal(v_ds_v_gd_tt.V_GD_THANH_TOAN.Rows[v_ds_v_gd_tt.V_GD_THANH_TOAN.Rows.Count - 1][V_GD_THANH_TOAN.DA_THANH_TOAN]);
              return v_dc_so_tien_da_tt;
          }
          else return 0;
@@ -639,10 +663,10 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
                 }
             }
 
-            if (!check_nghiem_thu_va_thanh_toan(v_dc_id_hop_dong_khung))
+            if (!check_nghiem_thu_va_thanh_toan_update(v_dc_id_hop_dong_khung))
             {
                 string soScript;
-                soScript = "<script language='javascript'>alert('Giá trị nghiệm thu thực tế và tổng tiền thanh toán phải bằng nhau');</script>";
+                soScript = "<script language='javascript'>alert('Giá trị nghiệm thu thực tế phải bằng tổng tiền thanh toán cộng số tiền đã thanh toán ');</script>";
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "oncheck2", soScript);
                 return;
             }

@@ -365,7 +365,7 @@ public partial class ChucNang_F404_XuatDanhSachThanhToanHocLieu : System.Web.UI.
         strTable += "\n<tr>";
         strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
         strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
-        strTable += "\n<td><align='center' class='cssTableView' style='width: 100%;  height: 40px; font-size: large; color:White; background-color:#810C15;' nowrap='wrap'>DANH SÁCH THANH TOÁN HỢP ĐỒNG HỌC LIỆU" + "</td>";
+        strTable += "\n<td><align='center' class='cssTableView' style='width: 100%;  height: 40px; font-size: large; color:White; background-color:#810C15;' nowrap='wrap'>F404 - DANH SÁCH THANH TOÁN HỢP ĐỒNG HỌC LIỆU" + "</td>";
         strTable += "\n</tr>";
         //
         strTable += "\n<tr>";
