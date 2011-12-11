@@ -254,7 +254,7 @@ public partial class ChucNang_F403_ChinhSuaPheDuyetChungTu : System.Web.UI.Page
         else if (m_lbl_tham_so.Text.Contains("Mã lớp")) op_us_gd_thanh_toan.strREFERENCE_CODE = m_txt_tham_so.Text;
         else op_us_gd_thanh_toan.SetREFERENCE_CODENull();
         op_us_gd_thanh_toan.dcID_TRANG_THAI_THANH_TOAN = CIPConvert.ToDecimal(m_cbo_trang_thai_thanh_toan.SelectedValue);
-        //op_us_gd_thanh_toan.dcTONG_TIEN_THANH_TOAN = CIPConvert.ToDecimal(m_txt_so_tien_thanh_toan.Text);
+        op_us_gd_thanh_toan.strDESCRIPTION = m_txt_mo_ta.Text.Trim() + " " + op_us_gd_thanh_toan.strSO_PHIEU_THANH_TOAN;
     }
     private void load_data_2_us_by_id_and_show_on_form(int ip_i_thanh_toan_selected)
     {
