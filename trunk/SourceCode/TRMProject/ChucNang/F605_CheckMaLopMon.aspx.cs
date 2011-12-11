@@ -42,13 +42,13 @@ public partial class ChucNang_F605_CheckMaLopMon : System.Web.UI.Page
                 }
 
                 // Check tồn tại
-                if (!check_exist_ma_mon(v_str_ma_lop_mon))
-                {
-                    string script;
-                    script = "<script language='javascript'>alert('Lớp môn này không tồn tại trong hệ thống')</script>";
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "oncheckmalop", script);
-                    return;
-                }
+                //if (!check_exist_ma_mon(v_str_ma_lop_mon))
+                //{
+                //    string script;
+                //    script = "<script language='javascript'>alert('Lớp môn này không tồn tại trong hệ thống')</script>";
+                //    Page.ClientScript.RegisterStartupScript(this.GetType(), "oncheckmalop", script);
+                //    return;
+                //}
                 // Hiển thị lên labels
                 m_lbl_so_hd.Text = v_str_so_hd;
                 m_lbl_ma_lop_mon.Text= v_str_ma_lop_mon;

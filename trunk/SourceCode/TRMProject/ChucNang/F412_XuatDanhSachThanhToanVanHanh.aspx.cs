@@ -356,7 +356,7 @@ public partial class ChucNang_F412_XuatDanhSachThanhToanVanHanh : System.Web.UI.
         strTable += "\n<tr>";
         strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
         strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
-        strTable += "\n<td><align='center' class='cssTableView' style='width: 100%;  height: 40px; font-size: large; color:White; background-color:#810C15;' nowrap='wrap'>DANH SÁCH THANH TOÁN HỢP ĐỒNG VẬN HÀNH" + "</td>";
+        strTable += "\n<td><align='center' class='cssTableView' style='width: 100%;  height: 40px; font-size: large; color:White; background-color:#810C15;' nowrap='wrap'>F412 - DANH SÁCH THANH TOÁN HỢP ĐỒNG VẬN HÀNH" + "</td>";
         strTable += "\n</tr>";
         //
         strTable += "\n<tr>";
