@@ -320,7 +320,21 @@ public partial class ChucNang_F413_XuLyCacChungTuTonDong : System.Web.UI.Page
         m_cbo_trang_thai_thanh_toan.SelectedValue = CIPConvert.ToStr(ip_us_gd_thanh_toan.dcID_TRANG_THAI_THANH_TOAN);
         // Lưu lại id_trang_thai_thanh_toan_cuc
         hdf_id_trang_thai_thanh_toan_cu.Value = CIPConvert.ToStr(ip_us_gd_thanh_toan.dcID_TRANG_THAI_THANH_TOAN);
-        m_txt_mo_ta.Text = ip_us_gd_thanh_toan.strDESCRIPTION;
+        string v_str_old_ma_dot_tt="";
+        // Sau bước này, mã đợt thanh toán cũ được đựng trong v_str_old_ma_dot_tt
+        m_txt_mo_ta.Text = cut_description_string(ip_us_gd_thanh_toan.strDESCRIPTION,ref v_str_old_ma_dot_tt);
+    }
+    private string cut_description_string(string ip_str_description, ref string ip_str_old_ma_dot_tt)
+    {
+        string[] v_des = ip_str_description.Split(' ');
+        string v_str_result = "";
+        for (int v_i = 0; v_i < v_des.Length-1; v_i++)
+        {
+            v_str_result += v_des[v_i];
+            v_str_result += " ";
+        }
+        ip_str_old_ma_dot_tt = v_des[v_des.Length - 1];
+        return v_str_result.Trim();
     }
     private void form_2_us_obj(US_V_GD_THANH_TOAN op_us_gd_thanh_toan)
     {
