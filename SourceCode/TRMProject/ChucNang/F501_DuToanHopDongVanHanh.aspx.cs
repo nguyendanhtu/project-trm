@@ -497,6 +497,7 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
             form_2_us_obj(m_us_v_gd_thanh_toan);
             m_us_v_gd_thanh_toan.Insert();
             load_data_2_grid(get_ma_dot_tt_by_id_dot(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue)));
+            m_lbl_thong_bao.Text = "Thêm bản ghi thành công";
             reset_controls();
         }
         catch (Exception v_e)
