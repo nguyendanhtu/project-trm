@@ -176,7 +176,7 @@ public partial class ChucNang_F605_CheckMaLopMon : System.Web.UI.Page
         DS_GD_LOP_MON v_ds_gd_lop_mon = new DS_GD_LOP_MON();
 
         v_us_gd_lop_mon.FillDataset(v_ds_gd_lop_mon, " WHERE MA_LOP_MON=N'" + ip_str_ma_lop_mon + "'");
-        if (v_ds_gd_lop_mon.GD_LOP_MON.Rows[0][GD_LOP_MON.NGAY_BAT_DAU] == null)
+        if (v_ds_gd_lop_mon.GD_LOP_MON.Rows[0][GD_LOP_MON.NGAY_BAT_DAU].GetType()== typeof(DBNull))
         {
             if (v_ds_gd_lop_mon.GD_LOP_MON.Rows[0][GD_LOP_MON.NGAY_KET_THUC].GetType() == typeof(DBNull)) return "";
             else return CIPConvert.ToStr(v_ds_gd_lop_mon.GD_LOP_MON.Rows[0][GD_LOP_MON.NGAY_KET_THUC], "dd/MM/yyyy");
