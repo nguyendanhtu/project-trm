@@ -154,6 +154,7 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
         rdl_noi_dung_list.Items[0].Selected = true;
         m_txt_mo_ta.Text = "";
         m_cbo_trang_thai_thanh_toan.SelectedIndex = 0;
+        hdf_id_gv.Value = "";
     }
     private void when_cbo_dot_tt_changed()
     {

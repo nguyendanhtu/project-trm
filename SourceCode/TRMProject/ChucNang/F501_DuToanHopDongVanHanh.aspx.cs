@@ -312,6 +312,12 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
         if (ip_obj_string.GetType() == typeof(DBNull)) return "";
         return CIPConvert.ToStr(ip_obj_string);
     }
+    private bool check_hop_ly_so_tien()
+    {
+        if()
+        return false;
+        return true;
+    }
     private bool check_exist_ma_mon(string ip_str_ma_lop_mon)
     {
         US_GD_LOP_MON v_us_gd_lop_mon = new US_GD_LOP_MON();
