@@ -12,7 +12,7 @@
               <DbSource ConnectionRef="TRMConnectionString1 (Settings)" DbObjectName="TRM.dbo.V_DM_DOT_THANH_TOAN" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT ID, MA_DOT_TT, TEN_DOT_TT, NGAY_TT_DU_KIEN, NGAY_THU_CHUNG_TU, ID_TRANG_THAI_DOT_TT, TRANG_THAI_DOT_TT, ID_DON_VI_THANH_TOAN, DON_VI_THANH_TOAN, GHI_CHU FROM dbo.V_DM_DOT_THANH_TOAN</CommandText>
+                    <CommandText>SELECT ID, MA_DOT_TT, TEN_DOT_TT, NGAY_TT_DU_KIEN, NGAY_THU_CHUNG_TU, NGAY_DONG_DOT_TT, ID_TRANG_THAI_DOT_TT, TRANG_THAI_DOT_TT, ID_DON_VI_THANH_TOAN, DON_VI_THANH_TOAN, GHI_CHU FROM dbo.V_DM_DOT_THANH_TOAN</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -24,6 +24,7 @@
               <Mapping SourceColumn="TEN_DOT_TT" DataSetColumn="TEN_DOT_TT" />
               <Mapping SourceColumn="NGAY_TT_DU_KIEN" DataSetColumn="NGAY_TT_DU_KIEN" />
               <Mapping SourceColumn="NGAY_THU_CHUNG_TU" DataSetColumn="NGAY_THU_CHUNG_TU" />
+              <Mapping SourceColumn="NGAY_DONG_DOT_TT" DataSetColumn="NGAY_DONG_DOT_TT" />
               <Mapping SourceColumn="ID_TRANG_THAI_DOT_TT" DataSetColumn="ID_TRANG_THAI_DOT_TT" />
               <Mapping SourceColumn="TRANG_THAI_DOT_TT" DataSetColumn="TRANG_THAI_DOT_TT" />
               <Mapping SourceColumn="ID_DON_VI_THANH_TOAN" DataSetColumn="ID_DON_VI_THANH_TOAN" />
@@ -60,6 +61,7 @@
               </xs:element>
               <xs:element name="NGAY_TT_DU_KIEN" msprop:Generator_ColumnVarNameInTable="columnNGAY_TT_DU_KIEN" msprop:Generator_ColumnPropNameInRow="NGAY_TT_DU_KIEN" msprop:Generator_ColumnPropNameInTable="NGAY_TT_DU_KIENColumn" msprop:Generator_UserColumnName="NGAY_TT_DU_KIEN" type="xs:dateTime" />
               <xs:element name="NGAY_THU_CHUNG_TU" msprop:Generator_ColumnVarNameInTable="columnNGAY_THU_CHUNG_TU" msprop:Generator_ColumnPropNameInRow="NGAY_THU_CHUNG_TU" msprop:Generator_ColumnPropNameInTable="NGAY_THU_CHUNG_TUColumn" msprop:Generator_UserColumnName="NGAY_THU_CHUNG_TU" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="NGAY_DONG_DOT_TT" msprop:Generator_ColumnVarNameInTable="columnNGAY_DONG_DOT_TT" msprop:Generator_ColumnPropNameInRow="NGAY_DONG_DOT_TT" msprop:Generator_ColumnPropNameInTable="NGAY_DONG_DOT_TTColumn" msprop:Generator_UserColumnName="NGAY_DONG_DOT_TT" type="xs:dateTime" minOccurs="0" />
               <xs:element name="ID_TRANG_THAI_DOT_TT" msprop:Generator_ColumnVarNameInTable="columnID_TRANG_THAI_DOT_TT" msprop:Generator_ColumnPropNameInRow="ID_TRANG_THAI_DOT_TT" msprop:Generator_ColumnPropNameInTable="ID_TRANG_THAI_DOT_TTColumn" msprop:Generator_UserColumnName="ID_TRANG_THAI_DOT_TT" type="xs:decimal" />
               <xs:element name="TRANG_THAI_DOT_TT" msprop:Generator_ColumnVarNameInTable="columnTRANG_THAI_DOT_TT" msprop:Generator_ColumnPropNameInRow="TRANG_THAI_DOT_TT" msprop:Generator_ColumnPropNameInTable="TRANG_THAI_DOT_TTColumn" msprop:Generator_UserColumnName="TRANG_THAI_DOT_TT">
                 <xs:simpleType>

@@ -289,6 +289,8 @@ namespace WebDS {
             
             private global::System.Data.DataColumn columnNGAY_THU_CHUNG_TU;
             
+            private global::System.Data.DataColumn columnNGAY_DONG_DOT_TT;
+            
             private global::System.Data.DataColumn columnID_TRANG_THAI_DOT_TT;
             
             private global::System.Data.DataColumn columnTRANG_THAI_DOT_TT;
@@ -374,6 +376,14 @@ namespace WebDS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn NGAY_DONG_DOT_TTColumn {
+                get {
+                    return this.columnNGAY_DONG_DOT_TT;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn ID_TRANG_THAI_DOT_TTColumn {
                 get {
                     return this.columnID_TRANG_THAI_DOT_TT;
@@ -449,7 +459,7 @@ namespace WebDS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public V_DM_DOT_THANH_TOANRow AddV_DM_DOT_THANH_TOANRow(string MA_DOT_TT, string TEN_DOT_TT, System.DateTime NGAY_TT_DU_KIEN, System.DateTime NGAY_THU_CHUNG_TU, decimal ID_TRANG_THAI_DOT_TT, string TRANG_THAI_DOT_TT, decimal ID_DON_VI_THANH_TOAN, string DON_VI_THANH_TOAN, string GHI_CHU) {
+            public V_DM_DOT_THANH_TOANRow AddV_DM_DOT_THANH_TOANRow(string MA_DOT_TT, string TEN_DOT_TT, System.DateTime NGAY_TT_DU_KIEN, System.DateTime NGAY_THU_CHUNG_TU, System.DateTime NGAY_DONG_DOT_TT, decimal ID_TRANG_THAI_DOT_TT, string TRANG_THAI_DOT_TT, decimal ID_DON_VI_THANH_TOAN, string DON_VI_THANH_TOAN, string GHI_CHU) {
                 V_DM_DOT_THANH_TOANRow rowV_DM_DOT_THANH_TOANRow = ((V_DM_DOT_THANH_TOANRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -457,6 +467,7 @@ namespace WebDS {
                         TEN_DOT_TT,
                         NGAY_TT_DU_KIEN,
                         NGAY_THU_CHUNG_TU,
+                        NGAY_DONG_DOT_TT,
                         ID_TRANG_THAI_DOT_TT,
                         TRANG_THAI_DOT_TT,
                         ID_DON_VI_THANH_TOAN,
@@ -502,6 +513,7 @@ namespace WebDS {
                 this.columnTEN_DOT_TT = base.Columns["TEN_DOT_TT"];
                 this.columnNGAY_TT_DU_KIEN = base.Columns["NGAY_TT_DU_KIEN"];
                 this.columnNGAY_THU_CHUNG_TU = base.Columns["NGAY_THU_CHUNG_TU"];
+                this.columnNGAY_DONG_DOT_TT = base.Columns["NGAY_DONG_DOT_TT"];
                 this.columnID_TRANG_THAI_DOT_TT = base.Columns["ID_TRANG_THAI_DOT_TT"];
                 this.columnTRANG_THAI_DOT_TT = base.Columns["TRANG_THAI_DOT_TT"];
                 this.columnID_DON_VI_THANH_TOAN = base.Columns["ID_DON_VI_THANH_TOAN"];
@@ -522,6 +534,8 @@ namespace WebDS {
                 base.Columns.Add(this.columnNGAY_TT_DU_KIEN);
                 this.columnNGAY_THU_CHUNG_TU = new global::System.Data.DataColumn("NGAY_THU_CHUNG_TU", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNGAY_THU_CHUNG_TU);
+                this.columnNGAY_DONG_DOT_TT = new global::System.Data.DataColumn("NGAY_DONG_DOT_TT", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNGAY_DONG_DOT_TT);
                 this.columnID_TRANG_THAI_DOT_TT = new global::System.Data.DataColumn("ID_TRANG_THAI_DOT_TT", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnID_TRANG_THAI_DOT_TT);
                 this.columnTRANG_THAI_DOT_TT = new global::System.Data.DataColumn("TRANG_THAI_DOT_TT", typeof(string), null, global::System.Data.MappingType.Element);
@@ -755,6 +769,23 @@ namespace WebDS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime NGAY_DONG_DOT_TT {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableV_DM_DOT_THANH_TOAN.NGAY_DONG_DOT_TTColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'NGAY_DONG_DOT_TT\' in table \'V_DM_DOT_THANH_TOAN\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableV_DM_DOT_THANH_TOAN.NGAY_DONG_DOT_TTColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public decimal ID_TRANG_THAI_DOT_TT {
                 get {
                     return ((decimal)(this[this.tableV_DM_DOT_THANH_TOAN.ID_TRANG_THAI_DOT_TTColumn]));
@@ -823,6 +854,18 @@ namespace WebDS {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetNGAY_THU_CHUNG_TUNull() {
                 this[this.tableV_DM_DOT_THANH_TOAN.NGAY_THU_CHUNG_TUColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsNGAY_DONG_DOT_TTNull() {
+                return this.IsNull(this.tableV_DM_DOT_THANH_TOAN.NGAY_DONG_DOT_TTColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetNGAY_DONG_DOT_TTNull() {
+                this[this.tableV_DM_DOT_THANH_TOAN.NGAY_DONG_DOT_TTColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1002,6 +1045,7 @@ namespace WebDS.DS_V_DM_DOT_THANH_TOANTableAdapters {
             tableMapping.ColumnMappings.Add("TEN_DOT_TT", "TEN_DOT_TT");
             tableMapping.ColumnMappings.Add("NGAY_TT_DU_KIEN", "NGAY_TT_DU_KIEN");
             tableMapping.ColumnMappings.Add("NGAY_THU_CHUNG_TU", "NGAY_THU_CHUNG_TU");
+            tableMapping.ColumnMappings.Add("NGAY_DONG_DOT_TT", "NGAY_DONG_DOT_TT");
             tableMapping.ColumnMappings.Add("ID_TRANG_THAI_DOT_TT", "ID_TRANG_THAI_DOT_TT");
             tableMapping.ColumnMappings.Add("TRANG_THAI_DOT_TT", "TRANG_THAI_DOT_TT");
             tableMapping.ColumnMappings.Add("ID_DON_VI_THANH_TOAN", "ID_DON_VI_THANH_TOAN");
@@ -1023,9 +1067,9 @@ namespace WebDS.DS_V_DM_DOT_THANH_TOANTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID, MA_DOT_TT, TEN_DOT_TT, NGAY_TT_DU_KIEN, NGAY_THU_CHUNG_TU, ID_TRANG_TH" +
-                "AI_DOT_TT, TRANG_THAI_DOT_TT, ID_DON_VI_THANH_TOAN, DON_VI_THANH_TOAN, GHI_CHU F" +
-                "ROM dbo.V_DM_DOT_THANH_TOAN";
+            this._commandCollection[0].CommandText = "SELECT ID, MA_DOT_TT, TEN_DOT_TT, NGAY_TT_DU_KIEN, NGAY_THU_CHUNG_TU, NGAY_DONG_D" +
+                "OT_TT, ID_TRANG_THAI_DOT_TT, TRANG_THAI_DOT_TT, ID_DON_VI_THANH_TOAN, DON_VI_THA" +
+                "NH_TOAN, GHI_CHU FROM dbo.V_DM_DOT_THANH_TOAN";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

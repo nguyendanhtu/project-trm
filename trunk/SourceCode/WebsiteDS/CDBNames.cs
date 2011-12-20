@@ -282,6 +282,7 @@ namespace WebDS.CDBNames
        public const string TEN_DOT_TT = "TEN_DOT_TT";
        public const string NGAY_TT_DU_KIEN = "NGAY_TT_DU_KIEN";
        public const string NGAY_THU_CHUNG_TU = "NGAY_THU_CHUNG_TU";
+       public const string NGAY_DONG_DOT_TT = "NGAY_DONG_DOT_TT";
        public const string ID_TRANG_THAI_DOT_TT = "ID_TRANG_THAI_DOT_TT";
        public const string TRANG_THAI_DOT_TT = "TRANG_THAI_DOT_TT";
        public const string ID_DON_VI_THANH_TOAN = "ID_DON_VI_THANH_TOAN";
@@ -316,6 +317,7 @@ namespace WebDS.CDBNames
        public const string SO_TIEN_THUE = "SO_TIEN_THUE";
        public const string TONG_TIEN_THUC_NHAN = "TONG_TIEN_THUC_NHAN";
        public const string ID_TRANG_THAI_THANH_TOAN = "ID_TRANG_THAI_THANH_TOAN";
+       public const string PO_LAP_THANH_TOAN = "PO_LAP_THANH_TOAN";
    }
 
    public class V_GD_THANH_TOAN_DETAIL
