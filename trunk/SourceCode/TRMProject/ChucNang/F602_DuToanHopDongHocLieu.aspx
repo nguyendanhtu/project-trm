@@ -455,11 +455,11 @@
                         <ItemStyle HorizontalAlign="Center" Width="3%"></ItemStyle>
                     </asp:TemplateField>
                     <asp:BoundField DataField="SO_PHIEU_THANH_TOAN" HeaderText="Mã đợt thanh toán">
-                    <ItemStyle Width="15%" HorizontalAlign="Left" />
+                    <ItemStyle Width="14%" HorizontalAlign="Left" />
                     </asp:BoundField>
                      <asp:TemplateField HeaderText="Số hợp đồng" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%# get_so_hd_khung_by_id_hd(CIPConvert.ToDecimal(Eval("ID_HOP_DONG_KHUNG")))%></ItemTemplate>
-                        <ItemStyle HorizontalAlign="Center" Width="10%"></ItemStyle>
+                        <ItemStyle HorizontalAlign="Center" Width="12%"></ItemStyle>
                     </asp:TemplateField> 
                     <asp:TemplateField HeaderText="Mã giảng viên" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%# mapping_magv_by_id(CIPConvert.ToDecimal(Eval("ID_GIANG_VIEN")))%></ItemTemplate>
@@ -467,7 +467,7 @@
                     </asp:TemplateField> 
                     <asp:TemplateField HeaderText="Tên giảng viên" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%# Eval("TEN_GIANG_VIEN")%></ItemTemplate>
-                        <ItemStyle HorizontalAlign="Left" Width="10%"></ItemStyle>
+                        <ItemStyle HorizontalAlign="Left" Width="9%"></ItemStyle>
                     </asp:TemplateField> 
                       <asp:BoundField DataField="GIA_TRI_NGHIEM_THU_THUC_TE" DataFormatString="{0:N0}" HeaderText="Giá trị nghiệm thu thực tế (VNĐ)">
                      <ItemStyle Width="8%" HorizontalAlign="Center" />
