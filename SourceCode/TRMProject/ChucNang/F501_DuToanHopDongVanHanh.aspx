@@ -391,11 +391,11 @@
                         <ItemStyle HorizontalAlign="Center" Width="3%"></ItemStyle>
                     </asp:TemplateField>
                     <asp:BoundField DataField="SO_PHIEU_THANH_TOAN" HeaderText="Mã đợt thanh toán">
-                    <ItemStyle Width="15%" HorizontalAlign="Left" />
+                    <ItemStyle Width="14%" HorizontalAlign="Left" />
                     </asp:BoundField>
                      <asp:TemplateField HeaderText="Số hợp đồng" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%# get_so_hd_khung_by_id_hd(CIPConvert.ToDecimal(Eval("ID_HOP_DONG_KHUNG")))%></ItemTemplate>
-                        <ItemStyle HorizontalAlign="Center" Width="10%"></ItemStyle>
+                        <ItemStyle HorizontalAlign="Center" Width="12%"></ItemStyle>
                     </asp:TemplateField> 
                      <asp:BoundField DataField="REFERENCE_CODE" HeaderText="Mã lớp">
                     <ItemStyle Width="7%" HorizontalAlign="Left" />
@@ -410,7 +410,7 @@
                     </asp:TemplateField> 
                     <asp:TemplateField HeaderText="Tên giảng viên" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%# Eval("TEN_GIANG_VIEN")%></ItemTemplate>
-                        <ItemStyle HorizontalAlign="Left" Width="10%"></ItemStyle>
+                        <ItemStyle HorizontalAlign="Left" Width="9%"></ItemStyle>
                     </asp:TemplateField> 
                      <asp:BoundField DataField="TONG_TIEN_THANH_TOAN" DataFormatString="{0:N0}" 
                         HeaderText="Tổng tiền thanh toán đợt này (VNĐ)">
