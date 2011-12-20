@@ -127,6 +127,28 @@ public class US_V_DM_DOT_THANH_TOAN : US_Object
         pm_objDR["NGAY_THU_CHUNG_TU"] = System.Convert.DBNull;
     }
 
+    public DateTime datNGAY_DONG_DOT_TT
+    {
+        get
+        {
+            return CNull.RowNVLDate(pm_objDR, "NGAY_DONG_DOT_TT", IPConstants.c_DefaultDate);
+        }
+        set
+        {
+            pm_objDR["NGAY_DONG_DOT_TT"] = value;
+        }
+    }
+
+    public bool IsNGAY_DONG_DOT_TTNull()
+    {
+        return pm_objDR.IsNull("NGAY_DONG_DOT_TT");
+    }
+
+    public void SetNGAY_DONG_DOT_TTNull()
+    {
+        pm_objDR["NGAY_DONG_DOT_TT"] = System.Convert.DBNull;
+    }
+
 	public decimal dcID_TRANG_THAI_DOT_TT 
 	{
 		get
@@ -312,6 +334,13 @@ public class US_V_DM_DOT_THANH_TOAN : US_Object
          CStoredProc v_cstore = new CStoredProc("pr_V_GD_THANH_TOAN_Dong_Dot_Thanh_Toan");
          v_cstore.addNVarcharInputParam("@MA_DOT_THANH_TOAN", this.strMA_DOT_TT);
          v_cstore.ExecuteCommand(this);
+     }
+     public void load_data_2_dot_tt_by_thang_nam(decimal ip_dc_thang_tt, decimal ip_dc_nam_tt, DS_V_DM_DOT_THANH_TOAN ip_ds_dm_dot_tt)
+     {
+         CStoredProc v_cstore = new CStoredProc("pr_V_DM_DOT_THANH_TOAN_LoadTheoThoiGian");
+         v_cstore.addDecimalInputParam("@NAM_TT", ip_dc_nam_tt);
+         v_cstore.addDecimalInputParam("@THANG_TT", ip_dc_thang_tt);
+         v_cstore.fillDataSetByCommand(this, ip_ds_dm_dot_tt);
      }
     #endregion
 }
