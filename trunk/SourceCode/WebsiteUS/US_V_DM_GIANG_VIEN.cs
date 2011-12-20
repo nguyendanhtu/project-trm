@@ -928,7 +928,8 @@ public class US_V_DM_GIANG_VIEN : US_Object
                                  , decimal ip_dc_id_trang_thai_giang_vien
                                  , decimal ip_dc_id_don_vi_quan_ly
                                  , DS_V_DM_GIANG_VIEN op_ds_giang_vien
-                                 , DateTime ip_dat_ngay_bd_hop_tac
+                                 , decimal ip_dc_thang_bd_hop_tac
+                                ,  decimal ip_dc_nam_bd_hop_tac
                                  , decimal ip_dc_month_birthday
                                  , string ip_str_gvhd
                                  , string ip_str_gvcm
@@ -953,7 +954,8 @@ public class US_V_DM_GIANG_VIEN : US_Object
         v_sp_search_giang_vien.addNVarcharInputParam("@GV_DUYET_HL_YN", ip_str_duyet_hl);
         v_sp_search_giang_vien.addNVarcharInputParam("@GV_QUAY_HL_YN", ip_str_gv_quay_hl);
         v_sp_search_giang_vien.addNVarcharInputParam("@GV_HDKH_YN", ip_str_hdkh);
-        v_sp_search_giang_vien.addDatetimeInputParam("@NGAY_BD_HOP_TAC", ip_dat_ngay_bd_hop_tac);
+        v_sp_search_giang_vien.addDecimalInputParam("@THANG_BD_HOP_TAC", ip_dc_thang_bd_hop_tac);
+        v_sp_search_giang_vien.addDecimalInputParam("@NAM_BD_HOP_TAC", ip_dc_nam_bd_hop_tac);
         v_sp_search_giang_vien.addDecimalInputParam("@THANG_SINH", ip_dc_month_birthday);
         v_sp_search_giang_vien.addNVarcharInputParam("@PO_PHU_TRACH_CHINH", ip_str_po_phu_trach_chinh);
         v_sp_search_giang_vien.addNVarcharInputParam("@PO_PHU_TRACH_PHU", ip_str_po_phu_trach_phu);

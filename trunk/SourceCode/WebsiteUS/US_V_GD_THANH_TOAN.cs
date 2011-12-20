@@ -572,6 +572,27 @@ public class US_V_GD_THANH_TOAN : US_Object
         pm_objDR["ID_TRANG_THAI_THANH_TOAN"] = System.Convert.DBNull;
     }
 
+    public string strPO_LAP_THANH_TOAN
+    {
+        get
+        {
+            return CNull.RowNVLString(pm_objDR, "PO_LAP_THANH_TOAN", IPConstants.c_DefaultString);
+        }
+        set
+        {
+            pm_objDR["PO_LAP_THANH_TOAN"] = value;
+        }
+    }
+
+    public bool IsPO_LAP_THANH_TOANNull()
+    {
+        return pm_objDR.IsNull("PO_LAP_THANH_TOAN");
+    }
+
+    public void SetPO_LAP_THANH_TOANNull()
+    {
+        pm_objDR["PO_LAP_THANH_TOAN"] = System.Convert.DBNull;
+    }
     #endregion
     
     #region "Init Functions"
