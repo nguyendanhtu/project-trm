@@ -93,10 +93,11 @@
               </li>
                <li><a href="#">Báo cáo</a>
                     <ul>
-					    <li><a href="#">Danh sách giảng viên</a></li>
-					    <li><a href="#">Danh sách hợp đồng khung</a></li>
-					    <li><a href="#">Danh sách lớp môn</a></li>
-                         <li><a href="#">Liệt kê thanh toán thực</a></li>
+					    <li><a href="/TRMProject/BaoCao/F700_ChiTietThanhToanDotThanhToan.aspx">Chi tiết các thanh toán của đợt thanh toán</a></li>
+					    <li><a href="/TRMProject/BaoCao/F701_ThanhToanTheoThoiGian.aspx">Thanh toán theo đơn vị, thời gian thanh toán</a></li>
+					    <li><a href="/TRMProject/BaoCao/F702_ThanhToanTungGiangVien.aspx">Lịch sử thanh toán giảng viên</a></li>
+                         <li><a href="/TRMProject/BaoCao/F703_LichSuThanhToanHopDong.aspx">Lịch sử thanh toán hợp đồng</a></li>
+                         <li><a href="/TRMProject/BaoCao/F704_CacChungTuTonDong.aspx">Các chứng từ tồn đọng</a></li>
 				    </ul>
               </li>
 
