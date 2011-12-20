@@ -44,6 +44,7 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
                 }
                 load_2_cbo_don_vi_q_ly();
                 load_2_cbo_trang_thai_giang_vien();
+                load_data_2_nam_bd_hop_tac();
                 if (Request.QueryString["edit"] != null)
                 {
                     if (Request.QueryString["edit"].ToString().Equals("ok"))
@@ -118,6 +119,14 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
     //
     // Region for search
     //
+    private void load_data_2_nam_bd_hop_tac()
+    {
+        m_cbo_nam_bd_hop_tac.Items.Add(new ListItem("Tất cả",CIPConvert.ToStr(0)));
+        for (int v_i = 2000; v_i < 2051; v_i++)
+        {
+            m_cbo_nam_bd_hop_tac.Items.Add(new ListItem(v_i.ToString(),v_i.ToString()));
+        }
+    }
 
     private void load_2_cbo_trang_thai_giang_vien()
     {
@@ -155,8 +164,8 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
         m_cbo_trang_thai_g_vien.SelectedValue = CIPConvert.ToStr(CIPConvert.ToDecimal(Session["Sstatus"]));
         m_cbo_don_vi_q_ly.SelectedValue = CIPConvert.ToStr(CIPConvert.ToDecimal(Session["Squanly"]));
         m_txt_tu_khoa_tim_kiem.Text = CIPConvert.ToStr(Session["Skey"]);
-        if (CIPConvert.ToStr(Session["Sdathoptac"]) != "" && CIPConvert.ToDatetime(CIPConvert.ToStr(Session["Sdathoptac"])) != CIPConvert.ToDatetime("01/01/1900"))
-            m_dat_ngay_bd_hop_tac.SelectedDate = CIPConvert.ToDatetime(CIPConvert.ToStr(Session["Sdathoptac"]), "dd/MM/yyyy");
+        m_cbo_thang_bd_hop_tac.SelectedValue = CIPConvert.ToStr(CIPConvert.ToDecimal(Session["Sthanghoptac"]));
+        m_cbo_nam_bd_hop_tac.SelectedValue = CIPConvert.ToStr(CIPConvert.ToDecimal(Session["Snamhoptac"]));
         m_cbo_thang_sn_GV.SelectedValue = CIPConvert.ToStr(CIPConvert.ToDecimal(Session["Smonth"]));
 
         if (CIPConvert.ToStr(Session["Sduyethl"]) == "Y") m_cbl_loai_hinh_thuc_cong_tac.Items[3].Selected = true;
@@ -228,7 +237,8 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
                                     , string ip_str_gender
                                     , decimal ip_dc_id_trang_thai_giang_vien
                                     , decimal ip_dc_id_don_vi_quan_ly
-                                    , DateTime ip_dat_ngay_bd_hop_tac
+                                    , decimal ip_dc_thang_bd_hop_tac
+                                    , decimal ip_dc_nam_bd_hop_tac
                                     , decimal ip_dc_month_birthday
                                     , string ip_str_gvhd
                                     , string ip_str_gvcm
@@ -245,7 +255,8 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
         Session["Sstatus"] = ip_dc_id_trang_thai_giang_vien;
         Session["Sgender"] = ip_str_gender;
         Session["Squanly"] = ip_dc_id_don_vi_quan_ly;
-        Session["Sdathoptac"] = ip_dat_ngay_bd_hop_tac;
+        Session["Sthanghoptac"] = ip_dc_thang_bd_hop_tac;
+        Session["Snamhoptac"] = ip_dc_nam_bd_hop_tac;
         Session["Smonth"] = ip_dc_month_birthday;
         Session["Sgvcm"] = ip_str_gvcm;
         Session["Sgvhd"] = ip_str_gvhd;
@@ -272,13 +283,9 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
 
             string v_str_gender="";
             v_str_gender = get_gender_search();
-            DateTime v_dat_ngay_bd_hop_tac;
-            if (DateTime.TryParseExact(CIPConvert.ToStr(m_dat_ngay_bd_hop_tac.SelectedDate),"dd/MM/yyyy",enUS, System.Globalization.DateTimeStyles.None,out v_dat_ngay_bd_hop_tac))
-            {
-                if (m_dat_ngay_bd_hop_tac.SelectedDate != CIPConvert.ToDatetime("01/01/0001"))
-                    v_dat_ngay_bd_hop_tac = m_dat_ngay_bd_hop_tac.SelectedDate;
-                else v_dat_ngay_bd_hop_tac = CIPConvert.ToDatetime("01/01/1900");
-            }            
+            decimal v_dc_thang_bd_hop_tac, v_dc_nam_bd_hop_tac;
+            v_dc_thang_bd_hop_tac = CIPConvert.ToDecimal(m_cbo_thang_bd_hop_tac.SelectedValue);
+            v_dc_nam_bd_hop_tac = CIPConvert.ToDecimal(m_cbo_nam_bd_hop_tac.SelectedValue);      
             string v_str_month = m_cbo_thang_sn_GV.SelectedValue;
                  
             decimal v_dc_id_trang_thai_giang_vien = CIPConvert.ToDecimal(m_cbo_trang_thai_g_vien.SelectedValue);
@@ -318,7 +325,8 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
                                                   , v_str_gender
                                                   , v_dc_id_trang_thai_giang_vien
                                                   , v_dc_id_don_vi_quan_ly
-                                                  , v_dat_ngay_bd_hop_tac
+                                                  , v_dc_thang_bd_hop_tac
+                                                  , v_dc_nam_bd_hop_tac
                                                   , CIPConvert.ToDecimal(v_str_month)
                                                   , v_str_gvhd
                                                   , v_str_gvcm
@@ -337,12 +345,13 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
                                                 ,v_dc_id_trang_thai_giang_vien
                                                 ,v_dc_id_don_vi_quan_ly
                                                 ,m_ds_giang_vien
-                                                ,v_dat_ngay_bd_hop_tac
+                                                ,v_dc_thang_bd_hop_tac
+                                                ,v_dc_nam_bd_hop_tac
                                                 ,CIPConvert.ToDecimal(v_str_month)
                                                 ,v_str_gvhd
                                                 ,v_str_gvcm
                                                 ,v_str_gv_viet_hl
-                                                , v_str_gv_tham_dinh_hl
+                                                ,v_str_gv_tham_dinh_hl
                                                 ,v_str_duyet_hl
                                                 ,v_str_gv_quay_hl
                                                 ,v_str_hdkh
@@ -393,7 +402,8 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
                                                , CIPConvert.ToDecimal(Session["Sstatus"])
                                                , CIPConvert.ToDecimal(Session["Squanly"])
                                                , m_ds_giang_vien
-                                               , CIPConvert.ToDatetime(CIPConvert.ToStr(Session["Sdathoptac"]))
+                                               , CIPConvert.ToDecimal(Session["Sthanghoptac"])
+                                               , CIPConvert.ToDecimal(Session["Snamhoptac"])
                                                , CIPConvert.ToDecimal(Session["Smonth"])
                                                , CIPConvert.ToStr(Session["Sgvcm"])
                                                , CIPConvert.ToStr(Session["Sgvhd"])
@@ -548,7 +558,13 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
         strTable += "\n<tr>";
         strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
         strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
-        strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>Ngày bắt đầu hợp tác: " + CIPConvert.ToStr(m_dat_ngay_bd_hop_tac.SelectedDate,"dd/MM/yyyy") + " </td>";
+        strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>Tháng bắt đầu hợp tác: " + CIPConvert.ToDecimal(m_cbo_thang_bd_hop_tac.SelectedValue) + " </td>";
+        strTable += "\n</tr>";
+        //
+        strTable += "\n<tr>";
+        strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
+        strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
+        strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>Năm bắt đầu hợp tác: " + CIPConvert.ToDecimal(m_cbo_nam_bd_hop_tac.SelectedValue) + " </td>";
         strTable += "\n</tr>";
         //
         strTable += "\n<tr>";

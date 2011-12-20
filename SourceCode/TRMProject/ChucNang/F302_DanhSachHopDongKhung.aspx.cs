@@ -28,6 +28,7 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
                     load_2_cbo_don_vi_quan_ly();
                     load_data_2_loai_hop_dong();
                     load_data_2_trang_thai_hop_dong();
+                    load_data_2_nam_bd_hop_tac();
                     if (Session["Snamekhung"] != null)
                     {
                         session_2_form();
@@ -269,8 +270,10 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
 
         m_cbo_loai_hop_dong_search.SelectedValue = CIPConvert.ToStr(CIPConvert.ToDecimal(Session["Sloaihdkhung"]));
         m_cbo_don_vi_quan_ly_search.SelectedValue = CIPConvert.ToStr(CIPConvert.ToDecimal(Session["Squanlykhung"]));
-        if (CIPConvert.ToStr(Session["Sdatngaykykhung"]) != "" && CIPConvert.ToDatetime(CIPConvert.ToStr(Session["Sdatngaykykhung"]), "dd/MM/yyyy")!=CIPConvert.ToDatetime("01/01/1900","dd/MM/yyyy"))
-            m_dat_ngay_ki.SelectedDate = CIPConvert.ToDatetime(CIPConvert.ToStr(Session["Sdatngaykykhung"]), "dd/MM/yyyy");
+        m_cbo_thang_ky.SelectedValue = CIPConvert.ToStr(Session["Sthangkykhung"]);
+        m_cbo_nam_ky.SelectedValue = CIPConvert.ToStr(Session["Snamkykhung"]);
+        if (CIPConvert.ToStr(Session["Sthangkykhung"]) != "")
+            m_cbo_thang_ky.SelectedValue = CIPConvert.ToStr(Session["Sthangkykhung"]);
         if (CIPConvert.ToStr(Session["Sdathieuluckhung"]) != "" && CIPConvert.ToDatetime(CIPConvert.ToStr(Session["Sdathieuluckhung"]), "dd/MM/yyyy") != CIPConvert.ToDatetime("01/01/1900", "dd/MM/yyyy"))
             m_dat_ngay_hieu_luc.SelectedDate = CIPConvert.ToDatetime(CIPConvert.ToStr(Session["Sdathieuluckhung"]), "dd/MM/yyyy");
         if (CIPConvert.ToStr(Session["Sdatketthuc"]) != "" && CIPConvert.ToDatetime(CIPConvert.ToStr(Session["Sdatketthuc"]), "dd/MM/yyyy") != CIPConvert.ToDatetime("01/01/1900", "dd/MM/yyyy"))
@@ -283,7 +286,8 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
                                   , decimal ip_dc_id_loai_hd
                                   , decimal ip_dc_id_trang_thai_hd
                                   , decimal ip_dc_don_vi_quan_ly
-                                  , DateTime ip_dat_ngay_ky
+                                  , decimal ip_dc_thang_ky
+                                  , decimal ip_dc_nam_ky
                                   , DateTime ip_dat_ngay_hieu_luc
                                   , DateTime ip_dat_ngay_ket_thuc
                                   , string ip_str_ma_po_quan_ly)
@@ -294,7 +298,8 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
         Session["Sloaihdkhung"] = ip_dc_id_loai_hd;
         Session["Squanlykhung"] = ip_dc_don_vi_quan_ly;
         Session["Strangthaihdkhung"] = ip_dc_id_trang_thai_hd;
-        Session["Sdatngaykykhung"] = ip_dat_ngay_ky;
+        Session["Sthangkykhung"] = ip_dc_thang_ky;
+        Session["Snamkykhung"] = ip_dc_nam_ky;
         Session["Sdathieuluckhung"] = ip_dat_ngay_hieu_luc;
         Session["Spokhung"] = ip_str_ma_po_quan_ly;
         Session["Sdatketthuc"] = ip_dat_ngay_ket_thuc;
@@ -306,12 +311,20 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
         Session["Sloaihdkhung"] = "";
         Session["Squanlykhung"] = "";
         Session["Strangthaihdkhung"] = "";
-        Session["Sdatngaykykhung"] = "";
+        Session["Sthangkykhung"] = "";
+        Session["Snamkykhung"] = "";
         Session["Sdathieuluckhung"] = "";
         Session["Spokhung"] = "";
         Session["Sdatketthuc"] = "";
     }
-
+    private void load_data_2_nam_bd_hop_tac()
+    {
+        m_cbo_nam_ky.Items.Add(new ListItem("Tất cả", CIPConvert.ToStr(0)));
+        for (int v_i = 2000; v_i < 2051; v_i++)
+        {
+            m_cbo_nam_ky.Items.Add(new ListItem(v_i.ToString(), v_i.ToString()));
+        }
+    }
     private void get_form_search_data_and_load_to_grid()
     {
 
@@ -334,14 +347,10 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
             string v_str_ma_po_quan_ly = m_txt_ma_PO_quan_ly.Text.Trim();
             string v_str_so_hop_dong = m_txt_so_hd.Text.Trim();
 
-            DateTime v_dat_ngay_ki;
+            Decimal v_dc_thang_ki, v_dc_nam_ky;
             // Nếu ngày ký đúng định dạng
-            if(DateTime.TryParseExact(CIPConvert.ToStr(m_dat_ngay_ki.SelectedDate),"dd/MM/yyyy",enUS, System.Globalization.DateTimeStyles.None, out v_dat_ngay_ki))
-            { 
-                if (m_dat_ngay_ki.SelectedDate != CIPConvert.ToDatetime("01/01/0001"))
-                v_dat_ngay_ki = m_dat_ngay_ki.SelectedDate;
-                else v_dat_ngay_ki = CIPConvert.ToDatetime("01/01/1900");
-            }          
+            v_dc_nam_ky = CIPConvert.ToDecimal(m_cbo_nam_ky.SelectedValue);
+            v_dc_thang_ki = CIPConvert.ToDecimal(m_cbo_thang_ky.SelectedValue);   
             DateTime v_dat_ngay_hieu_luc;
             if (DateTime.TryParseExact(CIPConvert.ToStr(m_dat_ngay_hieu_luc.SelectedDate), "dd/MM/yyyy", enUS, System.Globalization.DateTimeStyles.None, out v_dat_ngay_hieu_luc))
             {
@@ -366,7 +375,8 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
                                                         , v_dc_id_loai_hop_dong
                                                         , v_dc_trang_thai_hop_dong
                                                         , v_dc_don_vi_quan_li
-                                                        , v_dat_ngay_ki
+                                                        , v_dc_thang_ki
+                                                        , v_dc_nam_ky
                                                         , v_dat_ngay_hieu_luc
                                                         , v_dat_ngay_ket_thuc
                                                         , v_str_ma_po_quan_ly);
@@ -379,7 +389,8 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
                                                         , v_dc_id_loai_hop_dong                                                        
                                                         , v_dc_trang_thai_hop_dong
                                                         , v_dc_don_vi_quan_li
-                                                        , v_dat_ngay_ki
+                                                        , v_dc_thang_ki
+                                                        , v_dc_nam_ky
                                                         , v_dat_ngay_hieu_luc
                                                         , v_dat_ngay_ket_thuc
                                                         , v_str_ma_po_quan_ly
@@ -418,7 +429,8 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
                                                , CIPConvert.ToDecimal(Session["Sloaihdkhung"])
                                                , CIPConvert.ToDecimal(Session["Strangthaihdkhung"])
                                                , CIPConvert.ToDecimal(Session["Squanlykhung"])
-                                               , CIPConvert.ToDatetime(CIPConvert.ToStr(Session["Sdatngaykykhung"]))
+                                               , CIPConvert.ToDecimal(Session["Sthangkykhung"])
+                                               , CIPConvert.ToDecimal(Session["Snamkykhung"])
                                                , CIPConvert.ToDatetime(CIPConvert.ToStr(Session["Sdathieuluckhung"]))
                                                , CIPConvert.ToDatetime(CIPConvert.ToStr(Session["Sdatketthuc"]))
                                                , CIPConvert.ToStr(Session["Spokhung"])
@@ -555,7 +567,14 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
         strTable += "\n<tr>";
         strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
         strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
-        strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>Ngày ký: " + CIPConvert.ToStr(m_dat_ngay_ki.SelectedDate, "dd/MM/yyyy") + " </td>";
+        strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>Tháng ký hợp đồng: " + CIPConvert.ToStr(m_cbo_thang_ky.SelectedValue) + " </td>";
+        strTable += "\n</tr>";
+        strTable += "\n</table>";
+        //
+        strTable += "\n<tr>";
+        strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
+        strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
+        strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>Năm ký hợp đồng: " + CIPConvert.ToStr(m_cbo_nam_ky.SelectedValue) + " </td>";
         strTable += "\n</tr>";
         strTable += "\n</table>";
         //

@@ -31,7 +31,7 @@
                 &nbsp;<asp:TextBox ID="m_txt_ten_giang_vien" runat="server" CssClass="cssTextBox" 
                         Width="85%"></asp:TextBox>
 		            &nbsp;</td>
-                <td align="right" style="width:10%;">
+                <td align="right" style="width:7%;">
                     <asp:label id="Label13" CssClass="cssManField" runat="server" 
                 Text="&lt;U&gt;T&lt;/U&gt;háng sinh nhật Giảng viên" />
 		            </td>
@@ -69,45 +69,37 @@
                         <asp:ListItem Value="Male">Nam</asp:ListItem>
                         <asp:ListItem Value="Female">Nữ</asp:ListItem>
                     </asp:RadioButtonList></td>
-                <td align="right" style="width:10%;">
+                <td align="right" style="width:7%;">
                     <br />
                     <asp:label id="Label12" CssClass="cssManField" runat="server" 
-                Text="&lt;U&gt;N&lt;/U&gt;gày bắt đầu hợp tác" />
+                Text="&lt;U&gt;T&lt;/U&gt;háng bđ hợp tác" />
 		            </td>
                 <td align="left" colspan="2">
-               &nbsp;<ew:CalendarPopup ID="m_dat_ngay_bd_hop_tac" runat="server" 
-                        ControlDisplay="TextBoxImage" GoToTodayText="Hôm nay:" 
-                        ImageUrl="~/Images/cal.gif" Nullable="True" NullableLabelText="" 
-                        ShowGoToToday="True" Width="70%" Text="" Culture="vi-VN" 
-                        DisableTextboxEntry="False">
-                        <weekdaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
-                            font-size="XX-Small" forecolor="Black" />
-                        <weekendstyle backcolor="LightGray" font-names="Verdana,Helvetica,Tahoma,Arial" 
-                            font-size="XX-Small" forecolor="Black" />
-                        <offmonthstyle backcolor="AntiqueWhite" 
-                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
-                            forecolor="Gray" />
-                        <selecteddatestyle backcolor="Yellow" 
-                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
-                            forecolor="Black" />
-                        <monthheaderstyle backcolor="Yellow" 
-                            font-names="Verdana,Helvetica,Tahoma,Arial" font-size="XX-Small" 
-                            forecolor="Black" />
-                        <DayHeaderStyle BackColor="Orange" Font-Names="Verdana,Helvetica,Tahoma,Arial" 
-                            Font-Size="XX-Small" ForeColor="Black" />
-                        <cleardatestyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
-                            font-size="XX-Small" forecolor="Black" />
-                        <gototodaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
-                            font-size="XX-Small" forecolor="Black" />
-                        <TodayDayStyle BackColor="LightGoldenrodYellow" 
-                            Font-Names="Verdana,Helvetica,Tahoma,Arial" Font-Size="XX-Small" 
-                            ForeColor="Black" />
-                        <holidaystyle backcolor="White" font-names="Verdana,Helvetica,Tahoma,Arial" 
-                            font-size="XX-Small" forecolor="Black" />
-                    </ew:CalendarPopup>
-		            </td>
+                    <asp:DropDownList id="m_cbo_thang_bd_hop_tac" runat="server" Width="75%" 
+                        CssClass="cssDorpdownlist"  >
+                        <asp:ListItem Selected="True" Value="0">Tất cả</asp:ListItem>
+                        <asp:ListItem Value="1">1</asp:ListItem>
+                        <asp:ListItem>2</asp:ListItem>
+                        <asp:ListItem>3</asp:ListItem>
+                        <asp:ListItem>4</asp:ListItem>
+                        <asp:ListItem>5</asp:ListItem>
+                        <asp:ListItem>6</asp:ListItem>
+                        <asp:ListItem>7</asp:ListItem>
+                        <asp:ListItem>8</asp:ListItem>
+                        <asp:ListItem>9</asp:ListItem>
+                        <asp:ListItem>10</asp:ListItem>
+                        <asp:ListItem>11</asp:ListItem>
+                        <asp:ListItem>12</asp:ListItem>
+                    </asp:DropDownList>
+                    </td>
                 <td align="left" style="width:10%;">
-                    &nbsp;</td>
+                    <asp:label id="Label16" CssClass="cssManField" runat="server" 
+                Text="&lt;U&gt;N&lt;/U&gt;ăm bđ hợp tác" />
+		            &nbsp;&nbsp;
+                    <asp:DropDownList id="m_cbo_nam_bd_hop_tac" runat="server" Width="40%" 
+                        CssClass="cssDorpdownlist"  >
+                    </asp:DropDownList>
+                    </td>
                 <td align="left" style="width:1%;">
                     &nbsp;</td>
             </tr>
@@ -120,7 +112,7 @@
                         CssClass="cssDorpdownlist"  />
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     </td>
-                <td align="right" style="width:10%;">
+                <td align="right" style="width:7%;">
                     &nbsp;</td>
                 <td align="left" colspan="3" style="margin-left: 40px" rowspan="6">
 			        &nbsp;<asp:CheckBoxList ID="m_cbl_loai_hinh_thuc_cong_tac" runat="server">
@@ -143,7 +135,7 @@
                 <td align="left" colspan="3">
                     &nbsp; <asp:DropDownList ID="m_cbo_don_vi_q_ly" runat="server" 
                         CssClass="cssDorpdownlist" Width="85%" /></td>
-                <td align="right" style="width:10%;">
+                <td align="right" style="width:7%;">
 			<asp:label id="lblLoaiHopDongGiaoVien" CssClass="cssManField" runat="server" 
                 Text="Hình thức cộng tác:" />
 		                    </td>
@@ -157,7 +149,7 @@
                 <td align="left" colspan="3">
                      &nbsp;<asp:TextBox ID="m_txt_tu_khoa_tim_kiem" runat="server" CssClass="cssTextBox" 
                         Width="85%"></asp:TextBox></td>
-                <td align="left" style="width:10%;">
+                <td align="left" style="width:7%;">
                     &nbsp;</td>
                 <td align="left" style="width:1%;">
                     &nbsp;</td>
@@ -169,7 +161,7 @@
                 <td align="left" colspan="3">
                      <asp:TextBox ID="m_txt_po_phu_trach_chinh" runat="server" CssClass="cssTextBox" 
                         Width="85%"></asp:TextBox></td>
-                <td align="left" style="width:10%;">
+                <td align="left" style="width:7%;">
                     &nbsp;</td>
                 <td align="left" style="width:1%;">
                     &nbsp;</td>
@@ -181,7 +173,7 @@
                 <td align="left" colspan="3">
                      <asp:TextBox ID="m_txt_po_phu_trach_phu" runat="server" CssClass="cssTextBox" 
                         Width="85%"></asp:TextBox></td>
-                <td align="left" style="width:10%;">
+                <td align="left" style="width:7%;">
                     &nbsp;</td>
                 <td align="left" style="width:1%;">
                     &nbsp;</td>
@@ -207,7 +199,7 @@
 			
                 <td align="left" style="width:5%;">
 			        &nbsp;</td>
-                <td align="left" style="width:10%;">     
+                <td align="left" style="width:7%;">     
 			        &nbsp;</td>     
                     <td align="left" style="width:1%;"></td>
                  <td align="right" style="width:5%;"></td>
@@ -295,13 +287,12 @@
                     <label><%# Eval("MA_GIANG_VIEN").ToString() %></label>
                     </ItemTemplate>
                     <ItemStyle Width="200px"/>
-                    </asp:TemplateField>         
+                    </asp:TemplateField>      
                     <asp:TemplateField>
                     <HeaderTemplate>Tên giảng viên</HeaderTemplate>
                     <ItemTemplate>
-                    <label>
                     <a href='<%# "/TRMProject/ChucNang/F201_CapNhatThongTinGiangVien.aspx?mode=edit&id="+Eval("ID") %>'>
-                    <%# Eval("HO_VA_TEN_DEM").ToString().Trim()+" "+Eval("TEN_GIANG_VIEN").ToString() %></a></label>
+                    <%# Eval("HO_VA_TEN_DEM").ToString().Trim()+" "+Eval("TEN_GIANG_VIEN").ToString() %></a>
                     </ItemTemplate>
                     <ItemStyle Width="200px"/>
                     </asp:TemplateField>
