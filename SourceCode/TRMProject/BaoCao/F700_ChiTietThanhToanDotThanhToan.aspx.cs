@@ -179,6 +179,8 @@ public partial class BaoCao_F700_ChiTietThanhToanDotThanhToan : System.Web.UI.Pa
         m_cbo_dot_thanh_toan.DataValueField = V_DM_DOT_THANH_TOAN.ID;
         m_cbo_dot_thanh_toan.DataSource = v_ds_dot_thanh_toan.V_DM_DOT_THANH_TOAN;
         m_cbo_dot_thanh_toan.DataBind();
+        if (m_cbo_dot_thanh_toan.Items.Count == 0) m_cmd_tim_kiem.Enabled = false;
+        else m_cmd_tim_kiem.Enabled = true;
     }
     private decimal get_id_trang_thai_da_duyet()
     {

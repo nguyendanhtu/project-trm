@@ -583,7 +583,7 @@ public partial class BaoCao_F701_ThanhToanTheoThoiGian : System.Web.UI.Page
     {
         try
         {
-
+            load_data_2_cbo_dot_thanh_toan(CIPConvert.ToDecimal(m_cbo_thang_thanh_toan.SelectedValue), CIPConvert.ToDecimal(m_cbo_nam_thanh_toan.SelectedValue), CIPConvert.ToDecimal(m_cbo_don_vi_thanh_toan.SelectedValue));
         }
         catch (Exception v_e)
         {
