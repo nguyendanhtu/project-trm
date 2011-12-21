@@ -114,17 +114,16 @@
                 Text="Loại hợp đồng" />
 			       
                 </td>
-                <td align="left" colspan="1">    
+                <td align="left" colspan="2">    
 			
                     <asp:RadioButtonList ID="m_rdl_loai_hop_dong" runat="server" 
                        
-                        RepeatDirection="Horizontal" Width="90%">
-                        <asp:ListItem Value="Vanhanh" Selected="True">Vận hành</asp:ListItem>
+                        RepeatDirection="Horizontal" Width="60%">
+                        <asp:ListItem Value="All" Selected="True">Tất cả</asp:ListItem>
+                        <asp:ListItem Value="Vanhanh">Vận hành</asp:ListItem>
                         <asp:ListItem Value="Hoclieu">Học liệu</asp:ListItem>
                     </asp:RadioButtonList></td> 
-                <td align="right" style="width:10%;">    
-			       
-			        &nbsp;</td> <td align="left" style="width:1%;">
+                <td align="left" style="width:1%;">
 			
                     &nbsp;</td>
                  <td align="right" style="width:5%;">&nbsp;</td>
@@ -233,7 +232,7 @@
 
                      <asp:TemplateField ItemStyle-HorizontalAlign="Center">
                      <HeaderTemplate><%# mapping_header_nghiem_thu_lop_mon(m_str_loai_hd) %></HeaderTemplate>
-                       <ItemTemplate><%# mapping_item_field_nghiem_thu_lop_mon(m_str_loai_hd, Eval("REFERENCE_CODE"), Eval("GIA_TRI_NGHIEM_THU_THUC_TE"))%></ItemTemplate>
+                       <ItemTemplate><%# mapping_item_field_nghiem_thu_lop_mon(CIPConvert.ToStr(Eval("LOAI_HOP_DONG")), Eval("REFERENCE_CODE"), Eval("GIA_TRI_NGHIEM_THU_THUC_TE"))%></ItemTemplate>
                         <ItemStyle HorizontalAlign="Left" Width="7%"></ItemStyle>
                     </asp:TemplateField> 
 
