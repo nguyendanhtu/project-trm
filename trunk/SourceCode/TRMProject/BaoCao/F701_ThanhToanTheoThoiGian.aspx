@@ -19,6 +19,21 @@
 		<td>
         <table cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0"> 
             <tr>
+                <td align="right" style="width:15%;height:30px;">			       
+			       
+			<asp:label id="Label1" CssClass="cssManField" runat="server" 
+                Text="Đơn vị thanh toán: " />
+			       
+                         </td>
+                <td align="left" colspan="4">
+              <asp:DropDownList ID="m_cbo_don_vi_thanh_toan" CssClass="cssDorpdownlist" Width="85%" runat="server" 
+                        AutoPostBack="true" 
+                        onselectedindexchanged="m_cbo_don_vi_thanh_toan_SelectedIndexChanged">
+               </asp:DropDownList>
+                         </td>
+                <td align="left" style="width:1%;">&nbsp;</td>
+            </tr>
+            <tr>
                 <td align="right" style="width:17%;height:30px;">			       
 			       
 			<asp:label id="Label3" Enabled="false" CssClass="cssManField" runat="server" 
@@ -44,7 +59,7 @@
                         <asp:ListItem>12</asp:ListItem>
                     </asp:DropDownList>
                     </td>
-                <td align="right" style="width:15%;">			       
+                <td align="right" style="width:13%;">			       
 			       
 			<asp:label id="Label4" Enabled="false" CssClass="cssManField" runat="server" 
                 Text="Năm thanh toán: " />
@@ -69,21 +84,6 @@
                </asp:DropDownList>
                          </td>
                 <td align="left" style="width:1%;"></td>
-            </tr>
-            <tr>
-                <td align="right" style="width:5%;height:35px;">
-			       
-			<asp:label id="Label1" CssClass="cssManField" runat="server" 
-                Text="Đơn vị thanh toán: " />
-			       
-                </td>
-                <td align="left" colspan="4">    
-			<asp:Label id="m_lbl_don_vi_thanh_toan"  runat="server" 
-                Width="96%" />
-                    </td> 
-                <td align="left" style="width:1%;">&nbsp;</td>
-                 <td align="right" style="width:5%;">&nbsp;</td>
-                <td align="left" style="width:10%;">&nbsp;</td>
             </tr>
             <tr>
                 <td align="right" style="width:5%;height:35px;">
@@ -114,17 +114,16 @@
                 Text="Loại hợp đồng" />
 			       
                 </td>
-                <td align="left" colspan="1">    
+                <td align="left" colspan="2">    
 			
                     <asp:RadioButtonList ID="m_rdl_loai_hop_dong" runat="server" 
                        
-                        RepeatDirection="Horizontal" Width="90%">
-                        <asp:ListItem Value="Vanhanh" Selected="True">Vận hành</asp:ListItem>
+                        RepeatDirection="Horizontal" Width="70%">
+                        <asp:ListItem Value="All" Selected="True">Tất cả</asp:ListItem>
+                        <asp:ListItem Value="Vanhanh">Vận hành</asp:ListItem>
                         <asp:ListItem Value="Hoclieu">Học liệu</asp:ListItem>
                     </asp:RadioButtonList></td> 
-                <td align="right" style="width:10%;">    
-			       
-			        &nbsp;</td> <td align="left" style="width:1%;">
+                <td align="left" style="width:1%;">
 			
                     &nbsp;</td>
                  <td align="right" style="width:5%;">&nbsp;</td>
@@ -232,7 +231,7 @@
 
                      <asp:TemplateField ItemStyle-HorizontalAlign="Center">
                      <HeaderTemplate><%# mapping_header_nghiem_thu_lop_mon(m_str_loai_hd) %></HeaderTemplate>
-                       <ItemTemplate><%# mapping_item_field_nghiem_thu_lop_mon(m_str_loai_hd, Eval("REFERENCE_CODE"), Eval("GIA_TRI_NGHIEM_THU_THUC_TE"))%></ItemTemplate>
+                       <ItemTemplate><%# mapping_item_field_nghiem_thu_lop_mon(CIPConvert.ToStr(Eval("LOAI_HOP_DONG")), Eval("REFERENCE_CODE"), Eval("GIA_TRI_NGHIEM_THU_THUC_TE"))%></ItemTemplate>
                         <ItemStyle HorizontalAlign="Left" Width="7%"></ItemStyle>
                     </asp:TemplateField> 
 
