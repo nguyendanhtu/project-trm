@@ -27,7 +27,8 @@
                 </td>
                 <td align="left"  style="width:15%;">
                     <asp:DropDownList id="m_cbo_thang_thanh_toan" runat="server" Width="50%" 
-                        CssClass="cssDorpdownlist"  >
+                        CssClass="cssDorpdownlist" AutoPostBack="true"
+                        onselectedindexchanged="m_cbo_thang_thanh_toan_SelectedIndexChanged"  >
                         <asp:ListItem Selected="True" Value="0">Tất cả</asp:ListItem>
                         <asp:ListItem Value="1">1</asp:ListItem>
                         <asp:ListItem>2</asp:ListItem>
@@ -51,7 +52,8 @@
                 </td>
                 <td align="left" style="width:15%;">
                     <asp:DropDownList id="m_cbo_nam_thanh_toan" runat="server" Width="50%" 
-                        CssClass="cssDorpdownlist"  >
+                        CssClass="cssDorpdownlist" AutoPostBack="true"
+                        onselectedindexchanged="m_cbo_nam_thanh_toan_SelectedIndexChanged"  >
                     </asp:DropDownList>
                     </td>
             </tr>
@@ -95,17 +97,36 @@
                          </td> 
                 <td align="right" style="width:10%;">    
 			       
-			<asp:label id="lbltan_suat3" CssClass="cssManField" runat="server" 
-                Text="Loại hợp đồng" />
+			<asp:label id="Label5" Enabled="false" CssClass="cssManField" runat="server" 
+                Text="Ngày hoàn tất thanh toán: " />
 			       
                 </td> <td align="left" style="width:1%;">
 			
-                    <asp:RadioButtonList ID="rdl_trang_thai_tt_check" runat="server" 
+			<asp:Label id="m_lbl_ngay_hoan_tat_tt" runat="server" />
+                         </td>
+                 <td align="right" style="width:5%;">&nbsp;</td>
+                <td align="left" style="width:10%;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" style="width:5%;height:35px;">
+			       
+			<asp:label id="lbltan_suat3" CssClass="cssManField" runat="server" 
+                Text="Loại hợp đồng" />
+			       
+                </td>
+                <td align="left" colspan="1">    
+			
+                    <asp:RadioButtonList ID="m_rdl_loai_hop_dong" runat="server" 
                        
                         RepeatDirection="Horizontal" Width="90%">
                         <asp:ListItem Value="Vanhanh" Selected="True">Vận hành</asp:ListItem>
                         <asp:ListItem Value="Hoclieu">Học liệu</asp:ListItem>
-                    </asp:RadioButtonList></td>
+                    </asp:RadioButtonList></td> 
+                <td align="right" style="width:10%;">    
+			       
+			        &nbsp;</td> <td align="left" style="width:1%;">
+			
+                    &nbsp;</td>
                  <td align="right" style="width:5%;">&nbsp;</td>
                 <td align="left" style="width:10%;">&nbsp;</td>
             </tr>
@@ -205,10 +226,17 @@
                      HeaderText="Tổng giá trị HĐ (VNĐ)">
                      <ItemStyle Width="6%" HorizontalAlign="Right" />
                     </asp:BoundField>
-                     <asp:BoundField DataField="GIA_TRI_NGHIEM_THU_THUC_TE" DataFormatString="{0:N0}" 
+                     <asp:BoundField Visible="false" DataField="GIA_TRI_NGHIEM_THU_THUC_TE" DataFormatString="{0:N0}" 
                      HeaderText="Giá trị nghiệm thu thực tế (VNĐ)">
                      <ItemStyle Width="6%" HorizontalAlign="Right" />
                     </asp:BoundField>
+
+                     <asp:TemplateField ItemStyle-HorizontalAlign="Center">
+                     <HeaderTemplate><%# mapping_header_nghiem_thu_lop_mon(m_str_loai_hd) %></HeaderTemplate>
+                       <ItemTemplate><%# mapping_item_field_nghiem_thu_lop_mon(m_str_loai_hd, Eval("REFERENCE_CODE"), Eval("GIA_TRI_NGHIEM_THU_THUC_TE"))%></ItemTemplate>
+                        <ItemStyle HorizontalAlign="Left" Width="7%"></ItemStyle>
+                    </asp:TemplateField> 
+
                       <asp:BoundField HeaderText="Đã thanh toán" DataField="DA_THANH_TOAN" DataFormatString="{0:N0}">
                         <ItemStyle HorizontalAlign="Right" Width="6%"></ItemStyle>
                     </asp:BoundField>
@@ -230,9 +258,12 @@
                      <asp:TemplateField HeaderText="Nội dung thanh toán" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%# mapping_noi_dung_tt(CIPConvert.ToDecimal(Eval("ID")),CIPConvert.ToDecimal(Eval("ID_HOP_DONG_KHUNG")))%></ItemTemplate>
                         <ItemStyle HorizontalAlign="Left" Width="10%"></ItemStyle>
-                    </asp:TemplateField> 
+                    </asp:TemplateField>
+                     <asp:BoundField DataField="PO_LAP_THANH_TOAN" HeaderText="PO lập thanh toán">
+                     <ItemStyle Width="10%" HorizontalAlign="Left" />
+                    </asp:BoundField>
                       <asp:BoundField DataField="DESCRIPTION" HeaderText="Ghi chú">
-                     <ItemStyle Width="15%" HorizontalAlign="Left" />
+                     <ItemStyle Width="10%" HorizontalAlign="Left" />
                     </asp:BoundField>
                 </Columns>
                   <EditRowStyle BackColor="#7C6F57" />
