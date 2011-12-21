@@ -164,7 +164,6 @@
                       &nbsp;</td>  
             </tr>
         </table>
-
 		</td>
 	</tr>
     <tr>
@@ -175,17 +174,17 @@
 	</tr>	
     <tr>
 		<td align="left">
-                <asp:Label ID="m_lbl_thong_bao" CssClass="cssManField" runat="server"></asp:Label>
-                <asp:HiddenField ID="hdf_id_gv" runat="server" />
+            <asp:Label ID="m_lbl_thong_bao" CssClass="cssManField" runat="server"></asp:Label>
+            <asp:HiddenField ID="hdf_id_gv" runat="server" />
         </td>
-        <td >
+        <td>
 		    &nbsp;</td>
 	</tr>	
 
 	<tr>
 		<td align="center" colspan="2" style="height:450px;" valign="top">
 		    &nbsp;
-   <asp:GridView ID="m_grv_danh_sach_du_toan" AllowPaging="True" 
+       <asp:GridView ID="m_grv_danh_sach_du_toan" AllowPaging="True" 
                 runat="server" AutoGenerateColumns="False" 
                 Width="100%" DataKeyNames="ID"
                 CellPadding="4" ForeColor="#333333" 
@@ -196,10 +195,10 @@
                        <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
                         <ItemStyle HorizontalAlign="Center" Width="3%"></ItemStyle>
                     </asp:TemplateField>
-                      <asp:TemplateField HeaderText="Mã giảng viên" ItemStyle-HorizontalAlign="Center">
+                    <asp:TemplateField HeaderText="Mã giảng viên" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%# mapping_magv_by_id(CIPConvert.ToDecimal(Eval("ID_GIANG_VIEN")))%></ItemTemplate>
                         <ItemStyle HorizontalAlign="Left" Width="7%"></ItemStyle>
-                    </asp:TemplateField> 
+                    </asp:TemplateField>
                     <asp:TemplateField HeaderText="Họ tên" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%# Eval("TEN_GIANG_VIEN")%></ItemTemplate>
                         <ItemStyle HorizontalAlign="Left" Width="7%"></ItemStyle>
@@ -237,9 +236,9 @@
                         <ItemStyle HorizontalAlign="Left" Width="7%"></ItemStyle>
                     </asp:TemplateField> 
 
-                      <asp:BoundField HeaderText="Đã thanh toán" DataField="DA_THANH_TOAN" DataFormatString="{0:N0}">
+                     <asp:BoundField HeaderText="Đã thanh toán" DataField="DA_THANH_TOAN" DataFormatString="{0:N0}">
                         <ItemStyle HorizontalAlign="Right" Width="6%"></ItemStyle>
-                    </asp:BoundField>
+                     </asp:BoundField>
                      <asp:BoundField DataField="TONG_TIEN_THANH_TOAN" DataFormatString="{0:N0}" 
                      HeaderText="Tổng thanh toán đợt này (VNĐ)">
                      <ItemStyle Width="6%" HorizontalAlign="Right" />
@@ -272,9 +271,9 @@
                   <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
                   <RowStyle BackColor="#E3EAEB" />
                 <SelectedRowStyle CssClass="cssSelectedRow" BackColor="#C5BBAF" Font-Bold="True" 
-                      ForeColor="#333333"></SelectedRowStyle>
+                    ForeColor="#333333"></SelectedRowStyle>
             </asp:GridView>
-            </td>
+        </td>
 	</tr>
 </table>
 </asp:Content>
