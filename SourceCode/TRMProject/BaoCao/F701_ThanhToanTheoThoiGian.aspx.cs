@@ -205,6 +205,12 @@ public partial class BaoCao_F701_ThanhToanTheoThoiGian : System.Web.UI.Page
     {
         DS_DM_DON_VI_THANH_TOAN v_ds_don_vi_thanh_toan = new DS_DM_DON_VI_THANH_TOAN();
         US_DM_DON_VI_THANH_TOAN v_us_don_vi_thanh_toan = new US_DM_DON_VI_THANH_TOAN();
+
+        DataRow v_dr_none = v_ds_don_vi_thanh_toan.DM_DON_VI_THANH_TOAN.NewDM_DON_VI_THANH_TOANRow();
+        v_dr_none[DM_DON_VI_THANH_TOAN.ID] = "0";
+        v_dr_none[DM_DON_VI_THANH_TOAN.MA_DON_VI] = "All";
+        v_dr_none[DM_DON_VI_THANH_TOAN.TEN_DON_VI] = "Tất cả";
+        v_ds_don_vi_thanh_toan.DM_DON_VI_THANH_TOAN.Rows.InsertAt(v_dr_none, 0);
         // Load đợt thanh toán dựa vào tháng và năm thanh toán
         v_us_don_vi_thanh_toan.FillDataset(v_ds_don_vi_thanh_toan);
         m_cbo_don_vi_thanh_toan.DataTextField = DM_DON_VI_THANH_TOAN.TEN_DON_VI;
@@ -228,7 +234,7 @@ public partial class BaoCao_F701_ThanhToanTheoThoiGian : System.Web.UI.Page
         if (v_ds_tu_dien.CM_DM_TU_DIEN.Rows.Count == 0) return 513;
         return CIPConvert.ToDecimal(v_ds_tu_dien.CM_DM_TU_DIEN.Rows[0][CM_DM_TU_DIEN.ID]);
     }
-    private void load_data_2_grid_search(string ip_str_ma_dot_tt, string ip_str_loai_hop_dong)
+    private void load_data_2_grid_search(string ip_str_ma_dot_tt, string ip_str_loai_hop_dong, decimal ip_dc_thang_tt, decimal ip_dc_nam_tt,decimal ip_dc_dv_thanh_toan)
     {
         if (ip_str_loai_hop_dong.Equals("VH")) // Vận hành
         {
@@ -240,7 +246,7 @@ public partial class BaoCao_F701_ThanhToanTheoThoiGian : System.Web.UI.Page
         }
         else m_str_loai_hd = "All";
 
-        m_us_v_gd_thanh_toan.fill_dataset_by_dot_tt_va_loai_hd(ip_str_ma_dot_tt,ip_str_loai_hop_dong, m_v_ds_gd_thanh_toan);
+        m_us_v_gd_thanh_toan.fill_dataset_by_dot_tt_va_loai_hd(ip_str_ma_dot_tt,ip_str_loai_hop_dong, ip_dc_thang_tt,ip_dc_nam_tt,ip_dc_dv_thanh_toan, m_v_ds_gd_thanh_toan);
 
         if (m_v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count == 0)
         {
@@ -270,7 +276,11 @@ public partial class BaoCao_F701_ThanhToanTheoThoiGian : System.Web.UI.Page
         }
         // Học liệu
         else m_str_loai_hd = "HL";
-        m_us_v_gd_thanh_toan.fill_dataset_by_dot_tt_va_loai_hd(v_str_ma_dot_tt, m_str_loai_hd, m_v_ds_gd_thanh_toan);
+        m_us_v_gd_thanh_toan.fill_dataset_by_dot_tt_va_loai_hd(v_str_ma_dot_tt, m_str_loai_hd, 
+                                                                CIPConvert.ToDecimal(m_cbo_thang_thanh_toan.SelectedValue), 
+                                                                CIPConvert.ToDecimal(m_cbo_nam_thanh_toan.SelectedValue),
+                                                                CIPConvert.ToDecimal(m_cbo_don_vi_thanh_toan.SelectedValue), 
+                                                                m_v_ds_gd_thanh_toan);
     }
     private decimal get_id_by_so_hop_dong(string ip_str_so_hd)
     {
@@ -300,9 +310,15 @@ public partial class BaoCao_F701_ThanhToanTheoThoiGian : System.Web.UI.Page
         else if (m_rdl_loai_hop_dong.Items[1].Selected)
             v_str_loai_hd = "VH";
         else v_str_loai_hd = "HL"; 
-        if (ip_dc_id_dot_tt == 0) load_data_2_grid_search("All", v_str_loai_hd);
+        if (ip_dc_id_dot_tt == 0) load_data_2_grid_search("All", v_str_loai_hd, 
+                                                            CIPConvert.ToDecimal(m_cbo_thang_thanh_toan.SelectedValue), 
+                                                            CIPConvert.ToDecimal(m_cbo_nam_thanh_toan.SelectedValue),
+                                                            CIPConvert.ToDecimal(m_cbo_don_vi_thanh_toan.SelectedValue));
         else
-            load_data_2_grid_search(get_ma_dot_tt_by_id_dot(ip_dc_id_dot_tt), v_str_loai_hd);
+            load_data_2_grid_search(get_ma_dot_tt_by_id_dot(ip_dc_id_dot_tt), v_str_loai_hd, 
+                                                            CIPConvert.ToDecimal(m_cbo_thang_thanh_toan.SelectedValue), 
+                                                            CIPConvert.ToDecimal(m_cbo_nam_thanh_toan.SelectedValue), 
+                                                            CIPConvert.ToDecimal(m_cbo_don_vi_thanh_toan.SelectedValue));
     }
     private string get_dv_tt_by_id_dot(decimal ip_dc_id_dot_tt)
     {
@@ -402,7 +418,7 @@ public partial class BaoCao_F701_ThanhToanTheoThoiGian : System.Web.UI.Page
         strTable += "\n<tr>";
         strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
         strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
-        strTable += "\n<td><align='center' class='cssTableView' style='width: 100%;  height: 40px; font-size: large; color:White; background-color:#810C15;' nowrap='wrap'>F700 - BÁO CÁO CHI TIẾT THANH TOÁN CỦA ĐỢT THANH TOÁN" + "</td>";
+        strTable += "\n<td><align='center' class='cssTableView' style='width: 100%;  height: 40px; font-size: large; color:White; background-color:#810C15;' nowrap='wrap'>TRM700 - BÁO CÁO CHI TIẾT THANH TOÁN CỦA ĐỢT THANH TOÁN" + "</td>";
         strTable += "\n</tr>";
         //
         strTable += "\n<tr>";
@@ -562,6 +578,7 @@ public partial class BaoCao_F701_ThanhToanTheoThoiGian : System.Web.UI.Page
         try
         {
             load_data_2_cbo_dot_thanh_toan(CIPConvert.ToDecimal(m_cbo_thang_thanh_toan.SelectedValue), CIPConvert.ToDecimal(m_cbo_nam_thanh_toan.SelectedValue), CIPConvert.ToDecimal(m_cbo_don_vi_thanh_toan.SelectedValue));
+            search_data_show_on_grid(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue));
         }
         catch (Exception v_e)
         {
@@ -573,6 +590,7 @@ public partial class BaoCao_F701_ThanhToanTheoThoiGian : System.Web.UI.Page
         try
         {
             load_data_2_cbo_dot_thanh_toan(CIPConvert.ToDecimal(m_cbo_thang_thanh_toan.SelectedValue), CIPConvert.ToDecimal(m_cbo_nam_thanh_toan.SelectedValue), CIPConvert.ToDecimal(m_cbo_don_vi_thanh_toan.SelectedValue));
+            search_data_show_on_grid(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue));
         }
         catch (Exception v_e)
         {
@@ -584,6 +602,7 @@ public partial class BaoCao_F701_ThanhToanTheoThoiGian : System.Web.UI.Page
         try
         {
             load_data_2_cbo_dot_thanh_toan(CIPConvert.ToDecimal(m_cbo_thang_thanh_toan.SelectedValue), CIPConvert.ToDecimal(m_cbo_nam_thanh_toan.SelectedValue), CIPConvert.ToDecimal(m_cbo_don_vi_thanh_toan.SelectedValue));
+            search_data_show_on_grid(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue));
         }
         catch (Exception v_e)
         {

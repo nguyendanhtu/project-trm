@@ -356,6 +356,17 @@
                     </ItemTemplate>
                     <ItemStyle Width="200px"/>
                     </asp:TemplateField>
+                     <asp:TemplateField>
+                    <HeaderTemplate>Mã số thuế</HeaderTemplate>
+                    <ItemTemplate><%# Eval("MA_SO_THUE") %></ItemTemplate>
+                     <ItemStyle HorizontalAlign="Center" Width="4%"></ItemStyle>
+                    </asp:TemplateField>
+                     <asp:TemplateField>
+                    <HeaderTemplate>Số tài khoản</HeaderTemplate>
+                    <ItemTemplate><%# Eval("SO_TAI_KHOAN").ToString()%></ItemTemplate>
+                     <ItemStyle HorizontalAlign="Center" Width="4%"></ItemStyle>
+                    </asp:TemplateField>
+                    <asp:BoundField DataField="TEN_NGAN_HANG" HeaderText="Tên ngân hàng" />
                        <asp:TemplateField>
                     <HeaderTemplate>Loại hợp đồng</HeaderTemplate>
                     <ItemTemplate>

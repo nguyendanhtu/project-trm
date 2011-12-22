@@ -379,7 +379,7 @@ public partial class BaoCao_F704_CacChungTuTonDong : System.Web.UI.Page
         strTable += "\n<tr>";
         strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
         strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
-        strTable += "\n<td><align='center' class='cssTableView' style='width: 100%;  height: 40px; font-size: large; color:White; background-color:#810C15;' nowrap='wrap'>F704 - BÁO CÁO CHI TIẾT CÁC CHỨNG TỪ LỖI" + "</td>";
+        strTable += "\n<td><align='center' class='cssTableView' style='width: 100%;  height: 40px; font-size: large; color:White; background-color:#810C15;' nowrap='wrap'>TRM704 - BÁO CÁO CHI TIẾT CÁC CHỨNG TỪ LỖI" + "</td>";
         strTable += "\n</tr>";
         //
         strTable += "\n<tr>";

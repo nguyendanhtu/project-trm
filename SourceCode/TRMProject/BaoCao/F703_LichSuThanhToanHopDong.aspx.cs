@@ -369,7 +369,7 @@ public partial class BaoCao_F703_LichSuThanhToanHopDong : System.Web.UI.Page
         strTable += "\n<tr>";
         strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
         strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
-        strTable += "\n<td><align='center' class='cssTableView' style='width: 100%;  height: 40px; font-size: large; color:White; background-color:#810C15;' nowrap='wrap'>F702 - BÁO CÁO LỊCH SỬ THANH TOÁN CỦA HỢP ĐỒNG" + "</td>";
+        strTable += "\n<td><align='center' class='cssTableView' style='width: 100%;  height: 40px; font-size: large; color:White; background-color:#810C15;' nowrap='wrap'>TRM702 - BÁO CÁO LỊCH SỬ THANH TOÁN CỦA HỢP ĐỒNG" + "</td>";
         strTable += "\n</tr>";
         //
         strTable += "\n<tr>";
