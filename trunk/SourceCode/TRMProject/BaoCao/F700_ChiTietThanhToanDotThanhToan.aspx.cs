@@ -154,9 +154,14 @@ public partial class BaoCao_F700_ChiTietThanhToanDotThanhToan : System.Web.UI.Pa
         }
         else if (ip_obj_gia_tri_nghiem_thu.GetType() != typeof(DBNull) && ip_str_loai_hd.Equals("HL"))
         {
-            return CIPConvert.ToStr(ip_obj_gia_tri_nghiem_thu, "#,###");
+            return mapping_gia_tri_hd(ip_obj_gia_tri_nghiem_thu);
         }
         return "";
+    }
+    public string mapping_gia_tri_hd(object ip_obj_gia_tri_hd)
+    {
+        if (ip_obj_gia_tri_hd.GetType() == typeof(DBNull) || CIPConvert.ToDecimal(ip_obj_gia_tri_hd) == 0) return "";
+        return CIPConvert.ToStr(ip_obj_gia_tri_hd, "#,###");
     }
     #endregion
 
@@ -283,12 +288,6 @@ public partial class BaoCao_F700_ChiTietThanhToanDotThanhToan : System.Web.UI.Pa
     {
         US_V_DM_DOT_THANH_TOAN v_us_dm_dot_tt = new US_V_DM_DOT_THANH_TOAN(ip_dc_id_dot_tt);
         return v_us_dm_dot_tt.strDON_VI_THANH_TOAN;
-    }
-    private string mapping_nghiem_thu_thuc_te(object ip_obj_nghiem_thu_thuc_te)
-    {
-        if (ip_obj_nghiem_thu_thuc_te.GetType() == typeof(DBNull))
-            return "";
-        return CIPConvert.ToStr(ip_obj_nghiem_thu_thuc_te, "#,###");
     }
     private string mapping_so_tien(object ip_obj_nghiem_thu_thuc_te)
     {

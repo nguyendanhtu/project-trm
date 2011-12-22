@@ -213,14 +213,16 @@
                       <asp:BoundField DataField="MA_SO_THUE" HeaderText="Mã số thuế">
                      <ItemStyle Width="6%" HorizontalAlign="Right" />
                     </asp:BoundField>
-                       <asp:BoundField DataField="GIA_TRI_HOP_DONG" DataFormatString="{0:N0}" 
-                     HeaderText="Tổng giá trị HĐ (VNĐ)">
-                     <ItemStyle Width="6%" HorizontalAlign="Right" />
-                    </asp:BoundField>
-                     <asp:BoundField Visible="false" DataField="GIA_TRI_NGHIEM_THU_THUC_TE" DataFormatString="{0:N0}" 
-                     HeaderText="Giá trị nghiệm thu thực tế (VNĐ)">
-                     <ItemStyle Width="6%" HorizontalAlign="Right" />
-                    </asp:BoundField>
+                       <asp:TemplateField HeaderText="Tổng giá trị HĐ (VNĐ)" 
+                        ItemStyle-HorizontalAlign="Center">
+                       <ItemTemplate><%# mapping_gia_tri_hd(Eval("GIA_TRI_HOP_DONG"))%></ItemTemplate>
+                        <ItemStyle HorizontalAlign="Left" Width="7%"></ItemStyle>
+                    </asp:TemplateField>
+                     <asp:TemplateField HeaderText="Giá trị nghiệm thu thực tế (VNĐ)" 
+                        ItemStyle-HorizontalAlign="Center">
+                       <ItemTemplate><%# mapping_gia_tri_hd(Eval("GIA_TRI_NGHIEM_THU_THUC_TE"))%></ItemTemplate>
+                        <ItemStyle HorizontalAlign="Left" Width="7%"></ItemStyle>
+                    </asp:TemplateField> 
 
                      <asp:TemplateField ItemStyle-HorizontalAlign="Center">
                      <HeaderTemplate><%# mapping_header_nghiem_thu_lop_mon(m_str_loai_hd) %></HeaderTemplate>

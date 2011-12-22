@@ -155,9 +155,14 @@ public partial class BaoCao_F701_ThanhToanTheoThoiGian : System.Web.UI.Page
         }
         else if (ip_obj_gia_tri_nghiem_thu.GetType() != typeof(DBNull) && ip_str_loai_hd.Equals("HL"))
         {
-            return CIPConvert.ToStr(ip_obj_gia_tri_nghiem_thu, "#,###");
+            return mapping_gia_tri_hd(ip_obj_gia_tri_nghiem_thu);
         }
         return "";
+    }
+    public string mapping_gia_tri_hd(object ip_obj_gia_tri_hd)
+    {
+        if (ip_obj_gia_tri_hd.GetType() == typeof(DBNull) || CIPConvert.ToDecimal(ip_obj_gia_tri_hd) == 0) return "";
+        return CIPConvert.ToStr(ip_obj_gia_tri_hd, "#,###");
     }
     #endregion
 
