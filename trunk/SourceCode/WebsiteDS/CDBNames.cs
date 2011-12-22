@@ -174,6 +174,9 @@ namespace WebDS.CDBNames
          public const string SO_HOP_DONG = "SO_HOP_DONG";
          public const string ID_GIANG_VIEN = "ID_GIANG_VIEN";
          public const string GIANG_VIEN = "GIANG_VIEN";
+         public const string MA_SO_THUE = "MA_SO_THUE";
+         public const string SO_TAI_KHOAN = "SO_TAI_KHOAN";
+         public const string TEN_NGAN_HANG = "TEN_NGAN_HANG";
          public const string NGAY_KY = "NGAY_KY";
          public const string NGAY_HIEU_LUC = "NGAY_HIEU_LUC";
          public const string NGAY_KET_THUC_DU_KIEN = "NGAY_KET_THUC_DU_KIEN";
