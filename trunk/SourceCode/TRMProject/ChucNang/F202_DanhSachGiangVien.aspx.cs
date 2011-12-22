@@ -521,7 +521,7 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
         strTable += "\n<tr>";
         strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
         strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
-        strTable += "\n<td><align='center' class='cssTableView' style='width: 100%;  height: 40px; font-size: large; color:White; background-color:#810C15;' nowrap='wrap'>F202 BÁO CÁO DANH SÁCH GIẢNG VIÊN " + "</td>";
+        strTable += "\n<td><align='center' class='cssTableView' style='width: 100%;  height: 40px; font-size: large; color:White; background-color:#810C15;' nowrap='wrap'>TRM202 - BÁO CÁO DANH SÁCH GIẢNG VIÊN " + "</td>";
         strTable += "\n</tr>";
         //
         strTable += "\n<tr>";
@@ -534,13 +534,13 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
         strTable += "\n<tr>";
         strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
         strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
-        strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>Trạng thái giảng viên: " + m_cbo_trang_thai_g_vien.SelectedValue + "</td>";
+        strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>Trạng thái giảng viên: " + m_cbo_trang_thai_g_vien.SelectedItem.Text + "</td>";
         strTable += "\n</tr>";
         //
         strTable += "\n<tr>";
         strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
         strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
-        strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>Đơn vị quản lý giảng viên: " + m_cbo_don_vi_q_ly.SelectedValue+ "</td>";
+        strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>Đơn vị quản lý giảng viên: " + m_cbo_don_vi_q_ly.SelectedItem.Text + "</td>";
         strTable += "\n</tr>";
         //
         //strTable += "\n<tr>";
@@ -552,19 +552,19 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
         strTable += "\n<tr>";
         strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
         strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
-        strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>Tháng sinh nhật giảng viên: " + m_cbo_thang_sn_GV.SelectedValue + "</td>";
+        strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>Tháng sinh nhật giảng viên: " + m_cbo_thang_sn_GV.SelectedItem.Text + "</td>";
         strTable += "\n</tr>";
         //
         strTable += "\n<tr>";
         strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
         strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
-        strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>Tháng bắt đầu hợp tác: " + CIPConvert.ToDecimal(m_cbo_thang_bd_hop_tac.SelectedValue) + " </td>";
+        strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>Tháng bắt đầu hợp tác: " + m_cbo_thang_bd_hop_tac.SelectedItem.Text + " </td>";
         strTable += "\n</tr>";
         //
         strTable += "\n<tr>";
         strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
         strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
-        strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>Năm bắt đầu hợp tác: " + CIPConvert.ToDecimal(m_cbo_nam_bd_hop_tac.SelectedValue) + " </td>";
+        strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>Năm bắt đầu hợp tác: " + m_cbo_nam_bd_hop_tac.SelectedItem.Text + " </td>";
         strTable += "\n</tr>";
         //
         strTable += "\n<tr>";

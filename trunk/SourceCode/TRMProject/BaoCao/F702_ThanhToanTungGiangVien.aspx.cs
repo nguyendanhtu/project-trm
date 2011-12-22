@@ -206,7 +206,13 @@ public partial class BaoCao_F702_ThanhToanTungGiangVien : System.Web.UI.Page
     {
         DS_DM_DON_VI_THANH_TOAN v_ds_don_vi_thanh_toan = new DS_DM_DON_VI_THANH_TOAN();
         US_DM_DON_VI_THANH_TOAN v_us_don_vi_thanh_toan = new US_DM_DON_VI_THANH_TOAN();
-        // Load đợt thanh toán dựa vào tháng và năm thanh toán
+
+        DataRow v_dr_none = v_ds_don_vi_thanh_toan.DM_DON_VI_THANH_TOAN.NewDM_DON_VI_THANH_TOANRow();
+        v_dr_none[DM_DON_VI_THANH_TOAN.ID] = "0";
+        v_dr_none[DM_DON_VI_THANH_TOAN.MA_DON_VI] = "All";
+        v_dr_none[DM_DON_VI_THANH_TOAN.TEN_DON_VI] = "Tất cả";
+        v_ds_don_vi_thanh_toan.DM_DON_VI_THANH_TOAN.Rows.InsertAt(v_dr_none, 0);
+
         v_us_don_vi_thanh_toan.FillDataset(v_ds_don_vi_thanh_toan);
         m_cbo_don_vi_thanh_toan.DataTextField = DM_DON_VI_THANH_TOAN.TEN_DON_VI;
         m_cbo_don_vi_thanh_toan.DataValueField = DM_DON_VI_THANH_TOAN.ID;
@@ -239,7 +245,11 @@ public partial class BaoCao_F702_ThanhToanTungGiangVien : System.Web.UI.Page
         if (v_ds_tu_dien.CM_DM_TU_DIEN.Rows.Count == 0) return 513;
         return CIPConvert.ToDecimal(v_ds_tu_dien.CM_DM_TU_DIEN.Rows[0][CM_DM_TU_DIEN.ID]);
     }
-    private void load_data_2_grid_search(decimal ip_dc_id_giang_vien, decimal ip_dc_dv_thanh_toan, string ip_str_loai_hop_dong,decimal ip_dc_thang_tt, decimal ip_dc_nam_tt)
+    private void load_data_2_grid_search(decimal ip_dc_id_giang_vien, 
+                                         decimal ip_dc_dv_thanh_toan, 
+                                         string ip_str_loai_hop_dong,
+                                         decimal ip_dc_thang_tt, 
+                                         decimal ip_dc_nam_tt)
     {
         if (ip_str_loai_hop_dong.Equals("VH")) // Vận hành
         {
@@ -415,7 +425,7 @@ public partial class BaoCao_F702_ThanhToanTungGiangVien : System.Web.UI.Page
         strTable += "\n<tr>";
         strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
         strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
-        strTable += "\n<td><align='center' class='cssTableView' style='width: 100%;  height: 40px; font-size: large; color:White; background-color:#810C15;' nowrap='wrap'>F702 - BÁO CÁO LỊCH SỬ THANH TOÁN CỦA GIẢNG VIÊN" + "</td>";
+        strTable += "\n<td><align='center' class='cssTableView' style='width: 100%;  height: 40px; font-size: large; color:White; background-color:#810C15;' nowrap='wrap'>TRM702 - BÁO CÁO LỊCH SỬ THANH TOÁN CỦA GIẢNG VIÊN" + "</td>";
         strTable += "\n</tr>";
         //
         strTable += "\n<tr>";

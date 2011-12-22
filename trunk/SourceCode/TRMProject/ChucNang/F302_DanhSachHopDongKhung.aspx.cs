@@ -524,7 +524,7 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
         strTable += "\n<tr>";
         strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
         strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
-        strTable += "\n<td><align='center' class='cssTableView' style='width: 100%;  height: 40px; font-size: large; color:White; background-color:#810C15;' nowrap='wrap'>F302 BÁO CÁO DANH SÁCH DANH SÁCH HỢP ĐỒNG KHUNG " + "</td>";
+        strTable += "\n<td><align='center' class='cssTableView' style='width: 100%;  height: 40px; font-size: large; color:White; background-color:#810C15;' nowrap='wrap'>TRM302 - BÁO CÁO DANH SÁCH DANH SÁCH HỢP ĐỒNG KHUNG " + "</td>";
         strTable += "\n</tr>";
         //
         strTable += "\n<tr>";
@@ -549,32 +549,32 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
         strTable += "\n<tr>";
         strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
         strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
-        strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>Loại hợp đồng: " + m_cbo_loai_hop_dong_search.SelectedValue + "</td>";
+        strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>Loại hợp đồng: " + m_cbo_loai_hop_dong_search.SelectedItem.Text + "</td>";
         strTable += "\n</tr>";
         //
         strTable += "\n<tr>";
         strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
         strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
-        strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>Đơn vị quản lý hợp đồng: " + m_cbo_don_vi_quan_ly_search.SelectedItem.ToString() + "</td>";
+        strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>Đơn vị quản lý hợp đồng: " + m_cbo_don_vi_quan_ly_search.SelectedItem.Text + "</td>";
         strTable += "\n</tr>";        
         //
         strTable += "\n<tr>";
         strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
         strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
-        strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>Trạng thái hợp đồng: " + m_cbo_trang_thai_hop_dong_search.SelectedValue + "</td>";
+        strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>Trạng thái hợp đồng: " + m_cbo_trang_thai_hop_dong_search.SelectedItem.Text + "</td>";
         strTable += "\n</tr>";
         //
         strTable += "\n<tr>";
         strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
         strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
-        strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>Tháng ký hợp đồng: " + CIPConvert.ToStr(m_cbo_thang_ky.SelectedValue) + " </td>";
+        strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>Tháng ký hợp đồng: " + m_cbo_thang_ky.SelectedItem.Text + " </td>";
         strTable += "\n</tr>";
         strTable += "\n</table>";
         //
         strTable += "\n<tr>";
         strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
         strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>  </td>";
-        strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>Năm ký hợp đồng: " + CIPConvert.ToStr(m_cbo_nam_ky.SelectedValue) + " </td>";
+        strTable += "\n<td><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'>Năm ký hợp đồng: " + m_cbo_nam_ky.SelectedItem.Text + " </td>";
         strTable += "\n</tr>";
         strTable += "\n</table>";
         //
@@ -600,6 +600,9 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
         strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>Ngày ký</td>";
         strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>Mã giảng viên</td>";
         strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>Tên giảng viên</td>";
+        strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>Mã số thuế</td>";
+        strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>Số tài khoản</td>";
+        strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>Tên ngân hàng</td>";
         strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>Loại hợp đồng</td>";
         strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>Đơn vị quản lý</td>";
         strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>Đơn vị thanh toán</td>";
@@ -676,6 +679,9 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + convert_datetime_2_str(grv[V_DM_HOP_DONG_KHUNG.NGAY_KY]) + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + get_ma_gv_form_id(CIPConvert.ToDecimal(grv[V_DM_HOP_DONG_KHUNG.ID_GIANG_VIEN])) + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + grv[V_DM_HOP_DONG_KHUNG.GIANG_VIEN].ToString() + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + "'"+grv[V_DM_HOP_DONG_KHUNG.MA_SO_THUE].ToString() + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + "'" + grv[V_DM_HOP_DONG_KHUNG.SO_TAI_KHOAN].ToString() + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + grv[V_DM_HOP_DONG_KHUNG.TEN_NGAN_HANG].ToString() + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + grv[V_DM_HOP_DONG_KHUNG.LOAI_HOP_DONG].ToString() + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + grv[V_DM_HOP_DONG_KHUNG.DON_VI_QUAN_LY].ToString() + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + grv[V_DM_HOP_DONG_KHUNG.DON_VI_THANH_TOAN].ToString() + "</td>";
