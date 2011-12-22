@@ -303,6 +303,7 @@ namespace WebDS.CDBNames
        public const string TEN_GIANG_VIEN = "TEN_GIANG_VIEN";
        public const string SO_TAI_KHOAN = "SO_TAI_KHOAN";
        public const string TEN_NGAN_HANG = "TEN_NGAN_HANG";
+       public const string MA_SO_THUE = "MA_SO_THUE";
        public const string REFERENCE_CODE = "REFERENCE_CODE";
        public const string ID_MON_HOC = "ID_MON_HOC";
        public const string NGAY_THANH_TOAN = "NGAY_THANH_TOAN";

@@ -198,6 +198,28 @@ public class US_V_GD_THANH_TOAN : US_Object
         pm_objDR["TEN_NGAN_HANG"] = System.Convert.DBNull;
     }
 
+    public string strMA_SO_THUE
+    {
+        get
+        {
+            return CNull.RowNVLString(pm_objDR, "MA_SO_THUE", IPConstants.c_DefaultString);
+        }
+        set
+        {
+            pm_objDR["MA_SO_THUE"] = value;
+        }
+    }
+
+    public bool IsMA_SO_THUENull()
+    {
+        return pm_objDR.IsNull("MA_SO_THUE");
+    }
+
+    public void SetMA_SO_THUENull()
+    {
+        pm_objDR["MA_SO_THUE"] = System.Convert.DBNull;
+    }
+
     public string strREFERENCE_CODE
     {
         get
