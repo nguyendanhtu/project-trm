@@ -110,6 +110,72 @@ public class US_V_DM_HOP_DONG_KHUNG : US_Object
         pm_objDR["GIANG_VIEN"] = System.Convert.DBNull;
     }
 
+    public string strMA_SO_THUE
+    {
+        get
+        {
+            return CNull.RowNVLString(pm_objDR, "MA_SO_THUE", IPConstants.c_DefaultString);
+        }
+        set
+        {
+            pm_objDR["MA_SO_THUE"] = value;
+        }
+    }
+
+    public bool IsMA_SO_THUENull()
+    {
+        return pm_objDR.IsNull("MA_SO_THUE");
+    }
+
+    public void SetMA_SO_THUENull()
+    {
+        pm_objDR["MA_SO_THUE"] = System.Convert.DBNull;
+    }
+
+    public string strSO_TAI_KHOAN
+    {
+        get
+        {
+            return CNull.RowNVLString(pm_objDR, "SO_TAI_KHOAN", IPConstants.c_DefaultString);
+        }
+        set
+        {
+            pm_objDR["SO_TAI_KHOAN"] = value;
+        }
+    }
+
+    public bool IsSO_TAI_KHOANNull()
+    {
+        return pm_objDR.IsNull("SO_TAI_KHOAN");
+    }
+
+    public void SetSO_TAI_KHOANNull()
+    {
+        pm_objDR["SO_TAI_KHOAN"] = System.Convert.DBNull;
+    }
+
+    public string strTEN_NGAN_HANG
+    {
+        get
+        {
+            return CNull.RowNVLString(pm_objDR, "TEN_NGAN_HANG", IPConstants.c_DefaultString);
+        }
+        set
+        {
+            pm_objDR["TEN_NGAN_HANG"] = value;
+        }
+    }
+
+    public bool IsTEN_NGAN_HANGNull()
+    {
+        return pm_objDR.IsNull("TEN_NGAN_HANG");
+    }
+
+    public void SetTEN_NGAN_HANGNull()
+    {
+        pm_objDR["TEN_NGAN_HANG"] = System.Convert.DBNull;
+    }
+
     public DateTime datNGAY_KY
     {
         get

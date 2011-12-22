@@ -668,11 +668,14 @@ public class US_V_GD_THANH_TOAN : US_Object
             return 0;
         return CIPConvert.ToDecimal(op_v_ds_gd_tt.V_GD_THANH_TOAN.Rows[0][0]);
     }
-    public void fill_dataset_by_dot_tt_va_loai_hd(string ip_str_ma_dot, string ip_str_loai_hd, DS_V_GD_THANH_TOAN ip_ds_gd_thanh_toan)
+    public void fill_dataset_by_dot_tt_va_loai_hd(string ip_str_ma_dot, string ip_str_loai_hd, decimal ip_dc_thang_tt, decimal ip_dc_nam_tt,decimal ip_dc_dv_thanh_toan, DS_V_GD_THANH_TOAN ip_ds_gd_thanh_toan)
     {
         CStoredProc v_cstore = new CStoredProc("pr_V_GD_THANH_TOAN_GetThanhToanByDotAndLoaiHD");
         v_cstore.addNVarcharInputParam("@MA_DOT_TT", ip_str_ma_dot);
         v_cstore.addNVarcharInputParam("@LOAI_HOP_DONG", ip_str_loai_hd);
+        v_cstore.addDecimalInputParam("@THANG_TT", ip_dc_thang_tt);
+        v_cstore.addDecimalInputParam("@NAM_TT", ip_dc_nam_tt);
+        v_cstore.addDecimalInputParam("@ID_DON_VI_TT", ip_dc_dv_thanh_toan);
         v_cstore.fillDataSetByCommand(this, ip_ds_gd_thanh_toan);
     }
     public void fill_dataset_by_giang_vien_va_dv_thanh_toan(decimal ip_dc_id_giang_vien, 
