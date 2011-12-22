@@ -146,6 +146,9 @@
                        <ItemTemplate><%# Eval("TEN_NGAN_HANG")%></ItemTemplate>
                         <ItemStyle HorizontalAlign="Left" Width="7%"></ItemStyle>
                     </asp:TemplateField> 
+                     <asp:BoundField DataField="MA_SO_THUE" HeaderText="Mã số thuế">
+                     <ItemStyle Width="6%" HorizontalAlign="Right" />
+                    </asp:BoundField>
                        <asp:BoundField DataField="GIA_TRI_HOP_DONG" DataFormatString="{0:N0}" 
                      HeaderText="Tổng giá trị HĐ (VNĐ)">
                      <ItemStyle Width="6%" HorizontalAlign="Right" />
