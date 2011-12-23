@@ -535,6 +535,7 @@ public partial class BaoCao_F700_ChiTietThanhToanDotThanhToan : System.Web.UI.Pa
         try
         {
             load_data_2_cbo_dot_thanh_toan(CIPConvert.ToDecimal(m_cbo_thang_thanh_toan.SelectedValue),CIPConvert.ToDecimal(m_cbo_nam_thanh_toan.SelectedValue));
+            fill_data_2_thong_tin_dot_tt(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue));
         }
         catch (Exception v_e)
         {
@@ -546,6 +547,7 @@ public partial class BaoCao_F700_ChiTietThanhToanDotThanhToan : System.Web.UI.Pa
         try
         {
             load_data_2_cbo_dot_thanh_toan(CIPConvert.ToDecimal(m_cbo_thang_thanh_toan.SelectedValue), CIPConvert.ToDecimal(m_cbo_nam_thanh_toan.SelectedValue));
+            fill_data_2_thong_tin_dot_tt(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue));
         }
         catch (Exception v_e)
         {
