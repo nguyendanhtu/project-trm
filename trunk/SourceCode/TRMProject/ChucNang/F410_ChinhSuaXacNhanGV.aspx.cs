@@ -140,15 +140,15 @@ public partial class ChucNang_F410_ChinhSuaXacNhanGV : System.Web.UI.Page
     {
         US_V_GD_THANH_TOAN v_us_gd_thanh_toan = new US_V_GD_THANH_TOAN();
         DS_V_GD_THANH_TOAN v_ds_gd_thanh_toan = new DS_V_GD_THANH_TOAN();
-        decimal v_dc_id_hdong = get_id_by_so_hop_dong(ip_str_so_hd);
-        if (v_dc_id_hdong == 0)
-        {
-            m_lbl_thong_bao.Visible = true;
-            m_lbl_thong_bao.Text = "Không có thanh toán nào phù hợp";
-            m_grv_danh_sach_du_toan.Visible = false;
-            return;
-        }
-        v_us_gd_thanh_toan.FillDataset(v_ds_gd_thanh_toan, " WHERE SO_PHIEU_THANH_TOAN = '" + ip_str_ma_dot_tt + "' AND ID_HOP_DONG_KHUNG = " + v_dc_id_hdong);
+        //decimal v_dc_id_hdong = get_id_by_so_hop_dong(ip_str_so_hd);
+        //if (v_dc_id_hdong == 0)
+        //{
+        //    m_lbl_thong_bao.Visible = true;
+        //    m_lbl_thong_bao.Text = "Không có thanh toán nào phù hợp";
+        //    m_grv_danh_sach_du_toan.Visible = false;
+        //    return;
+        //}
+        v_us_gd_thanh_toan.FillDataset(v_ds_gd_thanh_toan, " WHERE SO_PHIEU_THANH_TOAN = '" + ip_str_ma_dot_tt + "' AND SO_HOP_DONG LIKE '%" + ip_str_so_hd + "%'");
         if (v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count == 0)
         {
             m_lbl_thong_bao.Visible = true;
