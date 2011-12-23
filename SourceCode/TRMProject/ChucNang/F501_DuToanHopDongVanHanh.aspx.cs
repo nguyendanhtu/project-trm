@@ -345,6 +345,24 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
                 return false; // Nghĩa là đã được thanh lý
         return true; // Chưa đc thanh lý
     }
+    private bool check_tuong_ung_lop_mon_hop_dong(decimal ip_dc_id_hop_dong, string ip_str_ma_lop_mon)
+    {
+        US_GD_LOP_MON_DETAIL v_us_gd_lop_mon_detail = new US_GD_LOP_MON_DETAIL();
+        DS_GD_LOP_MON_DETAIL v_ds_gd_lop_mon_detail = new DS_GD_LOP_MON_DETAIL();
+        decimal v_dc_id_lop_mon = get_id_lop_mon_by_ma_lop_mon(ip_str_ma_lop_mon);
+        v_us_gd_lop_mon_detail.FillDataset(v_ds_gd_lop_mon_detail, " WHERE ID_HOP_DONG_KHUNG = " + ip_dc_id_hop_dong + " AND ID_LOP_MON=" + v_dc_id_lop_mon);
+        if (v_ds_gd_lop_mon_detail.GD_LOP_MON_DETAIL.Rows.Count == 0)
+            return false; // Nghĩa là không tương ứng
+        return true; // Nghĩa là tương ứng (hay chúng là 1 cặp)
+    }
+    private decimal get_id_lop_mon_by_ma_lop_mon(string ip_str_ma_lop_mon)
+    {
+        DS_GD_LOP_MON v_ds_lop_mon = new DS_GD_LOP_MON();
+        US_GD_LOP_MON v_us_lop_mon = new US_GD_LOP_MON();
+        v_us_lop_mon.FillDataset(v_ds_lop_mon, " WHERE MA_LOP_MON = N'" + ip_str_ma_lop_mon + "'");
+        if (v_ds_lop_mon.GD_LOP_MON.Rows.Count == 0) return 0;
+        return CIPConvert.ToDecimal(v_ds_lop_mon.GD_LOP_MON.Rows[0][GD_LOP_MON.ID]);
+    }
     #endregion
 
     #region Export Excel
@@ -492,6 +510,17 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "oncheckmalop", script);
                 return;
             }
+            decimal ip_dc_d_hop_dong = get_id_hd_khung_by_so_hd(m_txt_so_hop_dong.Text.Trim());
+
+            // Kiểm tra hợp đồng khung và lớp môn là 1 cặp
+            //if (!check_tuong_ung_lop_mon_hop_dong(ip_dc_d_hop_dong, m_txt_ma_lop_mon.Text.Trim()))
+            //{
+            //    string scriptalert;
+            //    scriptalert = "<script language='javascript'>alert('Lớp môn và hợp đồng không tương ứng với nhau')</script>";
+            //    Page.ClientScript.RegisterStartupScript(this.GetType(), "onchecktuongung", scriptalert);
+            //    return;
+            //}
+
             // Check hợp đồng do bên đv thanh toán này thanh toán
             decimal v_dc_id_dv_tt = get_id_don_vi_thanh_toan_by_id_dot_tt(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue));
             //if (!check_hop_dong_ung_voi_dv_thanh_toan(v_dc_id_dv_tt, get_id_hd_khung_by_so_hd(m_txt_so_hop_dong.Text.Trim())))
