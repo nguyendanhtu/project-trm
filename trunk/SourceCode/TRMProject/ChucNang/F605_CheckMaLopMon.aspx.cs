@@ -56,13 +56,13 @@ public partial class ChucNang_F605_CheckMaLopMon : System.Web.UI.Page
                 decimal ip_dc_d_hop_dong = get_id_hd_khung_by_so_hd(v_str_so_hd);
 
                 // Kiểm tra hợp đồng khung và lớp môn là 1 cặp
-                if (!check_tuong_ung_lop_mon_hop_dong(ip_dc_d_hop_dong, v_str_ma_lop_mon))
-                {
-                    string scriptalert;
-                    scriptalert = "<script language='javascript'>alert('Lớp môn và hợp đồng không tương ứng với nhau')</script>";
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "onchecktuongung", scriptalert);
-                    return;
-                }
+                //if (!check_tuong_ung_lop_mon_hop_dong(ip_dc_d_hop_dong, v_str_ma_lop_mon))
+                //{
+                //    string scriptalert;
+                //    scriptalert = "<script language='javascript'>alert('Lớp môn và hợp đồng không tương ứng với nhau')</script>";
+                //    Page.ClientScript.RegisterStartupScript(this.GetType(), "onchecktuongung", scriptalert);
+                //    return;
+                //}
                 // Đoạn này đã lấy được số hợp đồng, mã lớp môn, search và đổ lên lưới 
                 //(hiển thị lịch sử thanh toán của hợp đồng ứng với mã lớp môn này
                 load_data_2_grid_lich_su(ip_dc_d_hop_dong, v_str_ma_lop_mon);
@@ -154,7 +154,7 @@ public partial class ChucNang_F605_CheckMaLopMon : System.Web.UI.Page
     {
         US_GD_LOP_MON v_us_gd_lop_mon = new US_GD_LOP_MON();
         DS_GD_LOP_MON v_ds_gd_lop_mon = new DS_GD_LOP_MON();
-        v_us_gd_lop_mon.FillDataset(v_ds_gd_lop_mon, " WHERE MA_LOP_MON='" + ip_str_ma_lop_mon + "'");
+        v_us_gd_lop_mon.FillDataset(v_ds_gd_lop_mon, " WHERE MA_LOP_MON=N'" + ip_str_ma_lop_mon + "'");
         if (v_ds_gd_lop_mon.GD_LOP_MON.Rows.Count == 0)
             return false; // Nghĩa là không tồn tại lớp môn đó
         return true; // Nghĩa là tồn tại lớp môn đó
