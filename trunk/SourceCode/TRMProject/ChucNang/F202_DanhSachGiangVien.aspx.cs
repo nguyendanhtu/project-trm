@@ -374,7 +374,75 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
             throw v_e;
         }
     }
-   
+
+    private void get_data_to_search_excel()
+    {
+        System.Globalization.CultureInfo enUS = new System.Globalization.CultureInfo("en-US");
+
+        // thu thập dữ liệu và chuẩn hóa        
+        string v_str_ten_giang_vien = m_txt_ten_giang_vien.Text.Trim();
+        v_str_ten_giang_vien = Process_name_search(v_str_ten_giang_vien);
+
+        string v_str_search_key_word = m_txt_tu_khoa_tim_kiem.Text.Trim();
+        v_str_search_key_word = Process_name_search(v_str_search_key_word);
+
+        string v_str_gender = "";
+        v_str_gender = get_gender_search();
+        decimal v_dc_thang_bd_hop_tac, v_dc_nam_bd_hop_tac;
+        v_dc_thang_bd_hop_tac = CIPConvert.ToDecimal(m_cbo_thang_bd_hop_tac.SelectedValue);
+        v_dc_nam_bd_hop_tac = CIPConvert.ToDecimal(m_cbo_nam_bd_hop_tac.SelectedValue);
+        string v_str_month = m_cbo_thang_sn_GV.SelectedValue;
+
+        decimal v_dc_id_trang_thai_giang_vien = CIPConvert.ToDecimal(m_cbo_trang_thai_g_vien.SelectedValue);
+        decimal v_dc_id_don_vi_quan_ly = CIPConvert.ToDecimal(m_cbo_don_vi_q_ly.SelectedValue);
+
+        // Lấy dữ liệu loại hình cộng tác
+        string v_str_gvhd, v_str_gvcm, v_str_gv_viet_hl, v_str_gv_tham_dinh_hl, v_str_duyet_hl, v_str_gv_quay_hl, v_str_hdkh;
+        if (count_selected_hinh_thuc_cong_tac() == 0)
+        {
+            v_str_duyet_hl = "A";
+            v_str_hdkh = "A";
+            v_str_gv_quay_hl = "A";
+            v_str_gv_tham_dinh_hl = "A";
+            v_str_gv_viet_hl = "A";
+            v_str_gvcm = "A";
+            v_str_gvhd = "A";
+        }
+        else
+        {
+            v_str_duyet_hl = m_cbl_loai_hinh_thuc_cong_tac.Items[3].Selected ? "Y" : "N";
+            v_str_hdkh = m_cbl_loai_hinh_thuc_cong_tac.Items[6].Selected ? "Y" : "N";
+            v_str_gv_quay_hl = m_cbl_loai_hinh_thuc_cong_tac.Items[5].Selected ? "Y" : "N";
+            v_str_gv_tham_dinh_hl = m_cbl_loai_hinh_thuc_cong_tac.Items[4].Selected ? "Y" : "N";
+            v_str_gv_viet_hl = m_cbl_loai_hinh_thuc_cong_tac.Items[2].Selected ? "Y" : "N";
+            v_str_gvcm = m_cbl_loai_hinh_thuc_cong_tac.Items[1].Selected ? "Y" : "N";
+            v_str_gvhd = m_cbl_loai_hinh_thuc_cong_tac.Items[0].Selected ? "Y" : "N";
+        }
+        // Po phụ trách
+        string v_str_po_phu_trach_chinh, v_str_po_phu_trach_phu;
+        v_str_po_phu_trach_chinh = m_txt_po_phu_trach_chinh.Text.Trim();
+        v_str_po_phu_trach_phu = m_txt_po_phu_trach_phu.Text.Trim();
+
+        // Thực hiện Search
+        m_us_dm_giang_vien.search_giang_vien(v_str_ten_giang_vien
+                                            , v_str_search_key_word
+                                            , v_str_gender
+                                            , v_dc_id_trang_thai_giang_vien
+                                            , v_dc_id_don_vi_quan_ly
+                                            , m_ds_giang_vien
+                                            , v_dc_thang_bd_hop_tac
+                                            , v_dc_nam_bd_hop_tac
+                                            , CIPConvert.ToDecimal(v_str_month)
+                                            , v_str_gvhd
+                                            , v_str_gvcm
+                                            , v_str_gv_viet_hl
+                                            , v_str_gv_tham_dinh_hl
+                                            , v_str_duyet_hl
+                                            , v_str_gv_quay_hl
+                                            , v_str_hdkh
+                                            , v_str_po_phu_trach_chinh
+                                            , v_str_po_phu_trach_phu);
+    }
     /// <summary>
     /// Xóa các khoảng trắng, chuyển về một dạng chuẩn "Đinh Hồng Lĩnh"
     /// </summary>
@@ -469,7 +537,7 @@ public partial class ChuNang_F202_DanhSachGiangVien : System.Web.UI.Page
     private void loadDSExprort(ref string strTable)
     {
         int v_i_so_thu_tu = 0;
-        get_form_search_data_and_load_to_grid();
+        get_data_to_search_excel();
         // Mỗi cột dữ liệu ứng với từng dòng là label
         foreach (DataRow grv in this.m_ds_giang_vien.V_DM_GIANG_VIEN.Rows)
         {

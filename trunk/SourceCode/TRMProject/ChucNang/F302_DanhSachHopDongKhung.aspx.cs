@@ -415,6 +415,61 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
         }
 
     }
+    private void get_data_2_export_excel()
+    {
+        System.Globalization.CultureInfo enUS = new System.Globalization.CultureInfo("en-US");
+        // thu thập dữ liệu
+
+        string v_str_ten_giang_vien = m_txt_ten_giang_vien.Text.Trim();
+        v_str_ten_giang_vien = Process_name_search(v_str_ten_giang_vien);
+
+        string v_str_search_key_word = m_txt_tu_khoa_tim_kiem.Text.Trim();
+        v_str_search_key_word = Process_name_search(v_str_search_key_word);
+
+        decimal v_dc_id_loai_hop_dong = CIPConvert.ToDecimal(m_cbo_loai_hop_dong_search.SelectedValue);
+
+        decimal v_dc_trang_thai_hop_dong = CIPConvert.ToDecimal(m_cbo_trang_thai_hop_dong_search.SelectedValue);
+
+        decimal v_dc_don_vi_quan_li = CIPConvert.ToDecimal(m_cbo_don_vi_quan_ly_search.SelectedValue);
+        string v_str_ma_po_quan_ly = m_txt_ma_PO_quan_ly.Text.Trim();
+        string v_str_so_hop_dong = m_txt_so_hd.Text.Trim();
+
+        Decimal v_dc_thang_ki, v_dc_nam_ky;
+        // Nếu ngày ký đúng định dạng
+        v_dc_nam_ky = CIPConvert.ToDecimal(m_cbo_nam_ky.SelectedValue);
+        v_dc_thang_ki = CIPConvert.ToDecimal(m_cbo_thang_ky.SelectedValue);
+        DateTime v_dat_ngay_hieu_luc;
+        if (DateTime.TryParseExact(CIPConvert.ToStr(m_dat_ngay_hieu_luc.SelectedDate), "dd/MM/yyyy", enUS, System.Globalization.DateTimeStyles.None, out v_dat_ngay_hieu_luc))
+        {
+            if (m_dat_ngay_hieu_luc.SelectedDate != CIPConvert.ToDatetime("01/01/0001"))
+                v_dat_ngay_hieu_luc = m_dat_ngay_hieu_luc.SelectedDate;
+            else v_dat_ngay_hieu_luc = CIPConvert.ToDatetime("01/01/1900");
+        }
+
+
+        DateTime v_dat_ngay_ket_thuc;
+        if (DateTime.TryParseExact(CIPConvert.ToStr(m_dat_date_ket_thuc.SelectedDate), "dd/MM/yyyy", enUS, System.Globalization.DateTimeStyles.None, out v_dat_ngay_ket_thuc))
+        {
+            if (m_dat_date_ket_thuc.SelectedDate != CIPConvert.ToDatetime("01/01/0001"))
+                v_dat_ngay_ket_thuc = m_dat_date_ket_thuc.SelectedDate;
+            else v_dat_ngay_ket_thuc = CIPConvert.ToDatetime("01/01/1900");
+        }
+
+        // Search
+
+        m_us_dm_hop_dong_khung.search_hop_dong_khung(v_str_ten_giang_vien
+                                                    , v_str_search_key_word
+                                                    , v_str_so_hop_dong
+                                                    , v_dc_id_loai_hop_dong
+                                                    , v_dc_trang_thai_hop_dong
+                                                    , v_dc_don_vi_quan_li
+                                                    , v_dc_thang_ki
+                                                    , v_dc_nam_ky
+                                                    , v_dat_ngay_hieu_luc
+                                                    , v_dat_ngay_ket_thuc
+                                                    , v_str_ma_po_quan_ly
+                                                    , m_ds_hop_dong_khung);
+    }
     /// <summary>
     /// Search sử dụng session
     /// </summary>
@@ -668,7 +723,7 @@ public partial class ChucNang_F302_DanhSachHopDongKhung : System.Web.UI.Page
 
     private void loadDSExprort(ref string strTable)
     {
-        get_form_search_data_and_load_to_grid();
+        get_data_2_export_excel();
         // Mỗi cột dữ liệu ứng với từng dòng là label
         foreach (DataRow grv in this.m_ds_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows)
         {
