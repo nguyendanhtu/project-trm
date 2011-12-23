@@ -61,6 +61,10 @@
                      <ItemStyle HorizontalAlign="Center" Width="10%"></ItemStyle>
                     </asp:TemplateField>
                     <asp:BoundField DataField="REFERENCE_CODE" HeaderText="Mã lớp môn" />
+                     <asp:TemplateField HeaderText="Mã giảng viên">
+                    <ItemTemplate><%# mapping_magv_by_id(CIPConvert.ToDecimal(Eval("ID_GIANG_VIEN")))%></ItemTemplate>
+                     <ItemStyle HorizontalAlign="Center" Width="10%"></ItemStyle>
+                    </asp:TemplateField>
                     <asp:TemplateField HeaderText="Tên giảng viên">
                     <ItemTemplate>
                     <label><a href='<%# "/TRMProject/ChucNang/F201_CapNhatThongTinGiangVien.aspx?mode=edit&id="+Eval("ID_GIANG_VIEN") %>'>
