@@ -230,12 +230,6 @@
                        <ItemTemplate><%# mapping_gia_tri_hd(Eval("GIA_TRI_HOP_DONG"))%></ItemTemplate>
                         <ItemStyle HorizontalAlign="Left" Width="7%"></ItemStyle>
                     </asp:TemplateField>
-                     <asp:TemplateField HeaderText="Giá trị nghiệm thu thực tế (VNĐ)" 
-                        ItemStyle-HorizontalAlign="Center">
-                       <ItemTemplate><%# mapping_gia_tri_hd(Eval("GIA_TRI_NGHIEM_THU_THUC_TE"))%></ItemTemplate>
-                        <ItemStyle HorizontalAlign="Left" Width="7%"></ItemStyle>
-                    </asp:TemplateField> 
-
                      <asp:TemplateField ItemStyle-HorizontalAlign="Center">
                      <HeaderTemplate><%# mapping_header_nghiem_thu_lop_mon(m_str_loai_hd) %></HeaderTemplate>
                        <ItemTemplate><%# mapping_item_field_nghiem_thu_lop_mon(CIPConvert.ToStr(Eval("LOAI_HOP_DONG")), Eval("REFERENCE_CODE"), Eval("GIA_TRI_NGHIEM_THU_THUC_TE"))%></ItemTemplate>
