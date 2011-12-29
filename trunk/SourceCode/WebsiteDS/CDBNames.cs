@@ -322,6 +322,11 @@ namespace WebDS.CDBNames
        public const string TONG_TIEN_THUC_NHAN = "TONG_TIEN_THUC_NHAN";
        public const string ID_TRANG_THAI_THANH_TOAN = "ID_TRANG_THAI_THANH_TOAN";
        public const string PO_LAP_THANH_TOAN = "PO_LAP_THANH_TOAN";
+       public const string GHI_CHU_CAC_MON_PHU_TRACH = "GHI_CHU_CAC_MON_PHU_TRACH";
+       public const string GHI_CHU_THOI_GIAN_LOP_MON = "GHI_CHU_THOI_GIAN_LOP_MON";
+       public const string GHI_CHU_HE_SO_DON_GIA = "GHI_CHU_HE_SO_DON_GIA";
+       public const string GHI_CHU_4 = "GHI_CHU_4";
+       public const string GHI_CHU_5 = "GHI_CHU_5";
    }
 
    public class V_GD_THANH_TOAN_DETAIL
