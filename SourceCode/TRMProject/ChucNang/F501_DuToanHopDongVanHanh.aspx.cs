@@ -494,22 +494,22 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
             //    return;
             //}
             // Kiểm tra tồn tại hợp đồng
-            //if (!check_exist_so_hop_dong(m_txt_so_hop_dong.Text.Trim()))
-            //{
-            //    string Script;
-            //    Script = "<script language='javascript'>alert('Số hợp đồng không tồn tại trong hệ thống');</script>";
-            //    Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", Script);
-            //    //m_lbl_mess.Text = "";
-            //    return;
-            //}
+            if (!check_exist_so_hop_dong(m_txt_so_hop_dong.Text.Trim()))
+            {
+                string Script;
+                Script = "<script language='javascript'>alert('Số hợp đồng không tồn tại trong hệ thống');</script>";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", Script);
+                //m_lbl_mess.Text = "";
+                return;
+            }
             //// Kiểm tra tồn tại mã lớp môn
-            //if (!check_exist_ma_mon(m_txt_ma_lop_mon.Text.Trim()))
-            //{
-            //    string script;
-            //    script = "<script language='javascript'>alert('Lớp môn này không tồn tại trong hệ thống')</script>";
-            //    Page.ClientScript.RegisterStartupScript(this.GetType(), "oncheckmalop", script);
-            //    return;
-            //}
+            if (!check_exist_ma_mon(m_txt_ma_lop_mon.Text.Trim()))
+            {
+                string script;
+                script = "<script language='javascript'>alert('Lớp môn này không tồn tại trong hệ thống')</script>";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "oncheckmalop", script);
+                return;
+            }
             decimal ip_dc_d_hop_dong = get_id_hd_khung_by_so_hd(m_txt_so_hop_dong.Text.Trim());
 
             // Kiểm tra hợp đồng khung và lớp môn là 1 cặp
@@ -568,21 +568,21 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
             //    Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", someScript);
             //    return;
             //}
-            //if (!check_exist_so_hop_dong(m_txt_so_hop_dong.Text.Trim()))
-            //{
-            //    string Script;
-            //    Script = "<script language='javascript'>alert('Số hợp đồng không tồn tại trong hệ thống. Hãy kiểm tra lại số hợp đồng!');</script>";
-            //    Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", Script);
-            //    //m_lbl_mess.Text = "";
-            //    return;
-            //}
-            //if (!check_exist_ma_mon(m_txt_ma_lop_mon.Text.Trim()))
-            //{
-            //    string script;
-            //    script = "<script language='javascript'>alert('Lớp môn này không tồn tại trong hệ thống')</script>";
-            //    Page.ClientScript.RegisterStartupScript(this.GetType(), "oncheckmalop", script);
-            //    return;
-            //}
+            if (!check_exist_so_hop_dong(m_txt_so_hop_dong.Text.Trim()))
+            {
+                string Script;
+                Script = "<script language='javascript'>alert('Số hợp đồng không tồn tại trong hệ thống. Hãy kiểm tra lại số hợp đồng!');</script>";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", Script);
+                //m_lbl_mess.Text = "";
+                return;
+            }
+            if (!check_exist_ma_mon(m_txt_ma_lop_mon.Text.Trim()))
+            {
+                string script;
+                script = "<script language='javascript'>alert('Lớp môn này không tồn tại trong hệ thống')</script>";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "oncheckmalop", script);
+                return;
+            }
             form_2_us_obj(m_us_v_gd_thanh_toan);
             // Nếu đây là update thông tin bảng kê, kiểm tra trạng thái mới có phù hợp không?
             if (hdf_id_trang_thai_thanh_toan_cu.Value != "")
