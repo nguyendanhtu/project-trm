@@ -615,6 +615,116 @@ public class US_V_GD_THANH_TOAN : US_Object
     {
         pm_objDR["PO_LAP_THANH_TOAN"] = System.Convert.DBNull;
     }
+
+    public string strGHI_CHU_CAC_MON_PHU_TRACH
+    {
+        get
+        {
+            return CNull.RowNVLString(pm_objDR, "GHI_CHU_CAC_MON_PHU_TRACH", IPConstants.c_DefaultString);
+        }
+        set
+        {
+            pm_objDR["GHI_CHU_CAC_MON_PHU_TRACH"] = value;
+        }
+    }
+
+    public bool IsGHI_CHU_CAC_MON_PHU_TRACHNull()
+    {
+        return pm_objDR.IsNull("GHI_CHU_CAC_MON_PHU_TRACH");
+    }
+
+    public void SetGHI_CHU_CAC_MON_PHU_TRACHNull()
+    {
+        pm_objDR["GHI_CHU_CAC_MON_PHU_TRACH"] = System.Convert.DBNull;
+    }
+
+    public string strGHI_CHU_THOI_GIAN_LOP_MON
+    {
+        get
+        {
+            return CNull.RowNVLString(pm_objDR, "GHI_CHU_THOI_GIAN_LOP_MON", IPConstants.c_DefaultString);
+        }
+        set
+        {
+            pm_objDR["GHI_CHU_THOI_GIAN_LOP_MON"] = value;
+        }
+    }
+
+    public bool IsGHI_CHU_THOI_GIAN_LOP_MONNull()
+    {
+        return pm_objDR.IsNull("GHI_CHU_THOI_GIAN_LOP_MON");
+    }
+
+    public void SetGHI_CHU_THOI_GIAN_LOP_MONNull()
+    {
+        pm_objDR["GHI_CHU_THOI_GIAN_LOP_MON"] = System.Convert.DBNull;
+    }
+
+    public string strGHI_CHU_HE_SO_DON_GIA
+    {
+        get
+        {
+            return CNull.RowNVLString(pm_objDR, "GHI_CHU_HE_SO_DON_GIA", IPConstants.c_DefaultString);
+        }
+        set
+        {
+            pm_objDR["GHI_CHU_HE_SO_DON_GIA"] = value;
+        }
+    }
+
+    public bool IsGHI_CHU_HE_SO_DON_GIANull()
+    {
+        return pm_objDR.IsNull("GHI_CHU_HE_SO_DON_GIA");
+    }
+
+    public void SetGHI_CHU_HE_SO_DON_GIANull()
+    {
+        pm_objDR["GHI_CHU_HE_SO_DON_GIA"] = System.Convert.DBNull;
+    }
+
+    public string strGHI_CHU_4
+    {
+        get
+        {
+            return CNull.RowNVLString(pm_objDR, "GHI_CHU_4", IPConstants.c_DefaultString);
+        }
+        set
+        {
+            pm_objDR["GHI_CHU_4"] = value;
+        }
+    }
+
+    public bool IsGHI_CHU_4Null()
+    {
+        return pm_objDR.IsNull("GHI_CHU_4");
+    }
+
+    public void SetGHI_CHU_4Null()
+    {
+        pm_objDR["GHI_CHU_4"] = System.Convert.DBNull;
+    }
+
+    public string strGHI_CHU_5
+    {
+        get
+        {
+            return CNull.RowNVLString(pm_objDR, "GHI_CHU_5", IPConstants.c_DefaultString);
+        }
+        set
+        {
+            pm_objDR["GHI_CHU_5"] = value;
+        }
+    }
+
+    public bool IsGHI_CHU_5Null()
+    {
+        return pm_objDR.IsNull("GHI_CHU_5");
+    }
+
+    public void SetGHI_CHU_5Null()
+    {
+        pm_objDR["GHI_CHU_5"] = System.Convert.DBNull;
+    }
     #endregion
     
     #region "Init Functions"
