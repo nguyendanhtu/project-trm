@@ -160,7 +160,7 @@ public partial class BaoCao_F700_ChiTietThanhToanDotThanhToan : System.Web.UI.Pa
     }
     public string mapping_gia_tri_hd(object ip_obj_gia_tri_hd)
     {
-        if (ip_obj_gia_tri_hd.GetType() == typeof(DBNull) || CIPConvert.ToDecimal(ip_obj_gia_tri_hd) == 0) return "";
+        if (CIPConvert.ToDecimal(ip_obj_gia_tri_hd) == 0) return "";
         return CIPConvert.ToStr(ip_obj_gia_tri_hd, "#,###");
     }
     #endregion
