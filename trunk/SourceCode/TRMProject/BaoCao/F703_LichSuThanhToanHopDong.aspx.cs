@@ -38,7 +38,7 @@ public partial class BaoCao_F703_LichSuThanhToanHopDong : System.Web.UI.Page
     #region Public Interfaces
     public string mapping_gia_tri_hd(object ip_obj_gia_tri_hd)
     {
-        if (ip_obj_gia_tri_hd.GetType() == typeof(DBNull) || CIPConvert.ToDecimal(ip_obj_gia_tri_hd) == 0) return "";
+        if (CIPConvert.ToDecimal(ip_obj_gia_tri_hd) == 0) return "";
         return CIPConvert.ToStr(ip_obj_gia_tri_hd, "#,###");
     }
     public string mapping_loai_hd(string ip_str_loai_hd)
