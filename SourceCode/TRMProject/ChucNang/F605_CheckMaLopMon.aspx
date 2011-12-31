@@ -60,7 +60,8 @@
                     </ItemTemplate>
                      <ItemStyle HorizontalAlign="Center" Width="10%"></ItemStyle>
                     </asp:TemplateField>
-                    <asp:BoundField DataField="REFERENCE_CODE" HeaderText="Mã lớp môn" />
+                    <asp:BoundField DataField="REFERENCE_CODE" HeaderText="Các lớp phụ trách" />
+                      <asp:BoundField DataField="GHI_CHU_CAC_MON_PHU_TRACH" HeaderText="Tên các môn phụ trách" />
                      <asp:TemplateField HeaderText="Mã giảng viên">
                     <ItemTemplate><%# mapping_magv_by_id(CIPConvert.ToDecimal(Eval("ID_GIANG_VIEN")))%></ItemTemplate>
                      <ItemStyle HorizontalAlign="Center" Width="10%"></ItemStyle>
@@ -73,7 +74,7 @@
                     <ItemStyle Width="10%"/>
                     </asp:TemplateField> 
                       <asp:TemplateField HeaderText="Thời gian lớp môn">
-                    <ItemTemplate><%# mapping_time_lop_mon(CIPConvert.ToStr(Eval("REFERENCE_CODE")))%></ItemTemplate>
+                    <ItemTemplate><%# mapping_thoi_gian_lop_mon((Eval("GHI_CHU_THOI_GIAN_LOP_MON")))%></ItemTemplate>
                     <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:TemplateField>
                      <asp:TemplateField HeaderText="Đã thanh toán">

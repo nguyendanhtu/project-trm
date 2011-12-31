@@ -86,6 +86,12 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
             return CIPConvert.ToStr(v_ds_gd_lop_mon.GD_LOP_MON.Rows[0][GD_LOP_MON.NGAY_BAT_DAU], "dd/MM/yyyy");
         return CIPConvert.ToStr(v_ds_gd_lop_mon.GD_LOP_MON.Rows[0][GD_LOP_MON.NGAY_BAT_DAU], "dd/MM/yyyy") + " - " + CIPConvert.ToStr(v_ds_gd_lop_mon.GD_LOP_MON.Rows[0][GD_LOP_MON.NGAY_KET_THUC], "dd/MM/yyyy");
     }
+    public string mapping_thoi_gian_lop_mon(object ip_obj_time_lop_mon)
+    {
+        if (ip_obj_time_lop_mon.GetType() == typeof(DBNull)) return "";
+        return CIPConvert.ToStr(ip_obj_time_lop_mon,"dd/MM/yyyy");
+    }
+
     #endregion
 
     #region Private Methods
@@ -161,6 +167,11 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
         m_txt_ma_lop_mon.Text = "";
         m_txt_mo_ta.Text = "";
         m_cbo_trang_thai_thanh_toan.SelectedIndex = 0;
+        m_txt_ghi_chu_4.Text = "";
+        m_txt_ghi_chu_5.Text = "";
+        m_txt_thoi_gian_lop_mon.Text = "";
+        m_txt_ten_cac_mon_phu_trach.Text = "";
+        m_txt_he_so_quy_mo.Text = "";
     }
     private void when_cbo_dot_tt_changed()
     {
@@ -209,6 +220,11 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
         m_cbo_trang_thai_thanh_toan.SelectedValue = CIPConvert.ToStr(ip_us_gd_thanh_toan.dcID_TRANG_THAI_THANH_TOAN);
         hdf_id_trang_thai_thanh_toan_cu.Value = CIPConvert.ToStr(ip_us_gd_thanh_toan.dcID_TRANG_THAI_THANH_TOAN);
         m_txt_mo_ta.Text = ip_us_gd_thanh_toan.strDESCRIPTION;
+        m_txt_ten_cac_mon_phu_trach.Text = ip_us_gd_thanh_toan.strGHI_CHU_CAC_MON_PHU_TRACH;
+        m_txt_thoi_gian_lop_mon.Text = ip_us_gd_thanh_toan.strGHI_CHU_THOI_GIAN_LOP_MON;
+        m_txt_he_so_quy_mo.Text = ip_us_gd_thanh_toan.strGHI_CHU_HE_SO_DON_GIA;
+        m_txt_ghi_chu_4.Text = ip_us_gd_thanh_toan.strGHI_CHU_4;
+        m_txt_ghi_chu_5.Text = ip_us_gd_thanh_toan.strGHI_CHU_5;
     }
     private void form_2_us_obj(US_V_GD_THANH_TOAN op_us_gd_thanh_toan)
     {
@@ -232,6 +248,11 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
         op_us_gd_thanh_toan.strDESCRIPTION = m_txt_mo_ta.Text.Trim();
         if (Session["UserName"].GetType() != typeof(DBNull))
             op_us_gd_thanh_toan.strPO_LAP_THANH_TOAN = CIPConvert.ToStr(Session["UserName"]);
+        op_us_gd_thanh_toan.strGHI_CHU_CAC_MON_PHU_TRACH = m_txt_ten_cac_mon_phu_trach.Text.Trim();
+        op_us_gd_thanh_toan.strGHI_CHU_THOI_GIAN_LOP_MON = m_txt_thoi_gian_lop_mon.Text.Trim();
+        op_us_gd_thanh_toan.strGHI_CHU_HE_SO_DON_GIA = m_txt_he_so_quy_mo.Text;
+        op_us_gd_thanh_toan.strGHI_CHU_4 = m_txt_ghi_chu_4.Text;
+        op_us_gd_thanh_toan.strGHI_CHU_5 = m_txt_ghi_chu_5.Text;
     }
     private void load_data_2_us_by_id_and_show_on_form(int ip_i_thanh_toan_selected)
     {
@@ -377,9 +398,12 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + ++v_i_so_thu_tu + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + CIPConvert.ToStr(grv[V_GD_THANH_TOAN.SO_PHIEU_THANH_TOAN]).Trim() + "</td>"; // Mã đợt thanh toán
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + CIPConvert.ToStr(grv[V_GD_THANH_TOAN.SO_HOP_DONG]).Trim() + "</td>"; // Số hợp đồng
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + CIPConvert.ToStr(grv[V_GD_THANH_TOAN.REFERENCE_CODE]).Trim() + "</td>"; // Mã lớp môn
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + mapping_magv_by_id(CIPConvert.ToDecimal(grv[V_GD_THANH_TOAN.ID_GIANG_VIEN])) + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + CIPConvert.ToStr(grv[V_GD_THANH_TOAN.TEN_GIANG_VIEN]).Trim() + "</td>";            ;
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + CIPConvert.ToStr(grv[V_GD_THANH_TOAN.TEN_GIANG_VIEN]).Trim() + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + CIPConvert.ToStr(grv[V_GD_THANH_TOAN.REFERENCE_CODE]).Trim() + "</td>"; // Mã lớp môn
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + grv[V_GD_THANH_TOAN.GHI_CHU_CAC_MON_PHU_TRACH].ToString() + "</td>"; // Tên môn
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + grv[V_GD_THANH_TOAN.GHI_CHU_THOI_GIAN_LOP_MON].ToString() + "</td>"; // Thời gian lớp môn
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + grv[V_GD_THANH_TOAN.GHI_CHU_HE_SO_DON_GIA].ToString() + "</td>"; // Hệ số quy mô lớp
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + mapping_so_tien(grv[V_GD_THANH_TOAN.TONG_TIEN_THANH_TOAN]) + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + mapping_so_tien(grv[V_GD_THANH_TOAN.SO_TIEN_THUE]) + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + mapping_so_tien(grv[V_GD_THANH_TOAN.TONG_TIEN_THUC_NHAN]) + "</td>";
@@ -412,9 +436,12 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
         strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>STT</td>";
         strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>Mã đợt thanh toán</td>";
         strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>Số HĐ</td>";
-        strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>Mã lớp môn</td>";
         strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>Mã giảng viên</td>";
         strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>Tên giảng viên</td>";
+        strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>Các lớp môn phụ trách</td>";
+        strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>Tên các môn phụ trách</td>";
+        strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>Thời gian lớp môn</td>";
+        strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>Hệ số quy mô lớp</td>";
         strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>Tổng tiền thanh toán đợt này (VNĐ)</td>";
         strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>Số tiền thuế (VNĐ)</td>";
         strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>Tổng tiền thực nhận đợt này (VNĐ)</td>";
@@ -503,13 +530,14 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
                 return;
             }
             //// Kiểm tra tồn tại mã lớp môn
-            if (!check_exist_ma_mon(m_txt_ma_lop_mon.Text.Trim()))
-            {
-                string script;
-                script = "<script language='javascript'>alert('Lớp môn này không tồn tại trong hệ thống')</script>";
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "oncheckmalop", script);
-                return;
-            }
+            //if (!check_exist_ma_mon(m_txt_ma_lop_mon.Text.Trim()))
+            //{
+            //    string script;
+            //    script = "<script language='javascript'>alert('Lớp môn này không tồn tại trong hệ thống')</script>";
+            //    Page.ClientScript.RegisterStartupScript(this.GetType(), "oncheckmalop", script);
+            //    return;
+            //}
+
             decimal ip_dc_d_hop_dong = get_id_hd_khung_by_so_hd(m_txt_so_hop_dong.Text.Trim());
 
             // Kiểm tra hợp đồng khung và lớp môn là 1 cặp
@@ -523,14 +551,13 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
 
             // Check hợp đồng do bên đv thanh toán này thanh toán
             decimal v_dc_id_dv_tt = get_id_don_vi_thanh_toan_by_id_dot_tt(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue));
-            //if (!check_hop_dong_ung_voi_dv_thanh_toan(v_dc_id_dv_tt, get_id_hd_khung_by_so_hd(m_txt_so_hop_dong.Text.Trim())))
-            //{
-            //    string Script;
-            //    Script = "<script language='javascript'>alert('Hợp đồng này không do " + get_ten_dv_thanh_toan(v_dc_id_dv_tt) + " thanh toán');</script>";
-            //    Page.ClientScript.RegisterStartupScript(this.GetType(), "oncheck1", Script);
-            //    //m_lbl_mess.Text = "";
-            //    return;
-            //}
+            if (!check_hop_dong_ung_voi_dv_thanh_toan(v_dc_id_dv_tt, get_id_hd_khung_by_so_hd(m_txt_so_hop_dong.Text.Trim())))
+            {
+                string Script;
+                Script = "<script language='javascript'>alert('Hợp đồng này không do " + get_ten_dv_thanh_toan(v_dc_id_dv_tt) + " thanh toán');</script>";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "oncheck1", Script);
+                return;
+            }
             form_2_us_obj(m_us_v_gd_thanh_toan);
             m_us_v_gd_thanh_toan.Insert();
             load_data_2_grid(get_ma_dot_tt_by_id_dot(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue)));
@@ -576,13 +603,13 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
                 //m_lbl_mess.Text = "";
                 return;
             }
-            if (!check_exist_ma_mon(m_txt_ma_lop_mon.Text.Trim()))
-            {
-                string script;
-                script = "<script language='javascript'>alert('Lớp môn này không tồn tại trong hệ thống')</script>";
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "oncheckmalop", script);
-                return;
-            }
+            //if (!check_exist_ma_mon(m_txt_ma_lop_mon.Text.Trim()))
+            //{
+            //    string script;
+            //    script = "<script language='javascript'>alert('Lớp môn này không tồn tại trong hệ thống')</script>";
+            //    Page.ClientScript.RegisterStartupScript(this.GetType(), "oncheckmalop", script);
+            //    return;
+            //}
             form_2_us_obj(m_us_v_gd_thanh_toan);
             // Nếu đây là update thông tin bảng kê, kiểm tra trạng thái mới có phù hợp không?
             if (hdf_id_trang_thai_thanh_toan_cu.Value != "")
