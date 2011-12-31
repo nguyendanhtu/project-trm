@@ -182,9 +182,10 @@
                      HeaderText="Tổng tiền thực nhận đợt này(VNĐ)">
                      <ItemStyle Width="5%" HorizontalAlign="Right" />
                     </asp:BoundField>
-                     <asp:BoundField HeaderText="Số tiền còn phải thanh toán" DataField="CON_PHAI_THANH_TOAN" DataFormatString="{0:N0}">
-                        <ItemStyle HorizontalAlign="Right" Width="5%"></ItemStyle>
-                    </asp:BoundField>
+                     <asp:TemplateField ItemStyle-HorizontalAlign="Right" HeaderText="Số tiền còn phải thanh toán">
+                       <ItemTemplate><%# mapping_so_tien_con_phai_tt(Eval("CON_PHAI_THANH_TOAN"), Eval("LOAI_HOP_DONG"), Eval("REFERENCE_CODE"))%></ItemTemplate>
+                        <ItemStyle Width="5%"></ItemStyle>
+                    </asp:TemplateField>
                      <asp:BoundField DataField="PO_LAP_THANH_TOAN" HeaderText="PO lập thanh toán">
                      <ItemStyle Width="4%" HorizontalAlign="Left" />
                     </asp:BoundField>
