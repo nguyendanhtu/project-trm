@@ -325,7 +325,7 @@
                        <ItemTemplate><%# mapping_loai_hd(CIPConvert.ToStr(Eval("LOAI_HOP_DONG")))%></ItemTemplate>
                         <ItemStyle HorizontalAlign="Center" Width="5%"></ItemStyle>
                     </asp:TemplateField> 
-                     <asp:BoundField DataField="REFERENCE_CODE" HeaderText="Mã lớp / Đợt tạm ứng">
+                     <asp:BoundField DataField="REFERENCE_CODE" HeaderText="Các lớp phụ trách / Đợt tạm ứng">
                     <ItemStyle Width="7%" HorizontalAlign="Left" />
                     </asp:BoundField>
                     <asp:TemplateField HeaderText="Tên giảng viên" ItemStyle-HorizontalAlign="Center">

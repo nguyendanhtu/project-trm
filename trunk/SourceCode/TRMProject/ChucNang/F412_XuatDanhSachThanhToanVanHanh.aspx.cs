@@ -91,12 +91,13 @@ public partial class ChucNang_F412_XuatDanhSachThanhToanVanHanh : System.Web.UI.
         US_V_GD_THANH_TOAN v_us_gd_thanh_toan = new US_V_GD_THANH_TOAN(ip_dc_id_gd_thanh_toan);
         v_str_noi_dung += v_us_dm_hd_khung.strLOAI_HOP_DONG.Trim();
         v_str_noi_dung += " môn ";
+        // Nếu là học liệu
         if ((v_us_gd_thanh_toan.strREFERENCE_CODE.Contains("đợt") && v_us_gd_thanh_toan.dcID_MON_HOC == 1) || v_us_gd_thanh_toan.IsREFERENCE_CODENull())
             v_str_noi_dung += v_us_dm_hd_khung.strFIRST_MON;
+            // Nếu là vận hành
         else
         {
-            US_DM_MON_HOC v_us_dm_mon_hoc = new US_DM_MON_HOC(v_us_gd_thanh_toan.dcID_MON_HOC);
-            v_str_noi_dung += v_us_dm_mon_hoc.strTEN_MON_HOC;
+            v_str_noi_dung += v_us_gd_thanh_toan.strGHI_CHU_CAC_MON_PHU_TRACH;
         }
         return v_str_noi_dung;
     }

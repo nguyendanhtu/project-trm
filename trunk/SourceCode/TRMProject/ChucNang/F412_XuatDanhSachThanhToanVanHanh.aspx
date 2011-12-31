@@ -200,11 +200,11 @@
                      <ItemStyle Width="5%" HorizontalAlign="Right" />
                     </asp:BoundField>
                       <asp:BoundField DataField="REFERENCE_CODE"
-                     HeaderText="Mã lớp môn">
+                     HeaderText="Các lớp môn phụ trách">
                      <ItemStyle Width="5%" HorizontalAlign="Right" />
                     </asp:BoundField>
                      <asp:TemplateField HeaderText="Nội dung thanh toán" ItemStyle-HorizontalAlign="Center">
-                       <ItemTemplate><%# mapping_noi_dung_tt(CIPConvert.ToDecimal(Eval("ID")),CIPConvert.ToDecimal(Eval("ID_HOP_DONG_KHUNG")))%></ItemTemplate>
+                       <ItemTemplate><%# mapping_noi_dung_tt(CIPConvert.ToDecimal(Eval("ID")), CIPConvert.ToDecimal(Eval("ID_HOP_DONG_KHUNG")))%></ItemTemplate>
                         <ItemStyle HorizontalAlign="Left" Width="12%"></ItemStyle>
                     </asp:TemplateField> 
                       <asp:BoundField DataField="DESCRIPTION" HeaderText="Ghi chú">

@@ -49,7 +49,7 @@
                 <td align="left" style="width:1%;">&nbsp;</td>
             </tr>
             <tr>
-                <td align="right" style="width:12%;">
+                <td align="right" style="width:14%;">
 			       
 			<asp:label id="lblTenGiangVien" CssClass="cssManField" runat="server" 
                 Text="Đợt thanh toán" />
@@ -63,65 +63,6 @@
                          </td>
                 <td align="left" style="width:10%;"></td>
                 <td align="left" style="width:1%;"></td>
-            </tr>
-            <tr>
-                <td align="right" style="width:7%;">
-			       
-			<asp:label id="lblMon4" CssClass="cssManField" runat="server" 
-                Text="Số hợp đồng khung(*)" />
-			       
-                </td>
-                <td align="left" colspan="2">
-
-                <asp:TextBox ID="m_txt_so_hop_dong" Width="96%" 
-                        runat="server" CssClass="cssTextBox"></asp:TextBox>
-                        </td>
-                <td align="right" style="width:5%;">
-
-			        <asp:button id="m_cmd_check_so_hd" accessKey="c" CssClass="cssButton" 
-                runat="server" Width="98px" Text="Kiểm tra HĐ" 
-                        Height="24px" onclick="m_cmd_check_so_hd_Click" CausesValidation="false"/>
-                </td>
-                <td align="left" style="width:10%;">
-			
-			        &nbsp;</td>
-                      <td align="left" style="width:1%;">
-                          &nbsp;</td>
-                 <td align="right" style="width:5%;">
-			       
-			         &nbsp;</td>
-                <td align="left" style="width:10%;">
-		            &nbsp;</td>
-                <td align="left" style="width:1%;">&nbsp;</td>
-            </tr>
-            <tr>
-                <td align="right" style="width:5%;">
-			       
-			<asp:label id="lblMon6" CssClass="cssManField" runat="server" 
-                Text="Mã lớp môn(*)" />
-			       
-                </td>
-                <td align="left" style="width:10%;">    
-			
-                <asp:TextBox ID="m_txt_ma_lop_mon" CssClass="cssTextBox" Width="96%" 
-                        runat="server"></asp:TextBox>
-                        </td> 
-                <td align="left" style="width:1%;">
-                        <asp:RequiredFieldValidator ID="req_vali4" runat="server" 
-                         ErrorMessage="Bạn phải nhập mã lớp môn" Text="*" 
-                        ControlToValidate="m_txt_ma_lop_mon"> </asp:RequiredFieldValidator>
-			        <asp:button id="m_cmd_check_ma_lop_mon" accessKey="c" CssClass="cssButton" 
-                runat="server" Width="98px" Text="Kiểm tra LM" 
-                        Height="24px"  CausesValidation="false" 
-                            onclick="m_cmd_check_ma_lop_mon_Click"/>
-                </td>
-                <td align="right" style="width:9%;">
-			       
-			        &nbsp;</td>
-                <td align="left" style="width:10%;">    
-			        &nbsp;</td> <td align="left" style="width:1%;">&nbsp;</td>
-                 <td align="right" style="width:5%;">&nbsp;</td>
-                <td align="left" style="width:10%;">&nbsp;</td>
             </tr>
             <tr>
                 <td align="right" style="width:5%;">
@@ -172,6 +113,112 @@
                 <td align="left" style="width:10%;">    
 			        &nbsp;</td> <td align="left" style="width:1%;">&nbsp;</td>
                  <td align="right" style="width:5%;">&nbsp;</td>
+                <td align="left" style="width:10%;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" style="width:7%;">
+			       
+			<asp:label id="lblMon4" CssClass="cssManField" runat="server" 
+                Text="Số hợp đồng khung(*)" />
+			       
+                </td>
+                <td align="left" colspan="3">
+
+                <asp:TextBox ID="m_txt_so_hop_dong" Width="96%" 
+                        runat="server" CssClass="cssTextBox"></asp:TextBox>
+                        </td>
+                <td align="left" style="width:10%;">
+			
+			        &nbsp;&nbsp;
+			
+			        <asp:button id="m_cmd_check_so_hd" accessKey="c" CssClass="cssButton" 
+                runat="server" Width="98px" Text="Kiểm tra HĐ" 
+                        Height="24px" onclick="m_cmd_check_so_hd_Click" CausesValidation="false"/>
+                </td>
+                      <td align="left" style="width:1%;">
+                          &nbsp;</td>
+                 <td align="right" style="width:5%;">
+			       
+			         &nbsp;</td>
+                <td align="left" style="width:10%;">
+		            &nbsp;</td>
+                <td align="left" style="width:1%;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" style="width:5%;height:30px;">
+			       
+			<asp:label id="lblMon6" CssClass="cssManField" runat="server" 
+                Text="Các lớp môn phụ trách(*)" />
+			       
+                </td>
+                <td align="left" colspan="3">    
+			
+                <asp:TextBox ID="m_txt_ma_lop_mon" CssClass="cssTextBox" Width="96%" 
+                        runat="server"></asp:TextBox>
+                        </td> 
+                <td align="left" style="width:10%;">    
+                        <asp:RequiredFieldValidator ID="req_vali4" runat="server" 
+                         ErrorMessage="Bạn phải nhập mã lớp môn" Text="*" 
+                        ControlToValidate="m_txt_ma_lop_mon"> </asp:RequiredFieldValidator>
+			        <asp:button id="m_cmd_check_ma_lop_mon" accessKey="c" CssClass="cssButton" 
+                runat="server" Width="98px" Text="Kiểm tra LM" 
+                        Height="24px"  CausesValidation="false" 
+                            onclick="m_cmd_check_ma_lop_mon_Click"/>
+                </td> <td align="left" colspan="2">(Ví dụ: MAN304.C2, MAN304.C3-C5-C7)</td>
+                <td align="left" style="width:10%;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" style="width:5%; height:30px;">
+			       
+			<asp:label id="lblMon7" CssClass="cssManField" runat="server" 
+                Text="Tên các môn phụ trách" />
+			       
+                </td>
+                <td align="left" colspan="4">    
+			
+                   
+                <asp:TextBox ID="m_txt_ten_cac_mon_phu_trach" Width="96%" TextMode="MultiLine" Rows="3" 
+                        runat="server" CssClass="cssTextBox"></asp:TextBox>
+                        </td> 
+                <td align="left" colspan="2">(Ví dụ: Marketing căn bản, Quản trị Marketing)</td>
+                <td align="left" style="width:10%;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" style="width:5%; height:30px;">
+			       
+			<asp:label id="lblMon8" CssClass="cssManField" runat="server" 
+                Text="Thời gian lớp môn" />
+			       
+                </td>
+                <td align="left" colspan="3">    
+			
+                   
+                <asp:TextBox ID="m_txt_thoi_gian_lop_mon" CssClass="cssTextBox" Width="96%" 
+                        runat="server"></asp:TextBox>
+                        </td> 
+                <td align="left" colspan="2">Ví dụ: 01/11/2011 - 30/11/2011</td>
+                <td align="left" style="width:10%;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" style="width:5%; height:30px;">
+			       
+			<asp:label id="lblMon9" CssClass="cssManField" runat="server" 
+                Text="Hệ số quy mô lớp" />
+			       
+                </td>
+                <td align="left">    
+			
+              <asp:TextBox  ID="m_txt_he_so_quy_mo" CssClass="csscurrency" Width="96%" 
+                        runat="server"></asp:TextBox> 
+                        </td> 
+                <td align="left" style="width:1%;">			       
+                 <asp:RegularExpressionValidator ID="RegularExpressionValidator4" ErrorMessage="Invalid Price" Text="*"
+    ValidationGroup="complete" EnableClientScript="true" ControlToValidate="m_txt_he_so_quy_mo"
+    ValidationExpression="^\d+(\.\d\d)?$" Display="Dynamic" runat="server"/>
+    <asp:CompareValidator runat="server" id="CompareValidator3" Operator="GreaterThanEqual" Type="Currency"
+        Display="Dynamic" ValueToCompare="0" ControlToValidate="m_txt_he_so_quy_mo" ErrorMessage = "Giá trị nhập không đúng định dạng" />
+                        </td> 
+                <td align="left" colspan="2">&nbsp;</td>
                 <td align="left" style="width:10%;">&nbsp;</td>
             </tr>
             <tr>
@@ -288,6 +335,34 @@
                 <asp:TextBox ID="m_txt_mo_ta" CssClass="cssTextBox" Width="98%" 
                         runat="server"></asp:TextBox>
                          </td> 
+                <td align="left" colspan="3">(Ví dụ: Thanh lý hợp đồng; Lương giảng viên tháng 11)</td>
+            </tr>
+            <tr>
+                <td align="right" style="width:5%;">
+			       
+			<asp:label id="lblMon10" CssClass="cssManField" runat="server" 
+                Text="Ghi chú 1" />
+			       
+                </td>
+                <td align="left" colspan="4">
+                <asp:TextBox ID="m_txt_ghi_chu_4" CssClass="cssTextBox" Width="98%" 
+                        runat="server"></asp:TextBox>
+                         </td> 
+                <td align="left" style="width:1%;">&nbsp;</td>
+                 <td align="right" style="width:5%;">&nbsp;</td>
+                <td align="left" style="width:10%;">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="right" style="width:5%;">
+			       
+			<asp:label id="lblMon11" CssClass="cssManField" runat="server" 
+                Text="Ghi chú 2" />
+			       
+                </td>
+                <td align="left" colspan="4">
+                <asp:TextBox ID="m_txt_ghi_chu_5" CssClass="cssTextBox" Width="98%" 
+                        runat="server"></asp:TextBox>
+                         </td> 
                 <td align="left" style="width:1%;">&nbsp;</td>
                  <td align="right" style="width:5%;">&nbsp;</td>
                 <td align="left" style="width:10%;">&nbsp;</td>
@@ -397,13 +472,6 @@
                        <ItemTemplate><%# get_so_hd_khung_by_id_hd(CIPConvert.ToDecimal(Eval("ID_HOP_DONG_KHUNG")))%></ItemTemplate>
                         <ItemStyle HorizontalAlign="Center" Width="12%"></ItemStyle>
                     </asp:TemplateField> 
-                     <asp:BoundField DataField="REFERENCE_CODE" HeaderText="Mã lớp">
-                    <ItemStyle Width="7%" HorizontalAlign="Left" />
-                    </asp:BoundField>
-                     <asp:TemplateField HeaderText="Thời gian lớp môn" ItemStyle-HorizontalAlign="Left">
-                       <ItemTemplate><%# mapping_time_lop_mon(CIPConvert.ToStr(Eval("REFERENCE_CODE")))%></ItemTemplate>
-                        <ItemStyle HorizontalAlign="Left" Width="7%"></ItemStyle>
-                    </asp:TemplateField> 
                     <asp:TemplateField HeaderText="Mã giảng viên" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%# mapping_magv_by_id(CIPConvert.ToDecimal(Eval("ID_GIANG_VIEN")))%></ItemTemplate>
                         <ItemStyle HorizontalAlign="Left" Width="7%"></ItemStyle>
@@ -412,6 +480,20 @@
                        <ItemTemplate><%# Eval("TEN_GIANG_VIEN")%></ItemTemplate>
                         <ItemStyle HorizontalAlign="Left" Width="9%"></ItemStyle>
                     </asp:TemplateField> 
+                     <asp:BoundField DataField="REFERENCE_CODE" HeaderText="Các lớp môn phụ trách">
+                    <ItemStyle Width="7%" HorizontalAlign="Left" />
+                    </asp:BoundField>
+                     <asp:BoundField DataField="GHI_CHU_CAC_MON_PHU_TRACH" HeaderText="Tên các môn phụ trách">
+                    <ItemStyle Width="7%" HorizontalAlign="Left" />
+                    </asp:BoundField>
+                     <asp:TemplateField HeaderText="Thời gian lớp môn" ItemStyle-HorizontalAlign="Left">
+                       <ItemTemplate><%# mapping_thoi_gian_lop_mon(Eval("GHI_CHU_THOI_GIAN_LOP_MON"))%></ItemTemplate>
+                        <ItemStyle HorizontalAlign="Left" Width="7%"></ItemStyle>
+                    </asp:TemplateField> 
+                     <asp:BoundField DataField="GHI_CHU_HE_SO_DON_GIA"
+                        HeaderText="Hệ số quy mô lớp">
+                     <ItemStyle Width="7%" HorizontalAlign="Center" />
+                    </asp:BoundField>
                      <asp:BoundField DataField="TONG_TIEN_THANH_TOAN" DataFormatString="{0:N0}" 
                         HeaderText="Tổng tiền thanh toán đợt này (VNĐ)">
                      <ItemStyle Width="7%" HorizontalAlign="Center" />

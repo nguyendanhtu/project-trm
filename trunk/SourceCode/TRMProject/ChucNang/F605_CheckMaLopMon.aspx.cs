@@ -42,13 +42,13 @@ public partial class ChucNang_F605_CheckMaLopMon : System.Web.UI.Page
                 }
 
                 // Check tồn tại
-                if (!check_exist_ma_mon(v_str_ma_lop_mon))
-                {
-                    string script;
-                    script = "<script language='javascript'>alert('Lớp môn này không tồn tại trong hệ thống')</script>";
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "oncheckmalop", script);
-                    return;
-                }
+                //if (!check_exist_ma_mon(v_str_ma_lop_mon))
+                //{
+                //    string script;
+                //    script = "<script language='javascript'>alert('Lớp môn này không tồn tại trong hệ thống')</script>";
+                //    Page.ClientScript.RegisterStartupScript(this.GetType(), "oncheckmalop", script);
+                //    return;
+                //}
                 // Hiển thị lên labels
                 m_lbl_so_hd.Text = v_str_so_hd;
                 m_lbl_ma_lop_mon.Text= v_str_ma_lop_mon;
@@ -182,6 +182,11 @@ public partial class ChucNang_F605_CheckMaLopMon : System.Web.UI.Page
         else if (v_ds_gd_lop_mon.GD_LOP_MON.Rows[0][GD_LOP_MON.NGAY_KET_THUC].GetType() == typeof(DBNull))
             return CIPConvert.ToStr(v_ds_gd_lop_mon.GD_LOP_MON.Rows[0][GD_LOP_MON.NGAY_BAT_DAU], "dd/MM/yyyy");
         return CIPConvert.ToStr(v_ds_gd_lop_mon.GD_LOP_MON.Rows[0][GD_LOP_MON.NGAY_BAT_DAU], "dd/MM/yyyy") + " - " + CIPConvert.ToStr(v_ds_gd_lop_mon.GD_LOP_MON.Rows[0][GD_LOP_MON.NGAY_KET_THUC], "dd/MM/yyyy");
+    }
+    public string mapping_thoi_gian_lop_mon(object ip_obj_thoi_gian_lop_mon)
+    {
+        if (ip_obj_thoi_gian_lop_mon.GetType() == typeof(DBNull)) return "";
+        return CIPConvert.ToStr(ip_obj_thoi_gian_lop_mon,"dd/MM/yyyy");
     }
     public string mapping_magv_by_id(decimal ip_dc_id_gv)
     {
