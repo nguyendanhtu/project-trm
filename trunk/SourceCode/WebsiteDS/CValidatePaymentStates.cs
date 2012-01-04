@@ -45,7 +45,8 @@ namespace WebDS
                     trang_thai_chuyen_duoc[3] = TRANG_THAI_THANH_TOAN.CHUNG_TU_KHONG_DUOC_DUYET;
                     break;
                 case TRANG_THAI_THANH_TOAN.CHUNG_TU_KHONG_DUOC_DUYET:
-                    trang_thai_chuyen_duoc[0] = TRANG_THAI_THANH_TOAN.CHUNG_TU_DA_DUOC_DUYET;
+                    //trang_thai_chuyen_duoc[0] = TRANG_THAI_THANH_TOAN.CHUNG_TU_DA_DUOC_DUYET;
+                    trang_thai_chuyen_duoc[0] = "";
                     trang_thai_chuyen_duoc[1] = TRANG_THAI_THANH_TOAN.CHUNG_TU_KHONG_DUOC_DUYET;
                     trang_thai_chuyen_duoc[2] = "";
                     trang_thai_chuyen_duoc[3] = "";
