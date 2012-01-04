@@ -142,10 +142,10 @@
                     </asp:TemplateField>
                     <asp:BoundField DataField="ID_LOAI_TU_DIEN" HeaderText="Loại từ điển" 
                         Visible="False">
-                        <ItemStyle HorizontalAlign="Center" Width="4%"></ItemStyle></asp:BoundField>
+                        <ItemStyle HorizontalAlign="Left" Width="4%"></ItemStyle></asp:BoundField>
                     <asp:BoundField DataField="MA_TU_DIEN" ItemStyle-HorizontalAlign="Center" 
                         HeaderText="Mã từ điển" >
-<ItemStyle HorizontalAlign="Center"></ItemStyle>
+<ItemStyle HorizontalAlign="Left"></ItemStyle>
                     </asp:BoundField>
                     <asp:BoundField DataField="TEN_NGAN" HeaderText="Tên ngắn" />
                     <asp:BoundField DataField="TEN" HeaderText="Tên" />
