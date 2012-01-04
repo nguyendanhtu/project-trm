@@ -339,7 +339,7 @@ public partial class ChucNang_F413_XuLyCacChungTuTonDong : System.Web.UI.Page
     }
     private void form_2_us_obj(US_V_GD_THANH_TOAN op_us_gd_thanh_toan)
     {
-        // Lấy số phiếu thanh toán cũ cho vào us
+        // Lấy số phiếu thanh toán cũ cho vào so_phieu_thanh_toan
         op_us_gd_thanh_toan.strSO_PHIEU_THANH_TOAN = hdf_ma_dot_thanh_toan_cu.Value;
         op_us_gd_thanh_toan.dcID_HOP_DONG_KHUNG = get_id_hd_khung_by_so_hd(m_txt_so_hop_dong.Text.Trim());
         if (m_txt_tham_so.Text.Contains("Tạm ứng"))
