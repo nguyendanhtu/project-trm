@@ -781,6 +781,7 @@ public class US_V_GD_THANH_TOAN : US_Object
     {
         CStoredProc v_cstore = new CStoredProc("pr_V_GD_THANH_TOAN_Xac_Nhan_NganHang");
         v_cstore.addDecimalInputParam("@ID", this.dcID);
+        v_cstore.addNVarcharInputParam("@MA_DOT_TT_CU", this.strSO_PHIEU_THANH_TOAN);
         v_cstore.ExecuteCommand(this);
     }
     public void chinh_sua_chung_tu()
