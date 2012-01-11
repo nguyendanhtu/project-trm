@@ -782,6 +782,18 @@ public class US_V_GD_THANH_TOAN : US_Object
         CStoredProc v_cstore = new CStoredProc("pr_V_GD_THANH_TOAN_Xac_Nhan_NganHang");
         v_cstore.addDecimalInputParam("@ID", this.dcID);
         v_cstore.addNVarcharInputParam("@MA_DOT_TT_CU", this.strSO_PHIEU_THANH_TOAN);
+        v_cstore.addDecimalInputParam("@ID_TRANG_THAI_DOT_TT", this.dcID_TRANG_THAI_THANH_TOAN);
+        v_cstore.addNVarcharInputParam("@DESCRIPTION", this.strDESCRIPTION);
+        v_cstore.ExecuteCommand(this);
+    }
+    public void xu_ly_thanh_toan_chua_duoc_thanh_toan()
+    {
+        CStoredProc v_cstore = new CStoredProc("pr_V_GD_THANH_TOAN_Xu_Ly_Chung_Tu_Chua_Duoc_Thanh_Toan");
+        v_cstore.addDecimalInputParam("@ID", this.dcID);
+        v_cstore.addNVarcharInputParam("@MA_DOT_TT_MOI", this.strSO_PHIEU_THANH_TOAN);
+        v_cstore.addDecimalInputParam("@ID_TRANG_THAI_DOT_TT", this.dcID_TRANG_THAI_THANH_TOAN);
+        v_cstore.addNVarcharInputParam("@DESCRIPTION", this.strDESCRIPTION);
+        v_cstore.addDatetimeInputParam("@NGAY_THANH_TOAN_TUONG_UNG", this.datNGAY_THANH_TOAN);
         v_cstore.ExecuteCommand(this);
     }
     public void chinh_sua_chung_tu()
