@@ -23,7 +23,9 @@ public partial class ChucNang_F403_ChinhSuaPheDuyetChungTu : System.Web.UI.Page
         m_lbl_thong_bao.Text = "";
         m_grv_danh_sach_du_toan.Visible = true;
         if (!IsPostBack)
-        {           
+        {
+            lblUser.ToolTip =CIPConvert.ToStr(get_id_trang_thai_chung_tu_da_duoc_duyet());
+            m_lbl_thong_bao1.ToolTip = CIPConvert.ToStr(get_id_trang_thai_chua_duyet_chung_tu());
             m_cbo_dot_thanh_toan.Enabled = true;
             load_data_2_cbo_dot_thanh_toan();
             load_data_2_cbo_trang_thai_thanh_toan();
@@ -114,7 +116,7 @@ public partial class ChucNang_F403_ChinhSuaPheDuyetChungTu : System.Web.UI.Page
             US_V_GD_THANH_TOAN v_us_gd_thanh_toan = new US_V_GD_THANH_TOAN();
             DS_V_GD_THANH_TOAN v_ds_gd_thanh_toan = new DS_V_GD_THANH_TOAN();
             // Số phiếu thanh toán là mã đợt thanh toán
-            v_us_gd_thanh_toan.FillDataset(v_ds_gd_thanh_toan, " WHERE SO_PHIEU_THANH_TOAN = '" + ip_str_ma_dot_tt + "'");
+            v_us_gd_thanh_toan.FillDataset(v_ds_gd_thanh_toan, " WHERE SO_PHIEU_THANH_TOAN = N'" + ip_str_ma_dot_tt + "' AND ID_TRANG_THAI_THANH_TOAN = "+ lblUser.ToolTip);
             if (v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count == 0)
             {
                 m_lbl_thong_bao.Visible = true;
@@ -138,15 +140,7 @@ public partial class ChucNang_F403_ChinhSuaPheDuyetChungTu : System.Web.UI.Page
     {
         US_V_GD_THANH_TOAN v_us_gd_thanh_toan = new US_V_GD_THANH_TOAN();
         DS_V_GD_THANH_TOAN v_ds_gd_thanh_toan = new DS_V_GD_THANH_TOAN();
-        //decimal v_dc_id_hdong = get_id_by_so_hop_dong(ip_str_so_hd);
-        //if (v_dc_id_hdong == 0)
-        //{
-        //    m_lbl_thong_bao.Visible = true;
-        //    m_lbl_thong_bao.Text = "Không có thanh toán nào phù hợp";
-        //    m_grv_danh_sach_du_toan.Visible = false;
-        //    return;
-        //}
-        v_us_gd_thanh_toan.FillDataset(v_ds_gd_thanh_toan, " WHERE SO_PHIEU_THANH_TOAN = '" + ip_str_ma_dot_tt + "' AND SO_HOP_DONG LIKE '%" + ip_str_so_hd + "%'");
+        v_us_gd_thanh_toan.FillDataset(v_ds_gd_thanh_toan, " WHERE SO_PHIEU_THANH_TOAN = '" + ip_str_ma_dot_tt + "' AND SO_HOP_DONG LIKE N'%" + ip_str_so_hd + "%' AND ID_TRANG_THAI_THANH_TOAN = "+ lblUser.ToolTip);
         if (v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count == 0)
         {
             m_lbl_thong_bao.Visible = true;
@@ -156,6 +150,7 @@ public partial class ChucNang_F403_ChinhSuaPheDuyetChungTu : System.Web.UI.Page
             m_grv_danh_sach_du_toan.Visible = true;
         m_grv_danh_sach_du_toan.DataSource = v_ds_gd_thanh_toan.V_GD_THANH_TOAN;
         m_grv_danh_sach_du_toan.DataBind();
+        m_lbl_danh_sach_cac_chung_tu.Text = "Danh sách các chứng từ: " + v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count + " chứng từ";
     }
     private string get_ma_trang_thai_dot_tt_by_id(decimal ip_dc_id_dot_tt)
     {
@@ -240,7 +235,7 @@ public partial class ChucNang_F403_ChinhSuaPheDuyetChungTu : System.Web.UI.Page
         m_txt_so_tien_thanh_toan.Text = CIPConvert.ToStr(ip_us_gd_thanh_toan.dcTONG_TIEN_THANH_TOAN, "#,###");
         m_txt_so_tien_thuc_nhan.Text = CIPConvert.ToStr(ip_us_gd_thanh_toan.dcTONG_TIEN_THUC_NHAN, "#,###");
         m_txt_so_tien_thue1.Text = CIPConvert.ToStr(ip_us_gd_thanh_toan.dcSO_TIEN_THUE, "#,###");
-        m_cbo_trang_thai_thanh_toan.SelectedValue =CIPConvert.ToStr(get_id_trang_thai_chua_duyet_chung_tu());
+        m_cbo_trang_thai_thanh_toan.SelectedValue =CIPConvert.ToStr(m_lbl_thong_bao1.ToolTip);
         // Lưu lại id_trang_thai_thanh_toan_cuc
         hdf_id_trang_thai_thanh_toan_cu.Value = CIPConvert.ToStr(ip_us_gd_thanh_toan.dcID_TRANG_THAI_THANH_TOAN);
         m_txt_mo_ta.Text = ip_us_gd_thanh_toan.strDESCRIPTION;
@@ -304,6 +299,16 @@ public partial class ChucNang_F403_ChinhSuaPheDuyetChungTu : System.Web.UI.Page
             return CIPConvert.ToDecimal(m_cbo_trang_thai_thanh_toan.SelectedValue);
         return CIPConvert.ToDecimal(v_ds_tu_dien.CM_DM_TU_DIEN.Rows[0][CM_DM_TU_DIEN.ID]);
     }
+    private decimal get_id_trang_thai_chung_tu_da_duoc_duyet()
+    {
+        US_CM_DM_TU_DIEN v_us_cm_tu_dien = new US_CM_DM_TU_DIEN();
+        DS_CM_DM_TU_DIEN v_ds_tu_dien = new DS_CM_DM_TU_DIEN();
+        v_us_cm_tu_dien.FillDataset(v_ds_tu_dien, " WHERE ID_LOAI_TU_DIEN = 15 AND MA_TU_DIEN LIKE N'%CHUNG_TU_DA_DUOC_DUYET%'");
+        // Nếu ko có giá trị phù hợp, ta dùng id_trang_thai hiện tại của cbo_trang_thai_thanh_toan
+        if (v_ds_tu_dien.CM_DM_TU_DIEN.Rows.Count == 0)
+            return 0;
+        return CIPConvert.ToDecimal(v_ds_tu_dien.CM_DM_TU_DIEN.Rows[0][CM_DM_TU_DIEN.ID]);
+    }
     private string get_ma_trang_thai_thanh_toan_by_id(decimal ip_dc_id_tt)
     {
         US_CM_DM_TU_DIEN v_us_cm_dm_tu_dien = new US_CM_DM_TU_DIEN(ip_dc_id_tt);
@@ -318,7 +323,7 @@ public partial class ChucNang_F403_ChinhSuaPheDuyetChungTu : System.Web.UI.Page
         m_txt_gia_tri_nghiem_thu_thuc_te.Enabled = false;
         m_txt_so_tien_thuc_nhan.Enabled = false;
         m_txt_so_tien_thanh_toan.Enabled = false;
-        m_cbo_trang_thai_thanh_toan.Enabled = false;
+        //m_cbo_trang_thai_thanh_toan.Enabled = false;
         m_txt_so_tien_thue1.Enabled = false;
     }
     #endregion
@@ -372,15 +377,13 @@ public partial class ChucNang_F403_ChinhSuaPheDuyetChungTu : System.Web.UI.Page
                     return;
                 }
             }
-            //m_us_v_gd_thanh_toan.dcID_TRANG_THAI_THANH_TOAN = get_id_trang_thai_da_duyet();
             m_us_v_gd_thanh_toan.dcID = CIPConvert.ToDecimal(hdf_id_gv.Value);
-            //m_us_v_gd_thanh_toan.Update();
             m_us_v_gd_thanh_toan.chinh_sua_chung_tu();
             reset_controls();
             m_cmd_cap_nhat_du_toan.Enabled = true;
             m_cbo_dot_thanh_toan.Enabled = true;
             load_data_2_grid(get_ma_dot_tt_by_id_dot(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue)));
-            m_lbl_thong_bao.Text = "Đã chỉnh sửa chứng từ đã duyệt về chứng từ chưa được duyệt";
+            m_lbl_thong_bao.Text = "Chỉnh sửa duyệt chứng từ thành công!";
         }
         catch (Exception v_e)
         {

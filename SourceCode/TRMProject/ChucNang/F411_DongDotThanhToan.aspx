@@ -127,7 +127,7 @@
      <tr>
 		<td class="cssPageTitleBG" colspan="4">
 		    <asp:label id="m_lbl_loc_du_lieu" runat="server" CssClass="cssPageTitle" 
-                Text="Danh sách bản kê các khoản thanh toán"/>
+                Text=""/>
 		</td>
 	</tr>	
     <tr>
@@ -138,16 +138,20 @@
 	<tr>
 		<td align="center" style="height:450px;" valign="top" colspan="4">
 		    &nbsp;
-            <asp:GridView Visible="false" ID="m_grv_danh_sach_du_toan" AllowPaging="True" 
+            <asp:GridView ID="m_grv_danh_sach_du_toan" AllowPaging="True" 
                 runat="server" AutoGenerateColumns="False" 
                 Width="100%" DataKeyNames="ID"
-                CellPadding="4" ForeColor="#333333" >
+                CellPadding="4" ForeColor="#333333" PageSize="20"
+                onpageindexchanging="m_grv_danh_sach_du_toan_PageIndexChanging">
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
-                    <asp:TemplateField HeaderText="Chi tiết bảng kê" Visible="false">
-                    <ItemTemplate> <asp:HyperLink ToolTip="Chi tiết bảng kê" ImageUrl="/TRMProject/Images/Button/detail.png" ID = "lbt_phu_luc_hop_dong" runat="server"
-                     NavigateUrl='<%# "/TRMProject/ChucNang/F603_ThanhToanChiTiet.aspx?id_gdtt="+Eval("ID") %>'></asp:HyperLink>
+                     <asp:TemplateField HeaderText="Hành động">
+                    <ItemTemplate>
+                     <asp:LinkButton CausesValidation="false" CommandName="Select" ToolTip="Chỉnh sửa xác nhận giảng viên" ID = "lbt_edit_xac_nhan_ngan_hang" runat="server">
+                    <img src='/TRMProject/Images/Button/Update.gif' alt='Chỉnh sửa' />
+                    </asp:LinkButton>
                     </ItemTemplate>
+                    <ItemStyle Width="3%" HorizontalAlign="Center" />
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
@@ -156,11 +160,15 @@
                     <asp:BoundField DataField="SO_PHIEU_THANH_TOAN" HeaderText="Số phiếu thanh toán">
                     <ItemStyle Width="15%" HorizontalAlign="Left" />
                     </asp:BoundField>
-                     <asp:TemplateField HeaderText="Số hợp đồng" ItemStyle-HorizontalAlign="Center">
+                     <asp:TemplateField HeaderText="Số hợp đồng">
                        <ItemTemplate><%# get_so_hd_khung_by_id_hd(CIPConvert.ToDecimal(Eval("ID_HOP_DONG_KHUNG")))%></ItemTemplate>
-                        <ItemStyle HorizontalAlign="Center" Width="10%"></ItemStyle>
+                        <ItemStyle HorizontalAlign="Left" Width="12%"></ItemStyle>
                     </asp:TemplateField> 
-                     <asp:BoundField DataField="REFERENCE_CODE" HeaderText="Mã lớp">
+                     <asp:TemplateField HeaderText="Là hợp đồng" ItemStyle-HorizontalAlign="Center">
+                       <ItemTemplate><%# mapping_loai_hd(CIPConvert.ToStr(Eval("LOAI_HOP_DONG")))%></ItemTemplate>
+                        <ItemStyle HorizontalAlign="Center" Width="6%"></ItemStyle>
+                    </asp:TemplateField> 
+                     <asp:BoundField DataField="REFERENCE_CODE" HeaderText="Các lớp phụ trách / Đợt tạm ứng">
                     <ItemStyle Width="7%" HorizontalAlign="Left" />
                     </asp:BoundField>
                     <asp:TemplateField HeaderText="Tên giảng viên" ItemStyle-HorizontalAlign="Center">
@@ -177,10 +185,14 @@
                      <ItemStyle Width="7%" HorizontalAlign="Center" />
                     </asp:BoundField>
                      <asp:BoundField DataField="NGAY_THANH_TOAN" DataFormatString="{0:dd/MM/yyyy}" HeaderText="Ngày thanh toán">
-                     <ItemStyle Width="10%" HorizontalAlign="Center" />
+                     <ItemStyle Width="6%" HorizontalAlign="Center" />
                     </asp:BoundField>
+                     <asp:TemplateField HeaderText="Trạng thái">
+                       <ItemTemplate><%# mapping_trang_thai_thanh_toan(CIPConvert.ToDecimal(Eval("ID_TRANG_THAI_THANH_TOAN")))%></ItemTemplate>
+                        <ItemStyle HorizontalAlign="Left" Width="10%"></ItemStyle>
+                    </asp:TemplateField> 
                       <asp:BoundField DataField="DESCRIPTION" HeaderText="Mô tả">
-                     <ItemStyle Width="15%" HorizontalAlign="Left" />
+                     <ItemStyle Width="10%" HorizontalAlign="Left" />
                     </asp:BoundField>
                 </Columns>
                   <EditRowStyle BackColor="#7C6F57" />
