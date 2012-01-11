@@ -33,21 +33,28 @@ namespace WebDS
                 case TRANG_THAI_THANH_TOAN.DA_LEN_BANG_KE:
                     trang_thai_chuyen_duoc[0] = TRANG_THAI_THANH_TOAN.CHUNG_TU_DA_DUOC_DUYET;
                     // Không thể chuyển về trạng thái CHUNG_TU_KHONG_DUOC_DUYET được
-                    trang_thai_chuyen_duoc[1] = "";
+                    trang_thai_chuyen_duoc[1] = TRANG_THAI_THANH_TOAN.CHUNG_TU_CHUA_DUOC_CHUYEN_KHOAN;
                     trang_thai_chuyen_duoc[2] = TRANG_THAI_THANH_TOAN.DA_LEN_BANG_KE;
                     trang_thai_chuyen_duoc[3] = "";
                     break;
                 case TRANG_THAI_THANH_TOAN.CHUNG_TU_DA_DUOC_DUYET:
                     trang_thai_chuyen_duoc[0] = TRANG_THAI_THANH_TOAN.NGAN_HANG_CHUYEN_KHOAN_THANH_CONG;
                     // Không chuyển lên trạng thái ngân hàng chuyển khoản không thành công được do ta thực hiện chức năng duyệt toàn bộ ngân hàng
-                    trang_thai_chuyen_duoc[1] = "";
+                    trang_thai_chuyen_duoc[1] = TRANG_THAI_THANH_TOAN.CHUNG_TU_CHUA_DUOC_CHUYEN_KHOAN;
                     trang_thai_chuyen_duoc[2] = TRANG_THAI_THANH_TOAN.CHUNG_TU_DA_DUOC_DUYET;
                     trang_thai_chuyen_duoc[3] = TRANG_THAI_THANH_TOAN.CHUNG_TU_KHONG_DUOC_DUYET;
                     break;
+                case TRANG_THAI_THANH_TOAN.CHUNG_TU_CHUA_DUOC_CHUYEN_KHOAN:
+                    // Đã duyệt luôn chứng từ
+                    trang_thai_chuyen_duoc[0] = TRANG_THAI_THANH_TOAN.CHUNG_TU_DA_DUOC_DUYET;
+                    trang_thai_chuyen_duoc[1] = TRANG_THAI_THANH_TOAN.CHUNG_TU_CHUA_DUOC_CHUYEN_KHOAN;
+                    // Có thể quay trở lại đã được lên bảng kê
+                    trang_thai_chuyen_duoc[2] = TRANG_THAI_THANH_TOAN.DA_LEN_BANG_KE;
+                    trang_thai_chuyen_duoc[3] = "";
+                    break;
                 case TRANG_THAI_THANH_TOAN.CHUNG_TU_KHONG_DUOC_DUYET:
-                    //trang_thai_chuyen_duoc[0] = TRANG_THAI_THANH_TOAN.CHUNG_TU_DA_DUOC_DUYET;
-                    trang_thai_chuyen_duoc[0] = "";
-                    trang_thai_chuyen_duoc[1] = TRANG_THAI_THANH_TOAN.CHUNG_TU_KHONG_DUOC_DUYET;
+                    trang_thai_chuyen_duoc[0] = TRANG_THAI_THANH_TOAN.CHUNG_TU_KHONG_DUOC_DUYET;
+                    trang_thai_chuyen_duoc[1] = "";
                     trang_thai_chuyen_duoc[2] = "";
                     trang_thai_chuyen_duoc[3] = "";
                     break;
@@ -89,4 +96,5 @@ namespace WebDS
             return false;
         }
     }
+
 }
