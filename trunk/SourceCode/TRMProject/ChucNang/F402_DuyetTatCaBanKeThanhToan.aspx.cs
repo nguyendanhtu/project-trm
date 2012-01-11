@@ -102,7 +102,6 @@ public partial class ChucNang_F402_DuyetTatCaBanKeThanhToan : System.Web.UI.Page
         if (v_ds_dot_tt.V_DM_DOT_THANH_TOAN.Rows.Count == 0) return 0;
         return CIPConvert.ToDecimal(v_ds_dot_tt.V_DM_DOT_THANH_TOAN.Rows[0][V_DM_DOT_THANH_TOAN.ID]);
     }
-
     // Thông tin đợt thanh toán
     private void fill_data_2_thong_tin_dot_tt(decimal ip_dc_id_dot)
     {
@@ -134,7 +133,6 @@ public partial class ChucNang_F402_DuyetTatCaBanKeThanhToan : System.Web.UI.Page
         if (v_ds_tu_dien.CM_DM_TU_DIEN.Rows.Count == 0) return 503;
         return CIPConvert.ToDecimal(v_ds_tu_dien.CM_DM_TU_DIEN.Rows[0][CM_DM_TU_DIEN.ID]);
     }
-
     private decimal get_id_trang_thai_dot_tt_da_lap_bang_ke()
     {
         US_CM_DM_TU_DIEN v_us_cm_tu_dien = new US_CM_DM_TU_DIEN();
@@ -219,6 +217,12 @@ public partial class ChucNang_F402_DuyetTatCaBanKeThanhToan : System.Web.UI.Page
             return 25;
         return CIPConvert.ToDecimal(v_ds_v_dm_dot_tt.V_DM_DOT_THANH_TOAN.Rows[0][V_DM_DOT_THANH_TOAN.ID]);
     }
+    private bool check_the_number_of_records_in_dot_tt_lon_hon_khong(string ip_str_ma_dot_tt)
+    {
+        m_us_gd_thanh_toan.FillDataset(m_ds_gd_thanh_toan, " WHERE SO_PHIEU_THANH_TOAN = N'" + ip_str_ma_dot_tt + "'");
+        if (m_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count > 0) return true;
+        return false;
+    }
     #endregion
 
     #region Events
@@ -238,11 +242,17 @@ public partial class ChucNang_F402_DuyetTatCaBanKeThanhToan : System.Web.UI.Page
     {
         try
         {
+            string someScript;
+            if (!check_the_number_of_records_in_dot_tt_lon_hon_khong(m_us_dm_dot_thanh_toan.strMA_DOT_TT))
+            {
+                someScript = "<script language='javascript'>alert('Không thể duyệt đợt thanh toán khi chưa có thanh toán nào trong đợt !');</script>";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "oncheck", someScript);
+                return;
+            }
             // Chuyển trạng thái của đợt thanh toán từ 1 sang 2
             // và chuyển tất cả trạng thái của thanh toán trong đợt thanh toán này từ 1 -> 2
             m_us_dm_dot_thanh_toan.strMA_DOT_TT = get_ma_dot_tt_form_id(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue));
             m_us_dm_dot_thanh_toan.duyet_toan_bo_chung_tu();
-            string someScript;
             someScript = "<script language='javascript'>alert('Toàn bộ chứng từ trong đợt thanh toán này đã được duyệt!');</script>";
             Page.ClientScript.RegisterStartupScript(this.GetType(), "onsuccess", someScript);
         }

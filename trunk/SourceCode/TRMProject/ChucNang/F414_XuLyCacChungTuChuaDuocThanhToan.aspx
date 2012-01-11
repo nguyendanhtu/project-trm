@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="F405_ChinhSuaXacNhanNganHang.aspx.cs" Inherits="ChucNang_F405_ChinhSuaXacNhanNganHang" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="F414_XuLyCacChungTuChuaDuocThanhToan.aspx.cs" Inherits="ChucNang_F414_XuLyCacChungTuChuaDuocThanhToan" %>
 <%@ Import Namespace ="IP.Core.IPCommon" %>
 <%@ Register assembly="eWorld.UI" namespace="eWorld.UI" tagprefix="ew" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
@@ -8,14 +8,12 @@
 <tr>
 		<td class="cssPageTitleBG">
 		    <asp:label id="lblUser" runat="server" CssClass="cssPageTitle" 
-                Text="Chỉnh sửa xác nhận ngân hàng của thanh toán"/>
+                Text="Xử lý chứng từ chưa được thanh toán"/>
 		</td>
 	</tr>
 	<tr>
 		<td>
-                          <asp:Label ID="m_lbl_thong_bao0" CssClass="cssManField" 
-                runat="server"></asp:Label>
-                </td>
+		    &nbsp;</td>
 	</tr>
     <tr>
 		<td>
@@ -24,7 +22,7 @@
                 <td align="right" style="width:12%;">
 			       
 			<asp:label id="lblTenGiangVien" CssClass="cssManField" runat="server" 
-                Text="Đợt thanh toán" />
+                Text="Chuyển tới đợt thanh toán" />
 			       
                          </td>
                 <td align="left" colspan="4">
@@ -242,19 +240,19 @@
                 <td align="left" style="width:1%;">
                      <asp:Button ID="m_cmd_cap_nhat_du_toan" runat="server" accessKey="s" 
                          CssClass="cssButton" Height="24px" 
-                         Text="Chỉnh sửa" Width="98px" onclick="m_cmd_cap_nhat_du_toan_Click"/>
+                         Text="Xử lý" Width="98px" onclick="m_cmd_cap_nhat_du_toan_Click"/>
                  </td>
 			   <td align="left" style="width:1%;">
                      &nbsp;</td>
                  <td align="left" colspan="1">
                     <asp:Button ID="m_cmd_bo_qua" runat="server" CausesValidation="False" 
                         CssClass="cssButton" Height="25px"  Text="Bỏ qua" 
-                        Width="98px" onclick="m_cmd_bo_qua_Click" />
+                        Width="98px" onclick="m_cmd_bo_qua_Click"/>
                 </td>
                 <td align="right" style="width:1%;">
                     <asp:Button ID="m_cmd_xoa_trang" runat="server" CausesValidation="False" 
                         CssClass="cssButton" Height="25px"  Text="Thoát" 
-                        Width="98px" onclick="m_cmd_xoa_trang_Click"/>
+                        Width="98px" onclick="m_cmd_xoa_trang_Click" />
                 </td>
                 <td align="left" style="width:10%;">
                     &nbsp;</td>  
@@ -267,16 +265,20 @@
 	</tr>
     <tr>
 		<td class="cssPageTitleBG" colspan="2">
-		    <asp:label id="lbl_danh_sach_chung_tu" runat="server" CssClass="cssPageTitle" 
-                Text="Danh sách dự toán"/>
+		    <asp:label id="m_lbl_danh_sach_chung_tu_ton_dong" runat="server" CssClass="cssPageTitle" 
+                Text="Danh sách các chứng từ chưa được thanh toán"/>
 		</td>
 	</tr>	
     <tr>
 		<td align="left">
                           <asp:Label ID="m_lbl_thong_bao" CssClass="cssManField" runat="server"></asp:Label>
-                <asp:HiddenField ID="hdf_id_gv" runat="server" /><asp:HiddenField ID="hdf_id_trang_thai_thanh_toan_cu" runat="server" />
+                <asp:HiddenField ID="hdf_id_gv" runat="server" />
+                <asp:HiddenField ID="hdf_ma_dot_thanh_toan_cu" runat="server" /><asp:HiddenField ID="hdf_id_trang_thai_thanh_toan_cu" runat="server" />
+                <asp:HiddenField ID="m_hdf_id_trang_thai_thanh_toan_chua_duoc_thanh_toan" runat="server" />
+                <asp:HiddenField ID="hdf_ma_dot_tt_kho" runat="server" />
                         <p style="text-align:center">
-                <span class="cssManField">Số hợp đồng&nbsp;&nbsp; </span><asp:TextBox ID="m_txt_so_hd_search" CssClass="cssTextBox" Width="20%" 
+                <span class="cssManField">
+                            Số hợp đồng&nbsp;&nbsp; </span><asp:TextBox ID="m_txt_so_hd_search" CssClass="cssTextBox" Width="20%" 
                         runat="server"></asp:TextBox>
                         <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                     <asp:Button ID="m_cmd_search" runat="server" accessKey="s" 
@@ -296,16 +298,16 @@
 		    &nbsp;
    <asp:GridView ID="m_grv_danh_sach_du_toan" AllowPaging="True" 
                 runat="server" AutoGenerateColumns="False" 
-                Width="100%" DataKeyNames="ID"
+                Width="100%" DataKeyNames="ID" PageSize="20"
                 CellPadding="4" ForeColor="#333333" 
                 onselectedindexchanging="m_grv_danh_sach_du_toan_SelectedIndexChanging" 
-                onpageindexchanging="m_grv_danh_sach_du_toan_PageIndexChanging" PageSize="20" >
+                onpageindexchanging="m_grv_danh_sach_du_toan_PageIndexChanging">
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
-                     <asp:TemplateField HeaderText="Chỉnh sửa xác nhận ngân hàng">
+                     <asp:TemplateField HeaderText="Xử lý chứng từ tồn đọng">
                     <ItemTemplate>
-                     <asp:LinkButton CausesValidation="false" CommandName="Select" ToolTip="Chỉnh sửa xác nhận ngân hàng" ID = "lbt_edit_xac_nhan_ngan_hang" runat="server">
-                    <img src='/TRMProject/Images/Button/Update.gif' alt='Chỉnh sửa' />
+                     <asp:LinkButton CausesValidation="false" CommandName="Select" ToolTip="Xử lý chứng từ tồn đọng" ID = "lbt_edit_xac_nhan_ngan_hang" runat="server">
+                    <img src='/TRMProject/Images/Button/Update.gif' alt='Xử lý chứng từ' />
                     </asp:LinkButton>
                     </ItemTemplate>
                     <ItemStyle Width="3%" HorizontalAlign="Center" />
@@ -314,9 +316,10 @@
                        <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
                         <ItemStyle HorizontalAlign="Center" Width="3%"></ItemStyle>
                     </asp:TemplateField>
-                    <asp:BoundField DataField="SO_PHIEU_THANH_TOAN" HeaderText="Số phiếu thanh toán">
-                    <ItemStyle Width="15%" HorizontalAlign="Left" />
-                    </asp:BoundField>
+                     <asp:TemplateField HeaderText="Mã đợt thanh toán cũ" ItemStyle-HorizontalAlign="Center">
+                       <ItemTemplate><%# get_ma_dot_thanh_toan_cu(Eval("DESCRIPTION"))%></ItemTemplate>
+                        <ItemStyle HorizontalAlign="Left" Width="15%"></ItemStyle>
+                    </asp:TemplateField>
                      <asp:TemplateField HeaderText="Số hợp đồng" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%# get_so_hd_khung_by_id_hd(CIPConvert.ToDecimal(Eval("ID_HOP_DONG_KHUNG")))%></ItemTemplate>
                         <ItemStyle HorizontalAlign="Center" Width="10%"></ItemStyle>
@@ -325,7 +328,7 @@
                        <ItemTemplate><%# mapping_loai_hd(CIPConvert.ToStr(Eval("LOAI_HOP_DONG")))%></ItemTemplate>
                         <ItemStyle HorizontalAlign="Center" Width="5%"></ItemStyle>
                     </asp:TemplateField> 
-                     <asp:BoundField DataField="REFERENCE_CODE" HeaderText="Các lớp phụ trách / Đợt tạm ứng">
+                     <asp:BoundField DataField="REFERENCE_CODE" HeaderText="Mã lớp / Đợt tạm ứng">
                     <ItemStyle Width="7%" HorizontalAlign="Left" />
                     </asp:BoundField>
                     <asp:TemplateField HeaderText="Tên giảng viên" ItemStyle-HorizontalAlign="Center">

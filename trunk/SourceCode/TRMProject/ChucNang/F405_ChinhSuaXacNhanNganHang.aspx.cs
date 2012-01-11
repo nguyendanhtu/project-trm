@@ -24,6 +24,8 @@ public partial class ChucNang_F405_ChinhSuaXacNhanNganHang : System.Web.UI.Page
         m_grv_danh_sach_du_toan.Visible = true;
         if (!IsPostBack)
         {
+            lblUser.ToolTip =CIPConvert.ToStr(get_id_trang_thai_ngan_hang_chuyen_khoan_thanh_cong());
+            m_lbl_thong_bao0.ToolTip = CIPConvert.ToStr(get_id_trang_thai_ngan_hang_chuyen_khoan_khong_thanh_cong());
             m_cbo_dot_thanh_toan.Enabled = true;
             load_data_2_cbo_dot_thanh_toan();
             load_data_2_cbo_trang_thai_thanh_toan();
@@ -115,7 +117,7 @@ public partial class ChucNang_F405_ChinhSuaXacNhanNganHang : System.Web.UI.Page
             US_V_GD_THANH_TOAN v_us_gd_thanh_toan = new US_V_GD_THANH_TOAN();
             DS_V_GD_THANH_TOAN v_ds_gd_thanh_toan = new DS_V_GD_THANH_TOAN();
             // Số phiếu thanh toán là mã đợt thanh toán
-            v_us_gd_thanh_toan.FillDataset(v_ds_gd_thanh_toan, " WHERE SO_PHIEU_THANH_TOAN = '" + ip_str_ma_dot_tt + "'");
+            v_us_gd_thanh_toan.FillDataset(v_ds_gd_thanh_toan, " WHERE SO_PHIEU_THANH_TOAN = '" + ip_str_ma_dot_tt + "' AND ID_TRANG_THAI_THANH_TOAN = "+CIPConvert.ToDecimal(lblUser.ToolTip));
             if (v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count == 0)
             {
                 m_lbl_thong_bao.Visible = true;
@@ -123,6 +125,7 @@ public partial class ChucNang_F405_ChinhSuaXacNhanNganHang : System.Web.UI.Page
             }
             m_grv_danh_sach_du_toan.DataSource = v_ds_gd_thanh_toan.V_GD_THANH_TOAN;
             m_grv_danh_sach_du_toan.DataBind();
+            lbl_danh_sach_chung_tu.Text = "Danh sách các chứng từ: " + v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count + " chứng từ";
         }
     }
     private decimal get_id_by_so_hop_dong(string ip_str_so_hd)
@@ -146,7 +149,7 @@ public partial class ChucNang_F405_ChinhSuaXacNhanNganHang : System.Web.UI.Page
         //    m_grv_danh_sach_du_toan.Visible = false;
         //    return;
         //}
-        v_us_gd_thanh_toan.FillDataset(v_ds_gd_thanh_toan, " WHERE SO_PHIEU_THANH_TOAN = '" + ip_str_ma_dot_tt + "' AND SO_HOP_DONG LIKE '%" + ip_str_so_hd + "%'");
+        v_us_gd_thanh_toan.FillDataset(v_ds_gd_thanh_toan, " WHERE SO_PHIEU_THANH_TOAN = '" + ip_str_ma_dot_tt + "' AND SO_HOP_DONG LIKE N'%" + ip_str_so_hd + "%' AND ID_TRANG_THAI_THANH_TOAN = " +CIPConvert.ToDecimal(lblUser.ToolTip));
         if (v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count == 0)
         {
             m_lbl_thong_bao.Visible = true;
@@ -156,6 +159,7 @@ public partial class ChucNang_F405_ChinhSuaXacNhanNganHang : System.Web.UI.Page
             m_grv_danh_sach_du_toan.Visible = true;
         m_grv_danh_sach_du_toan.DataSource = v_ds_gd_thanh_toan.V_GD_THANH_TOAN;
         m_grv_danh_sach_du_toan.DataBind();
+        lbl_danh_sach_chung_tu.Text = "Danh sách các chứng từ: " + v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count + " chứng từ";
     }
     private string get_ma_trang_thai_dot_tt_by_id(decimal ip_dc_id_dot_tt)
     {
@@ -240,7 +244,7 @@ public partial class ChucNang_F405_ChinhSuaXacNhanNganHang : System.Web.UI.Page
         m_txt_so_tien_thanh_toan.Text = CIPConvert.ToStr(ip_us_gd_thanh_toan.dcTONG_TIEN_THANH_TOAN, "#,###");
         m_txt_so_tien_thuc_nhan.Text = CIPConvert.ToStr(ip_us_gd_thanh_toan.dcTONG_TIEN_THUC_NHAN, "#,###");
         m_txt_so_tien_thue1.Text = CIPConvert.ToStr(ip_us_gd_thanh_toan.dcSO_TIEN_THUE, "#,###");
-        m_cbo_trang_thai_thanh_toan.SelectedValue = CIPConvert.ToStr(get_id_trang_thai_ngan_hang_chuyen_khoan_khong_thanh_cong());
+        m_cbo_trang_thai_thanh_toan.SelectedValue = m_lbl_thong_bao0.ToolTip;
         // Lưu lại id_trang_thai_thanh_toan_cuc
         hdf_id_trang_thai_thanh_toan_cu.Value = CIPConvert.ToStr(ip_us_gd_thanh_toan.dcID_TRANG_THAI_THANH_TOAN);
         m_txt_mo_ta.Text = ip_us_gd_thanh_toan.strDESCRIPTION;
@@ -299,6 +303,14 @@ public partial class ChucNang_F405_ChinhSuaXacNhanNganHang : System.Web.UI.Page
         US_CM_DM_TU_DIEN v_us_cm_tu_dien = new US_CM_DM_TU_DIEN();
         DS_CM_DM_TU_DIEN v_ds_tu_dien = new DS_CM_DM_TU_DIEN();
         v_us_cm_tu_dien.FillDataset(v_ds_tu_dien, " WHERE ID_LOAI_TU_DIEN = 15 AND MA_TU_DIEN LIKE N'%NGAN_HANG_CHUYEN_KHOAN_KHONG_THANH_CONG%'");
+        if (v_ds_tu_dien.CM_DM_TU_DIEN.Rows.Count == 0) return 515;
+        return CIPConvert.ToDecimal(v_ds_tu_dien.CM_DM_TU_DIEN.Rows[0][CM_DM_TU_DIEN.ID]);
+    }
+    private decimal get_id_trang_thai_ngan_hang_chuyen_khoan_thanh_cong()
+    {
+        US_CM_DM_TU_DIEN v_us_cm_tu_dien = new US_CM_DM_TU_DIEN();
+        DS_CM_DM_TU_DIEN v_ds_tu_dien = new DS_CM_DM_TU_DIEN();
+        v_us_cm_tu_dien.FillDataset(v_ds_tu_dien, " WHERE ID_LOAI_TU_DIEN = 15 AND MA_TU_DIEN LIKE N'%NGAN_HANG_CHUYEN_KHOAN_THANH_CONG%'");
         if (v_ds_tu_dien.CM_DM_TU_DIEN.Rows.Count == 0) return 515;
         return CIPConvert.ToDecimal(v_ds_tu_dien.CM_DM_TU_DIEN.Rows[0][CM_DM_TU_DIEN.ID]);
     }

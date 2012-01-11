@@ -272,7 +272,9 @@
 		<td align="left">
                           <asp:Label ID="m_lbl_thong_bao" CssClass="cssManField" runat="server"></asp:Label>
                 <asp:HiddenField ID="hdf_id_gv" runat="server" />
-                <asp:HiddenField ID="hdf_ma_dot_thanh_toan_cu" runat="server" /><asp:HiddenField ID="hdf_id_trang_thai_thanh_toan_cu" runat="server" />
+                <asp:HiddenField ID="hdf_ma_dot_thanh_toan_cu" runat="server" />
+                          <asp:HiddenField ID="hdf_id_trang_thai_thanh_toan_cu" runat="server" />
+                          <asp:HiddenField ID="hdf_id_trang_thai_chung_tu_chua_duoc_thanh_toan" runat="server" />
                       <p style="text-align:center">
                  <span class="cssManField">Trạng thái thanh toán&nbsp;&nbsp; </span>
                       <asp:DropDownList ID="m_cbo_trang_thai_tt_search" CssClass="cssDorpdownlist" runat="server" 
