@@ -333,7 +333,7 @@ public partial class ChucNang_F404_XuatDanhSachThanhToanHocLieu : System.Web.UI.
         m_lbl_don_vi_thanh_toan.Text = v_us_dm_dot_thanh_toan.strDON_VI_THANH_TOAN;
         m_lbl_ngay_tt_du_kien.Text = CIPConvert.ToStr(v_us_dm_dot_thanh_toan.datNGAY_TT_DU_KIEN, "dd/MM/yyyy");
         m_lbl_trang_thai_dot_tt.Text = v_us_dm_dot_thanh_toan.strTRANG_THAI_DOT_TT;
-        load_data_2_grid(get_ma_dot_tt_by_id_dot(ip_dc_id_dot));
+        search_data_show_on_grid();
     }
     #endregion
 
@@ -510,7 +510,7 @@ public partial class ChucNang_F404_XuatDanhSachThanhToanHocLieu : System.Web.UI.
         try
         {
             fill_data_2_thong_tin_dot_tt(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue));
-            search_data_show_on_grid();
+           // search_data_show_on_grid();
         }
         catch (Exception v_e)
         {
