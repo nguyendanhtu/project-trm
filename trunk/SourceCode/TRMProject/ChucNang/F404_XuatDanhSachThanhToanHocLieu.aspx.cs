@@ -94,13 +94,21 @@ public partial class ChucNang_F404_XuatDanhSachThanhToanHocLieu : System.Web.UI.
         US_V_GD_THANH_TOAN v_us_gd_thanh_toan = new US_V_GD_THANH_TOAN(ip_dc_id_gd_thanh_toan);
         v_str_noi_dung += v_us_dm_hd_khung.strLOAI_HOP_DONG.Trim();
         v_str_noi_dung += " môn ";
-        if ((v_us_gd_thanh_toan.strREFERENCE_CODE.Contains("đợt") && v_us_gd_thanh_toan.dcID_MON_HOC == 1) || v_us_gd_thanh_toan.IsREFERENCE_CODENull())
-            v_str_noi_dung += v_us_dm_hd_khung.strFIRST_MON;
-        else
+        //Chỗ này là kiểm tra điều kiện là hợp đồng học liệu
+        if ((v_us_gd_thanh_toan.strREFERENCE_CODE.Contains("đợt") && v_us_gd_thanh_toan.dcID_MON_HOC == 0) || v_us_gd_thanh_toan.IsREFERENCE_CODENull())
         {
-            US_DM_MON_HOC v_us_dm_mon_hoc = new US_DM_MON_HOC(v_us_gd_thanh_toan.dcID_MON_HOC);
-            v_str_noi_dung += v_us_dm_mon_hoc.strTEN_MON_HOC;
+            v_str_noi_dung += v_us_dm_hd_khung.strFIRST_MON;
+            if (v_us_dm_hd_khung.strSEC_MON.Trim() !="") v_str_noi_dung += ", " + v_us_dm_hd_khung.strSEC_MON;
+            if (v_us_dm_hd_khung.strTHIR_MON.Trim() != "") v_str_noi_dung += ", "+ v_us_dm_hd_khung.strTHIR_MON;
+            if (v_us_dm_hd_khung.strFOURTH_MON.Trim() != "") v_str_noi_dung += ", " + v_us_dm_hd_khung.strFOURTH_MON;
+            if (v_us_dm_hd_khung.strFITH_MON.Trim() != "") v_str_noi_dung += ", " + v_us_dm_hd_khung.strFITH_MON;
+            if (v_us_dm_hd_khung.strSIXTH_MON.Trim() != "") v_str_noi_dung += ", " + v_us_dm_hd_khung.strSIXTH_MON;
         }
+        //else
+        //{
+        //    US_DM_MON_HOC v_us_dm_mon_hoc = new US_DM_MON_HOC(v_us_gd_thanh_toan.dcID_MON_HOC);
+        //    v_str_noi_dung += v_us_dm_mon_hoc.strTEN_MON_HOC;
+        //}
         return v_str_noi_dung;
     }
     public decimal get_so_tien_da_thanh_toan(decimal ip_dc_id_hop_dong)
@@ -193,9 +201,9 @@ public partial class ChucNang_F404_XuatDanhSachThanhToanHocLieu : System.Web.UI.
         else
         {
             if (ip_dc_id_trang_thai_tt == 1)
-                m_us_v_gd_thanh_toan.FillDataset(m_v_ds_gd_thanh_toan, " WHERE SO_PHIEU_THANH_TOAN = '" + ip_str_ma_dot_tt + "' AND ID_TRANG_THAI_THANH_TOAN=" + get_id_trang_thai_da_duyet() + "' AND LOAI_HOP_DONG='HL'");
+                m_us_v_gd_thanh_toan.FillDataset(m_v_ds_gd_thanh_toan, " WHERE SO_PHIEU_THANH_TOAN = '" + ip_str_ma_dot_tt + "' AND ID_TRANG_THAI_THANH_TOAN=" + get_id_trang_thai_da_duyet() + " AND LOAI_HOP_DONG='HL'");
             else
-                m_us_v_gd_thanh_toan.FillDataset(m_v_ds_gd_thanh_toan, " WHERE SO_PHIEU_THANH_TOAN = '" + ip_str_ma_dot_tt + "' AND ID_TRANG_THAI_THANH_TOAN=" + get_id_trang_thai_chua_duyet() + "' AND LOAI_HOP_DONG='HL'");
+                m_us_v_gd_thanh_toan.FillDataset(m_v_ds_gd_thanh_toan, " WHERE SO_PHIEU_THANH_TOAN = '" + ip_str_ma_dot_tt + "' AND ID_TRANG_THAI_THANH_TOAN=" + get_id_trang_thai_chua_duyet() + " AND LOAI_HOP_DONG='HL'");
 
             if (m_v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count == 0)
             {
