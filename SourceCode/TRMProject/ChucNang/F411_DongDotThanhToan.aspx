@@ -132,8 +132,11 @@
 	</tr>	
     <tr>
 		<td colspan="4">
-		  
-                &nbsp;</td>
+		   <asp:Label ID="m_lbl_thong_bao" CssClass="cssManField" 
+                runat="server"></asp:Label>
+                <asp:HiddenField ID="hdf_id_trang_thai_da_co_xac_nhan_gv" runat="server" />
+                <asp:HiddenField ID="hdf_id_trang_thai_ngan_hang_chuyen_khoan_khong_thanh_cong" runat="server" />
+        </td>
 	</tr>	
 	<tr>
 		<td align="center" style="height:450px;" valign="top" colspan="4">
@@ -145,7 +148,7 @@
                 onpageindexchanging="m_grv_danh_sach_du_toan_PageIndexChanging">
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
-                     <asp:TemplateField HeaderText="Hành động">
+                     <asp:TemplateField Visible="false" HeaderText="Hành động">
                     <ItemTemplate>
                      <asp:LinkButton CausesValidation="false" CommandName="Select" ToolTip="Chỉnh sửa xác nhận giảng viên" ID = "lbt_edit_xac_nhan_ngan_hang" runat="server">
                     <img src='/TRMProject/Images/Button/Update.gif' alt='Chỉnh sửa' />
