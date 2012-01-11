@@ -243,15 +243,15 @@ public partial class ChucNang_F402_DuyetTatCaBanKeThanhToan : System.Web.UI.Page
         try
         {
             string someScript;
+            // Chuyển trạng thái của đợt thanh toán từ 1 sang 2
+            // và chuyển tất cả trạng thái của thanh toán trong đợt thanh toán này từ 1 -> 2
+            m_us_dm_dot_thanh_toan.strMA_DOT_TT = get_ma_dot_tt_form_id(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue));
             if (!check_the_number_of_records_in_dot_tt_lon_hon_khong(m_us_dm_dot_thanh_toan.strMA_DOT_TT))
             {
                 someScript = "<script language='javascript'>alert('Không thể duyệt đợt thanh toán khi chưa có thanh toán nào trong đợt !');</script>";
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "oncheck", someScript);
                 return;
             }
-            // Chuyển trạng thái của đợt thanh toán từ 1 sang 2
-            // và chuyển tất cả trạng thái của thanh toán trong đợt thanh toán này từ 1 -> 2
-            m_us_dm_dot_thanh_toan.strMA_DOT_TT = get_ma_dot_tt_form_id(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue));
             m_us_dm_dot_thanh_toan.duyet_toan_bo_chung_tu();
             someScript = "<script language='javascript'>alert('Toàn bộ chứng từ trong đợt thanh toán này đã được duyệt!');</script>";
             Page.ClientScript.RegisterStartupScript(this.GetType(), "onsuccess", someScript);
