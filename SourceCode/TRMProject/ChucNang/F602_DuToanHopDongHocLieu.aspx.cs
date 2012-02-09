@@ -34,6 +34,9 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
 
     US_V_GD_THANH_TOAN m_us_v_gd_thanh_toan = new US_V_GD_THANH_TOAN();
     DS_V_GD_THANH_TOAN m_v_ds_gd_thanh_toan = new DS_V_GD_THANH_TOAN();
+
+    US_V_DM_HOP_DONG_KHUNG m_us_dm_hop_dong_khung = new US_V_DM_HOP_DONG_KHUNG();
+    DS_V_DM_HOP_DONG_KHUNG m_ds_dm_hop_dong_khung = new DS_V_DM_HOP_DONG_KHUNG();
     #endregion
 
     #region Public Interfaces
@@ -122,7 +125,7 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
             //US_V_GD_THANH_TOAN v_us_gd_thanh_toan = new US_V_GD_THANH_TOAN();
             //DS_V_GD_THANH_TOAN v_ds_gd_thanh_toan = new DS_V_GD_THANH_TOAN();
             // Số phiếu thanh toán là mã đợt thanh toán
-            m_us_v_gd_thanh_toan.FillDataset(m_v_ds_gd_thanh_toan, " WHERE SO_PHIEU_THANH_TOAN = '" + ip_str_ma_dot_tt + "' AND LOAI_HOP_DONG='HL'");
+            m_us_v_gd_thanh_toan.FillDataset(m_v_ds_gd_thanh_toan, " WHERE SO_PHIEU_THANH_TOAN = '" + ip_str_ma_dot_tt + "' AND LOAI_HOP_DONG='HL' ORDER BY ID");
             if (m_v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count == 0)
             {
                 m_lbl_thong_bao.Visible = true;
@@ -131,6 +134,20 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
             m_grv_danh_sach_du_toan.DataSource = m_v_ds_gd_thanh_toan.V_GD_THANH_TOAN;
             m_grv_danh_sach_du_toan.DataBind();
             m_lbl_result.Text = "Danh sách bảng kê hợp đồng học liệu: " + m_v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count+" bản ghi";
+        }
+    }
+    private void load_data_2_export_excel(string ip_str_ma_dot_tt)
+    {
+        if (ip_str_ma_dot_tt == "")
+        {
+            m_lbl_thong_bao.Visible = true;
+            m_lbl_thong_bao.Text = "Chưa tạo Đợt thanh toán";
+            return;
+        }
+        else
+        {
+            // Số phiếu thanh toán là mã đợt thanh toán
+            m_us_v_gd_thanh_toan.FillDataset(m_v_ds_gd_thanh_toan, " WHERE SO_PHIEU_THANH_TOAN = '" + ip_str_ma_dot_tt + "' AND LOAI_HOP_DONG='HL' ORDER BY ID");
         }
     }
     private string get_ma_trang_thai_dot_tt_by_id(decimal ip_dc_id_dot_tt)
@@ -413,13 +430,19 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
          }
          else return 0;
      }
+     private bool check_trung_hop_dong(string ip_str_so_hd)
+     {
+         m_us_dm_hop_dong_khung.FillDataset(m_ds_dm_hop_dong_khung, " WHERE SO_HOP_DONG = N'" + ip_str_so_hd + "'");
+         if (m_ds_dm_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows.Count > 1) return false; // có hợp đồng trùng
+         return true;
+     }
     #endregion
 
     #region Export Excel
      private void loadDSExprort(ref string strTable)
      {
          int v_i_so_thu_tu = 0;
-         load_data_2_grid(get_ma_dot_tt_by_id_dot(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue)));
+         load_data_2_export_excel(get_ma_dot_tt_by_id_dot(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue)));
          // Mỗi cột dữ liệu ứng với từng dòng là label
          foreach (DataRow grv in this.m_v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows)
          {
@@ -544,6 +567,15 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
                 //m_lbl_mess.Text = "";
                 return;
             }
+            // Check trùng số hợp đồng
+            if (!check_trung_hop_dong(m_txt_so_hop_dong.Text.Trim()))
+            {
+                string Script;
+                Script = "<script language='javascript'>alert('Tồn tại số hợp đồng trùng với số hợp đồng này. Hãy xử lý trước khi lên bảng kê cho hợp đồng này!');</script>";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "oncheck1", Script);
+                return;
+            }
+
             decimal v_dc_id_hop_dong_khung = get_id_hd_khung_by_so_hd(m_txt_so_hop_dong.Text.Trim());
             if (!check_thanh_ly(v_dc_id_hop_dong_khung))
             {

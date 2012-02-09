@@ -203,6 +203,10 @@
                      HeaderText="Các lớp môn phụ trách">
                      <ItemStyle Width="5%" HorizontalAlign="Right" />
                     </asp:BoundField>
+                      <asp:BoundField DataField="GHI_CHU_THOI_GIAN_LOP_MON"
+                     HeaderText="Thời gian lớp môn">
+                     <ItemStyle Width="5%" HorizontalAlign="Right" />
+                    </asp:BoundField>
                      <asp:TemplateField HeaderText="Nội dung thanh toán" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%# mapping_noi_dung_tt(CIPConvert.ToDecimal(Eval("ID")), CIPConvert.ToDecimal(Eval("ID_HOP_DONG_KHUNG")))%></ItemTemplate>
                         <ItemStyle HorizontalAlign="Left" Width="12%"></ItemStyle>

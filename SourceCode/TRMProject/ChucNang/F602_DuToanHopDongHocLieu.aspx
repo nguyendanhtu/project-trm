@@ -69,7 +69,7 @@
                 <td align="left" style="width:1%;">&nbsp;</td>
             </tr>
             <tr>
-                <td align="right" style="width:8%;">
+                <td align="right" style="width:12%;">
 			       
 			<asp:label id="lblTenGiangVien" CssClass="cssManField" runat="server" 
                 Text="Đợt thanh toán" />

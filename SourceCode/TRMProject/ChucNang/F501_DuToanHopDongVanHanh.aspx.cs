@@ -34,6 +34,8 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
     DS_CM_DM_TU_DIEN m_ds_cm_tu_dien = new DS_CM_DM_TU_DIEN();
     US_V_GD_THANH_TOAN m_us_v_gd_thanh_toan = new US_V_GD_THANH_TOAN();
     DS_V_GD_THANH_TOAN m_v_ds_gd_thanh_toan = new DS_V_GD_THANH_TOAN();
+    US_V_DM_HOP_DONG_KHUNG m_us_dm_hop_dong_khung = new US_V_DM_HOP_DONG_KHUNG();
+    DS_V_DM_HOP_DONG_KHUNG m_ds_dm_hop_dong_khung = new DS_V_DM_HOP_DONG_KHUNG();
     DataEntryFormMode m_init_mode = DataEntryFormMode.ViewDataState;
     #endregion
 
@@ -137,7 +139,7 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
             //US_V_GD_THANH_TOAN v_us_gd_thanh_toan = new US_V_GD_THANH_TOAN();
             //DS_V_GD_THANH_TOAN v_ds_gd_thanh_toan = new DS_V_GD_THANH_TOAN();
             // Số phiếu thanh toán là mã đợt thanh toán
-            m_us_v_gd_thanh_toan.FillDataset(m_v_ds_gd_thanh_toan, " WHERE SO_PHIEU_THANH_TOAN = '" + ip_str_ma_dot_tt + "' AND LOAI_HOP_DONG= 'VH'");
+            m_us_v_gd_thanh_toan.FillDataset(m_v_ds_gd_thanh_toan, " WHERE SO_PHIEU_THANH_TOAN = '" + ip_str_ma_dot_tt + "' AND LOAI_HOP_DONG= 'VH' ORDER BY ID");
             if (m_v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count == 0)
             {
                 m_lbl_thong_bao.Visible = true;
@@ -146,6 +148,20 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
             m_grv_danh_sach_du_toan.DataSource = m_v_ds_gd_thanh_toan.V_GD_THANH_TOAN;
             m_grv_danh_sach_du_toan.DataBind();
             m_lbl_result.Text = "Danh sách bảng kê hợp đồng vận hành: " + m_v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count + " bản ghi";
+        }
+    }
+    private void load_data_2_export_excel(string ip_str_ma_dot_tt)
+    {
+        if (ip_str_ma_dot_tt == "")
+        {
+            m_lbl_thong_bao.Visible = true;
+            m_lbl_thong_bao.Text = "Chưa tạo Đợt thanh toán";
+            return;
+        }
+        else
+        {
+            // Số phiếu thanh toán là mã đợt thanh toán
+            m_us_v_gd_thanh_toan.FillDataset(m_v_ds_gd_thanh_toan, " WHERE SO_PHIEU_THANH_TOAN = '" + ip_str_ma_dot_tt + "' AND LOAI_HOP_DONG= 'VH' ORDER BY ID");
         }
     }
     private string get_ma_trang_thai_dot_tt_by_id(decimal ip_dc_id_dot_tt)
@@ -384,13 +400,19 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
         if (v_ds_lop_mon.GD_LOP_MON.Rows.Count == 0) return 0;
         return CIPConvert.ToDecimal(v_ds_lop_mon.GD_LOP_MON.Rows[0][GD_LOP_MON.ID]);
     }
+    private bool check_trung_hop_dong(string ip_str_so_hd)
+    {
+        m_us_dm_hop_dong_khung.FillDataset(m_ds_dm_hop_dong_khung, " WHERE SO_HOP_DONG = N'" + ip_str_so_hd + "'");
+        if (m_ds_dm_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows.Count > 1) return false; // có hợp đồng trùng
+        return true;
+    }
     #endregion
 
     #region Export Excel
     private void loadDSExprort(ref string strTable)
     {
         int v_i_so_thu_tu = 0;
-        load_data_2_grid(get_ma_dot_tt_by_id_dot(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue)));
+        load_data_2_export_excel(get_ma_dot_tt_by_id_dot(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue)));
         // Mỗi cột dữ liệu ứng với từng dòng là label
         foreach (DataRow grv in this.m_v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows)
         {
@@ -548,6 +570,15 @@ public partial class ChucNang_F501_DuToanHopDongVanHanh : System.Web.UI.Page
             //    Page.ClientScript.RegisterStartupScript(this.GetType(), "onchecktuongung", scriptalert);
             //    return;
             //}
+
+            // Check trùng số hợp đồng
+            if (!check_trung_hop_dong(m_txt_so_hop_dong.Text.Trim()))
+            {
+                string Script;
+                Script = "<script language='javascript'>alert('Tồn tại số hợp đồng trùng với số hợp đồng này. Hãy xử lý trước khi lên bảng kê cho hợp đồng này!');</script>";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "oncheck1", Script);
+                return;
+            }
 
             // Check hợp đồng do bên đv thanh toán này thanh toán
             decimal v_dc_id_dv_tt = get_id_don_vi_thanh_toan_by_id_dot_tt(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue));

@@ -70,6 +70,17 @@ public partial class ChucNang_F601_CheckSoHopDong : System.Web.UI.Page
                         return;
                     }
                 }
+
+                // Chỗ này kiểm tra xem có hợp đồng nào trùng với hợp đồng đang xét đến ko?
+                if (!check_trung_hop_dong(v_str_so_hd))
+                {
+                    string someScript;
+                    someScript = "<script language='javascript'>{ alert('Tồn tại số hợp đồng trùng với số hợp đồng này. Hãy xử lý trước khi lên bảng kê cho hợp đồng này!');}</script>";
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "onload", someScript);
+                    m_grv_dm_danh_sach_hop_dong_khung.DataSource = m_ds_hop_dong_khung.V_DM_HOP_DONG_KHUNG;
+                    m_grv_dm_danh_sach_hop_dong_khung.DataBind();
+                    return;
+                }
                 kiem_tra_toan_bo_thanh_toan_ung_hop_dong(get_id_hd_khung_by_so_hd(v_str_so_hd),v_str_loai_hd);
                 // Đoạn này đã lấy được số hợp đồng, search và đổ lên lưới
                 m_grv_dm_danh_sach_hop_dong_khung.DataSource = v_ds_hop_dong_khung.V_DM_HOP_DONG_KHUNG;
@@ -80,7 +91,8 @@ public partial class ChucNang_F601_CheckSoHopDong : System.Web.UI.Page
     }
 
     #region Members
-    
+    US_V_DM_HOP_DONG_KHUNG m_us_hop_dong_khung = new US_V_DM_HOP_DONG_KHUNG();
+    DS_V_DM_HOP_DONG_KHUNG m_ds_hop_dong_khung = new DS_V_DM_HOP_DONG_KHUNG();
     #endregion
 
     #region Private Methods
@@ -144,6 +156,12 @@ public partial class ChucNang_F601_CheckSoHopDong : System.Web.UI.Page
                 else m_lbl_thong_bao.Text = "Số tiền đã thanh toán: " + CIPConvert.ToStr(v_dc_so_tien_da_tt, "#,###");
             }
          // Nếu số dòng ==0 nghĩa là chưa có thanh toán nào, ko thực hiện gì
+    }
+    private bool check_trung_hop_dong(string ip_str_so_hd)
+    {
+        m_us_hop_dong_khung.FillDataset(m_ds_hop_dong_khung, " WHERE SO_HOP_DONG = N'" + ip_str_so_hd + "'");
+        if (m_ds_hop_dong_khung.V_DM_HOP_DONG_KHUNG.Rows.Count > 1) return false; // có hợp đồng trùng
+        return true;
     }
     #endregion
 
