@@ -78,7 +78,7 @@
                     <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:TemplateField>
                      <asp:TemplateField HeaderText="Đã thanh toán">
-                    <ItemTemplate><%# CIPConvert.ToStr(Eval("DA_THANH_TOAN"), "#,###") + CIPConvert.ToStr(Eval("TONG_TIEN_THANH_TOAN"), "#,###")%></ItemTemplate>
+                    <ItemTemplate><%# CIPConvert.ToStr(CIPConvert.ToDecimal(Eval("DA_THANH_TOAN")) + CIPConvert.ToDecimal(Eval("TONG_TIEN_THANH_TOAN")), "#,###")%></ItemTemplate>
                      <ItemStyle HorizontalAlign="Right"></ItemStyle>
                     </asp:TemplateField>                   
                 </Columns>
