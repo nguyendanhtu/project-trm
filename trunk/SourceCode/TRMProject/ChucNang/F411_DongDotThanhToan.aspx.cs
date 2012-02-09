@@ -124,6 +124,22 @@ public partial class ChucNang_F411_DongDotThanhToan : System.Web.UI.Page
         if (v_ds_dot_tt.V_DM_DOT_THANH_TOAN.Rows.Count == 0) return "";
         return CIPConvert.ToStr(v_ds_dot_tt.V_DM_DOT_THANH_TOAN.Rows[0][V_DM_DOT_THANH_TOAN.MA_DOT_TT]);
     }
+    public string cut_description_string(string ip_str_description)
+    {
+        string[] v_des = ip_str_description.Split(' ');
+        string v_str_result = "";
+        for (int v_i = 0; v_i < v_des.Length - 1; v_i++)
+        {
+            v_str_result += v_des[v_i];
+            v_str_result += " ";
+        }
+        return v_str_result.Trim();
+    }
+    public string mapping_url_by_id_trang_thai_tt(object ip_obj_id_trang_thai_tt)
+    {
+
+        return "";
+    }
     #endregion
 
     #region Private Methods
@@ -259,7 +275,7 @@ public partial class ChucNang_F411_DongDotThanhToan : System.Web.UI.Page
             US_V_GD_THANH_TOAN v_us_gd_thanh_toan = new US_V_GD_THANH_TOAN();
             DS_V_GD_THANH_TOAN v_ds_gd_thanh_toan = new DS_V_GD_THANH_TOAN();
             // Hiển thị toàn bộ các thanh toán trong đợt thanh toán đang chọn
-            v_us_gd_thanh_toan.FillDataset(v_ds_gd_thanh_toan, " WHERE SO_PHIEU_THANH_TOAN = N'" + ip_str_ma_dot_tt+"'");
+            v_us_gd_thanh_toan.FillDataset(v_ds_gd_thanh_toan, " WHERE SO_PHIEU_THANH_TOAN = N'" + ip_str_ma_dot_tt+"' ORDER BY ID");
             if (v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count == 0)
             {
                 m_lbl_thong_bao1.Visible = true;
@@ -272,7 +288,7 @@ public partial class ChucNang_F411_DongDotThanhToan : System.Web.UI.Page
     }
     private void load_cac_thanh_toan_chua_duoc_xac_nhan_gv(string ip_str_ma_dot_tt)
     {
-        m_us_gd_thanh_toan.FillDataset(m_ds_gd_thanh_toan, " WHERE SO_PHIEU_THANH_TOAN='" + ip_str_ma_dot_tt + "' AND ID_TRANG_THAI_THANH_TOAN <> " + hdf_id_trang_thai_da_co_xac_nhan_gv.Value);
+        m_us_gd_thanh_toan.FillDataset(m_ds_gd_thanh_toan, " WHERE SO_PHIEU_THANH_TOAN='" + ip_str_ma_dot_tt + "' AND ID_TRANG_THAI_THANH_TOAN <> " + hdf_id_trang_thai_da_co_xac_nhan_gv.Value + " ORDER BY ID");
         if (m_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count == 0)
         {
             if (m_grv_danh_sach_du_toan.Visible == true) m_grv_danh_sach_du_toan.Visible = false;
@@ -314,7 +330,7 @@ public partial class ChucNang_F411_DongDotThanhToan : System.Web.UI.Page
         US_V_GD_THANH_TOAN v_us_v_gd_thanh_toan = new US_V_GD_THANH_TOAN();
         DS_V_GD_THANH_TOAN v_ds_v_gd_thanh_toan = new DS_V_GD_THANH_TOAN();
         // Load các thanh toán có trạng thái khác với đã có xác nhận giảng viên
-        v_us_v_gd_thanh_toan.FillDataset(v_ds_v_gd_thanh_toan, " WHERE SO_PHIEU_THANH_TOAN =N'" + ip_str_ma_dot_tt + "' AND ID_TRANG_THAI_THANH_TOAN <> " + hdf_id_trang_thai_da_co_xac_nhan_gv.Value);
+        v_us_v_gd_thanh_toan.FillDataset(v_ds_v_gd_thanh_toan, " WHERE SO_PHIEU_THANH_TOAN =N'" + ip_str_ma_dot_tt + "' AND ID_TRANG_THAI_THANH_TOAN <> " + hdf_id_trang_thai_da_co_xac_nhan_gv.Value + " ORDER BY ID");
         if (v_ds_v_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count > 0) return false;
         return true;
     }
@@ -324,7 +340,7 @@ public partial class ChucNang_F411_DongDotThanhToan : System.Web.UI.Page
     {
         US_V_GD_THANH_TOAN v_us_v_gd_thanh_toan = new US_V_GD_THANH_TOAN();
         // Láy tất cả các thanh toán trong kho mà có description giống với mã đợt thanh toán hiện 
-        v_us_v_gd_thanh_toan.FillDataset(ip_ds_gd_thanh_toan, " WHERE SO_PHIEU_THANH_TOAN like '%KHO%' AND [DESCRIPTION] like N'%" + ip_str_ma_dot_tt + "%' AND ID_TRANG_THAI_THANH_TOAN = " + hdf_id_trang_thai_ngan_hang_chuyen_khoan_khong_thanh_cong.Value);
+        v_us_v_gd_thanh_toan.FillDataset(ip_ds_gd_thanh_toan, " WHERE SO_PHIEU_THANH_TOAN like '%KHO%' AND [DESCRIPTION] like N'%" + ip_str_ma_dot_tt + "%' AND ID_TRANG_THAI_THANH_TOAN = " + hdf_id_trang_thai_ngan_hang_chuyen_khoan_khong_thanh_cong.Value + " ORDER BY ID");
         // Nếu ko có thanh toán nào phù hợp, nghĩa là ổn :)
         if (ip_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count == 0) return true; 
         return false;
@@ -400,6 +416,18 @@ public partial class ChucNang_F411_DongDotThanhToan : System.Web.UI.Page
             CSystemLog_301.ExceptionHandle(this, v_e);
         }
     }
+    protected void m_grv_danh_sach_du_toan_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+    {      
+        try
+        {
+            string v_str_function_url = string.Format("OpenSiteFromUrl('F410_ChinhSuaXacNhanGV.aspx?id_tt={0}');", CIPConvert.ToDecimal(m_grv_danh_sach_du_toan.DataKeys[e.NewSelectedIndex].Value));
+            this.ClientScript.RegisterStartupScript(this.Page.GetType(), "ThemMoiLopMon", v_str_function_url, true);
+        }
+        catch (Exception v_e)
+        {
+            CSystemLog_301.ExceptionHandle(this, v_e);
+        }
+    }
     #endregion
-   
+    
 }

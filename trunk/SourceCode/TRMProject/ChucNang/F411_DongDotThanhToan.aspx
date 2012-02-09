@@ -4,6 +4,26 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
+<script type="text/javascript">
+    function openPopUp() {
+        var url_2_open = '';
+        var name = 'ChinhSuaThanhToan';
+        var appearence = 'dependent=yes,menubar=no,resizable=no,' +
+                                          'status=no,toolbar=no,titlebar=no,' +
+                                          'left=5,top=280,width=990px,height=540px';
+        var openWindow = window.open(url_2_open, name, appearence);
+        openWindow.focus();
+    }
+
+    function OpenSiteFromUrl(siteUrl) {
+        var name = 'ProfileForm';
+        var appearence = 'dependent=yes,menubar=no,resizable=no,' +
+                                          'status=no,toolbar=no,titlebar=no,' +
+                                          'left=5,top=280,width=990px,height=540px';
+        var openWindow = window.open(siteUrl, name, appearence);
+        openWindow.focus();
+    }
+</script>
 <table cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0">
     <tr>
 		<td class="cssPageTitleBG">
@@ -145,12 +165,14 @@
                 runat="server" AutoGenerateColumns="False" 
                 Width="100%" DataKeyNames="ID"
                 CellPadding="4" ForeColor="#333333" PageSize="20"
-                onpageindexchanging="m_grv_danh_sach_du_toan_PageIndexChanging">
+                onpageindexchanging="m_grv_danh_sach_du_toan_PageIndexChanging" 
+                onselectedindexchanging="m_grv_danh_sach_du_toan_SelectedIndexChanging">
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
-                     <asp:TemplateField Visible="false" HeaderText="Hành động">
+                     <asp:TemplateField HeaderText="Hành động">
                     <ItemTemplate>
-                     <asp:LinkButton CausesValidation="false" CommandName="Select" ToolTip="Chỉnh sửa xác nhận giảng viên" ID = "lbt_edit_xac_nhan_ngan_hang" runat="server">
+                     <asp:LinkButton CausesValidation="false" CommandName="Select" ToolTip="Chỉnh sửa thanh toán"
+                     ID = "lbt_edit_xac_nhan_ngan_hang" runat="server">
                     <img src='/TRMProject/Images/Button/Update.gif' alt='Chỉnh sửa' />
                     </asp:LinkButton>
                     </ItemTemplate>
@@ -194,9 +216,10 @@
                        <ItemTemplate><%# mapping_trang_thai_thanh_toan(CIPConvert.ToDecimal(Eval("ID_TRANG_THAI_THANH_TOAN")))%></ItemTemplate>
                         <ItemStyle HorizontalAlign="Left" Width="10%"></ItemStyle>
                     </asp:TemplateField> 
-                      <asp:BoundField DataField="DESCRIPTION" HeaderText="Mô tả">
-                     <ItemStyle Width="10%" HorizontalAlign="Left" />
-                    </asp:BoundField>
+                     <asp:TemplateField HeaderText="Mô tả">
+                       <ItemTemplate><%# Eval("DESCRIPTION")%></ItemTemplate>
+                        <ItemStyle HorizontalAlign="Left" Width="10%"></ItemStyle>
+                    </asp:TemplateField> 
                 </Columns>
                   <EditRowStyle BackColor="#7C6F57" />
                   <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />

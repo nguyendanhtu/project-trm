@@ -17,7 +17,7 @@ using System.Data;
 public partial class ChucNang_F410_ChinhSuaXacNhanGV : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
-    {
+        {
 
         disable_controls();
         m_txt_tham_so.Visible = false;
@@ -30,10 +30,28 @@ public partial class ChucNang_F410_ChinhSuaXacNhanGV : System.Web.UI.Page
             m_cbo_dot_thanh_toan.Enabled = true;
             load_data_2_cbo_dot_thanh_toan();
             load_data_2_cbo_trang_thai_thanh_toan();
-            //load_data_2_cbo_trang_thai_thanh_toan_search();
-            when_cbo_dot_tt_changed();
+            if (Request.QueryString["id_tt"] == null)
+                when_cbo_dot_tt_changed();
+            // Cái này nghĩa là có chỉnh sửa thanh toán nhận từ bên ngoài
+            else
+            {
+                decimal v_dc_id_thanh_toan = CIPConvert.ToDecimal(Request.QueryString["id_tt"]);
+                US_V_GD_THANH_TOAN v_us_v_gd_thanh_toan = new US_V_GD_THANH_TOAN(v_dc_id_thanh_toan);
+                // Nếu là các thanh toán tồn đọng trong KHO
+                if (v_us_v_gd_thanh_toan.strSO_PHIEU_THANH_TOAN == "KHO")
+                {
+                    string v_str_ma_dot_tt = "";
+                    cut_description_string(v_us_v_gd_thanh_toan.strDESCRIPTION, ref v_str_ma_dot_tt);
+                    m_cbo_dot_thanh_toan.SelectedValue = CIPConvert.ToStr(get_id_dot_tt_by_ma_dot(v_str_ma_dot_tt));
+                }
+                // Nếu là thanh toán chưa được xác nhận giảng viên trong đợt thanh toán (không phải trong KHO)
+                else m_cbo_dot_thanh_toan.SelectedValue = CIPConvert.ToStr(get_id_dot_tt_by_ma_dot(v_us_v_gd_thanh_toan.strSO_PHIEU_THANH_TOAN));
+                
+                us_obj_2_form(v_us_v_gd_thanh_toan);
+                hdf_id_gv.Value = CIPConvert.ToStr(v_dc_id_thanh_toan);
+            }
         }
-    }
+    }           
 
     #region Members
     US_CM_DM_TU_DIEN m_us_cm_tu_dien = new US_CM_DM_TU_DIEN();
@@ -118,7 +136,7 @@ public partial class ChucNang_F410_ChinhSuaXacNhanGV : System.Web.UI.Page
             US_V_GD_THANH_TOAN v_us_gd_thanh_toan = new US_V_GD_THANH_TOAN();
             DS_V_GD_THANH_TOAN v_ds_gd_thanh_toan = new DS_V_GD_THANH_TOAN();
             // Số phiếu thanh toán là mã đợt thanh toán
-            v_us_gd_thanh_toan.FillDataset(v_ds_gd_thanh_toan, " WHERE SO_PHIEU_THANH_TOAN = N'" + ip_str_ma_dot_tt + "' AND (ID_TRANG_THAI_THANH_TOAN = " + lblUser.ToolTip + " OR ID_TRANG_THAI_THANH_TOAN = " + m_lbl_thong_bao0.ToolTip + ")");
+            v_us_gd_thanh_toan.FillDataset(v_ds_gd_thanh_toan, " WHERE SO_PHIEU_THANH_TOAN = N'" + ip_str_ma_dot_tt + "' AND (ID_TRANG_THAI_THANH_TOAN = " + lblUser.ToolTip + " OR ID_TRANG_THAI_THANH_TOAN = " + m_lbl_thong_bao0.ToolTip + ") ORDER BY ID");
             if (v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count == 0)
             {
                 m_lbl_thong_bao.Visible = true;
@@ -142,7 +160,7 @@ public partial class ChucNang_F410_ChinhSuaXacNhanGV : System.Web.UI.Page
     {
         US_V_GD_THANH_TOAN v_us_gd_thanh_toan = new US_V_GD_THANH_TOAN();
         DS_V_GD_THANH_TOAN v_ds_gd_thanh_toan = new DS_V_GD_THANH_TOAN();
-        v_us_gd_thanh_toan.FillDataset(v_ds_gd_thanh_toan, " WHERE SO_PHIEU_THANH_TOAN = '" + ip_str_ma_dot_tt + "' AND SO_HOP_DONG LIKE '%" + ip_str_so_hd + "%'");
+        v_us_gd_thanh_toan.FillDataset(v_ds_gd_thanh_toan, " WHERE SO_PHIEU_THANH_TOAN = '" + ip_str_ma_dot_tt + "' AND SO_HOP_DONG LIKE '%" + ip_str_so_hd + "%' ORDER BY ID");
         if (v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count == 0)
         {
             m_lbl_thong_bao.Visible = true;
@@ -215,10 +233,23 @@ public partial class ChucNang_F410_ChinhSuaXacNhanGV : System.Web.UI.Page
         string[] v_str_result = ip_str_tam_ung.Split(' ');
         return (v_str_result[2] + " " + v_str_result[3]);
     }
+    private string cut_description_string(string ip_str_description, ref string ip_str_old_ma_dot_tt)
+    {
+        string[] v_des = ip_str_description.Split(' ');
+        string v_str_result = "";
+        for (int v_i = 0; v_i < v_des.Length - 1; v_i++)
+        {
+            v_str_result += v_des[v_i];
+            v_str_result += " ";
+        }
+        ip_str_old_ma_dot_tt = v_des[v_des.Length - 1];
+        return v_str_result.Trim();
+    }
     private void us_obj_2_form(US_V_GD_THANH_TOAN ip_us_gd_thanh_toan)
     {
         m_txt_tham_so.Visible = true;
-        m_cbo_dot_thanh_toan.SelectedValue = CIPConvert.ToStr(get_id_dot_tt_by_ma_dot(ip_us_gd_thanh_toan.strSO_PHIEU_THANH_TOAN));
+        if (Request.QueryString["id_tt"] == null)
+           m_cbo_dot_thanh_toan.SelectedValue = CIPConvert.ToStr(get_id_dot_tt_by_ma_dot(ip_us_gd_thanh_toan.strSO_PHIEU_THANH_TOAN));
         m_txt_so_hop_dong.Text = get_so_hd_khung_by_id_hd(ip_us_gd_thanh_toan.dcID_HOP_DONG_KHUNG);
         if (ip_us_gd_thanh_toan.strLOAI_HOP_DONG.Equals("VH"))
         {
@@ -242,7 +273,10 @@ public partial class ChucNang_F410_ChinhSuaXacNhanGV : System.Web.UI.Page
         m_txt_so_tien_thanh_toan.Text = CIPConvert.ToStr(ip_us_gd_thanh_toan.dcTONG_TIEN_THANH_TOAN, "#,###");
         m_txt_so_tien_thuc_nhan.Text = CIPConvert.ToStr(ip_us_gd_thanh_toan.dcTONG_TIEN_THUC_NHAN, "#,###");
         m_txt_so_tien_thue1.Text = CIPConvert.ToStr(ip_us_gd_thanh_toan.dcSO_TIEN_THUE, "#,###");
-        m_cbo_trang_thai_thanh_toan.SelectedValue = CIPConvert.ToStr(get_id_trang_thai_chua_co_xac_nhan_cua_giang_vien());
+        if (Request.QueryString["id_tt"] != null)
+            m_cbo_trang_thai_thanh_toan.SelectedValue = CIPConvert.ToStr(ip_us_gd_thanh_toan.dcID_TRANG_THAI_THANH_TOAN);
+        else
+            m_cbo_trang_thai_thanh_toan.SelectedValue = CIPConvert.ToStr(get_id_trang_thai_chua_co_xac_nhan_cua_giang_vien());
         // Lưu lại id_trang_thai_thanh_toan_cuc
         hdf_id_trang_thai_thanh_toan_cu.Value = CIPConvert.ToStr(ip_us_gd_thanh_toan.dcID_TRANG_THAI_THANH_TOAN);
         m_txt_mo_ta.Text = ip_us_gd_thanh_toan.strDESCRIPTION;
@@ -313,7 +347,6 @@ public partial class ChucNang_F410_ChinhSuaXacNhanGV : System.Web.UI.Page
         m_txt_gia_tri_nghiem_thu_thuc_te.Enabled = false;
         m_txt_so_tien_thuc_nhan.Enabled = false;
         m_txt_so_tien_thanh_toan.Enabled = false;
-        //m_cbo_trang_thai_thanh_toan.Enabled = false;
         m_txt_so_tien_thue1.Enabled = false;
     }
     #endregion
@@ -354,19 +387,61 @@ public partial class ChucNang_F410_ChinhSuaXacNhanGV : System.Web.UI.Page
             }
             form_2_us_obj(m_us_v_gd_thanh_toan);
             m_us_v_gd_thanh_toan.dcID = CIPConvert.ToDecimal(hdf_id_gv.Value);
-            m_us_v_gd_thanh_toan.update_xac_nhan_giang_vien();
-            reset_controls();
+            if (Request.QueryString["id_tt"] == null)
+            {
+                // Nếu đây là update thông tin bảng kê, kiểm tra trạng thái mới có phù hợp không?
+                if (hdf_id_trang_thai_thanh_toan_cu.Value != "")
+                {
+                    CValidatePaymentStates v_cvalidate_state = new CValidatePaymentStates();
+                    v_cvalidate_state.Trang_thai_thanh_toan_hien_tai = get_ma_trang_thai_thanh_toan_by_id(CIPConvert.ToDecimal(hdf_id_trang_thai_thanh_toan_cu.Value));
+                    v_cvalidate_state.set_trang_thai();
+                    if (!v_cvalidate_state.check_chuyen_trang_thai(get_ma_trang_thai_thanh_toan_by_id(m_us_v_gd_thanh_toan.dcID_TRANG_THAI_THANH_TOAN)))
+                    {
+                        string someScript;
+                        someScript = "<script language='javascript'>alert('Không chuyển từ trạng thái ban đầu của thanh toán về trạng thái này được!');</script>";
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "onload1", someScript);
+                        return;
+                    }
+                }
+                m_us_v_gd_thanh_toan.update_xac_nhan_giang_vien();
+                if (m_txt_so_hd_search.Text == "")
+                    load_data_2_grid(get_ma_dot_tt_by_id_dot(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue)));
+                else
+                    load_data_2_grid_search(get_ma_dot_tt_by_id_dot(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue)), m_txt_so_hd_search.Text.Trim());
+            }
+            // Cái này là làm ở popup
+                // Cho phép chuyển tử trạng thái chưa có xác nhận của ngân hàng sang trạng thái đã có xác nhận của giảng viên
+            else m_us_v_gd_thanh_toan.xu_ly_xac_nhan_ngan_hang();
             m_cmd_cap_nhat_du_toan.Enabled = true;
             m_cbo_dot_thanh_toan.Enabled = true;
-            if (m_txt_so_hd_search.Text == "")
-                load_data_2_grid(get_ma_dot_tt_by_id_dot(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue)));
-            else
-                load_data_2_grid_search(get_ma_dot_tt_by_id_dot(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue)), m_txt_so_hd_search.Text.Trim());
             if (m_cbo_trang_thai_thanh_toan.SelectedValue.Equals(hdf_id_trang_thai_thanh_toan_cu.Value))
             {
-                m_lbl_thong_bao.Text = "Trạng thái của chứng từ vẫn không thanh đổi";
+                if (Request.QueryString["id_tt"] != null)
+                {
+
+                    string returnMessage = @"<script language='javascript'>{
+                                                var mes= 'Trạng thái của chứng từ vẫn không thanh đổi';
+                                                alert(mes);
+                                                window.close(); }</script>";
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "onreturn", returnMessage);
+                }
+                else
+                    m_lbl_thong_bao.Text = "Trạng thái của chứng từ vẫn không thanh đổi";
             }
-            else m_lbl_thong_bao.Text = "Chỉnh sửa trạng thái thanh toán thành công !";
+
+            else
+            {
+                if (Request.QueryString["id_tt"] != null)
+                {
+                    string returnMessage = @"<script language='javascript'>{
+                                                var mes= 'Chỉnh sửa trạng thái thanh toán thành công !';
+                                                alert(mes);
+                                                window.close(); }</script>";
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "onreturnMes", returnMessage);
+                }
+                else m_lbl_thong_bao.Text = "Chỉnh sửa trạng thái thanh toán thành công !";
+            }
+            reset_controls();
         }
         catch (Exception v_e)
         {
