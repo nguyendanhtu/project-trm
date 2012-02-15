@@ -20,8 +20,8 @@ public partial class ChucNang_F411_DongDotThanhToan : System.Web.UI.Page
         m_lbl_thong_bao.Visible = false;
         if (!IsPostBack)
         {
-            load_data_2_dot_tt();
-            string v_str_ma_dot = m_cbo_dot_thanh_toan.SelectedValue;
+            //string v_str_ma_dot = m_cbo_dot_thanh_toan.SelectedValue;
+            load_data_2_dot_tt();            
             if (m_cbo_dot_thanh_toan.Items.Count > 0)
             {
                 fill_data_2_thong_tin_dot_tt(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue));
@@ -384,8 +384,22 @@ public partial class ChucNang_F411_DongDotThanhToan : System.Web.UI.Page
             // Chuyển trạng thái của đợt thanh toán từ 3 sang 4
             m_us_dm_dot_thanh_toan.dong_dot_thanh_toan();
             string someScript;
-            someScript = "<script language='javascript'>alert('Đã đóng đợt thanh toán thành công!');</script>";
+            someScript = "<script language='javascript'>alert('Đã đóng đợt thanh toán thành công!'); </script>";
             Page.ClientScript.RegisterStartupScript(this.GetType(), "onsucced", someScript);
+            m_cbo_dot_thanh_toan.Items.Clear();
+            load_data_2_dot_tt();
+            if (m_cbo_dot_thanh_toan.Items.Count > 0)
+            {
+                fill_data_2_thong_tin_dot_tt(CIPConvert.ToDecimal(m_cbo_dot_thanh_toan.SelectedValue));
+            }
+            else
+            {
+                m_cmd_dong_dot_tt.Enabled = false;
+                m_lbl_thong_bao1.Text = "Chưa có đợt thanh toán nào";
+                m_grv_danh_sach_du_toan.DataSource = null;
+                m_grv_danh_sach_du_toan.DataBind();
+                m_lbl_loc_du_lieu.Text = "";
+            }
         }
         catch (Exception v_e)
         {
