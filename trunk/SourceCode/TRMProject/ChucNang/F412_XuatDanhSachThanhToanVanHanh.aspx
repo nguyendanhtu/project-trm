@@ -153,6 +153,17 @@
                        <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
                         <ItemStyle HorizontalAlign="Center" Width="2%"></ItemStyle>
                     </asp:TemplateField>
+                     <asp:BoundField HeaderText="Số hợp đồng" DataField="SO_HOP_DONG">
+                    <ItemStyle Width="10%" HorizontalAlign="Left" />
+                    </asp:BoundField>
+                      <asp:BoundField HeaderText="Thời gian thực hiện" DataField="THOI_GIAN">
+                    <ItemStyle Width="8%" HorizontalAlign="Left" />
+                    </asp:BoundField>
+                      <asp:TemplateField HeaderText="Đơn vị quản lý HĐ" 
+                        ItemStyle-HorizontalAlign="Left">
+                       <ItemTemplate><%# mapping_don_vi_quan_ly(CIPConvert.ToDecimal(Eval("ID_DON_VI_QUAN_LY")))%></ItemTemplate>
+                        <ItemStyle HorizontalAlign="Left" Width="10%"></ItemStyle>
+                    </asp:TemplateField> 
                      <asp:TemplateField HeaderText="Mã giảng viên" ItemStyle-HorizontalAlign="Center">
                        <ItemTemplate><%# mapping_magv_by_id(CIPConvert.ToDecimal(Eval("ID_GIANG_VIEN")))%></ItemTemplate>
                         <ItemStyle HorizontalAlign="Left" Width="7%"></ItemStyle>
@@ -161,16 +172,6 @@
                        <ItemTemplate><%# Eval("TEN_GIANG_VIEN")%></ItemTemplate>
                         <ItemStyle HorizontalAlign="Left" Width="10%"></ItemStyle>
                     </asp:TemplateField> 
-                      <asp:TemplateField HeaderText="Đơn vị quản lý" ItemStyle-HorizontalAlign="Left">
-                       <ItemTemplate><%# mapping_don_vi_quan_ly(CIPConvert.ToDecimal(Eval("ID_DON_VI_QUAN_LY")))%></ItemTemplate>
-                        <ItemStyle HorizontalAlign="Left" Width="10%"></ItemStyle>
-                    </asp:TemplateField> 
-                     <asp:BoundField HeaderText="Số hợp đồng" DataField="SO_HOP_DONG">
-                    <ItemStyle Width="10%" HorizontalAlign="Left" />
-                    </asp:BoundField>
-                      <asp:BoundField HeaderText="Thời gian thực hiện" DataField="THOI_GIAN">
-                    <ItemStyle Width="8%" HorizontalAlign="Left" />
-                    </asp:BoundField>
                     <asp:BoundField HeaderText="Số tài khoản" DataField="SO_TAI_KHOAN">
                     <ItemStyle Width="9%" HorizontalAlign="Left" />
                     </asp:BoundField>

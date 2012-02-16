@@ -21,6 +21,32 @@
              var openWindow = window.open(popUrl, name, appearence);
              openWindow.focus();
          }
+         function calculate_money() {
+             var dc_so_tien_thanh_toan_chua_xu_ly = document.getElementById('<%=  m_txt_so_tien_thanh_toan.ClientID%>').value.toString();
+             if (dc_so_tien_thanh_toan_chua_xu_ly == '') {
+                 alert('Bạn chưa nhập số tiền thanh toán');
+                 return;
+             }
+             var v_arr = new Array();
+             var v_dc_so_tien_thuc = "";
+             v_arr = dc_so_tien_thanh_toan_chua_xu_ly.split(',');
+             for (var i = 0; i < v_arr.length; i++) {
+                 v_dc_so_tien_thuc += v_arr[i];
+             }
+             var v_dc_so_tien_thanh_toan = parseFloat(v_dc_so_tien_thuc);
+
+             // Lớn hơn hoặc bằng 1 triệu thì có tính thuế
+             if (v_dc_so_tien_thanh_toan >= 1000000) {
+                 document.getElementById('<%=  m_txt_so_tien_thue1.ClientID%>').value = v_dc_so_tien_thanh_toan / 10;
+                 document.getElementById('<%=  m_txt_so_tien_thuc_nhan.ClientID%>').value = 9 * v_dc_so_tien_thanh_toan / 10;
+             }
+             else {
+                 if (v_dc_so_tien_thanh_toan < 1000000) {
+                     document.getElementById('<%=  m_txt_so_tien_thue1.ClientID%>').value = 0;
+                     document.getElementById('<%=  m_txt_so_tien_thuc_nhan.ClientID%>').value = v_dc_so_tien_thanh_toan;
+                 }
+             }
+         }
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
@@ -230,7 +256,7 @@
                 </td>
                 <td align="left" style="width:10%;">    
                 <asp:TextBox  ID="m_txt_so_tien_thanh_toan" CssClass="csscurrency" Width="96%" 
-                        runat="server"></asp:TextBox> 
+                        runat="server" onblur="calculate_money()"></asp:TextBox> 
                         </td> 
                 <td align="left" style="width:1%;">			       
                         <asp:RequiredFieldValidator ID="req_vali3" runat="server" 
