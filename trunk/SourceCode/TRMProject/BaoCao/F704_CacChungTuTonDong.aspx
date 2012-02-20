@@ -154,11 +154,11 @@
                 onpageindexchanging="m_grv_danh_sach_du_toan_PageIndexChanging" PageSize="30" >
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
-                    <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">
+                    <asp:TemplateField HeaderText="STT">
                        <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
                         <ItemStyle HorizontalAlign="Center" Width="1%"></ItemStyle>
                     </asp:TemplateField>
-                      <asp:TemplateField HeaderText="Mã đợt thanh toán" ItemStyle-HorizontalAlign="Center">
+                      <asp:TemplateField HeaderText="Mã đợt thanh toán">
                        <ItemTemplate><%# Eval("SO_PHIEU_THANH_TOAN")%></ItemTemplate>
                         <ItemStyle HorizontalAlign="Left" Width="4%"></ItemStyle>
                     </asp:TemplateField>
