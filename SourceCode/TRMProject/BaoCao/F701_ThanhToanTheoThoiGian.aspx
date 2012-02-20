@@ -190,7 +190,7 @@
                 onpageindexchanging="m_grv_danh_sach_du_toan_PageIndexChanging" PageSize="30" >
                   <AlternatingRowStyle BackColor="White" />
                 <Columns>
-                    <asp:TemplateField HeaderText="STT" ItemStyle-HorizontalAlign="Center">
+                    <asp:TemplateField HeaderText="STT">
                        <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
                         <ItemStyle HorizontalAlign="Center" Width="1%"></ItemStyle>
                     </asp:TemplateField>
@@ -198,13 +198,11 @@
                      <asp:BoundField HeaderText="Số hợp đồng" DataField="SO_HOP_DONG">
                     <ItemStyle Width="7%" HorizontalAlign="Left" />
                     </asp:BoundField>
-                    <asp:TemplateField HeaderText="Loại hợp đồng" 
-                        ItemStyle-HorizontalAlign="Center">
+                    <asp:TemplateField HeaderText="Loại hợp đồng" >
                        <ItemTemplate><%# mapping_loai_hop_dong_gv(CIPConvert.ToDecimal(Eval("ID_HOP_DONG_KHUNG")))%></ItemTemplate>
                         <ItemStyle HorizontalAlign="Left" Width="6%"></ItemStyle>
                     </asp:TemplateField>
-                      <asp:TemplateField HeaderText="Đơn vị quản lý HĐ" 
-                        ItemStyle-HorizontalAlign="Left">
+                      <asp:TemplateField HeaderText="Đơn vị quản lý HĐ" >
                        <ItemTemplate><%# mapping_don_vi_quan_ly(CIPConvert.ToDecimal(Eval("ID_DON_VI_QUAN_LY")))%></ItemTemplate>
                         <ItemStyle HorizontalAlign="Left" Width="4%"></ItemStyle>
                     </asp:TemplateField> 
@@ -241,8 +239,7 @@
                         <ItemStyle  Width="5%"></ItemStyle>
                     </asp:TemplateField> 
 
-                     <asp:TemplateField HeaderText="Tên các môn phụ trách" 
-                        ItemStyle-HorizontalAlign="Center">
+                     <asp:TemplateField HeaderText="Tên các môn phụ trách" >
                        <ItemTemplate><%# mapping_item_field_ten_cac_mon(CIPConvert.ToStr(Eval("LOAI_HOP_DONG")), Eval("GHI_CHU_CAC_MON_PHU_TRACH"))%></ItemTemplate>
                         <ItemStyle HorizontalAlign="Left" Width="5%"></ItemStyle>
                     </asp:TemplateField>
