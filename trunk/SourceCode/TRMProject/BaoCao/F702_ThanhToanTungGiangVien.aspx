@@ -32,7 +32,12 @@
                         onselectedindexchanged="m_cbo_ten_giang_vien_SelectedIndexChanged">
                </asp:DropDownList>
                          </td>
-                <td align="left" style="width:1%;">&nbsp;</td>
+                <td align="left" colspan="2">			       
+			       
+			<asp:label id="Label7" CssClass="cssManField" runat="server" 
+                Text="Mã giảng viên: " />
+			   <asp:label id="m_lbl_ma_gv" runat="server"/>    
+                         </td>
             </tr>
             <tr>
                 <td align="right" style="width:15%;height:30px;">			       
