@@ -1,8 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="F602_DuToanHopDongHocLieu.aspx.cs" Inherits="ChucNang_F602_DuToanHopDongHocLieu" %>
 <%@ Import Namespace ="IP.Core.IPCommon" %>
 <%@ Register assembly="eWorld.UI" namespace="eWorld.UI" tagprefix="ew" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
-<style type="text/css">
+<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">   
+    <style type="text/css">
         .style1
         {
             width: 7%;
@@ -24,7 +24,7 @@
             height: 29px;
         }
     </style>
-    <script type="text/javascript">
+    <script type="text/javascript">           
         function openPopUp() {
             var popUrl = 'F601_CheckSoHopDong.aspx?loai=HL&sohd=' + document.getElementById('<%= m_txt_so_hop_dong.ClientID %>').value;
             var name = 'KiemTraSoHopDong';
@@ -41,33 +41,82 @@
                 return;
             }
         }
-        function calculate_money() {
-            var dc_so_tien_thanh_toan_chua_xu_ly = document.getElementById('<%=  m_txt_so_tien_thanh_toan.ClientID%>').value.toString();
-            if (dc_so_tien_thanh_toan_chua_xu_ly == '') {
-                alert('Bạn chưa nhập số tiền thanh toán');
-                return;
+        function check_nhap() {
+            var v_rdl_parent = document.getElementById('<%=  rdl_noi_dung_list.ClientID%>');
+            var radio = document.getElementsByTagName('input');
+            var v_str_loai_tt = ''; // Thanhly hay là Tamung
+            for (var i = 0; i < radio.length; i++) {
+                if (radio[i].checked) v_str_loai_tt = radio[i].value.toString();
             }
+            var dc_tong_gia_tri_nghiem_thu_chua_xu_ly = document.getElementById('<%=  m_txt_gia_tri_nghiem_thu_thuc_te.ClientID%>').value.toString();
+            if (v_str_loai_tt == 'Thanhly') {
+                if (dc_tong_gia_tri_nghiem_thu_chua_xu_ly == '') {
+                    document.getElementById('<%= m_lbl_khong_nhap_nghiem_thu_thuc_te.ClientID %>').innerHTML = 'Hãy nhập tổng giá trị nghiệm thu thực tế';
+                    return;
+                }
+            } else document.getElementById('<%= m_lbl_khong_nhap_nghiem_thu_thuc_te.ClientID %>').innerHTML = '';
+        }
+
+        function formatCurrency(num) {
+            num = num.toString().replace(/\$|\,/g, '');
+            if (isNaN(num))
+                num = "0";
+            sign = (num == (num = Math.abs(num)));
+            num = Math.floor(num * 100 + 0.50000000001);
+            num = Math.floor(num / 100).toString();
+            for (var i = 0; i < Math.floor((num.length - (1 + i)) / 3); i++)
+                num = num.substring(0, num.length - (4 * i + 3)) + ',' +
+            num.substring(num.length - (4 * i + 3));
+            return (((sign) ? '' : '-') + num);
+        }
+
+        function calculate_money() {
+
+            // Áp dụng tính tiền tự động
+            var dc_so_tien_thanh_toan_chua_xu_ly = document.getElementById('<%=  m_txt_so_tien_thanh_toan.ClientID%>').value.toString();            
+            if (dc_so_tien_thanh_toan_chua_xu_ly == '') {
+                document.getElementById('<%= m_lbl_khong_so_tien_thanh_toan.ClientID %>').innerHTML = 'Bạn chưa nhập số tiền thanh toán';
+                return;
+            } else document.getElementById('<%= m_lbl_khong_so_tien_thanh_toan.ClientID %>').innerHTML = '';            
             var v_arr = new Array();
             var v_dc_so_tien_thuc = "";
             v_arr = dc_so_tien_thanh_toan_chua_xu_ly.split(',');
             for (var i = 0; i < v_arr.length; i++) {
                 v_dc_so_tien_thuc += v_arr[i];
             }
-            var v_dc_so_tien_thanh_toan = parseFloat(v_dc_so_tien_thuc);  
-                     
-            // Lớn hơn hoặc bằng 1 triệu thì có tính thuế
-            if (v_dc_so_tien_thanh_toan >= 1000000) {
-                document.getElementById('<%=  m_txt_so_tien_thue1.ClientID%>').value = v_dc_so_tien_thanh_toan / 10;
-                document.getElementById('<%=  m_txt_so_tien_thuc_nhan.ClientID%>').value = 9 * v_dc_so_tien_thanh_toan / 10;
+            var v_dc_so_tien_thanh_toan = parseFloat(v_dc_so_tien_thuc);
+
+            // Lấy thông tin - Đây là tạm ứng hay thanh lý
+            var v_rdl_parent = document.getElementById('<%=  rdl_noi_dung_list.ClientID%>');
+            var radio = document.getElementsByTagName('input');
+            var v_str_loai_tt = ''; // Thanhly hay là Tamung
+            for (var i = 0; i < radio.length; i++) {
+                if (radio[i].checked) v_str_loai_tt = radio[i].value.toString();
             }
-            else {
-                if (v_dc_so_tien_thanh_toan < 1000000) {
-                    document.getElementById('<%=  m_txt_so_tien_thue1.ClientID%>').value = 0;
-                    document.getElementById('<%=  m_txt_so_tien_thuc_nhan.ClientID%>').value = v_dc_so_tien_thanh_toan;
+            var dc_tong_gia_tri_nghiem_thu_chua_xu_ly = document.getElementById('<%=  m_txt_gia_tri_nghiem_thu_thuc_te.ClientID%>').value.toString();
+            // Lớn hơn hoặc bằng 1 triệu thì có tính thuế và đây là thanh lý
+            if (v_dc_so_tien_thanh_toan >= 1000000 && v_str_loai_tt == 'Thanhly') {
+                // Xử lý số tiền thanh lý
+                var v_arr_nghiem_thu = new Array();
+                var v_dc_nghiem_thu = "";
+                v_arr_nghiem_thu = dc_tong_gia_tri_nghiem_thu_chua_xu_ly.split(',');
+                for (var i = 0; i < v_arr_nghiem_thu.length; i++) {
+                    v_dc_nghiem_thu += v_arr_nghiem_thu[i];
                 }
+                var v_dc_nghiem_thu_da_xu_ly = parseFloat(v_dc_nghiem_thu); // Đây là số tiền nghiệm thu thực tế
+
+                document.getElementById('<%=  m_txt_so_tien_thue1.ClientID%>').value = formatCurrency(v_dc_nghiem_thu_da_xu_ly / 10);
+                document.getElementById('<%=  m_txt_so_tien_thuc_nhan.ClientID%>').value = formatCurrency(v_dc_so_tien_thanh_toan - v_dc_nghiem_thu_da_xu_ly / 10);
             }
+            // Đây là tạm ứng hoặc số tiền thanh toán < 1,000,000
+            else {
+                    document.getElementById('<%=  m_txt_so_tien_thue1.ClientID%>').value = 0;
+                    document.getElementById('<%=  m_txt_so_tien_thuc_nhan.ClientID%>').value = formatCurrency(v_dc_so_tien_thanh_toan);
+                
+            } 
         }
     </script>
+    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
 <table  cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0">
@@ -205,7 +254,7 @@
 			       
                 </td>
                 <td align="left" style="width:10%;">    
-                    <asp:RadioButtonList ID="rdl_noi_dung_list" runat="server" 
+                    <asp:RadioButtonList ID="rdl_noi_dung_list" runat="server"
                         RepeatDirection="Horizontal" Width="98%" >
                         <asp:ListItem Value="Thanhly" Selected="True">Thanh lý</asp:ListItem>
                         <asp:ListItem Value="Tamung">Tạm ứng</asp:ListItem>
@@ -236,7 +285,7 @@
                 Text="Tổng giá trị nghiệm thu thực tế" />
                 </td>
                 <td align="left" style="width:10%;">  
-                 <asp:TextBox  ID="m_txt_gia_tri_nghiem_thu_thuc_te" CssClass="csscurrency" Width="96%" 
+                 <asp:TextBox  ID="m_txt_gia_tri_nghiem_thu_thuc_te" CssClass="csscurrency" Width="96%" onblur='check_nhap()'
                         runat="server"></asp:TextBox>  
                         </td> 
                 <td align="left" style="width:1%;">			       
@@ -248,14 +297,11 @@
         Display="Dynamic" ValueToCompare="0" ControlToValidate="m_txt_gia_tri_nghiem_thu_thuc_te" 
                             ErrorMessage = "Giá trị nhập không đúng định dạng" />
                         </td>
-                <td align="right" style="width:5%;">
+                <td align="left" colspan="2">
 			       
-			<asp:label id="lblMon8" CssClass="cssManField" Visible="false" runat="server" 
-                Text="Số tiền đã thanh toán (VNĐ)" />
+			<asp:label id="m_lbl_khong_nhap_nghiem_thu_thuc_te" CssClass="cssManField" runat="server" 
+                Text=""/>
                 </td>
-                <td align="left" style="width:10%;">    
-                    <asp:Label ID="lbl_da_tt" Text="" runat="server"></asp:Label></td> <td align="left" style="width:1%;">			       
-                        &nbsp;</td>
                  <td align="right" style="width:5%;"></td>
                 <td align="left" style="width:10%;"></td>
             </tr>
@@ -280,11 +326,11 @@
     <asp:CompareValidator runat="server" id="compPrimeNumberPositive" Operator="GreaterThanEqual" Type="Currency"
         Display="Dynamic" ValueToCompare="0" ControlToValidate="m_txt_so_tien_thanh_toan" ErrorMessage = "Giá trị nhập không đúng định dạng" />
                         </td>
-                <td align="right" style="width:5%;">
+                <td align="left" colspan="2">
 			       
-			        &nbsp;</td>
-                <td align="left" style="width:10%;">    
-			        &nbsp;</td>
+			<asp:label id="m_lbl_khong_so_tien_thanh_toan" CssClass="cssManField" runat="server" 
+                Text=""/>
+                </td>
                      <td align="left" style="width:1%;">&nbsp;</td>
                  <td align="right" style="width:5%;">&nbsp;</td>
                 <td align="left" style="width:10%;">&nbsp;</td>
@@ -414,7 +460,7 @@
                  </td>
                 <td align="left" style="width:1%;">
                     <asp:Button ID="m_cmd_xoa_trang" runat="server" CausesValidation="False" 
-                        CssClass="cssButton" Height="25px"  Text="Xóa trắng" 
+                        CssClass="cssButton" Height="25px"  Text="Xóa trắng"
                         Width="98px" onclick="m_cmd_xoa_trang_Click" />
                 </td>
                 <td align="left" style="width:10%;">
