@@ -23,6 +23,7 @@ public partial class BaoCao_F702_ThanhToanTungGiangVien : System.Web.UI.Page
             load_data_2_cbo_don_vi_thanh_toan();
             load_data_2_nam_bd_hop_tac();
             load_data_2_cbo_giang_vien();
+            m_lbl_ma_gv.Text = mapping_magv_by_id(CIPConvert.ToDecimal(m_cbo_ten_giang_vien.SelectedValue));
             //load_data_2_cbo_dot_thanh_toan(CIPConvert.ToDecimal(m_cbo_thang_thanh_toan.SelectedValue), CIPConvert.ToDecimal(m_cbo_nam_thanh_toan.SelectedValue), CIPConvert.ToDecimal(m_cbo_don_vi_thanh_toan.SelectedValue));
             //if (m_cbo_dot_thanh_toan.Items.Count > 0)
             //{
@@ -630,6 +631,7 @@ public partial class BaoCao_F702_ThanhToanTungGiangVien : System.Web.UI.Page
     {
         try
         {
+            m_lbl_ma_gv.Text = mapping_magv_by_id(CIPConvert.ToDecimal(m_cbo_ten_giang_vien.SelectedValue));
             search_data_show_on_grid();
         }
         catch (Exception v_e)
