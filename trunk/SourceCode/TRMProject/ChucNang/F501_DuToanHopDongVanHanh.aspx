@@ -21,10 +21,22 @@
              var openWindow = window.open(popUrl, name, appearence);
              openWindow.focus();
          }
+         function formatCurrency(num) {
+             num = num.toString().replace(/\$|\,/g, '');
+             if (isNaN(num))
+                 num = "0";
+             sign = (num == (num = Math.abs(num)));
+             num = Math.floor(num * 100 + 0.50000000001);
+             num = Math.floor(num / 100).toString();
+             for (var i = 0; i < Math.floor((num.length - (1 + i)) / 3); i++)
+                 num = num.substring(0, num.length - (4 * i + 3)) + ',' +
+            num.substring(num.length - (4 * i + 3));
+             return (((sign) ? '' : '-') + num);
+         }
          function calculate_money() {
              var dc_so_tien_thanh_toan_chua_xu_ly = document.getElementById('<%=  m_txt_so_tien_thanh_toan.ClientID%>').value.toString();
              if (dc_so_tien_thanh_toan_chua_xu_ly == '') {
-                 alert('Bạn chưa nhập số tiền thanh toán');
+                 document.getElementById('<%= m_lbl_khong_so_tien_thanh_toan.ClientID %>').innerHTML = 'Bạn chưa nhập số tiền thanh toán';
                  return;
              }
              var v_arr = new Array();
@@ -37,13 +49,13 @@
 
              // Lớn hơn hoặc bằng 1 triệu thì có tính thuế
              if (v_dc_so_tien_thanh_toan >= 1000000) {
-                 document.getElementById('<%=  m_txt_so_tien_thue1.ClientID%>').value = v_dc_so_tien_thanh_toan / 10;
-                 document.getElementById('<%=  m_txt_so_tien_thuc_nhan.ClientID%>').value = 9 * v_dc_so_tien_thanh_toan / 10;
+                 document.getElementById('<%=  m_txt_so_tien_thue1.ClientID%>').value = formatCurrency(v_dc_so_tien_thanh_toan / 10);
+                 document.getElementById('<%=  m_txt_so_tien_thuc_nhan.ClientID%>').value =formatCurrency(9 * v_dc_so_tien_thanh_toan / 10);
              }
              else {
                  if (v_dc_so_tien_thanh_toan < 1000000) {
                      document.getElementById('<%=  m_txt_so_tien_thue1.ClientID%>').value = 0;
-                     document.getElementById('<%=  m_txt_so_tien_thuc_nhan.ClientID%>').value = v_dc_so_tien_thanh_toan;
+                     document.getElementById('<%=  m_txt_so_tien_thuc_nhan.ClientID%>').value =formatCurrency(v_dc_so_tien_thanh_toan);
                  }
              }
          }
@@ -268,8 +280,11 @@
     <asp:CompareValidator runat="server" id="compPrimeNumberPositive" Operator="GreaterThanEqual" Type="Currency"
         Display="Dynamic" ValueToCompare="0" ControlToValidate="m_txt_so_tien_thanh_toan" ErrorMessage = "Giá trị nhập không đúng định dạng" />
                        </td>
-                <td align="left" style="width:5%;">
-			        &nbsp;</td>
+                 <td align="left" colspan="2">
+			       
+			<asp:label id="m_lbl_khong_so_tien_thanh_toan" CssClass="cssManField" runat="server" 
+                Text=""/>
+                </td>
                 <td align="left" style="width:10%;">    
 			        &nbsp;</td> <td align="left" style="width:1%;"></td>
                  <td align="right" style="width:5%;"></td>
