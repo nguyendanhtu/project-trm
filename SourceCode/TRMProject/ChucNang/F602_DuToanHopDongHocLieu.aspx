@@ -53,7 +53,7 @@
                 if (dc_tong_gia_tri_nghiem_thu_chua_xu_ly == '') {
                     document.getElementById('<%= m_lbl_khong_nhap_nghiem_thu_thuc_te.ClientID %>').innerHTML = 'Hãy nhập tổng giá trị nghiệm thu thực tế';
                     return;
-                }
+                } else document.getElementById('<%= m_lbl_khong_nhap_nghiem_thu_thuc_te.ClientID %>').innerHTML = '';
             } else document.getElementById('<%= m_lbl_khong_nhap_nghiem_thu_thuc_te.ClientID %>').innerHTML = '';
         }
 
