@@ -129,7 +129,7 @@ public partial class ChucNang_F601_CheckSoHopDong : System.Web.UI.Page
         US_V_GD_THANH_TOAN v_us_v_gd_tt = new US_V_GD_THANH_TOAN();
         DS_V_GD_THANH_TOAN v_ds_v_gd_tt = new DS_V_GD_THANH_TOAN();
         // lấy toàn bộ thanh toán của hợp đồng theo id_hop_dong
-        v_us_v_gd_tt.FillDataset(v_ds_v_gd_tt, " WHERE ID_HOP_DONG_KHUNG=" + ip_dc_id_hop_dong_khung + " ORDER BY ID");
+        v_us_v_gd_tt.f601_load_thanh_toan_theo_hop_dong_de_kiem_tra(ip_dc_id_hop_dong_khung, v_ds_v_gd_tt);
         // Nếu đã có thanh toán
         if (v_ds_v_gd_tt.V_GD_THANH_TOAN.Rows.Count > 0)
         // kiểm tra xem đã thanh lý chưa
@@ -147,13 +147,21 @@ public partial class ChucNang_F601_CheckSoHopDong : System.Web.UI.Page
             {
                
                 decimal v_dc_so_tien_da_tt = 0;
-                v_dc_so_tien_da_tt += CIPConvert.ToDecimal(v_ds_v_gd_tt.V_GD_THANH_TOAN.Rows[v_ds_v_gd_tt.V_GD_THANH_TOAN.Rows.Count - 1][V_GD_THANH_TOAN.DA_THANH_TOAN]) + CIPConvert.ToDecimal(v_ds_v_gd_tt.V_GD_THANH_TOAN.Rows[v_ds_v_gd_tt.V_GD_THANH_TOAN.Rows.Count - 1][V_GD_THANH_TOAN.TONG_TIEN_THANH_TOAN]);  
                 if (ip_str_loai_hd.Equals("HL"))
                 {
+                    v_dc_so_tien_da_tt += CIPConvert.ToDecimal(v_ds_v_gd_tt.V_GD_THANH_TOAN.Rows[v_ds_v_gd_tt.V_GD_THANH_TOAN.Rows.Count - 1][V_GD_THANH_TOAN.DA_THANH_TOAN]) + CIPConvert.ToDecimal(v_ds_v_gd_tt.V_GD_THANH_TOAN.Rows[v_ds_v_gd_tt.V_GD_THANH_TOAN.Rows.Count - 1][V_GD_THANH_TOAN.TONG_TIEN_THANH_TOAN]);
                     string v_str_so_lan_tam_ung = cut_end_string(CIPConvert.ToStr(v_ds_v_gd_tt.V_GD_THANH_TOAN.Rows[v_ds_v_gd_tt.V_GD_THANH_TOAN.Rows.Count - 1][V_GD_THANH_TOAN.REFERENCE_CODE]));
                     m_lbl_thong_bao.Text = "Hợp đồng này đã được tạm ứng " + v_str_so_lan_tam_ung + " lần. Số tiền đã thanh toán là: " + CIPConvert.ToStr(v_dc_so_tien_da_tt, "#,###");
                 }
-                else m_lbl_thong_bao.Text = "Số tiền đã thanh toán: " + CIPConvert.ToStr(v_dc_so_tien_da_tt, "#,###");
+                else // Vận hành
+                {
+                    for (int v_i = 0; v_i < v_ds_v_gd_tt.V_GD_THANH_TOAN.Rows.Count; v_i++)
+                    {
+                        v_dc_so_tien_da_tt += CIPConvert.ToDecimal(v_ds_v_gd_tt.V_GD_THANH_TOAN.Rows[v_i][V_GD_THANH_TOAN.TONG_TIEN_THANH_TOAN]);
+                    }
+                    
+                    m_lbl_thong_bao.Text = "Số tiền đã thanh toán: " + CIPConvert.ToStr(v_dc_so_tien_da_tt, "#,###");
+                }
             }
          // Nếu số dòng ==0 nghĩa là chưa có thanh toán nào, ko thực hiện gì
     }

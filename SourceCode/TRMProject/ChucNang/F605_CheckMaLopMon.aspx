@@ -43,7 +43,7 @@
 	<tr>
 		<td align="center" valign="top" colspan="3">
             <asp:GridView ID="m_grv_dm_danh_sach_hop_dong_khung" AllowPaging="True" 
-                runat="server" AutoGenerateColumns="False" 
+                runat="server" AutoGenerateColumns="False" ShowFooter="true"
                 Width="100%" DataKeyNames="ID"
                 CellPadding="4" ForeColor="#333333" 
             AllowSorting="True" >
@@ -73,17 +73,18 @@
                     </ItemTemplate>
                     <ItemStyle Width="10%"/>
                     </asp:TemplateField> 
-                      <asp:TemplateField HeaderText="Thời gian lớp môn">
+                      <asp:TemplateField HeaderText="Thời gian lớp môn" FooterText="Tổng tiền đã thanh toán: ">
                     <ItemTemplate><%# mapping_thoi_gian_lop_mon((Eval("GHI_CHU_THOI_GIAN_LOP_MON")))%></ItemTemplate>
                     <ItemStyle HorizontalAlign="Center"></ItemStyle>
                     </asp:TemplateField>
-                     <asp:TemplateField HeaderText="Đã thanh toán">
-                    <ItemTemplate><%# CIPConvert.ToStr(CIPConvert.ToDecimal(Eval("DA_THANH_TOAN")) + CIPConvert.ToDecimal(Eval("TONG_TIEN_THANH_TOAN")), "#,###")%></ItemTemplate>
+                     <asp:TemplateField HeaderText="Số tiền thanh toán" FooterText="">
+                    <ItemTemplate><%# CIPConvert.ToStr(CIPConvert.ToDecimal(Eval("TONG_TIEN_THANH_TOAN")), "#,###")%></ItemTemplate>
                      <ItemStyle HorizontalAlign="Right"></ItemStyle>
+                     <FooterStyle HorizontalAlign="Right" />
                     </asp:TemplateField>                   
                 </Columns>
                   <EditRowStyle BackColor="#7C6F57" />
-                  <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                  <FooterStyle BackColor="#810c15" Font-Bold="True" ForeColor="White" />
                   <HeaderStyle BackColor="#810c15" Font-Bold="True" ForeColor="White" />
                   <PagerSettings Position="TopAndBottom" />
                   <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />

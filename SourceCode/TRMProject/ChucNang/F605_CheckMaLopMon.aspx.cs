@@ -93,6 +93,16 @@ public partial class ChucNang_F605_CheckMaLopMon : System.Web.UI.Page
         }
         m_grv_dm_danh_sach_hop_dong_khung.DataSource = v_ds_gd_thanh_toan.V_GD_THANH_TOAN;
         m_grv_dm_danh_sach_hop_dong_khung.DataBind();
+        if (v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count > 0)
+        {
+            decimal v_dc_sum = 0;
+            for (int i = 0; i < v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows.Count; i++)
+            {
+                v_dc_sum += CIPConvert.ToDecimal(v_ds_gd_thanh_toan.V_GD_THANH_TOAN.Rows[i][V_GD_THANH_TOAN.TONG_TIEN_THANH_TOAN]);
+            }
+            //string v_str_da_tt =
+            m_grv_dm_danh_sach_hop_dong_khung.FooterRow.Cells[8].Text = CIPConvert.ToStr(v_dc_sum, "#,###");
+        }
     }
     private decimal get_id_hd_khung_by_so_hd(string ip_str_so_hd)
     {
