@@ -38,7 +38,7 @@
              if (dc_so_tien_thanh_toan_chua_xu_ly == '') {
                  document.getElementById('<%= m_lbl_khong_so_tien_thanh_toan.ClientID %>').innerHTML = 'Bạn chưa nhập số tiền thanh toán';
                  return;
-             }
+             } else document.getElementById('<%= m_lbl_khong_so_tien_thanh_toan.ClientID %>').innerHTML = '';
              var v_arr = new Array();
              var v_dc_so_tien_thuc = "";
              v_arr = dc_so_tien_thanh_toan_chua_xu_ly.split(',');
