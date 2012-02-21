@@ -861,6 +861,12 @@ public class US_V_GD_THANH_TOAN : US_Object
         v_cstore.addNVarcharInputParam("@LOAI_HOP_DONG", ip_str_loai_hop_dong);
         v_cstore.fillDataSetByCommand(this, ip_ds_gd_thanh_toan);
     }
+    public void f601_load_thanh_toan_theo_hop_dong_de_kiem_tra(decimal ip_dc_id_hop_dong, DS_V_GD_THANH_TOAN ip_v_ds_gd_thanh_toan)
+    {
+        CStoredProc v_store = new CStoredProc("pr_V_GD_THANH_TOAN_GetThanhToanByIdHopDong_f601");
+        v_store.addDecimalInputParam("@id_hop_dong_khung", ip_dc_id_hop_dong);
+        v_store.fillDataSetByCommand(this, ip_v_ds_gd_thanh_toan);
+    }
     #endregion
 }
 }
