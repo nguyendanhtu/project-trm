@@ -189,7 +189,7 @@ public partial class BaoCao_F704_CacChungTuTonDong : System.Web.UI.Page
     private void load_data_2_nam_bd_hop_tac()
     {
         m_cbo_nam_thanh_toan.Items.Add(new ListItem("Tất cả", CIPConvert.ToStr(0)));
-        for (int v_i = 2000; v_i < 2051; v_i++)
+        for (int v_i = 2008; v_i < 2051; v_i++)
         {
             m_cbo_nam_thanh_toan.Items.Add(new ListItem(v_i.ToString(), v_i.ToString()));
         }
