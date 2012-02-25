@@ -89,6 +89,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_GD_LOP_MON_DETAIL.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DS_HT_CHUC_NANG.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_HT_CHUC_NANG.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DS_V_DM_DOT_THANH_TOAN.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -198,6 +203,17 @@
     </None>
     <None Include="DS_GD_LOP_MON_DETAIL.xss">
       <DependentUpon>DS_GD_LOP_MON_DETAIL.xsd</DependentUpon>
+    </None>
+    <None Include="DS_HT_CHUC_NANG.xsc">
+      <DependentUpon>DS_HT_CHUC_NANG.xsd</DependentUpon>
+    </None>
+    <None Include="DS_HT_CHUC_NANG.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_HT_CHUC_NANG.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS_HT_CHUC_NANG.xss">
+      <DependentUpon>DS_HT_CHUC_NANG.xsd</DependentUpon>
     </None>
     <None Include="DS_V_DM_DOT_THANH_TOAN.xsc">
       <DependentUpon>DS_V_DM_DOT_THANH_TOAN.xsd</DependentUpon>

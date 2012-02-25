@@ -346,5 +346,15 @@ namespace WebDS.CDBNames
        public const string DON_GIA_TT = "DON_GIA_TT";
        public const string REFERENCE_CODE = "REFERENCE_CODE";
    }
+   class HT_CHUC_NANG
+   {
+       public const string ID = "ID";
+       public const string TEN_CHUC_NANG = "TEN_CHUC_NANG";
+       public const string URL_FORM = "URL_FORM";
+       public const string TRANG_THAI_YN = "TRANG_THAI_YN";
+       public const string VI_TRI = "VI_TRI";
+       public const string CHUC_NANG_PARENT_ID = "CHUC_NANG_PARENT_ID";
+       public const string HIEN_THI_YN = "HIEN_THI_YN";
+   }
 
 }
