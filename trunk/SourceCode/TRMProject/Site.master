@@ -25,96 +25,41 @@
             </div>
          </div>
          <div id='wapper'>
-             <ul id='nav'>   
-             <li><a href="/TRMProject/Default.aspx">Home</a></li>
-              <li><a href="#">Quản trị hệ thống</a>
-                <ul>
-                    <li><a href="/TRMProject/Account/Login.aspx">Đăng nhập</a> </li>
-                    <li><a href="#">Phân quyền người dùng</a> </li>
-                    <li><a href="#">Người sử dụng</a> </li>
-                    <li><a href="/TRMProject/Account/Logout.aspx" >Đăng xuất</a></li>
-                </ul>
-              </li>
-
-               <li><a href="#">Quản lý danh mục</a>
-                    <ul>
-					    <li><a href="/TRMProject/DanhMuc/F101_Dictionary.aspx">Từ điển hệ thống</a></li>
-					    <li><a href="/TRMProject/DanhMuc/F300_MonHoc.aspx">Danh mục môn học</a></li>
-					    <li><a href="/TRMProject/DanhMuc/F200_NoiDungThanhToan.aspx">Danh mục Nội dung thanh toán</a></li>
-                        <li><a href="/TRMProject/DanhMuc/F400_DonViThanhToan.aspx">Danh mục Đơn vị thanh toán</a></li>
-				    </ul>
-              </li>
-
-               <li><a href="#">Nghiệp vụ</a>
-                   <ul>
-					    <li><a href="/TRMProject/ChucNang/F202_DanhSachGiangVien.aspx">Cập nhật giảng viên</a></li>
-					    <li><a href="/TRMProject/ChucNang/F302_DanhSachHopDongKhung.aspx">Cập nhật hợp đồng khung</a></li>
-					    <li><a href="/TRMProject/ChucNang/F103_DanhSachLopMon.aspx">Cập nhật lớp môn</a></li>
-				    </ul>
-              </li>
-
-              <li><a href="#">Quản lý thanh toán</a>
-                   <ul>
-                          <li><a href="/TRMProject/DanhMuc/F500_DotThanhToan.aspx">0. Lập đợt thanh toán</a></li>
-					      <li><a href="#">1. Lên bảng kê cho đợt thanh toán</a>
-                            <ul>
-                                <li><a href="/TRMProject/ChucNang/F602_DuToanHopDongHocLieu.aspx">1.1 Hợp đồng Học liệu</a></li>
-                                <li><a href="/TRMProject/ChucNang/F501_DuToanHopDongVanHanh.aspx">1.2 Hợp đồng Vận hành</a></li>
-                            </ul>
-                          </li>
-					      <li><a href="#">2. Duyệt chứng từ</a>
-                            <ul>
-                                <li><a href="/TRMProject/ChucNang/F402_DuyetTatCaBanKeThanhToan.aspx">2.1 Duyệt tất cả chứng từ</a></li>
-                                <li><a href="/TRMProject/ChucNang/F403_ChinhSuaPheDuyetChungTu.aspx">2.2 Chỉnh sửa duyệt chứng từ</a></li>
-                                <li><a href="#">2.3 Xuất danh sách thanh toán</a>
-                                 <ul>
-                                     <li><a href="/TRMProject/ChucNang/F404_XuatDanhSachThanhToanHocLieu.aspx">2.3.1 Hợp đồng học liệu</a></li>
-                                     <li><a href="/TRMProject/ChucNang/F412_XuatDanhSachThanhToanVanHanh.aspx">2.3.2 Hợp đồng vận hành</a></li>
+             <ul id='nav'> 
+                  <asp:Repeater ID="rptMainMenu" runat="server"
+                     OnItemDataBound="rptCategory_ItemDataBound"> 	
+                     <ItemTemplate> 
+                     <li><a href='<%# Eval("URL_FORM")%>'><%# Eval("TEN_CHUC_NANG")%></a>
+                      <ul> 
+                      <asp:Repeater ID="rpt_child_Menu" runat="server" OnItemDataBound="rptCategory_ItemDataBound_cap_ba"> 
+                      <ItemTemplate> 
+                        <li><a href='<%# Eval("URL_FORM") %>'><%# Eval("TEN_CHUC_NANG")%></a>
+                         <ul>
+                            <asp:Repeater ID="rpt_child_Menu_cap_ba" runat="server" OnItemDataBound="rptCategory_ItemDataBound_cap_bon"> 
+                              <ItemTemplate> 
+                              <li><a href='<%# Eval("URL_FORM") %>'><%# Eval("TEN_CHUC_NANG")%></a>
+                                 <ul> 
+                                      <asp:Repeater ID="rpt_child_Menu_cap_bon" runat="server" > 
+                                      <ItemTemplate> 
+                                      <li><a href='<%# Eval("URL_FORM") %>'><%# Eval("TEN_CHUC_NANG")%></a>
+                                      </li> 
+                                      </ItemTemplate> 
+                                      </asp:Repeater> 
                                  </ul>
-                                </li>
-                            </ul>
-                          </li>
-                          <li><a href="#">3. Xác nhận ngân hàng</a>
-                           <ul>
-                                <li><a href="/TRMProject/ChucNang/F408_XacNhanToanBoNganHang.aspx">3.1 Xác nhận toàn bộ</a></li>
-                                <li><a href="/TRMProject/ChucNang/F405_ChinhSuaXacNhanNganHang.aspx">3.2 Chỉnh sửa xác nhận ngân hàng</a></li>
-                            </ul>
-                          </li>
-                          <li><a href="#">4. Xác nhận giảng viên</a>
-                          <ul>
-                                <li><a href="/TRMProject/ChucNang/F409_XacNhanGiangVienTungThanhToan.aspx">4.1 Xác nhận từng giảng viên</a></li>
-                                <li><a href="/TRMProject/ChucNang/F406_XacNhanToanBoGiangVien.aspx">4.2 Xác nhận toàn bộ giảng viên</a></li>
-                                <li><a href="/TRMProject/ChucNang/F410_ChinhSuaXacNhanGV.aspx">4.3 Chỉnh sửa xác nhận giảng viên</a></li>
-                            </ul>
-                          </li>
-                           <li><a href="#">5. Xử lý các chứng từ tồn đọng</a>
-                            <ul>
-                                <li><a href="/TRMProject/ChucNang/F413_XuLyCacChungTuTonDong.aspx">5.1 Xử lý các chứng từ lỗi và chưa có xác nhận ngân hàng</a></li>
-                                <li><a href="/TRMProject/ChucNang/F414_XuLyCacChungTuChuaDuocThanhToan.aspx">5.2 Xử lý các chứng từ chưa được thanh toán</a></li>
-                            </ul>
-                           </li>
-                          <li><a href="/TRMProject/ChucNang/F411_DongDotThanhToan.aspx">6. Đóng đợt thanh toán</a></li>
-				    </ul>
-              </li>
-               <li><a href="#">Báo cáo</a>
-                    <ul>
-					    <li><a href="/TRMProject/BaoCao/F700_ChiTietThanhToanDotThanhToan.aspx">Chi tiết các thanh toán của đợt thanh toán</a></li>
-					    <li><a href="/TRMProject/BaoCao/F701_ThanhToanTheoThoiGian.aspx">Thanh toán theo đơn vị, thời gian thanh toán</a></li>
-					    <li><a href="/TRMProject/BaoCao/F702_ThanhToanTungGiangVien.aspx">Lịch sử thanh toán giảng viên</a></li>
-                         <li><a href="/TRMProject/BaoCao/F703_LichSuThanhToanHopDong.aspx">Lịch sử thanh toán hợp đồng</a></li>
-                         <li><a href="/TRMProject/BaoCao/F704_CacChungTuTonDong.aspx">Các chứng từ tồn đọng</a></li>
-                         <li><a href="/TRMProject/BaoCao/F705_BaoCaoThanhToanLuongGiangVien.aspx">Báo cáo lương giảng viên - Kế toán</a></li>
-				    </ul>
-              </li>
+                              </li> 
+                              </ItemTemplate> 
+                              </asp:Repeater> 
+                         </ul> 
+                      </li> 
+                      </ItemTemplate> 
+                      </asp:Repeater> 
+                      </ul> 
+                    </li> 
+                    </ItemTemplate> 
+                </asp:Repeater> 
 
-              <li><a href="#">Trợ giúp</a>
-                    <ul>
-					    <li><a href="#">Giới thiệu Website</a></li>
-					    <li><a href="#">Hướng dẫn sử dụng</a></li>
-				    </ul>
-              </li>
              </ul>
-             </div>
+        </div>
         <div class="main">
             <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
         </div>
