@@ -221,6 +221,12 @@
     <None Include="DS_CM_DM_TU_DIEN.xsx">
       <DependentUpon>DS_CM_DM_TU_DIEN.xsd</DependentUpon>
     </None>
+    <None Include="DS_HT_NGUOI_SU_DUNG.xsc">
+      <DependentUpon>DS_HT_NGUOI_SU_DUNG.xsd</DependentUpon>
+    </None>
+    <None Include="DS_HT_NGUOI_SU_DUNG.xss">
+      <DependentUpon>DS_HT_NGUOI_SU_DUNG.xsd</DependentUpon>
+    </None>
     <None Include="DS_HT_NGUOI_SU_DUNG.xsx">
       <DependentUpon>DS_HT_NGUOI_SU_DUNG.xsd</DependentUpon>
     </None>
