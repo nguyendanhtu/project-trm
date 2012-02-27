@@ -29,19 +29,19 @@
                   <asp:Repeater ID="rptMainMenu" runat="server"
                      OnItemDataBound="rptCategory_ItemDataBound"> 	
                      <ItemTemplate> 
-                     <li><a href='<%# Eval("URL_FORM")%>'><%# Eval("TEN_CHUC_NANG")%></a>
+                     <li><asp:HyperLink runat="server" NavigateUrl='<%# Eval("URL_FORM") %>'><%# Eval("TEN_CHUC_NANG")%></asp:HyperLink>
                       <ul> 
                       <asp:Repeater ID="rpt_child_Menu" runat="server" OnItemDataBound="rptCategory_ItemDataBound_cap_ba"> 
                       <ItemTemplate> 
-                        <li><a href='<%# Eval("URL_FORM") %>'><%# Eval("TEN_CHUC_NANG")%></a>
+                        <li><asp:HyperLink runat="server" NavigateUrl='<%# Eval("URL_FORM") %>'><%# Eval("TEN_CHUC_NANG")%></asp:HyperLink>
                          <ul>
                             <asp:Repeater ID="rpt_child_Menu_cap_ba" runat="server" OnItemDataBound="rptCategory_ItemDataBound_cap_bon"> 
                               <ItemTemplate> 
-                              <li><a href='<%# Eval("URL_FORM") %>'><%# Eval("TEN_CHUC_NANG")%></a>
+                              <li><asp:HyperLink runat="server" NavigateUrl='<%# Eval("URL_FORM") %>'><%# Eval("TEN_CHUC_NANG")%></asp:HyperLink>
                                  <ul> 
                                       <asp:Repeater ID="rpt_child_Menu_cap_bon" runat="server" > 
                                       <ItemTemplate> 
-                                      <li><a href='<%# Eval("URL_FORM") %>'><%# Eval("TEN_CHUC_NANG")%></a>
+                                      <li><asp:HyperLink runat="server" NavigateUrl='<%# Eval("URL_FORM") %>'><%# Eval("TEN_CHUC_NANG")%></asp:HyperLink>
                                       </li> 
                                       </ItemTemplate> 
                                       </asp:Repeater> 
