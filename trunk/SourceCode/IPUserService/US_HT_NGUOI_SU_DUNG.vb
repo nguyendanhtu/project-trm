@@ -34,9 +34,26 @@ Public Class US_HT_NGUOI_SU_DUNG
 #End Region
 
 #Region "Public Properties"
+    Public Property dcID_USER_GROUP() As Decimal
+        Get
+            Return CNull.RowNVLDecimal(pm_objDR, "ID_USER_GROUP")
+        End Get
+        Set(ByVal Value As Decimal)
+            pm_objDR.Item("ID_USER_GROUP") = Value
+        End Set
+    End Property
+
+    Public Function IsID_USER_GROUPNull() As Boolean
+        Return pm_objDR.IsNull("ID_USER_GROUP")
+    End Function
+
+    Public Sub SetID_USER_GROUPNull()
+        pm_objDR("ID_USER_GROUP") = System.Convert.DBNull
+    End Sub
+
     Public Property dcID() As Decimal
         Get
-            Return CNull.RowNVLDecimal(pm_objdr, "ID")
+            Return CNull.RowNVLDecimal(pm_objDR, "ID")
         End Get
         Set(ByVal Value As Decimal)
             pm_objDR.Item("ID") = Value
@@ -153,9 +170,9 @@ Public Class US_HT_NGUOI_SU_DUNG
         pm_objDR("TRANG_THAI") = System.Convert.DBNull
     End Sub
 
-    
 
-    
+
+
 
     Public Property strBUILT_IN_YN() As String
         Get
