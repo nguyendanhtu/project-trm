@@ -346,7 +346,7 @@ namespace WebDS.CDBNames
        public const string DON_GIA_TT = "DON_GIA_TT";
        public const string REFERENCE_CODE = "REFERENCE_CODE";
    }
-   class HT_CHUC_NANG
+   public class HT_CHUC_NANG
    {
        public const string ID = "ID";
        public const string TEN_CHUC_NANG = "TEN_CHUC_NANG";

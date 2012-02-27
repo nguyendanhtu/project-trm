@@ -814,7 +814,7 @@ SELECT ID, ID_USER_GROUP, ID_QUYEN FROM HT_QUYEN_GROUP WHERE (ID = @ID)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::WebDS.Properties.Settings.Default.TRMConnectionString3;
+            this._connection.ConnectionString = global::WebDS.Properties.Settings.Default.TRMConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
