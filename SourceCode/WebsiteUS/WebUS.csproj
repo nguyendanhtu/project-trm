@@ -65,6 +65,8 @@
     <Compile Include="US_GD_LOP_MON.cs" />
     <Compile Include="US_GD_LOP_MON_DETAIL.cs" />
     <Compile Include="US_HT_CHUC_NANG.cs" />
+    <Compile Include="US_HT_QUYEN_GROUP.cs" />
+    <Compile Include="US_HT_USER_GROUP.cs" />
     <Compile Include="US_V_DM_DOT_THANH_TOAN.cs" />
     <Compile Include="US_V_DM_GIANG_VIEN.cs" />
     <Compile Include="US_V_DM_HOP_DONG_KHUNG.cs" />

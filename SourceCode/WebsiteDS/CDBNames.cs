@@ -356,5 +356,16 @@ namespace WebDS.CDBNames
        public const string CHUC_NANG_PARENT_ID = "CHUC_NANG_PARENT_ID";
        public const string HIEN_THI_YN = "HIEN_THI_YN";
    }
-
+   public class HT_QUYEN_GROUP
+   {
+       public const string ID = "ID";
+       public const string ID_USER_GROUP = "ID_USER_GROUP";
+       public const string ID_QUYEN = "ID_QUYEN";
+   }
+   public class HT_USER_GROUP
+   {
+       public const string ID = "ID";
+       public const string USER_GROUP_NAME = "USER_GROUP_NAME";
+       public const string DESCRIPTION = "DESCRIPTION";
+   }
 }
