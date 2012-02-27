@@ -94,6 +94,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_HT_CHUC_NANG.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DS_HT_QUYEN_GROUP.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_HT_QUYEN_GROUP.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DS_HT_USER_GROUP.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_HT_USER_GROUP.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DS_V_DM_DOT_THANH_TOAN.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -214,6 +224,28 @@
     </None>
     <None Include="DS_HT_CHUC_NANG.xss">
       <DependentUpon>DS_HT_CHUC_NANG.xsd</DependentUpon>
+    </None>
+    <None Include="DS_HT_QUYEN_GROUP.xsc">
+      <DependentUpon>DS_HT_QUYEN_GROUP.xsd</DependentUpon>
+    </None>
+    <None Include="DS_HT_QUYEN_GROUP.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_HT_QUYEN_GROUP.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DS_HT_QUYEN_GROUP.xss">
+      <DependentUpon>DS_HT_QUYEN_GROUP.xsd</DependentUpon>
+    </None>
+    <None Include="DS_HT_USER_GROUP.xsc">
+      <DependentUpon>DS_HT_USER_GROUP.xsd</DependentUpon>
+    </None>
+    <None Include="DS_HT_USER_GROUP.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_HT_USER_GROUP.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DS_HT_USER_GROUP.xss">
+      <DependentUpon>DS_HT_USER_GROUP.xsd</DependentUpon>
     </None>
     <None Include="DS_V_DM_DOT_THANH_TOAN.xsc">
       <DependentUpon>DS_V_DM_DOT_THANH_TOAN.xsd</DependentUpon>
