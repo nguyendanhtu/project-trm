@@ -38,54 +38,46 @@ public partial class SiteMaster : System.Web.UI.MasterPage
         if (!IsPostBack)
         {
             m_us_ht_chuc_nang.get_parent_table(m_str_user_name, m_ds_ht_chuc_nang);
-            rptMainMenu.DataSource = m_ds_ht_chuc_nang.HT_CHUC_NANG;
+            rptMainMenu.DataSource = m_ds_ht_chuc_nang.HT_CHUC_NANG.Select("CHUC_NANG_PARENT_ID =0","VI_TRI");
             rptMainMenu.DataBind();
         }
 
     }
     protected void rptCategory_ItemDataBound(object sender, RepeaterItemEventArgs e)
     {
-        US_HT_CHUC_NANG v_us_ht_chuc_nang = new US_HT_CHUC_NANG();
-        DS_HT_CHUC_NANG v_ds_ht_chuc_nang = new DS_HT_CHUC_NANG();
-        DataRowView dtr_row = (DataRowView)e.Item.DataItem;
+        DS_HT_CHUC_NANG.HT_CHUC_NANGRow dtr_row = (DS_HT_CHUC_NANG.HT_CHUC_NANGRow)e.Item.DataItem;        
         Repeater rptMenu_child = (Repeater)e.Item.FindControl("rpt_child_Menu");
         decimal v_dc_parent_id = CIPConvert.ToDecimal(dtr_row[0]);
-        v_us_ht_chuc_nang.get_child_menu(v_dc_parent_id, m_str_user_name, v_ds_ht_chuc_nang);
         if (rptMenu_child != null)
         {
             // Cái này chứa những thằng con của thằng cha  
-
-            rptMenu_child.DataSource = v_ds_ht_chuc_nang.HT_CHUC_NANG;
+            rptMenu_child.DataSource = m_ds_ht_chuc_nang.HT_CHUC_NANG.Select("CHUC_NANG_PARENT_ID =" + v_dc_parent_id," VI_TRI") ;
             rptMenu_child.DataBind();
         }
     }
     protected void rptCategory_ItemDataBound_cap_ba(object sender, RepeaterItemEventArgs e)
     {
-        US_HT_CHUC_NANG v_us_ht_chuc_nang = new US_HT_CHUC_NANG();
-        DS_HT_CHUC_NANG v_ds_ht_chuc_nang = new DS_HT_CHUC_NANG();
-        DataRowView dtr_row = (DataRowView)e.Item.DataItem;
+        DS_HT_CHUC_NANG.HT_CHUC_NANGRow dtr_row = (DS_HT_CHUC_NANG.HT_CHUC_NANGRow)e.Item.DataItem;  
         Repeater rptMenu_child = (Repeater)e.Item.FindControl("rpt_child_Menu_cap_ba");
         decimal v_dc_parent_id = CIPConvert.ToDecimal(dtr_row[0]);
-        v_us_ht_chuc_nang.get_child_menu(v_dc_parent_id, m_str_user_name, v_ds_ht_chuc_nang);
+        //m_us_ht_chuc_nang.get_child_menu(v_dc_parent_id, m_str_user_name, m_ds_ht_chuc_nang);
         if (rptMenu_child != null)
         {
             // Cái này chứa những thằng con của thằng cha 
-            rptMenu_child.DataSource = v_ds_ht_chuc_nang.HT_CHUC_NANG;
+            rptMenu_child.DataSource = m_ds_ht_chuc_nang.HT_CHUC_NANG.Select("CHUC_NANG_PARENT_ID =" + v_dc_parent_id,"VI_TRI");
             rptMenu_child.DataBind();
         }
     }
     protected void rptCategory_ItemDataBound_cap_bon(object sender, RepeaterItemEventArgs e)
     {
-        US_HT_CHUC_NANG v_us_ht_chuc_nang = new US_HT_CHUC_NANG();
-        DS_HT_CHUC_NANG v_ds_ht_chuc_nang = new DS_HT_CHUC_NANG();
-        DataRowView dtr_row = (DataRowView)e.Item.DataItem;
+        DS_HT_CHUC_NANG.HT_CHUC_NANGRow dtr_row = (DS_HT_CHUC_NANG.HT_CHUC_NANGRow)e.Item.DataItem;  
         Repeater rptMenu_child = (Repeater)e.Item.FindControl("rpt_child_Menu_cap_bon");
         decimal v_dc_parent_id = CIPConvert.ToDecimal(dtr_row[0]);
-        v_us_ht_chuc_nang.get_child_menu(v_dc_parent_id, m_str_user_name, v_ds_ht_chuc_nang);
+        //m_us_ht_chuc_nang.get_child_menu(v_dc_parent_id, m_str_user_name, m_ds_ht_chuc_nang);
         if (rptMenu_child != null)
         {
             // Cái này chứa những thằng con của thằng cha 
-            rptMenu_child.DataSource = v_ds_ht_chuc_nang.HT_CHUC_NANG;
+            rptMenu_child.DataSource = m_ds_ht_chuc_nang.HT_CHUC_NANG.Select("CHUC_NANG_PARENT_ID =" + v_dc_parent_id,"VI_TRI");
             rptMenu_child.DataBind();
         }
     }
