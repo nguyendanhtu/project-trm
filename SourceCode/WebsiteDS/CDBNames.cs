@@ -390,5 +390,17 @@ namespace WebDS.CDBNames
        public const string HD_HUONG_DAN = "HD_HUONG_DAN";
        public const string HD_HOC_LIEU = "HD_HOC_LIEU";
    }
+   public class RPT_BAO_CAO_SO_LUONG_TRANG_THAI_HD_TONG_HOP
+   {
+       public const string ID = "ID";
+       public const string ID_TRANG_THAI_HOP_DONG = "ID_TRANG_THAI_HOP_DONG";
+       public const string TRANG_THAI_HOP_DONG = "TRANG_THAI_HOP_DONG";
+       public const string HD_CHUYEN_MON_EDUTOP = "HD_CHUYEN_MON_EDUTOP";
+       public const string HD_HUONG_DAN_EDUTOP = "HD_HUONG_DAN_EDUTOP";
+       public const string HD_HOC_LIEU_EDUTOP = "HD_HOC_LIEU_EDUTOP";
+       public const string HD_CHUYEN_MON_ELC = "HD_CHUYEN_MON_ELC";
+       public const string HD_HUONG_DAN_ELC = "HD_HUONG_DAN_ELC";
+       public const string HD_HOC_LIEU_ELC = "HD_HOC_LIEU_ELC";
+   }
 
 }
