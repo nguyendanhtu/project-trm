@@ -368,4 +368,27 @@ namespace WebDS.CDBNames
        public const string USER_GROUP_NAME = "USER_GROUP_NAME";
        public const string DESCRIPTION = "DESCRIPTION";
    }
+   public class RPT_BAO_CAO_THONG_KE_TRANG_THAI_GIANG_VIEN
+   {
+       public const string ID = "ID";
+       public const string ID_DON_VI_QUAN_LY = "ID_DON_VI_QUAN_LY";
+       public const string DON_VI_QUAN_LY = "DON_VI_QUAN_LY";
+       public const string ID_TRANG_THAI_GIANG_VIEN = "ID_TRANG_THAI_GIANG_VIEN";
+       public const string TRANG_THAI_GIANG_VIEN = "TRANG_THAI_GIANG_VIEN";
+       public const string GV_CHUYEN_MON = "GV_CHUYEN_MON";
+       public const string GV_HUONG_DAN = "GV_HUONG_DAN";
+       public const string GV_HOC_LIEU = "GV_HOC_LIEU";
+   }
+   public class RPT_BAO_CAO_SO_LUONG_TRANG_THAI_HD_GIANG_VIEN
+   {
+       public const string ID = "ID";
+       public const string ID_DON_VI_QUAN_LY = "ID_DON_VI_QUAN_LY";
+       public const string DON_VI_QUAN_LY = "DON_VI_QUAN_LY";
+       public const string ID_TRANG_THAI_HOP_DONG = "ID_TRANG_THAI_HOP_DONG";
+       public const string TRANG_THAI_HOP_DONG = "TRANG_THAI_HOP_DONG";
+       public const string HD_CHUYEN_MON = "HD_CHUYEN_MON";
+       public const string HD_HUONG_DAN = "HD_HUONG_DAN";
+       public const string HD_HOC_LIEU = "HD_HOC_LIEU";
+   }
+
 }
