@@ -946,6 +946,27 @@ public class US_V_DM_HOP_DONG_KHUNG : US_Object
         pm_objDR["GEN_PHU_LUC_YN"] = System.Convert.DBNull;
     }
 
+    public string strTRANG_THAI_TT_HOP_DONG
+    {
+        get
+        {
+            return CNull.RowNVLString(pm_objDR, "TRANG_THAI_TT_HOP_DONG", IPConstants.c_DefaultString);
+        }
+        set
+        {
+            pm_objDR["TRANG_THAI_TT_HOP_DONG"] = value;
+        }
+    }
+
+    public bool IsTRANG_THAI_TT_HOP_DONGNull()
+    {
+        return pm_objDR.IsNull("TRANG_THAI_TT_HOP_DONG");
+    }
+
+    public void SetTRANG_THAI_TT_HOP_DONGNull()
+    {
+        pm_objDR["TRANG_THAI_TT_HOP_DONG"] = System.Convert.DBNull;
+    }
     #endregion
 
     #region "Init Functions"

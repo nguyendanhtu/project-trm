@@ -212,6 +212,8 @@ namespace WebDS.CDBNames
          public const string GHI_CHU3 = "GHI_CHU3";
          public const string GHI_CHU4 = "GHI_CHU4";
          public const string CO_SO_HD_YN = "CO_SO_HD_YN";
+         public const string TRANG_THAI_TT_HOP_DONG = "TRANG_THAI_TT_HOP_DONG";
+
      }
 
     public class DM_HOP_DONG_KHUNG {
@@ -402,5 +404,14 @@ namespace WebDS.CDBNames
        public const string HD_HUONG_DAN_ELC = "HD_HUONG_DAN_ELC";
        public const string HD_HOC_LIEU_ELC = "HD_HOC_LIEU_ELC";
    }
-
+   public class RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV
+   {
+       public const string ID = "ID";
+       public const string ID_DON_VI_QUAN_LY = "ID_DON_VI_QUAN_LY";
+       public const string DON_VI_QUAN_LY = "DON_VI_QUAN_LY";
+       public const string TRANG_THAI_TT_HOP_DONG = "TRANG_THAI_TT_HOP_DONG";
+       public const string HD_CHUYEN_MON = "HD_CHUYEN_MON";
+       public const string HD_HUONG_DAN = "HD_HUONG_DAN";
+       public const string HD_HOC_LIEU = "HD_HOC_LIEU";
+   }
 }

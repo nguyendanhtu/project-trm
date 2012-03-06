@@ -228,5 +228,15 @@ public class US_RPT_BAO_CAO_SO_LUONG_TRANG_THAI_HD_TONG_HOP : US_Object
 		pm_objDR = getRowClone(pm_objDS.Tables[pm_strTableName].Rows[0]);
 	}
 #endregion
-	}
+
+    #region Additional function
+    public void bao_cao_thong_ke_hd_giang_vien_tong_hop(DS_RPT_BAO_CAO_SO_LUONG_TRANG_THAI_HD_TONG_HOP op_ds_bao_cao_so_luong_trang_thai_hd_tong_hop, decimal ip_dc_thang, decimal ip_dc_nam)
+    {
+        CStoredProc v_cstore = new CStoredProc("pr_V_DM_HOP_DONG_KHUNG_Bao_Cao_Tong_hop_Trang_Thai_HD");
+        v_cstore.addDecimalInputParam("@thang", ip_dc_thang);
+        v_cstore.addDecimalInputParam("@nam", ip_dc_nam);
+        v_cstore.fillDataSetByCommand(this, op_ds_bao_cao_so_luong_trang_thai_hd_tong_hop);
+    }
+    #endregion
+}
 }
