@@ -382,7 +382,7 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
         US_V_GD_THANH_TOAN v_us_v_gd_tt = new US_V_GD_THANH_TOAN();
         DS_V_GD_THANH_TOAN v_ds_v_gd_tt = new DS_V_GD_THANH_TOAN();
         // lấy toàn bộ thanh toán của hợp đồng theo id_hop_dong
-        v_us_v_gd_tt.FillDataset(v_ds_v_gd_tt, " WHERE ID_HOP_DONG_KHUNG=" + ip_dc_id_hd_khung + " ORDER BY ID");
+        v_us_v_gd_tt.f601_load_thanh_toan_theo_hop_dong_de_kiem_tra(ip_dc_id_hd_khung,v_ds_v_gd_tt);
         string v_str_so_lan_tam_ung;
         // Nếu đã có thanh toán
         if (v_ds_v_gd_tt.V_GD_THANH_TOAN.Rows.Count > 0)
@@ -403,7 +403,7 @@ public partial class ChucNang_F602_DuToanHopDongHocLieu : System.Web.UI.Page
          US_V_GD_THANH_TOAN v_us_v_gd_tt = new US_V_GD_THANH_TOAN();
          DS_V_GD_THANH_TOAN v_ds_v_gd_tt = new DS_V_GD_THANH_TOAN();
          // lấy toàn bộ thanh toán của hợp đồng theo id_hop_dong
-         v_us_v_gd_tt.FillDataset(v_ds_v_gd_tt, " WHERE ID_HOP_DONG_KHUNG=" + ip_dc_id_hop_dong_khung + " ORDER BY ID");
+         v_us_v_gd_tt.f601_load_thanh_toan_theo_hop_dong_de_kiem_tra(ip_dc_id_hop_dong_khung, v_ds_v_gd_tt);
          // Nếu đã có thanh toán
          if (v_ds_v_gd_tt.V_GD_THANH_TOAN.Rows.Count > 0)
          {
