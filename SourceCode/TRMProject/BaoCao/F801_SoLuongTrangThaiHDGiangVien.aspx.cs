@@ -65,6 +65,13 @@ public partial class BaoCao_F801_SoLuongTrangThaiHDGiangVien : System.Web.UI.Pag
     }
     #endregion
 
+    #region Public Interface
+    public decimal get_sum_hang(object ip_obj_chuyen_mon, object ip_obj_huong_dan, object ip_obj_hoc_lieu)
+    {
+        return CIPConvert.ToDecimal(ip_obj_chuyen_mon) + CIPConvert.ToDecimal(ip_obj_hoc_lieu) + CIPConvert.ToDecimal(ip_obj_huong_dan);
+    }
+    #endregion
+
     #region Export Excel
     private void loadDSExprort(ref string strTable)
     {
@@ -79,6 +86,7 @@ public partial class BaoCao_F801_SoLuongTrangThaiHDGiangVien : System.Web.UI.Pag
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + "<span style='font-family:Tahoma; font-size:0.9em'>" + grv[RPT_BAO_CAO_SO_LUONG_TRANG_THAI_HD_GIANG_VIEN.HD_CHUYEN_MON] + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + "<span style='font-family:Tahoma; font-size:0.9em'>" + grv[RPT_BAO_CAO_SO_LUONG_TRANG_THAI_HD_GIANG_VIEN.HD_HUONG_DAN] + "</td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + "<span style='font-family:Tahoma; font-size:0.9em'>" + grv[RPT_BAO_CAO_SO_LUONG_TRANG_THAI_HD_GIANG_VIEN.HD_HOC_LIEU] + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + "<span style='font-family:Tahoma; font-size:0.9em'>" + get_sum_hang(grv[RPT_BAO_CAO_SO_LUONG_TRANG_THAI_HD_GIANG_VIEN.HD_CHUYEN_MON],grv[RPT_BAO_CAO_SO_LUONG_TRANG_THAI_HD_GIANG_VIEN.HD_HUONG_DAN],grv[RPT_BAO_CAO_SO_LUONG_TRANG_THAI_HD_GIANG_VIEN.HD_HOC_LIEU])+ "</td>";
             strTable += "\n</tr>";
         }
     }
@@ -109,6 +117,7 @@ public partial class BaoCao_F801_SoLuongTrangThaiHDGiangVien : System.Web.UI.Pag
         strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>HĐ Chuyên môn</td>";
         strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>HĐ hướng dẫn</td>";
         strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>HĐ học liệu</td>";
+        strTable += "\n<td style='width:12%;' class='cssTableView' nowrap='nowrap'>Tổng</td>";
         strTable += "\n</tr>";
         loadDSExprort(ref strTable);
         strTable += "\n</table>";
