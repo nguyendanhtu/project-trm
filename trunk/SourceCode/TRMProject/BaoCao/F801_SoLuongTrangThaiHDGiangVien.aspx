@@ -98,7 +98,7 @@
                     </asp:BoundField>
                      <asp:BoundField HeaderText="Trạng thái hợp đồng" 
                         DataField="TRANG_THAI_HOP_DONG">
-                    <ItemStyle Width="30%" HorizontalAlign="Left" />
+                    <ItemStyle Width="20%" HorizontalAlign="Left" />
                     </asp:BoundField>
                      <asp:BoundField HeaderText="HĐ Chuyên môn" DataField="HD_CHUYEN_MON">
                     <ItemStyle Width="15%" HorizontalAlign="Center" />
@@ -109,6 +109,10 @@
                      <asp:BoundField HeaderText="HĐ học liệu" DataField="HD_HOC_LIEU">
                     <ItemStyle Width="15%" HorizontalAlign="Center" />
                     </asp:BoundField>
+                     <asp:TemplateField HeaderText="Tổng">
+                       <ItemTemplate><%# get_sum_hang(Eval("HD_CHUYEN_MON"), Eval("HD_HUONG_DAN"), Eval("HD_HOC_LIEU"))%></ItemTemplate>
+                        <ItemStyle HorizontalAlign="Center" Width="10%"></ItemStyle>
+                    </asp:TemplateField>
                 </Columns>
                   <EditRowStyle BackColor="#7C6F57" />
                   <HeaderStyle BackColor="#810c15" Font-Bold="True" ForeColor="White" />
