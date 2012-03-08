@@ -114,6 +114,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS_RPT_BAO_CAO_SO_LUONG_TRANG_THAI_HD_TONG_HOP.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DS_RPT_BAO_CAO_THONG_KE_HD_THANH_TOAN_GV_TONG_HOP.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DS_RPT_BAO_CAO_THONG_KE_HD_THANH_TOAN_GV_TONG_HOP.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DS_RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -288,6 +293,17 @@
     </None>
     <None Include="DS_RPT_BAO_CAO_SO_LUONG_TRANG_THAI_HD_TONG_HOP.xss">
       <DependentUpon>DS_RPT_BAO_CAO_SO_LUONG_TRANG_THAI_HD_TONG_HOP.xsd</DependentUpon>
+    </None>
+    <None Include="DS_RPT_BAO_CAO_THONG_KE_HD_THANH_TOAN_GV_TONG_HOP.xsc">
+      <DependentUpon>DS_RPT_BAO_CAO_THONG_KE_HD_THANH_TOAN_GV_TONG_HOP.xsd</DependentUpon>
+    </None>
+    <None Include="DS_RPT_BAO_CAO_THONG_KE_HD_THANH_TOAN_GV_TONG_HOP.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DS_RPT_BAO_CAO_THONG_KE_HD_THANH_TOAN_GV_TONG_HOP.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DS_RPT_BAO_CAO_THONG_KE_HD_THANH_TOAN_GV_TONG_HOP.xss">
+      <DependentUpon>DS_RPT_BAO_CAO_THONG_KE_HD_THANH_TOAN_GV_TONG_HOP.xsd</DependentUpon>
     </None>
     <None Include="DS_RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV.xsc">
       <DependentUpon>DS_RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV.xsd</DependentUpon>
