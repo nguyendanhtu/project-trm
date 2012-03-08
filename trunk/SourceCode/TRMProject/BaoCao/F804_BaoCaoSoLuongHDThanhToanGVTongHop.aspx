@@ -6,7 +6,7 @@
 <table  cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0">
 <tr>
 		<td class="cssPageTitleBG" colspan="6">
-		    <label class="cssPageTitle">Báo cáo thống kê hợp đồng theo trạng thái giảng viên</label>
+		    <label class="cssPageTitle">Báo cáo tổng hợp số lượng hợp đồng theo trạng thái thanh toán</label>
 		</td>
 	</tr>
     <tr>
@@ -78,8 +78,8 @@
                        <ItemTemplate><%# Container.DataItemIndex + 1 %></ItemTemplate>
                         <ItemStyle HorizontalAlign="Center" Width="5%"></ItemStyle>
                     </asp:TemplateField> 
-                     <asp:BoundField HeaderText="Trạng thái hợp đồng" 
-                        DataField="TRANG_THAI_HOP_DONG">
+                     <asp:BoundField HeaderText="Trạng thái thanh toán" 
+                        DataField="TRANG_THAI_TT_HOP_DONG">
                     <ItemStyle Width="25%" HorizontalAlign="Left" />
                     </asp:BoundField>
                       <asp:BoundField HeaderText="Chuyên môn EDUTOP" DataField="HD_CHUYEN_MON_EDUTOP">
