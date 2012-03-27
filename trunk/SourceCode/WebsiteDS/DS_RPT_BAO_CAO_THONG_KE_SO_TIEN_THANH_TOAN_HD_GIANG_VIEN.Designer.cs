@@ -20,17 +20,17 @@ namespace WebDS {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("DS_RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV")]
+    [global::System.Xml.Serialization.XmlRootAttribute("DS_RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class DS_RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV : global::System.Data.DataSet {
+    public partial class DS_RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN : global::System.Data.DataSet {
         
-        private RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVDataTable tableRPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV;
+        private RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENDataTable tableRPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public DS_RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV() {
+        public DS_RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace WebDS {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected DS_RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected DS_RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace WebDS {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV"] != null)) {
-                    base.Tables.Add(new RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVDataTable(ds.Tables["RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV"]));
+                if ((ds.Tables["RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN"] != null)) {
+                    base.Tables.Add(new RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENDataTable(ds.Tables["RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace WebDS {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVDataTable RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV {
+        public RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENDataTable RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN {
             get {
-                return this.tableRPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV;
+                return this.tableRPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN;
             }
         }
         
@@ -127,7 +127,7 @@ namespace WebDS {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            DS_RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV cln = ((DS_RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV)(base.Clone()));
+            DS_RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN cln = ((DS_RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace WebDS {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV"] != null)) {
-                    base.Tables.Add(new RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVDataTable(ds.Tables["RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV"]));
+                if ((ds.Tables["RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN"] != null)) {
+                    base.Tables.Add(new RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENDataTable(ds.Tables["RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace WebDS {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableRPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV = ((RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVDataTable)(base.Tables["RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV"]));
+            this.tableRPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN = ((RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENDataTable)(base.Tables["RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN"]));
             if ((initTable == true)) {
-                if ((this.tableRPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV != null)) {
-                    this.tableRPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV.InitVars();
+                if ((this.tableRPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN != null)) {
+                    this.tableRPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace WebDS {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "DS_RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV";
+            this.DataSetName = "DS_RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/DS_RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV.xsd";
+            this.Namespace = "http://tempuri.org/DS_RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableRPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV = new RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVDataTable();
-            base.Tables.Add(this.tableRPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV);
+            this.tableRPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN = new RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENDataTable();
+            base.Tables.Add(this.tableRPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeRPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV() {
+        private bool ShouldSerializeRPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace WebDS {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            DS_RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV ds = new DS_RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV();
+            DS_RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN ds = new DS_RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,33 +270,35 @@ namespace WebDS {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVRowChangeEventHandler(object sender, RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVRowChangeEvent e);
+        public delegate void RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENRowChangeEventHandler(object sender, RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVDataTable : global::System.Data.DataTable, global::System.Collections.IEnumerable {
+        public partial class RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENDataTable : global::System.Data.DataTable, global::System.Collections.IEnumerable {
             
             private global::System.Data.DataColumn columnID;
             
-            private global::System.Data.DataColumn columnID_DON_VI_QUAN_LY;
+            private global::System.Data.DataColumn columnTRANG_THAI_TT_HOP_DONG;
             
-            private global::System.Data.DataColumn columnDON_VI_QUAN_LY;
+            private global::System.Data.DataColumn columnHD_CHUYEN_MON_EDUTOP;
             
-            private global::System.Data.DataColumn columnTRANG_THAI_THANH_TOAN_HOP_DONG;
+            private global::System.Data.DataColumn columnHD_HUONG_DAN_EDUTOP;
             
-            private global::System.Data.DataColumn columnHD_CHUYEN_MON;
+            private global::System.Data.DataColumn columnHD_HOC_LIEU_EDUTOP;
             
-            private global::System.Data.DataColumn columnHD_HUONG_DAN;
+            private global::System.Data.DataColumn columnHD_CHUYEN_MON_ELC;
             
-            private global::System.Data.DataColumn columnHD_HOC_LIEU;
+            private global::System.Data.DataColumn columnHD_HUONG_DAN_ELC;
+            
+            private global::System.Data.DataColumn columnHD_HOC_LIEU_ELC;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVDataTable() {
-                this.TableName = "RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV";
+            public RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENDataTable() {
+                this.TableName = "RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -304,7 +306,7 @@ namespace WebDS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVDataTable(global::System.Data.DataTable table) {
+            internal RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -321,7 +323,7 @@ namespace WebDS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -336,49 +338,57 @@ namespace WebDS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ID_DON_VI_QUAN_LYColumn {
+            public global::System.Data.DataColumn TRANG_THAI_TT_HOP_DONGColumn {
                 get {
-                    return this.columnID_DON_VI_QUAN_LY;
+                    return this.columnTRANG_THAI_TT_HOP_DONG;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn DON_VI_QUAN_LYColumn {
+            public global::System.Data.DataColumn HD_CHUYEN_MON_EDUTOPColumn {
                 get {
-                    return this.columnDON_VI_QUAN_LY;
+                    return this.columnHD_CHUYEN_MON_EDUTOP;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn TRANG_THAI_THANH_TOAN_HOP_DONGColumn {
+            public global::System.Data.DataColumn HD_HUONG_DAN_EDUTOPColumn {
                 get {
-                    return this.columnTRANG_THAI_THANH_TOAN_HOP_DONG;
+                    return this.columnHD_HUONG_DAN_EDUTOP;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn HD_CHUYEN_MONColumn {
+            public global::System.Data.DataColumn HD_HOC_LIEU_EDUTOPColumn {
                 get {
-                    return this.columnHD_CHUYEN_MON;
+                    return this.columnHD_HOC_LIEU_EDUTOP;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn HD_HUONG_DANColumn {
+            public global::System.Data.DataColumn HD_CHUYEN_MON_ELCColumn {
                 get {
-                    return this.columnHD_HUONG_DAN;
+                    return this.columnHD_CHUYEN_MON_ELC;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn HD_HOC_LIEUColumn {
+            public global::System.Data.DataColumn HD_HUONG_DAN_ELCColumn {
                 get {
-                    return this.columnHD_HOC_LIEU;
+                    return this.columnHD_HUONG_DAN_ELC;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn HD_HOC_LIEU_ELCColumn {
+                get {
+                    return this.columnHD_HOC_LIEU_ELC;
                 }
             }
             
@@ -393,45 +403,46 @@ namespace WebDS {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVRow this[int index] {
+            public RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENRow this[int index] {
                 get {
-                    return ((RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVRow)(this.Rows[index]));
+                    return ((RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVRowChangeEventHandler RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVRowChanging;
+            public event RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENRowChangeEventHandler RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVRowChangeEventHandler RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVRowChanged;
+            public event RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENRowChangeEventHandler RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVRowChangeEventHandler RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVRowDeleting;
+            public event RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENRowChangeEventHandler RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVRowChangeEventHandler RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVRowDeleted;
+            public event RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENRowChangeEventHandler RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddRPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVRow(RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVRow row) {
+            public void AddRPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENRow(RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVRow AddRPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVRow(int ID, decimal ID_DON_VI_QUAN_LY, string DON_VI_QUAN_LY, string TRANG_THAI_THANH_TOAN_HOP_DONG, decimal HD_CHUYEN_MON, decimal HD_HUONG_DAN, decimal HD_HOC_LIEU) {
-                RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVRow rowRPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVRow = ((RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVRow)(this.NewRow()));
+            public RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENRow AddRPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENRow(int ID, string TRANG_THAI_TT_HOP_DONG, decimal HD_CHUYEN_MON_EDUTOP, decimal HD_HUONG_DAN_EDUTOP, decimal HD_HOC_LIEU_EDUTOP, decimal HD_CHUYEN_MON_ELC, decimal HD_HUONG_DAN_ELC, decimal HD_HOC_LIEU_ELC) {
+                RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENRow rowRPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENRow = ((RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ID,
-                        ID_DON_VI_QUAN_LY,
-                        DON_VI_QUAN_LY,
-                        TRANG_THAI_THANH_TOAN_HOP_DONG,
-                        HD_CHUYEN_MON,
-                        HD_HUONG_DAN,
-                        HD_HOC_LIEU};
-                rowRPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowRPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVRow);
-                return rowRPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVRow;
+                        TRANG_THAI_TT_HOP_DONG,
+                        HD_CHUYEN_MON_EDUTOP,
+                        HD_HUONG_DAN_EDUTOP,
+                        HD_HOC_LIEU_EDUTOP,
+                        HD_CHUYEN_MON_ELC,
+                        HD_HUONG_DAN_ELC,
+                        HD_HOC_LIEU_ELC};
+                rowRPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowRPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENRow);
+                return rowRPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -443,7 +454,7 @@ namespace WebDS {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVDataTable cln = ((RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVDataTable)(base.Clone()));
+                RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENDataTable cln = ((RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -451,19 +462,20 @@ namespace WebDS {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVDataTable();
+                return new RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
                 this.columnID = base.Columns["ID"];
-                this.columnID_DON_VI_QUAN_LY = base.Columns["ID_DON_VI_QUAN_LY"];
-                this.columnDON_VI_QUAN_LY = base.Columns["DON_VI_QUAN_LY"];
-                this.columnTRANG_THAI_THANH_TOAN_HOP_DONG = base.Columns["TRANG_THAI_THANH_TOAN_HOP_DONG"];
-                this.columnHD_CHUYEN_MON = base.Columns["HD_CHUYEN_MON"];
-                this.columnHD_HUONG_DAN = base.Columns["HD_HUONG_DAN"];
-                this.columnHD_HOC_LIEU = base.Columns["HD_HOC_LIEU"];
+                this.columnTRANG_THAI_TT_HOP_DONG = base.Columns["TRANG_THAI_TT_HOP_DONG"];
+                this.columnHD_CHUYEN_MON_EDUTOP = base.Columns["HD_CHUYEN_MON_EDUTOP"];
+                this.columnHD_HUONG_DAN_EDUTOP = base.Columns["HD_HUONG_DAN_EDUTOP"];
+                this.columnHD_HOC_LIEU_EDUTOP = base.Columns["HD_HOC_LIEU_EDUTOP"];
+                this.columnHD_CHUYEN_MON_ELC = base.Columns["HD_CHUYEN_MON_ELC"];
+                this.columnHD_HUONG_DAN_ELC = base.Columns["HD_HUONG_DAN_ELC"];
+                this.columnHD_HOC_LIEU_ELC = base.Columns["HD_HOC_LIEU_ELC"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -471,53 +483,55 @@ namespace WebDS {
             private void InitClass() {
                 this.columnID = new global::System.Data.DataColumn("ID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnID);
-                this.columnID_DON_VI_QUAN_LY = new global::System.Data.DataColumn("ID_DON_VI_QUAN_LY", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnID_DON_VI_QUAN_LY);
-                this.columnDON_VI_QUAN_LY = new global::System.Data.DataColumn("DON_VI_QUAN_LY", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDON_VI_QUAN_LY);
-                this.columnTRANG_THAI_THANH_TOAN_HOP_DONG = new global::System.Data.DataColumn("TRANG_THAI_THANH_TOAN_HOP_DONG", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTRANG_THAI_THANH_TOAN_HOP_DONG);
-                this.columnHD_CHUYEN_MON = new global::System.Data.DataColumn("HD_CHUYEN_MON", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnHD_CHUYEN_MON);
-                this.columnHD_HUONG_DAN = new global::System.Data.DataColumn("HD_HUONG_DAN", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnHD_HUONG_DAN);
-                this.columnHD_HOC_LIEU = new global::System.Data.DataColumn("HD_HOC_LIEU", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnHD_HOC_LIEU);
+                this.columnTRANG_THAI_TT_HOP_DONG = new global::System.Data.DataColumn("TRANG_THAI_TT_HOP_DONG", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTRANG_THAI_TT_HOP_DONG);
+                this.columnHD_CHUYEN_MON_EDUTOP = new global::System.Data.DataColumn("HD_CHUYEN_MON_EDUTOP", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHD_CHUYEN_MON_EDUTOP);
+                this.columnHD_HUONG_DAN_EDUTOP = new global::System.Data.DataColumn("HD_HUONG_DAN_EDUTOP", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHD_HUONG_DAN_EDUTOP);
+                this.columnHD_HOC_LIEU_EDUTOP = new global::System.Data.DataColumn("HD_HOC_LIEU_EDUTOP", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHD_HOC_LIEU_EDUTOP);
+                this.columnHD_CHUYEN_MON_ELC = new global::System.Data.DataColumn("HD_CHUYEN_MON_ELC", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHD_CHUYEN_MON_ELC);
+                this.columnHD_HUONG_DAN_ELC = new global::System.Data.DataColumn("HD_HUONG_DAN_ELC", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHD_HUONG_DAN_ELC);
+                this.columnHD_HOC_LIEU_ELC = new global::System.Data.DataColumn("HD_HOC_LIEU_ELC", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHD_HOC_LIEU_ELC);
                 this.columnID.AllowDBNull = false;
-                this.columnID_DON_VI_QUAN_LY.AllowDBNull = false;
-                this.columnDON_VI_QUAN_LY.AllowDBNull = false;
-                this.columnDON_VI_QUAN_LY.MaxLength = 250;
-                this.columnTRANG_THAI_THANH_TOAN_HOP_DONG.AllowDBNull = false;
-                this.columnTRANG_THAI_THANH_TOAN_HOP_DONG.MaxLength = 250;
-                this.columnHD_CHUYEN_MON.AllowDBNull = false;
-                this.columnHD_HUONG_DAN.AllowDBNull = false;
-                this.columnHD_HOC_LIEU.AllowDBNull = false;
+                this.columnTRANG_THAI_TT_HOP_DONG.AllowDBNull = false;
+                this.columnTRANG_THAI_TT_HOP_DONG.MaxLength = 50;
+                this.columnHD_CHUYEN_MON_EDUTOP.AllowDBNull = false;
+                this.columnHD_HUONG_DAN_EDUTOP.AllowDBNull = false;
+                this.columnHD_HOC_LIEU_EDUTOP.AllowDBNull = false;
+                this.columnHD_CHUYEN_MON_ELC.AllowDBNull = false;
+                this.columnHD_HUONG_DAN_ELC.AllowDBNull = false;
+                this.columnHD_HOC_LIEU_ELC.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVRow NewRPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVRow() {
-                return ((RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVRow)(this.NewRow()));
+            public RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENRow NewRPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENRow() {
+                return ((RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVRow(builder);
+                return new RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVRow);
+                return typeof(RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVRowChanged != null)) {
-                    this.RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVRowChanged(this, new RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVRowChangeEvent(((RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVRow)(e.Row)), e.Action));
+                if ((this.RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENRowChanged != null)) {
+                    this.RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENRowChanged(this, new RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENRowChangeEvent(((RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENRow)(e.Row)), e.Action));
                 }
             }
             
@@ -525,8 +539,8 @@ namespace WebDS {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVRowChanging != null)) {
-                    this.RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVRowChanging(this, new RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVRowChangeEvent(((RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVRow)(e.Row)), e.Action));
+                if ((this.RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENRowChanging != null)) {
+                    this.RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENRowChanging(this, new RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENRowChangeEvent(((RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENRow)(e.Row)), e.Action));
                 }
             }
             
@@ -534,8 +548,8 @@ namespace WebDS {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVRowDeleted != null)) {
-                    this.RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVRowDeleted(this, new RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVRowChangeEvent(((RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVRow)(e.Row)), e.Action));
+                if ((this.RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENRowDeleted != null)) {
+                    this.RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENRowDeleted(this, new RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENRowChangeEvent(((RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENRow)(e.Row)), e.Action));
                 }
             }
             
@@ -543,14 +557,14 @@ namespace WebDS {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVRowDeleting != null)) {
-                    this.RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVRowDeleting(this, new RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVRowChangeEvent(((RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVRow)(e.Row)), e.Action));
+                if ((this.RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENRowDeleting != null)) {
+                    this.RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENRowDeleting(this, new RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENRowChangeEvent(((RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveRPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVRow(RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVRow row) {
+            public void RemoveRPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENRow(RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -559,7 +573,7 @@ namespace WebDS {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                DS_RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV ds = new DS_RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV();
+                DS_RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN ds = new DS_RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -577,7 +591,7 @@ namespace WebDS {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVDataTable";
+                attribute2.FixedValue = "RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -621,91 +635,102 @@ namespace WebDS {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVRow : global::System.Data.DataRow {
+        public partial class RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENRow : global::System.Data.DataRow {
             
-            private RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVDataTable tableRPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV;
+            private RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENDataTable tableRPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVRow(global::System.Data.DataRowBuilder rb) : 
+            internal RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableRPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV = ((RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVDataTable)(this.Table));
+                this.tableRPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN = ((RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int ID {
                 get {
-                    return ((int)(this[this.tableRPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV.IDColumn]));
+                    return ((int)(this[this.tableRPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN.IDColumn]));
                 }
                 set {
-                    this[this.tableRPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV.IDColumn] = value;
+                    this[this.tableRPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN.IDColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal ID_DON_VI_QUAN_LY {
+            public string TRANG_THAI_TT_HOP_DONG {
                 get {
-                    return ((decimal)(this[this.tableRPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV.ID_DON_VI_QUAN_LYColumn]));
+                    return ((string)(this[this.tableRPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN.TRANG_THAI_TT_HOP_DONGColumn]));
                 }
                 set {
-                    this[this.tableRPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV.ID_DON_VI_QUAN_LYColumn] = value;
+                    this[this.tableRPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN.TRANG_THAI_TT_HOP_DONGColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string DON_VI_QUAN_LY {
+            public decimal HD_CHUYEN_MON_EDUTOP {
                 get {
-                    return ((string)(this[this.tableRPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV.DON_VI_QUAN_LYColumn]));
+                    return ((decimal)(this[this.tableRPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN.HD_CHUYEN_MON_EDUTOPColumn]));
                 }
                 set {
-                    this[this.tableRPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV.DON_VI_QUAN_LYColumn] = value;
+                    this[this.tableRPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN.HD_CHUYEN_MON_EDUTOPColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string TRANG_THAI_THANH_TOAN_HOP_DONG {
+            public decimal HD_HUONG_DAN_EDUTOP {
                 get {
-                    return ((string)(this[this.tableRPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV.TRANG_THAI_THANH_TOAN_HOP_DONGColumn]));
+                    return ((decimal)(this[this.tableRPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN.HD_HUONG_DAN_EDUTOPColumn]));
                 }
                 set {
-                    this[this.tableRPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV.TRANG_THAI_THANH_TOAN_HOP_DONGColumn] = value;
+                    this[this.tableRPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN.HD_HUONG_DAN_EDUTOPColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal HD_CHUYEN_MON {
+            public decimal HD_HOC_LIEU_EDUTOP {
                 get {
-                    return ((decimal)(this[this.tableRPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV.HD_CHUYEN_MONColumn]));
+                    return ((decimal)(this[this.tableRPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN.HD_HOC_LIEU_EDUTOPColumn]));
                 }
                 set {
-                    this[this.tableRPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV.HD_CHUYEN_MONColumn] = value;
+                    this[this.tableRPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN.HD_HOC_LIEU_EDUTOPColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal HD_HUONG_DAN {
+            public decimal HD_CHUYEN_MON_ELC {
                 get {
-                    return ((decimal)(this[this.tableRPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV.HD_HUONG_DANColumn]));
+                    return ((decimal)(this[this.tableRPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN.HD_CHUYEN_MON_ELCColumn]));
                 }
                 set {
-                    this[this.tableRPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV.HD_HUONG_DANColumn] = value;
+                    this[this.tableRPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN.HD_CHUYEN_MON_ELCColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal HD_HOC_LIEU {
+            public decimal HD_HUONG_DAN_ELC {
                 get {
-                    return ((decimal)(this[this.tableRPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV.HD_HOC_LIEUColumn]));
+                    return ((decimal)(this[this.tableRPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN.HD_HUONG_DAN_ELCColumn]));
                 }
                 set {
-                    this[this.tableRPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV.HD_HOC_LIEUColumn] = value;
+                    this[this.tableRPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN.HD_HUONG_DAN_ELCColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal HD_HOC_LIEU_ELC {
+                get {
+                    return ((decimal)(this[this.tableRPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN.HD_HOC_LIEU_ELCColumn]));
+                }
+                set {
+                    this[this.tableRPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN.HD_HOC_LIEU_ELCColumn] = value;
                 }
             }
         }
@@ -714,22 +739,22 @@ namespace WebDS {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVRowChangeEvent : global::System.EventArgs {
+        public class RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENRowChangeEvent : global::System.EventArgs {
             
-            private RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVRow eventRow;
+            private RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVRowChangeEvent(RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVRow row, global::System.Data.DataRowAction action) {
+            public RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENRowChangeEvent(RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVRow Row {
+            public RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -745,7 +770,7 @@ namespace WebDS {
         }
     }
 }
-namespace WebDS.DS_RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVTableAdapters {
+namespace WebDS.DS_RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENTableAdapters {
     
     
     /// <summary>
@@ -757,7 +782,7 @@ namespace WebDS.DS_RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVTableAdapter : global::System.ComponentModel.Component {
+    public partial class RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -771,7 +796,7 @@ namespace WebDS.DS_RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVTableAdapter() {
+        public RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -868,26 +893,28 @@ namespace WebDS.DS_RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV";
+            tableMapping.DataSetTable = "RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN";
             tableMapping.ColumnMappings.Add("ID", "ID");
-            tableMapping.ColumnMappings.Add("ID_DON_VI_QUAN_LY", "ID_DON_VI_QUAN_LY");
-            tableMapping.ColumnMappings.Add("DON_VI_QUAN_LY", "DON_VI_QUAN_LY");
-            tableMapping.ColumnMappings.Add("TRANG_THAI_THANH_TOAN_HOP_DONG", "TRANG_THAI_THANH_TOAN_HOP_DONG");
-            tableMapping.ColumnMappings.Add("HD_CHUYEN_MON", "HD_CHUYEN_MON");
-            tableMapping.ColumnMappings.Add("HD_HUONG_DAN", "HD_HUONG_DAN");
-            tableMapping.ColumnMappings.Add("HD_HOC_LIEU", "HD_HOC_LIEU");
+            tableMapping.ColumnMappings.Add("TRANG_THAI_TT_HOP_DONG", "TRANG_THAI_TT_HOP_DONG");
+            tableMapping.ColumnMappings.Add("HD_CHUYEN_MON_EDUTOP", "HD_CHUYEN_MON_EDUTOP");
+            tableMapping.ColumnMappings.Add("HD_HUONG_DAN_EDUTOP", "HD_HUONG_DAN_EDUTOP");
+            tableMapping.ColumnMappings.Add("HD_HOC_LIEU_EDUTOP", "HD_HOC_LIEU_EDUTOP");
+            tableMapping.ColumnMappings.Add("HD_CHUYEN_MON_ELC", "HD_CHUYEN_MON_ELC");
+            tableMapping.ColumnMappings.Add("HD_HUONG_DAN_ELC", "HD_HUONG_DAN_ELC");
+            tableMapping.ColumnMappings.Add("HD_HOC_LIEU_ELC", "HD_HOC_LIEU_ELC");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV] ([ID], [ID_DON_VI_QUAN_LY], [DON_VI_QUAN_LY], [TRANG_THAI_THANH_TOAN_HOP_DONG], [HD_CHUYEN_MON], [HD_HUONG_DAN], [HD_HOC_LIEU]) VALUES (@ID, @ID_DON_VI_QUAN_LY, @DON_VI_QUAN_LY, @TRANG_THAI_THANH_TOAN_HOP_DONG, @HD_CHUYEN_MON, @HD_HUONG_DAN, @HD_HOC_LIEU)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN] ([ID], [TRANG_THAI_TT_HOP_DONG], [HD_CHUYEN_MON_EDUTOP], [HD_HUONG_DAN_EDUTOP], [HD_HOC_LIEU_EDUTOP], [HD_CHUYEN_MON_ELC], [HD_HUONG_DAN_ELC], [HD_HOC_LIEU_ELC]) VALUES (@ID, @TRANG_THAI_TT_HOP_DONG, @HD_CHUYEN_MON_EDUTOP, @HD_HUONG_DAN_EDUTOP, @HD_HOC_LIEU_EDUTOP, @HD_CHUYEN_MON_ELC, @HD_HUONG_DAN_ELC, @HD_HOC_LIEU_ELC)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_DON_VI_QUAN_LY", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "ID_DON_VI_QUAN_LY", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DON_VI_QUAN_LY", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DON_VI_QUAN_LY", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TRANG_THAI_THANH_TOAN_HOP_DONG", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TRANG_THAI_THANH_TOAN_HOP_DONG", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HD_CHUYEN_MON", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "HD_CHUYEN_MON", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HD_HUONG_DAN", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "HD_HUONG_DAN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HD_HOC_LIEU", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 18, 0, "HD_HOC_LIEU", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TRANG_THAI_TT_HOP_DONG", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TRANG_THAI_TT_HOP_DONG", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HD_CHUYEN_MON_EDUTOP", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 21, 3, "HD_CHUYEN_MON_EDUTOP", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HD_HUONG_DAN_EDUTOP", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 21, 3, "HD_HUONG_DAN_EDUTOP", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HD_HOC_LIEU_EDUTOP", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 21, 3, "HD_HOC_LIEU_EDUTOP", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HD_CHUYEN_MON_ELC", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 21, 3, "HD_CHUYEN_MON_ELC", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HD_HUONG_DAN_ELC", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 21, 3, "HD_HUONG_DAN_ELC", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HD_HOC_LIEU_ELC", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 4, 0, "HD_HOC_LIEU_ELC", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -903,9 +930,9 @@ namespace WebDS.DS_RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID, ID_DON_VI_QUAN_LY, DON_VI_QUAN_LY, TRANG_THAI_THANH_TOAN_HOP_DONG, HD_" +
-                "CHUYEN_MON, HD_HUONG_DAN, HD_HOC_LIEU FROM dbo.RPT_BAO_CAO_THONG_KE_HOP_DONG_THA" +
-                "NH_TOAN_GV";
+            this._commandCollection[0].CommandText = "SELECT ID, TRANG_THAI_TT_HOP_DONG, HD_CHUYEN_MON_EDUTOP, HD_HUONG_DAN_EDUTOP, HD_" +
+                "HOC_LIEU_EDUTOP, HD_CHUYEN_MON_ELC, HD_HUONG_DAN_ELC, HD_HOC_LIEU_ELC FROM dbo.R" +
+                "PT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -913,7 +940,7 @@ namespace WebDS.DS_RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DS_RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV.RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVDataTable dataTable) {
+        public virtual int Fill(DS_RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN.RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -926,9 +953,9 @@ namespace WebDS.DS_RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DS_RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV.RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVDataTable GetData() {
+        public virtual DS_RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN.RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            DS_RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV.RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVDataTable dataTable = new DS_RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV.RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVDataTable();
+            DS_RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN.RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENDataTable dataTable = new DS_RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN.RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -936,15 +963,15 @@ namespace WebDS.DS_RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DS_RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV.RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVDataTable dataTable) {
+        public virtual int Update(DS_RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN.RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DS_RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV dataSet) {
-            return this.Adapter.Update(dataSet, "RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV");
+        public virtual int Update(DS_RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN dataSet) {
+            return this.Adapter.Update(dataSet, "RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -966,24 +993,20 @@ namespace WebDS.DS_RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int ID, decimal ID_DON_VI_QUAN_LY, string DON_VI_QUAN_LY, string TRANG_THAI_THANH_TOAN_HOP_DONG, decimal HD_CHUYEN_MON, decimal HD_HUONG_DAN, decimal HD_HOC_LIEU) {
+        public virtual int Insert(int ID, string TRANG_THAI_TT_HOP_DONG, decimal HD_CHUYEN_MON_EDUTOP, decimal HD_HUONG_DAN_EDUTOP, decimal HD_HOC_LIEU_EDUTOP, decimal HD_CHUYEN_MON_ELC, decimal HD_HUONG_DAN_ELC, decimal HD_HOC_LIEU_ELC) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(ID));
-            this.Adapter.InsertCommand.Parameters[1].Value = ((decimal)(ID_DON_VI_QUAN_LY));
-            if ((DON_VI_QUAN_LY == null)) {
-                throw new global::System.ArgumentNullException("DON_VI_QUAN_LY");
+            if ((TRANG_THAI_TT_HOP_DONG == null)) {
+                throw new global::System.ArgumentNullException("TRANG_THAI_TT_HOP_DONG");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(DON_VI_QUAN_LY));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(TRANG_THAI_TT_HOP_DONG));
             }
-            if ((TRANG_THAI_THANH_TOAN_HOP_DONG == null)) {
-                throw new global::System.ArgumentNullException("TRANG_THAI_THANH_TOAN_HOP_DONG");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(TRANG_THAI_THANH_TOAN_HOP_DONG));
-            }
-            this.Adapter.InsertCommand.Parameters[4].Value = ((decimal)(HD_CHUYEN_MON));
-            this.Adapter.InsertCommand.Parameters[5].Value = ((decimal)(HD_HUONG_DAN));
-            this.Adapter.InsertCommand.Parameters[6].Value = ((decimal)(HD_HOC_LIEU));
+            this.Adapter.InsertCommand.Parameters[2].Value = ((decimal)(HD_CHUYEN_MON_EDUTOP));
+            this.Adapter.InsertCommand.Parameters[3].Value = ((decimal)(HD_HUONG_DAN_EDUTOP));
+            this.Adapter.InsertCommand.Parameters[4].Value = ((decimal)(HD_HOC_LIEU_EDUTOP));
+            this.Adapter.InsertCommand.Parameters[5].Value = ((decimal)(HD_CHUYEN_MON_ELC));
+            this.Adapter.InsertCommand.Parameters[6].Value = ((decimal)(HD_HUONG_DAN_ELC));
+            this.Adapter.InsertCommand.Parameters[7].Value = ((decimal)(HD_HOC_LIEU_ELC));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1013,7 +1036,7 @@ namespace WebDS.DS_RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVTableAdapters {
         
         private UpdateOrderOption _updateOrder;
         
-        private RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVTableAdapter _rPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVTableAdapter;
+        private RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENTableAdapter _rPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -1035,12 +1058,12 @@ namespace WebDS.DS_RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVTableAdapters {
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVTableAdapter RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVTableAdapter {
+        public RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENTableAdapter RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENTableAdapter {
             get {
-                return this._rPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVTableAdapter;
+                return this._rPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENTableAdapter;
             }
             set {
-                this._rPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVTableAdapter = value;
+                this._rPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENTableAdapter = value;
             }
         }
         
@@ -1063,9 +1086,9 @@ namespace WebDS.DS_RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVTableAdapters {
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._rPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVTableAdapter != null) 
-                            && (this._rPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVTableAdapter.Connection != null))) {
-                    return this._rPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVTableAdapter.Connection;
+                if (((this._rPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENTableAdapter != null) 
+                            && (this._rPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENTableAdapter.Connection != null))) {
+                    return this._rPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENTableAdapter.Connection;
                 }
                 return null;
             }
@@ -1080,7 +1103,7 @@ namespace WebDS.DS_RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVTableAdapters {
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._rPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVTableAdapter != null)) {
+                if ((this._rPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -1092,14 +1115,14 @@ namespace WebDS.DS_RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateUpdatedRows(DS_RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(DS_RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._rPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._rPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._rPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVTableAdapter.Update(updatedRows));
+                    result = (result + this._rPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -1111,13 +1134,13 @@ namespace WebDS.DS_RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateInsertedRows(DS_RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(DS_RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._rPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._rPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._rPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVTableAdapter.Update(addedRows));
+                    result = (result + this._rPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -1129,13 +1152,13 @@ namespace WebDS.DS_RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateDeletedRows(DS_RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(DS_RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._rPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._rPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._rPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVTableAdapter.Update(deletedRows));
+                    result = (result + this._rPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -1171,15 +1194,15 @@ namespace WebDS.DS_RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public virtual int UpdateAll(DS_RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV dataSet) {
+        public virtual int UpdateAll(DS_RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._rPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._rPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVTableAdapter.Connection) == false))) {
+            if (((this._rPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._rPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -1215,13 +1238,13 @@ namespace WebDS.DS_RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVTableAdapters {
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._rPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVTableAdapter != null)) {
-                    revertConnections.Add(this._rPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVTableAdapter, this._rPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVTableAdapter.Connection);
-                    this._rPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._rPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._rPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._rPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._rPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVTableAdapter.Adapter);
+                if ((this._rPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENTableAdapter != null)) {
+                    revertConnections.Add(this._rPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENTableAdapter, this._rPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENTableAdapter.Connection);
+                    this._rPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._rPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._rPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._rPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._rPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -1282,9 +1305,9 @@ namespace WebDS.DS_RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVTableAdapters {
                 if (workConnOpened) {
                     workConnection.Close();
                 }
-                if ((this._rPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVTableAdapter != null)) {
-                    this._rPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._rPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVTableAdapter]));
-                    this._rPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GVTableAdapter.Transaction = null;
+                if ((this._rPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENTableAdapter != null)) {
+                    this._rPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._rPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENTableAdapter]));
+                    this._rPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIENTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

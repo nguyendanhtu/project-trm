@@ -82,26 +82,27 @@ public class US_RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV : US_Object
 		pm_objDR["DON_VI_QUAN_LY"] = System.Convert.DBNull;
 	}
 
-	public string strTRANG_THAI_TT_HOP_DONG 
-	{
-		get 
-		{
-			return CNull.RowNVLString(pm_objDR, "TRANG_THAI_TT_HOP_DONG", IPConstants.c_DefaultString);
-		}
-		set 
-		{
-			pm_objDR["TRANG_THAI_TT_HOP_DONG"] = value;
-		}
-	}
+    public string strTRANG_THAI_THANH_TOAN_HOP_DONG
+    {
+        get
+        {
+            return CNull.RowNVLString(pm_objDR, "TRANG_THAI_THANH_TOAN_HOP_DONG", IPConstants.c_DefaultString);
+        }
+        set
+        {
+            pm_objDR["TRANG_THAI_THANH_TOAN_HOP_DONG"] = value;
+        }
+    }
 
-	public bool IsTRANG_THAI_TT_HOP_DONGNull() 
-	{
-		return pm_objDR.IsNull("TRANG_THAI_TT_HOP_DONG");
-	}
+    public bool IsTRANG_THAI_THANH_TOAN_HOP_DONGNull()
+    {
+        return pm_objDR.IsNull("TRANG_THAI_THANH_TOAN_HOP_DONG");
+    }
 
-	public void SetTRANG_THAI_TT_HOP_DONGNull() {
-		pm_objDR["TRANG_THAI_TT_HOP_DONG"] = System.Convert.DBNull;
-	}
+    public void SetTRANG_THAI_THANH_TOAN_HOP_DONGNull()
+    {
+        pm_objDR["TRANG_THAI_THANH_TOAN_HOP_DONG"] = System.Convert.DBNull;
+    }
 
 	public decimal dcHD_CHUYEN_MON 
 	{
@@ -193,7 +194,7 @@ public class US_RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV : US_Object
     #region Additional functions
     public void bao_cao_thong_ke_thanh_toan_hd_giang_vien(DS_RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV op_ds_rpt_thong_ke_thanh_toan_gv, string ip_str_edutop_elc, decimal ip_dc_thang, decimal ip_dc_nam)
     {
-        CStoredProc v_cstore = new CStoredProc("rpt_pr_DM_HOP_DONG_KHUNG_So_Thanh_Toan");
+        CStoredProc v_cstore = new CStoredProc("rpt_pr_DM_HOP_DONG_KHUNG_So_Thanh_Toan_Theo_Trang_Thai");
         v_cstore.addNVarcharInputParam("@edutop_or_elc", ip_str_edutop_elc);
         v_cstore.addDecimalInputParam("@thang", ip_dc_thang);
         v_cstore.addDecimalInputParam("@nam", ip_dc_nam);
