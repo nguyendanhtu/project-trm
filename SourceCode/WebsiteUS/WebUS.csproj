@@ -71,6 +71,7 @@
     <Compile Include="US_RPT_BAO_CAO_SO_LUONG_TRANG_THAI_HD_TONG_HOP.cs" />
     <Compile Include="US_RPT_BAO_CAO_THONG_KE_HD_THANH_TOAN_GV_TONG_HOP.cs" />
     <Compile Include="US_RPT_BAO_CAO_THONG_KE_HOP_DONG_THANH_TOAN_GV.cs" />
+    <Compile Include="US_RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN.cs" />
     <Compile Include="US_RPT_BAO_CAO_THONG_KE_TRANG_THAI_GIANG_VIEN.cs" />
     <Compile Include="US_V_DM_DOT_THANH_TOAN.cs" />
     <Compile Include="US_V_DM_GIANG_VIEN.cs" />
