@@ -229,6 +229,22 @@ Public Class US_HT_NGUOI_SU_DUNG
         End If
         Me.DataRow2Me(v_ds.HT_NGUOI_SU_DUNG.Rows(0))
     End Sub
+
+    '' Linhdh created 27/03/2012
+    Public Function CheckByTenTruyCap(ByVal i_strTenTruyCap As String) As Boolean
+        Dim v_ds As New DS_HT_NGUOI_SU_DUNG
+        Dim v_objMakCmd As New CMakeAndSelectCmd(v_ds, v_ds.HT_NGUOI_SU_DUNG.TableName)
+        v_objMakCmd.AddCondition( _
+            IP.Core.IPData.DBNames.HT_NGUOI_SU_DUNG.TEN_TRUY_CAP _
+            , i_strTenTruyCap _
+            , eKieuDuLieu.KieuString _
+            , eKieuSoSanh.Bang)
+        Me.FillDatasetByCommand(v_ds, v_objMakCmd.getSelectCmd)
+        If (v_ds.HT_NGUOI_SU_DUNG.Rows.Count = 0) Then
+            Return False
+        End If
+        Return True
+    End Function
     Public Sub check_user(ByVal i_strTenTruyCap As String, _
                                     ByVal i_strMatKhau As String, _
                                     ByRef o_logonResult As LogonResult)
