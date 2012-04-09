@@ -6,7 +6,7 @@
 <table  cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0">
 <tr>
 		<td class="cssPageTitleBG" colspan="6">
-		    <label class="cssPageTitle">Báo cáo tổng hợp số lượng hợp đồng theo trạng thái thanh toán</label>
+		    <label class="cssPageTitle">Báo cáo tổng hợp số lượng hợp đồng theo trạng thái thanh toán giảng viên</label>
 		</td>
 	</tr>
     <tr>
@@ -16,7 +16,7 @@
     <tr>
                 <td align="left" colspan="3">
                     <label class="cssManField" style="padding-left:10%">
-                   Từ thời gian:
+                   Từ trước đến :
                     </label>
                 </td>
                 <td align="center">
@@ -24,9 +24,9 @@
                 <td align="left" style="width:1%;" colspan="2">&nbsp;</td>
             </tr>
     <tr>
-                <td align="right" style="width:10%">
+                <td align="right" style="width:5%">
                  <label class='cssManField'>Tháng </label></td>
-                <td align="left"  style="width:20%">
+                <td align="left"  style="width:10%">
                   <asp:DropDownList ID="m_cbo_thang_tinh_toan" CssClass="cssDorpdownlist" 
                         Width="50%" runat="server" 
                         AutoPostBack="true" 
@@ -48,21 +48,16 @@
                          </td>
                 <td align="left"  style="width:1%">
                     &nbsp;</td>
-                <td align="right" style="width:10%">
+                <td align="right" style="width:5%">
                     <label class="cssManField">
                     Năm
                     </label>
                 </td>
-                <td align="left" style="width:20%;">
+                <td align="left" style="width:10%;">
                     <asp:DropDownList ID="m_cbo_nam_tinh_toan" runat="server" AutoPostBack="true" 
                         CssClass="cssDorpdownlist" Width="50%" 
                         onselectedindexchanged="m_cbo_nam_tinh_toan_SelectedIndexChanged">
                     </asp:DropDownList>
-                </td>
-                <td align="left" style="width:35%;">
-                    <label class="cssManField">
-                    Đến nay
-                    </label>
                 </td>
             </tr>
 	<tr>

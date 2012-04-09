@@ -187,7 +187,7 @@ public partial class BaoCao_F705_BaoCaoThanhToanLuongGiangVien : System.Web.UI.P
         }
         return CIPConvert.ToStr(ip_obj_so_tien, "#,###");
     }
-    public string getting_noi_dung_collumn(object ip_obj_id_hd, object ip_obj_loai_hop_dong, object ip_obj_ghi_chu_ten_mon, object ip_obj_so_hd, object ip_obj_ten_gv)
+    public string getting_noi_dung_collumn(object ip_obj_id_hd, object ip_obj_loai_hop_dong, object ip_obj_ghi_chu_ten_mon, object ip_obj_so_hd, object ip_obj_ten_gv, object ip_obj_time)
     {
         string v_str_noi_dung = "";
         string v_str_ten_mon = "";
@@ -195,8 +195,11 @@ public partial class BaoCao_F705_BaoCaoThanhToanLuongGiangVien : System.Web.UI.P
         {
             v_str_ten_mon += mapping_ten_mon_hd_hoc_lieu(CIPConvert.ToDecimal(ip_obj_id_hd));
         }
-        else v_str_ten_mon += CIPConvert.ToStr(ip_obj_ghi_chu_ten_mon);
-        v_str_noi_dung += mapping_loai_hop_dong_gv(CIPConvert.ToDecimal(ip_obj_id_hd)) + " môn " + v_str_ten_mon + " - HĐ số " + CIPConvert.ToStr(ip_obj_so_hd) + " - " + CIPConvert.ToStr(ip_obj_ten_gv) + " (";
+        else if(ip_obj_ghi_chu_ten_mon.GetType() != typeof(DBNull)) v_str_ten_mon += CIPConvert.ToStr(ip_obj_ghi_chu_ten_mon);
+       if(v_str_ten_mon.Trim()!="")
+         v_str_noi_dung += mapping_loai_hop_dong_gv(CIPConvert.ToDecimal(ip_obj_id_hd)) + " môn " + v_str_ten_mon + " - HĐ số " + CIPConvert.ToStr(ip_obj_so_hd) + " - " + CIPConvert.ToStr(ip_obj_ten_gv);
+       else v_str_noi_dung += mapping_loai_hop_dong_gv(CIPConvert.ToDecimal(ip_obj_id_hd)) +" - HĐ số " + CIPConvert.ToStr(ip_obj_so_hd) + " - " + CIPConvert.ToStr(ip_obj_ten_gv);
+        if (ip_obj_time.GetType() != typeof(DBNull)) v_str_noi_dung += " (" + ip_obj_time + ")";
         return v_str_noi_dung; 
     }
     #endregion
@@ -415,7 +418,7 @@ public partial class BaoCao_F705_BaoCaoThanhToanLuongGiangVien : System.Web.UI.P
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + "<span style='font-family:Tahoma; font-size:0.9em'>" + mapping_string(grv[V_GD_THANH_TOAN.TEN_NGAN_HANG]) + "</span></td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + "<span style='font-family:Tahoma; font-size:0.9em'>" + "'" + mapping_string(grv[V_GD_THANH_TOAN.SO_TAI_KHOAN]) + "</span></td>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + "<span style='font-family:Tahoma; font-size:0.9em'>" + mapping_so_tien(grv[V_GD_THANH_TOAN.TONG_TIEN_THUC_NHAN]) + "</span></td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + "<span style='font-family:Tahoma; font-size:0.9em'>" + getting_noi_dung_collumn(grv[V_GD_THANH_TOAN.ID_HOP_DONG_KHUNG], grv[V_GD_THANH_TOAN.LOAI_HOP_DONG], grv[V_GD_THANH_TOAN.GHI_CHU_CAC_MON_PHU_TRACH], grv[V_GD_THANH_TOAN.SO_HOP_DONG], grv[V_GD_THANH_TOAN.TEN_GIANG_VIEN]) + grv[V_GD_THANH_TOAN.THOI_GIAN] + ")" + "</span></td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + "<span style='font-family:Tahoma; font-size:0.9em'>" + getting_noi_dung_collumn(grv[V_GD_THANH_TOAN.ID_HOP_DONG_KHUNG], grv[V_GD_THANH_TOAN.LOAI_HOP_DONG], grv[V_GD_THANH_TOAN.GHI_CHU_CAC_MON_PHU_TRACH], grv[V_GD_THANH_TOAN.SO_HOP_DONG], grv[V_GD_THANH_TOAN.TEN_GIANG_VIEN], grv[V_GD_THANH_TOAN.THOI_GIAN]) + "</span></td>";
             strTable += "\n</tr>";
         }
     }

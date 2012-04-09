@@ -6,7 +6,7 @@
 <table  cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0">
 <tr>
 		<td class="cssPageTitleBG" colspan="6">
-		    <label class="cssPageTitle">Báo cáo thống kê hợp đồng theo trạng thái giảng viên</label>
+		    <label class="cssPageTitle">Báo cáo tình hình thanh toán hợp đồng</label>
 		</td>
 	</tr>
     <tr>
@@ -16,7 +16,7 @@
     <tr>
                 <td align="left" colspan="3">
                     <label class="cssManField" style="padding-left:10%">
-                   Từ thời gian:
+                   Từ trước đến :
                     </label>
                 </td>
                 <td align="center">
@@ -60,9 +60,6 @@
                     </asp:DropDownList>
                 </td>
                 <td align="left" style="width:35%;">
-                    <label class="cssManField">
-                    Đến nay
-                    </label>
                 </td>
             </tr>
 	<tr>
@@ -79,25 +76,25 @@
                         <ItemStyle HorizontalAlign="Center" Width="5%"></ItemStyle>
                     </asp:TemplateField> 
                      <asp:BoundField HeaderText="Trạng thái hợp đồng" 
-                        DataField="TRANG_THAI_HOP_DONG">
+                        DataField="TRANG_THAI_TT_HOP_DONG">
                     <ItemStyle Width="25%" HorizontalAlign="Left" />
                     </asp:BoundField>
-                      <asp:BoundField HeaderText="Chuyên môn EDUTOP" DataField="HD_CHUYEN_MON_EDUTOP">
+                      <asp:BoundField HeaderText="Chuyên môn EDUTOP" DataFormatString="{0:N0}" DataField="HD_CHUYEN_MON_EDUTOP">
                        <ItemStyle Width="10%" HorizontalAlign="Center" />
                     </asp:BoundField>
-                      <asp:BoundField HeaderText="Hướng dẫn EDUTOP" DataField="HD_HUONG_DAN_EDUTOP">
+                      <asp:BoundField HeaderText="Hướng dẫn EDUTOP" DataFormatString="{0:N0}" DataField="HD_HUONG_DAN_EDUTOP">
                     <ItemStyle Width="10%" HorizontalAlign="Center" />
                     </asp:BoundField>
-                     <asp:BoundField HeaderText="Học liệu EDUTOP" DataField="HD_HOC_LIEU_EDUTOP">
+                     <asp:BoundField HeaderText="Học liệu EDUTOP" DataField="HD_HOC_LIEU_EDUTOP" DataFormatString="{0:N0}">
                     <ItemStyle Width="10%" HorizontalAlign="Center" />
                     </asp:BoundField>
-                     <asp:BoundField HeaderText="Chuyên môn ELC" DataField="HD_CHUYEN_MON_ELC">
+                     <asp:BoundField HeaderText="Chuyên môn ELC" DataField="HD_CHUYEN_MON_ELC" DataFormatString="{0:N0}">
                     <ItemStyle HorizontalAlign="Center" Width="10%" />
                     </asp:BoundField>
-                     <asp:BoundField HeaderText="Hướng dẫn ELC" DataField="HD_HUONG_DAN_ELC">
+                     <asp:BoundField HeaderText="Hướng dẫn ELC" DataField="HD_HUONG_DAN_ELC" DataFormatString="{0:N0}">
                     <ItemStyle Width="10%" HorizontalAlign="Center" />
                     </asp:BoundField>
-                     <asp:BoundField HeaderText="Học liệu ELC" DataField="HD_HOC_LIEU_ELC">
+                     <asp:BoundField HeaderText="Học liệu ELC" DataField="HD_HOC_LIEU_ELC" DataFormatString="{0:N0}">
                     <ItemStyle Width="10%" HorizontalAlign="Center" />
                     </asp:BoundField>
                     <asp:TemplateField HeaderText="Tổng">
