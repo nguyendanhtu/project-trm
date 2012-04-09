@@ -98,11 +98,11 @@ public partial class BaoCao_F804_BaoCaoSoLuongHDThanhToanGVTongHop : System.Web.
         load_data_2_excel_search();
         strTable += "<table cellpadding='2' cellspacing='0' class='cssTableReport'>";
         strTable += "\n<tr>";
-        strTable += "\n<td colspan='6' align='center'><class='cssTableView' style='width: 100%;  height: 40px; font-size: large; color:White; background-color:#810C15;' nowrap='wrap'><span style='font-family:Times New Roman; font-weight:bold; font-size:1.3em;'>TRM804 - BÁO CÁO TỔNG HỢP SỐ HỢP ĐỒNG THEO TRẠNG THÁI THANH TOÁN" + "</td>";
+        strTable += "\n<td colspan='9' align='center'><class='cssTableView' style='width: 100%;  height: 40px; font-size: large; color:White; background-color:#810C15;' nowrap='wrap'><span style='font-family:Times New Roman; font-weight:bold; font-size:1.3em;'>TRM804 - BÁO CÁO TỔNG HỢP SỐ HỢP ĐỒNG THEO TRẠNG THÁI THANH TOÁN" + "</td>";
         strTable += "\n</tr>";
         //
         strTable += "\n<tr>";
-        strTable += "\n<td colspan='6' align='center'><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'><span style='font-family:Times New Roman; font-style:italic; font-size:1.0em'>" + get_thang_nam_hien_thi(m_cbo_thang_tinh_toan.SelectedValue, m_cbo_nam_tinh_toan.SelectedValue) + "</span></td>";
+        strTable += "\n<td colspan='9' align='center'><align='center' class='cssTableView' style='width:100%;' nowrap='nowrap'><span style='font-family:Times New Roman; font-style:italic; font-size:1.0em'>" + get_thang_nam_hien_thi(m_cbo_thang_tinh_toan.SelectedValue, m_cbo_nam_tinh_toan.SelectedValue) + "</span></td>";
         strTable += "\n</tr>";
         //
         strTable += "\n</table>";

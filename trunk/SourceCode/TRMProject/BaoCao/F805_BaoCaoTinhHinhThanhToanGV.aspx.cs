@@ -25,27 +25,27 @@ public partial class BaoCao_F805_BaoCaoTinhHinhThanhToanGV : System.Web.UI.Page
     }
 
     #region Members
-    US_RPT_BAO_CAO_SO_LUONG_TRANG_THAI_HD_TONG_HOP m_us_rpt_bao_cao_so_luong_trang_thai_hd_tong_hop = new US_RPT_BAO_CAO_SO_LUONG_TRANG_THAI_HD_TONG_HOP();
-    DS_RPT_BAO_CAO_SO_LUONG_TRANG_THAI_HD_TONG_HOP m_ds_rpt_bao_cao_so_luong_trang_thai_hd_tong_hop = new DS_RPT_BAO_CAO_SO_LUONG_TRANG_THAI_HD_TONG_HOP();
+    US_RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN m_us_rpt_bao_cao_so_luong_trang_thai_hd_tong_hop = new US_RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN();
+    DS_RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN m_ds_rpt_bao_cao_so_luong_trang_thai_hd_tong_hop = new DS_RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN();
     #endregion
 
     #region Public Interface
-    public decimal get_tong_hang(object ip_obj_so_hd_chuyen_mon_edutop, object ip_obj_so_hd_huong_dan_edutop, object ip_obj_so_hd_hoc_lieu_edutop, object ip_obj_so_hd_chuyen_mon_elc, object ip_obj_so_hd_huong_dan_elc, object ip_obj_so_hd_hoc_lieu_elc)
+    public string get_tong_hang(object ip_obj_so_hd_chuyen_mon_edutop, object ip_obj_so_hd_huong_dan_edutop, object ip_obj_so_hd_hoc_lieu_edutop, object ip_obj_so_hd_chuyen_mon_elc, object ip_obj_so_hd_huong_dan_elc, object ip_obj_so_hd_hoc_lieu_elc)
     {
-        return CIPConvert.ToDecimal(ip_obj_so_hd_chuyen_mon_edutop) + CIPConvert.ToDecimal(ip_obj_so_hd_huong_dan_edutop) + CIPConvert.ToDecimal(ip_obj_so_hd_hoc_lieu_edutop) + CIPConvert.ToDecimal(ip_obj_so_hd_chuyen_mon_elc) + CIPConvert.ToDecimal(ip_obj_so_hd_huong_dan_elc) + CIPConvert.ToDecimal(ip_obj_so_hd_hoc_lieu_elc);
+        return CIPConvert.ToStr(CIPConvert.ToDecimal(ip_obj_so_hd_chuyen_mon_edutop) + CIPConvert.ToDecimal(ip_obj_so_hd_huong_dan_edutop) + CIPConvert.ToDecimal(ip_obj_so_hd_hoc_lieu_edutop) + CIPConvert.ToDecimal(ip_obj_so_hd_chuyen_mon_elc) + CIPConvert.ToDecimal(ip_obj_so_hd_huong_dan_elc) + CIPConvert.ToDecimal(ip_obj_so_hd_hoc_lieu_elc),"#,###");
     }
     #endregion
 
     #region Private Methods
     private void load_data_2_grid()
     {
-        m_us_rpt_bao_cao_so_luong_trang_thai_hd_tong_hop.bao_cao_thong_ke_hd_giang_vien_tong_hop(m_ds_rpt_bao_cao_so_luong_trang_thai_hd_tong_hop, CIPConvert.ToDecimal(m_cbo_thang_tinh_toan.SelectedValue), CIPConvert.ToDecimal(m_cbo_nam_tinh_toan.SelectedValue));
-        m_grv_danh_sach_du_toan.DataSource = m_ds_rpt_bao_cao_so_luong_trang_thai_hd_tong_hop.RPT_BAO_CAO_SO_LUONG_TRANG_THAI_HD_TONG_HOP;
+        m_us_rpt_bao_cao_so_luong_trang_thai_hd_tong_hop.bao_cao_thong_ke_so_tien_thanh_toan_hd_giang_vien_tong_hop(m_ds_rpt_bao_cao_so_luong_trang_thai_hd_tong_hop, CIPConvert.ToDecimal(m_cbo_thang_tinh_toan.SelectedValue), CIPConvert.ToDecimal(m_cbo_nam_tinh_toan.SelectedValue));
+        m_grv_danh_sach_du_toan.DataSource = m_ds_rpt_bao_cao_so_luong_trang_thai_hd_tong_hop.RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN;
         m_grv_danh_sach_du_toan.DataBind();
     }
     private void load_data_2_excel_search()
     {
-        m_us_rpt_bao_cao_so_luong_trang_thai_hd_tong_hop.bao_cao_thong_ke_hd_giang_vien_tong_hop(m_ds_rpt_bao_cao_so_luong_trang_thai_hd_tong_hop, CIPConvert.ToDecimal(m_cbo_thang_tinh_toan.SelectedValue), CIPConvert.ToDecimal(m_cbo_nam_tinh_toan.SelectedValue));
+        m_us_rpt_bao_cao_so_luong_trang_thai_hd_tong_hop.bao_cao_thong_ke_so_tien_thanh_toan_hd_giang_vien_tong_hop(m_ds_rpt_bao_cao_so_luong_trang_thai_hd_tong_hop, CIPConvert.ToDecimal(m_cbo_thang_tinh_toan.SelectedValue), CIPConvert.ToDecimal(m_cbo_nam_tinh_toan.SelectedValue));
     }
     private void load_data_2_nam_tinh_toan()
     {
@@ -77,18 +77,18 @@ public partial class BaoCao_F805_BaoCaoTinhHinhThanhToanGV : System.Web.UI.Page
     {
         int v_i_so_thu_tu = 0;
         // Mỗi cột dữ liệu ứng với từng dòng là label
-        foreach (DataRow grv in this.m_ds_rpt_bao_cao_so_luong_trang_thai_hd_tong_hop.RPT_BAO_CAO_SO_LUONG_TRANG_THAI_HD_TONG_HOP.Rows)
+        foreach (DataRow grv in this.m_ds_rpt_bao_cao_so_luong_trang_thai_hd_tong_hop.RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN.Rows)
         {
             strTable += "\n<tr>";
             strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + "<span style='font-family:Tahoma; font-size:0.9em'>" + ++v_i_so_thu_tu + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + "<span style='font-family:Tahoma; font-size:0.9em'>" + grv[RPT_BAO_CAO_SO_LUONG_TRANG_THAI_HD_TONG_HOP.TRANG_THAI_HOP_DONG] + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + "<span style='font-family:Tahoma; font-size:0.9em'>" + grv[RPT_BAO_CAO_SO_LUONG_TRANG_THAI_HD_TONG_HOP.HD_CHUYEN_MON_EDUTOP] + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + "<span style='font-family:Tahoma; font-size:0.9em'>" + grv[RPT_BAO_CAO_SO_LUONG_TRANG_THAI_HD_TONG_HOP.HD_HUONG_DAN_EDUTOP] + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + "<span style='font-family:Tahoma; font-size:0.9em'>" + grv[RPT_BAO_CAO_SO_LUONG_TRANG_THAI_HD_TONG_HOP.HD_HOC_LIEU_EDUTOP] + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + "<span style='font-family:Tahoma; font-size:0.9em'>" + grv[RPT_BAO_CAO_SO_LUONG_TRANG_THAI_HD_TONG_HOP.HD_CHUYEN_MON_ELC] + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + "<span style='font-family:Tahoma; font-size:0.9em'>" + grv[RPT_BAO_CAO_SO_LUONG_TRANG_THAI_HD_TONG_HOP.HD_HUONG_DAN_ELC] + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + "<span style='font-family:Tahoma; font-size:0.9em'>" + grv[RPT_BAO_CAO_SO_LUONG_TRANG_THAI_HD_TONG_HOP.HD_HOC_LIEU_ELC] + "</td>";
-            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + "<span style='font-family:Tahoma; font-size:0.9em'>" + get_tong_hang(grv[RPT_BAO_CAO_SO_LUONG_TRANG_THAI_HD_TONG_HOP.HD_CHUYEN_MON_EDUTOP], grv[RPT_BAO_CAO_SO_LUONG_TRANG_THAI_HD_TONG_HOP.HD_HUONG_DAN_EDUTOP], grv[RPT_BAO_CAO_SO_LUONG_TRANG_THAI_HD_TONG_HOP.HD_HOC_LIEU_EDUTOP], grv[RPT_BAO_CAO_SO_LUONG_TRANG_THAI_HD_TONG_HOP.HD_CHUYEN_MON_ELC], grv[RPT_BAO_CAO_SO_LUONG_TRANG_THAI_HD_TONG_HOP.HD_HUONG_DAN_ELC], grv[RPT_BAO_CAO_SO_LUONG_TRANG_THAI_HD_TONG_HOP.HD_HOC_LIEU_ELC]) + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + "<span style='font-family:Tahoma; font-size:0.9em'>" + grv[RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN.TRANG_THAI_TT_HOP_DONG] + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + "<span style='font-family:Tahoma; font-size:0.9em'>" + grv[RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN.HD_CHUYEN_MON_EDUTOP] + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + "<span style='font-family:Tahoma; font-size:0.9em'>" + grv[RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN.HD_HUONG_DAN_EDUTOP] + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + "<span style='font-family:Tahoma; font-size:0.9em'>" + grv[RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN.HD_HOC_LIEU_EDUTOP] + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + "<span style='font-family:Tahoma; font-size:0.9em'>" + grv[RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN.HD_CHUYEN_MON_ELC] + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + "<span style='font-family:Tahoma; font-size:0.9em'>" + grv[RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN.HD_HUONG_DAN_ELC] + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + "<span style='font-family:Tahoma; font-size:0.9em'>" + grv[RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN.HD_HOC_LIEU_ELC] + "</td>";
+            strTable += "\n<td style='width:12%;' class='cssTitleReport' nowrap='nowrap'>" + "<span style='font-family:Tahoma; font-size:0.9em'>" + get_tong_hang(grv[RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN.HD_CHUYEN_MON_EDUTOP], grv[RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN.HD_HUONG_DAN_EDUTOP], grv[RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN.HD_HOC_LIEU_EDUTOP], grv[RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN.HD_CHUYEN_MON_ELC], grv[RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN.HD_HUONG_DAN_ELC], grv[RPT_BAO_CAO_THONG_KE_SO_TIEN_THANH_TOAN_HD_GIANG_VIEN.HD_HOC_LIEU_ELC]) + "</td>";
             strTable += "\n</tr>";
         }
     }

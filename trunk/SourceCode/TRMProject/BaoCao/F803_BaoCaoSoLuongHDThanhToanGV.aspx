@@ -6,7 +6,7 @@
 <table  cellspacing="0" cellpadding="2" style="width:100%;" class="cssTable" border="0">
 <tr>
 		<td class="cssPageTitleBG" colspan="6">
-		    <label class="cssPageTitle">Báo cáo thống kê số lượng hợp đồng thanh toán giảng viên</label>
+		    <label class="cssPageTitle">Báo cáo thống kê số lượng hợp đồng theo trạng thái thanh toán giảng viên</label>
 		</td>
 	</tr>
     <tr>
@@ -32,7 +32,7 @@
     <tr>
                 <td align="left" colspan="3">
                     <label class="cssManField" style="padding-left:10%">
-                   Từ thời gian:
+                   Từ trước đến:
                     </label>
                 </td>
                 <td align="center">
@@ -76,9 +76,6 @@
                     </asp:DropDownList>
                 </td>
                 <td align="left" style="width:35%;">
-                    <label class="cssManField">
-                    Đến nay
-                    </label>
                 </td>
             </tr>
 	<tr>
@@ -98,7 +95,7 @@
                     <ItemStyle Width="20%" HorizontalAlign="Left" />
                     </asp:BoundField>
                      <asp:BoundField HeaderText="Trạng thái thanh toán HĐ" 
-                        DataField="TRANG_THAI_TT_HOP_DONG">
+                        DataField="TRANG_THAI_THANH_TOAN_HOP_DONG">
                     <ItemStyle Width="20%" HorizontalAlign="Left" />
                     </asp:BoundField>
                      <asp:BoundField HeaderText="HĐ Chuyên môn" DataField="HD_CHUYEN_MON">
