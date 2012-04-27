@@ -146,8 +146,7 @@ public partial class Quantri_F800_Users : System.Web.UI.Page
         try
         {
             US_HT_NGUOI_SU_DUNG v_us_ht = new US_HT_NGUOI_SU_DUNG();
-            v_us_ht.InitByTenTruyCap(m_txt_ten_dang_nhap.Text.Trim());
-            if (v_us_ht.dcID > 0) return false;
+            if (v_us_ht.CheckByTenTruyCap(m_txt_ten_dang_nhap.Text.Trim())) return false;
              return true;
         }
         catch (Exception v_e)

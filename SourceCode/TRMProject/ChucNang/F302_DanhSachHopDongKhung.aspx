@@ -15,7 +15,7 @@
   <tr>
 		<td class="cssPageTitleBG" colspan="3">
 		    <asp:label id="Label1" runat="server" CssClass="cssPageTitle" 
-                Text="Danh sách hợp đồng khung"/>
+                Text="Bộ lọc hợp đồng khung"/>
 		</td>
 	</tr>	
   <tr>
