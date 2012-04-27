@@ -50,6 +50,7 @@
             }
             var dc_tong_gia_tri_nghiem_thu_chua_xu_ly = document.getElementById('<%=  m_txt_gia_tri_nghiem_thu_thuc_te.ClientID%>').value.toString();
             if (v_str_loai_tt == 'Thanhly') {
+                // Nếu là thanh lý mà không nhập tổng giá trị nghiệm thu thực tế
                 if (dc_tong_gia_tri_nghiem_thu_chua_xu_ly == '') {
                     document.getElementById('<%= m_lbl_khong_nhap_nghiem_thu_thuc_te.ClientID %>').innerHTML = 'Hãy nhập tổng giá trị nghiệm thu thực tế';
                     return;
@@ -57,6 +58,7 @@
             } else document.getElementById('<%= m_lbl_khong_nhap_nghiem_thu_thuc_te.ClientID %>').innerHTML = '';
         }
 
+        // Hàm này có tác dụng format tiền về dạng kế toán
         function formatCurrency(num) {
             num = num.toString().replace(/\$|\,/g, '');
             if (isNaN(num))
@@ -69,7 +71,7 @@
             num.substring(num.length - (4 * i + 3));
             return (((sign) ? '' : '-') + num);
         }
-
+        // Hàm này tính toán số tiền
         function calculate_money() {
 
             // Áp dụng tính tiền tự động
