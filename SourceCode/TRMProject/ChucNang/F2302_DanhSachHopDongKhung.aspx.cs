@@ -17,10 +17,12 @@ public partial class ChucNang_F2302_DanhSachHopDongKhung : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        try
-        {
             try
             {
+                cmd_them_moi.Visible = false;
+                m_txt_ten_giang_vien.Enabled = false;
+
+                //m_grv_dm_danh_sach_hop_dong_khung.Columns[0].Visible = true;
                 m_lbl_thong_bao.Text = "";
                 m_txt_ten_giang_vien.Focus();
                 if (!IsPostBack)
@@ -41,11 +43,6 @@ public partial class ChucNang_F2302_DanhSachHopDongKhung : System.Web.UI.Page
                         else m_lbl_thong_bao.Text = "Thêm dữ liệu thành công";
                     }
                 }
-            }
-            catch (Exception v_e)
-            {
-                CSystemLog_301.ExceptionHandle(this, v_e);
-            }
         }
         catch (Exception v_e)
         {
